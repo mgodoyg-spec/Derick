@@ -51,6 +51,8 @@
             pbusuario = new PictureBox();
             panel1 = new Panel();
             label1 = new Label();
+            button1 = new Button();
+            button2 = new Button();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
@@ -313,6 +315,8 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(button2);
+            panel1.Controls.Add(button1);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(pnlcontenido);
             panel1.Controls.Add(panel2);
@@ -331,6 +335,24 @@
             label1.Size = new Size(279, 36);
             label1.TabIndex = 2;
             label1.Text = "AHHHHHHHHHHH";
+            // 
+            // button1
+            // 
+            button1.Location = new Point(568, 360);
+            button1.Name = "button1";
+            button1.Size = new Size(277, 79);
+            button1.TabIndex = 3;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(431, 96);
+            button2.Name = "button2";
+            button2.Size = new Size(183, 92);
+            button2.TabIndex = 4;
+            button2.Text = "button2";
+            button2.UseVisualStyleBackColor = true;
             // 
             // FrmMenuPrincipal
             // 
@@ -390,5 +412,7 @@
         private Panel panel1;
         private Label lblusuario;
         private Label label1;
+        private Button button1;
+        private Button button2;
     }
 }
