@@ -267,7 +267,6 @@ namespace Derick
             lblTitulo.ForeColor = Color.White;
             lblTitulo.Location = new Point(63, 130);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(164, 42);
             lblTitulo.Size = new Size(130, 33);
             lblTitulo.TabIndex = 2;
             lblTitulo.Text = "DERICK";
@@ -351,6 +350,9 @@ namespace Derick
             label1.Location = new Point(620, 233);
             label1.Name = "label1";
             label1.Size = new Size(51, 15);
+            label1.Location = new Point(700, 319);
+            label1.Name = "label1";
+            label1.Size = new Size(91, 29);
             label1.TabIndex = 2;
             label1.Text = "holaaa";
             // 
