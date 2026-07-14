@@ -50,6 +50,7 @@
             lblusuario = new Label();
             pbusuario = new PictureBox();
             panel1 = new Panel();
+            label1 = new Label();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
@@ -94,7 +95,7 @@
             btnreportes.BackColor = Color.Black;
             btnreportes.FlatAppearance.BorderSize = 0;
             btnreportes.FlatStyle = FlatStyle.Flat;
-            btnreportes.Font = new Font("Montserrat", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnreportes.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnreportes.ForeColor = Color.White;
             btnreportes.Location = new Point(90, 426);
             btnreportes.Name = "btnreportes";
@@ -108,7 +109,7 @@
             btnventas.BackColor = Color.Black;
             btnventas.FlatAppearance.BorderSize = 0;
             btnventas.FlatStyle = FlatStyle.Flat;
-            btnventas.Font = new Font("Montserrat", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnventas.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnventas.ForeColor = Color.White;
             btnventas.Location = new Point(90, 383);
             btnventas.Name = "btnventas";
@@ -122,7 +123,7 @@
             btnempleados.BackColor = Color.Black;
             btnempleados.FlatAppearance.BorderSize = 0;
             btnempleados.FlatStyle = FlatStyle.Flat;
-            btnempleados.Font = new Font("Montserrat", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnempleados.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnempleados.ForeColor = Color.White;
             btnempleados.Location = new Point(85, 340);
             btnempleados.Name = "btnempleados";
@@ -136,7 +137,7 @@
             btnsucursales.BackColor = Color.Black;
             btnsucursales.FlatAppearance.BorderSize = 0;
             btnsucursales.FlatStyle = FlatStyle.Flat;
-            btnsucursales.Font = new Font("Montserrat", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnsucursales.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnsucursales.ForeColor = Color.White;
             btnsucursales.Location = new Point(85, 297);
             btnsucursales.Name = "btnsucursales";
@@ -150,7 +151,7 @@
             btnproductos.BackColor = Color.Black;
             btnproductos.FlatAppearance.BorderSize = 0;
             btnproductos.FlatStyle = FlatStyle.Flat;
-            btnproductos.Font = new Font("Montserrat", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnproductos.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnproductos.ForeColor = Color.White;
             btnproductos.Location = new Point(90, 254);
             btnproductos.Name = "btnproductos";
@@ -164,7 +165,7 @@
             btninicio.BackColor = Color.Black;
             btninicio.FlatAppearance.BorderSize = 0;
             btninicio.FlatStyle = FlatStyle.Flat;
-            btninicio.Font = new Font("Montserrat", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btninicio.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btninicio.ForeColor = Color.White;
             btninicio.Location = new Point(90, 211);
             btninicio.Name = "btninicio";
@@ -248,7 +249,7 @@
             btncerrarsesion.BackColor = Color.Black;
             btncerrarsesion.FlatAppearance.BorderSize = 0;
             btncerrarsesion.FlatStyle = FlatStyle.Flat;
-            btncerrarsesion.Font = new Font("Montserrat", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btncerrarsesion.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btncerrarsesion.ForeColor = Color.White;
             btncerrarsesion.Location = new Point(90, 608);
             btncerrarsesion.Name = "btncerrarsesion";
@@ -261,11 +262,11 @@
             // lblTitulo
             // 
             lblTitulo.AutoSize = true;
-            lblTitulo.Font = new Font("Montserrat", 21.7499962F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitulo.Font = new Font("Microsoft Sans Serif", 21.7499962F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitulo.ForeColor = Color.White;
             lblTitulo.Location = new Point(63, 130);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(136, 45);
+            lblTitulo.Size = new Size(130, 33);
             lblTitulo.TabIndex = 2;
             lblTitulo.Text = "DERICK";
             // 
@@ -292,10 +293,10 @@
             // lblusuario
             // 
             lblusuario.AutoSize = true;
-            lblusuario.Font = new Font("Montserrat Medium", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblusuario.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblusuario.Location = new Point(837, 9);
             lblusuario.Name = "lblusuario";
-            lblusuario.Size = new Size(70, 25);
+            lblusuario.Size = new Size(57, 20);
             lblusuario.TabIndex = 1;
             lblusuario.Text = "admin";
             // 
@@ -312,6 +313,7 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(label1);
             panel1.Controls.Add(pnlcontenido);
             panel1.Controls.Add(panel2);
             panel1.Dock = DockStyle.Fill;
@@ -320,13 +322,22 @@
             panel1.Size = new Size(1200, 700);
             panel1.TabIndex = 1;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(620, 233);
+            label1.Name = "label1";
+            label1.Size = new Size(51, 15);
+            label1.TabIndex = 2;
+            label1.Text = "holaaa";
+            // 
             // FrmMenuPrincipal
             // 
-            AutoScaleDimensions = new SizeF(8F, 18F);
+            AutoScaleDimensions = new SizeF(8F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1200, 700);
             Controls.Add(panel1);
-            Font = new Font("Montserrat ExtraBold", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Font = new Font("Microsoft Sans Serif", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 4, 3, 4);
@@ -350,6 +361,7 @@
             pnlcontenido.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pbusuario).EndInit();
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -376,5 +388,6 @@
         private PictureBox pbusuario;
         private Panel panel1;
         private Label lblusuario;
+        private Label label1;
     }
 }
