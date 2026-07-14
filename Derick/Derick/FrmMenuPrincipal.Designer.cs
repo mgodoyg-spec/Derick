@@ -266,7 +266,6 @@ namespace Derick
             lblTitulo.ForeColor = Color.White;
             lblTitulo.Location = new Point(63, 130);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(164, 42);
             lblTitulo.Size = new Size(130, 33);
             lblTitulo.TabIndex = 2;
             lblTitulo.Text = "DERICK";
@@ -327,18 +326,9 @@ namespace Derick
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(566, 247);
+            label1.Location = new Point(700, 319);
             label1.Name = "label1";
-            label1.Size = new Size(279, 36);
-            label1.TabIndex = 2;
-            label1.Text = "AHHHHHHHHHHH";
-            // 
-            // FrmMenuPrincipal
-            // 
-            AutoScaleDimensions = new SizeF(10F, 18F);
-            label1.Location = new Point(620, 233);
-            label1.Name = "label1";
-            label1.Size = new Size(51, 15);
+            label1.Size = new Size(91, 29);
             label1.TabIndex = 2;
             label1.Text = "holaaa";
             // 
