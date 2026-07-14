@@ -268,6 +268,7 @@ namespace Derick
             lblTitulo.Location = new Point(63, 130);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(164, 42);
+            lblTitulo.Size = new Size(130, 33);
             lblTitulo.TabIndex = 2;
             lblTitulo.Text = "DERICK";
             // 
@@ -297,7 +298,7 @@ namespace Derick
             lblusuario.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblusuario.Location = new Point(837, 9);
             lblusuario.Name = "lblusuario";
-            lblusuario.Size = new Size(70, 25);
+            lblusuario.Size = new Size(57, 20);
             lblusuario.TabIndex = 1;
             lblusuario.Text = "admin";
             // 
@@ -347,6 +348,15 @@ namespace Derick
             // FrmMenuPrincipal
             // 
             AutoScaleDimensions = new SizeF(10F, 18F);
+            label1.Location = new Point(620, 233);
+            label1.Name = "label1";
+            label1.Size = new Size(51, 15);
+            label1.TabIndex = 2;
+            label1.Text = "holaaa";
+            // 
+            // FrmMenuPrincipal
+            // 
+            AutoScaleDimensions = new SizeF(8F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1200, 700);
             Controls.Add(panel1);
