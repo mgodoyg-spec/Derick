@@ -51,6 +51,7 @@ namespace Derick
             pbusuario = new PictureBox();
             panel1 = new Panel();
             label1 = new Label();
+            label2 = new Label();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
@@ -313,6 +314,7 @@ namespace Derick
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(pnlcontenido);
             panel1.Controls.Add(panel2);
@@ -326,6 +328,28 @@ namespace Derick
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(620, 233);
+            label1.Name = "label1";
+            label1.Size = new Size(110, 36);
+            label1.TabIndex = 2;
+            label1.Text = "holaaa";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(586, 316);
+            label2.Name = "label2";
+            label2.Size = new Size(181, 32);
+            label2.TabIndex = 3;
+            label2.Text = "AHHHHHHH";
+            // 
+            // FrmMenuPrincipal
+            // 
+            AutoScaleDimensions = new SizeF(10F, 18F);
+            label1.Location = new Point(620, 233);
+            label1.Name = "label1";
+            label1.Size = new Size(51, 15);
             label1.Location = new Point(700, 319);
             label1.Name = "label1";
             label1.Size = new Size(91, 29);
@@ -390,5 +414,6 @@ namespace Derick
         private Panel panel1;
         private Label lblusuario;
         private Label label1;
+        private Label label2;
     }
 }
