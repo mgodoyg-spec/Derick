@@ -50,8 +50,9 @@ namespace Derick
             lblusuario = new Label();
             pbusuario = new PictureBox();
             panel1 = new Panel();
-            label1 = new Label();
             label2 = new Label();
+            label1 = new Label();
+            label3 = new Label();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
@@ -267,7 +268,7 @@ namespace Derick
             lblTitulo.ForeColor = Color.White;
             lblTitulo.Location = new Point(63, 130);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(130, 33);
+            lblTitulo.Size = new Size(164, 42);
             lblTitulo.TabIndex = 2;
             lblTitulo.Text = "DERICK";
             // 
@@ -297,7 +298,7 @@ namespace Derick
             lblusuario.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblusuario.Location = new Point(837, 9);
             lblusuario.Name = "lblusuario";
-            lblusuario.Size = new Size(57, 20);
+            lblusuario.Size = new Size(70, 25);
             lblusuario.TabIndex = 1;
             lblusuario.Text = "admin";
             // 
@@ -314,6 +315,7 @@ namespace Derick
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(label3);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(pnlcontenido);
@@ -323,16 +325,6 @@ namespace Derick
             panel1.Name = "panel1";
             panel1.Size = new Size(1200, 700);
             panel1.TabIndex = 1;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(620, 233);
-            label1.Name = "label1";
-            label1.Size = new Size(110, 36);
-            label1.TabIndex = 2;
-            label1.Text = "holaaa";
             // 
             // label2
             // 
@@ -344,21 +336,28 @@ namespace Derick
             label2.TabIndex = 3;
             label2.Text = "AHHHHHHH";
             // 
-            // FrmMenuPrincipal
+            // label1
             // 
-            AutoScaleDimensions = new SizeF(10F, 18F);
-            label1.Location = new Point(620, 233);
-            label1.Name = "label1";
-            label1.Size = new Size(51, 15);
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(700, 319);
             label1.Name = "label1";
-            label1.Size = new Size(91, 29);
+            label1.Size = new Size(110, 36);
             label1.TabIndex = 2;
             label1.Text = "holaaa";
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(602, 423);
+            label3.Name = "label3";
+            label3.Size = new Size(52, 18);
+            label3.TabIndex = 4;
+            label3.Text = "HOLA";
+            // 
             // FrmMenuPrincipal
             // 
-            AutoScaleDimensions = new SizeF(8F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1200, 700);
             Controls.Add(panel1);
@@ -415,5 +414,6 @@ namespace Derick
         private Label lblusuario;
         private Label label1;
         private Label label2;
+        private Label label3;
     }
 }
