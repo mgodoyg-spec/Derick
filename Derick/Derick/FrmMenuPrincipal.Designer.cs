@@ -50,8 +50,8 @@ namespace Derick
             lblusuario = new Label();
             pbusuario = new PictureBox();
             panel1 = new Panel();
-            label1 = new Label();
             label2 = new Label();
+            label1 = new Label();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
@@ -324,32 +324,20 @@ namespace Derick
             panel1.Size = new Size(1200, 700);
             panel1.TabIndex = 1;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(620, 233);
-            label1.Name = "label1";
-            label1.Size = new Size(110, 36);
-            label1.TabIndex = 2;
-            label1.Text = "holaaa";
-            // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(586, 316);
+            label2.Location = new Point(482, 340);
             label2.Name = "label2";
-            label2.Size = new Size(181, 32);
+            label2.Size = new Size(147, 26);
             label2.TabIndex = 3;
             label2.Text = "AHHHHHHH";
             // 
-            // FrmMenuPrincipal
+            // label1
             // 
-            AutoScaleDimensions = new SizeF(10F, 18F);
-            label1.Location = new Point(620, 233);
-            label1.Name = "label1";
-            label1.Size = new Size(51, 15);
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(700, 319);
             label1.Name = "label1";
             label1.Size = new Size(91, 29);
