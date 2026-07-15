@@ -33,6 +33,7 @@
             pbImageninicio = new PictureBox();
             pictureBox1 = new PictureBox();
             pnlLogin = new Panel();
+            lblSalir = new Label();
             lblfinal = new Label();
             lnlblRecContra = new LinkLabel();
             btnInisesion = new Button();
@@ -92,6 +93,7 @@
             // 
             // pnlLogin
             // 
+            pnlLogin.Controls.Add(lblSalir);
             pnlLogin.Controls.Add(lblfinal);
             pnlLogin.Controls.Add(lnlblRecContra);
             pnlLogin.Controls.Add(btnInisesion);
@@ -112,6 +114,19 @@
             pnlLogin.Name = "pnlLogin";
             pnlLogin.Size = new Size(730, 700);
             pnlLogin.TabIndex = 1;
+            // 
+            // lblSalir
+            // 
+            lblSalir.AutoSize = true;
+            lblSalir.Cursor = Cursors.Hand;
+            lblSalir.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSalir.ForeColor = Color.Red;
+            lblSalir.Location = new Point(693, 9);
+            lblSalir.Name = "lblSalir";
+            lblSalir.Size = new Size(25, 24);
+            lblSalir.TabIndex = 14;
+            lblSalir.Text = "X";
+            lblSalir.Click += lblSalir_Click;
             // 
             // lblfinal
             // 
@@ -137,6 +152,7 @@
             // btnInisesion
             // 
             btnInisesion.BackColor = Color.Black;
+            btnInisesion.Cursor = Cursors.Hand;
             btnInisesion.ForeColor = SystemColors.Control;
             btnInisesion.Location = new Point(254, 461);
             btnInisesion.Name = "btnInisesion";
@@ -148,6 +164,7 @@
             // 
             // pbojo
             // 
+            pbojo.Cursor = Cursors.Hand;
             pbojo.Image = Properties.Resources.esconder;
             pbojo.Location = new Point(564, 400);
             pbojo.Name = "pbojo";
@@ -302,5 +319,6 @@
         private PictureBox pbImageninicio;
         private LinkLabel lnlblRecContra;
         private Label lblfinal;
+        private Label lblSalir;
     }
 }
