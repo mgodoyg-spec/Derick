@@ -11,6 +11,7 @@ namespace Derick
     public partial class FrmMenuPrincipal : Form
     {
         public string usuarioActual;
+        private Form? formularioActivo;
         public FrmMenuPrincipal()
         {
             InitializeComponent();
@@ -37,13 +38,9 @@ namespace Derick
             }
         }
 
-        private void picinicio_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btninicio_Click(object sender, EventArgs e)
         {
+            AbrirFormulario(new InicioGerente());
         }
 
         private void lblSalir_Click(object sender, EventArgs e)
@@ -113,6 +110,26 @@ namespace Derick
                 pnlMostrar.Left = 270;
                 pnlMostrar.Width = this.ClientSize.Width - 270;
             }
+        }
+        private void AbrirFormulario(Form formularioHijo)
+        {
+            if (formularioActivo != null)
+            {
+                formularioActivo.Close();
+            }
+
+            formularioActivo = formularioHijo;
+
+            formularioHijo.TopLevel = false;
+            formularioHijo.FormBorderStyle = FormBorderStyle.None;
+            formularioHijo.Dock = DockStyle.Fill;
+
+            pnlMostrarForm.Controls.Clear();
+            pnlMostrarForm.Controls.Add(formularioHijo);
+            pnlMostrarForm.Tag = formularioHijo;
+
+            formularioHijo.BringToFront();
+            formularioHijo.Show();
         }
     }
 }
