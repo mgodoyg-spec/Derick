@@ -46,12 +46,28 @@ namespace Derick
             btncerrarsesion = new Button();
             lblTitulo = new Label();
             pictureBox2 = new PictureBox();
+            pnl_submenu = new Panel();
+            button1 = new Button();
+            button2 = new Button();
+            button3 = new Button();
+            button4 = new Button();
+            button5 = new Button();
+            bnt_invnt = new Button();
+            pictureBox9 = new PictureBox();
+            pictureBox10 = new PictureBox();
+            pictureBox11 = new PictureBox();
+            pictureBox12 = new PictureBox();
+            pictureBox13 = new PictureBox();
+            pictureBox14 = new PictureBox();
+            pictureBox15 = new PictureBox();
+            button7 = new Button();
+            label1 = new Label();
+            pictureBox16 = new PictureBox();
             pnlcontenido = new Panel();
             lblusuario = new Label();
             pbusuario = new PictureBox();
             panel1 = new Panel();
-            label1 = new Label();
-            label2 = new Label();
+            pnl_inv = new Panel();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
@@ -61,6 +77,15 @@ namespace Derick
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            pnl_submenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox11).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox13).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox14).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox15).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox16).BeginInit();
             pnlcontenido.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbusuario).BeginInit();
             panel1.SuspendLayout();
@@ -150,6 +175,7 @@ namespace Derick
             // btnproductos
             // 
             btnproductos.BackColor = Color.Black;
+            btnproductos.Cursor = Cursors.Hand;
             btnproductos.FlatAppearance.BorderSize = 0;
             btnproductos.FlatStyle = FlatStyle.Flat;
             btnproductos.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -160,6 +186,7 @@ namespace Derick
             btnproductos.TabIndex = 12;
             btnproductos.Text = "Productos";
             btnproductos.UseVisualStyleBackColor = false;
+            btnproductos.Click += btnproductos_Click;
             // 
             // btninicio
             // 
@@ -267,7 +294,7 @@ namespace Derick
             lblTitulo.ForeColor = Color.White;
             lblTitulo.Location = new Point(63, 130);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(130, 33);
+            lblTitulo.Size = new Size(164, 42);
             lblTitulo.TabIndex = 2;
             lblTitulo.Text = "DERICK";
             // 
@@ -281,8 +308,223 @@ namespace Derick
             pictureBox2.TabIndex = 1;
             pictureBox2.TabStop = false;
             // 
+            // pnl_submenu
+            // 
+            pnl_submenu.BackColor = Color.Black;
+            pnl_submenu.Controls.Add(button1);
+            pnl_submenu.Controls.Add(button2);
+            pnl_submenu.Controls.Add(button3);
+            pnl_submenu.Controls.Add(button4);
+            pnl_submenu.Controls.Add(button5);
+            pnl_submenu.Controls.Add(bnt_invnt);
+            pnl_submenu.Controls.Add(pictureBox9);
+            pnl_submenu.Controls.Add(pictureBox10);
+            pnl_submenu.Controls.Add(pictureBox11);
+            pnl_submenu.Controls.Add(pictureBox12);
+            pnl_submenu.Controls.Add(pictureBox13);
+            pnl_submenu.Controls.Add(pictureBox14);
+            pnl_submenu.Controls.Add(pictureBox15);
+            pnl_submenu.Controls.Add(button7);
+            pnl_submenu.Controls.Add(label1);
+            pnl_submenu.Controls.Add(pictureBox16);
+            pnl_submenu.Location = new Point(0, 0);
+            pnl_submenu.Name = "pnl_submenu";
+            pnl_submenu.Size = new Size(270, 700);
+            pnl_submenu.TabIndex = 1;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.Black;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(90, 426);
+            button1.Name = "button1";
+            button1.Size = new Size(91, 37);
+            button1.TabIndex = 16;
+            button1.Text = "Reportes";
+            button1.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.Black;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.ForeColor = Color.White;
+            button2.Location = new Point(90, 383);
+            button2.Name = "button2";
+            button2.Size = new Size(74, 37);
+            button2.TabIndex = 15;
+            button2.Text = "Ventas";
+            button2.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            button3.BackColor = Color.Black;
+            button3.FlatAppearance.BorderSize = 0;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button3.ForeColor = Color.White;
+            button3.Location = new Point(85, 340);
+            button3.Name = "button3";
+            button3.Size = new Size(114, 37);
+            button3.TabIndex = 14;
+            button3.Text = "Empleados\r\n";
+            button3.UseVisualStyleBackColor = false;
+            // 
+            // button4
+            // 
+            button4.BackColor = Color.Black;
+            button4.FlatAppearance.BorderSize = 0;
+            button4.FlatStyle = FlatStyle.Flat;
+            button4.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button4.ForeColor = Color.White;
+            button4.Location = new Point(85, 297);
+            button4.Name = "button4";
+            button4.Size = new Size(114, 37);
+            button4.TabIndex = 13;
+            button4.Text = "Sucursales";
+            button4.UseVisualStyleBackColor = false;
+            // 
+            // button5
+            // 
+            button5.BackColor = Color.Black;
+            button5.Cursor = Cursors.Hand;
+            button5.FlatAppearance.BorderSize = 0;
+            button5.FlatStyle = FlatStyle.Flat;
+            button5.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button5.ForeColor = Color.White;
+            button5.Location = new Point(90, 254);
+            button5.Name = "button5";
+            button5.Size = new Size(100, 37);
+            button5.TabIndex = 12;
+            button5.Text = "Productos";
+            button5.UseVisualStyleBackColor = false;
+            // 
+            // bnt_invnt
+            // 
+            bnt_invnt.BackColor = Color.Black;
+            bnt_invnt.FlatAppearance.BorderSize = 0;
+            bnt_invnt.FlatStyle = FlatStyle.Flat;
+            bnt_invnt.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bnt_invnt.ForeColor = Color.White;
+            bnt_invnt.Location = new Point(90, 211);
+            bnt_invnt.Name = "bnt_invnt";
+            bnt_invnt.Size = new Size(109, 37);
+            bnt_invnt.TabIndex = 11;
+            bnt_invnt.Text = "Inventario";
+            bnt_invnt.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox9
+            // 
+            pictureBox9.Image = Properties.Resources.Captura_de_pantalla_2026_07_13_002933;
+            pictureBox9.Location = new Point(53, 426);
+            pictureBox9.Name = "pictureBox9";
+            pictureBox9.Size = new Size(31, 28);
+            pictureBox9.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox9.TabIndex = 10;
+            pictureBox9.TabStop = false;
+            // 
+            // pictureBox10
+            // 
+            pictureBox10.Image = Properties.Resources.Captura_de_pantalla_2026_07_13_003501;
+            pictureBox10.Location = new Point(53, 211);
+            pictureBox10.Name = "pictureBox10";
+            pictureBox10.Size = new Size(31, 27);
+            pictureBox10.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox10.TabIndex = 9;
+            pictureBox10.TabStop = false;
+            // 
+            // pictureBox11
+            // 
+            pictureBox11.Image = Properties.Resources.Captura_de_pantalla_2026_07_13_001608;
+            pictureBox11.Location = new Point(53, 254);
+            pictureBox11.Name = "pictureBox11";
+            pictureBox11.Size = new Size(31, 28);
+            pictureBox11.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox11.TabIndex = 8;
+            pictureBox11.TabStop = false;
+            // 
+            // pictureBox12
+            // 
+            pictureBox12.Image = Properties.Resources.Captura_de_pantalla_2026_07_13_001756;
+            pictureBox12.Location = new Point(53, 297);
+            pictureBox12.Name = "pictureBox12";
+            pictureBox12.Size = new Size(31, 28);
+            pictureBox12.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox12.TabIndex = 7;
+            pictureBox12.TabStop = false;
+            // 
+            // pictureBox13
+            // 
+            pictureBox13.Image = Properties.Resources.Captura_de_pantalla_2026_07_13_002233;
+            pictureBox13.Location = new Point(53, 340);
+            pictureBox13.Name = "pictureBox13";
+            pictureBox13.Size = new Size(31, 28);
+            pictureBox13.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox13.TabIndex = 6;
+            pictureBox13.TabStop = false;
+            // 
+            // pictureBox14
+            // 
+            pictureBox14.Image = Properties.Resources.Captura_de_pantalla_2026_07_13_002707;
+            pictureBox14.Location = new Point(53, 383);
+            pictureBox14.Name = "pictureBox14";
+            pictureBox14.Size = new Size(31, 37);
+            pictureBox14.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox14.TabIndex = 5;
+            pictureBox14.TabStop = false;
+            // 
+            // pictureBox15
+            // 
+            pictureBox15.Image = Properties.Resources.Captura_de_pantalla_2026_07_12_233737;
+            pictureBox15.Location = new Point(53, 618);
+            pictureBox15.Name = "pictureBox15";
+            pictureBox15.Size = new Size(40, 37);
+            pictureBox15.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox15.TabIndex = 4;
+            pictureBox15.TabStop = false;
+            // 
+            // button7
+            // 
+            button7.BackColor = Color.Black;
+            button7.FlatAppearance.BorderSize = 0;
+            button7.FlatStyle = FlatStyle.Flat;
+            button7.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button7.ForeColor = Color.White;
+            button7.Location = new Point(90, 608);
+            button7.Name = "button7";
+            button7.Size = new Size(123, 57);
+            button7.TabIndex = 3;
+            button7.Text = "Cerrar sesión";
+            button7.UseVisualStyleBackColor = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 21.7499962F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(63, 130);
+            label1.Name = "label1";
+            label1.Size = new Size(164, 42);
+            label1.TabIndex = 2;
+            label1.Text = "DERICK";
+            // 
+            // pictureBox16
+            // 
+            pictureBox16.Image = Properties.Resources.Derick_blanco;
+            pictureBox16.Location = new Point(62, 0);
+            pictureBox16.Name = "pictureBox16";
+            pictureBox16.Size = new Size(137, 145);
+            pictureBox16.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox16.TabIndex = 1;
+            pictureBox16.TabStop = false;
+            // 
             // pnlcontenido
             // 
+            pnlcontenido.BorderStyle = BorderStyle.FixedSingle;
             pnlcontenido.Controls.Add(lblusuario);
             pnlcontenido.Controls.Add(pbusuario);
             pnlcontenido.Dock = DockStyle.Top;
@@ -297,14 +539,14 @@ namespace Derick
             lblusuario.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblusuario.Location = new Point(837, 9);
             lblusuario.Name = "lblusuario";
-            lblusuario.Size = new Size(57, 20);
+            lblusuario.Size = new Size(70, 25);
             lblusuario.TabIndex = 1;
             lblusuario.Text = "admin";
             // 
             // pbusuario
             // 
             pbusuario.Image = Properties.Resources.Captura_de_pantalla_2026_07_13_010502;
-            pbusuario.Location = new Point(790, 3);
+            pbusuario.Location = new Point(790, -1);
             pbusuario.Name = "pbusuario";
             pbusuario.Size = new Size(41, 37);
             pbusuario.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -314,8 +556,8 @@ namespace Derick
             // panel1
             // 
             panel1.BackColor = Color.White;
-            panel1.Controls.Add(label2);
-            panel1.Controls.Add(label1);
+            panel1.Controls.Add(pnl_submenu);
+            panel1.Controls.Add(pnl_inv);
             panel1.Controls.Add(pnlcontenido);
             panel1.Controls.Add(panel2);
             panel1.Dock = DockStyle.Fill;
@@ -324,41 +566,17 @@ namespace Derick
             panel1.Size = new Size(1200, 700);
             panel1.TabIndex = 1;
             // 
-            // label1
+            // pnl_inv
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(620, 233);
-            label1.Name = "label1";
-            label1.Size = new Size(110, 36);
-            label1.TabIndex = 2;
-            label1.Text = "holaaa";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(586, 316);
-            label2.Name = "label2";
-            label2.Size = new Size(181, 32);
-            label2.TabIndex = 3;
-            label2.Text = "AHHHHHHH";
+            pnl_inv.Dock = DockStyle.Fill;
+            pnl_inv.Location = new Point(270, 40);
+            pnl_inv.Name = "pnl_inv";
+            pnl_inv.Size = new Size(930, 660);
+            pnl_inv.TabIndex = 2;
             // 
             // FrmMenuPrincipal
             // 
             AutoScaleDimensions = new SizeF(10F, 18F);
-            label1.Location = new Point(620, 233);
-            label1.Name = "label1";
-            label1.Size = new Size(51, 15);
-            label1.Location = new Point(700, 319);
-            label1.Name = "label1";
-            label1.Size = new Size(91, 29);
-            label1.TabIndex = 2;
-            label1.Text = "holaaa";
-            // 
-            // FrmMenuPrincipal
-            // 
-            AutoScaleDimensions = new SizeF(8F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1200, 700);
             Controls.Add(panel1);
@@ -382,11 +600,20 @@ namespace Derick
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            pnl_submenu.ResumeLayout(false);
+            pnl_submenu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox11).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox12).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox13).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox14).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox15).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox16).EndInit();
             pnlcontenido.ResumeLayout(false);
             pnlcontenido.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pbusuario).EndInit();
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -413,7 +640,23 @@ namespace Derick
         private PictureBox pbusuario;
         private Panel panel1;
         private Label lblusuario;
+        private Panel pnl_inv;
+        private Panel pnl_submenu;
+        private Button button1;
+        private Button button2;
+        private Button button3;
+        private Button button4;
+        private Button button5;
+        private Button bnt_invnt;
+        private PictureBox pictureBox9;
+        private PictureBox pictureBox10;
+        private PictureBox pictureBox11;
+        private PictureBox pictureBox12;
+        private PictureBox pictureBox13;
+        private PictureBox pictureBox14;
+        private PictureBox pictureBox15;
+        private Button button7;
         private Label label1;
-        private Label label2;
+        private PictureBox pictureBox16;
     }
 }

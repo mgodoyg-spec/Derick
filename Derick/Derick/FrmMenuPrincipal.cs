@@ -10,6 +10,7 @@ namespace Derick
 {
     public partial class FrmMenuPrincipal : Form
     {
+        private Form FormAct = null;
         public string usuarioActual;
         public FrmMenuPrincipal()
         {
@@ -18,7 +19,8 @@ namespace Derick
         private void FrmMenuPrincipal_Load(object sender, EventArgs e)
         {
             //label de la parte superior
-            lblusuario.Text = usuarioActual; 
+            lblusuario.Text = usuarioActual;
+            pnl_submenu.Visible = false;
         }
         private void btncerrarsesion_Click(object sender, EventArgs e)
         {
@@ -35,6 +37,13 @@ namespace Derick
                 login.Show();
                 this.Close(); // cierra el menú principal
             }
+        }       
+       
+        private void btnproductos_Click(object sender, EventArgs e)
+        {
+            panel2.Visible = false;
+            pnl_submenu.Visible = true;
+            
         }
     }
 }
