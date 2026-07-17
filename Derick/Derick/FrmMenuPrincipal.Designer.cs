@@ -52,6 +52,7 @@ namespace Derick
             lblusuario = new Label();
             pbusuario = new PictureBox();
             pnlMostrar = new Panel();
+            pnlMostrarForm = new Panel();
             pnlMenuu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picreportes).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picinicio).BeginInit();
@@ -87,9 +88,9 @@ namespace Derick
             pnlMenuu.Controls.Add(lblTitulo);
             pnlMenuu.Controls.Add(pictureBox2);
             pnlMenuu.Dock = DockStyle.Left;
-            pnlMenuu.Location = new Point(0, 0);
+            pnlMenuu.Location = new Point(0, 40);
             pnlMenuu.Name = "pnlMenuu";
-            pnlMenuu.Size = new Size(270, 700);
+            pnlMenuu.Size = new Size(270, 660);
             pnlMenuu.TabIndex = 0;
             // 
             // btnreportes
@@ -181,6 +182,7 @@ namespace Derick
             btninicio.TabIndex = 11;
             btninicio.Text = "Inicio";
             btninicio.UseVisualStyleBackColor = false;
+            btninicio.Click += btninicio_Click;
             // 
             // picreportes
             // 
@@ -298,23 +300,22 @@ namespace Derick
             // 
             // pnlcontenido
             // 
-            pnlcontenido.Controls.Add(picMenu);
             pnlcontenido.Controls.Add(lblSalir);
             pnlcontenido.Controls.Add(lblusuario);
             pnlcontenido.Controls.Add(pbusuario);
             pnlcontenido.Dock = DockStyle.Top;
-            pnlcontenido.Location = new Point(270, 0);
+            pnlcontenido.Location = new Point(0, 0);
             pnlcontenido.Name = "pnlcontenido";
-            pnlcontenido.Size = new Size(930, 40);
+            pnlcontenido.Size = new Size(1200, 40);
             pnlcontenido.TabIndex = 1;
             // 
             // picMenu
             // 
             picMenu.Cursor = Cursors.Hand;
             picMenu.Image = Properties.Resources.IconoblancoMenu1;
-            picMenu.Location = new Point(10, 6);
+            picMenu.Location = new Point(0, 0);
             picMenu.Name = "picMenu";
-            picMenu.Size = new Size(33, 30);
+            picMenu.Size = new Size(40, 40);
             picMenu.SizeMode = PictureBoxSizeMode.StretchImage;
             picMenu.TabIndex = 8;
             picMenu.TabStop = false;
@@ -326,7 +327,7 @@ namespace Derick
             lblSalir.Cursor = Cursors.Hand;
             lblSalir.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSalir.ForeColor = Color.Red;
-            lblSalir.Location = new Point(893, 9);
+            lblSalir.Location = new Point(1172, 9);
             lblSalir.Name = "lblSalir";
             lblSalir.Size = new Size(25, 24);
             lblSalir.TabIndex = 7;
@@ -337,7 +338,7 @@ namespace Derick
             // 
             lblusuario.AutoSize = true;
             lblusuario.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblusuario.Location = new Point(798, 9);
+            lblusuario.Location = new Point(1109, 9);
             lblusuario.Name = "lblusuario";
             lblusuario.Size = new Size(57, 20);
             lblusuario.TabIndex = 1;
@@ -346,7 +347,7 @@ namespace Derick
             // pbusuario
             // 
             pbusuario.Image = Properties.Resources.Captura_de_pantalla_2026_07_13_010502;
-            pbusuario.Location = new Point(751, 3);
+            pbusuario.Location = new Point(1062, 2);
             pbusuario.Name = "pbusuario";
             pbusuario.Size = new Size(41, 34);
             pbusuario.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -356,19 +357,29 @@ namespace Derick
             // pnlMostrar
             // 
             pnlMostrar.BackColor = Color.White;
-            pnlMostrar.Controls.Add(pnlcontenido);
             pnlMostrar.Controls.Add(pnlMenuu);
+            pnlMostrar.Controls.Add(pnlMostrarForm);
+            pnlMostrar.Controls.Add(pnlcontenido);
             pnlMostrar.Dock = DockStyle.Fill;
             pnlMostrar.Location = new Point(0, 0);
             pnlMostrar.Name = "pnlMostrar";
             pnlMostrar.Size = new Size(1200, 700);
             pnlMostrar.TabIndex = 1;
             // 
+            // pnlMostrarForm
+            // 
+            pnlMostrarForm.Dock = DockStyle.Fill;
+            pnlMostrarForm.Location = new Point(0, 40);
+            pnlMostrarForm.Name = "pnlMostrarForm";
+            pnlMostrarForm.Size = new Size(1200, 660);
+            pnlMostrarForm.TabIndex = 2;
+            // 
             // FrmMenuPrincipal
             // 
             AutoScaleDimensions = new SizeF(8F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1200, 700);
+            Controls.Add(picMenu);
             Controls.Add(pnlMostrar);
             Font = new Font("Microsoft Sans Serif", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.None;
@@ -423,5 +434,6 @@ namespace Derick
         private Label lblusuario;
         private Label lblSalir;
         private PictureBox picMenu;
+        private Panel pnlMostrarForm;
     }
 }
