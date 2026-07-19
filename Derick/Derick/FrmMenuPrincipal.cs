@@ -11,6 +11,11 @@ namespace Derick
     public partial class FrmMenuPrincipal : Form
     {
         private Form FormAct = null;
+        bool sbmn = true;
+        private int posMenu;
+        private int posAgg;
+        private int posEliminar;
+        private int posVolver;
         public string usuarioActual;
         public FrmMenuPrincipal()
         {
@@ -21,6 +26,11 @@ namespace Derick
             //label de la parte superior
             lblusuario.Text = usuarioActual;
             pnl_submenu.Visible = false;
+
+            posMenu = pic_menu.Left;
+            posAgg = pic_agg.Left;
+            posEliminar = pic_eliminar.Left;
+            posVolver = pic_volver.Left;
         }
         private void btncerrarsesion_Click(object sender, EventArgs e)
         {
@@ -76,6 +86,49 @@ namespace Derick
         private void bnt_invnt_Click(object sender, EventArgs e)
         {
             Abr_form(new Form_invnt());
+        }
+
+        private void btn_mn_Click(object sender, EventArgs e)
+        {
+            tm_submenu.Start();
+        }
+
+        private void tm_submenu_Tick(object sender, EventArgs e)
+        {
+            if (sbmn) // Contraer
+            {
+                pnl_submenu.Width -= 10;
+                pnl_inv.Left = pnl_submenu.Width;
+                pnl_inv.Width = this.ClientSize.Width - pnl_submenu.Width;
+                if (pnl_submenu.Width <= 60)
+                {
+                    pnl_submenu.Width = 60;
+                    tm_submenu.Stop();
+                    sbmn = false;
+
+                    pic_menu.Left = 15;
+                    pic_agg.Left = 15;
+                    pic_eliminar.Left = 15;
+                    pic_volver.Left = 15;
+                }
+            }
+            else // Expandir
+            {
+                pnl_submenu.Width += 10;
+                pnl_inv.Left = pnl_submenu.Width;
+                pnl_inv.Width = this.ClientSize.Width - pnl_submenu.Width;
+                if (pnl_submenu.Width >= 250)
+                {
+                    pnl_submenu.Width = 250;
+                    tm_submenu.Stop();
+                    sbmn = true;
+
+                    pic_menu.Left = posMenu;
+                    pic_agg.Left = posAgg;
+                    pic_eliminar.Left = posEliminar;
+                    pic_volver.Left = posVolver;
+                }
+            }
         }
     }
 }
