@@ -15,11 +15,15 @@ namespace Derick
         public FrmMenuPrincipal()
         {
             InitializeComponent();
+            pnlMostrar.PerformLayout();
+            this.AutoScaleMode = AutoScaleMode.None;
         }
         private void FrmMenuPrincipal_Load(object sender, EventArgs e)
         {
             //label de la parte superior
             lblusuario.Text = usuarioActual;
+            this.PerformLayout();
+            this.Refresh();
         }
         private void btncerrarsesion_Click(object sender, EventArgs e)
         {
@@ -57,79 +61,43 @@ namespace Derick
             }
         }
 
-        private void picMenu_Click_1(object sender, EventArgs e)
-        {
-
-            if (pnlMenuu.Width == 270)
-            {
-                pnlMenuu.Width = 70;
-
-                // Centrar iconos
-                picinicio.Left = 20;
-                picproductos.Left = 20;
-                picsucursales.Left = 20;
-                picempleados.Left = 20;
-                picventas.Left = 20;
-                picreportes.Left = 20;
-                piccerrarsesion.Left = 20;
-                // Ocultar botones
-                btninicio.Visible = false;
-                btnproductos.Visible = false;
-                btnsucursales.Visible = false;
-                btnempleados.Visible = false;
-                btnventas.Visible = false;
-                btnreportes.Visible = false;
-                btncerrarsesion.Visible = false;
-
-                // Mover el panel del contenido
-                pnlMostrar.Left = 70;
-                pnlMostrar.Width = this.ClientSize.Width - 70;
-            }
-            else
-            {
-                pnlMenuu.Width = 270;
-                // Mostrar botones
-                btninicio.Visible = true;
-                btnproductos.Visible = true;
-                btnsucursales.Visible = true;
-                btnempleados.Visible = true;
-                btnventas.Visible = true;
-                btnreportes.Visible = true;
-                btncerrarsesion.Visible = true;
-
-                // Regresar iconos a su posición
-                picinicio.Left = 53;
-                picproductos.Left = 53;
-                picsucursales.Left = 53;
-                picempleados.Left = 53;
-                picventas.Left = 53;
-                picreportes.Left = 53;
-                piccerrarsesion.Left = 53;
-
-                // Regresar el panel del contenido
-                pnlMostrar.Left = 270;
-                pnlMostrar.Width = this.ClientSize.Width - 270;
-            }
-        }
         private void AbrirFormulario(Form formularioHijo)
         {
+            // 1. Si ya hay un formulario abierto en el panel, lo cerramos
             if (formularioActivo != null)
             {
                 formularioActivo.Close();
             }
-
+            // 2. Guardamos la referencia del nuevo formulario
             formularioActivo = formularioHijo;
-
-            formularioHijo.TopLevel = false;
-            formularioHijo.FormBorderStyle = FormBorderStyle.None;
-            formularioHijo.Dock = DockStyle.Fill;
-
+            // 3. Lo preparamos para incrustarse dentro del panel
+            formularioHijo.TopLevel = false;                  // Evita que sea una ventana independiente
+            formularioHijo.FormBorderStyle = FormBorderStyle.None; // Quita la barra de título del hijo (X, minimizar, etc.)
+            formularioHijo.Dock = DockStyle.Fill;            // Obliga a expandirse EXACTAMENTE al tamaño del área blanca
+            // 4. Limpiamos el área blanca e insertamos el nuevo formulario
             pnlMostrarForm.Controls.Clear();
             pnlMostrarForm.Controls.Add(formularioHijo);
             pnlMostrarForm.Tag = formularioHijo;
-
+            // 5. Lo mostramos en pantalla
             formularioHijo.BringToFront();
             formularioHijo.Show();
+        }
+
+        private void piccerrarsesion_Click(object sender, EventArgs e)
+        {
+            DialogResult confirmar = MessageBox.Show(
+            "¿Estás seguro que deseas cerrar sesión?",
+            "Cerrar sesión",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Question
+            );
+
+            if (confirmar == DialogResult.Yes)
+            {
+                frmLogin login = new frmLogin();
+                login.Show();
+                this.Close(); // cierra el menú principal
+            }
         }
     }
 }

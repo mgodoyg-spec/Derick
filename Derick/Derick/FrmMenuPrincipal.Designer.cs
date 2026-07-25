@@ -28,70 +28,30 @@ namespace Derick
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenuPrincipal));
-            pnlMenuu = new Panel();
             btnreportes = new Button();
+            imlBotones = new ImageList(components);
             btnventas = new Button();
             btnempleados = new Button();
             btnsucursales = new Button();
+            btncerrarsesion = new Button();
             btnproductos = new Button();
             btninicio = new Button();
-            picreportes = new PictureBox();
-            picinicio = new PictureBox();
-            picproductos = new PictureBox();
-            picsucursales = new PictureBox();
-            picempleados = new PictureBox();
-            picventas = new PictureBox();
-            piccerrarsesion = new PictureBox();
-            btncerrarsesion = new Button();
             lblTitulo = new Label();
             pictureBox2 = new PictureBox();
             pnlcontenido = new Panel();
-            picMenu = new PictureBox();
             lblSalir = new Label();
             lblusuario = new Label();
             pbusuario = new PictureBox();
             pnlMostrar = new Panel();
             pnlMostrarForm = new Panel();
-            pnlMenuu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picreportes).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)picinicio).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)picproductos).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)picsucursales).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)picempleados).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)picventas).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)piccerrarsesion).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             pnlcontenido.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picMenu).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbusuario).BeginInit();
             pnlMostrar.SuspendLayout();
+            pnlMostrarForm.SuspendLayout();
             SuspendLayout();
-            // 
-            // pnlMenuu
-            // 
-            pnlMenuu.BackColor = Color.Black;
-            pnlMenuu.Controls.Add(btnreportes);
-            pnlMenuu.Controls.Add(btnventas);
-            pnlMenuu.Controls.Add(btnempleados);
-            pnlMenuu.Controls.Add(btnsucursales);
-            pnlMenuu.Controls.Add(btnproductos);
-            pnlMenuu.Controls.Add(btninicio);
-            pnlMenuu.Controls.Add(picreportes);
-            pnlMenuu.Controls.Add(picinicio);
-            pnlMenuu.Controls.Add(picproductos);
-            pnlMenuu.Controls.Add(picsucursales);
-            pnlMenuu.Controls.Add(picempleados);
-            pnlMenuu.Controls.Add(picventas);
-            pnlMenuu.Controls.Add(piccerrarsesion);
-            pnlMenuu.Controls.Add(btncerrarsesion);
-            pnlMenuu.Controls.Add(lblTitulo);
-            pnlMenuu.Controls.Add(pictureBox2);
-            pnlMenuu.Dock = DockStyle.Left;
-            pnlMenuu.Location = new Point(0, 40);
-            pnlMenuu.Name = "pnlMenuu";
-            pnlMenuu.Size = new Size(270, 660);
-            pnlMenuu.TabIndex = 0;
             // 
             // btnreportes
             // 
@@ -101,12 +61,29 @@ namespace Derick
             btnreportes.FlatStyle = FlatStyle.Flat;
             btnreportes.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnreportes.ForeColor = Color.White;
-            btnreportes.Location = new Point(90, 426);
+            btnreportes.ImageAlign = ContentAlignment.MiddleLeft;
+            btnreportes.ImageIndex = 5;
+            btnreportes.ImageList = imlBotones;
+            btnreportes.Location = new Point(783, 7);
             btnreportes.Name = "btnreportes";
-            btnreportes.Size = new Size(91, 37);
+            btnreportes.Size = new Size(113, 37);
             btnreportes.TabIndex = 16;
             btnreportes.Text = "Reportes";
+            btnreportes.TextAlign = ContentAlignment.MiddleRight;
             btnreportes.UseVisualStyleBackColor = false;
+            // 
+            // imlBotones
+            // 
+            imlBotones.ColorDepth = ColorDepth.Depth32Bit;
+            imlBotones.ImageStream = (ImageListStreamer)resources.GetObject("imlBotones.ImageStream");
+            imlBotones.TransparentColor = Color.Transparent;
+            imlBotones.Images.SetKeyName(0, "Captura de pantalla 2026-07-13 003501.png");
+            imlBotones.Images.SetKeyName(1, "Captura de pantalla 2026-07-13 001608.png");
+            imlBotones.Images.SetKeyName(2, "Captura de pantalla 2026-07-13 001756.png");
+            imlBotones.Images.SetKeyName(3, "Captura de pantalla 2026-07-13 002233.png");
+            imlBotones.Images.SetKeyName(4, "Captura de pantalla 2026-07-13 002707.png");
+            imlBotones.Images.SetKeyName(5, "Captura de pantalla 2026-07-13 002933.png");
+            imlBotones.Images.SetKeyName(6, "Captura de pantalla 2026-07-12 233737.png");
             // 
             // btnventas
             // 
@@ -116,11 +93,15 @@ namespace Derick
             btnventas.FlatStyle = FlatStyle.Flat;
             btnventas.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnventas.ForeColor = Color.White;
-            btnventas.Location = new Point(90, 383);
+            btnventas.ImageAlign = ContentAlignment.MiddleLeft;
+            btnventas.ImageIndex = 4;
+            btnventas.ImageList = imlBotones;
+            btnventas.Location = new Point(681, 6);
             btnventas.Name = "btnventas";
-            btnventas.Size = new Size(74, 37);
+            btnventas.Size = new Size(96, 37);
             btnventas.TabIndex = 15;
             btnventas.Text = "Ventas";
+            btnventas.TextAlign = ContentAlignment.MiddleRight;
             btnventas.UseVisualStyleBackColor = false;
             // 
             // btnempleados
@@ -131,11 +112,15 @@ namespace Derick
             btnempleados.FlatStyle = FlatStyle.Flat;
             btnempleados.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnempleados.ForeColor = Color.White;
-            btnempleados.Location = new Point(85, 340);
+            btnempleados.ImageAlign = ContentAlignment.MiddleLeft;
+            btnempleados.ImageIndex = 3;
+            btnempleados.ImageList = imlBotones;
+            btnempleados.Location = new Point(548, 7);
             btnempleados.Name = "btnempleados";
-            btnempleados.Size = new Size(114, 37);
+            btnempleados.Size = new Size(127, 37);
             btnempleados.TabIndex = 14;
             btnempleados.Text = "Empleados\r\n";
+            btnempleados.TextAlign = ContentAlignment.MiddleRight;
             btnempleados.UseVisualStyleBackColor = false;
             // 
             // btnsucursales
@@ -146,12 +131,32 @@ namespace Derick
             btnsucursales.FlatStyle = FlatStyle.Flat;
             btnsucursales.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnsucursales.ForeColor = Color.White;
-            btnsucursales.Location = new Point(85, 297);
+            btnsucursales.ImageAlign = ContentAlignment.MiddleLeft;
+            btnsucursales.ImageIndex = 2;
+            btnsucursales.ImageList = imlBotones;
+            btnsucursales.Location = new Point(415, 8);
             btnsucursales.Name = "btnsucursales";
-            btnsucursales.Size = new Size(114, 37);
+            btnsucursales.Size = new Size(127, 37);
             btnsucursales.TabIndex = 13;
             btnsucursales.Text = "Sucursales";
+            btnsucursales.TextAlign = ContentAlignment.MiddleRight;
             btnsucursales.UseVisualStyleBackColor = false;
+            // 
+            // btncerrarsesion
+            // 
+            btncerrarsesion.BackColor = Color.Black;
+            btncerrarsesion.Cursor = Cursors.Hand;
+            btncerrarsesion.FlatAppearance.BorderSize = 0;
+            btncerrarsesion.FlatStyle = FlatStyle.Flat;
+            btncerrarsesion.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btncerrarsesion.ForeColor = Color.White;
+            btncerrarsesion.Location = new Point(259, 320);
+            btncerrarsesion.Name = "btncerrarsesion";
+            btncerrarsesion.Size = new Size(123, 57);
+            btncerrarsesion.TabIndex = 3;
+            btncerrarsesion.Text = "Cerrar sesión";
+            btncerrarsesion.UseVisualStyleBackColor = false;
+            btncerrarsesion.Click += btncerrarsesion_Click;
             // 
             // btnproductos
             // 
@@ -161,11 +166,15 @@ namespace Derick
             btnproductos.FlatStyle = FlatStyle.Flat;
             btnproductos.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnproductos.ForeColor = Color.White;
-            btnproductos.Location = new Point(90, 254);
+            btnproductos.ImageAlign = ContentAlignment.MiddleLeft;
+            btnproductos.ImageIndex = 1;
+            btnproductos.ImageList = imlBotones;
+            btnproductos.Location = new Point(286, 6);
             btnproductos.Name = "btnproductos";
-            btnproductos.Size = new Size(100, 37);
+            btnproductos.Size = new Size(123, 37);
             btnproductos.TabIndex = 12;
             btnproductos.Text = "Productos";
+            btnproductos.TextAlign = ContentAlignment.MiddleRight;
             btnproductos.UseVisualStyleBackColor = false;
             // 
             // btninicio
@@ -176,150 +185,58 @@ namespace Derick
             btninicio.FlatStyle = FlatStyle.Flat;
             btninicio.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btninicio.ForeColor = Color.White;
-            btninicio.Location = new Point(90, 211);
+            btninicio.ImageAlign = ContentAlignment.MiddleLeft;
+            btninicio.ImageIndex = 0;
+            btninicio.ImageList = imlBotones;
+            btninicio.Location = new Point(189, 5);
             btninicio.Name = "btninicio";
-            btninicio.Size = new Size(69, 37);
+            btninicio.Size = new Size(91, 37);
             btninicio.TabIndex = 11;
             btninicio.Text = "Inicio";
+            btninicio.TextAlign = ContentAlignment.MiddleRight;
             btninicio.UseVisualStyleBackColor = false;
             btninicio.Click += btninicio_Click;
-            // 
-            // picreportes
-            // 
-            picreportes.Cursor = Cursors.Hand;
-            picreportes.Image = Properties.Resources.Captura_de_pantalla_2026_07_13_002933;
-            picreportes.Location = new Point(53, 426);
-            picreportes.Name = "picreportes";
-            picreportes.Size = new Size(31, 28);
-            picreportes.SizeMode = PictureBoxSizeMode.StretchImage;
-            picreportes.TabIndex = 10;
-            picreportes.TabStop = false;
-            // 
-            // picinicio
-            // 
-            picinicio.Cursor = Cursors.Hand;
-            picinicio.Image = Properties.Resources.Captura_de_pantalla_2026_07_13_003501;
-            picinicio.Location = new Point(53, 211);
-            picinicio.Name = "picinicio";
-            picinicio.Size = new Size(31, 27);
-            picinicio.SizeMode = PictureBoxSizeMode.StretchImage;
-            picinicio.TabIndex = 9;
-            picinicio.TabStop = false;
-            // 
-            // picproductos
-            // 
-            picproductos.Cursor = Cursors.Hand;
-            picproductos.Image = Properties.Resources.Captura_de_pantalla_2026_07_13_001608;
-            picproductos.Location = new Point(53, 254);
-            picproductos.Name = "picproductos";
-            picproductos.Size = new Size(31, 28);
-            picproductos.SizeMode = PictureBoxSizeMode.StretchImage;
-            picproductos.TabIndex = 8;
-            picproductos.TabStop = false;
-            // 
-            // picsucursales
-            // 
-            picsucursales.Cursor = Cursors.Hand;
-            picsucursales.Image = Properties.Resources.Captura_de_pantalla_2026_07_13_001756;
-            picsucursales.Location = new Point(53, 297);
-            picsucursales.Name = "picsucursales";
-            picsucursales.Size = new Size(31, 28);
-            picsucursales.SizeMode = PictureBoxSizeMode.StretchImage;
-            picsucursales.TabIndex = 7;
-            picsucursales.TabStop = false;
-            // 
-            // picempleados
-            // 
-            picempleados.Cursor = Cursors.Hand;
-            picempleados.Image = Properties.Resources.Captura_de_pantalla_2026_07_13_002233;
-            picempleados.Location = new Point(53, 340);
-            picempleados.Name = "picempleados";
-            picempleados.Size = new Size(31, 28);
-            picempleados.SizeMode = PictureBoxSizeMode.StretchImage;
-            picempleados.TabIndex = 6;
-            picempleados.TabStop = false;
-            // 
-            // picventas
-            // 
-            picventas.Cursor = Cursors.Hand;
-            picventas.Image = Properties.Resources.Captura_de_pantalla_2026_07_13_002707;
-            picventas.Location = new Point(53, 383);
-            picventas.Name = "picventas";
-            picventas.Size = new Size(31, 37);
-            picventas.SizeMode = PictureBoxSizeMode.StretchImage;
-            picventas.TabIndex = 5;
-            picventas.TabStop = false;
-            // 
-            // piccerrarsesion
-            // 
-            piccerrarsesion.Cursor = Cursors.Hand;
-            piccerrarsesion.Image = Properties.Resources.Captura_de_pantalla_2026_07_12_233737;
-            piccerrarsesion.Location = new Point(53, 618);
-            piccerrarsesion.Name = "piccerrarsesion";
-            piccerrarsesion.Size = new Size(40, 37);
-            piccerrarsesion.SizeMode = PictureBoxSizeMode.StretchImage;
-            piccerrarsesion.TabIndex = 4;
-            piccerrarsesion.TabStop = false;
-            // 
-            // btncerrarsesion
-            // 
-            btncerrarsesion.BackColor = Color.Black;
-            btncerrarsesion.Cursor = Cursors.Hand;
-            btncerrarsesion.FlatAppearance.BorderSize = 0;
-            btncerrarsesion.FlatStyle = FlatStyle.Flat;
-            btncerrarsesion.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btncerrarsesion.ForeColor = Color.White;
-            btncerrarsesion.Location = new Point(90, 608);
-            btncerrarsesion.Name = "btncerrarsesion";
-            btncerrarsesion.Size = new Size(123, 57);
-            btncerrarsesion.TabIndex = 3;
-            btncerrarsesion.Text = "Cerrar sesión";
-            btncerrarsesion.UseVisualStyleBackColor = false;
-            btncerrarsesion.Click += btncerrarsesion_Click;
             // 
             // lblTitulo
             // 
             lblTitulo.AutoSize = true;
-            lblTitulo.Font = new Font("Microsoft Sans Serif", 21.7499962F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitulo.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitulo.ForeColor = Color.White;
-            lblTitulo.Location = new Point(63, 130);
+            lblTitulo.Location = new Point(71, 11);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(130, 33);
+            lblTitulo.Size = new Size(96, 25);
             lblTitulo.TabIndex = 2;
             lblTitulo.Text = "DERICK";
             // 
             // pictureBox2
             // 
-            pictureBox2.Image = Properties.Resources.Derick_blanco;
-            pictureBox2.Location = new Point(62, 0);
+            pictureBox2.Image = Properties.Resources.DerickRecortado;
+            pictureBox2.Location = new Point(26, 2);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(137, 145);
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.Size = new Size(39, 43);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 1;
             pictureBox2.TabStop = false;
             // 
             // pnlcontenido
             // 
+            pnlcontenido.BackColor = Color.Black;
+            pnlcontenido.Controls.Add(btnreportes);
+            pnlcontenido.Controls.Add(btnventas);
+            pnlcontenido.Controls.Add(btnempleados);
+            pnlcontenido.Controls.Add(lblTitulo);
+            pnlcontenido.Controls.Add(btnsucursales);
             pnlcontenido.Controls.Add(lblSalir);
             pnlcontenido.Controls.Add(lblusuario);
             pnlcontenido.Controls.Add(pbusuario);
+            pnlcontenido.Controls.Add(btnproductos);
+            pnlcontenido.Controls.Add(pictureBox2);
+            pnlcontenido.Controls.Add(btninicio);
             pnlcontenido.Dock = DockStyle.Top;
             pnlcontenido.Location = new Point(0, 0);
             pnlcontenido.Name = "pnlcontenido";
-            pnlcontenido.Size = new Size(1200, 40);
+            pnlcontenido.Size = new Size(1200, 49);
             pnlcontenido.TabIndex = 1;
-            // 
-            // picMenu
-            // 
-            picMenu.Cursor = Cursors.Hand;
-            picMenu.Image = Properties.Resources.IconoblancoMenu1;
-            picMenu.Location = new Point(0, 0);
-            picMenu.Name = "picMenu";
-            picMenu.Size = new Size(40, 40);
-            picMenu.SizeMode = PictureBoxSizeMode.StretchImage;
-            picMenu.TabIndex = 8;
-            picMenu.TabStop = false;
-            picMenu.Click += picMenu_Click_1;
             // 
             // lblSalir
             // 
@@ -327,7 +244,7 @@ namespace Derick
             lblSalir.Cursor = Cursors.Hand;
             lblSalir.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSalir.ForeColor = Color.Red;
-            lblSalir.Location = new Point(1172, 9);
+            lblSalir.Location = new Point(1172, 10);
             lblSalir.Name = "lblSalir";
             lblSalir.Size = new Size(25, 24);
             lblSalir.TabIndex = 7;
@@ -338,7 +255,8 @@ namespace Derick
             // 
             lblusuario.AutoSize = true;
             lblusuario.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblusuario.Location = new Point(1109, 9);
+            lblusuario.ForeColor = Color.White;
+            lblusuario.Location = new Point(1100, 13);
             lblusuario.Name = "lblusuario";
             lblusuario.Size = new Size(57, 20);
             lblusuario.TabIndex = 1;
@@ -346,10 +264,10 @@ namespace Derick
             // 
             // pbusuario
             // 
-            pbusuario.Image = Properties.Resources.Captura_de_pantalla_2026_07_13_010502;
-            pbusuario.Location = new Point(1062, 2);
+            pbusuario.Image = Properties.Resources.UsuarioNegro;
+            pbusuario.Location = new Point(1047, 3);
             pbusuario.Name = "pbusuario";
-            pbusuario.Size = new Size(41, 34);
+            pbusuario.Size = new Size(47, 44);
             pbusuario.SizeMode = PictureBoxSizeMode.StretchImage;
             pbusuario.TabIndex = 0;
             pbusuario.TabStop = false;
@@ -357,7 +275,6 @@ namespace Derick
             // pnlMostrar
             // 
             pnlMostrar.BackColor = Color.White;
-            pnlMostrar.Controls.Add(pnlMenuu);
             pnlMostrar.Controls.Add(pnlMostrarForm);
             pnlMostrar.Controls.Add(pnlcontenido);
             pnlMostrar.Dock = DockStyle.Fill;
@@ -368,18 +285,17 @@ namespace Derick
             // 
             // pnlMostrarForm
             // 
+            pnlMostrarForm.Controls.Add(btncerrarsesion);
             pnlMostrarForm.Dock = DockStyle.Fill;
-            pnlMostrarForm.Location = new Point(0, 40);
+            pnlMostrarForm.Location = new Point(0, 49);
             pnlMostrarForm.Name = "pnlMostrarForm";
-            pnlMostrarForm.Size = new Size(1200, 660);
+            pnlMostrarForm.Size = new Size(1200, 651);
             pnlMostrarForm.TabIndex = 2;
             // 
             // FrmMenuPrincipal
             // 
-            AutoScaleDimensions = new SizeF(8F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(1200, 700);
-            Controls.Add(picMenu);
             Controls.Add(pnlMostrar);
             Font = new Font("Microsoft Sans Serif", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.None;
@@ -391,40 +307,22 @@ namespace Derick
             Name = "FrmMenuPrincipal";
             StartPosition = FormStartPosition.CenterScreen;
             Load += FrmMenuPrincipal_Load;
-            pnlMenuu.ResumeLayout(false);
-            pnlMenuu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)picreportes).EndInit();
-            ((System.ComponentModel.ISupportInitialize)picinicio).EndInit();
-            ((System.ComponentModel.ISupportInitialize)picproductos).EndInit();
-            ((System.ComponentModel.ISupportInitialize)picsucursales).EndInit();
-            ((System.ComponentModel.ISupportInitialize)picempleados).EndInit();
-            ((System.ComponentModel.ISupportInitialize)picventas).EndInit();
-            ((System.ComponentModel.ISupportInitialize)piccerrarsesion).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             pnlcontenido.ResumeLayout(false);
             pnlcontenido.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)picMenu).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbusuario).EndInit();
             pnlMostrar.ResumeLayout(false);
+            pnlMostrarForm.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
-
-        private Panel pnlMenuu;
         private Button btnreportes;
         private Button btnventas;
         private Button btnempleados;
         private Button btnsucursales;
         private Button btnproductos;
         private Button btninicio;
-        private PictureBox picreportes;
-        private PictureBox picinicio;
-        private PictureBox picproductos;
-        private PictureBox picsucursales;
-        private PictureBox picempleados;
-        private PictureBox picventas;
-        private PictureBox piccerrarsesion;
         private Button btncerrarsesion;
         private Label lblTitulo;
         private PictureBox pictureBox2;
@@ -433,7 +331,7 @@ namespace Derick
         private Panel pnlMostrar;
         private Label lblusuario;
         private Label lblSalir;
-        private PictureBox picMenu;
         private Panel pnlMostrarForm;
+        private ImageList imlBotones;
     }
 }
