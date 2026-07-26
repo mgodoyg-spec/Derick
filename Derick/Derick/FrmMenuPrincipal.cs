@@ -128,10 +128,6 @@ namespace Derick
             AbrirFormulario(new ProductosGerente());
         }
 
-        private void btnempleados_Click(object sender, EventArgs e)
-        {
-            MarcarBotonActivo(btnempleados);
-            AbrirFormulario(new FrmEmpleados());
-        }
+        
     }
 }
