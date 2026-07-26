@@ -335,7 +335,6 @@ namespace Derick
             // 
             // pnlMostrarForm
             // 
-            pnlMostrarForm.Dock = DockStyle.Fill;
             pnlMostrarForm.Location = new Point(0, 49);
             pnlMostrarForm.Name = "pnlMostrarForm";
             pnlMostrarForm.Size = new Size(1200, 651);
