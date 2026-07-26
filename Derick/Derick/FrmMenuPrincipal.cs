@@ -24,6 +24,7 @@ namespace Derick
             lblusuario.Text = usuarioActual;
             this.PerformLayout();
             this.Refresh();
+            AbrirFormulario(new InicioGerente());
         }
         private void btncerrarsesion_Click(object sender, EventArgs e)
         {
@@ -44,6 +45,7 @@ namespace Derick
 
         private void btninicio_Click(object sender, EventArgs e)
         {
+            MarcarBotonActivo(btninicio);
             AbrirFormulario(new InicioGerente());
         }
 
@@ -82,15 +84,25 @@ namespace Derick
             formularioHijo.BringToFront();
             formularioHijo.Show();
         }
+        private void pnlPerfil_Click(object sender, EventArgs e)
+        {
+            lblFlecha.Text = "▲";
+            cmsMenuPerfil.Show(pnlPerfil, 0, pnlPerfil.Height);
+        }
 
-        private void piccerrarsesion_Click(object sender, EventArgs e)
+        private void cmsMenuPerfil_Closed(object sender, ToolStripDropDownClosedEventArgs e)
+        {
+            lblFlecha.Text = "▼";
+        }
+
+        private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult confirmar = MessageBox.Show(
-            "¿Estás seguro que deseas cerrar sesión?",
-            "Cerrar sesión",
-            MessageBoxButtons.YesNo,
-            MessageBoxIcon.Question
-            );
+           "¿Estás seguro que deseas cerrar sesión?",
+           "Cerrar sesión",
+           MessageBoxButtons.YesNo,
+           MessageBoxIcon.Question
+           );
 
             if (confirmar == DialogResult.Yes)
             {
@@ -98,6 +110,22 @@ namespace Derick
                 login.Show();
                 this.Close(); // cierra el menú principal
             }
+        }
+        private void MarcarBotonActivo(Button botonSeleccionado)
+        {
+            // Mueve la barrita azul justo debajo del botón seleccionado
+            pnlIndicador.Width = botonSeleccionado.Width;
+            pnlIndicador.Left = botonSeleccionado.Left;
+            pnlIndicador.Top = botonSeleccionado.Bottom - pnlIndicador.Height;
+
+            // Opcional: Si quieres traer la barrita al frente para que no quede oculta
+            pnlIndicador.BringToFront();
+        }
+
+        private void btnproductos_Click(object sender, EventArgs e)
+        {
+            MarcarBotonActivo(btnproductos);
+            AbrirFormulario(new ProductosGerente());
         }
     }
 }
