@@ -125,7 +125,8 @@ namespace Derick
         private void btnproductos_Click(object sender, EventArgs e)
         {
             MarcarBotonActivo(btnproductos);
-            
+            AbrirFormulario(new FormProductos());
+
         }
     }
 }
