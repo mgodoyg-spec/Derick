@@ -128,6 +128,7 @@ namespace Derick
             btnempleados.Text = "Empleados\r\n";
             btnempleados.TextAlign = ContentAlignment.MiddleRight;
             btnempleados.UseVisualStyleBackColor = false;
+
             // 
             // btnsucursales
             // 
