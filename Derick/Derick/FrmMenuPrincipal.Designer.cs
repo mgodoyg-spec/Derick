@@ -195,7 +195,7 @@ namespace Derick
             lblTitulo.ForeColor = Color.White;
             lblTitulo.Location = new Point(71, 11);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(96, 25);
+            lblTitulo.Size = new Size(124, 31);
             lblTitulo.TabIndex = 2;
             lblTitulo.Text = "DERICK";
             // 
@@ -255,7 +255,7 @@ namespace Derick
             lblFlecha.ForeColor = SystemColors.ButtonHighlight;
             lblFlecha.Location = new Point(138, 20);
             lblFlecha.Name = "lblFlecha";
-            lblFlecha.Size = new Size(17, 13);
+            lblFlecha.Size = new Size(19, 17);
             lblFlecha.TabIndex = 2;
             lblFlecha.Text = "▼";
             // 
@@ -266,7 +266,7 @@ namespace Derick
             lblusuario.ForeColor = Color.White;
             lblusuario.Location = new Point(57, 14);
             lblusuario.Name = "lblusuario";
-            lblusuario.Size = new Size(57, 20);
+            lblusuario.Size = new Size(70, 25);
             lblusuario.TabIndex = 1;
             lblusuario.Text = "admin";
             lblusuario.Click += pnlPerfil_Click;
@@ -290,30 +290,31 @@ namespace Derick
             lblSalir.ForeColor = Color.Red;
             lblSalir.Location = new Point(1172, 10);
             lblSalir.Name = "lblSalir";
-            lblSalir.Size = new Size(25, 24);
+            lblSalir.Size = new Size(31, 29);
             lblSalir.TabIndex = 7;
             lblSalir.Text = "X";
             lblSalir.Click += lblSalir_Click;
             // 
             // cmsMenuPerfil
             // 
+            cmsMenuPerfil.ImageScalingSize = new Size(20, 20);
             cmsMenuPerfil.Items.AddRange(new ToolStripItem[] { miPerfilToolStripMenuItem, cerrarSesiónToolStripMenuItem });
             cmsMenuPerfil.Name = "contextMenuStrip1";
-            cmsMenuPerfil.Size = new Size(144, 48);
+            cmsMenuPerfil.Size = new Size(170, 56);
             cmsMenuPerfil.Closed += cmsMenuPerfil_Closed;
             // 
             // miPerfilToolStripMenuItem
             // 
             miPerfilToolStripMenuItem.Image = Properties.Resources.person_icon_31846;
             miPerfilToolStripMenuItem.Name = "miPerfilToolStripMenuItem";
-            miPerfilToolStripMenuItem.Size = new Size(143, 22);
+            miPerfilToolStripMenuItem.Size = new Size(169, 26);
             miPerfilToolStripMenuItem.Text = "Mi Perfil";
             // 
             // cerrarSesiónToolStripMenuItem
             // 
             cerrarSesiónToolStripMenuItem.Image = Properties.Resources.CerrarSesionn;
             cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
-            cerrarSesiónToolStripMenuItem.Size = new Size(143, 22);
+            cerrarSesiónToolStripMenuItem.Size = new Size(169, 26);
             cerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión";
             cerrarSesiónToolStripMenuItem.Click += cerrarSesiónToolStripMenuItem_Click;
             // 
@@ -330,7 +331,6 @@ namespace Derick
             // 
             // pnlMostrarForm
             // 
-            pnlMostrarForm.Dock = DockStyle.Fill;
             pnlMostrarForm.Location = new Point(0, 49);
             pnlMostrarForm.Name = "pnlMostrarForm";
             pnlMostrarForm.Size = new Size(1200, 651);
