@@ -99,10 +99,5 @@ namespace Derick
                 this.Close(); // cierra el menú principal
             }
         }
-
-        private void btnsucursales_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario(new frmSucursales());
-        }
     }
 }

@@ -141,8 +141,7 @@ namespace Derick
             btnsucursales.Text = "Sucursales";
             btnsucursales.TextAlign = ContentAlignment.MiddleRight;
             btnsucursales.UseVisualStyleBackColor = false;
-            btnsucursales.Click += btnsucursales_Click;
-            // 
+            //
             // btncerrarsesion
             // 
             btncerrarsesion.BackColor = Color.Black;
