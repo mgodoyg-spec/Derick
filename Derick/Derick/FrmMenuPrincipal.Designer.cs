@@ -141,6 +141,7 @@ namespace Derick
             btnsucursales.Text = "Sucursales";
             btnsucursales.TextAlign = ContentAlignment.MiddleRight;
             btnsucursales.UseVisualStyleBackColor = false;
+            btnsucursales.Click += btnsucursales_Click;
             // 
             // btncerrarsesion
             // 
@@ -150,7 +151,7 @@ namespace Derick
             btncerrarsesion.FlatStyle = FlatStyle.Flat;
             btncerrarsesion.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btncerrarsesion.ForeColor = Color.White;
-            btncerrarsesion.Location = new Point(259, 320);
+            btncerrarsesion.Location = new Point(3, 6);
             btncerrarsesion.Name = "btncerrarsesion";
             btncerrarsesion.Size = new Size(123, 57);
             btncerrarsesion.TabIndex = 3;
