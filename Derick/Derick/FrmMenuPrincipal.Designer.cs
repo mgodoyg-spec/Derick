@@ -252,6 +252,7 @@ namespace Derick
             // lblFlecha
             // 
             lblFlecha.AutoSize = true;
+            lblFlecha.Cursor = Cursors.Hand;
             lblFlecha.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblFlecha.ForeColor = SystemColors.ButtonHighlight;
             lblFlecha.Location = new Point(138, 20);
@@ -263,6 +264,7 @@ namespace Derick
             // lblusuario
             // 
             lblusuario.AutoSize = true;
+            lblusuario.Cursor = Cursors.Hand;
             lblusuario.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblusuario.ForeColor = Color.White;
             lblusuario.Location = new Point(57, 14);
@@ -274,6 +276,7 @@ namespace Derick
             // 
             // pbusuario
             // 
+            pbusuario.Cursor = Cursors.Hand;
             pbusuario.Image = Properties.Resources.UsuarioNegro;
             pbusuario.Location = new Point(5, 3);
             pbusuario.Name = "pbusuario";
