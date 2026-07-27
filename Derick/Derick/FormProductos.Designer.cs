@@ -31,7 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProductos));
             pnl_product1 = new Panel();
             pnl_product_acr1 = new Panel();
-            label2 = new Label();
+            btn_acr1 = new Button();
+            lbl_actp1 = new Label();
             pnl_product_acc1 = new Panel();
             pnl_acc4 = new Panel();
             btn_acc4 = new Button();
@@ -81,7 +82,6 @@
             pnl_product2 = new Panel();
             lbl_mensajep2 = new Label();
             lbl_mensajep = new Label();
-            btn_acr1 = new Button();
             pnl_product1.SuspendLayout();
             pnl_product_acr1.SuspendLayout();
             pnl_product_acc1.SuspendLayout();
@@ -127,21 +127,32 @@
             pnl_product_acr1.BackColor = Color.White;
             pnl_product_acr1.BorderStyle = BorderStyle.FixedSingle;
             pnl_product_acr1.Controls.Add(btn_acr1);
-            pnl_product_acr1.Controls.Add(label2);
+            pnl_product_acr1.Controls.Add(lbl_actp1);
             pnl_product_acr1.Location = new Point(697, 429);
             pnl_product_acr1.Name = "pnl_product_acr1";
             pnl_product_acr1.Size = new Size(651, 397);
             pnl_product_acr1.TabIndex = 9;
             // 
-            // label2
+            // btn_acr1
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Calibri", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(24, 25);
-            label2.Name = "label2";
-            label2.Size = new Size(199, 35);
-            label2.TabIndex = 8;
-            label2.Text = "Accesos rápidos";
+            btn_acr1.Cursor = Cursors.Hand;
+            btn_acr1.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_acr1.Location = new Point(534, 25);
+            btn_acr1.Name = "btn_acr1";
+            btn_acr1.Size = new Size(98, 40);
+            btn_acr1.TabIndex = 9;
+            btn_acr1.Text = "Ver todo";
+            btn_acr1.UseVisualStyleBackColor = true;
+            // 
+            // lbl_actp1
+            // 
+            lbl_actp1.AutoSize = true;
+            lbl_actp1.Font = new Font("Calibri", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_actp1.Location = new Point(24, 25);
+            lbl_actp1.Name = "lbl_actp1";
+            lbl_actp1.Size = new Size(226, 35);
+            lbl_actp1.TabIndex = 8;
+            lbl_actp1.Text = "Actividad reciente";
             // 
             // pnl_product_acc1
             // 
@@ -676,17 +687,6 @@
             lbl_mensajep.TabIndex = 0;
             lbl_mensajep.Text = "Productos";
             // 
-            // btn_acr1
-            // 
-            btn_acr1.Cursor = Cursors.Hand;
-            btn_acr1.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btn_acr1.Location = new Point(534, 25);
-            btn_acr1.Name = "btn_acr1";
-            btn_acr1.Size = new Size(98, 40);
-            btn_acr1.TabIndex = 9;
-            btn_acr1.Text = "Ver todo";
-            btn_acr1.UseVisualStyleBackColor = true;
-            // 
             // FormProductos
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -764,7 +764,7 @@
         private Panel pnl_product_acc1;
         private Label label1;
         private Panel pnl_product_acr1;
-        private Label label2;
+        private Label lbl_actp1;
         private Panel pnl_acc1;
         private PictureBox pic_acc1;
         private Panel pnl_acc4;
