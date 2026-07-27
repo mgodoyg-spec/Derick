@@ -67,16 +67,18 @@
             pnlImagen.Controls.Add(pictureBox1);
             pnlImagen.Dock = DockStyle.Left;
             pnlImagen.Location = new Point(0, 0);
+            pnlImagen.Margin = new Padding(3, 4, 3, 4);
             pnlImagen.Name = "pnlImagen";
-            pnlImagen.Size = new Size(470, 700);
+            pnlImagen.Size = new Size(537, 933);
             pnlImagen.TabIndex = 0;
             // 
             // pbImageninicio
             // 
             pbImageninicio.Image = Properties.Resources.Captura_de_pantalla_2026_07_12_160041;
             pbImageninicio.Location = new Point(0, 0);
+            pbImageninicio.Margin = new Padding(3, 4, 3, 4);
             pbImageninicio.Name = "pbImageninicio";
-            pbImageninicio.Size = new Size(470, 700);
+            pbImageninicio.Size = new Size(537, 933);
             pbImageninicio.SizeMode = PictureBoxSizeMode.StretchImage;
             pbImageninicio.TabIndex = 1;
             pbImageninicio.TabStop = false;
@@ -85,8 +87,9 @@
             // 
             pictureBox1.Dock = DockStyle.Fill;
             pictureBox1.Location = new Point(0, 0);
+            pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(470, 700);
+            pictureBox1.Size = new Size(537, 933);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -109,10 +112,11 @@
             pnlLogin.Controls.Add(lblTitulo);
             pnlLogin.Controls.Add(pictureBox2);
             pnlLogin.Dock = DockStyle.Fill;
-            pnlLogin.Font = new Font("Montserrat", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            pnlLogin.Location = new Point(470, 0);
+            pnlLogin.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            pnlLogin.Location = new Point(537, 0);
+            pnlLogin.Margin = new Padding(3, 4, 3, 4);
             pnlLogin.Name = "pnlLogin";
-            pnlLogin.Size = new Size(730, 700);
+            pnlLogin.Size = new Size(834, 933);
             pnlLogin.TabIndex = 1;
             // 
             // lblSalir
@@ -121,9 +125,9 @@
             lblSalir.Cursor = Cursors.Hand;
             lblSalir.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSalir.ForeColor = Color.Red;
-            lblSalir.Location = new Point(693, 9);
+            lblSalir.Location = new Point(792, 12);
             lblSalir.Name = "lblSalir";
-            lblSalir.Size = new Size(25, 24);
+            lblSalir.Size = new Size(31, 29);
             lblSalir.TabIndex = 14;
             lblSalir.Text = "X";
             lblSalir.Click += lblSalir_Click;
@@ -132,19 +136,19 @@
             // 
             lblfinal.AutoSize = true;
             lblfinal.ForeColor = SystemColors.AppWorkspace;
-            lblfinal.Location = new Point(274, 559);
+            lblfinal.Location = new Point(313, 745);
             lblfinal.Name = "lblfinal";
-            lblfinal.Size = new Size(222, 48);
+            lblfinal.Size = new Size(260, 48);
             lblfinal.TabIndex = 13;
             lblfinal.Text = "      DERICK © 2026 · v1.0\r\nSistema de Gestión Interna";
             // 
             // lnlblRecContra
             // 
             lnlblRecContra.AutoSize = true;
-            lnlblRecContra.Font = new Font("Montserrat", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lnlblRecContra.Location = new Point(422, 427);
+            lnlblRecContra.Font = new Font("Microsoft Sans Serif", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lnlblRecContra.Location = new Point(482, 569);
             lnlblRecContra.Name = "lnlblRecContra";
-            lnlblRecContra.Size = new Size(167, 18);
+            lnlblRecContra.Size = new Size(204, 18);
             lnlblRecContra.TabIndex = 12;
             lnlblRecContra.TabStop = true;
             lnlblRecContra.Text = "¿Olvidaste tu contraseña?";
@@ -154,9 +158,10 @@
             btnInisesion.BackColor = Color.Black;
             btnInisesion.Cursor = Cursors.Hand;
             btnInisesion.ForeColor = SystemColors.Control;
-            btnInisesion.Location = new Point(254, 461);
+            btnInisesion.Location = new Point(290, 615);
+            btnInisesion.Margin = new Padding(3, 4, 3, 4);
             btnInisesion.Name = "btnInisesion";
-            btnInisesion.Size = new Size(261, 37);
+            btnInisesion.Size = new Size(298, 49);
             btnInisesion.TabIndex = 11;
             btnInisesion.Text = "Iniciar sesión";
             btnInisesion.UseVisualStyleBackColor = false;
@@ -166,9 +171,10 @@
             // 
             pbojo.Cursor = Cursors.Hand;
             pbojo.Image = Properties.Resources.esconder;
-            pbojo.Location = new Point(564, 400);
+            pbojo.Location = new Point(645, 533);
+            pbojo.Margin = new Padding(3, 4, 3, 4);
             pbojo.Name = "pbojo";
-            pbojo.Size = new Size(25, 24);
+            pbojo.Size = new Size(29, 32);
             pbojo.SizeMode = PictureBoxSizeMode.StretchImage;
             pbojo.TabIndex = 10;
             pbojo.TabStop = false;
@@ -176,19 +182,21 @@
             // 
             // txtcontrasena
             // 
-            txtcontrasena.Location = new Point(236, 398);
+            txtcontrasena.Location = new Point(270, 531);
+            txtcontrasena.Margin = new Padding(3, 4, 3, 4);
             txtcontrasena.MaxLength = 15;
             txtcontrasena.Name = "txtcontrasena";
-            txtcontrasena.Size = new Size(353, 26);
+            txtcontrasena.Size = new Size(403, 29);
             txtcontrasena.TabIndex = 9;
             txtcontrasena.UseSystemPasswordChar = true;
             // 
             // pictureBox4
             // 
             pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(205, 400);
+            pictureBox4.Location = new Point(234, 533);
+            pictureBox4.Margin = new Padding(3, 4, 3, 4);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(25, 24);
+            pictureBox4.Size = new Size(29, 32);
             pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox4.TabIndex = 8;
             pictureBox4.TabStop = false;
@@ -196,9 +204,9 @@
             // lblcontraseña
             // 
             lblcontraseña.AutoSize = true;
-            lblcontraseña.Location = new Point(236, 357);
+            lblcontraseña.Location = new Point(270, 476);
             lblcontraseña.Name = "lblcontraseña";
-            lblcontraseña.Size = new Size(120, 24);
+            lblcontraseña.Size = new Size(152, 24);
             lblcontraseña.TabIndex = 7;
             lblcontraseña.Text = "CONTRASEÑA";
             // 
@@ -206,9 +214,10 @@
             // 
             pbcontraseña.BackColor = Color.Transparent;
             pbcontraseña.Image = (Image)resources.GetObject("pbcontraseña.Image");
-            pbcontraseña.Location = new Point(205, 357);
+            pbcontraseña.Location = new Point(234, 476);
+            pbcontraseña.Margin = new Padding(3, 4, 3, 4);
             pbcontraseña.Name = "pbcontraseña";
-            pbcontraseña.Size = new Size(25, 24);
+            pbcontraseña.Size = new Size(29, 32);
             pbcontraseña.SizeMode = PictureBoxSizeMode.StretchImage;
             pbcontraseña.TabIndex = 6;
             pbcontraseña.TabStop = false;
@@ -216,27 +225,29 @@
             // pictureBox3
             // 
             pictureBox3.Image = Properties.Resources.icono_usuario_blanco;
-            pictureBox3.Location = new Point(191, 277);
+            pictureBox3.Location = new Point(218, 369);
+            pictureBox3.Margin = new Padding(3, 4, 3, 4);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(48, 52);
+            pictureBox3.Size = new Size(55, 69);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 5;
             pictureBox3.TabStop = false;
             // 
             // txtusuario
             // 
-            txtusuario.Location = new Point(236, 284);
+            txtusuario.Location = new Point(270, 379);
+            txtusuario.Margin = new Padding(3, 4, 3, 4);
             txtusuario.MaxLength = 15;
             txtusuario.Name = "txtusuario";
-            txtusuario.Size = new Size(353, 26);
+            txtusuario.Size = new Size(403, 29);
             txtusuario.TabIndex = 4;
             // 
             // lblusuario
             // 
             lblusuario.AutoSize = true;
-            lblusuario.Location = new Point(236, 247);
+            lblusuario.Location = new Point(270, 329);
             lblusuario.Name = "lblusuario";
-            lblusuario.Size = new Size(84, 24);
+            lblusuario.Size = new Size(100, 24);
             lblusuario.TabIndex = 3;
             lblusuario.Text = "USUARIO";
             // 
@@ -244,9 +255,10 @@
             // 
             pbusuario.BackColor = Color.Transparent;
             pbusuario.Image = Properties.Resources.usuario;
-            pbusuario.Location = new Point(205, 247);
+            pbusuario.Location = new Point(234, 329);
+            pbusuario.Margin = new Padding(3, 4, 3, 4);
             pbusuario.Name = "pbusuario";
-            pbusuario.Size = new Size(25, 24);
+            pbusuario.Size = new Size(29, 32);
             pbusuario.SizeMode = PictureBoxSizeMode.StretchImage;
             pbusuario.TabIndex = 2;
             pbusuario.TabStop = false;
@@ -254,35 +266,37 @@
             // lblTitulo
             // 
             lblTitulo.AutoSize = true;
-            lblTitulo.Font = new Font("Montserrat ExtraBold", 35.9999962F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitulo.Location = new Point(274, 155);
+            lblTitulo.Font = new Font("Microsoft Sans Serif", 35.9999962F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitulo.Location = new Point(313, 207);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(227, 75);
+            lblTitulo.Size = new Size(262, 69);
             lblTitulo.TabIndex = 1;
             lblTitulo.Text = "DERICK";
             // 
             // pictureBox2
             // 
             pictureBox2.Image = Properties.Resources.Captura_de_pantalla_2026_07_12_141335;
-            pictureBox2.Location = new Point(321, 42);
+            pictureBox2.Location = new Point(367, 56);
+            pictureBox2.Margin = new Padding(3, 4, 3, 4);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(120, 120);
+            pictureBox2.Size = new Size(137, 160);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 0;
             pictureBox2.TabStop = false;
             // 
             // frmLogin
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1200, 700);
+            ClientSize = new Size(1371, 933);
             Controls.Add(pnlLogin);
             Controls.Add(pnlImagen);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
-            MinimumSize = new Size(1200, 700);
+            MinimumSize = new Size(1371, 933);
             Name = "frmLogin";
             StartPosition = FormStartPosition.CenterScreen;
             pnlImagen.ResumeLayout(false);
