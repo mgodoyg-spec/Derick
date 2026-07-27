@@ -20,6 +20,13 @@ namespace Derick
                 frmMenu.Show();
                 this.Hide();
             }
+            else if (usuario == "Emple" && contrasena == "1234")
+            {
+                FrmMenuEmpleados frmMenu = new FrmMenuEmpleados();
+                frmMenu.usuarioActual = usuario;
+                frmMenu.Show();
+                this.Hide();
+            }
             else
             {
                 MessageBox.Show("Usuario o contraseña incorrectos.", "Error de acceso", MessageBoxButtons.OK, MessageBoxIcon.Warning);

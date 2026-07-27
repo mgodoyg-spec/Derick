@@ -8,11 +8,16 @@ using System.Windows.Forms;
 
 namespace Derick
 {
-    public partial class InicioGerente : Form
+    public partial class FrmEmpleados : Form
     {
-        public InicioGerente()
+        public FrmEmpleados()
         {
             InitializeComponent();
+        }
+
+        private void lblNuevaVenta_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

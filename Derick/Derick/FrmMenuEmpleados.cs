@@ -8,29 +8,15 @@ using System.Windows.Forms;
 
 namespace Derick
 {
-    public partial class FrmMenuPrincipal : Form
+    public partial class FrmMenuEmpleados : Form
     {
         public string usuarioActual;
         private Form? formularioActivo;
-        public FrmMenuPrincipal()
+        public FrmMenuEmpleados()
         {
             InitializeComponent();
             pnlMostrar.PerformLayout();
             this.AutoScaleMode = AutoScaleMode.None;
-        }
-        private void FrmMenuPrincipal_Load(object sender, EventArgs e)
-        {
-            //label de la parte superior
-            lblusuario.Text = usuarioActual;
-            this.PerformLayout();
-            this.Refresh();
-            AbrirFormulario(new InicioGerente());
-        }
-        
-        private void btninicio_Click(object sender, EventArgs e)
-        {
-            MarcarBotonActivo(btninicio);
-            AbrirFormulario(new InicioGerente());
         }
 
         private void lblSalir_Click(object sender, EventArgs e)
@@ -47,6 +33,14 @@ namespace Derick
             }
         }
 
+        private void FrmMenuEmpleados_Load(object sender, EventArgs e)
+        {
+            //label de la parte superior
+            lblusuario.Text = usuarioActual;
+            this.PerformLayout();
+            this.Refresh();
+            AbrirFormulario(new FrmInicioE());
+        }
         private void AbrirFormulario(Form formularioHijo)
         {
             // 1. Si ya hay un formulario abierto en el panel, lo cerramos
@@ -68,6 +62,7 @@ namespace Derick
             formularioHijo.BringToFront();
             formularioHijo.Show();
         }
+
         private void pnlPerfil_Click(object sender, EventArgs e)
         {
             lblFlecha.Text = "▲";
@@ -82,11 +77,11 @@ namespace Derick
         private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult confirmar = MessageBox.Show(
-           "¿Estás seguro que deseas cerrar sesión?",
-           "Cerrar sesión",
-           MessageBoxButtons.YesNo,
-           MessageBoxIcon.Question
-           );
+            "¿Estás seguro que deseas cerrar sesión?",
+            "Cerrar sesión",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Question
+            );
 
             if (confirmar == DialogResult.Yes)
             {
@@ -102,27 +97,14 @@ namespace Derick
             pnlIndicador.Left = botonSeleccionado.Left;
             pnlIndicador.Top = botonSeleccionado.Bottom - pnlIndicador.Height;
 
-            // traer la barrita al frente para que no quede oculta
+            // Opcional: Si quieres traer la barrita al frente para que no quede oculta
             pnlIndicador.BringToFront();
         }
 
-        private void btnproductos_Click(object sender, EventArgs e)
+        private void btninicio_Click(object sender, EventArgs e)
         {
-            MarcarBotonActivo(btnproductos);
-            AbrirFormulario(new FormProductos());
-
-        }
-
-        private void btnempleados_Click(object sender, EventArgs e)
-        {
-            MarcarBotonActivo(btnempleados);
-            AbrirFormulario(new FrmEmpleados());
-        }
-
-        private void btnventas_Click(object sender, EventArgs e)
-        {
-            MarcarBotonActivo(btnventas);
-            AbrirFormulario(new frmVentas());
+            MarcarBotonActivo(btninicio);
+            AbrirFormulario(new FrmInicioE());
         }
     }
 }

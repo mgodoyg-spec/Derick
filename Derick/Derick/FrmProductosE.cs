@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace Derick
 {
-    public partial class InicioGerente : Form
+    public partial class FrmProductosE : Form
     {
-        public InicioGerente()
+        public FrmProductosE()
         {
             InitializeComponent();
         }
