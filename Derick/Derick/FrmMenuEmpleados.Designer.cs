@@ -1,6 +1,6 @@
 ﻿namespace Derick
 {
-    partial class ProductosGerente
+    partial class FrmMenuEmpleados
     {
         /// <summary>
         /// Required designer variable.
@@ -28,23 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductosGerente));
-            SuspendLayout();
-            // 
-            // ProductosGerente
-            // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(930, 660);
-            FormBorderStyle = FormBorderStyle.None;
-            Icon = (Icon)resources.GetObject("$this.Icon");
-            MaximumSize = new Size(930, 660);
-            MinimumSize = new Size(930, 660);
-            Name = "ProductosGerente";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "ProductosGerente";
-            ResumeLayout(false);
+            this.components = new System.ComponentModel.Container();
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Text = "FrmMenuEmpleados";
         }
 
         #endregion
