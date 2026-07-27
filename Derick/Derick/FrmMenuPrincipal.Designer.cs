@@ -128,6 +128,7 @@ namespace Derick
             btnempleados.Text = "Empleados\r\n";
             btnempleados.TextAlign = ContentAlignment.MiddleRight;
             btnempleados.UseVisualStyleBackColor = false;
+            btnempleados.Click += btnempleados_Click;
             // 
             // btnsucursales
             // 
@@ -251,6 +252,7 @@ namespace Derick
             // lblFlecha
             // 
             lblFlecha.AutoSize = true;
+            lblFlecha.Cursor = Cursors.Hand;
             lblFlecha.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblFlecha.ForeColor = SystemColors.ButtonHighlight;
             lblFlecha.Location = new Point(138, 20);
@@ -262,6 +264,7 @@ namespace Derick
             // lblusuario
             // 
             lblusuario.AutoSize = true;
+            lblusuario.Cursor = Cursors.Hand;
             lblusuario.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblusuario.ForeColor = Color.White;
             lblusuario.Location = new Point(57, 14);
@@ -273,6 +276,7 @@ namespace Derick
             // 
             // pbusuario
             // 
+            pbusuario.Cursor = Cursors.Hand;
             pbusuario.Image = Properties.Resources.UsuarioNegro;
             pbusuario.Location = new Point(5, 3);
             pbusuario.Name = "pbusuario";
@@ -300,21 +304,21 @@ namespace Derick
             cmsMenuPerfil.ImageScalingSize = new Size(20, 20);
             cmsMenuPerfil.Items.AddRange(new ToolStripItem[] { miPerfilToolStripMenuItem, cerrarSesiónToolStripMenuItem });
             cmsMenuPerfil.Name = "contextMenuStrip1";
-            cmsMenuPerfil.Size = new Size(170, 56);
+            cmsMenuPerfil.Size = new Size(148, 56);
             cmsMenuPerfil.Closed += cmsMenuPerfil_Closed;
             // 
             // miPerfilToolStripMenuItem
             // 
             miPerfilToolStripMenuItem.Image = Properties.Resources.person_icon_31846;
             miPerfilToolStripMenuItem.Name = "miPerfilToolStripMenuItem";
-            miPerfilToolStripMenuItem.Size = new Size(169, 26);
+            miPerfilToolStripMenuItem.Size = new Size(147, 26);
             miPerfilToolStripMenuItem.Text = "Mi Perfil";
             // 
             // cerrarSesiónToolStripMenuItem
             // 
             cerrarSesiónToolStripMenuItem.Image = Properties.Resources.CerrarSesionn;
             cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
-            cerrarSesiónToolStripMenuItem.Size = new Size(169, 26);
+            cerrarSesiónToolStripMenuItem.Size = new Size(147, 26);
             cerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión";
             cerrarSesiónToolStripMenuItem.Click += cerrarSesiónToolStripMenuItem_Click;
             // 
@@ -331,7 +335,6 @@ namespace Derick
             // 
             // pnlMostrarForm
             // 
-            pnlMostrarForm.Dock = DockStyle.Fill;
             pnlMostrarForm.Location = new Point(0, 49);
             pnlMostrarForm.Name = "pnlMostrarForm";
             pnlMostrarForm.Size = new Size(1200, 651);
