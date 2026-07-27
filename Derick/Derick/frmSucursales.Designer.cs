@@ -127,7 +127,7 @@
             // pnlTituloSucursales
             // 
             pnlTituloSucursales.BackColor = Color.Black;
-            pnlTituloSucursales.BackgroundImage = Properties.Resources.bannerSucursales;
+            pnlTituloSucursales.BackgroundImage = Properties.Resources.bannerSucursales1;
             pnlTituloSucursales.BackgroundImageLayout = ImageLayout.Stretch;
             pnlTituloSucursales.Controls.Add(lblDescripcion);
             pnlTituloSucursales.Controls.Add(lblTituloSucursales);
@@ -466,7 +466,7 @@
             // 
             // pbxReportes
             // 
-            pbxReportes.BackgroundImage = Properties.Resources.btnReportes;
+            pbxReportes.BackgroundImage = Properties.Resources.btnReportes1;
             pbxReportes.BackgroundImageLayout = ImageLayout.Zoom;
             pbxReportes.Location = new Point(21, 16);
             pbxReportes.Name = "pbxReportes";
@@ -507,7 +507,7 @@
             // 
             // pbxUbi
             // 
-            pbxUbi.BackgroundImage = Properties.Resources.btnUbi;
+            pbxUbi.BackgroundImage = Properties.Resources.btnUbi1;
             pbxUbi.BackgroundImageLayout = ImageLayout.Zoom;
             pbxUbi.Location = new Point(19, 16);
             pbxUbi.Name = "pbxUbi";
@@ -548,7 +548,7 @@
             // 
             // pbxBuscar
             // 
-            pbxBuscar.BackgroundImage = Properties.Resources.btnBuscar;
+            pbxBuscar.BackgroundImage = Properties.Resources.btnBuscar1;
             pbxBuscar.BackgroundImageLayout = ImageLayout.Zoom;
             pbxBuscar.Location = new Point(19, 16);
             pbxBuscar.Name = "pbxBuscar";
@@ -589,7 +589,7 @@
             // 
             // pbxIconoSuc
             // 
-            pbxIconoSuc.BackgroundImage = Properties.Resources.btnSuc;
+            pbxIconoSuc.BackgroundImage = Properties.Resources.btnSuc1;
             pbxIconoSuc.BackgroundImageLayout = ImageLayout.Zoom;
             pbxIconoSuc.Location = new Point(20, 16);
             pbxIconoSuc.Name = "pbxIconoSuc";
