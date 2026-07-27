@@ -15,9 +15,5 @@ namespace Derick
             InitializeComponent();
         }
 
-        private void lblNuevaVenta_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

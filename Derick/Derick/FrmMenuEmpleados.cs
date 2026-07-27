@@ -106,5 +106,17 @@ namespace Derick
             MarcarBotonActivo(btninicio);
             AbrirFormulario(new FrmInicioE());
         }
+
+        private void btnproductos_Click(object sender, EventArgs e)
+        {
+            MarcarBotonActivo(btnproductos);
+            AbrirFormulario(new FrmProductosE());
+        }
+
+        private void btnventas_Click(object sender, EventArgs e)
+        {
+            MarcarBotonActivo(btnventas);
+            AbrirFormulario(new FrmVentasE());
+        }
     }
 }

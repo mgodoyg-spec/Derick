@@ -26,12 +26,6 @@ namespace Derick
             this.Refresh();
             AbrirFormulario(new InicioGerente());
         }
-        
-        private void btninicio_Click(object sender, EventArgs e)
-        {
-            MarcarBotonActivo(btninicio);
-            AbrirFormulario(new InicioGerente());
-        }
 
         private void lblSalir_Click(object sender, EventArgs e)
         {
@@ -105,6 +99,11 @@ namespace Derick
             // traer la barrita al frente para que no quede oculta
             pnlIndicador.BringToFront();
         }
+        private void btninicio_Click(object sender, EventArgs e)
+        {
+            MarcarBotonActivo(btninicio);
+            AbrirFormulario(new InicioGerente());
+        }
 
         private void btnproductos_Click(object sender, EventArgs e)
         {
@@ -123,6 +122,12 @@ namespace Derick
         {
             MarcarBotonActivo(btnventas);
             AbrirFormulario(new frmVentas());
+        }
+
+        private void btnsucursales_Click(object sender, EventArgs e)
+        {
+            MarcarBotonActivo(btnsucursales);
+            AbrirFormulario(new frmSucursales());
         }
     }
 }

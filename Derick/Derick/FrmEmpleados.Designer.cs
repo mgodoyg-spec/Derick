@@ -85,7 +85,6 @@
             lblTotalEmpleados = new Label();
             picTotalEmpleados = new PictureBox();
             pnlBienvenidaEmpleado = new Panel();
-            lblModulo = new Label();
             lblDescripcion = new Label();
             lblEmpleados = new Label();
             dataGridViewEmpleados = new DataGridView();
@@ -129,19 +128,17 @@
             pnlMostrarEmpleadosForm.BackColor = Color.FromArgb(244, 246, 249);
             pnlMostrarEmpleadosForm.Controls.Add(lblListado);
             pnlMostrarEmpleadosForm.Controls.Add(pnlActividadReciente);
+            pnlMostrarEmpleadosForm.Controls.Add(dataGridViewEmpleados);
             pnlMostrarEmpleadosForm.Controls.Add(pnlAccesosRapido);
             pnlMostrarEmpleadosForm.Controls.Add(pnlNuevosMes);
             pnlMostrarEmpleadosForm.Controls.Add(pnlEmpleadosActivos);
             pnlMostrarEmpleadosForm.Controls.Add(pnlDepartamentos);
             pnlMostrarEmpleadosForm.Controls.Add(pnlTotalEmpleados);
             pnlMostrarEmpleadosForm.Controls.Add(pnlBienvenidaEmpleado);
-            pnlMostrarEmpleadosForm.Controls.Add(dataGridViewEmpleados);
-            pnlMostrarEmpleadosForm.Dock = DockStyle.Fill;
             pnlMostrarEmpleadosForm.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             pnlMostrarEmpleadosForm.Location = new Point(0, 0);
-            pnlMostrarEmpleadosForm.Margin = new Padding(3, 4, 3, 4);
             pnlMostrarEmpleadosForm.Name = "pnlMostrarEmpleadosForm";
-            pnlMostrarEmpleadosForm.Size = new Size(1353, 808);
+            pnlMostrarEmpleadosForm.Size = new Size(1200, 651);
             pnlMostrarEmpleadosForm.TabIndex = 4;
             // 
             // lblListado
@@ -149,9 +146,9 @@
             lblListado.AutoSize = true;
             lblListado.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblListado.ForeColor = Color.Black;
-            lblListado.Location = new Point(0, 579);
+            lblListado.Location = new Point(20, 547);
             lblListado.Name = "lblListado";
-            lblListado.Size = new Size(259, 33);
+            lblListado.Size = new Size(200, 26);
             lblListado.TabIndex = 13;
             lblListado.Text = "Listado de empleados";
             // 
@@ -160,20 +157,18 @@
             pnlActividadReciente.BackColor = Color.White;
             pnlActividadReciente.Controls.Add(btnVerTodo);
             pnlActividadReciente.Controls.Add(lblActividadRe);
-            pnlActividadReciente.Location = new Point(671, 325);
-            pnlActividadReciente.Margin = new Padding(3, 4, 3, 4);
+            pnlActividadReciente.Location = new Point(610, 288);
             pnlActividadReciente.Name = "pnlActividadReciente";
-            pnlActividadReciente.Size = new Size(651, 243);
+            pnlActividadReciente.Size = new Size(570, 250);
             pnlActividadReciente.TabIndex = 6;
             // 
             // btnVerTodo
             // 
             btnVerTodo.Cursor = Cursors.Hand;
             btnVerTodo.Font = new Font("Calibri", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnVerTodo.Location = new Point(533, 23);
-            btnVerTodo.Margin = new Padding(3, 4, 3, 4);
+            btnVerTodo.Location = new Point(466, 17);
             btnVerTodo.Name = "btnVerTodo";
-            btnVerTodo.Size = new Size(98, 40);
+            btnVerTodo.Size = new Size(86, 30);
             btnVerTodo.TabIndex = 14;
             btnVerTodo.Text = "Ver todo";
             btnVerTodo.UseVisualStyleBackColor = true;
@@ -183,9 +178,9 @@
             lblActividadRe.AutoSize = true;
             lblActividadRe.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblActividadRe.ForeColor = Color.Black;
-            lblActividadRe.Location = new Point(19, 25);
+            lblActividadRe.Location = new Point(17, 19);
             lblActividadRe.Name = "lblActividadRe";
-            lblActividadRe.Size = new Size(223, 33);
+            lblActividadRe.Size = new Size(175, 26);
             lblActividadRe.TabIndex = 13;
             lblActividadRe.Text = "Actividad Reciente";
             // 
@@ -197,10 +192,9 @@
             pnlAccesosRapido.Controls.Add(pnldepa);
             pnlAccesosRapido.Controls.Add(pnlNuevoEmpleado);
             pnlAccesosRapido.Controls.Add(pnlReportes);
-            pnlAccesosRapido.Location = new Point(9, 325);
-            pnlAccesosRapido.Margin = new Padding(3, 4, 3, 4);
+            pnlAccesosRapido.Location = new Point(20, 288);
             pnlAccesosRapido.Name = "pnlAccesosRapido";
-            pnlAccesosRapido.Size = new Size(651, 249);
+            pnlAccesosRapido.Size = new Size(570, 250);
             pnlAccesosRapido.TabIndex = 3;
             // 
             // lblAceesosRapido
@@ -208,9 +202,9 @@
             lblAceesosRapido.AutoSize = true;
             lblAceesosRapido.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblAceesosRapido.ForeColor = Color.Black;
-            lblAceesosRapido.Location = new Point(3, 1);
+            lblAceesosRapido.Location = new Point(21, 8);
             lblAceesosRapido.Name = "lblAceesosRapido";
-            lblAceesosRapido.Size = new Size(193, 33);
+            lblAceesosRapido.Size = new Size(149, 26);
             lblAceesosRapido.TabIndex = 12;
             lblAceesosRapido.Text = "Accesos rápidos";
             // 
@@ -221,10 +215,9 @@
             pnlBuscarEmpleado.Controls.Add(lbldescriBuscar);
             pnlBuscarEmpleado.Controls.Add(lblBuscarEmpleado);
             pnlBuscarEmpleado.Controls.Add(picBuscarEmpleado);
-            pnlBuscarEmpleado.Location = new Point(155, 37);
-            pnlBuscarEmpleado.Margin = new Padding(3, 4, 3, 4);
+            pnlBuscarEmpleado.Location = new Point(153, 35);
             pnlBuscarEmpleado.Name = "pnlBuscarEmpleado";
-            pnlBuscarEmpleado.Size = new Size(143, 204);
+            pnlBuscarEmpleado.Size = new Size(125, 198);
             pnlBuscarEmpleado.TabIndex = 5;
             // 
             // btnBuscarEmpleado
@@ -233,10 +226,9 @@
             btnBuscarEmpleado.Cursor = Cursors.Hand;
             btnBuscarEmpleado.Font = new Font("Calibri", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnBuscarEmpleado.ForeColor = Color.White;
-            btnBuscarEmpleado.Location = new Point(0, 160);
-            btnBuscarEmpleado.Margin = new Padding(3, 4, 3, 4);
+            btnBuscarEmpleado.Location = new Point(0, 166);
             btnBuscarEmpleado.Name = "btnBuscarEmpleado";
-            btnBuscarEmpleado.Size = new Size(143, 40);
+            btnBuscarEmpleado.Size = new Size(125, 30);
             btnBuscarEmpleado.TabIndex = 0;
             btnBuscarEmpleado.Text = "Ir ahora ->";
             btnBuscarEmpleado.UseVisualStyleBackColor = false;
@@ -244,29 +236,28 @@
             // lbldescriBuscar
             // 
             lbldescriBuscar.Font = new Font("Calibri", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbldescriBuscar.Location = new Point(6, 84);
+            lbldescriBuscar.Location = new Point(11, 94);
             lbldescriBuscar.Name = "lbldescriBuscar";
-            lbldescriBuscar.Size = new Size(137, 77);
+            lbldescriBuscar.Size = new Size(112, 58);
             lbldescriBuscar.TabIndex = 0;
-            lbldescriBuscar.Text = "Consultar información de un empleado";
+            lbldescriBuscar.Text = "     Consultar\r\n   información \r\nde un empleado";
             // 
             // lblBuscarEmpleado
             // 
             lblBuscarEmpleado.AutoSize = true;
             lblBuscarEmpleado.Font = new Font("Calibri", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblBuscarEmpleado.Location = new Point(3, 61);
+            lblBuscarEmpleado.Location = new Point(8, 68);
             lblBuscarEmpleado.Name = "lblBuscarEmpleado";
-            lblBuscarEmpleado.Size = new Size(146, 23);
+            lblBuscarEmpleado.Size = new Size(114, 18);
             lblBuscarEmpleado.TabIndex = 12;
             lblBuscarEmpleado.Text = "Buscar empleado";
             // 
             // picBuscarEmpleado
             // 
             picBuscarEmpleado.Image = (Image)resources.GetObject("picBuscarEmpleado.Image");
-            picBuscarEmpleado.Location = new Point(39, 1);
-            picBuscarEmpleado.Margin = new Padding(3, 4, 3, 4);
+            picBuscarEmpleado.Location = new Point(35, 7);
             picBuscarEmpleado.Name = "picBuscarEmpleado";
-            picBuscarEmpleado.Size = new Size(70, 56);
+            picBuscarEmpleado.Size = new Size(63, 62);
             picBuscarEmpleado.SizeMode = PictureBoxSizeMode.StretchImage;
             picBuscarEmpleado.TabIndex = 1;
             picBuscarEmpleado.TabStop = false;
@@ -278,10 +269,9 @@
             pnldepa.Controls.Add(lbldescriDepa);
             pnldepa.Controls.Add(lblVerDepartamentos);
             pnldepa.Controls.Add(picDepartamentos);
-            pnldepa.Location = new Point(325, 37);
-            pnldepa.Margin = new Padding(3, 4, 3, 4);
+            pnldepa.Location = new Point(284, 35);
             pnldepa.Name = "pnldepa";
-            pnldepa.Size = new Size(143, 200);
+            pnldepa.Size = new Size(125, 198);
             pnldepa.TabIndex = 4;
             // 
             // btndepa
@@ -290,10 +280,9 @@
             btndepa.Cursor = Cursors.Hand;
             btndepa.Font = new Font("Calibri", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btndepa.ForeColor = Color.White;
-            btndepa.Location = new Point(0, 156);
-            btndepa.Margin = new Padding(3, 4, 3, 4);
+            btndepa.Location = new Point(0, 165);
             btndepa.Name = "btndepa";
-            btndepa.Size = new Size(143, 40);
+            btndepa.Size = new Size(125, 30);
             btndepa.TabIndex = 0;
             btndepa.Text = "Ir ahora ->";
             btndepa.UseVisualStyleBackColor = false;
@@ -301,9 +290,9 @@
             // lbldescriDepa
             // 
             lbldescriDepa.Font = new Font("Calibri", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbldescriDepa.Location = new Point(10, 91);
+            lbldescriDepa.Location = new Point(13, 94);
             lbldescriDepa.Name = "lbldescriDepa";
-            lbldescriDepa.Size = new Size(130, 61);
+            lbldescriDepa.Size = new Size(104, 46);
             lbldescriDepa.TabIndex = 0;
             lbldescriDepa.Text = " Gestionar los departamentos";
             // 
@@ -311,19 +300,18 @@
             // 
             lblVerDepartamentos.AutoSize = true;
             lblVerDepartamentos.Font = new Font("Calibri", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblVerDepartamentos.Location = new Point(9, 60);
+            lblVerDepartamentos.Location = new Point(13, 69);
             lblVerDepartamentos.Name = "lblVerDepartamentos";
-            lblVerDepartamentos.Size = new Size(134, 23);
+            lblVerDepartamentos.Size = new Size(104, 18);
             lblVerDepartamentos.TabIndex = 12;
             lblVerDepartamentos.Text = "Departamentos";
             // 
             // picDepartamentos
             // 
             picDepartamentos.Image = (Image)resources.GetObject("picDepartamentos.Image");
-            picDepartamentos.Location = new Point(38, 0);
-            picDepartamentos.Margin = new Padding(3, 4, 3, 4);
+            picDepartamentos.Location = new Point(35, 7);
             picDepartamentos.Name = "picDepartamentos";
-            picDepartamentos.Size = new Size(70, 57);
+            picDepartamentos.Size = new Size(63, 64);
             picDepartamentos.SizeMode = PictureBoxSizeMode.StretchImage;
             picDepartamentos.TabIndex = 1;
             picDepartamentos.TabStop = false;
@@ -335,10 +323,9 @@
             pnlNuevoEmpleado.Controls.Add(lblDescriNuevo);
             pnlNuevoEmpleado.Controls.Add(lblNuevoEmpleado);
             pnlNuevoEmpleado.Controls.Add(picNuevoEmpleado);
-            pnlNuevoEmpleado.Location = new Point(3, 39);
-            pnlNuevoEmpleado.Margin = new Padding(3, 4, 3, 4);
+            pnlNuevoEmpleado.Location = new Point(21, 35);
             pnlNuevoEmpleado.Name = "pnlNuevoEmpleado";
-            pnlNuevoEmpleado.Size = new Size(147, 203);
+            pnlNuevoEmpleado.Size = new Size(125, 198);
             pnlNuevoEmpleado.TabIndex = 1;
             // 
             // btnNuevoEmpleado
@@ -347,10 +334,9 @@
             btnNuevoEmpleado.Cursor = Cursors.Hand;
             btnNuevoEmpleado.Font = new Font("Calibri", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnNuevoEmpleado.ForeColor = Color.White;
-            btnNuevoEmpleado.Location = new Point(3, 159);
-            btnNuevoEmpleado.Margin = new Padding(3, 4, 3, 4);
+            btnNuevoEmpleado.Location = new Point(0, 165);
             btnNuevoEmpleado.Name = "btnNuevoEmpleado";
-            btnNuevoEmpleado.Size = new Size(143, 40);
+            btnNuevoEmpleado.Size = new Size(125, 30);
             btnNuevoEmpleado.TabIndex = 0;
             btnNuevoEmpleado.Text = "Ir ahora ->";
             btnNuevoEmpleado.UseVisualStyleBackColor = false;
@@ -358,29 +344,28 @@
             // lblDescriNuevo
             // 
             lblDescriNuevo.Font = new Font("Calibri", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblDescriNuevo.Location = new Point(7, 91);
+            lblDescriNuevo.Location = new Point(5, 93);
             lblDescriNuevo.Name = "lblDescriNuevo";
-            lblDescriNuevo.Size = new Size(139, 75);
+            lblDescriNuevo.Size = new Size(117, 56);
             lblDescriNuevo.TabIndex = 0;
-            lblDescriNuevo.Text = "Registrar un nuevo empleado en el sistema";
+            lblDescriNuevo.Text = "   Registrar un \r\nnuevo empleado\r\n  en el sistema";
             // 
             // lblNuevoEmpleado
             // 
             lblNuevoEmpleado.AutoSize = true;
             lblNuevoEmpleado.Font = new Font("Calibri", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblNuevoEmpleado.Location = new Point(2, 59);
+            lblNuevoEmpleado.Location = new Point(7, 68);
             lblNuevoEmpleado.Name = "lblNuevoEmpleado";
-            lblNuevoEmpleado.Size = new Size(145, 23);
+            lblNuevoEmpleado.Size = new Size(115, 18);
             lblNuevoEmpleado.TabIndex = 12;
             lblNuevoEmpleado.Text = "Nuevo empleado";
             // 
             // picNuevoEmpleado
             // 
             picNuevoEmpleado.Image = (Image)resources.GetObject("picNuevoEmpleado.Image");
-            picNuevoEmpleado.Location = new Point(35, 4);
-            picNuevoEmpleado.Margin = new Padding(3, 4, 3, 4);
+            picNuevoEmpleado.Location = new Point(30, 6);
             picNuevoEmpleado.Name = "picNuevoEmpleado";
-            picNuevoEmpleado.Size = new Size(64, 52);
+            picNuevoEmpleado.Size = new Size(60, 59);
             picNuevoEmpleado.SizeMode = PictureBoxSizeMode.StretchImage;
             picNuevoEmpleado.TabIndex = 1;
             picNuevoEmpleado.TabStop = false;
@@ -392,10 +377,9 @@
             pnlReportes.Controls.Add(lblDescriReportes);
             pnlReportes.Controls.Add(lblReportes);
             pnlReportes.Controls.Add(picReportes);
-            pnlReportes.Location = new Point(481, 39);
-            pnlReportes.Margin = new Padding(3, 4, 3, 4);
+            pnlReportes.Location = new Point(414, 35);
             pnlReportes.Name = "pnlReportes";
-            pnlReportes.Size = new Size(143, 203);
+            pnlReportes.Size = new Size(125, 198);
             pnlReportes.TabIndex = 0;
             // 
             // btnReportes
@@ -404,10 +388,9 @@
             btnReportes.Cursor = Cursors.Hand;
             btnReportes.Font = new Font("Calibri", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnReportes.ForeColor = Color.White;
-            btnReportes.Location = new Point(0, 159);
-            btnReportes.Margin = new Padding(3, 4, 3, 4);
+            btnReportes.Location = new Point(0, 165);
             btnReportes.Name = "btnReportes";
-            btnReportes.Size = new Size(143, 40);
+            btnReportes.Size = new Size(125, 30);
             btnReportes.TabIndex = 0;
             btnReportes.Text = "Ir ahora ->";
             btnReportes.UseVisualStyleBackColor = false;
@@ -415,29 +398,28 @@
             // lblDescriReportes
             // 
             lblDescriReportes.Font = new Font("Calibri", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblDescriReportes.Location = new Point(11, 91);
+            lblDescriReportes.Location = new Point(14, 93);
             lblDescriReportes.Name = "lblDescriReportes";
-            lblDescriReportes.Size = new Size(131, 59);
+            lblDescriReportes.Size = new Size(108, 44);
             lblDescriReportes.TabIndex = 0;
-            lblDescriReportes.Text = "Ver reportes de empleados";
+            lblDescriReportes.Text = " Ver reportes\r\nde empleados";
             // 
             // lblReportes
             // 
             lblReportes.AutoSize = true;
             lblReportes.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblReportes.Location = new Point(27, 59);
+            lblReportes.Location = new Point(26, 66);
             lblReportes.Name = "lblReportes";
-            lblReportes.Size = new Size(85, 24);
+            lblReportes.Size = new Size(70, 19);
             lblReportes.TabIndex = 12;
             lblReportes.Text = "Reportes";
             // 
             // picReportes
             // 
             picReportes.Image = (Image)resources.GetObject("picReportes.Image");
-            picReportes.Location = new Point(38, -1);
-            picReportes.Margin = new Padding(3, 4, 3, 4);
+            picReportes.Location = new Point(26, 6);
             picReportes.Name = "picReportes";
-            picReportes.Size = new Size(65, 57);
+            picReportes.Size = new Size(70, 57);
             picReportes.SizeMode = PictureBoxSizeMode.StretchImage;
             picReportes.TabIndex = 1;
             picReportes.TabStop = false;
@@ -447,10 +429,9 @@
             pnlNuevosMes.BackColor = Color.White;
             pnlNuevosMes.Controls.Add(pnlNuevos);
             pnlNuevosMes.Controls.Add(pnlBordeVentas);
-            pnlNuevosMes.Location = new Point(1003, 171);
-            pnlNuevosMes.Margin = new Padding(3, 4, 3, 4);
+            pnlNuevosMes.Location = new Point(902, 158);
             pnlNuevosMes.Name = "pnlNuevosMes";
-            pnlNuevosMes.Size = new Size(318, 147);
+            pnlNuevosMes.Size = new Size(278, 110);
             pnlNuevosMes.TabIndex = 5;
             // 
             // pnlNuevos
@@ -460,19 +441,18 @@
             pnlNuevos.Controls.Add(numNuevos);
             pnlNuevos.Controls.Add(lblNuevosMes);
             pnlNuevos.Controls.Add(picNuevosMes);
-            pnlNuevos.Location = new Point(22, 0);
-            pnlNuevos.Margin = new Padding(3, 4, 3, 4);
+            pnlNuevos.Location = new Point(19, 0);
             pnlNuevos.Name = "pnlNuevos";
-            pnlNuevos.Size = new Size(275, 137);
+            pnlNuevos.Size = new Size(241, 103);
             pnlNuevos.TabIndex = 9;
             // 
             // lblContrataciones
             // 
             lblContrataciones.AutoSize = true;
             lblContrataciones.ForeColor = Color.FromArgb(255, 136, 0);
-            lblContrataciones.Location = new Point(0, 113);
+            lblContrataciones.Location = new Point(0, 85);
             lblContrataciones.Name = "lblContrataciones";
-            lblContrataciones.Size = new Size(241, 24);
+            lblContrataciones.Size = new Size(197, 18);
             lblContrataciones.TabIndex = 11;
             lblContrataciones.Text = "Contrataciones recientes";
             // 
@@ -480,28 +460,27 @@
             // 
             numNuevos.AutoSize = true;
             numNuevos.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            numNuevos.Location = new Point(79, 65);
+            numNuevos.Location = new Point(69, 49);
             numNuevos.Name = "numNuevos";
-            numNuevos.Size = new Size(30, 31);
+            numNuevos.Size = new Size(25, 25);
             numNuevos.TabIndex = 10;
             numNuevos.Text = "0";
             // 
             // lblNuevosMes
             // 
             lblNuevosMes.AutoSize = true;
-            lblNuevosMes.Location = new Point(79, 31);
+            lblNuevosMes.Location = new Point(69, 23);
             lblNuevosMes.Name = "lblNuevosMes";
-            lblNuevosMes.Size = new Size(171, 24);
+            lblNuevosMes.Size = new Size(139, 18);
             lblNuevosMes.TabIndex = 9;
             lblNuevosMes.Text = "Nuevos este mes";
             // 
             // picNuevosMes
             // 
             picNuevosMes.Image = (Image)resources.GetObject("picNuevosMes.Image");
-            picNuevosMes.Location = new Point(3, 31);
-            picNuevosMes.Margin = new Padding(3, 4, 3, 4);
+            picNuevosMes.Location = new Point(3, 23);
             picNuevosMes.Name = "picNuevosMes";
-            picNuevosMes.Size = new Size(69, 79);
+            picNuevosMes.Size = new Size(60, 59);
             picNuevosMes.SizeMode = PictureBoxSizeMode.StretchImage;
             picNuevosMes.TabIndex = 0;
             picNuevosMes.TabStop = false;
@@ -510,9 +489,8 @@
             // 
             pnlBordeVentas.BackColor = Color.FromArgb(255, 136, 0);
             pnlBordeVentas.Location = new Point(0, 0);
-            pnlBordeVentas.Margin = new Padding(3, 4, 3, 4);
             pnlBordeVentas.Name = "pnlBordeVentas";
-            pnlBordeVentas.Size = new Size(5, 165);
+            pnlBordeVentas.Size = new Size(4, 124);
             pnlBordeVentas.TabIndex = 8;
             // 
             // pnlEmpleadosActivos
@@ -520,10 +498,9 @@
             pnlEmpleadosActivos.BackColor = Color.White;
             pnlEmpleadosActivos.Controls.Add(pnlActi);
             pnlEmpleadosActivos.Controls.Add(pnlBordeSucur);
-            pnlEmpleadosActivos.Location = new Point(342, 171);
-            pnlEmpleadosActivos.Margin = new Padding(3, 4, 3, 4);
+            pnlEmpleadosActivos.Location = new Point(312, 158);
             pnlEmpleadosActivos.Name = "pnlEmpleadosActivos";
-            pnlEmpleadosActivos.Size = new Size(318, 147);
+            pnlEmpleadosActivos.Size = new Size(278, 110);
             pnlEmpleadosActivos.TabIndex = 3;
             // 
             // pnlActi
@@ -533,19 +510,18 @@
             pnlActi.Controls.Add(numEmpleadosActivos);
             pnlActi.Controls.Add(lblEmpleadosActivos);
             pnlActi.Controls.Add(picEmpleadosActivos);
-            pnlActi.Location = new Point(21, 0);
-            pnlActi.Margin = new Padding(3, 4, 3, 4);
+            pnlActi.Location = new Point(18, 0);
             pnlActi.Name = "pnlActi";
-            pnlActi.Size = new Size(277, 137);
+            pnlActi.Size = new Size(242, 103);
             pnlActi.TabIndex = 9;
             // 
             // lblEmpleActivos
             // 
             lblEmpleActivos.AutoSize = true;
             lblEmpleActivos.ForeColor = Color.FromArgb(0, 176, 80);
-            lblEmpleActivos.Location = new Point(0, 113);
+            lblEmpleActivos.Location = new Point(0, 85);
             lblEmpleActivos.Name = "lblEmpleActivos";
-            lblEmpleActivos.Size = new Size(185, 24);
+            lblEmpleActivos.Size = new Size(151, 18);
             lblEmpleActivos.TabIndex = 11;
             lblEmpleActivos.Text = "Empleados activos";
             // 
@@ -553,28 +529,27 @@
             // 
             numEmpleadosActivos.AutoSize = true;
             numEmpleadosActivos.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            numEmpleadosActivos.Location = new Point(79, 65);
+            numEmpleadosActivos.Location = new Point(69, 49);
             numEmpleadosActivos.Name = "numEmpleadosActivos";
-            numEmpleadosActivos.Size = new Size(30, 31);
+            numEmpleadosActivos.Size = new Size(25, 25);
             numEmpleadosActivos.TabIndex = 10;
             numEmpleadosActivos.Text = "0";
             // 
             // lblEmpleadosActivos
             // 
             lblEmpleadosActivos.AutoSize = true;
-            lblEmpleadosActivos.Location = new Point(79, 31);
+            lblEmpleadosActivos.Location = new Point(69, 23);
             lblEmpleadosActivos.Name = "lblEmpleadosActivos";
-            lblEmpleadosActivos.Size = new Size(185, 24);
+            lblEmpleadosActivos.Size = new Size(151, 18);
             lblEmpleadosActivos.TabIndex = 9;
             lblEmpleadosActivos.Text = "Empleados activos";
             // 
             // picEmpleadosActivos
             // 
             picEmpleadosActivos.Image = (Image)resources.GetObject("picEmpleadosActivos.Image");
-            picEmpleadosActivos.Location = new Point(3, 31);
-            picEmpleadosActivos.Margin = new Padding(3, 4, 3, 4);
+            picEmpleadosActivos.Location = new Point(3, 23);
             picEmpleadosActivos.Name = "picEmpleadosActivos";
-            picEmpleadosActivos.Size = new Size(69, 79);
+            picEmpleadosActivos.Size = new Size(60, 59);
             picEmpleadosActivos.SizeMode = PictureBoxSizeMode.StretchImage;
             picEmpleadosActivos.TabIndex = 0;
             picEmpleadosActivos.TabStop = false;
@@ -583,9 +558,8 @@
             // 
             pnlBordeSucur.BackColor = Color.FromArgb(0, 176, 80);
             pnlBordeSucur.Location = new Point(0, 0);
-            pnlBordeSucur.Margin = new Padding(3, 4, 3, 4);
             pnlBordeSucur.Name = "pnlBordeSucur";
-            pnlBordeSucur.Size = new Size(5, 165);
+            pnlBordeSucur.Size = new Size(4, 124);
             pnlBordeSucur.TabIndex = 8;
             // 
             // pnlDepartamentos
@@ -593,19 +567,17 @@
             pnlDepartamentos.BackColor = Color.White;
             pnlDepartamentos.Controls.Add(pnlBordeEmple);
             pnlDepartamentos.Controls.Add(pnlDepar);
-            pnlDepartamentos.Location = new Point(671, 171);
-            pnlDepartamentos.Margin = new Padding(3, 4, 3, 4);
+            pnlDepartamentos.Location = new Point(610, 158);
             pnlDepartamentos.Name = "pnlDepartamentos";
-            pnlDepartamentos.Size = new Size(318, 147);
+            pnlDepartamentos.Size = new Size(278, 110);
             pnlDepartamentos.TabIndex = 4;
             // 
             // pnlBordeEmple
             // 
             pnlBordeEmple.BackColor = Color.FromArgb(112, 34, 246);
-            pnlBordeEmple.Location = new Point(0, 4);
-            pnlBordeEmple.Margin = new Padding(3, 4, 3, 4);
+            pnlBordeEmple.Location = new Point(0, 3);
             pnlBordeEmple.Name = "pnlBordeEmple";
-            pnlBordeEmple.Size = new Size(5, 165);
+            pnlBordeEmple.Size = new Size(4, 124);
             pnlBordeEmple.TabIndex = 8;
             // 
             // pnlDepar
@@ -615,19 +587,18 @@
             pnlDepar.Controls.Add(numDepar);
             pnlDepar.Controls.Add(LblDepartamentos);
             pnlDepar.Controls.Add(picDepart);
-            pnlDepar.Location = new Point(22, 0);
-            pnlDepar.Margin = new Padding(3, 4, 3, 4);
+            pnlDepar.Location = new Point(19, 0);
             pnlDepar.Name = "pnlDepar";
-            pnlDepar.Size = new Size(275, 137);
+            pnlDepar.Size = new Size(241, 103);
             pnlDepar.TabIndex = 1;
             // 
             // lblDeparCreados
             // 
             lblDeparCreados.AutoSize = true;
             lblDeparCreados.ForeColor = Color.FromArgb(112, 34, 246);
-            lblDeparCreados.Location = new Point(0, 113);
+            lblDeparCreados.Location = new Point(0, 85);
             lblDeparCreados.Name = "lblDeparCreados";
-            lblDeparCreados.Size = new Size(231, 24);
+            lblDeparCreados.Size = new Size(189, 18);
             lblDeparCreados.TabIndex = 11;
             lblDeparCreados.Text = "Departamentos creados";
             // 
@@ -635,28 +606,27 @@
             // 
             numDepar.AutoSize = true;
             numDepar.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            numDepar.Location = new Point(79, 65);
+            numDepar.Location = new Point(69, 49);
             numDepar.Name = "numDepar";
-            numDepar.Size = new Size(30, 31);
+            numDepar.Size = new Size(25, 25);
             numDepar.TabIndex = 10;
             numDepar.Text = "0";
             // 
             // LblDepartamentos
             // 
             LblDepartamentos.AutoSize = true;
-            LblDepartamentos.Location = new Point(79, 31);
+            LblDepartamentos.Location = new Point(69, 23);
             LblDepartamentos.Name = "LblDepartamentos";
-            LblDepartamentos.Size = new Size(150, 24);
+            LblDepartamentos.Size = new Size(123, 18);
             LblDepartamentos.TabIndex = 9;
             LblDepartamentos.Text = "Departamentos";
             // 
             // picDepart
             // 
             picDepart.Image = (Image)resources.GetObject("picDepart.Image");
-            picDepart.Location = new Point(3, 31);
-            picDepart.Margin = new Padding(3, 4, 3, 4);
+            picDepart.Location = new Point(3, 23);
             picDepart.Name = "picDepart";
-            picDepart.Size = new Size(69, 79);
+            picDepart.Size = new Size(60, 59);
             picDepart.SizeMode = PictureBoxSizeMode.StretchImage;
             picDepart.TabIndex = 0;
             picDepart.TabStop = false;
@@ -666,19 +636,17 @@
             pnlTotalEmpleados.BackColor = Color.White;
             pnlTotalEmpleados.Controls.Add(pnlBordePro);
             pnlTotalEmpleados.Controls.Add(pnlTotal);
-            pnlTotalEmpleados.Location = new Point(9, 171);
-            pnlTotalEmpleados.Margin = new Padding(3, 4, 3, 4);
+            pnlTotalEmpleados.Location = new Point(20, 158);
             pnlTotalEmpleados.Name = "pnlTotalEmpleados";
-            pnlTotalEmpleados.Size = new Size(318, 147);
+            pnlTotalEmpleados.Size = new Size(278, 110);
             pnlTotalEmpleados.TabIndex = 2;
             // 
             // pnlBordePro
             // 
             pnlBordePro.BackColor = Color.FromArgb(0, 102, 255);
             pnlBordePro.Location = new Point(0, 0);
-            pnlBordePro.Margin = new Padding(3, 4, 3, 4);
             pnlBordePro.Name = "pnlBordePro";
-            pnlBordePro.Size = new Size(5, 165);
+            pnlBordePro.Size = new Size(4, 124);
             pnlBordePro.TabIndex = 7;
             // 
             // pnlTotal
@@ -688,19 +656,18 @@
             pnlTotal.Controls.Add(NumTotalEmpleados);
             pnlTotal.Controls.Add(lblTotalEmpleados);
             pnlTotal.Controls.Add(picTotalEmpleados);
-            pnlTotal.Location = new Point(21, 0);
-            pnlTotal.Margin = new Padding(3, 4, 3, 4);
+            pnlTotal.Location = new Point(18, 0);
             pnlTotal.Name = "pnlTotal";
-            pnlTotal.Size = new Size(275, 137);
+            pnlTotal.Size = new Size(241, 103);
             pnlTotal.TabIndex = 0;
             // 
             // lblEmpleadosRegistrados
             // 
             lblEmpleadosRegistrados.AutoSize = true;
             lblEmpleadosRegistrados.ForeColor = Color.FromArgb(0, 102, 255);
-            lblEmpleadosRegistrados.Location = new Point(0, 113);
+            lblEmpleadosRegistrados.Location = new Point(0, 85);
             lblEmpleadosRegistrados.Name = "lblEmpleadosRegistrados";
-            lblEmpleadosRegistrados.Size = new Size(224, 24);
+            lblEmpleadosRegistrados.Size = new Size(182, 18);
             lblEmpleadosRegistrados.TabIndex = 11;
             lblEmpleadosRegistrados.Text = "Empleados registrados";
             // 
@@ -708,28 +675,27 @@
             // 
             NumTotalEmpleados.AutoSize = true;
             NumTotalEmpleados.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            NumTotalEmpleados.Location = new Point(79, 65);
+            NumTotalEmpleados.Location = new Point(69, 49);
             NumTotalEmpleados.Name = "NumTotalEmpleados";
-            NumTotalEmpleados.Size = new Size(30, 31);
+            NumTotalEmpleados.Size = new Size(25, 25);
             NumTotalEmpleados.TabIndex = 10;
             NumTotalEmpleados.Text = "0";
             // 
             // lblTotalEmpleados
             // 
             lblTotalEmpleados.AutoSize = true;
-            lblTotalEmpleados.Location = new Point(79, 31);
+            lblTotalEmpleados.Location = new Point(69, 23);
             lblTotalEmpleados.Name = "lblTotalEmpleados";
-            lblTotalEmpleados.Size = new Size(165, 24);
+            lblTotalEmpleados.Size = new Size(133, 18);
             lblTotalEmpleados.TabIndex = 9;
             lblTotalEmpleados.Text = "Total empleados";
             // 
             // picTotalEmpleados
             // 
             picTotalEmpleados.Image = (Image)resources.GetObject("picTotalEmpleados.Image");
-            picTotalEmpleados.Location = new Point(3, 31);
-            picTotalEmpleados.Margin = new Padding(3, 4, 3, 4);
+            picTotalEmpleados.Location = new Point(3, 23);
             picTotalEmpleados.Name = "picTotalEmpleados";
-            picTotalEmpleados.Size = new Size(70, 79);
+            picTotalEmpleados.Size = new Size(61, 59);
             picTotalEmpleados.SizeMode = PictureBoxSizeMode.StretchImage;
             picTotalEmpleados.TabIndex = 0;
             picTotalEmpleados.TabStop = false;
@@ -739,45 +705,32 @@
             pnlBienvenidaEmpleado.BackColor = Color.Transparent;
             pnlBienvenidaEmpleado.BackgroundImage = (Image)resources.GetObject("pnlBienvenidaEmpleado.BackgroundImage");
             pnlBienvenidaEmpleado.BackgroundImageLayout = ImageLayout.Stretch;
-            pnlBienvenidaEmpleado.Controls.Add(lblModulo);
             pnlBienvenidaEmpleado.Controls.Add(lblDescripcion);
             pnlBienvenidaEmpleado.Controls.Add(lblEmpleados);
-            pnlBienvenidaEmpleado.Location = new Point(0, 0);
-            pnlBienvenidaEmpleado.Margin = new Padding(3, 4, 3, 4);
+            pnlBienvenidaEmpleado.Location = new Point(20, 17);
             pnlBienvenidaEmpleado.Name = "pnlBienvenidaEmpleado";
-            pnlBienvenidaEmpleado.Size = new Size(1350, 163);
+            pnlBienvenidaEmpleado.Size = new Size(1160, 122);
             pnlBienvenidaEmpleado.TabIndex = 1;
-            // 
-            // lblModulo
-            // 
-            lblModulo.AutoSize = true;
-            lblModulo.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblModulo.ForeColor = Color.MediumOrchid;
-            lblModulo.Location = new Point(46, 16);
-            lblModulo.Name = "lblModulo";
-            lblModulo.Size = new Size(262, 25);
-            lblModulo.TabIndex = 14;
-            lblModulo.Text = "MÓDULO DE EMPLEADOS";
             // 
             // lblDescripcion
             // 
             lblDescripcion.AutoSize = true;
             lblDescripcion.Font = new Font("Calibri Light", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
             lblDescripcion.ForeColor = Color.White;
-            lblDescripcion.Location = new Point(46, 115);
+            lblDescripcion.Location = new Point(42, 67);
             lblDescripcion.Name = "lblDescripcion";
-            lblDescripcion.Size = new Size(508, 24);
+            lblDescripcion.Size = new Size(415, 19);
             lblDescripcion.TabIndex = 13;
             lblDescripcion.Text = "Administra la información de todos los empleados del sistema ";
             // 
             // lblEmpleados
             // 
             lblEmpleados.AutoSize = true;
-            lblEmpleados.Font = new Font("Microsoft Sans Serif", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblEmpleados.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblEmpleados.ForeColor = Color.White;
-            lblEmpleados.Location = new Point(46, 57);
+            lblEmpleados.Location = new Point(50, 28);
             lblEmpleados.Name = "lblEmpleados";
-            lblEmpleados.Size = new Size(197, 39);
+            lblEmpleados.Size = new Size(145, 29);
             lblEmpleados.TabIndex = 11;
             lblEmpleados.Text = "Empleados";
             // 
@@ -788,11 +741,12 @@
             dataGridViewEmpleados.BorderStyle = BorderStyle.None;
             dataGridViewEmpleados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewEmpleados.Columns.AddRange(new DataGridViewColumn[] { colID, ColEmpleado, ColCargo, ColDepartamento, ColTelefono, ColCorreo, ColEstado, ColFechaIngreso });
-            dataGridViewEmpleados.Location = new Point(0, 615);
+            dataGridViewEmpleados.Location = new Point(20, 575);
+            dataGridViewEmpleados.Margin = new Padding(3, 2, 3, 2);
             dataGridViewEmpleados.Name = "dataGridViewEmpleados";
             dataGridViewEmpleados.RowHeadersVisible = false;
             dataGridViewEmpleados.RowHeadersWidth = 51;
-            dataGridViewEmpleados.Size = new Size(1350, 189);
+            dataGridViewEmpleados.Size = new Size(1160, 71);
             dataGridViewEmpleados.TabIndex = 7;
             // 
             // colID
@@ -845,12 +799,14 @@
             // 
             // FrmEmpleados
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1353, 808);
+            ClientSize = new Size(1200, 651);
             Controls.Add(pnlMostrarEmpleadosForm);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FrmEmpleados";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmEmpleados";
             pnlMostrarEmpleadosForm.ResumeLayout(false);
             pnlMostrarEmpleadosForm.PerformLayout();
@@ -951,7 +907,6 @@
         private Panel pnlBienvenidaEmpleado;
         private Label lblDescripcion;
         private Label lblEmpleados;
-        private Label lblModulo;
         private DataGridView dataGridViewEmpleados;
         private DataGridViewTextBoxColumn colID;
         private DataGridViewTextBoxColumn ColEmpleado;

@@ -221,6 +221,7 @@
             btnventas.Text = "Ventas";
             btnventas.TextAlign = ContentAlignment.MiddleRight;
             btnventas.UseVisualStyleBackColor = false;
+            btnventas.Click += btnventas_Click;
             // 
             // lblTitulo
             // 
@@ -264,6 +265,7 @@
             btnproductos.Text = "Productos";
             btnproductos.TextAlign = ContentAlignment.MiddleRight;
             btnproductos.UseVisualStyleBackColor = false;
+            btnproductos.Click += btnproductos_Click;
             // 
             // pictureBox2
             // 

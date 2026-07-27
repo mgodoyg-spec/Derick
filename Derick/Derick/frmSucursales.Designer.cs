@@ -106,7 +106,7 @@
             lblDescripcion.BackColor = Color.Transparent;
             lblDescripcion.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblDescripcion.ForeColor = Color.White;
-            lblDescripcion.Location = new Point(26, 81);
+            lblDescripcion.Location = new Point(33, 69);
             lblDescripcion.Name = "lblDescripcion";
             lblDescripcion.Size = new Size(409, 18);
             lblDescripcion.TabIndex = 1;
@@ -116,11 +116,11 @@
             // 
             lblTituloSucursales.AutoSize = true;
             lblTituloSucursales.BackColor = Color.Transparent;
-            lblTituloSucursales.Font = new Font("Microsoft Sans Serif", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTituloSucursales.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTituloSucursales.ForeColor = Color.White;
-            lblTituloSucursales.Location = new Point(26, 26);
+            lblTituloSucursales.Location = new Point(33, 28);
             lblTituloSucursales.Name = "lblTituloSucursales";
-            lblTituloSucursales.Size = new Size(272, 55);
+            lblTituloSucursales.Size = new Size(142, 29);
             lblTituloSucursales.TabIndex = 0;
             lblTituloSucursales.Text = "Sucursales";
             // 
@@ -131,9 +131,9 @@
             pnlTituloSucursales.BackgroundImageLayout = ImageLayout.Stretch;
             pnlTituloSucursales.Controls.Add(lblDescripcion);
             pnlTituloSucursales.Controls.Add(lblTituloSucursales);
-            pnlTituloSucursales.Location = new Point(34, 12);
+            pnlTituloSucursales.Location = new Point(21, 12);
             pnlTituloSucursales.Name = "pnlTituloSucursales";
-            pnlTituloSucursales.Size = new Size(1141, 150);
+            pnlTituloSucursales.Size = new Size(1167, 150);
             pnlTituloSucursales.TabIndex = 3;
             // 
             // pnlResumenTotalS
@@ -154,7 +154,7 @@
             lblTituloSucRegistradas.AutoSize = true;
             lblTituloSucRegistradas.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTituloSucRegistradas.ForeColor = Color.FromArgb(0, 102, 255);
-            lblTituloSucRegistradas.Location = new Point(76, 95);
+            lblTituloSucRegistradas.Location = new Point(19, 104);
             lblTituloSucRegistradas.Name = "lblTituloSucRegistradas";
             lblTituloSucRegistradas.Size = new Size(187, 18);
             lblTituloSucRegistradas.TabIndex = 3;
@@ -164,7 +164,7 @@
             // 
             lblTotalSucursales.AutoSize = true;
             lblTotalSucursales.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTotalSucursales.Location = new Point(157, 47);
+            lblTotalSucursales.Location = new Point(95, 62);
             lblTotalSucursales.Name = "lblTotalSucursales";
             lblTotalSucursales.Size = new Size(26, 29);
             lblTotalSucursales.TabIndex = 2;
@@ -174,7 +174,7 @@
             // 
             lblTitResumenSucurs.AutoSize = true;
             lblTitResumenSucurs.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitResumenSucurs.Location = new Point(98, 8);
+            lblTitResumenSucurs.Location = new Point(89, 27);
             lblTitResumenSucurs.Name = "lblTitResumenSucurs";
             lblTitResumenSucurs.Size = new Size(143, 20);
             lblTitResumenSucurs.TabIndex = 1;
@@ -208,7 +208,7 @@
             lblTitSucFuncionamiento.AutoSize = true;
             lblTitSucFuncionamiento.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitSucFuncionamiento.ForeColor = Color.FromArgb(0, 176, 80);
-            lblTitSucFuncionamiento.Location = new Point(40, 95);
+            lblTitSucFuncionamiento.Location = new Point(24, 104);
             lblTitSucFuncionamiento.Name = "lblTitSucFuncionamiento";
             lblTitSucFuncionamiento.Size = new Size(235, 18);
             lblTitSucFuncionamiento.TabIndex = 4;
@@ -218,7 +218,7 @@
             // 
             lblSucursalesActivas.AutoSize = true;
             lblSucursalesActivas.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblSucursalesActivas.Location = new Point(151, 47);
+            lblSucursalesActivas.Location = new Point(101, 62);
             lblSucursalesActivas.Name = "lblSucursalesActivas";
             lblSucursalesActivas.Size = new Size(26, 29);
             lblSucursalesActivas.TabIndex = 4;
@@ -228,7 +228,7 @@
             // 
             lblTitSucursActivas.AutoSize = true;
             lblTitSucursActivas.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitSucursActivas.Location = new Point(88, 8);
+            lblTitSucursActivas.Location = new Point(83, 27);
             lblTitSucursActivas.Name = "lblTitSucursActivas";
             lblTitSucursActivas.Size = new Size(161, 20);
             lblTitSucursActivas.TabIndex = 4;
@@ -262,7 +262,7 @@
             lblTitCiudDiferentes.AutoSize = true;
             lblTitCiudDiferentes.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitCiudDiferentes.ForeColor = Color.FromArgb(112, 34, 246);
-            lblTitCiudDiferentes.Location = new Point(93, 95);
+            lblTitCiudDiferentes.Location = new Point(22, 104);
             lblTitCiudDiferentes.Name = "lblTitCiudDiferentes";
             lblTitCiudDiferentes.Size = new Size(157, 18);
             lblTitCiudDiferentes.TabIndex = 6;
@@ -272,7 +272,7 @@
             // 
             lblTotalCiudades.AutoSize = true;
             lblTotalCiudades.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTotalCiudades.Location = new Point(167, 47);
+            lblTotalCiudades.Location = new Point(92, 62);
             lblTotalCiudades.Name = "lblTotalCiudades";
             lblTotalCiudades.Size = new Size(26, 29);
             lblTotalCiudades.TabIndex = 5;
@@ -282,7 +282,7 @@
             // 
             lblTitCiudades.AutoSize = true;
             lblTitCiudades.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitCiudades.Location = new Point(137, 8);
+            lblTitCiudades.Location = new Point(92, 27);
             lblTitCiudades.Name = "lblTitCiudades";
             lblTitCiudades.Size = new Size(84, 20);
             lblTitCiudades.TabIndex = 5;
@@ -326,7 +326,7 @@
             lblTituloCober.AutoSize = true;
             lblTituloCober.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTituloCober.ForeColor = Color.Black;
-            lblTituloCober.Location = new Point(122, 8);
+            lblTituloCober.Location = new Point(85, 27);
             lblTituloCober.Name = "lblTituloCober";
             lblTituloCober.Size = new Size(89, 20);
             lblTituloCober.TabIndex = 7;
@@ -336,7 +336,7 @@
             // 
             lblCoberturaOp.AutoSize = true;
             lblCoberturaOp.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblCoberturaOp.Location = new Point(149, 47);
+            lblCoberturaOp.Location = new Point(95, 62);
             lblCoberturaOp.Name = "lblCoberturaOp";
             lblCoberturaOp.Size = new Size(48, 29);
             lblCoberturaOp.TabIndex = 6;
@@ -347,7 +347,7 @@
             lblTituloCobertura.AutoSize = true;
             lblTituloCobertura.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTituloCobertura.ForeColor = Color.FromArgb(255, 136, 0);
-            lblTituloCobertura.Location = new Point(93, 95);
+            lblTituloCobertura.Location = new Point(15, 104);
             lblTituloCobertura.Name = "lblTituloCobertura";
             lblTituloCobertura.Size = new Size(157, 18);
             lblTituloCobertura.TabIndex = 6;
@@ -376,9 +376,9 @@
             pnlAcessoRápido.Controls.Add(pnlBuscarSucursal);
             pnlAcessoRápido.Controls.Add(pnlNuevaSucursal);
             pnlAcessoRápido.Controls.Add(lblTituloAccesoRapido);
-            pnlAcessoRápido.Location = new Point(12, 343);
+            pnlAcessoRápido.Location = new Point(24, 343);
             pnlAcessoRápido.Name = "pnlAcessoRápido";
-            pnlAcessoRápido.Size = new Size(581, 265);
+            pnlAcessoRápido.Size = new Size(569, 265);
             pnlAcessoRápido.TabIndex = 7;
             // 
             // btnVerReportes

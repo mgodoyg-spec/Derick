@@ -13,7 +13,7 @@ namespace Derick
             string usuario = txtusuario.Text.Trim();
             string contrasena = txtcontrasena.Text.Trim();
             // Usuario y contraseña temporales 
-            if (usuario == "Miche" && contrasena == "1234")
+            if (usuario == "Geren" && contrasena == "1234")
             {
                 FrmMenuPrincipal frmMenu = new FrmMenuPrincipal();
                 frmMenu.usuarioActual = usuario;
