@@ -33,8 +33,6 @@ namespace Derick
             btnreportes = new Button();
             imlBotones = new ImageList(components);
             btnventas = new Button();
-            btnempleados = new Button();
-            btnsucursales = new Button();
             btnproductos = new Button();
             btninicio = new Button();
             lblTitulo = new Label();
@@ -45,6 +43,8 @@ namespace Derick
             lblFlecha = new Label();
             lblusuario = new Label();
             pbusuario = new PictureBox();
+            btnempleados = new Button();
+            btnsucursales = new Button();
             lblSalir = new Label();
             cmsMenuPerfil = new ContextMenuStrip(components);
             miPerfilToolStripMenuItem = new ToolStripMenuItem();
@@ -109,45 +109,7 @@ namespace Derick
             btnventas.Text = "Ventas";
             btnventas.TextAlign = ContentAlignment.MiddleRight;
             btnventas.UseVisualStyleBackColor = false;
-            // 
-            // btnempleados
-            // 
-            btnempleados.BackColor = Color.Black;
-            btnempleados.Cursor = Cursors.Hand;
-            btnempleados.FlatAppearance.BorderSize = 0;
-            btnempleados.FlatStyle = FlatStyle.Flat;
-            btnempleados.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnempleados.ForeColor = Color.White;
-            btnempleados.ImageAlign = ContentAlignment.MiddleLeft;
-            btnempleados.ImageIndex = 3;
-            btnempleados.ImageList = imlBotones;
-            btnempleados.Location = new Point(548, 7);
-            btnempleados.Name = "btnempleados";
-            btnempleados.Size = new Size(127, 37);
-            btnempleados.TabIndex = 14;
-            btnempleados.Text = "Empleados\r\n";
-            btnempleados.TextAlign = ContentAlignment.MiddleRight;
-            btnempleados.UseVisualStyleBackColor = false;
-            btnempleados.Click += btnempleados_Click;
-            // 
-            // btnsucursales
-            // 
-            btnsucursales.BackColor = Color.Black;
-            btnsucursales.Cursor = Cursors.Hand;
-            btnsucursales.FlatAppearance.BorderSize = 0;
-            btnsucursales.FlatStyle = FlatStyle.Flat;
-            btnsucursales.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnsucursales.ForeColor = Color.White;
-            btnsucursales.ImageAlign = ContentAlignment.MiddleLeft;
-            btnsucursales.ImageIndex = 2;
-            btnsucursales.ImageList = imlBotones;
-            btnsucursales.Location = new Point(415, 8);
-            btnsucursales.Name = "btnsucursales";
-            btnsucursales.Size = new Size(127, 37);
-            btnsucursales.TabIndex = 13;
-            btnsucursales.Text = "Sucursales";
-            btnsucursales.TextAlign = ContentAlignment.MiddleRight;
-            btnsucursales.UseVisualStyleBackColor = false;
+            btnventas.Click += btnventas_Click;
             // 
             // btnproductos
             // 
@@ -196,7 +158,7 @@ namespace Derick
             lblTitulo.ForeColor = Color.White;
             lblTitulo.Location = new Point(71, 11);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(124, 31);
+            lblTitulo.Size = new Size(96, 25);
             lblTitulo.TabIndex = 2;
             lblTitulo.Text = "DERICK";
             // 
@@ -257,7 +219,7 @@ namespace Derick
             lblFlecha.ForeColor = SystemColors.ButtonHighlight;
             lblFlecha.Location = new Point(138, 20);
             lblFlecha.Name = "lblFlecha";
-            lblFlecha.Size = new Size(19, 17);
+            lblFlecha.Size = new Size(17, 13);
             lblFlecha.TabIndex = 2;
             lblFlecha.Text = "▼";
             // 
@@ -269,7 +231,7 @@ namespace Derick
             lblusuario.ForeColor = Color.White;
             lblusuario.Location = new Point(57, 14);
             lblusuario.Name = "lblusuario";
-            lblusuario.Size = new Size(70, 25);
+            lblusuario.Size = new Size(57, 20);
             lblusuario.TabIndex = 1;
             lblusuario.Text = "admin";
             lblusuario.Click += pnlPerfil_Click;
@@ -286,6 +248,45 @@ namespace Derick
             pbusuario.TabStop = false;
             pbusuario.Click += pnlPerfil_Click;
             // 
+            // btnempleados
+            // 
+            btnempleados.BackColor = Color.Black;
+            btnempleados.Cursor = Cursors.Hand;
+            btnempleados.FlatAppearance.BorderSize = 0;
+            btnempleados.FlatStyle = FlatStyle.Flat;
+            btnempleados.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnempleados.ForeColor = Color.White;
+            btnempleados.ImageAlign = ContentAlignment.MiddleLeft;
+            btnempleados.ImageIndex = 3;
+            btnempleados.ImageList = imlBotones;
+            btnempleados.Location = new Point(548, 7);
+            btnempleados.Name = "btnempleados";
+            btnempleados.Size = new Size(127, 37);
+            btnempleados.TabIndex = 14;
+            btnempleados.Text = "Empleados\r\n";
+            btnempleados.TextAlign = ContentAlignment.MiddleRight;
+            btnempleados.UseVisualStyleBackColor = false;
+            btnempleados.Click += btnempleados_Click;
+            // 
+            // btnsucursales
+            // 
+            btnsucursales.BackColor = Color.Black;
+            btnsucursales.Cursor = Cursors.Hand;
+            btnsucursales.FlatAppearance.BorderSize = 0;
+            btnsucursales.FlatStyle = FlatStyle.Flat;
+            btnsucursales.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnsucursales.ForeColor = Color.White;
+            btnsucursales.ImageAlign = ContentAlignment.MiddleLeft;
+            btnsucursales.ImageIndex = 2;
+            btnsucursales.ImageList = imlBotones;
+            btnsucursales.Location = new Point(415, 8);
+            btnsucursales.Name = "btnsucursales";
+            btnsucursales.Size = new Size(127, 37);
+            btnsucursales.TabIndex = 13;
+            btnsucursales.Text = "Sucursales";
+            btnsucursales.TextAlign = ContentAlignment.MiddleRight;
+            btnsucursales.UseVisualStyleBackColor = false;
+            // 
             // lblSalir
             // 
             lblSalir.AutoSize = true;
@@ -294,7 +295,7 @@ namespace Derick
             lblSalir.ForeColor = Color.Red;
             lblSalir.Location = new Point(1172, 10);
             lblSalir.Name = "lblSalir";
-            lblSalir.Size = new Size(31, 29);
+            lblSalir.Size = new Size(25, 24);
             lblSalir.TabIndex = 7;
             lblSalir.Text = "X";
             lblSalir.Click += lblSalir_Click;
@@ -369,8 +370,6 @@ namespace Derick
         #endregion
         private Button btnreportes;
         private Button btnventas;
-        private Button btnempleados;
-        private Button btnsucursales;
         private Button btnproductos;
         private Button btninicio;
         private Label lblTitulo;
@@ -388,5 +387,7 @@ namespace Derick
         private ToolStripMenuItem cerrarSesiónToolStripMenuItem;
         private Label lblFlecha;
         private Panel pnlIndicador;
+        private Button btnempleados;
+        private Button btnsucursales;
     }
 }

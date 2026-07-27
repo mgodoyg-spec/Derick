@@ -26,23 +26,7 @@ namespace Derick
             this.Refresh();
             AbrirFormulario(new InicioGerente());
         }
-        private void btncerrarsesion_Click(object sender, EventArgs e)
-        {
-            DialogResult confirmar = MessageBox.Show(
-            "¿Estás seguro que deseas cerrar sesión?",
-            "Cerrar sesión",
-            MessageBoxButtons.YesNo,
-            MessageBoxIcon.Question
-            );
-
-            if (confirmar == DialogResult.Yes)
-            {
-                frmLogin login = new frmLogin();
-                login.Show();
-                this.Close(); // cierra el menú principal
-            }
-        }
-
+        
         private void btninicio_Click(object sender, EventArgs e)
         {
             MarcarBotonActivo(btninicio);
@@ -118,7 +102,7 @@ namespace Derick
             pnlIndicador.Left = botonSeleccionado.Left;
             pnlIndicador.Top = botonSeleccionado.Bottom - pnlIndicador.Height;
 
-            // Opcional: Si quieres traer la barrita al frente para que no quede oculta
+            // traer la barrita al frente para que no quede oculta
             pnlIndicador.BringToFront();
         }
 
@@ -133,6 +117,12 @@ namespace Derick
         {
             MarcarBotonActivo(btnempleados);
             AbrirFormulario(new FrmEmpleados());
+        }
+
+        private void btnventas_Click(object sender, EventArgs e)
+        {
+            MarcarBotonActivo(btnventas);
+            AbrirFormulario(new frmVentas());
         }
     }
 }
