@@ -77,6 +77,7 @@ namespace Derick
             btnreportes.Text = "Reportes";
             btnreportes.TextAlign = ContentAlignment.MiddleRight;
             btnreportes.UseVisualStyleBackColor = false;
+            btnreportes.Click += btnreportes_Click;
             // 
             // imlBotones
             // 
