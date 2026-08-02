@@ -15,5 +15,16 @@ namespace Derick
             InitializeComponent();
         }
 
+        private void btnNuevoEmpleado_Click(object sender, EventArgs e)
+        {
+            FrmNuevoEmpleado frm = new FrmNuevoEmpleado();
+            frm.ShowDialog();
+        }
+
+        private void btnBuscarEmpleado_Click(object sender, EventArgs e)
+        {
+            FrmListaEmpleados frm = new FrmListaEmpleados();
+            frm.ShowDialog();
+        }
     }
 }
