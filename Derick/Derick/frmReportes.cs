@@ -15,16 +15,6 @@ namespace Derick
             InitializeComponent();
         }
 
-        private void btnpdf_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Aquí se exportará el reporte a PDF.");
-        }
-
-        private void btnexcel_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Aquí se exportará el reporte a Excel.");
-        }
-
         private void btnImprimir_Click_1(object sender, EventArgs e)
         {
             printDialog1.Document = printDocument1;
@@ -43,6 +33,11 @@ namespace Derick
             e.Graphics.DrawString("Fecha: " + DateTime.Now.ToString("dd/MM/yyyy"), fuente, Brushes.Black, 100, 80);
 
             // Aquí luego irán los datos de la base de datos.
+        }
+
+        private void pnlReportes_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
