@@ -28,17 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAgg_Product));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAgg_Product));
             pnl_agg1 = new Panel();
+            gbtn_agg4 = new Guna.UI2.WinForms.Guna2Button();
+            gbtn_agg3 = new Guna.UI2.WinForms.Guna2Button();
+            pnl_agg5 = new Panel();
+            gts_activo1 = new Guna.UI2.WinForms.Guna2ToggleSwitch();
+            lbl_agg8 = new Label();
+            lbl_agg7 = new Label();
+            lbl_agg6 = new Label();
+            pnl_agg4 = new Panel();
+            lbl_agg5 = new Label();
+            gbtn_agg2 = new Guna.UI2.WinForms.Guna2Button();
+            gbtn_agg1 = new Guna.UI2.WinForms.Guna2Button();
             pnl_agg3 = new Panel();
+            pic_agg2 = new PictureBox();
             lbl_msj1 = new Label();
             pic_agg1 = new PictureBox();
             pnl_agg2 = new Panel();
@@ -59,24 +73,13 @@
             lbl_agg3 = new Label();
             lbl_agg2 = new Label();
             lbl_agg1 = new Label();
-            gbtn_agg1 = new Guna.UI2.WinForms.Guna2Button();
-            gbtn_agg2 = new Guna.UI2.WinForms.Guna2Button();
-            pic_agg2 = new PictureBox();
-            pnl_agg4 = new Panel();
-            lbl_agg5 = new Label();
-            pnl_agg5 = new Panel();
-            checkBox1 = new CheckBox();
-            lbl_agg6 = new Label();
-            lbl_agg7 = new Label();
-            gbtn_agg3 = new Guna.UI2.WinForms.Guna2Button();
-            gbtn_agg4 = new Guna.UI2.WinForms.Guna2Button();
             pnl_agg1.SuspendLayout();
+            pnl_agg5.SuspendLayout();
+            pnl_agg4.SuspendLayout();
             pnl_agg3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pic_agg2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pic_agg1).BeginInit();
             pnl_agg2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pic_agg2).BeginInit();
-            pnl_agg4.SuspendLayout();
-            pnl_agg5.SuspendLayout();
             SuspendLayout();
             // 
             // pnl_agg1
@@ -95,6 +98,175 @@
             pnl_agg1.Size = new Size(1353, 808);
             pnl_agg1.TabIndex = 0;
             // 
+            // gbtn_agg4
+            // 
+            gbtn_agg4.BackColor = Color.Transparent;
+            gbtn_agg4.BorderColor = Color.FromArgb(112, 34, 246);
+            gbtn_agg4.BorderRadius = 12;
+            gbtn_agg4.BorderThickness = 2;
+            gbtn_agg4.Cursor = Cursors.Hand;
+            gbtn_agg4.CustomizableEdges = customizableEdges1;
+            gbtn_agg4.DisabledState.BorderColor = Color.DarkGray;
+            gbtn_agg4.DisabledState.CustomBorderColor = Color.DarkGray;
+            gbtn_agg4.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            gbtn_agg4.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            gbtn_agg4.FillColor = Color.White;
+            gbtn_agg4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            gbtn_agg4.ForeColor = Color.FromArgb(112, 34, 246);
+            gbtn_agg4.Location = new Point(35, 740);
+            gbtn_agg4.Name = "gbtn_agg4";
+            gbtn_agg4.PressedColor = Color.FromArgb(112, 34, 246);
+            gbtn_agg4.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            gbtn_agg4.Size = new Size(326, 56);
+            gbtn_agg4.TabIndex = 11;
+            gbtn_agg4.Text = "Cancelar";
+            gbtn_agg4.Click += gbtn_agg4_Click;
+            // 
+            // gbtn_agg3
+            // 
+            gbtn_agg3.BorderRadius = 12;
+            gbtn_agg3.Cursor = Cursors.Hand;
+            gbtn_agg3.CustomizableEdges = customizableEdges3;
+            gbtn_agg3.DisabledState.BorderColor = Color.DarkGray;
+            gbtn_agg3.DisabledState.CustomBorderColor = Color.DarkGray;
+            gbtn_agg3.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            gbtn_agg3.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            gbtn_agg3.FillColor = Color.FromArgb(112, 34, 246);
+            gbtn_agg3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            gbtn_agg3.ForeColor = Color.White;
+            gbtn_agg3.Location = new Point(723, 740);
+            gbtn_agg3.Name = "gbtn_agg3";
+            gbtn_agg3.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            gbtn_agg3.Size = new Size(466, 56);
+            gbtn_agg3.TabIndex = 10;
+            gbtn_agg3.Text = "Guardar producto";
+            // 
+            // pnl_agg5
+            // 
+            pnl_agg5.BackColor = Color.White;
+            pnl_agg5.Controls.Add(gts_activo1);
+            pnl_agg5.Controls.Add(lbl_agg8);
+            pnl_agg5.Controls.Add(lbl_agg7);
+            pnl_agg5.Controls.Add(lbl_agg6);
+            pnl_agg5.Location = new Point(723, 603);
+            pnl_agg5.Name = "pnl_agg5";
+            pnl_agg5.Size = new Size(466, 119);
+            pnl_agg5.TabIndex = 9;
+            // 
+            // gts_activo1
+            // 
+            gts_activo1.CheckedState.BorderColor = Color.Black;
+            gts_activo1.CheckedState.FillColor = Color.FromArgb(112, 34, 246);
+            gts_activo1.CheckedState.InnerBorderColor = Color.White;
+            gts_activo1.CheckedState.InnerColor = Color.White;
+            gts_activo1.Cursor = Cursors.Hand;
+            gts_activo1.CustomizableEdges = customizableEdges5;
+            gts_activo1.Location = new Point(318, 46);
+            gts_activo1.Name = "gts_activo1";
+            gts_activo1.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            gts_activo1.Size = new Size(54, 26);
+            gts_activo1.TabIndex = 15;
+            gts_activo1.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
+            gts_activo1.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
+            gts_activo1.UncheckedState.InnerBorderColor = Color.White;
+            gts_activo1.UncheckedState.InnerColor = Color.White;
+            // 
+            // lbl_agg8
+            // 
+            lbl_agg8.AutoSize = true;
+            lbl_agg8.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_agg8.ForeColor = Color.Black;
+            lbl_agg8.Location = new Point(15, 46);
+            lbl_agg8.Name = "lbl_agg8";
+            lbl_agg8.Size = new Size(65, 22);
+            lbl_agg8.TabIndex = 14;
+            lbl_agg8.Text = "Activo";
+            // 
+            // lbl_agg7
+            // 
+            lbl_agg7.AutoSize = true;
+            lbl_agg7.Font = new Font("Calibri", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            lbl_agg7.Location = new Point(13, 78);
+            lbl_agg7.Name = "lbl_agg7";
+            lbl_agg7.Size = new Size(247, 24);
+            lbl_agg7.TabIndex = 13;
+            lbl_agg7.Text = "El producto estara disponible";
+            // 
+            // lbl_agg6
+            // 
+            lbl_agg6.AutoSize = true;
+            lbl_agg6.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_agg6.ForeColor = Color.Black;
+            lbl_agg6.Location = new Point(13, 11);
+            lbl_agg6.Name = "lbl_agg6";
+            lbl_agg6.Size = new Size(189, 22);
+            lbl_agg6.TabIndex = 2;
+            lbl_agg6.Text = "Estado del producto";
+            // 
+            // pnl_agg4
+            // 
+            pnl_agg4.BackColor = Color.White;
+            pnl_agg4.BorderStyle = BorderStyle.FixedSingle;
+            pnl_agg4.Controls.Add(lbl_agg5);
+            pnl_agg4.Controls.Add(gbtn_agg2);
+            pnl_agg4.Controls.Add(gbtn_agg1);
+            pnl_agg4.Controls.Add(pnl_agg3);
+            pnl_agg4.Location = new Point(723, 120);
+            pnl_agg4.Name = "pnl_agg4";
+            pnl_agg4.Size = new Size(466, 477);
+            pnl_agg4.TabIndex = 8;
+            // 
+            // lbl_agg5
+            // 
+            lbl_agg5.AutoSize = true;
+            lbl_agg5.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_agg5.ForeColor = Color.Black;
+            lbl_agg5.Location = new Point(12, 12);
+            lbl_agg5.Name = "lbl_agg5";
+            lbl_agg5.Size = new Size(191, 22);
+            lbl_agg5.TabIndex = 1;
+            lbl_agg5.Text = "Imagen del producto";
+            // 
+            // gbtn_agg2
+            // 
+            gbtn_agg2.BorderRadius = 12;
+            gbtn_agg2.Cursor = Cursors.Hand;
+            gbtn_agg2.CustomizableEdges = customizableEdges7;
+            gbtn_agg2.DisabledState.BorderColor = Color.DarkGray;
+            gbtn_agg2.DisabledState.CustomBorderColor = Color.DarkGray;
+            gbtn_agg2.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            gbtn_agg2.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            gbtn_agg2.FillColor = Color.Silver;
+            gbtn_agg2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            gbtn_agg2.ForeColor = Color.Black;
+            gbtn_agg2.Location = new Point(63, 396);
+            gbtn_agg2.Name = "gbtn_agg2";
+            gbtn_agg2.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            gbtn_agg2.Size = new Size(326, 56);
+            gbtn_agg2.TabIndex = 7;
+            gbtn_agg2.Text = "Quitar imagen";
+            gbtn_agg2.Click += gbtn_agg2_Click;
+            // 
+            // gbtn_agg1
+            // 
+            gbtn_agg1.BorderRadius = 12;
+            gbtn_agg1.Cursor = Cursors.Hand;
+            gbtn_agg1.CustomizableEdges = customizableEdges9;
+            gbtn_agg1.DisabledState.BorderColor = Color.DarkGray;
+            gbtn_agg1.DisabledState.CustomBorderColor = Color.DarkGray;
+            gbtn_agg1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            gbtn_agg1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            gbtn_agg1.FillColor = Color.FromArgb(112, 34, 246);
+            gbtn_agg1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            gbtn_agg1.ForeColor = Color.White;
+            gbtn_agg1.Location = new Point(63, 334);
+            gbtn_agg1.Name = "gbtn_agg1";
+            gbtn_agg1.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            gbtn_agg1.Size = new Size(326, 56);
+            gbtn_agg1.TabIndex = 6;
+            gbtn_agg1.Text = "Seleccionar archivo";
+            gbtn_agg1.Click += gbtn_agg1_Click;
+            // 
             // pnl_agg3
             // 
             pnl_agg3.AllowDrop = true;
@@ -108,6 +280,16 @@
             pnl_agg3.Name = "pnl_agg3";
             pnl_agg3.Size = new Size(324, 271);
             pnl_agg3.TabIndex = 3;
+            // 
+            // pic_agg2
+            // 
+            pic_agg2.Image = (Image)resources.GetObject("pic_agg2.Image");
+            pic_agg2.Location = new Point(79, 72);
+            pic_agg2.Name = "pic_agg2";
+            pic_agg2.Size = new Size(140, 99);
+            pic_agg2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pic_agg2.TabIndex = 5;
+            pic_agg2.TabStop = false;
             // 
             // lbl_msj1
             // 
@@ -125,10 +307,9 @@
             pic_agg1.Location = new Point(0, 0);
             pic_agg1.Name = "pic_agg1";
             pic_agg1.Size = new Size(322, 269);
-            pic_agg1.SizeMode = PictureBoxSizeMode.Zoom;
+            pic_agg1.SizeMode = PictureBoxSizeMode.StretchImage;
             pic_agg1.TabIndex = 0;
             pic_agg1.TabStop = false;
-            pic_agg1.Visible = false;
             // 
             // pnl_agg2
             // 
@@ -312,163 +493,6 @@
             lbl_agg1.TabIndex = 0;
             lbl_agg1.Text = "Agregar nuevo producto";
             // 
-            // gbtn_agg1
-            // 
-            gbtn_agg1.BorderRadius = 12;
-            gbtn_agg1.Cursor = Cursors.Hand;
-            gbtn_agg1.CustomizableEdges = customizableEdges7;
-            gbtn_agg1.DisabledState.BorderColor = Color.DarkGray;
-            gbtn_agg1.DisabledState.CustomBorderColor = Color.DarkGray;
-            gbtn_agg1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            gbtn_agg1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            gbtn_agg1.FillColor = Color.FromArgb(112, 34, 246);
-            gbtn_agg1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            gbtn_agg1.ForeColor = Color.White;
-            gbtn_agg1.Location = new Point(63, 334);
-            gbtn_agg1.Name = "gbtn_agg1";
-            gbtn_agg1.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            gbtn_agg1.Size = new Size(326, 56);
-            gbtn_agg1.TabIndex = 6;
-            gbtn_agg1.Text = "Seleccionar archivo";
-            // 
-            // gbtn_agg2
-            // 
-            gbtn_agg2.BorderRadius = 12;
-            gbtn_agg2.Cursor = Cursors.Hand;
-            gbtn_agg2.CustomizableEdges = customizableEdges5;
-            gbtn_agg2.DisabledState.BorderColor = Color.DarkGray;
-            gbtn_agg2.DisabledState.CustomBorderColor = Color.DarkGray;
-            gbtn_agg2.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            gbtn_agg2.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            gbtn_agg2.FillColor = Color.Silver;
-            gbtn_agg2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            gbtn_agg2.ForeColor = Color.Black;
-            gbtn_agg2.Location = new Point(63, 396);
-            gbtn_agg2.Name = "gbtn_agg2";
-            gbtn_agg2.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            gbtn_agg2.Size = new Size(326, 56);
-            gbtn_agg2.TabIndex = 7;
-            gbtn_agg2.Text = "Quitar imagen";
-            // 
-            // pic_agg2
-            // 
-            pic_agg2.Image = (Image)resources.GetObject("pic_agg2.Image");
-            pic_agg2.Location = new Point(79, 72);
-            pic_agg2.Name = "pic_agg2";
-            pic_agg2.Size = new Size(140, 99);
-            pic_agg2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pic_agg2.TabIndex = 5;
-            pic_agg2.TabStop = false;
-            // 
-            // pnl_agg4
-            // 
-            pnl_agg4.BackColor = Color.White;
-            pnl_agg4.BorderStyle = BorderStyle.FixedSingle;
-            pnl_agg4.Controls.Add(lbl_agg5);
-            pnl_agg4.Controls.Add(gbtn_agg2);
-            pnl_agg4.Controls.Add(gbtn_agg1);
-            pnl_agg4.Controls.Add(pnl_agg3);
-            pnl_agg4.Location = new Point(723, 120);
-            pnl_agg4.Name = "pnl_agg4";
-            pnl_agg4.Size = new Size(466, 477);
-            pnl_agg4.TabIndex = 8;
-            // 
-            // lbl_agg5
-            // 
-            lbl_agg5.AutoSize = true;
-            lbl_agg5.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_agg5.ForeColor = Color.Black;
-            lbl_agg5.Location = new Point(12, 12);
-            lbl_agg5.Name = "lbl_agg5";
-            lbl_agg5.Size = new Size(191, 22);
-            lbl_agg5.TabIndex = 1;
-            lbl_agg5.Text = "Imagen del producto";
-            // 
-            // pnl_agg5
-            // 
-            pnl_agg5.BackColor = Color.White;
-            pnl_agg5.Controls.Add(lbl_agg7);
-            pnl_agg5.Controls.Add(lbl_agg6);
-            pnl_agg5.Controls.Add(checkBox1);
-            pnl_agg5.Location = new Point(723, 603);
-            pnl_agg5.Name = "pnl_agg5";
-            pnl_agg5.Size = new Size(466, 119);
-            pnl_agg5.TabIndex = 9;
-            // 
-            // checkBox1
-            // 
-            checkBox1.AutoSize = true;
-            checkBox1.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            checkBox1.Location = new Point(13, 49);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(81, 26);
-            checkBox1.TabIndex = 0;
-            checkBox1.Text = "Activo";
-            checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // lbl_agg6
-            // 
-            lbl_agg6.AutoSize = true;
-            lbl_agg6.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_agg6.ForeColor = Color.Black;
-            lbl_agg6.Location = new Point(13, 11);
-            lbl_agg6.Name = "lbl_agg6";
-            lbl_agg6.Size = new Size(189, 22);
-            lbl_agg6.TabIndex = 2;
-            lbl_agg6.Text = "Estado del producto";
-            // 
-            // lbl_agg7
-            // 
-            lbl_agg7.AutoSize = true;
-            lbl_agg7.Font = new Font("Calibri", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            lbl_agg7.Location = new Point(13, 78);
-            lbl_agg7.Name = "lbl_agg7";
-            lbl_agg7.Size = new Size(247, 24);
-            lbl_agg7.TabIndex = 13;
-            lbl_agg7.Text = "El producto estara disponible";
-            // 
-            // gbtn_agg3
-            // 
-            gbtn_agg3.BorderRadius = 12;
-            gbtn_agg3.Cursor = Cursors.Hand;
-            gbtn_agg3.CustomizableEdges = customizableEdges3;
-            gbtn_agg3.DisabledState.BorderColor = Color.DarkGray;
-            gbtn_agg3.DisabledState.CustomBorderColor = Color.DarkGray;
-            gbtn_agg3.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            gbtn_agg3.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            gbtn_agg3.FillColor = Color.FromArgb(112, 34, 246);
-            gbtn_agg3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            gbtn_agg3.ForeColor = Color.White;
-            gbtn_agg3.Location = new Point(723, 740);
-            gbtn_agg3.Name = "gbtn_agg3";
-            gbtn_agg3.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            gbtn_agg3.Size = new Size(466, 56);
-            gbtn_agg3.TabIndex = 10;
-            gbtn_agg3.Text = "Guardar producto";
-            // 
-            // gbtn_agg4
-            // 
-            gbtn_agg4.BackColor = Color.Transparent;
-            gbtn_agg4.BorderColor = Color.FromArgb(112, 34, 246);
-            gbtn_agg4.BorderRadius = 12;
-            gbtn_agg4.BorderThickness = 2;
-            gbtn_agg4.Cursor = Cursors.Hand;
-            gbtn_agg4.CustomizableEdges = customizableEdges1;
-            gbtn_agg4.DisabledState.BorderColor = Color.DarkGray;
-            gbtn_agg4.DisabledState.CustomBorderColor = Color.DarkGray;
-            gbtn_agg4.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            gbtn_agg4.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            gbtn_agg4.FillColor = Color.White;
-            gbtn_agg4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            gbtn_agg4.ForeColor = Color.FromArgb(112, 34, 246);
-            gbtn_agg4.Location = new Point(35, 740);
-            gbtn_agg4.Name = "gbtn_agg4";
-            gbtn_agg4.PressedColor = Color.FromArgb(112, 34, 246);
-            gbtn_agg4.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            gbtn_agg4.Size = new Size(326, 56);
-            gbtn_agg4.TabIndex = 11;
-            gbtn_agg4.Text = "Cancelar";
-            // 
             // FormAgg_Product
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -480,16 +504,16 @@
             Text = "FormAgg_Product";
             pnl_agg1.ResumeLayout(false);
             pnl_agg1.PerformLayout();
+            pnl_agg5.ResumeLayout(false);
+            pnl_agg5.PerformLayout();
+            pnl_agg4.ResumeLayout(false);
+            pnl_agg4.PerformLayout();
             pnl_agg3.ResumeLayout(false);
             pnl_agg3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pic_agg2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pic_agg1).EndInit();
             pnl_agg2.ResumeLayout(false);
             pnl_agg2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pic_agg2).EndInit();
-            pnl_agg4.ResumeLayout(false);
-            pnl_agg4.PerformLayout();
-            pnl_agg5.ResumeLayout(false);
-            pnl_agg5.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -525,10 +549,11 @@
         private PictureBox pic_agg2;
         private Label lbl_agg5;
         private Panel pnl_agg5;
-        private CheckBox checkBox1;
         private Guna.UI2.WinForms.Guna2Button gbtn_agg3;
         private Label lbl_agg7;
         private Label lbl_agg6;
         private Guna.UI2.WinForms.Guna2Button gbtn_agg4;
+        private Guna.UI2.WinForms.Guna2ToggleSwitch gts_activo1;
+        private Label lbl_agg8;
     }
 }

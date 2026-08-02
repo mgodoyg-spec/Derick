@@ -28,30 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProductos));
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             pnl_product1 = new Panel();
             pnl_product_acr1 = new Panel();
             btn_acr1 = new Button();
             lbl_actp1 = new Label();
             pnl_product_acc1 = new Panel();
             pnl_acc4 = new Panel();
-            btn_acc4 = new Button();
+            btn_product4 = new Guna.UI2.WinForms.Guna2Button();
             label5 = new Label();
             lbl_acc4 = new Label();
             pic_acc4 = new PictureBox();
             pnl_acc3 = new Panel();
-            btn_acc3 = new Button();
+            btn_product3 = new Guna.UI2.WinForms.Guna2Button();
             label4 = new Label();
             lbl_acc3 = new Label();
             pic_acc3 = new PictureBox();
             pnl_acc2 = new Panel();
-            btn_acc2 = new Button();
+            btn_product2 = new Guna.UI2.WinForms.Guna2Button();
             lbl_acc6 = new Label();
             lbl_acc2 = new Label();
             pic_acc2 = new PictureBox();
             pnl_acc1 = new Panel();
-            btn_acc1 = new Button();
             lbl_acc5 = new Label();
+            btn_product1 = new Guna.UI2.WinForms.Guna2Button();
             lbl_acc1 = new Label();
             pic_acc1 = new PictureBox();
             label1 = new Label();
@@ -171,7 +179,7 @@
             // pnl_acc4
             // 
             pnl_acc4.BackColor = Color.FromArgb(244, 246, 249);
-            pnl_acc4.Controls.Add(btn_acc4);
+            pnl_acc4.Controls.Add(btn_product4);
             pnl_acc4.Controls.Add(label5);
             pnl_acc4.Controls.Add(lbl_acc4);
             pnl_acc4.Controls.Add(pic_acc4);
@@ -180,19 +188,26 @@
             pnl_acc4.Size = new Size(143, 293);
             pnl_acc4.TabIndex = 10;
             // 
-            // btn_acc4
+            // btn_product4
             // 
-            btn_acc4.BackColor = Color.FromArgb(255, 136, 0);
-            btn_acc4.Cursor = Cursors.Hand;
-            btn_acc4.ForeColor = Color.White;
-            btn_acc4.Image = (Image)resources.GetObject("btn_acc4.Image");
-            btn_acc4.ImageAlign = ContentAlignment.MiddleRight;
-            btn_acc4.Location = new Point(9, 244);
-            btn_acc4.Name = "btn_acc4";
-            btn_acc4.Size = new Size(125, 29);
-            btn_acc4.TabIndex = 5;
-            btn_acc4.Text = "Ir ahora  \r\n     ";
-            btn_acc4.UseVisualStyleBackColor = false;
+            btn_product4.BorderRadius = 12;
+            btn_product4.Cursor = Cursors.Hand;
+            btn_product4.CustomizableEdges = customizableEdges9;
+            btn_product4.DisabledState.BorderColor = Color.DarkGray;
+            btn_product4.DisabledState.CustomBorderColor = Color.DarkGray;
+            btn_product4.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btn_product4.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btn_product4.FillColor = Color.FromArgb(255, 136, 0);
+            btn_product4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_product4.ForeColor = Color.White;
+            btn_product4.Image = (Image)resources.GetObject("btn_product4.Image");
+            btn_product4.ImageAlign = HorizontalAlignment.Right;
+            btn_product4.Location = new Point(9, 244);
+            btn_product4.Name = "btn_product4";
+            btn_product4.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            btn_product4.Size = new Size(125, 29);
+            btn_product4.TabIndex = 13;
+            btn_product4.Text = "Ir ahora";
             // 
             // label5
             // 
@@ -228,7 +243,7 @@
             // pnl_acc3
             // 
             pnl_acc3.BackColor = Color.FromArgb(244, 246, 249);
-            pnl_acc3.Controls.Add(btn_acc3);
+            pnl_acc3.Controls.Add(btn_product3);
             pnl_acc3.Controls.Add(label4);
             pnl_acc3.Controls.Add(lbl_acc3);
             pnl_acc3.Controls.Add(pic_acc3);
@@ -237,19 +252,26 @@
             pnl_acc3.Size = new Size(143, 293);
             pnl_acc3.TabIndex = 10;
             // 
-            // btn_acc3
+            // btn_product3
             // 
-            btn_acc3.BackColor = Color.FromArgb(112, 34, 246);
-            btn_acc3.Cursor = Cursors.Hand;
-            btn_acc3.ForeColor = Color.White;
-            btn_acc3.Image = (Image)resources.GetObject("btn_acc3.Image");
-            btn_acc3.ImageAlign = ContentAlignment.MiddleRight;
-            btn_acc3.Location = new Point(9, 244);
-            btn_acc3.Name = "btn_acc3";
-            btn_acc3.Size = new Size(125, 29);
-            btn_acc3.TabIndex = 4;
-            btn_acc3.Text = "Ir ahora  \r\n     ";
-            btn_acc3.UseVisualStyleBackColor = false;
+            btn_product3.BorderRadius = 12;
+            btn_product3.Cursor = Cursors.Hand;
+            btn_product3.CustomizableEdges = customizableEdges11;
+            btn_product3.DisabledState.BorderColor = Color.DarkGray;
+            btn_product3.DisabledState.CustomBorderColor = Color.DarkGray;
+            btn_product3.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btn_product3.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btn_product3.FillColor = Color.FromArgb(112, 34, 246);
+            btn_product3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_product3.ForeColor = Color.White;
+            btn_product3.Image = (Image)resources.GetObject("btn_product3.Image");
+            btn_product3.ImageAlign = HorizontalAlignment.Right;
+            btn_product3.Location = new Point(9, 244);
+            btn_product3.Name = "btn_product3";
+            btn_product3.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            btn_product3.Size = new Size(125, 29);
+            btn_product3.TabIndex = 12;
+            btn_product3.Text = "Ir ahora";
             // 
             // label4
             // 
@@ -285,7 +307,7 @@
             // pnl_acc2
             // 
             pnl_acc2.BackColor = Color.FromArgb(244, 246, 249);
-            pnl_acc2.Controls.Add(btn_acc2);
+            pnl_acc2.Controls.Add(btn_product2);
             pnl_acc2.Controls.Add(lbl_acc6);
             pnl_acc2.Controls.Add(lbl_acc2);
             pnl_acc2.Controls.Add(pic_acc2);
@@ -294,19 +316,26 @@
             pnl_acc2.Size = new Size(143, 293);
             pnl_acc2.TabIndex = 10;
             // 
-            // btn_acc2
+            // btn_product2
             // 
-            btn_acc2.BackColor = Color.FromArgb(0, 176, 80);
-            btn_acc2.Cursor = Cursors.Hand;
-            btn_acc2.ForeColor = Color.White;
-            btn_acc2.Image = (Image)resources.GetObject("btn_acc2.Image");
-            btn_acc2.ImageAlign = ContentAlignment.MiddleRight;
-            btn_acc2.Location = new Point(9, 244);
-            btn_acc2.Name = "btn_acc2";
-            btn_acc2.Size = new Size(125, 29);
-            btn_acc2.TabIndex = 4;
-            btn_acc2.Text = "Ir ahora  \r\n     ";
-            btn_acc2.UseVisualStyleBackColor = false;
+            btn_product2.BorderRadius = 12;
+            btn_product2.Cursor = Cursors.Hand;
+            btn_product2.CustomizableEdges = customizableEdges13;
+            btn_product2.DisabledState.BorderColor = Color.DarkGray;
+            btn_product2.DisabledState.CustomBorderColor = Color.DarkGray;
+            btn_product2.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btn_product2.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btn_product2.FillColor = Color.FromArgb(0, 176, 80);
+            btn_product2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_product2.ForeColor = Color.White;
+            btn_product2.Image = (Image)resources.GetObject("btn_product2.Image");
+            btn_product2.ImageAlign = HorizontalAlignment.Right;
+            btn_product2.Location = new Point(9, 244);
+            btn_product2.Name = "btn_product2";
+            btn_product2.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            btn_product2.Size = new Size(125, 29);
+            btn_product2.TabIndex = 11;
+            btn_product2.Text = "Ir ahora";
             // 
             // lbl_acc6
             // 
@@ -342,28 +371,14 @@
             // pnl_acc1
             // 
             pnl_acc1.BackColor = Color.FromArgb(244, 246, 249);
-            pnl_acc1.Controls.Add(btn_acc1);
             pnl_acc1.Controls.Add(lbl_acc5);
+            pnl_acc1.Controls.Add(btn_product1);
             pnl_acc1.Controls.Add(lbl_acc1);
             pnl_acc1.Controls.Add(pic_acc1);
             pnl_acc1.Location = new Point(24, 80);
             pnl_acc1.Name = "pnl_acc1";
             pnl_acc1.Size = new Size(143, 293);
             pnl_acc1.TabIndex = 9;
-            // 
-            // btn_acc1
-            // 
-            btn_acc1.BackColor = Color.FromArgb(0, 102, 255);
-            btn_acc1.Cursor = Cursors.Hand;
-            btn_acc1.ForeColor = Color.White;
-            btn_acc1.Image = (Image)resources.GetObject("btn_acc1.Image");
-            btn_acc1.ImageAlign = ContentAlignment.MiddleRight;
-            btn_acc1.Location = new Point(9, 244);
-            btn_acc1.Name = "btn_acc1";
-            btn_acc1.Size = new Size(125, 29);
-            btn_acc1.TabIndex = 3;
-            btn_acc1.Text = "Ir ahora  \r\n     ";
-            btn_acc1.UseVisualStyleBackColor = false;
             // 
             // lbl_acc5
             // 
@@ -374,6 +389,28 @@
             lbl_acc5.Size = new Size(126, 44);
             lbl_acc5.TabIndex = 2;
             lbl_acc5.Text = "   Registrar un  \r\nnuevo producto";
+            // 
+            // btn_product1
+            // 
+            btn_product1.BorderRadius = 12;
+            btn_product1.Cursor = Cursors.Hand;
+            btn_product1.CustomizableEdges = customizableEdges15;
+            btn_product1.DisabledState.BorderColor = Color.DarkGray;
+            btn_product1.DisabledState.CustomBorderColor = Color.DarkGray;
+            btn_product1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btn_product1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btn_product1.FillColor = Color.FromArgb(0, 102, 255);
+            btn_product1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_product1.ForeColor = Color.White;
+            btn_product1.Image = (Image)resources.GetObject("btn_product1.Image");
+            btn_product1.ImageAlign = HorizontalAlignment.Right;
+            btn_product1.Location = new Point(9, 244);
+            btn_product1.Name = "btn_product1";
+            btn_product1.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            btn_product1.Size = new Size(125, 29);
+            btn_product1.TabIndex = 10;
+            btn_product1.Text = "Ir ahora";
+            btn_product1.Click += btn_product1_Click;
             // 
             // lbl_acc1
             // 
@@ -781,10 +818,10 @@
         private Label lbl_acc6;
         private Label label5;
         private Label label4;
-        private Button btn_acc1;
-        private Button btn_acc4;
-        private Button btn_acc3;
-        private Button btn_acc2;
         private Button btn_acr1;
+        private Guna.UI2.WinForms.Guna2Button btn_product2;
+        private Guna.UI2.WinForms.Guna2Button btn_product1;
+        private Guna.UI2.WinForms.Guna2Button btn_product4;
+        private Guna.UI2.WinForms.Guna2Button btn_product3;
     }
 }
