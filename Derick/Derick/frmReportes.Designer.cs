@@ -724,13 +724,13 @@
             // pnlReportes
             // 
             pnlReportes.BackColor = Color.Transparent;
-            pnlReportes.BackgroundImage = (Image)resources.GetObject("pnlReportes.BackgroundImage");
+            pnlReportes.BackgroundImage = Properties.Resources.Banner2;
             pnlReportes.BackgroundImageLayout = ImageLayout.Stretch;
             pnlReportes.Controls.Add(lblResumenReportes);
             pnlReportes.Controls.Add(lblReportes);
-            pnlReportes.Location = new Point(21, 12);
+            pnlReportes.Location = new Point(10, 12);
             pnlReportes.Name = "pnlReportes";
-            pnlReportes.Size = new Size(1160, 103);
+            pnlReportes.Size = new Size(1172, 103);
             pnlReportes.TabIndex = 1;
             pnlReportes.Paint += pnlReportes_Paint;
             // 
