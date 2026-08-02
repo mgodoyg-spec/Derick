@@ -563,6 +563,36 @@ namespace Derick.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap picEditar {
+            get {
+                object obj = ResourceManager.GetObject("picEditar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap picEliminar {
+            get {
+                object obj = ResourceManager.GetObject("picEliminar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pngtree_cartoon_blue_magnifying_glass_illustration_png_image_4505525 {
+            get {
+                object obj = ResourceManager.GetObject("pngtree-cartoon-blue-magnifying-glass-illustration-png-image_4505525", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Productoss {
             get {
                 object obj = ResourceManager.GetObject("Productoss", resourceCulture);
