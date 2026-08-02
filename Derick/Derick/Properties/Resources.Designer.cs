@@ -103,6 +103,16 @@ namespace Derick.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Banner2 {
+            get {
+                object obj = ResourceManager.GetObject("Banner2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bannerSucursales {
             get {
                 object obj = ResourceManager.GetObject("bannerSucursales", resourceCulture);
@@ -333,6 +343,16 @@ namespace Derick.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap clients {
+            get {
+                object obj = ResourceManager.GetObject("clients", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Derick_blanco {
             get {
                 object obj = ResourceManager.GetObject("Derick blanco", resourceCulture);
@@ -533,9 +553,29 @@ namespace Derick.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Impresora {
+            get {
+                object obj = ResourceManager.GetObject("Impresora", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap inicio {
             get {
                 object obj = ResourceManager.GetObject("inicio", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lim {
+            get {
+                object obj = ResourceManager.GetObject("lim", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
