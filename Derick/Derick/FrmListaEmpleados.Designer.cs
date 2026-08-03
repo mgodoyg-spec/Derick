@@ -28,16 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            pnlListEmpleados = new Panel();
+            pnlListaEmpleados = new Panel();
+            btnVolver = new Button();
+            pnl_borde_p3 = new Panel();
+            pnlBuscar = new FlowLayoutPanel();
+            pictureBox1 = new PictureBox();
+            txtBuscar = new TextBox();
             lblEstado = new Label();
             cmbEstado = new ComboBox();
             btnNuevoEmpleado = new Button();
             cmbDepartamento = new ComboBox();
             lblListaEmple = new Label();
             dgvEmpleados = new DataGridView();
-            pnlBuscar = new FlowLayoutPanel();
-            txtBuscar = new TextBox();
-            pictureBox1 = new PictureBox();
             ColID = new DataGridViewTextBoxColumn();
             ColImagen = new DataGridViewImageColumn();
             ColEmpleado = new DataGridViewTextBoxColumn();
@@ -48,27 +50,80 @@
             ColEstado = new DataGridViewTextBoxColumn();
             ColEditar = new DataGridViewImageColumn();
             ColEliminar = new DataGridViewImageColumn();
-            pnlListEmpleados.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvEmpleados).BeginInit();
+            ColVer = new DataGridViewButtonColumn();
+            pnlListaEmpleados.SuspendLayout();
             pnlBuscar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvEmpleados).BeginInit();
             SuspendLayout();
             // 
-            // pnlListEmpleados
+            // pnlListaEmpleados
             // 
-            pnlListEmpleados.Controls.Add(pnlBuscar);
-            pnlListEmpleados.Controls.Add(lblEstado);
-            pnlListEmpleados.Controls.Add(cmbEstado);
-            pnlListEmpleados.Controls.Add(btnNuevoEmpleado);
-            pnlListEmpleados.Controls.Add(cmbDepartamento);
-            pnlListEmpleados.Controls.Add(lblListaEmple);
-            pnlListEmpleados.Controls.Add(dgvEmpleados);
-            pnlListEmpleados.Dock = DockStyle.Fill;
-            pnlListEmpleados.Location = new Point(0, 0);
-            pnlListEmpleados.Name = "pnlListEmpleados";
-            pnlListEmpleados.Size = new Size(1335, 774);
-            pnlListEmpleados.TabIndex = 0;
-            pnlListEmpleados.Paint += pnlListEmpleados_Paint;
+            pnlListaEmpleados.BackColor = Color.White;
+            pnlListaEmpleados.Controls.Add(btnVolver);
+            pnlListaEmpleados.Controls.Add(pnl_borde_p3);
+            pnlListaEmpleados.Controls.Add(pnlBuscar);
+            pnlListaEmpleados.Controls.Add(lblEstado);
+            pnlListaEmpleados.Controls.Add(cmbEstado);
+            pnlListaEmpleados.Controls.Add(btnNuevoEmpleado);
+            pnlListaEmpleados.Controls.Add(cmbDepartamento);
+            pnlListaEmpleados.Controls.Add(lblListaEmple);
+            pnlListaEmpleados.Controls.Add(dgvEmpleados);
+            pnlListaEmpleados.Dock = DockStyle.Fill;
+            pnlListaEmpleados.Location = new Point(0, 0);
+            pnlListaEmpleados.Name = "pnlListaEmpleados";
+            pnlListaEmpleados.Size = new Size(1335, 774);
+            pnlListaEmpleados.TabIndex = 0;
+            pnlListaEmpleados.Paint += pnlListEmpleados_Paint;
+            // 
+            // btnVolver
+            // 
+            btnVolver.FlatStyle = FlatStyle.System;
+            btnVolver.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnVolver.Location = new Point(1143, 26);
+            btnVolver.Name = "btnVolver";
+            btnVolver.Size = new Size(117, 43);
+            btnVolver.TabIndex = 27;
+            btnVolver.Text = "Volver";
+            btnVolver.UseVisualStyleBackColor = true;
+            btnVolver.Click += btnVolver_Click;
+            // 
+            // pnl_borde_p3
+            // 
+            pnl_borde_p3.BackColor = Color.FromArgb(112, 34, 246);
+            pnl_borde_p3.Location = new Point(12, 82);
+            pnl_borde_p3.Name = "pnl_borde_p3";
+            pnl_borde_p3.Size = new Size(145, 10);
+            pnl_borde_p3.TabIndex = 26;
+            // 
+            // pnlBuscar
+            // 
+            pnlBuscar.BackColor = Color.White;
+            pnlBuscar.BorderStyle = BorderStyle.FixedSingle;
+            pnlBuscar.Controls.Add(pictureBox1);
+            pnlBuscar.Controls.Add(txtBuscar);
+            pnlBuscar.Location = new Point(33, 168);
+            pnlBuscar.Name = "pnlBuscar";
+            pnlBuscar.Size = new Size(280, 40);
+            pnlBuscar.TabIndex = 25;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.pngtree_cartoon_blue_magnifying_glass_illustration_png_image_4505525;
+            pictureBox1.Location = new Point(3, 3);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(45, 39);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 27;
+            pictureBox1.TabStop = false;
+            // 
+            // txtBuscar
+            // 
+            txtBuscar.Location = new Point(54, 3);
+            txtBuscar.Name = "txtBuscar";
+            txtBuscar.PlaceholderText = "Buscar empleado......";
+            txtBuscar.Size = new Size(212, 27);
+            txtBuscar.TabIndex = 26;
             // 
             // lblEstado
             // 
@@ -117,7 +172,7 @@
             // 
             lblListaEmple.AutoSize = true;
             lblListaEmple.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblListaEmple.Location = new Point(12, 27);
+            lblListaEmple.Location = new Point(12, 50);
             lblListaEmple.Name = "lblListaEmple";
             lblListaEmple.Size = new Size(244, 29);
             lblListaEmple.TabIndex = 1;
@@ -127,7 +182,7 @@
             // 
             dgvEmpleados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvEmpleados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvEmpleados.Columns.AddRange(new DataGridViewColumn[] { ColID, ColImagen, ColEmpleado, ColCargo, ColDepartamento, ColTelefono, ColCorreo, ColEstado, ColEditar, ColEliminar });
+            dgvEmpleados.Columns.AddRange(new DataGridViewColumn[] { ColID, ColImagen, ColEmpleado, ColCargo, ColDepartamento, ColTelefono, ColCorreo, ColEstado, ColEditar, ColEliminar, ColVer });
             dgvEmpleados.Location = new Point(12, 244);
             dgvEmpleados.Name = "dgvEmpleados";
             dgvEmpleados.RowHeadersVisible = false;
@@ -135,35 +190,6 @@
             dgvEmpleados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvEmpleados.Size = new Size(1248, 329);
             dgvEmpleados.TabIndex = 0;
-            // 
-            // pnlBuscar
-            // 
-            pnlBuscar.BackColor = Color.White;
-            pnlBuscar.BorderStyle = BorderStyle.FixedSingle;
-            pnlBuscar.Controls.Add(pictureBox1);
-            pnlBuscar.Controls.Add(txtBuscar);
-            pnlBuscar.Location = new Point(33, 168);
-            pnlBuscar.Name = "pnlBuscar";
-            pnlBuscar.Size = new Size(280, 40);
-            pnlBuscar.TabIndex = 25;
-            // 
-            // txtBuscar
-            // 
-            txtBuscar.Location = new Point(54, 3);
-            txtBuscar.Name = "txtBuscar";
-            txtBuscar.PlaceholderText = "Buscar empleado......";
-            txtBuscar.Size = new Size(212, 27);
-            txtBuscar.TabIndex = 26;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = Properties.Resources.pngtree_cartoon_blue_magnifying_glass_illustration_png_image_4505525;
-            pictureBox1.Location = new Point(3, 3);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(45, 39);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 27;
-            pictureBox1.TabStop = false;
             // 
             // ColID
             // 
@@ -234,28 +260,37 @@
             ColEliminar.Resizable = DataGridViewTriState.True;
             ColEliminar.SortMode = DataGridViewColumnSortMode.Automatic;
             // 
+            // ColVer
+            // 
+            ColVer.HeaderText = "Ver";
+            ColVer.MinimumWidth = 6;
+            ColVer.Name = "ColVer";
+            ColVer.Resizable = DataGridViewTriState.True;
+            ColVer.SortMode = DataGridViewColumnSortMode.Automatic;
+            ColVer.UseColumnTextForButtonValue = true;
+            // 
             // FrmListaEmpleados
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1335, 774);
-            Controls.Add(pnlListEmpleados);
+            Controls.Add(pnlListaEmpleados);
             FormBorderStyle = FormBorderStyle.None;
             Name = "FrmListaEmpleados";
             Text = "FrmListaEmpleados";
             Load += FrmListaEmpleados_Load;
-            pnlListEmpleados.ResumeLayout(false);
-            pnlListEmpleados.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvEmpleados).EndInit();
+            pnlListaEmpleados.ResumeLayout(false);
+            pnlListaEmpleados.PerformLayout();
             pnlBuscar.ResumeLayout(false);
             pnlBuscar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvEmpleados).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Panel pnlListEmpleados;
+        private Panel pnlListaEmpleados;
         private DataGridView dgvEmpleados;
         private Label lblListaEmple;
         private ComboBox cmbDepartamento;
@@ -265,6 +300,8 @@
         private FlowLayoutPanel pnlBuscar;
         private TextBox txtBuscar;
         private PictureBox pictureBox1;
+        private Button btnVolver;
+        private Panel pnl_borde_p3;
         private DataGridViewTextBoxColumn ColID;
         private DataGridViewImageColumn ColImagen;
         private DataGridViewTextBoxColumn ColEmpleado;
@@ -275,5 +312,6 @@
         private DataGridViewTextBoxColumn ColEstado;
         private DataGridViewImageColumn ColEditar;
         private DataGridViewImageColumn ColEliminar;
+        private DataGridViewButtonColumn ColVer;
     }
 }

@@ -83,16 +83,6 @@ namespace Derick.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap AgregarVenta {
-            get {
-                object obj = ResourceManager.GetObject("AgregarVenta", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Banner__1_ {
             get {
                 object obj = ResourceManager.GetObject("Banner__1_", resourceCulture);
@@ -373,16 +363,6 @@ namespace Derick.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Empleados {
-            get {
-                object obj = ResourceManager.GetObject("Empleados", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap esconder {
             get {
                 object obj = ResourceManager.GetObject("esconder", resourceCulture);
@@ -523,16 +503,6 @@ namespace Derick.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icoSucursales {
-            get {
-                object obj = ResourceManager.GetObject("icoSucursales", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap icoUbi {
             get {
                 object obj = ResourceManager.GetObject("icoUbi", resourceCulture);
@@ -626,16 +596,6 @@ namespace Derick.Properties {
         internal static System.Drawing.Bitmap pngtree_cartoon_blue_magnifying_glass_illustration_png_image_4505525 {
             get {
                 object obj = ResourceManager.GetObject("pngtree-cartoon-blue-magnifying-glass-illustration-png-image_4505525", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Productoss {
-            get {
-                object obj = ResourceManager.GetObject("Productoss", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

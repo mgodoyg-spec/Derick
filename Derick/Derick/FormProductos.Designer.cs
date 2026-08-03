@@ -625,7 +625,7 @@
             // 
             // pcProductos
             // 
-            pcProductos.Image = Properties.Resources.Productoss;
+           
             pcProductos.Location = new Point(22, 27);
             pcProductos.Name = "pcProductos";
             pcProductos.Size = new Size(60, 56);
