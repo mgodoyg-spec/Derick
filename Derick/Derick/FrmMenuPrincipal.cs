@@ -23,8 +23,8 @@ namespace Derick
             //label de la parte superior
             lblusuario.Text = usuarioActual;
             this.PerformLayout();
-            this.Refresh();
-            AbrirFormulario(new InicioGerente());
+            this.Refresh(); 
+            csNavegacion.AbrirFormulario(pnlMostrarForm, ref formularioActivo, new InicioGerente());
         }
 
         private void lblSalir_Click(object sender, EventArgs e)
@@ -39,28 +39,6 @@ namespace Derick
             {
                 Application.Exit();
             }
-        }
-
-        private void AbrirFormulario(Form formularioHijo)
-        {
-            // 1. Si ya hay un formulario abierto en el panel, lo cerramos
-            if (formularioActivo != null)
-            {
-                formularioActivo.Close();
-            }
-            // 2. Guardamos la referencia del nuevo formulario
-            formularioActivo = formularioHijo;
-            // 3. Lo preparamos para incrustarse dentro del panel
-            formularioHijo.TopLevel = false;                  // Evita que sea una ventana independiente
-            formularioHijo.FormBorderStyle = FormBorderStyle.None; // Quita la barra de título del hijo (X, minimizar, etc.)
-            formularioHijo.Dock = DockStyle.Fill;            // Obliga a expandirse EXACTAMENTE al tamaño del área blanca
-            // 4. Limpiamos el área blanca e insertamos el nuevo formulario
-            pnlMostrarForm.Controls.Clear();
-            pnlMostrarForm.Controls.Add(formularioHijo);
-            pnlMostrarForm.Tag = formularioHijo;
-            // 5. Lo mostramos en pantalla
-            formularioHijo.BringToFront();
-            formularioHijo.Show();
         }
         private void pnlPerfil_Click(object sender, EventArgs e)
         {
@@ -89,45 +67,40 @@ namespace Derick
                 this.Close(); // cierra el menú principal
             }
         }
-        private void MarcarBotonActivo(Button botonSeleccionado)
-        {
-            // Mueve la barrita azul justo debajo del botón seleccionado
-            pnlIndicador.Width = botonSeleccionado.Width;
-            pnlIndicador.Left = botonSeleccionado.Left;
-            pnlIndicador.Top = botonSeleccionado.Bottom - pnlIndicador.Height;
-
-            // traer la barrita al frente para que no quede oculta
-            pnlIndicador.BringToFront();
-        }
         private void btninicio_Click(object sender, EventArgs e)
         {
-            MarcarBotonActivo(btninicio);
-            AbrirFormulario(new InicioGerente());
+            csBotonActivo.MarcarBotonActivo(pnlIndicador, btninicio);
+            csNavegacion.AbrirFormulario( pnlMostrarForm, ref formularioActivo,new InicioGerente());
         }
 
         private void btnproductos_Click(object sender, EventArgs e)
         {
-            MarcarBotonActivo(btnproductos);
-            AbrirFormulario(new FormProductos());
-
+            csBotonActivo.MarcarBotonActivo(pnlIndicador, btnproductos);
+            csNavegacion.AbrirFormulario( pnlMostrarForm, ref formularioActivo,new FormProductos());
         }
 
         private void btnempleados_Click(object sender, EventArgs e)
         {
-            MarcarBotonActivo(btnempleados);
-            AbrirFormulario(new FrmEmpleados());
+            csBotonActivo.MarcarBotonActivo(pnlIndicador, btnempleados);
+            csNavegacion.AbrirFormulario( pnlMostrarForm, ref formularioActivo,new FrmEmpleados());
         }
 
         private void btnventas_Click(object sender, EventArgs e)
         {
-            MarcarBotonActivo(btnventas);
-            AbrirFormulario(new frmVentas());
+            csBotonActivo.MarcarBotonActivo(pnlIndicador, btnventas);
+            csNavegacion.AbrirFormulario( pnlMostrarForm, ref formularioActivo,new frmVentas());
         }
 
         private void btnsucursales_Click(object sender, EventArgs e)
         {
-            MarcarBotonActivo(btnsucursales);
-            AbrirFormulario(new frmSucursales());
+            csBotonActivo.MarcarBotonActivo(pnlIndicador, btnsucursales);
+            csNavegacion.AbrirFormulario( pnlMostrarForm, ref formularioActivo,new frmSucursales());
+        }
+
+        private void btnreportes_Click(object sender, EventArgs e)
+        {
+            csBotonActivo.MarcarBotonActivo(pnlIndicador, btnreportes);
+            csNavegacion.AbrirFormulario( pnlMostrarForm, ref formularioActivo,new frmReportes());
         }
     }
 }
