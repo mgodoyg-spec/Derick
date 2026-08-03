@@ -1,6 +1,6 @@
 ﻿namespace Derick
 {
-    partial class frmReportes
+    partial class frmReportesE
     {
         /// <summary>
         /// Required designer variable.
@@ -28,15 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReportes));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReportesE));
             pnlMostrarFrmR = new Panel();
-            panel1 = new Panel();
-            panel2 = new Panel();
-            pbxIcResumenSuc = new PictureBox();
-            label1 = new Label();
-            label2 = new Label();
-            lblsucursalesactivas = new Label();
-            panel3 = new Panel();
             btnImprimir = new Button();
             pnlFiltros = new Panel();
             cbFormato = new ComboBox();
@@ -45,7 +38,6 @@
             btnGenerarR = new Button();
             dtpFechaFin = new DateTimePicker();
             dtpFechaI = new DateTimePicker();
-            cbSucursal = new ComboBox();
             lblFechaIn = new Label();
             lblFechaFin = new Label();
             lblSucursal = new Label();
@@ -92,9 +84,6 @@
             printDocument1 = new System.Drawing.Printing.PrintDocument();
             printPreviewDialog1 = new PrintPreviewDialog();
             pnlMostrarFrmR.SuspendLayout();
-            panel1.SuspendLayout();
-            panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pbxIcResumenSuc).BeginInit();
             pnlFiltros.SuspendLayout();
             pnlActividadRecienteV.SuspendLayout();
             pnlAccesoRapidoV.SuspendLayout();
@@ -116,7 +105,6 @@
             // pnlMostrarFrmR
             // 
             pnlMostrarFrmR.BackColor = Color.FromArgb(244, 246, 249);
-            pnlMostrarFrmR.Controls.Add(panel1);
             pnlMostrarFrmR.Controls.Add(btnImprimir);
             pnlMostrarFrmR.Controls.Add(pnlFiltros);
             pnlMostrarFrmR.Controls.Add(pnlActividadRecienteV);
@@ -130,78 +118,7 @@
             pnlMostrarFrmR.Location = new Point(-8, 5);
             pnlMostrarFrmR.Name = "pnlMostrarFrmR";
             pnlMostrarFrmR.Size = new Size(1194, 651);
-            pnlMostrarFrmR.TabIndex = 5;
-            // 
-            // panel1
-            // 
-            panel1.BackColor = Color.White;
-            panel1.Controls.Add(panel2);
-            panel1.Controls.Add(panel3);
-            panel1.Location = new Point(960, 219);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(221, 110);
-            panel1.TabIndex = 26;
-            // 
-            // panel2
-            // 
-            panel2.BackColor = Color.White;
-            panel2.Controls.Add(pbxIcResumenSuc);
-            panel2.Controls.Add(label1);
-            panel2.Controls.Add(label2);
-            panel2.Controls.Add(lblsucursalesactivas);
-            panel2.Location = new Point(10, 0);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(212, 110);
-            panel2.TabIndex = 9;
-            // 
-            // pbxIcResumenSuc
-            // 
-            pbxIcResumenSuc.Image = Properties.Resources.icoSuc;
-            pbxIcResumenSuc.Location = new Point(3, 13);
-            pbxIcResumenSuc.Name = "pbxIcResumenSuc";
-            pbxIcResumenSuc.Size = new Size(64, 59);
-            pbxIcResumenSuc.SizeMode = PictureBoxSizeMode.Zoom;
-            pbxIcResumenSuc.TabIndex = 12;
-            pbxIcResumenSuc.TabStop = false;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Calibri", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.FromArgb(0, 102, 255);
-            label1.Location = new Point(3, 76);
-            label1.Name = "label1";
-            label1.Size = new Size(81, 18);
-            label1.TabIndex = 11;
-            label1.Text = "Sin cambios";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(68, 35);
-            label2.Name = "label2";
-            label2.Size = new Size(25, 25);
-            label2.TabIndex = 10;
-            label2.Text = "0";
-            // 
-            // lblsucursalesactivas
-            // 
-            lblsucursalesactivas.AutoSize = true;
-            lblsucursalesactivas.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblsucursalesactivas.Location = new Point(68, 13);
-            lblsucursalesactivas.Name = "lblsucursalesactivas";
-            lblsucursalesactivas.Size = new Size(139, 16);
-            lblsucursalesactivas.TabIndex = 9;
-            lblsucursalesactivas.Text = "Sucursales Activas";
-            // 
-            // panel3
-            // 
-            panel3.BackColor = Color.FromArgb(0, 102, 255);
-            panel3.Location = new Point(0, 0);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(4, 124);
-            panel3.TabIndex = 8;
+            pnlMostrarFrmR.TabIndex = 6;
             // 
             // btnImprimir
             // 
@@ -218,7 +135,7 @@
             btnImprimir.Text = "Imprimir";
             btnImprimir.TextAlign = ContentAlignment.MiddleRight;
             btnImprimir.UseVisualStyleBackColor = false;
-            btnImprimir.Click += btnImprimir_Click_1;
+            btnImprimir.Click += btnImprimir_Click;
             // 
             // pnlFiltros
             // 
@@ -230,7 +147,6 @@
             pnlFiltros.Controls.Add(btnGenerarR);
             pnlFiltros.Controls.Add(dtpFechaFin);
             pnlFiltros.Controls.Add(dtpFechaI);
-            pnlFiltros.Controls.Add(cbSucursal);
             pnlFiltros.Controls.Add(lblFechaIn);
             pnlFiltros.Controls.Add(lblFechaFin);
             pnlFiltros.Controls.Add(lblSucursal);
@@ -249,7 +165,7 @@
             cbFormato.Font = new Font("Calibri", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbFormato.FormattingEnabled = true;
             cbFormato.Items.AddRange(new object[] { "EXCEL", "PDF" });
-            cbFormato.Location = new Point(609, 46);
+            cbFormato.Location = new Point(501, 44);
             cbFormato.Name = "cbFormato";
             cbFormato.Size = new Size(153, 26);
             cbFormato.Sorted = true;
@@ -274,7 +190,7 @@
             // 
             lblformato.AutoSize = true;
             lblformato.Font = new Font("Calibri", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblformato.Location = new Point(609, 28);
+            lblformato.Location = new Point(501, 25);
             lblformato.Name = "lblformato";
             lblformato.Size = new Size(60, 18);
             lblformato.TabIndex = 23;
@@ -297,7 +213,7 @@
             // 
             dtpFechaFin.Font = new Font("Calibri", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dtpFechaFin.Format = DateTimePickerFormat.Short;
-            dtpFechaFin.Location = new Point(315, 46);
+            dtpFechaFin.Location = new Point(353, 44);
             dtpFechaFin.Name = "dtpFechaFin";
             dtpFechaFin.Size = new Size(117, 26);
             dtpFechaFin.TabIndex = 21;
@@ -306,29 +222,16 @@
             // 
             dtpFechaI.Font = new Font("Calibri", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dtpFechaI.Format = DateTimePickerFormat.Short;
-            dtpFechaI.Location = new Point(192, 46);
+            dtpFechaI.Location = new Point(209, 46);
             dtpFechaI.Name = "dtpFechaI";
             dtpFechaI.Size = new Size(117, 26);
             dtpFechaI.TabIndex = 20;
-            // 
-            // cbSucursal
-            // 
-            cbSucursal.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            cbSucursal.AutoCompleteSource = AutoCompleteSource.ListItems;
-            cbSucursal.Font = new Font("Calibri", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cbSucursal.FormattingEnabled = true;
-            cbSucursal.Items.AddRange(new object[] { "Buena Fé", "El Empalme", "Quevedo", "Todas las sucursales", "Valencia" });
-            cbSucursal.Location = new Point(446, 46);
-            cbSucursal.Name = "cbSucursal";
-            cbSucursal.Size = new Size(153, 26);
-            cbSucursal.Sorted = true;
-            cbSucursal.TabIndex = 18;
             // 
             // lblFechaIn
             // 
             lblFechaIn.AutoSize = true;
             lblFechaIn.Font = new Font("Calibri", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblFechaIn.Location = new Point(192, 28);
+            lblFechaIn.Location = new Point(209, 28);
             lblFechaIn.Name = "lblFechaIn";
             lblFechaIn.Size = new Size(100, 18);
             lblFechaIn.TabIndex = 16;
@@ -338,7 +241,7 @@
             // 
             lblFechaFin.AutoSize = true;
             lblFechaFin.Font = new Font("Calibri", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblFechaFin.Location = new Point(315, 28);
+            lblFechaFin.Location = new Point(353, 25);
             lblFechaFin.Name = "lblFechaFin";
             lblFechaFin.Size = new Size(85, 18);
             lblFechaFin.TabIndex = 15;
@@ -350,9 +253,8 @@
             lblSucursal.Font = new Font("Calibri", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSucursal.Location = new Point(444, 28);
             lblSucursal.Name = "lblSucursal";
-            lblSucursal.Size = new Size(59, 18);
+            lblSucursal.Size = new Size(0, 18);
             lblSucursal.TabIndex = 13;
-            lblSucursal.Text = "Sucursal";
             // 
             // cbTipoR
             // 
@@ -360,7 +262,7 @@
             cbTipoR.AutoCompleteSource = AutoCompleteSource.ListItems;
             cbTipoR.Font = new Font("Calibri", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbTipoR.FormattingEnabled = true;
-            cbTipoR.Items.AddRange(new object[] { "Facturas anuladas", "Facturas emitidas", "Ingresos diarios", "Ingresos mensuales", "Inventario actual", "Productos con stock bajo", "Productos más vendidos", "Productos menos vendidos", "Resumen general", "Ventas por cliente", "Ventas por empleado", "Ventas por fechas", "Ventas por producto", "Ventas por sucursal" });
+            cbTipoR.Items.AddRange(new object[] { "Facturas anuladas", "Facturas emitidas", "Ingresos diarios", "Ingresos mensuales", "Inventario actual", "Productos con stock bajo", "Productos más vendidos", "Productos menos vendidos", "Resumen general", "Ventas por cliente", "Ventas por fechas", "Ventas por producto" });
             cbTipoR.Location = new Point(18, 47);
             cbTipoR.Name = "cbTipoR";
             cbTipoR.Size = new Size(168, 26);
@@ -446,9 +348,9 @@
             pnlPromedio.BackColor = Color.White;
             pnlPromedio.Controls.Add(pnlPro);
             pnlPromedio.Controls.Add(pnlBordeVentaP);
-            pnlPromedio.Location = new Point(722, 219);
+            pnlPromedio.Location = new Point(902, 219);
             pnlPromedio.Name = "pnlPromedio";
-            pnlPromedio.Size = new Size(221, 110);
+            pnlPromedio.Size = new Size(278, 110);
             pnlPromedio.TabIndex = 5;
             // 
             // pnlPro
@@ -460,7 +362,7 @@
             pnlPro.Controls.Add(picPromedio);
             pnlPro.Location = new Point(10, 0);
             pnlPro.Name = "pnlPro";
-            pnlPro.Size = new Size(212, 110);
+            pnlPro.Size = new Size(278, 110);
             pnlPro.TabIndex = 9;
             // 
             // lblPromedioV
@@ -516,9 +418,9 @@
             pnlFacturas.BackColor = Color.White;
             pnlFacturas.Controls.Add(pnlBordeFacturas);
             pnlFacturas.Controls.Add(pnlFac);
-            pnlFacturas.Location = new Point(485, 219);
+            pnlFacturas.Location = new Point(610, 219);
             pnlFacturas.Name = "pnlFacturas";
-            pnlFacturas.Size = new Size(221, 110);
+            pnlFacturas.Size = new Size(278, 110);
             pnlFacturas.TabIndex = 4;
             // 
             // pnlBordeFacturas
@@ -538,7 +440,7 @@
             pnlFac.Controls.Add(picFacturas);
             pnlFac.Location = new Point(10, 0);
             pnlFac.Name = "pnlFac";
-            pnlFac.Size = new Size(212, 110);
+            pnlFac.Size = new Size(268, 110);
             pnlFac.TabIndex = 1;
             // 
             // lblFacturasG
@@ -586,9 +488,9 @@
             pnlTotal.BackColor = Color.White;
             pnlTotal.Controls.Add(pnlTot);
             pnlTotal.Controls.Add(pnlBordeIngresos);
-            pnlTotal.Location = new Point(250, 219);
+            pnlTotal.Location = new Point(313, 219);
             pnlTotal.Name = "pnlTotal";
-            pnlTotal.Size = new Size(221, 110);
+            pnlTotal.Size = new Size(278, 110);
             pnlTotal.TabIndex = 3;
             // 
             // pnlTot
@@ -600,7 +502,7 @@
             pnlTot.Controls.Add(picIngresos);
             pnlTot.Location = new Point(19, 0);
             pnlTot.Name = "pnlTot";
-            pnlTot.Size = new Size(202, 110);
+            pnlTot.Size = new Size(259, 110);
             pnlTot.TabIndex = 9;
             // 
             // lblTotaling
@@ -658,7 +560,7 @@
             pnlVregistrada.Controls.Add(pnlCtnRegis);
             pnlVregistrada.Location = new Point(20, 219);
             pnlVregistrada.Name = "pnlVregistrada";
-            pnlVregistrada.Size = new Size(221, 110);
+            pnlVregistrada.Size = new Size(278, 110);
             pnlVregistrada.TabIndex = 2;
             // 
             // pnlBordeVentasH
@@ -678,7 +580,7 @@
             pnlCtnRegis.Controls.Add(picVentasHoy);
             pnlCtnRegis.Location = new Point(18, 0);
             pnlCtnRegis.Name = "pnlCtnRegis";
-            pnlCtnRegis.Size = new Size(203, 110);
+            pnlCtnRegis.Size = new Size(260, 110);
             pnlCtnRegis.TabIndex = 0;
             // 
             // lblVentasReg
@@ -757,7 +659,6 @@
             // 
             // printDialog1
             // 
-            printDialog1.Document = printDocument1;
             printDialog1.UseEXDialog = true;
             // 
             // printDocument1
@@ -775,22 +676,18 @@
             printPreviewDialog1.Name = "printPreviewDialog1";
             printPreviewDialog1.Visible = false;
             // 
-            // frmReportes
+            // frmReportesE
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1184, 661);
+            ClientSize = new Size(1200, 700);
             Controls.Add(pnlMostrarFrmR);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "frmReportes";
+            Name = "frmReportesE";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "frmReportes";
+            Text = "frmRemportesE";
             pnlMostrarFrmR.ResumeLayout(false);
-            panel1.ResumeLayout(false);
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pbxIcResumenSuc).EndInit();
             pnlFiltros.ResumeLayout(false);
             pnlFiltros.PerformLayout();
             pnlActividadRecienteV.ResumeLayout(false);
@@ -821,8 +718,9 @@
         #endregion
 
         private Panel pnlMostrarFrmR;
+        private Button btnImprimir;
         private Panel pnlActividadRecienteV;
-        private Button btnVerTodoVentas;
+        private ComboBox cbResumen;
         private Label lblResumenG;
         private Panel pnlAccesoRapidoV;
         private Label lblResultadosR;
@@ -858,30 +756,20 @@
         private Label lblResumenReportes;
         private Label lblReportes;
         private Panel pnlFiltros;
-        private ComboBox cbTipoR;
-        private Label lblTipoR;
-        private Label lblFiltrosR;
-        private ComboBox cbSucursal;
-        private ComboBox cbResumen;
+        private ComboBox cbFormato;
+        private Button lblLimpiarF;
+        private Label lblformato;
+        private Button btnGenerarR;
+        private DateTimePicker dtpFechaFin;
+        private DateTimePicker dtpFechaI;
         private Label lblFechaIn;
         private Label lblFechaFin;
         private Label lblSucursal;
-        private DateTimePicker dtpFechaFin;
-        private DateTimePicker dtpFechaI;
-        private Button btnGenerarR;
-        private Button lblLimpiarF;
+        private ComboBox cbTipoR;
+        private Label lblTipoR;
+        private Label lblFiltrosR;
         private PrintDialog printDialog1;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private PrintPreviewDialog printPreviewDialog1;
-        private Button btnImprimir;
-        private ComboBox cbFormato;
-        private Label lblformato;
-        private Panel panel1;
-        private Panel panel2;
-        private Label label1;
-        private Label label2;
-        private Label lblsucursalesactivas;
-        private Panel panel3;
-        private PictureBox pbxIcResumenSuc;
     }
 }

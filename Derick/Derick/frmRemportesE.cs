@@ -8,14 +8,14 @@ using System.Windows.Forms;
 
 namespace Derick
 {
-    public partial class frmReportes : Form
+    public partial class frmReportesE : Form
     {
-        public frmReportes()
+        public frmReportesE()
         {
             InitializeComponent();
         }
 
-        private void btnImprimir_Click_1(object sender, EventArgs e)
+        private void btnImprimir_Click(object sender, EventArgs e)
         {
             printDialog1.Document = printDocument1;
 
@@ -34,6 +34,5 @@ namespace Derick
 
             // Aquí luego irán los datos de la base de datos.
         }
-
     }
 }

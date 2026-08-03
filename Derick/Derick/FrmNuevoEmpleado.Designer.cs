@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             pnlNuevoEmple = new Panel();
+            btnVolver = new Button();
             btnCancelar = new Button();
             btnGuardar = new Button();
             pnlInfoLaboral = new Panel();
@@ -89,6 +90,7 @@
             // pnlNuevoEmple
             // 
             pnlNuevoEmple.BackColor = Color.White;
+            pnlNuevoEmple.Controls.Add(btnVolver);
             pnlNuevoEmple.Controls.Add(btnCancelar);
             pnlNuevoEmple.Controls.Add(btnGuardar);
             pnlNuevoEmple.Controls.Add(pnlInfoLaboral);
@@ -101,6 +103,18 @@
             pnlNuevoEmple.Name = "pnlNuevoEmple";
             pnlNuevoEmple.Size = new Size(1353, 821);
             pnlNuevoEmple.TabIndex = 0;
+            // 
+            // btnVolver
+            // 
+            btnVolver.FlatStyle = FlatStyle.System;
+            btnVolver.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnVolver.Location = new Point(1129, 12);
+            btnVolver.Name = "btnVolver";
+            btnVolver.Size = new Size(117, 43);
+            btnVolver.TabIndex = 28;
+            btnVolver.Text = "Volver";
+            btnVolver.UseVisualStyleBackColor = true;
+            btnVolver.Click += btnVolver_Click;
             // 
             // btnCancelar
             // 
@@ -369,7 +383,7 @@
             pnlInfoPersonal.Controls.Add(txtCodigo);
             pnlInfoPersonal.Controls.Add(lblCodigo);
             pnlInfoPersonal.Controls.Add(lblInfoPeronal);
-            pnlInfoPersonal.Location = new Point(279, 61);
+            pnlInfoPersonal.Location = new Point(287, 61);
             pnlInfoPersonal.Name = "pnlInfoPersonal";
             pnlInfoPersonal.Size = new Size(467, 522);
             pnlInfoPersonal.TabIndex = 11;
@@ -560,7 +574,7 @@
             pnlFoto.Controls.Add(btnQuitarImagen);
             pnlFoto.Controls.Add(btnSeleccionarImagen);
             pnlFoto.Controls.Add(picfoto);
-            pnlFoto.Location = new Point(3, 75);
+            pnlFoto.Location = new Point(12, 66);
             pnlFoto.Name = "pnlFoto";
             pnlFoto.Size = new Size(255, 404);
             pnlFoto.TabIndex = 10;
@@ -601,7 +615,7 @@
             // panel3
             // 
             panel3.BackColor = Color.Purple;
-            panel3.Location = new Point(3, 42);
+            panel3.Location = new Point(3, 49);
             panel3.Margin = new Padding(3, 4, 3, 4);
             panel3.Name = "panel3";
             panel3.Size = new Size(126, 10);
@@ -611,7 +625,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(0, 9);
+            label1.Location = new Point(0, 16);
             label1.Name = "label1";
             label1.Size = new Size(214, 29);
             label1.TabIndex = 0;
@@ -697,5 +711,6 @@
         private ComboBox cmbCargo;
         private Button btnCancelar;
         private Button btnGuardar;
+        private Button btnVolver;
     }
 }

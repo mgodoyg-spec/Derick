@@ -358,6 +358,7 @@
             btndepa.TabIndex = 0;
             btndepa.Text = "Ir ahora ->";
             btndepa.UseVisualStyleBackColor = false;
+            btndepa.Click += btndepa_Click;
             // 
             // lbldescriDepa
             // 

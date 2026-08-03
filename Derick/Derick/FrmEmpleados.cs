@@ -10,21 +10,50 @@ namespace Derick
 {
     public partial class FrmEmpleados : Form
     {
+        private Form activo = null;
         public FrmEmpleados()
         {
             InitializeComponent();
         }
+        public void AbrirFormulario(Form formulario)
+        {
+            if (activo != null)
+            {
+                activo.Close();
+            }
+
+            activo = formulario;
+            formulario.TopLevel = false;
+            formulario.FormBorderStyle = FormBorderStyle.None;
+            formulario.Dock = DockStyle.Fill;
+
+            pnlMostrarEmpleadosForm.Controls.Clear();
+            pnlMostrarEmpleadosForm.Controls.Add(formulario);
+            formulario.Show();
+        }
+        public void MostrarFrm()
+        {
+            if (activo != null)
+            {
+                activo.Close();
+                activo = null;
+            }
+
+        }
 
         private void btnNuevoEmpleado_Click(object sender, EventArgs e)
         {
-            FrmNuevoEmpleado frm = new FrmNuevoEmpleado();
-            frm.ShowDialog();
+            AbrirFormulario(new FrmNuevoEmpleado());
         }
 
         private void btnBuscarEmpleado_Click(object sender, EventArgs e)
         {
-            FrmListaEmpleados frm = new FrmListaEmpleados();
-            frm.ShowDialog();
+            AbrirFormulario(new FrmListaEmpleados());
+        }
+
+        private void btndepa_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new FrmListaEmpleados());
         }
     }
 }

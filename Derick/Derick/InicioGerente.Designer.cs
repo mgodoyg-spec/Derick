@@ -422,7 +422,7 @@
             // 
             // picAgregarVentas
             // 
-            picAgregarVentas.Image = Properties.Resources.AgregarVenta;
+         
             picAgregarVentas.Location = new Point(33, 21);
             picAgregarVentas.Margin = new Padding(3, 4, 3, 4);
             picAgregarVentas.Name = "picAgregarVentas";
@@ -558,7 +558,6 @@
             // 
             // picEmple
             // 
-            picEmple.Image = Properties.Resources.Empleados;
             picEmple.Location = new Point(3, 31);
             picEmple.Margin = new Padding(3, 4, 3, 4);
             picEmple.Name = "picEmple";
@@ -704,7 +703,7 @@
             // 
             // pcProductos
             // 
-            pcProductos.Image = Properties.Resources.Productoss;
+          
             pcProductos.Location = new Point(3, 31);
             pcProductos.Margin = new Padding(3, 4, 3, 4);
             pcProductos.Name = "pcProductos";

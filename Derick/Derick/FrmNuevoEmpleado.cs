@@ -115,5 +115,24 @@ namespace Derick
         {
 
         }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            DialogResult r = MessageBox.Show(
+        "¿Desea regresar? Se perderán los cambios realizados.",
+        "Regresar",
+        MessageBoxButtons.YesNo,
+        MessageBoxIcon.Question);
+
+            if (r == DialogResult.Yes)
+            {
+                FrmEmpleados frm = this.Parent.Parent as FrmEmpleados;
+
+                if (frm != null)
+                {
+                    frm.MostrarFrm();
+                }
+            }
+        }
     }
 }
