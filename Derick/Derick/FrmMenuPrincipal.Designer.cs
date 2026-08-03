@@ -226,7 +226,7 @@ namespace Derick
             pnlcontenido.Dock = DockStyle.Top;
             pnlcontenido.Location = new Point(0, 0);
             pnlcontenido.Name = "pnlcontenido";
-            pnlcontenido.Size = new Size(1371, 49);
+            pnlcontenido.Size = new Size(1200, 49);
             pnlcontenido.TabIndex = 1;
             // 
             // pnlIndicador
@@ -329,7 +329,7 @@ namespace Derick
             pnlMostrar.Dock = DockStyle.Fill;
             pnlMostrar.Location = new Point(0, 0);
             pnlMostrar.Name = "pnlMostrar";
-            pnlMostrar.Size = new Size(1371, 855);
+            pnlMostrar.Size = new Size(1200, 700);
             pnlMostrar.TabIndex = 1;
             // 
             // pnlMostrarForm
@@ -337,20 +337,20 @@ namespace Derick
             pnlMostrarForm.Dock = DockStyle.Fill;
             pnlMostrarForm.Location = new Point(0, 49);
             pnlMostrarForm.Name = "pnlMostrarForm";
-            pnlMostrarForm.Size = new Size(1371, 806);
+            pnlMostrarForm.Size = new Size(1200, 651);
             pnlMostrarForm.TabIndex = 2;
             // 
             // FrmMenuPrincipal
             // 
             AutoScaleMode = AutoScaleMode.None;
-            ClientSize = new Size(1371, 855);
+            ClientSize = new Size(1200, 700);
             Controls.Add(pnlMostrar);
             Font = new Font("Microsoft Sans Serif", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
-            MaximumSize = new Size(1371, 855);
+            MaximumSize = new Size(1200, 700);
             MinimizeBox = false;
             Name = "FrmMenuPrincipal";
             StartPosition = FormStartPosition.CenterScreen;

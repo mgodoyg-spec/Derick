@@ -92,7 +92,6 @@
             pnl_agg1.Controls.Add(pnl_agg2);
             pnl_agg1.Controls.Add(lbl_agg2);
             pnl_agg1.Controls.Add(lbl_agg1);
-            pnl_agg1.Dock = DockStyle.Fill;
             pnl_agg1.Location = new Point(0, 0);
             pnl_agg1.Name = "pnl_agg1";
             pnl_agg1.Size = new Size(1353, 808);

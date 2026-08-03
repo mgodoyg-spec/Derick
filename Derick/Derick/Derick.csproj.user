@@ -4,6 +4,9 @@
     <Compile Update="FormAgg_Product.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FormBusc_Product.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FormProductos.cs">
       <SubType>Form</SubType>
     </Compile>

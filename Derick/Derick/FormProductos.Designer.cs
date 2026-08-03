@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProductos));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             pnl_product1 = new Panel();
             pnl_product_acr1 = new Panel();
             btn_acr1 = new Button();
@@ -192,7 +192,7 @@
             // 
             btn_product4.BorderRadius = 12;
             btn_product4.Cursor = Cursors.Hand;
-            btn_product4.CustomizableEdges = customizableEdges9;
+            btn_product4.CustomizableEdges = customizableEdges1;
             btn_product4.DisabledState.BorderColor = Color.DarkGray;
             btn_product4.DisabledState.CustomBorderColor = Color.DarkGray;
             btn_product4.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -204,7 +204,7 @@
             btn_product4.ImageAlign = HorizontalAlignment.Right;
             btn_product4.Location = new Point(9, 244);
             btn_product4.Name = "btn_product4";
-            btn_product4.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            btn_product4.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btn_product4.Size = new Size(125, 29);
             btn_product4.TabIndex = 13;
             btn_product4.Text = "Ir ahora";
@@ -256,7 +256,7 @@
             // 
             btn_product3.BorderRadius = 12;
             btn_product3.Cursor = Cursors.Hand;
-            btn_product3.CustomizableEdges = customizableEdges11;
+            btn_product3.CustomizableEdges = customizableEdges3;
             btn_product3.DisabledState.BorderColor = Color.DarkGray;
             btn_product3.DisabledState.CustomBorderColor = Color.DarkGray;
             btn_product3.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -268,7 +268,7 @@
             btn_product3.ImageAlign = HorizontalAlignment.Right;
             btn_product3.Location = new Point(9, 244);
             btn_product3.Name = "btn_product3";
-            btn_product3.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            btn_product3.ShadowDecoration.CustomizableEdges = customizableEdges4;
             btn_product3.Size = new Size(125, 29);
             btn_product3.TabIndex = 12;
             btn_product3.Text = "Ir ahora";
@@ -320,7 +320,7 @@
             // 
             btn_product2.BorderRadius = 12;
             btn_product2.Cursor = Cursors.Hand;
-            btn_product2.CustomizableEdges = customizableEdges13;
+            btn_product2.CustomizableEdges = customizableEdges5;
             btn_product2.DisabledState.BorderColor = Color.DarkGray;
             btn_product2.DisabledState.CustomBorderColor = Color.DarkGray;
             btn_product2.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -332,10 +332,11 @@
             btn_product2.ImageAlign = HorizontalAlignment.Right;
             btn_product2.Location = new Point(9, 244);
             btn_product2.Name = "btn_product2";
-            btn_product2.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            btn_product2.ShadowDecoration.CustomizableEdges = customizableEdges6;
             btn_product2.Size = new Size(125, 29);
             btn_product2.TabIndex = 11;
             btn_product2.Text = "Ir ahora";
+            btn_product2.Click += btn_product2_Click;
             // 
             // lbl_acc6
             // 
@@ -394,7 +395,7 @@
             // 
             btn_product1.BorderRadius = 12;
             btn_product1.Cursor = Cursors.Hand;
-            btn_product1.CustomizableEdges = customizableEdges15;
+            btn_product1.CustomizableEdges = customizableEdges7;
             btn_product1.DisabledState.BorderColor = Color.DarkGray;
             btn_product1.DisabledState.CustomBorderColor = Color.DarkGray;
             btn_product1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -406,7 +407,7 @@
             btn_product1.ImageAlign = HorizontalAlignment.Right;
             btn_product1.Location = new Point(9, 244);
             btn_product1.Name = "btn_product1";
-            btn_product1.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            btn_product1.ShadowDecoration.CustomizableEdges = customizableEdges8;
             btn_product1.Size = new Size(125, 29);
             btn_product1.TabIndex = 10;
             btn_product1.Text = "Ir ahora";

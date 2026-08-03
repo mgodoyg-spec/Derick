@@ -34,7 +34,6 @@ namespace Derick
         {
             AbrirFormulario(new FormProductos());
         }
-
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -43,6 +42,11 @@ namespace Derick
         private void btn_product1_Click(object sender, EventArgs e)
         {
             AbrirFormulario(new FormAgg_Product());
+        }
+
+        private void btn_product2_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new FormBusc_Product());
         }
     }
 }
