@@ -28,7 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProductos));
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             pnl_product1 = new Panel();
             pnl_product_acr1 = new Panel();
             btn_acr1 = new Button();
@@ -53,6 +61,7 @@
             pictureBox4 = new PictureBox();
             btnAgregarProducto = new Button();
             lbl_acc5 = new Label();
+            btn_product1 = new Guna.UI2.WinForms.Guna2Button();
             lbl_acc1 = new Label();
             label1 = new Label();
             pnl_borde_p3 = new Panel();
@@ -350,6 +359,7 @@
             pnl_acc1.Controls.Add(pictureBox4);
             pnl_acc1.Controls.Add(btnAgregarProducto);
             pnl_acc1.Controls.Add(lbl_acc5);
+            pnl_acc1.Controls.Add(btn_product1);
             pnl_acc1.Controls.Add(lbl_acc1);
             pnl_acc1.Location = new Point(21, 60);
             pnl_acc1.Margin = new Padding(3, 2, 3, 2);
@@ -391,6 +401,28 @@
             lbl_acc5.Size = new Size(106, 36);
             lbl_acc5.TabIndex = 2;
             lbl_acc5.Text = "   Registrar un  \r\nnuevo producto";
+            // 
+            // btn_product1
+            // 
+            btn_product1.BorderRadius = 12;
+            btn_product1.Cursor = Cursors.Hand;
+            btn_product1.CustomizableEdges = customizableEdges7;
+            btn_product1.DisabledState.BorderColor = Color.DarkGray;
+            btn_product1.DisabledState.CustomBorderColor = Color.DarkGray;
+            btn_product1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btn_product1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btn_product1.FillColor = Color.FromArgb(0, 102, 255);
+            btn_product1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_product1.ForeColor = Color.White;
+            btn_product1.Image = (Image)resources.GetObject("btn_product1.Image");
+            btn_product1.ImageAlign = HorizontalAlignment.Right;
+            btn_product1.Location = new Point(9, 244);
+            btn_product1.Name = "btn_product1";
+            btn_product1.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            btn_product1.Size = new Size(125, 29);
+            btn_product1.TabIndex = 10;
+            btn_product1.Text = "Ir ahora";
+            btn_product1.Click += btn_product1_Click;
             // 
             // lbl_acc1
             // 
