@@ -55,7 +55,6 @@
             btnAgregarVenta = new Button();
             lblAgregarVenta = new Label();
             lblNuevaVenta = new Label();
-            picAgregarVentas = new PictureBox();
             pnlVentas = new Panel();
             pnlVen = new Panel();
             label7 = new Label();
@@ -68,7 +67,6 @@
             lblEmpleAct = new Label();
             label5 = new Label();
             LblEmple = new Label();
-            picEmple = new PictureBox();
             pnlSucursales = new Panel();
             pnlSuc = new Panel();
             lblSucRegis = new Label();
@@ -82,10 +80,12 @@
             lblProductosGenerales = new Label();
             NumProductos = new Label();
             lblPproductos = new Label();
-            pcProductos = new PictureBox();
             pnlBienvenida = new Panel();
             lblResumen = new Label();
             lblBienvenido = new Label();
+            pcProductos = new PictureBox();
+            picAgregarVentas = new PictureBox();
+            pictureBox1 = new PictureBox();
             pnlMostrarForm.SuspendLayout();
             pnlActividadReciente.SuspendLayout();
             pnlAccesoRapido.SuspendLayout();
@@ -96,20 +96,20 @@
             pnlAgregarProductos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picAgregarProductos).BeginInit();
             pnlAgregarVenta.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picAgregarVentas).BeginInit();
             pnlVentas.SuspendLayout();
             pnlVen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picVentas).BeginInit();
             pnlEmpleados.SuspendLayout();
             pnlEmp.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picEmple).BeginInit();
             pnlSucursales.SuspendLayout();
             pnlSuc.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picSuc).BeginInit();
             pnlProductos.SuspendLayout();
             pnlCtnProdu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pcProductos).BeginInit();
             pnlBienvenida.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pcProductos).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picAgregarVentas).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // pnlMostrarForm
@@ -126,18 +126,16 @@
             pnlMostrarForm.Dock = DockStyle.Fill;
             pnlMostrarForm.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             pnlMostrarForm.Location = new Point(0, 0);
-            pnlMostrarForm.Margin = new Padding(3, 4, 3, 4);
             pnlMostrarForm.Name = "pnlMostrarForm";
-            pnlMostrarForm.Size = new Size(1371, 855);
+            pnlMostrarForm.Size = new Size(1200, 591);
             pnlMostrarForm.TabIndex = 3;
             // 
             // pnlBordeEmple
             // 
             pnlBordeEmple.BackColor = Color.FromArgb(112, 34, 246);
-            pnlBordeEmple.Location = new Point(695, 233);
-            pnlBordeEmple.Margin = new Padding(3, 4, 3, 4);
+            pnlBordeEmple.Location = new Point(608, 175);
             pnlBordeEmple.Name = "pnlBordeEmple";
-            pnlBordeEmple.Size = new Size(5, 165);
+            pnlBordeEmple.Size = new Size(4, 124);
             pnlBordeEmple.TabIndex = 8;
             // 
             // pnlActividadReciente
@@ -145,20 +143,18 @@
             pnlActividadReciente.BackColor = Color.White;
             pnlActividadReciente.Controls.Add(btnVerTodo);
             pnlActividadReciente.Controls.Add(lblActividadRe);
-            pnlActividadReciente.Location = new Point(697, 429);
-            pnlActividadReciente.Margin = new Padding(3, 4, 3, 4);
+            pnlActividadReciente.Location = new Point(610, 322);
             pnlActividadReciente.Name = "pnlActividadReciente";
-            pnlActividadReciente.Size = new Size(651, 397);
+            pnlActividadReciente.Size = new Size(570, 298);
             pnlActividadReciente.TabIndex = 6;
             // 
             // btnVerTodo
             // 
             btnVerTodo.Cursor = Cursors.Hand;
             btnVerTodo.Font = new Font("Calibri", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnVerTodo.Location = new Point(533, 40);
-            btnVerTodo.Margin = new Padding(3, 4, 3, 4);
+            btnVerTodo.Location = new Point(466, 30);
             btnVerTodo.Name = "btnVerTodo";
-            btnVerTodo.Size = new Size(98, 40);
+            btnVerTodo.Size = new Size(86, 30);
             btnVerTodo.TabIndex = 14;
             btnVerTodo.Text = "Ver todo";
             btnVerTodo.UseVisualStyleBackColor = true;
@@ -168,9 +164,9 @@
             lblActividadRe.AutoSize = true;
             lblActividadRe.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblActividadRe.ForeColor = Color.Black;
-            lblActividadRe.Location = new Point(19, 25);
+            lblActividadRe.Location = new Point(17, 19);
             lblActividadRe.Name = "lblActividadRe";
-            lblActividadRe.Size = new Size(223, 33);
+            lblActividadRe.Size = new Size(175, 26);
             lblActividadRe.TabIndex = 13;
             lblActividadRe.Text = "Actividad Reciente";
             // 
@@ -182,10 +178,9 @@
             pnlAccesoRapido.Controls.Add(pnlVerEmpleados);
             pnlAccesoRapido.Controls.Add(pnlAgregarProductos);
             pnlAccesoRapido.Controls.Add(pnlAgregarVenta);
-            pnlAccesoRapido.Location = new Point(23, 429);
-            pnlAccesoRapido.Margin = new Padding(3, 4, 3, 4);
+            pnlAccesoRapido.Location = new Point(20, 322);
             pnlAccesoRapido.Name = "pnlAccesoRapido";
-            pnlAccesoRapido.Size = new Size(651, 397);
+            pnlAccesoRapido.Size = new Size(570, 298);
             pnlAccesoRapido.TabIndex = 3;
             // 
             // lblAceesosRa
@@ -193,9 +188,9 @@
             lblAceesosRa.AutoSize = true;
             lblAceesosRa.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblAceesosRa.ForeColor = Color.Black;
-            lblAceesosRa.Location = new Point(24, 25);
+            lblAceesosRa.Location = new Point(21, 19);
             lblAceesosRa.Name = "lblAceesosRa";
-            lblAceesosRa.Size = new Size(193, 33);
+            lblAceesosRa.Size = new Size(149, 26);
             lblAceesosRa.TabIndex = 12;
             lblAceesosRa.Text = "Accesos rápidos";
             // 
@@ -206,10 +201,9 @@
             pnlVerSucursales.Controls.Add(lblInfSucur);
             pnlVerSucursales.Controls.Add(lblVerSucursales);
             pnlVerSucursales.Controls.Add(picSucur);
-            pnlVerSucursales.Location = new Point(175, 80);
-            pnlVerSucursales.Margin = new Padding(3, 4, 3, 4);
+            pnlVerSucursales.Location = new Point(153, 60);
             pnlVerSucursales.Name = "pnlVerSucursales";
-            pnlVerSucursales.Size = new Size(143, 293);
+            pnlVerSucursales.Size = new Size(125, 220);
             pnlVerSucursales.TabIndex = 5;
             // 
             // btnVerSucursales
@@ -218,10 +212,9 @@
             btnVerSucursales.Cursor = Cursors.Hand;
             btnVerSucursales.Font = new Font("Calibri", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnVerSucursales.ForeColor = Color.White;
-            btnVerSucursales.Location = new Point(0, 249);
-            btnVerSucursales.Margin = new Padding(3, 4, 3, 4);
+            btnVerSucursales.Location = new Point(0, 187);
             btnVerSucursales.Name = "btnVerSucursales";
-            btnVerSucursales.Size = new Size(143, 40);
+            btnVerSucursales.Size = new Size(125, 30);
             btnVerSucursales.TabIndex = 0;
             btnVerSucursales.Text = "Ir ahora ->";
             btnVerSucursales.UseVisualStyleBackColor = false;
@@ -230,9 +223,9 @@
             // 
             lblInfSucur.AutoSize = true;
             lblInfSucur.Font = new Font("Calibri", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblInfSucur.Location = new Point(10, 148);
+            lblInfSucur.Location = new Point(9, 111);
             lblInfSucur.Name = "lblInfSucur";
-            lblInfSucur.Size = new Size(141, 46);
+            lblInfSucur.Size = new Size(113, 36);
             lblInfSucur.TabIndex = 0;
             lblInfSucur.Text = "Ver información \r\nentre sucursales.";
             // 
@@ -240,19 +233,18 @@
             // 
             lblVerSucursales.AutoSize = true;
             lblVerSucursales.Font = new Font("Calibri", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblVerSucursales.Location = new Point(16, 104);
+            lblVerSucursales.Location = new Point(14, 78);
             lblVerSucursales.Name = "lblVerSucursales";
-            lblVerSucursales.Size = new Size(125, 23);
+            lblVerSucursales.Size = new Size(97, 18);
             lblVerSucursales.TabIndex = 12;
             lblVerSucursales.Text = "Ver Sucursales";
             // 
             // picSucur
             // 
             picSucur.Image = Properties.Resources.VerSucursales;
-            picSucur.Location = new Point(31, 21);
-            picSucur.Margin = new Padding(3, 4, 3, 4);
+            picSucur.Location = new Point(27, 16);
             picSucur.Name = "picSucur";
-            picSucur.Size = new Size(70, 79);
+            picSucur.Size = new Size(61, 59);
             picSucur.SizeMode = PictureBoxSizeMode.StretchImage;
             picSucur.TabIndex = 1;
             picSucur.TabStop = false;
@@ -264,10 +256,9 @@
             pnlVerEmpleados.Controls.Add(lblAnalisisEmple);
             pnlVerEmpleados.Controls.Add(lblVerEmpleados);
             pnlVerEmpleados.Controls.Add(picVerEmpleados);
-            pnlVerEmpleados.Location = new Point(327, 80);
-            pnlVerEmpleados.Margin = new Padding(3, 4, 3, 4);
+            pnlVerEmpleados.Location = new Point(286, 60);
             pnlVerEmpleados.Name = "pnlVerEmpleados";
-            pnlVerEmpleados.Size = new Size(143, 293);
+            pnlVerEmpleados.Size = new Size(125, 220);
             pnlVerEmpleados.TabIndex = 4;
             // 
             // btnVerEmpleados
@@ -276,10 +267,9 @@
             btnVerEmpleados.Cursor = Cursors.Hand;
             btnVerEmpleados.Font = new Font("Calibri", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnVerEmpleados.ForeColor = Color.White;
-            btnVerEmpleados.Location = new Point(0, 249);
-            btnVerEmpleados.Margin = new Padding(3, 4, 3, 4);
+            btnVerEmpleados.Location = new Point(0, 187);
             btnVerEmpleados.Name = "btnVerEmpleados";
-            btnVerEmpleados.Size = new Size(143, 40);
+            btnVerEmpleados.Size = new Size(125, 30);
             btnVerEmpleados.TabIndex = 0;
             btnVerEmpleados.Text = "Ir ahora ->";
             btnVerEmpleados.UseVisualStyleBackColor = false;
@@ -288,9 +278,9 @@
             // 
             lblAnalisisEmple.AutoSize = true;
             lblAnalisisEmple.Font = new Font("Calibri", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblAnalisisEmple.Location = new Point(6, 148);
+            lblAnalisisEmple.Location = new Point(5, 111);
             lblAnalisisEmple.Name = "lblAnalisisEmple";
-            lblAnalisisEmple.Size = new Size(148, 46);
+            lblAnalisisEmple.Size = new Size(121, 36);
             lblAnalisisEmple.TabIndex = 0;
             lblAnalisisEmple.Text = "    Ver actividad \r\nde los empleados.";
             // 
@@ -298,19 +288,18 @@
             // 
             lblVerEmpleados.AutoSize = true;
             lblVerEmpleados.Font = new Font("Calibri", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblVerEmpleados.Location = new Point(16, 104);
+            lblVerEmpleados.Location = new Point(14, 78);
             lblVerEmpleados.Name = "lblVerEmpleados";
-            lblVerEmpleados.Size = new Size(127, 23);
+            lblVerEmpleados.Size = new Size(100, 18);
             lblVerEmpleados.TabIndex = 12;
             lblVerEmpleados.Text = "Ver Empleados";
             // 
             // picVerEmpleados
             // 
             picVerEmpleados.Image = Properties.Resources.VerEmpleados;
-            picVerEmpleados.Location = new Point(31, 21);
-            picVerEmpleados.Margin = new Padding(3, 4, 3, 4);
+            picVerEmpleados.Location = new Point(27, 16);
             picVerEmpleados.Name = "picVerEmpleados";
-            picVerEmpleados.Size = new Size(70, 79);
+            picVerEmpleados.Size = new Size(61, 59);
             picVerEmpleados.SizeMode = PictureBoxSizeMode.StretchImage;
             picVerEmpleados.TabIndex = 1;
             picVerEmpleados.TabStop = false;
@@ -322,10 +311,9 @@
             pnlAgregarProductos.Controls.Add(lblRegistrarVenta);
             pnlAgregarProductos.Controls.Add(lblAgregarProductos);
             pnlAgregarProductos.Controls.Add(picAgregarProductos);
-            pnlAgregarProductos.Location = new Point(24, 80);
-            pnlAgregarProductos.Margin = new Padding(3, 4, 3, 4);
+            pnlAgregarProductos.Location = new Point(21, 60);
             pnlAgregarProductos.Name = "pnlAgregarProductos";
-            pnlAgregarProductos.Size = new Size(143, 293);
+            pnlAgregarProductos.Size = new Size(125, 220);
             pnlAgregarProductos.TabIndex = 1;
             // 
             // btnAgregarProducto
@@ -334,10 +322,9 @@
             btnAgregarProducto.Cursor = Cursors.Hand;
             btnAgregarProducto.Font = new Font("Calibri", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAgregarProducto.ForeColor = Color.White;
-            btnAgregarProducto.Location = new Point(0, 249);
-            btnAgregarProducto.Margin = new Padding(3, 4, 3, 4);
+            btnAgregarProducto.Location = new Point(0, 187);
             btnAgregarProducto.Name = "btnAgregarProducto";
-            btnAgregarProducto.Size = new Size(143, 40);
+            btnAgregarProducto.Size = new Size(125, 30);
             btnAgregarProducto.TabIndex = 0;
             btnAgregarProducto.Text = "Ir ahora ->";
             btnAgregarProducto.UseVisualStyleBackColor = false;
@@ -346,9 +333,9 @@
             // 
             lblRegistrarVenta.AutoSize = true;
             lblRegistrarVenta.Font = new Font("Calibri", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblRegistrarVenta.Location = new Point(25, 148);
+            lblRegistrarVenta.Location = new Point(22, 111);
             lblRegistrarVenta.Name = "lblRegistrarVenta";
-            lblRegistrarVenta.Size = new Size(103, 69);
+            lblRegistrarVenta.Size = new Size(82, 54);
             lblRegistrarVenta.TabIndex = 0;
             lblRegistrarVenta.Text = "Registrar un\r\n    nuevo\r\n  producto.";
             // 
@@ -356,19 +343,18 @@
             // 
             lblAgregarProductos.AutoSize = true;
             lblAgregarProductos.Font = new Font("Calibri", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblAgregarProductos.Location = new Point(3, 104);
+            lblAgregarProductos.Location = new Point(3, 78);
             lblAgregarProductos.Name = "lblAgregarProductos";
-            lblAgregarProductos.Size = new Size(153, 23);
+            lblAgregarProductos.Size = new Size(118, 18);
             lblAgregarProductos.TabIndex = 12;
             lblAgregarProductos.Text = " Agregar Producto";
             // 
             // picAgregarProductos
             // 
             picAgregarProductos.Image = Properties.Resources.AgregarProductos;
-            picAgregarProductos.Location = new Point(33, 21);
-            picAgregarProductos.Margin = new Padding(3, 4, 3, 4);
+            picAgregarProductos.Location = new Point(29, 16);
             picAgregarProductos.Name = "picAgregarProductos";
-            picAgregarProductos.Size = new Size(65, 79);
+            picAgregarProductos.Size = new Size(57, 59);
             picAgregarProductos.SizeMode = PictureBoxSizeMode.StretchImage;
             picAgregarProductos.TabIndex = 1;
             picAgregarProductos.TabStop = false;
@@ -376,14 +362,13 @@
             // pnlAgregarVenta
             // 
             pnlAgregarVenta.BackColor = Color.FromArgb(244, 246, 249);
+            pnlAgregarVenta.Controls.Add(picAgregarVentas);
             pnlAgregarVenta.Controls.Add(btnAgregarVenta);
             pnlAgregarVenta.Controls.Add(lblAgregarVenta);
             pnlAgregarVenta.Controls.Add(lblNuevaVenta);
-            pnlAgregarVenta.Controls.Add(picAgregarVentas);
-            pnlAgregarVenta.Location = new Point(478, 80);
-            pnlAgregarVenta.Margin = new Padding(3, 4, 3, 4);
+            pnlAgregarVenta.Location = new Point(418, 60);
             pnlAgregarVenta.Name = "pnlAgregarVenta";
-            pnlAgregarVenta.Size = new Size(143, 293);
+            pnlAgregarVenta.Size = new Size(125, 220);
             pnlAgregarVenta.TabIndex = 0;
             // 
             // btnAgregarVenta
@@ -392,10 +377,9 @@
             btnAgregarVenta.Cursor = Cursors.Hand;
             btnAgregarVenta.Font = new Font("Calibri", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAgregarVenta.ForeColor = Color.White;
-            btnAgregarVenta.Location = new Point(0, 249);
-            btnAgregarVenta.Margin = new Padding(3, 4, 3, 4);
+            btnAgregarVenta.Location = new Point(0, 187);
             btnAgregarVenta.Name = "btnAgregarVenta";
-            btnAgregarVenta.Size = new Size(143, 40);
+            btnAgregarVenta.Size = new Size(125, 30);
             btnAgregarVenta.TabIndex = 0;
             btnAgregarVenta.Text = "Ir ahora ->";
             btnAgregarVenta.UseVisualStyleBackColor = false;
@@ -404,9 +388,9 @@
             // 
             lblAgregarVenta.AutoSize = true;
             lblAgregarVenta.Font = new Font("Calibri", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblAgregarVenta.Location = new Point(21, 148);
+            lblAgregarVenta.Location = new Point(18, 111);
             lblAgregarVenta.Name = "lblAgregarVenta";
-            lblAgregarVenta.Size = new Size(116, 69);
+            lblAgregarVenta.Size = new Size(92, 54);
             lblAgregarVenta.TabIndex = 0;
             lblAgregarVenta.Text = "Registrar una \r\n venta en el \r\n    sistema.";
             // 
@@ -414,32 +398,20 @@
             // 
             lblNuevaVenta.AutoSize = true;
             lblNuevaVenta.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblNuevaVenta.Location = new Point(16, 104);
+            lblNuevaVenta.Location = new Point(14, 78);
             lblNuevaVenta.Name = "lblNuevaVenta";
-            lblNuevaVenta.Size = new Size(117, 24);
+            lblNuevaVenta.Size = new Size(96, 19);
             lblNuevaVenta.TabIndex = 12;
             lblNuevaVenta.Text = "Nueva Venta";
-            // 
-            // picAgregarVentas
-            // 
-         
-            picAgregarVentas.Location = new Point(33, 21);
-            picAgregarVentas.Margin = new Padding(3, 4, 3, 4);
-            picAgregarVentas.Name = "picAgregarVentas";
-            picAgregarVentas.Size = new Size(65, 79);
-            picAgregarVentas.SizeMode = PictureBoxSizeMode.StretchImage;
-            picAgregarVentas.TabIndex = 1;
-            picAgregarVentas.TabStop = false;
             // 
             // pnlVentas
             // 
             pnlVentas.BackColor = Color.White;
             pnlVentas.Controls.Add(pnlVen);
             pnlVentas.Controls.Add(pnlBordeVentas);
-            pnlVentas.Location = new Point(1031, 233);
-            pnlVentas.Margin = new Padding(3, 4, 3, 4);
+            pnlVentas.Location = new Point(902, 175);
             pnlVentas.Name = "pnlVentas";
-            pnlVentas.Size = new Size(318, 165);
+            pnlVentas.Size = new Size(278, 124);
             pnlVentas.TabIndex = 5;
             // 
             // pnlVen
@@ -449,19 +421,18 @@
             pnlVen.Controls.Add(label8);
             pnlVen.Controls.Add(lblVentasHoy);
             pnlVen.Controls.Add(picVentas);
-            pnlVen.Location = new Point(22, 0);
-            pnlVen.Margin = new Padding(3, 4, 3, 4);
+            pnlVen.Location = new Point(19, 0);
             pnlVen.Name = "pnlVen";
-            pnlVen.Size = new Size(275, 165);
+            pnlVen.Size = new Size(241, 124);
             pnlVen.TabIndex = 9;
             // 
             // label7
             // 
             label7.AutoSize = true;
             label7.ForeColor = Color.FromArgb(255, 136, 0);
-            label7.Location = new Point(0, 113);
+            label7.Location = new Point(0, 85);
             label7.Name = "label7";
-            label7.Size = new Size(209, 24);
+            label7.Size = new Size(169, 18);
             label7.TabIndex = 11;
             label7.Text = "Ventas totales del día";
             // 
@@ -469,28 +440,27 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.Location = new Point(79, 65);
+            label8.Location = new Point(69, 49);
             label8.Name = "label8";
-            label8.Size = new Size(30, 31);
+            label8.Size = new Size(25, 25);
             label8.TabIndex = 10;
             label8.Text = "0";
             // 
             // lblVentasHoy
             // 
             lblVentasHoy.AutoSize = true;
-            lblVentasHoy.Location = new Point(79, 31);
+            lblVentasHoy.Location = new Point(69, 23);
             lblVentasHoy.Name = "lblVentasHoy";
-            lblVentasHoy.Size = new Size(74, 24);
+            lblVentasHoy.Size = new Size(59, 18);
             lblVentasHoy.TabIndex = 9;
             lblVentasHoy.Text = "Ventas";
             // 
             // picVentas
             // 
             picVentas.Image = Properties.Resources.Ventas;
-            picVentas.Location = new Point(3, 31);
-            picVentas.Margin = new Padding(3, 4, 3, 4);
+            picVentas.Location = new Point(3, 23);
             picVentas.Name = "picVentas";
-            picVentas.Size = new Size(69, 79);
+            picVentas.Size = new Size(60, 59);
             picVentas.SizeMode = PictureBoxSizeMode.StretchImage;
             picVentas.TabIndex = 0;
             picVentas.TabStop = false;
@@ -499,41 +469,38 @@
             // 
             pnlBordeVentas.BackColor = Color.FromArgb(255, 136, 0);
             pnlBordeVentas.Location = new Point(0, 0);
-            pnlBordeVentas.Margin = new Padding(3, 4, 3, 4);
             pnlBordeVentas.Name = "pnlBordeVentas";
-            pnlBordeVentas.Size = new Size(5, 165);
+            pnlBordeVentas.Size = new Size(4, 124);
             pnlBordeVentas.TabIndex = 8;
             // 
             // pnlEmpleados
             // 
             pnlEmpleados.BackColor = Color.White;
             pnlEmpleados.Controls.Add(pnlEmp);
-            pnlEmpleados.Location = new Point(695, 233);
-            pnlEmpleados.Margin = new Padding(3, 4, 3, 4);
+            pnlEmpleados.Location = new Point(608, 175);
             pnlEmpleados.Name = "pnlEmpleados";
-            pnlEmpleados.Size = new Size(318, 165);
+            pnlEmpleados.Size = new Size(278, 124);
             pnlEmpleados.TabIndex = 4;
             // 
             // pnlEmp
             // 
             pnlEmp.BackColor = Color.White;
+            pnlEmp.Controls.Add(pictureBox1);
             pnlEmp.Controls.Add(lblEmpleAct);
             pnlEmp.Controls.Add(label5);
             pnlEmp.Controls.Add(LblEmple);
-            pnlEmp.Controls.Add(picEmple);
-            pnlEmp.Location = new Point(22, 0);
-            pnlEmp.Margin = new Padding(3, 4, 3, 4);
+            pnlEmp.Location = new Point(19, 0);
             pnlEmp.Name = "pnlEmp";
-            pnlEmp.Size = new Size(275, 165);
+            pnlEmp.Size = new Size(241, 124);
             pnlEmp.TabIndex = 1;
             // 
             // lblEmpleAct
             // 
             lblEmpleAct.AutoSize = true;
             lblEmpleAct.ForeColor = Color.FromArgb(112, 34, 246);
-            lblEmpleAct.Location = new Point(0, 113);
+            lblEmpleAct.Location = new Point(0, 85);
             lblEmpleAct.Name = "lblEmpleAct";
-            lblEmpleAct.Size = new Size(185, 24);
+            lblEmpleAct.Size = new Size(151, 18);
             lblEmpleAct.TabIndex = 11;
             lblEmpleAct.Text = "Empleados activos";
             // 
@@ -541,40 +508,29 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(79, 65);
+            label5.Location = new Point(69, 49);
             label5.Name = "label5";
-            label5.Size = new Size(30, 31);
+            label5.Size = new Size(25, 25);
             label5.TabIndex = 10;
             label5.Text = "0";
             // 
             // LblEmple
             // 
             LblEmple.AutoSize = true;
-            LblEmple.Location = new Point(79, 31);
+            LblEmple.Location = new Point(69, 23);
             LblEmple.Name = "LblEmple";
-            LblEmple.Size = new Size(115, 24);
+            LblEmple.Size = new Size(92, 18);
             LblEmple.TabIndex = 9;
             LblEmple.Text = "Empleados";
-            // 
-            // picEmple
-            // 
-            picEmple.Location = new Point(3, 31);
-            picEmple.Margin = new Padding(3, 4, 3, 4);
-            picEmple.Name = "picEmple";
-            picEmple.Size = new Size(69, 79);
-            picEmple.SizeMode = PictureBoxSizeMode.StretchImage;
-            picEmple.TabIndex = 0;
-            picEmple.TabStop = false;
             // 
             // pnlSucursales
             // 
             pnlSucursales.BackColor = Color.White;
             pnlSucursales.Controls.Add(pnlSuc);
             pnlSucursales.Controls.Add(pnlBordeSucur);
-            pnlSucursales.Location = new Point(359, 233);
-            pnlSucursales.Margin = new Padding(3, 4, 3, 4);
+            pnlSucursales.Location = new Point(314, 175);
             pnlSucursales.Name = "pnlSucursales";
-            pnlSucursales.Size = new Size(318, 165);
+            pnlSucursales.Size = new Size(278, 124);
             pnlSucursales.TabIndex = 3;
             // 
             // pnlSuc
@@ -584,19 +540,18 @@
             pnlSuc.Controls.Add(label2);
             pnlSuc.Controls.Add(LblSuc);
             pnlSuc.Controls.Add(picSuc);
-            pnlSuc.Location = new Point(22, 0);
-            pnlSuc.Margin = new Padding(3, 4, 3, 4);
+            pnlSuc.Location = new Point(19, 0);
             pnlSuc.Name = "pnlSuc";
-            pnlSuc.Size = new Size(275, 165);
+            pnlSuc.Size = new Size(241, 124);
             pnlSuc.TabIndex = 9;
             // 
             // lblSucRegis
             // 
             lblSucRegis.AutoSize = true;
             lblSucRegis.ForeColor = Color.FromArgb(0, 176, 80);
-            lblSucRegis.Location = new Point(0, 113);
+            lblSucRegis.Location = new Point(0, 85);
             lblSucRegis.Name = "lblSucRegis";
-            lblSucRegis.Size = new Size(228, 24);
+            lblSucRegis.Size = new Size(187, 18);
             lblSucRegis.TabIndex = 11;
             lblSucRegis.Text = "Sucursales Registradas";
             // 
@@ -604,28 +559,27 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(79, 65);
+            label2.Location = new Point(69, 49);
             label2.Name = "label2";
-            label2.Size = new Size(30, 31);
+            label2.Size = new Size(25, 25);
             label2.TabIndex = 10;
             label2.Text = "0";
             // 
             // LblSuc
             // 
             LblSuc.AutoSize = true;
-            LblSuc.Location = new Point(79, 31);
+            LblSuc.Location = new Point(69, 23);
             LblSuc.Name = "LblSuc";
-            LblSuc.Size = new Size(113, 24);
+            LblSuc.Size = new Size(92, 18);
             LblSuc.TabIndex = 9;
             LblSuc.Text = "Sucursales";
             // 
             // picSuc
             // 
             picSuc.Image = Properties.Resources.Sucursales;
-            picSuc.Location = new Point(3, 31);
-            picSuc.Margin = new Padding(3, 4, 3, 4);
+            picSuc.Location = new Point(3, 23);
             picSuc.Name = "picSuc";
-            picSuc.Size = new Size(69, 79);
+            picSuc.Size = new Size(60, 59);
             picSuc.SizeMode = PictureBoxSizeMode.StretchImage;
             picSuc.TabIndex = 0;
             picSuc.TabStop = false;
@@ -634,9 +588,8 @@
             // 
             pnlBordeSucur.BackColor = Color.FromArgb(0, 176, 80);
             pnlBordeSucur.Location = new Point(0, 0);
-            pnlBordeSucur.Margin = new Padding(3, 4, 3, 4);
             pnlBordeSucur.Name = "pnlBordeSucur";
-            pnlBordeSucur.Size = new Size(5, 165);
+            pnlBordeSucur.Size = new Size(4, 124);
             pnlBordeSucur.TabIndex = 8;
             // 
             // pnlProductos
@@ -644,41 +597,38 @@
             pnlProductos.BackColor = Color.White;
             pnlProductos.Controls.Add(pnlBordePro);
             pnlProductos.Controls.Add(pnlCtnProdu);
-            pnlProductos.Location = new Point(23, 233);
-            pnlProductos.Margin = new Padding(3, 4, 3, 4);
+            pnlProductos.Location = new Point(20, 175);
             pnlProductos.Name = "pnlProductos";
-            pnlProductos.Size = new Size(318, 165);
+            pnlProductos.Size = new Size(278, 124);
             pnlProductos.TabIndex = 2;
             // 
             // pnlBordePro
             // 
             pnlBordePro.BackColor = Color.FromArgb(0, 102, 255);
             pnlBordePro.Location = new Point(0, 0);
-            pnlBordePro.Margin = new Padding(3, 4, 3, 4);
             pnlBordePro.Name = "pnlBordePro";
-            pnlBordePro.Size = new Size(5, 165);
+            pnlBordePro.Size = new Size(4, 124);
             pnlBordePro.TabIndex = 7;
             // 
             // pnlCtnProdu
             // 
             pnlCtnProdu.BackColor = Color.White;
+            pnlCtnProdu.Controls.Add(pcProductos);
             pnlCtnProdu.Controls.Add(lblProductosGenerales);
             pnlCtnProdu.Controls.Add(NumProductos);
             pnlCtnProdu.Controls.Add(lblPproductos);
-            pnlCtnProdu.Controls.Add(pcProductos);
-            pnlCtnProdu.Location = new Point(21, 0);
-            pnlCtnProdu.Margin = new Padding(3, 4, 3, 4);
+            pnlCtnProdu.Location = new Point(18, 0);
             pnlCtnProdu.Name = "pnlCtnProdu";
-            pnlCtnProdu.Size = new Size(275, 165);
+            pnlCtnProdu.Size = new Size(241, 124);
             pnlCtnProdu.TabIndex = 0;
             // 
             // lblProductosGenerales
             // 
             lblProductosGenerales.AutoSize = true;
             lblProductosGenerales.ForeColor = Color.FromArgb(0, 102, 255);
-            lblProductosGenerales.Location = new Point(0, 113);
+            lblProductosGenerales.Location = new Point(0, 85);
             lblProductosGenerales.Name = "lblProductosGenerales";
-            lblProductosGenerales.Size = new Size(206, 24);
+            lblProductosGenerales.Size = new Size(168, 18);
             lblProductosGenerales.TabIndex = 11;
             lblProductosGenerales.Text = "Productos Generales";
             // 
@@ -686,31 +636,20 @@
             // 
             NumProductos.AutoSize = true;
             NumProductos.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            NumProductos.Location = new Point(79, 65);
+            NumProductos.Location = new Point(69, 49);
             NumProductos.Name = "NumProductos";
-            NumProductos.Size = new Size(30, 31);
+            NumProductos.Size = new Size(25, 25);
             NumProductos.TabIndex = 10;
             NumProductos.Text = "0";
             // 
             // lblPproductos
             // 
             lblPproductos.AutoSize = true;
-            lblPproductos.Location = new Point(79, 31);
+            lblPproductos.Location = new Point(69, 23);
             lblPproductos.Name = "lblPproductos";
-            lblPproductos.Size = new Size(104, 24);
+            lblPproductos.Size = new Size(86, 18);
             lblPproductos.TabIndex = 9;
             lblPproductos.Text = "Productos";
-            // 
-            // pcProductos
-            // 
-          
-            pcProductos.Location = new Point(3, 31);
-            pcProductos.Margin = new Padding(3, 4, 3, 4);
-            pcProductos.Name = "pcProductos";
-            pcProductos.Size = new Size(69, 79);
-            pcProductos.SizeMode = PictureBoxSizeMode.StretchImage;
-            pcProductos.TabIndex = 0;
-            pcProductos.TabStop = false;
             // 
             // pnlBienvenida
             // 
@@ -719,10 +658,9 @@
             pnlBienvenida.BackgroundImageLayout = ImageLayout.Stretch;
             pnlBienvenida.Controls.Add(lblResumen);
             pnlBienvenida.Controls.Add(lblBienvenido);
-            pnlBienvenida.Location = new Point(14, 20);
-            pnlBienvenida.Margin = new Padding(3, 4, 3, 4);
+            pnlBienvenida.Location = new Point(12, 15);
             pnlBienvenida.Name = "pnlBienvenida";
-            pnlBienvenida.Size = new Size(1344, 187);
+            pnlBienvenida.Size = new Size(1176, 140);
             pnlBienvenida.TabIndex = 1;
             // 
             // lblResumen
@@ -730,9 +668,9 @@
             lblResumen.AutoSize = true;
             lblResumen.Font = new Font("Calibri Light", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
             lblResumen.ForeColor = Color.White;
-            lblResumen.Location = new Point(46, 119);
+            lblResumen.Location = new Point(40, 89);
             lblResumen.Name = "lblResumen";
-            lblResumen.Size = new Size(433, 24);
+            lblResumen.Size = new Size(354, 19);
             lblResumen.TabIndex = 13;
             lblResumen.Text = "Aquí tienes un resumen del estado de tu negocio hoy.";
             // 
@@ -741,22 +679,53 @@
             lblBienvenido.AutoSize = true;
             lblBienvenido.Font = new Font("Microsoft Sans Serif", 17.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblBienvenido.ForeColor = Color.White;
-            lblBienvenido.Location = new Point(46, 53);
+            lblBienvenido.Location = new Point(40, 40);
             lblBienvenido.Name = "lblBienvenido";
-            lblBienvenido.Size = new Size(334, 36);
+            lblBienvenido.Size = new Size(272, 29);
             lblBienvenido.TabIndex = 11;
             lblBienvenido.Text = "¡Bienvenido de nuevo!";
             // 
+            // pcProductos
+            // 
+            pcProductos.BackgroundImageLayout = ImageLayout.Stretch;
+            pcProductos.Image = Properties.Resources.Productoss;
+            pcProductos.Location = new Point(0, 23);
+            pcProductos.Name = "pcProductos";
+            pcProductos.Size = new Size(60, 59);
+            pcProductos.SizeMode = PictureBoxSizeMode.StretchImage;
+            pcProductos.TabIndex = 12;
+            pcProductos.TabStop = false;
+            // 
+            // picAgregarVentas
+            // 
+            picAgregarVentas.ErrorImage = Properties.Resources.ventaaa;
+            picAgregarVentas.Image = Properties.Resources.ventaaa1;
+            picAgregarVentas.Location = new Point(32, 16);
+            picAgregarVentas.Name = "picAgregarVentas";
+            picAgregarVentas.Size = new Size(61, 59);
+            picAgregarVentas.SizeMode = PictureBoxSizeMode.StretchImage;
+            picAgregarVentas.TabIndex = 13;
+            picAgregarVentas.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.Empleados;
+            pictureBox1.Location = new Point(3, 23);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(60, 59);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 12;
+            pictureBox1.TabStop = false;
+            // 
             // InicioGerente
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveBorder;
-            ClientSize = new Size(1371, 855);
+            ClientSize = new Size(1200, 591);
             Controls.Add(pnlMostrarForm);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(3, 4, 3, 4);
             Name = "InicioGerente";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "InicioGerente";
@@ -776,7 +745,6 @@
             ((System.ComponentModel.ISupportInitialize)picAgregarProductos).EndInit();
             pnlAgregarVenta.ResumeLayout(false);
             pnlAgregarVenta.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)picAgregarVentas).EndInit();
             pnlVentas.ResumeLayout(false);
             pnlVen.ResumeLayout(false);
             pnlVen.PerformLayout();
@@ -784,7 +752,6 @@
             pnlEmpleados.ResumeLayout(false);
             pnlEmp.ResumeLayout(false);
             pnlEmp.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)picEmple).EndInit();
             pnlSucursales.ResumeLayout(false);
             pnlSuc.ResumeLayout(false);
             pnlSuc.PerformLayout();
@@ -792,9 +759,11 @@
             pnlProductos.ResumeLayout(false);
             pnlCtnProdu.ResumeLayout(false);
             pnlCtnProdu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pcProductos).EndInit();
             pnlBienvenida.ResumeLayout(false);
             pnlBienvenida.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pcProductos).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picAgregarVentas).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -813,7 +782,6 @@
         private Panel pnlBordeVentas;
         private Panel pnlBordeSucur;
         private Panel pnlCtnProdu;
-        private PictureBox pcProductos;
         private Label NumProductos;
         private Label lblPproductos;
         private Label lblProductosGenerales;
@@ -826,7 +794,6 @@
         private Label lblEmpleAct;
         private Label label5;
         private Label LblEmple;
-        private PictureBox picEmple;
         private Panel pnlSuc;
         private Label lblSucRegis;
         private Label label2;
@@ -834,7 +801,6 @@
         private PictureBox picSuc;
         private Label lblBienvenido;
         private Panel pnlAgregarVenta;
-        private PictureBox picAgregarVentas;
         private Label lblAgregarVenta;
         private Label lblNuevaVenta;
         private Button btnAgregarVenta;
@@ -857,5 +823,8 @@
         private Label lblResumen;
         private Button btnVerTodo;
         private Label lblActividadRe;
+        private PictureBox picAgregarVentas;
+        private PictureBox pcProductos;
+        private PictureBox pictureBox1;
     }
 }
