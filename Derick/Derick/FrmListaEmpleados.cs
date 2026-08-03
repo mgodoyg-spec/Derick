@@ -17,7 +17,7 @@ namespace Derick
 
         private void pnlListEmpleados_Paint(object sender, PaintEventArgs e)
         {
-            dgvEmpleados.Rows.Add("EMP-001", null , "Juan Pérez", "Gerente", "Gerencia", "0991234567", "juan@derick.com", "Activo", Properties.Resources.picEditar,
+            dgvEmpleados.Rows.Add("EMP-001", null, "Juan Pérez", "Gerente", "Gerencia", "0991234567", "juan@derick.com", "Activo", Properties.Resources.picEditar,
     Properties.Resources.picEliminar);
             dgvEmpleados.Rows.Add("EMP-002", null, "María López", "Empleado", "Ventas", "0987654321", "maria@derick.com", "Activo", Properties.Resources.picEditar,
                 Properties.Resources.picEliminar);
@@ -38,6 +38,25 @@ namespace Derick
         {
             FrmNuevoEmpleado frm = new FrmNuevoEmpleado();
             frm.ShowDialog();
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            DialogResult r = MessageBox.Show(
+        "¿Desea regresar? Se perderán los cambios realizados.",
+        "Regresar",
+        MessageBoxButtons.YesNo,
+        MessageBoxIcon.Question);
+
+            if (r == DialogResult.Yes)
+            {
+                FrmEmpleados frm = this.Parent.Parent as FrmEmpleados;
+
+                if (frm != null)
+                {
+                    frm.MostrarFrm();
+                }
+            }
         }
     }
 }

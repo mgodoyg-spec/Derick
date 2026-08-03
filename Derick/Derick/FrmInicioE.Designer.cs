@@ -172,7 +172,7 @@
             // 
             // pcProductos
             // 
-            pcProductos.Image = Properties.Resources.Productoss;
+        
             pcProductos.Location = new Point(3, 23);
             pcProductos.Name = "pcProductos";
             pcProductos.Size = new Size(60, 59);
@@ -461,7 +461,7 @@
             // 
             // picAgregarVentas
             // 
-            picAgregarVentas.Image = Properties.Resources.AgregarVenta;
+       
             picAgregarVentas.Location = new Point(43, 16);
             picAgregarVentas.Name = "picAgregarVentas";
             picAgregarVentas.Size = new Size(57, 59);
