@@ -4,6 +4,9 @@
     <Compile Update="FormProductos.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="frmBuscarSucursal.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FrmEmpleados.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -22,7 +25,13 @@
     <Compile Update="FrmProductosE.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="frmRegistroSucursales.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="frmSucursales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmUbicacionSucursales.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="frmVentas.cs">
