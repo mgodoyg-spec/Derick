@@ -1,6 +1,6 @@
 ﻿namespace Derick
 {
-    partial class FormProductos
+    partial class FrmProductosE
     {
         /// <summary>
         /// Required designer variable.
@@ -28,15 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProductos));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProductosE));
             pnl_product1 = new Panel();
             pnl_product_acr1 = new Panel();
             btn_acr1 = new Button();
@@ -61,7 +53,6 @@
             pictureBox4 = new PictureBox();
             btnAgregarProducto = new Button();
             lbl_acc5 = new Label();
-            btn_product1 = new Guna.UI2.WinForms.Guna2Button();
             lbl_acc1 = new Label();
             label1 = new Label();
             pnl_borde_p3 = new Panel();
@@ -129,8 +120,8 @@
             pnl_product1.Location = new Point(0, 0);
             pnl_product1.Margin = new Padding(3, 2, 3, 2);
             pnl_product1.Name = "pnl_product1";
-            pnl_product1.Size = new Size(1200, 591);
-            pnl_product1.TabIndex = 0;
+            pnl_product1.Size = new Size(1200, 700);
+            pnl_product1.TabIndex = 1;
             // 
             // pnl_product_acr1
             // 
@@ -359,7 +350,6 @@
             pnl_acc1.Controls.Add(pictureBox4);
             pnl_acc1.Controls.Add(btnAgregarProducto);
             pnl_acc1.Controls.Add(lbl_acc5);
-            pnl_acc1.Controls.Add(btn_product1);
             pnl_acc1.Controls.Add(lbl_acc1);
             pnl_acc1.Location = new Point(21, 60);
             pnl_acc1.Margin = new Padding(3, 2, 3, 2);
@@ -401,28 +391,6 @@
             lbl_acc5.Size = new Size(106, 36);
             lbl_acc5.TabIndex = 2;
             lbl_acc5.Text = "   Registrar un  \r\nnuevo producto";
-            // 
-            // btn_product1
-            // 
-            btn_product1.BorderRadius = 12;
-            btn_product1.Cursor = Cursors.Hand;
-            btn_product1.CustomizableEdges = customizableEdges7;
-            btn_product1.DisabledState.BorderColor = Color.DarkGray;
-            btn_product1.DisabledState.CustomBorderColor = Color.DarkGray;
-            btn_product1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btn_product1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btn_product1.FillColor = Color.FromArgb(0, 102, 255);
-            btn_product1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btn_product1.ForeColor = Color.White;
-            btn_product1.Image = (Image)resources.GetObject("btn_product1.Image");
-            btn_product1.ImageAlign = HorizontalAlignment.Right;
-            btn_product1.Location = new Point(9, 244);
-            btn_product1.Name = "btn_product1";
-            btn_product1.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            btn_product1.Size = new Size(125, 29);
-            btn_product1.TabIndex = 10;
-            btn_product1.Text = "Ir ahora";
-            btn_product1.Click += btn_product1_Click;
             // 
             // lbl_acc1
             // 
@@ -511,10 +479,10 @@
             // 
             pictureBox3.BackColor = Color.Transparent;
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(24, 27);
+            pictureBox3.Location = new Point(22, 27);
             pictureBox3.Margin = new Padding(3, 2, 3, 2);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(58, 56);
+            pictureBox3.Size = new Size(60, 56);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 10;
             pictureBox3.TabStop = false;
@@ -576,10 +544,10 @@
             // 
             pictureBox2.BackColor = Color.Transparent;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(25, 27);
+            pictureBox2.Location = new Point(24, 27);
             pictureBox2.Margin = new Padding(3, 2, 3, 2);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(57, 56);
+            pictureBox2.Size = new Size(56, 56);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 9;
             pictureBox2.TabStop = false;
@@ -606,7 +574,6 @@
             lbl_tlt_p10.Size = new Size(21, 24);
             lbl_tlt_p10.TabIndex = 8;
             lbl_tlt_p10.Text = "0";
-            lbl_tlt_p10.Click += label1_Click;
             // 
             // lbl_tlt_p4
             // 
@@ -633,10 +600,10 @@
             // 
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(15, 27);
+            pictureBox1.Location = new Point(25, 27);
             pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(56, 56);
+            pictureBox1.Size = new Size(57, 56);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 8;
             pictureBox1.TabStop = false;
@@ -740,17 +707,19 @@
             lbl_mensajep.TabIndex = 0;
             lbl_mensajep.Text = "Productos";
             // 
-            // FormProductos
+            // FrmProductosE
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
-            ClientSize = new Size(1200, 591);
+            ClientSize = new Size(1200, 700);
             Controls.Add(pnl_product1);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 2, 3, 2);
-            Name = "FormProductos";
-            Text = "FormProductos";
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximumSize = new Size(1200, 700);
+            MinimumSize = new Size(1200, 700);
+            Name = "FrmProductosE";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "FrmProductosE";
             pnl_product1.ResumeLayout(false);
             pnl_product_acr1.ResumeLayout(false);
             pnl_product_acr1.PerformLayout();
@@ -788,57 +757,57 @@
         #endregion
 
         private Panel pnl_product1;
-        private Panel pnl_product2;
-        private Label lbl_mensajep;
-        private Label lbl_mensajep2;
-        private Panel pnl_p1;
-        private Panel panel1;
-        private Panel panel3;
-        private Panel panel2;
+        private Panel pnl_product_acr1;
+        private Button btn_acr1;
+        private Label lbl_actp1;
+        private Panel pnl_product_acc1;
+        private Panel pnl_acc4;
+        private Button btnAgregarVenta;
+        private Label label5;
+        private Label lbl_acc4;
+        private PictureBox pic_acc4;
+        private Panel pnl_acc3;
+        private Button btnVerEmpleados;
+        private Label label4;
+        private Label lbl_acc3;
+        private PictureBox pic_acc3;
+        private Panel pnl_acc2;
+        private Button btnVerSucursales;
+        private Label lbl_acc6;
+        private Label lbl_acc2;
+        private PictureBox pic_acc2;
+        private Panel pnl_acc1;
+        private PictureBox pictureBox4;
+        private Button btnAgregarProducto;
+        private Label lbl_acc5;
+        private Label lbl_acc1;
+        private Label label1;
         private Panel pnl_borde_p3;
         private Panel pnl_borde_p2;
-        private Panel pnl_borde_p4;
-        private Panel pnl_borde_p1;
-        private Label lbl_tlt_p1;
-        private Label lbl_tlt_p2;
-        private PictureBox pictureBox1;
-        private Label lbl_tlt_p3;
+        private Panel panel3;
+        private Label lbl_tlt_p12;
         private Label lbl_tlt_p8;
         private Label lbl_tlt_p7;
         private PictureBox pictureBox3;
+        private Panel pnl_borde_p4;
+        private Panel panel2;
+        private Label lbl_tlt_p11;
         private Label lbl_tlt_p6;
         private Label lbl_tlt_p5;
         private PictureBox pictureBox2;
-        private Label lbl_tlt_p4;
-        private Label lbl_tlt_9;
+        private Panel panel1;
         private Label lbl_tlt_p10;
-        private Label lbl_tlt_p12;
-        private Label lbl_tlt_p11;
-        private Panel pnl_product_acc1;
-        private Label label1;
-        private Panel pnl_product_acr1;
-        private Label lbl_actp1;
-        private Panel pnl_acc1;
-        private Panel pnl_acc4;
-        private PictureBox pic_acc4;
-        private Panel pnl_acc3;
-        private PictureBox pic_acc3;
-        private Panel pnl_acc2;
-        private PictureBox pic_acc2;
-        private Label lbl_acc1;
-        private Label lbl_acc4;
-        private Label lbl_acc3;
-        private Label lbl_acc2;
-        private Label lbl_acc5;
-        private Label lbl_acc6;
-        private Label label5;
-        private Label label4;
-        private Button btn_acr1;
-        private Button btnAgregarProducto;
-        private Button btnVerSucursales;
-        private Button btnVerEmpleados;
-        private Button btnAgregarVenta;
+        private Label lbl_tlt_p4;
+        private Label lbl_tlt_p3;
+        private PictureBox pictureBox1;
+        private Panel pnl_p1;
         private PictureBox pcProductos;
-        private PictureBox pictureBox4;
+        private Label lbl_tlt_9;
+        private Label lbl_tlt_p2;
+        private Label lbl_tlt_p1;
+        private Panel pnl_borde_p1;
+        private Panel pnl_product2;
+        private Label lbl_mensajep2;
+        private Label lbl_mensajep;
     }
 }

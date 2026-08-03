@@ -8,23 +8,15 @@ using System.Windows.Forms;
 
 namespace Derick
 {
-    public partial class FrmMenuPrincipal : Form
+    public partial class FrmMenuEmpleados : Form
     {
         public string usuarioActual;
         private Form? formularioActivo;
-        public FrmMenuPrincipal()
+        public FrmMenuEmpleados()
         {
             InitializeComponent();
             pnlMostrar.PerformLayout();
             this.AutoScaleMode = AutoScaleMode.None;
-        }
-        private void FrmMenuPrincipal_Load(object sender, EventArgs e)
-        {
-            //label de la parte superior
-            lblusuario.Text = usuarioActual;
-            this.PerformLayout();
-            this.Refresh(); 
-            csNavegacion.AbrirFormulario(pnlMostrarForm, ref formularioActivo, new InicioGerente());
         }
 
         private void lblSalir_Click(object sender, EventArgs e)
@@ -40,6 +32,16 @@ namespace Derick
                 Application.Exit();
             }
         }
+
+        private void FrmMenuEmpleados_Load(object sender, EventArgs e)
+        {
+            //label de la parte superior
+            lblusuario.Text = usuarioActual;
+            this.PerformLayout();
+            this.Refresh();
+            csNavegacion.AbrirFormulario(pnlMostrarForm, ref formularioActivo, new FrmInicioE());
+        }
+
         private void pnlPerfil_Click(object sender, EventArgs e)
         {
             lblFlecha.Text = "▲";
@@ -54,11 +56,11 @@ namespace Derick
         private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult confirmar = MessageBox.Show(
-           "¿Estás seguro que deseas cerrar sesión?",
-           "Cerrar sesión",
-           MessageBoxButtons.YesNo,
-           MessageBoxIcon.Question
-           );
+            "¿Estás seguro que deseas cerrar sesión?",
+            "Cerrar sesión",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Question
+            );
 
             if (confirmar == DialogResult.Yes)
             {
@@ -67,40 +69,29 @@ namespace Derick
                 this.Close(); // cierra el menú principal
             }
         }
+
         private void btninicio_Click(object sender, EventArgs e)
         {
             csBotonActivo.MarcarBotonActivo(pnlIndicador, btninicio);
-            csNavegacion.AbrirFormulario( pnlMostrarForm, ref formularioActivo,new InicioGerente());
+            csNavegacion.AbrirFormulario(pnlMostrarForm, ref formularioActivo, new FrmInicioE());
         }
 
         private void btnproductos_Click(object sender, EventArgs e)
         {
             csBotonActivo.MarcarBotonActivo(pnlIndicador, btnproductos);
-            csNavegacion.AbrirFormulario( pnlMostrarForm, ref formularioActivo,new FormProductos());
-        }
-
-        private void btnempleados_Click(object sender, EventArgs e)
-        {
-            csBotonActivo.MarcarBotonActivo(pnlIndicador, btnempleados);
-            csNavegacion.AbrirFormulario( pnlMostrarForm, ref formularioActivo,new FrmEmpleados());
+            csNavegacion.AbrirFormulario(pnlMostrarForm, ref formularioActivo, new FrmProductosE());
         }
 
         private void btnventas_Click(object sender, EventArgs e)
         {
             csBotonActivo.MarcarBotonActivo(pnlIndicador, btnventas);
-            csNavegacion.AbrirFormulario( pnlMostrarForm, ref formularioActivo,new frmVentas());
-        }
-
-        private void btnsucursales_Click(object sender, EventArgs e)
-        {
-            csBotonActivo.MarcarBotonActivo(pnlIndicador, btnsucursales);
-            csNavegacion.AbrirFormulario( pnlMostrarForm, ref formularioActivo,new frmSucursales());
+            csNavegacion.AbrirFormulario(pnlMostrarForm, ref formularioActivo, new FrmVentasE());
         }
 
         private void btnreportes_Click(object sender, EventArgs e)
         {
             csBotonActivo.MarcarBotonActivo(pnlIndicador, btnreportes);
-            csNavegacion.AbrirFormulario( pnlMostrarForm, ref formularioActivo,new frmReportes());
+            csNavegacion.AbrirFormulario(pnlMostrarForm, ref formularioActivo, new frmReportesE());
         }
     }
 }
