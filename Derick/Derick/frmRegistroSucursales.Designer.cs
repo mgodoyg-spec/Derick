@@ -72,6 +72,7 @@
             lblDescripcionEstado = new Label();
             lblestado = new Label();
             pnlRegistrarSuc = new Panel();
+            lblSalirV = new Label();
             pnlRegistroSucursal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbxIcoEncargado).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbxIcoCorreo).BeginInit();
@@ -91,17 +92,18 @@
             // lblNombreSucursal
             // 
             lblNombreSucursal.AutoSize = true;
-            lblNombreSucursal.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblNombreSucursal.Font = new Font("Calibri", 12F, FontStyle.Bold);
             lblNombreSucursal.ForeColor = Color.DimGray;
-            lblNombreSucursal.Location = new Point(48, 67);
+            lblNombreSucursal.Location = new Point(52, 63);
             lblNombreSucursal.Name = "lblNombreSucursal";
-            lblNombreSucursal.Size = new Size(191, 23);
+            lblNombreSucursal.Size = new Size(165, 19);
             lblNombreSucursal.TabIndex = 1;
             lblNombreSucursal.Text = "Nombre de la sucursal:";
             // 
             // pnlRegistroSucursal
             // 
             pnlRegistroSucursal.BackColor = Color.White;
+            pnlRegistroSucursal.Controls.Add(lblSalirV);
             pnlRegistroSucursal.Controls.Add(label6);
             pnlRegistroSucursal.Controls.Add(label5);
             pnlRegistroSucursal.Controls.Add(label4);
@@ -130,7 +132,7 @@
             pnlRegistroSucursal.Controls.Add(lblNombreSucursal);
             pnlRegistroSucursal.Location = new Point(9, 0);
             pnlRegistroSucursal.Name = "pnlRegistroSucursal";
-            pnlRegistroSucursal.Size = new Size(548, 358);
+            pnlRegistroSucursal.Size = new Size(548, 333);
             pnlRegistroSucursal.TabIndex = 2;
             // 
             // label6
@@ -138,7 +140,7 @@
             label6.AutoSize = true;
             label6.Font = new Font("Calibri Light", 9.75F, FontStyle.Italic, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.DimGray;
-            label6.Location = new Point(15, 40);
+            label6.Location = new Point(51, 32);
             label6.Name = "label6";
             label6.Size = new Size(166, 15);
             label6.TabIndex = 36;
@@ -149,7 +151,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.Red;
-            label5.Location = new Point(519, 264);
+            label5.Location = new Point(510, 217);
             label5.Name = "label5";
             label5.Size = new Size(19, 23);
             label5.TabIndex = 35;
@@ -160,7 +162,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.Red;
-            label4.Location = new Point(441, 161);
+            label4.Location = new Point(427, 143);
             label4.Name = "label4";
             label4.Size = new Size(19, 23);
             label4.TabIndex = 34;
@@ -171,7 +173,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.Red;
-            label3.Location = new Point(142, 161);
+            label3.Location = new Point(126, 147);
             label3.Name = "label3";
             label3.Size = new Size(19, 23);
             label3.TabIndex = 33;
@@ -182,7 +184,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.Red;
-            label2.Location = new Point(429, 67);
+            label2.Location = new Point(416, 59);
             label2.Name = "label2";
             label2.Size = new Size(19, 23);
             label2.TabIndex = 32;
@@ -193,7 +195,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Red;
-            label1.Location = new Point(239, 67);
+            label1.Location = new Point(215, 59);
             label1.Name = "label1";
             label1.Size = new Size(19, 23);
             label1.TabIndex = 31;
@@ -203,9 +205,9 @@
             // 
             pbxIcoEncargado.BackgroundImage = Properties.Resources.icEncargado;
             pbxIcoEncargado.BackgroundImageLayout = ImageLayout.Zoom;
-            pbxIcoEncargado.Location = new Point(272, 264);
+            pbxIcoEncargado.Location = new Point(299, 210);
             pbxIcoEncargado.Name = "pbxIcoEncargado";
-            pbxIcoEncargado.Size = new Size(47, 36);
+            pbxIcoEncargado.Size = new Size(35, 36);
             pbxIcoEncargado.TabIndex = 30;
             pbxIcoEncargado.TabStop = false;
             // 
@@ -213,9 +215,9 @@
             // 
             pbxIcoCorreo.BackgroundImage = Properties.Resources.icCorreo;
             pbxIcoCorreo.BackgroundImageLayout = ImageLayout.Zoom;
-            pbxIcoCorreo.Location = new Point(-2, 264);
+            pbxIcoCorreo.Location = new Point(3, 208);
             pbxIcoCorreo.Name = "pbxIcoCorreo";
-            pbxIcoCorreo.Size = new Size(47, 36);
+            pbxIcoCorreo.Size = new Size(46, 36);
             pbxIcoCorreo.TabIndex = 29;
             pbxIcoCorreo.TabStop = false;
             // 
@@ -223,19 +225,18 @@
             // 
             pbxIcoTelefono.BackgroundImage = Properties.Resources.icTel;
             pbxIcoTelefono.BackgroundImageLayout = ImageLayout.Zoom;
-            pbxIcoTelefono.Location = new Point(306, 161);
+            pbxIcoTelefono.Location = new Point(304, 130);
             pbxIcoTelefono.Name = "pbxIcoTelefono";
-            pbxIcoTelefono.Size = new Size(47, 36);
+            pbxIcoTelefono.Size = new Size(42, 36);
             pbxIcoTelefono.TabIndex = 28;
             pbxIcoTelefono.TabStop = false;
             // 
             // pbxIcoDireccion
             // 
-            pbxIcoDireccion.BackgroundImage = Properties.Resources.icDirec;
             pbxIcoDireccion.BackgroundImageLayout = ImageLayout.Zoom;
-            pbxIcoDireccion.Location = new Point(0, 161);
+            pbxIcoDireccion.Location = new Point(8, 130);
             pbxIcoDireccion.Name = "pbxIcoDireccion";
-            pbxIcoDireccion.Size = new Size(47, 36);
+            pbxIcoDireccion.Size = new Size(39, 36);
             pbxIcoDireccion.TabIndex = 27;
             pbxIcoDireccion.TabStop = false;
             // 
@@ -243,7 +244,7 @@
             // 
             pbxIcoCiudad.BackgroundImage = Properties.Resources.icCiud;
             pbxIcoCiudad.BackgroundImageLayout = ImageLayout.Zoom;
-            pbxIcoCiudad.Location = new Point(306, 63);
+            pbxIcoCiudad.Location = new Point(306, 51);
             pbxIcoCiudad.Name = "pbxIcoCiudad";
             pbxIcoCiudad.Size = new Size(47, 36);
             pbxIcoCiudad.TabIndex = 26;
@@ -253,9 +254,9 @@
             // 
             pbxIcoNombre.BackgroundImage = Properties.Resources.icNom;
             pbxIcoNombre.BackgroundImageLayout = ImageLayout.Zoom;
-            pbxIcoNombre.Location = new Point(5, 62);
+            pbxIcoNombre.Location = new Point(7, 50);
             pbxIcoNombre.Name = "pbxIcoNombre";
-            pbxIcoNombre.Size = new Size(47, 36);
+            pbxIcoNombre.Size = new Size(40, 37);
             pbxIcoNombre.TabIndex = 25;
             pbxIcoNombre.TabStop = false;
             // 
@@ -273,9 +274,9 @@
             // 
             cbxEncargadoSucursal.Font = new Font("Calibri", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbxEncargadoSucursal.FormattingEnabled = true;
-            cbxEncargadoSucursal.Location = new Point(291, 301);
+            cbxEncargadoSucursal.Location = new Point(304, 252);
             cbxEncargadoSucursal.Name = "cbxEncargadoSucursal";
-            cbxEncargadoSucursal.Size = new Size(238, 31);
+            cbxEncargadoSucursal.Size = new Size(211, 31);
             cbxEncargadoSucursal.TabIndex = 22;
             // 
             // lblInformacionSuc
@@ -293,37 +294,37 @@
             // lblEncargadoSucursal
             // 
             lblEncargadoSucursal.AutoSize = true;
-            lblEncargadoSucursal.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblEncargadoSucursal.Font = new Font("Calibri", 12F, FontStyle.Bold);
             lblEncargadoSucursal.ForeColor = Color.DimGray;
-            lblEncargadoSucursal.Location = new Point(322, 264);
+            lblEncargadoSucursal.Location = new Point(334, 220);
             lblEncargadoSucursal.Name = "lblEncargadoSucursal";
-            lblEncargadoSucursal.Size = new Size(207, 23);
+            lblEncargadoSucursal.Size = new Size(181, 19);
             lblEncargadoSucursal.TabIndex = 11;
             lblEncargadoSucursal.Text = "Encargado de la sucursal:";
             // 
             // txtCorreoSucursal
             // 
             txtCorreoSucursal.Font = new Font("Calibri", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtCorreoSucursal.Location = new Point(3, 301);
+            txtCorreoSucursal.Location = new Point(13, 250);
             txtCorreoSucursal.Name = "txtCorreoSucursal";
-            txtCorreoSucursal.Size = new Size(253, 31);
+            txtCorreoSucursal.Size = new Size(225, 31);
             txtCorreoSucursal.TabIndex = 10;
             // 
             // lblCorreo
             // 
             lblCorreo.AutoSize = true;
-            lblCorreo.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblCorreo.Font = new Font("Calibri", 12F, FontStyle.Bold);
             lblCorreo.ForeColor = Color.DimGray;
-            lblCorreo.Location = new Point(46, 264);
+            lblCorreo.Location = new Point(55, 220);
             lblCorreo.Name = "lblCorreo";
-            lblCorreo.Size = new Size(163, 23);
+            lblCorreo.Size = new Size(140, 19);
             lblCorreo.TabIndex = 9;
             lblCorreo.Text = "Correo electrónico:";
             // 
             // txtTelefonoSucursal
             // 
             txtTelefonoSucursal.Font = new Font("Calibri", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtTelefonoSucursal.Location = new Point(325, 208);
+            txtTelefonoSucursal.Location = new Point(304, 173);
             txtTelefonoSucursal.MaxLength = 10;
             txtTelefonoSucursal.Name = "txtTelefonoSucursal";
             txtTelefonoSucursal.Size = new Size(172, 31);
@@ -332,37 +333,37 @@
             // lbltelefono
             // 
             lbltelefono.AutoSize = true;
-            lbltelefono.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbltelefono.Font = new Font("Calibri", 12F, FontStyle.Bold);
             lbltelefono.ForeColor = Color.DimGray;
-            lbltelefono.Location = new Point(352, 161);
+            lbltelefono.Location = new Point(359, 147);
             lbltelefono.Name = "lbltelefono";
-            lbltelefono.Size = new Size(83, 23);
+            lbltelefono.Size = new Size(72, 19);
             lbltelefono.TabIndex = 7;
             lbltelefono.Text = "Teléfono:";
             // 
             // txtDireccionSucursal
             // 
             txtDireccionSucursal.Font = new Font("Calibri", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtDireccionSucursal.Location = new Point(3, 208);
+            txtDireccionSucursal.Location = new Point(8, 173);
             txtDireccionSucursal.Name = "txtDireccionSucursal";
-            txtDireccionSucursal.Size = new Size(253, 31);
+            txtDireccionSucursal.Size = new Size(230, 31);
             txtDireccionSucursal.TabIndex = 6;
             // 
             // lblDireccion
             // 
             lblDireccion.AutoSize = true;
-            lblDireccion.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDireccion.Font = new Font("Calibri", 12F, FontStyle.Bold);
             lblDireccion.ForeColor = Color.DimGray;
-            lblDireccion.Location = new Point(46, 161);
+            lblDireccion.Location = new Point(52, 147);
             lblDireccion.Name = "lblDireccion";
-            lblDireccion.Size = new Size(90, 23);
+            lblDireccion.Size = new Size(77, 19);
             lblDireccion.TabIndex = 5;
             lblDireccion.Text = "Dirección:";
             // 
             // txtCiudadSucursal
             // 
             txtCiudadSucursal.Font = new Font("Calibri", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtCiudadSucursal.Location = new Point(325, 105);
+            txtCiudadSucursal.Location = new Point(306, 93);
             txtCiudadSucursal.Name = "txtCiudadSucursal";
             txtCiudadSucursal.Size = new Size(172, 31);
             txtCiudadSucursal.TabIndex = 4;
@@ -370,28 +371,29 @@
             // lblCiudad
             // 
             lblCiudad.AutoSize = true;
-            lblCiudad.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblCiudad.Font = new Font("Calibri", 12F, FontStyle.Bold);
             lblCiudad.ForeColor = Color.DimGray;
-            lblCiudad.Location = new Point(354, 67);
+            lblCiudad.Location = new Point(359, 63);
             lblCiudad.Name = "lblCiudad";
-            lblCiudad.Size = new Size(69, 23);
+            lblCiudad.Size = new Size(60, 19);
             lblCiudad.TabIndex = 3;
             lblCiudad.Text = "Ciudad:";
             // 
             // txtNombreSucursal
             // 
             txtNombreSucursal.Font = new Font("Calibri", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtNombreSucursal.Location = new Point(5, 103);
+            txtNombreSucursal.Location = new Point(7, 93);
             txtNombreSucursal.Name = "txtNombreSucursal";
-            txtNombreSucursal.Size = new Size(253, 31);
+            txtNombreSucursal.Size = new Size(231, 31);
             txtNombreSucursal.TabIndex = 2;
             // 
             // btnAgregarImagen
             // 
             btnAgregarImagen.BackColor = Color.LightGray;
-            btnAgregarImagen.Font = new Font("Calibri", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnAgregarImagen.Cursor = Cursors.Hand;
+            btnAgregarImagen.Font = new Font("Calibri", 12F);
             btnAgregarImagen.ForeColor = Color.Black;
-            btnAgregarImagen.Location = new Point(32, 196);
+            btnAgregarImagen.Location = new Point(32, 182);
             btnAgregarImagen.Name = "btnAgregarImagen";
             btnAgregarImagen.Size = new Size(187, 32);
             btnAgregarImagen.TabIndex = 17;
@@ -402,20 +404,21 @@
             // pbxImagenSucursal
             // 
             pbxImagenSucursal.BorderStyle = BorderStyle.Fixed3D;
-            pbxImagenSucursal.Location = new Point(25, 28);
+            pbxImagenSucursal.Location = new Point(32, 28);
             pbxImagenSucursal.Name = "pbxImagenSucursal";
-            pbxImagenSucursal.Size = new Size(209, 162);
+            pbxImagenSucursal.Size = new Size(185, 148);
             pbxImagenSucursal.TabIndex = 16;
             pbxImagenSucursal.TabStop = false;
             // 
             // btnRegistrarSucursal
             // 
             btnRegistrarSucursal.BackColor = Color.FromArgb(0, 102, 255);
-            btnRegistrarSucursal.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRegistrarSucursal.Cursor = Cursors.Hand;
+            btnRegistrarSucursal.Font = new Font("Calibri", 12F, FontStyle.Bold);
             btnRegistrarSucursal.ForeColor = Color.White;
-            btnRegistrarSucursal.Location = new Point(288, 490);
+            btnRegistrarSucursal.Location = new Point(292, 466);
             btnRegistrarSucursal.Name = "btnRegistrarSucursal";
-            btnRegistrarSucursal.Size = new Size(250, 43);
+            btnRegistrarSucursal.Size = new Size(230, 43);
             btnRegistrarSucursal.TabIndex = 15;
             btnRegistrarSucursal.Text = "Registrar sucursal";
             btnRegistrarSucursal.UseVisualStyleBackColor = false;
@@ -426,7 +429,7 @@
             cbxEstadoSucursal.Font = new Font("Calibri", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbxEstadoSucursal.FormattingEnabled = true;
             cbxEstadoSucursal.Items.AddRange(new object[] { "Activa", "Inactiva", "Remodelación" });
-            cbxEstadoSucursal.Location = new Point(18, 69);
+            cbxEstadoSucursal.Location = new Point(40, 59);
             cbxEstadoSucursal.Name = "cbxEstadoSucursal";
             cbxEstadoSucursal.Size = new Size(221, 31);
             cbxEstadoSucursal.TabIndex = 14;
@@ -444,7 +447,7 @@
             pnlImagen.Controls.Add(lblImagenSuc);
             pnlImagen.Controls.Add(pbxImagenSucursal);
             pnlImagen.Controls.Add(btnAgregarImagen);
-            pnlImagen.Location = new Point(9, 364);
+            pnlImagen.Location = new Point(9, 339);
             pnlImagen.Name = "pnlImagen";
             pnlImagen.Size = new Size(253, 268);
             pnlImagen.TabIndex = 3;
@@ -454,7 +457,7 @@
             lblSeleccionarImag.AutoSize = true;
             lblSeleccionarImag.Font = new Font("Calibri Light", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
             lblSeleccionarImag.ForeColor = Color.Black;
-            lblSeleccionarImag.Location = new Point(53, 150);
+            lblSeleccionarImag.Location = new Point(46, 151);
             lblSeleccionarImag.Name = "lblSeleccionarImag";
             lblSeleccionarImag.Size = new Size(159, 19);
             lblSeleccionarImag.TabIndex = 21;
@@ -463,9 +466,10 @@
             // btnQuitarImagen
             // 
             btnQuitarImagen.BackColor = Color.Transparent;
-            btnQuitarImagen.Font = new Font("Calibri", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnQuitarImagen.Cursor = Cursors.Hand;
+            btnQuitarImagen.Font = new Font("Calibri", 12F);
             btnQuitarImagen.ForeColor = Color.Black;
-            btnQuitarImagen.Location = new Point(32, 234);
+            btnQuitarImagen.Location = new Point(32, 220);
             btnQuitarImagen.Name = "btnQuitarImagen";
             btnQuitarImagen.Size = new Size(187, 32);
             btnQuitarImagen.TabIndex = 20;
@@ -476,10 +480,10 @@
             // pbxAgregarImagen
             // 
             pbxAgregarImagen.Image = (Image)resources.GetObject("pbxAgregarImagen.Image");
-            pbxAgregarImagen.Location = new Point(43, 45);
+            pbxAgregarImagen.Location = new Point(64, 46);
             pbxAgregarImagen.Margin = new Padding(3, 2, 3, 2);
             pbxAgregarImagen.Name = "pbxAgregarImagen";
-            pbxAgregarImagen.Size = new Size(169, 103);
+            pbxAgregarImagen.Size = new Size(117, 103);
             pbxAgregarImagen.SizeMode = PictureBoxSizeMode.StretchImage;
             pbxAgregarImagen.TabIndex = 19;
             pbxAgregarImagen.TabStop = false;
@@ -503,9 +507,9 @@
             pnlEstado.Controls.Add(lblDescripcionEstado);
             pnlEstado.Controls.Add(lblestado);
             pnlEstado.Controls.Add(cbxEstadoSucursal);
-            pnlEstado.Location = new Point(270, 366);
+            pnlEstado.Location = new Point(268, 341);
             pnlEstado.Name = "pnlEstado";
-            pnlEstado.Size = new Size(284, 110);
+            pnlEstado.Size = new Size(289, 110);
             pnlEstado.TabIndex = 4;
             // 
             // label7
@@ -534,7 +538,7 @@
             lblDescripcionEstado.AutoSize = true;
             lblDescripcionEstado.Font = new Font("Calibri Light", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
             lblDescripcionEstado.ForeColor = Color.Black;
-            lblDescripcionEstado.Location = new Point(6, 42);
+            lblDescripcionEstado.Location = new Point(37, 29);
             lblDescripcionEstado.Name = "lblDescripcionEstado";
             lblDescripcionEstado.Size = new Size(233, 19);
             lblDescripcionEstado.TabIndex = 20;
@@ -562,6 +566,20 @@
             pnlRegistrarSuc.Size = new Size(564, 642);
             pnlRegistrarSuc.TabIndex = 16;
             // 
+            // lblSalirV
+            // 
+            lblSalirV.AutoSize = true;
+            lblSalirV.BackColor = Color.White;
+            lblSalirV.Cursor = Cursors.Hand;
+            lblSalirV.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSalirV.ForeColor = Color.Red;
+            lblSalirV.Location = new Point(520, 0);
+            lblSalirV.Name = "lblSalirV";
+            lblSalirV.Size = new Size(25, 24);
+            lblSalirV.TabIndex = 29;
+            lblSalirV.Text = "X";
+            lblSalirV.Click += lblSalirV_Click;
+            // 
             // frmRegistroSucursales
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
@@ -570,7 +588,7 @@
             ClientSize = new Size(567, 644);
             Controls.Add(pnlRegistrarSuc);
             Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 4, 3, 4);
             Name = "frmRegistroSucursales";
             StartPosition = FormStartPosition.CenterScreen;
@@ -641,5 +659,6 @@
         private Label label1;
         private Label label6;
         private Label label7;
+        private Label lblSalirV;
     }
 }

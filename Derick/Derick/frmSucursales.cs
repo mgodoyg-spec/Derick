@@ -200,7 +200,7 @@ namespace Derick
 
             if (columna == "clUbicacion")
             {
-                frmUbicacionSucursales frm=new frmUbicacionSucursales();
+                frmUbicacionSucursales frm = new frmUbicacionSucursales();
                 frm.Show();
             }
 
@@ -209,6 +209,27 @@ namespace Derick
             {
                 MessageBox.Show("Ver información");
             }
+        }
+
+        private void lblSalirV_Click(object sender, EventArgs e)
+        {
+            DialogResult respuesta = MessageBox.Show(
+           "¿Está seguro de salir?",
+           "Confirmar salida",
+           MessageBoxButtons.YesNo,
+           MessageBoxIcon.Question);
+
+            if (respuesta == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void btnRegistrarSucursal_Click(object sender, EventArgs e)
+        {
+            frmRegistroSucursales form = new frmRegistroSucursales();
+            form.Show();
+
         }
     }
 }
