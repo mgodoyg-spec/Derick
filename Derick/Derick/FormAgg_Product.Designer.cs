@@ -93,8 +93,9 @@
             pnl_agg1.Controls.Add(lbl_agg2);
             pnl_agg1.Controls.Add(lbl_agg1);
             pnl_agg1.Location = new Point(0, 0);
+            pnl_agg1.Margin = new Padding(3, 2, 3, 2);
             pnl_agg1.Name = "pnl_agg1";
-            pnl_agg1.Size = new Size(1353, 808);
+            pnl_agg1.Size = new Size(1184, 606);
             pnl_agg1.TabIndex = 0;
             // 
             // gbtn_agg4
@@ -112,11 +113,12 @@
             gbtn_agg4.FillColor = Color.White;
             gbtn_agg4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             gbtn_agg4.ForeColor = Color.FromArgb(112, 34, 246);
-            gbtn_agg4.Location = new Point(35, 740);
+            gbtn_agg4.Location = new Point(31, 555);
+            gbtn_agg4.Margin = new Padding(3, 2, 3, 2);
             gbtn_agg4.Name = "gbtn_agg4";
             gbtn_agg4.PressedColor = Color.FromArgb(112, 34, 246);
             gbtn_agg4.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            gbtn_agg4.Size = new Size(326, 56);
+            gbtn_agg4.Size = new Size(285, 42);
             gbtn_agg4.TabIndex = 11;
             gbtn_agg4.Text = "Cancelar";
             gbtn_agg4.Click += gbtn_agg4_Click;
@@ -133,10 +135,11 @@
             gbtn_agg3.FillColor = Color.FromArgb(112, 34, 246);
             gbtn_agg3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             gbtn_agg3.ForeColor = Color.White;
-            gbtn_agg3.Location = new Point(723, 740);
+            gbtn_agg3.Location = new Point(633, 555);
+            gbtn_agg3.Margin = new Padding(3, 2, 3, 2);
             gbtn_agg3.Name = "gbtn_agg3";
             gbtn_agg3.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            gbtn_agg3.Size = new Size(466, 56);
+            gbtn_agg3.Size = new Size(408, 42);
             gbtn_agg3.TabIndex = 10;
             gbtn_agg3.Text = "Guardar producto";
             // 
@@ -147,9 +150,10 @@
             pnl_agg5.Controls.Add(lbl_agg8);
             pnl_agg5.Controls.Add(lbl_agg7);
             pnl_agg5.Controls.Add(lbl_agg6);
-            pnl_agg5.Location = new Point(723, 603);
+            pnl_agg5.Location = new Point(633, 452);
+            pnl_agg5.Margin = new Padding(3, 2, 3, 2);
             pnl_agg5.Name = "pnl_agg5";
-            pnl_agg5.Size = new Size(466, 119);
+            pnl_agg5.Size = new Size(408, 89);
             pnl_agg5.TabIndex = 9;
             // 
             // gts_activo1
@@ -160,10 +164,11 @@
             gts_activo1.CheckedState.InnerColor = Color.White;
             gts_activo1.Cursor = Cursors.Hand;
             gts_activo1.CustomizableEdges = customizableEdges5;
-            gts_activo1.Location = new Point(318, 46);
+            gts_activo1.Location = new Point(278, 34);
+            gts_activo1.Margin = new Padding(3, 2, 3, 2);
             gts_activo1.Name = "gts_activo1";
             gts_activo1.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            gts_activo1.Size = new Size(54, 26);
+            gts_activo1.Size = new Size(47, 20);
             gts_activo1.TabIndex = 15;
             gts_activo1.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
             gts_activo1.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
@@ -175,9 +180,9 @@
             lbl_agg8.AutoSize = true;
             lbl_agg8.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_agg8.ForeColor = Color.Black;
-            lbl_agg8.Location = new Point(15, 46);
+            lbl_agg8.Location = new Point(13, 34);
             lbl_agg8.Name = "lbl_agg8";
-            lbl_agg8.Size = new Size(65, 22);
+            lbl_agg8.Size = new Size(54, 18);
             lbl_agg8.TabIndex = 14;
             lbl_agg8.Text = "Activo";
             // 
@@ -185,9 +190,9 @@
             // 
             lbl_agg7.AutoSize = true;
             lbl_agg7.Font = new Font("Calibri", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            lbl_agg7.Location = new Point(13, 78);
+            lbl_agg7.Location = new Point(11, 58);
             lbl_agg7.Name = "lbl_agg7";
-            lbl_agg7.Size = new Size(247, 24);
+            lbl_agg7.Size = new Size(196, 19);
             lbl_agg7.TabIndex = 13;
             lbl_agg7.Text = "El producto estara disponible";
             // 
@@ -196,9 +201,9 @@
             lbl_agg6.AutoSize = true;
             lbl_agg6.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_agg6.ForeColor = Color.Black;
-            lbl_agg6.Location = new Point(13, 11);
+            lbl_agg6.Location = new Point(11, 8);
             lbl_agg6.Name = "lbl_agg6";
-            lbl_agg6.Size = new Size(189, 22);
+            lbl_agg6.Size = new Size(160, 18);
             lbl_agg6.TabIndex = 2;
             lbl_agg6.Text = "Estado del producto";
             // 
@@ -210,9 +215,10 @@
             pnl_agg4.Controls.Add(gbtn_agg2);
             pnl_agg4.Controls.Add(gbtn_agg1);
             pnl_agg4.Controls.Add(pnl_agg3);
-            pnl_agg4.Location = new Point(723, 120);
+            pnl_agg4.Location = new Point(633, 90);
+            pnl_agg4.Margin = new Padding(3, 2, 3, 2);
             pnl_agg4.Name = "pnl_agg4";
-            pnl_agg4.Size = new Size(466, 477);
+            pnl_agg4.Size = new Size(408, 358);
             pnl_agg4.TabIndex = 8;
             // 
             // lbl_agg5
@@ -220,9 +226,9 @@
             lbl_agg5.AutoSize = true;
             lbl_agg5.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_agg5.ForeColor = Color.Black;
-            lbl_agg5.Location = new Point(12, 12);
+            lbl_agg5.Location = new Point(10, 9);
             lbl_agg5.Name = "lbl_agg5";
-            lbl_agg5.Size = new Size(191, 22);
+            lbl_agg5.Size = new Size(161, 18);
             lbl_agg5.TabIndex = 1;
             lbl_agg5.Text = "Imagen del producto";
             // 
@@ -238,10 +244,11 @@
             gbtn_agg2.FillColor = Color.Silver;
             gbtn_agg2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             gbtn_agg2.ForeColor = Color.Black;
-            gbtn_agg2.Location = new Point(63, 396);
+            gbtn_agg2.Location = new Point(55, 297);
+            gbtn_agg2.Margin = new Padding(3, 2, 3, 2);
             gbtn_agg2.Name = "gbtn_agg2";
             gbtn_agg2.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            gbtn_agg2.Size = new Size(326, 56);
+            gbtn_agg2.Size = new Size(285, 42);
             gbtn_agg2.TabIndex = 7;
             gbtn_agg2.Text = "Quitar imagen";
             gbtn_agg2.Click += gbtn_agg2_Click;
@@ -258,10 +265,11 @@
             gbtn_agg1.FillColor = Color.FromArgb(112, 34, 246);
             gbtn_agg1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             gbtn_agg1.ForeColor = Color.White;
-            gbtn_agg1.Location = new Point(63, 334);
+            gbtn_agg1.Location = new Point(55, 250);
+            gbtn_agg1.Margin = new Padding(3, 2, 3, 2);
             gbtn_agg1.Name = "gbtn_agg1";
             gbtn_agg1.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            gbtn_agg1.Size = new Size(326, 56);
+            gbtn_agg1.Size = new Size(285, 42);
             gbtn_agg1.TabIndex = 6;
             gbtn_agg1.Text = "Seleccionar archivo";
             gbtn_agg1.Click += gbtn_agg1_Click;
@@ -275,17 +283,19 @@
             pnl_agg3.Controls.Add(lbl_msj1);
             pnl_agg3.Controls.Add(pic_agg1);
             pnl_agg3.Cursor = Cursors.Hand;
-            pnl_agg3.Location = new Point(65, 52);
+            pnl_agg3.Location = new Point(57, 39);
+            pnl_agg3.Margin = new Padding(3, 2, 3, 2);
             pnl_agg3.Name = "pnl_agg3";
-            pnl_agg3.Size = new Size(324, 271);
+            pnl_agg3.Size = new Size(284, 204);
             pnl_agg3.TabIndex = 3;
             // 
             // pic_agg2
             // 
             pic_agg2.Image = (Image)resources.GetObject("pic_agg2.Image");
-            pic_agg2.Location = new Point(79, 72);
+            pic_agg2.Location = new Point(69, 54);
+            pic_agg2.Margin = new Padding(3, 2, 3, 2);
             pic_agg2.Name = "pic_agg2";
-            pic_agg2.Size = new Size(140, 99);
+            pic_agg2.Size = new Size(122, 74);
             pic_agg2.SizeMode = PictureBoxSizeMode.StretchImage;
             pic_agg2.TabIndex = 5;
             pic_agg2.TabStop = false;
@@ -294,9 +304,9 @@
             // 
             lbl_msj1.AutoSize = true;
             lbl_msj1.Font = new Font("Calibri", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            lbl_msj1.Location = new Point(67, 174);
+            lbl_msj1.Location = new Point(59, 130);
             lbl_msj1.Name = "lbl_msj1";
-            lbl_msj1.Size = new Size(168, 24);
+            lbl_msj1.Size = new Size(136, 19);
             lbl_msj1.TabIndex = 4;
             lbl_msj1.Text = "Seleccionar imagen\r\n";
             // 
@@ -304,8 +314,9 @@
             // 
             pic_agg1.Dock = DockStyle.Fill;
             pic_agg1.Location = new Point(0, 0);
+            pic_agg1.Margin = new Padding(3, 2, 3, 2);
             pic_agg1.Name = "pic_agg1";
-            pic_agg1.Size = new Size(322, 269);
+            pic_agg1.Size = new Size(282, 202);
             pic_agg1.SizeMode = PictureBoxSizeMode.StretchImage;
             pic_agg1.TabIndex = 0;
             pic_agg1.TabStop = false;
@@ -329,79 +340,85 @@
             pnl_agg2.Controls.Add(txt_cd);
             pnl_agg2.Controls.Add(lbl_cd);
             pnl_agg2.Controls.Add(lbl_agg3);
-            pnl_agg2.Location = new Point(35, 120);
+            pnl_agg2.Location = new Point(31, 90);
+            pnl_agg2.Margin = new Padding(3, 2, 3, 2);
             pnl_agg2.Name = "pnl_agg2";
-            pnl_agg2.Size = new Size(672, 602);
+            pnl_agg2.Size = new Size(588, 452);
             pnl_agg2.TabIndex = 2;
             // 
             // cmb_tallas
             // 
             cmb_tallas.FormattingEnabled = true;
-            cmb_tallas.Location = new Point(258, 378);
+            cmb_tallas.Location = new Point(226, 284);
+            cmb_tallas.Margin = new Padding(3, 2, 3, 2);
             cmb_tallas.Name = "cmb_tallas";
-            cmb_tallas.Size = new Size(240, 28);
+            cmb_tallas.Size = new Size(210, 23);
             cmb_tallas.TabIndex = 12;
             // 
             // cmb_ctg
             // 
             cmb_ctg.FormattingEnabled = true;
-            cmb_ctg.Location = new Point(258, 182);
+            cmb_ctg.Location = new Point(226, 136);
+            cmb_ctg.Margin = new Padding(3, 2, 3, 2);
             cmb_ctg.Name = "cmb_ctg";
-            cmb_ctg.Size = new Size(240, 28);
+            cmb_ctg.Size = new Size(210, 23);
             cmb_ctg.TabIndex = 3;
             // 
             // lbl_tallas
             // 
             lbl_tallas.AutoSize = true;
             lbl_tallas.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_tallas.Location = new Point(14, 379);
+            lbl_tallas.Location = new Point(12, 284);
             lbl_tallas.Name = "lbl_tallas";
-            lbl_tallas.Size = new Size(55, 22);
+            lbl_tallas.Size = new Size(44, 18);
             lbl_tallas.TabIndex = 11;
             lbl_tallas.Text = "Talla";
             // 
             // txt_stock
             // 
             txt_stock.Font = new Font("Arial", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            txt_stock.Location = new Point(258, 311);
+            txt_stock.Location = new Point(226, 233);
+            txt_stock.Margin = new Padding(3, 2, 3, 2);
             txt_stock.Name = "txt_stock";
-            txt_stock.Size = new Size(240, 30);
+            txt_stock.Size = new Size(210, 26);
             txt_stock.TabIndex = 10;
             // 
             // lbl_stock
             // 
             lbl_stock.AutoSize = true;
             lbl_stock.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_stock.Location = new Point(14, 315);
+            lbl_stock.Location = new Point(12, 236);
             lbl_stock.Name = "lbl_stock";
-            lbl_stock.Size = new Size(120, 22);
+            lbl_stock.Size = new Size(102, 18);
             lbl_stock.TabIndex = 9;
             lbl_stock.Text = "Stock actual";
             // 
             // txt_prc
             // 
             txt_prc.Font = new Font("Arial", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            txt_prc.Location = new Point(258, 247);
+            txt_prc.Location = new Point(226, 185);
+            txt_prc.Margin = new Padding(3, 2, 3, 2);
             txt_prc.Name = "txt_prc";
-            txt_prc.Size = new Size(240, 30);
+            txt_prc.Size = new Size(210, 26);
             txt_prc.TabIndex = 4;
             // 
             // txt_descrip
             // 
             txt_descrip.Font = new Font("Arial", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            txt_descrip.Location = new Point(258, 437);
+            txt_descrip.Location = new Point(226, 328);
+            txt_descrip.Margin = new Padding(3, 2, 3, 2);
             txt_descrip.Multiline = true;
             txt_descrip.Name = "txt_descrip";
-            txt_descrip.Size = new Size(240, 144);
+            txt_descrip.Size = new Size(210, 109);
             txt_descrip.TabIndex = 8;
             // 
             // lbl_prc
             // 
             lbl_prc.AutoSize = true;
             lbl_prc.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_prc.Location = new Point(14, 251);
+            lbl_prc.Location = new Point(12, 188);
             lbl_prc.Name = "lbl_prc";
-            lbl_prc.Size = new Size(67, 22);
+            lbl_prc.Size = new Size(57, 18);
             lbl_prc.TabIndex = 3;
             lbl_prc.Text = "Precio";
             // 
@@ -409,9 +426,9 @@
             // 
             lbl_descrip.AutoSize = true;
             lbl_descrip.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_descrip.Location = new Point(14, 441);
+            lbl_descrip.Location = new Point(12, 331);
             lbl_descrip.Name = "lbl_descrip";
-            lbl_descrip.Size = new Size(115, 22);
+            lbl_descrip.Size = new Size(98, 18);
             lbl_descrip.TabIndex = 7;
             lbl_descrip.Text = "Descripción";
             // 
@@ -419,45 +436,47 @@
             // 
             lbl_ctg.AutoSize = true;
             lbl_ctg.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_ctg.Location = new Point(14, 183);
+            lbl_ctg.Location = new Point(12, 137);
             lbl_ctg.Name = "lbl_ctg";
-            lbl_ctg.Size = new Size(97, 22);
+            lbl_ctg.Size = new Size(81, 18);
             lbl_ctg.TabIndex = 5;
             lbl_ctg.Text = "Categoria";
             // 
             // txt_nomProduct
             // 
             txt_nomProduct.Font = new Font("Arial", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            txt_nomProduct.Location = new Point(258, 114);
+            txt_nomProduct.Location = new Point(226, 86);
+            txt_nomProduct.Margin = new Padding(3, 2, 3, 2);
             txt_nomProduct.Name = "txt_nomProduct";
-            txt_nomProduct.Size = new Size(240, 30);
+            txt_nomProduct.Size = new Size(210, 26);
             txt_nomProduct.TabIndex = 4;
             // 
             // lbl_nomProduct
             // 
             lbl_nomProduct.AutoSize = true;
             lbl_nomProduct.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_nomProduct.Location = new Point(14, 118);
+            lbl_nomProduct.Location = new Point(12, 88);
             lbl_nomProduct.Name = "lbl_nomProduct";
-            lbl_nomProduct.Size = new Size(196, 22);
+            lbl_nomProduct.Size = new Size(167, 18);
             lbl_nomProduct.TabIndex = 3;
             lbl_nomProduct.Text = "Nombre del producto";
             // 
             // txt_cd
             // 
             txt_cd.Font = new Font("Arial", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            txt_cd.Location = new Point(258, 51);
+            txt_cd.Location = new Point(226, 38);
+            txt_cd.Margin = new Padding(3, 2, 3, 2);
             txt_cd.Name = "txt_cd";
-            txt_cd.Size = new Size(240, 30);
+            txt_cd.Size = new Size(210, 26);
             txt_cd.TabIndex = 2;
             // 
             // lbl_cd
             // 
             lbl_cd.AutoSize = true;
             lbl_cd.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_cd.Location = new Point(14, 55);
+            lbl_cd.Location = new Point(12, 41);
             lbl_cd.Name = "lbl_cd";
-            lbl_cd.Size = new Size(190, 22);
+            lbl_cd.Size = new Size(161, 18);
             lbl_cd.TabIndex = 1;
             lbl_cd.Text = "Código del producto";
             // 
@@ -466,9 +485,9 @@
             lbl_agg3.AutoSize = true;
             lbl_agg3.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_agg3.ForeColor = Color.FromArgb(0, 102, 255);
-            lbl_agg3.Location = new Point(14, 11);
+            lbl_agg3.Location = new Point(12, 8);
             lbl_agg3.Name = "lbl_agg3";
-            lbl_agg3.Size = new Size(230, 22);
+            lbl_agg3.Size = new Size(196, 18);
             lbl_agg3.TabIndex = 0;
             lbl_agg3.Text = "Información del producto";
             // 
@@ -476,9 +495,9 @@
             // 
             lbl_agg2.AutoSize = true;
             lbl_agg2.Font = new Font("Calibri", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            lbl_agg2.Location = new Point(35, 77);
+            lbl_agg2.Location = new Point(31, 58);
             lbl_agg2.Name = "lbl_agg2";
-            lbl_agg2.Size = new Size(598, 24);
+            lbl_agg2.Size = new Size(474, 19);
             lbl_agg2.TabIndex = 1;
             lbl_agg2.Text = "Complete la información para registrar un nuevo producto en el sistema";
             // 
@@ -486,19 +505,20 @@
             // 
             lbl_agg1.AutoSize = true;
             lbl_agg1.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_agg1.Location = new Point(35, 41);
+            lbl_agg1.Location = new Point(31, 29);
             lbl_agg1.Name = "lbl_agg1";
-            lbl_agg1.Size = new Size(360, 36);
+            lbl_agg1.Size = new Size(293, 29);
             lbl_agg1.TabIndex = 0;
             lbl_agg1.Text = "Agregar nuevo producto";
             // 
             // FormAgg_Product
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1353, 808);
+            ClientSize = new Size(1184, 591);
             Controls.Add(pnl_agg1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FormAgg_Product";
             Text = "FormAgg_Product";
             pnl_agg1.ResumeLayout(false);

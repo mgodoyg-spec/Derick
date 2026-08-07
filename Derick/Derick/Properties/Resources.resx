@@ -118,199 +118,325 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="AgregarProductos" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AgregarProductos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btnUbi" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btnUbi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Impresora" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Impresora.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icoCiud" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icoCiud.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="usuario" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\usuario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="DerickRecortado" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DerickRecortado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="inicio" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\inicio.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Captura de pantalla 2026-07-12 141335" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Captura de pantalla 2026-07-12 141335.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Sucursales" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Sucursales.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Banner2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Banner2.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Derick blanco" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Derick blanco.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icoCiudad1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icoCiudad1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="person-icon_31846" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\person-icon_31846.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btnBuscar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btnBuscar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Captura de pantalla 2026-07-12 230913" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Captura de pantalla 2026-07-12 230913.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icoSuc" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icoSuc.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btnUbi1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btnUbi1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="lim" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\lim.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icoCobertura" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icoCobertura.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="esconder" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\esconder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Captura de pantalla 2026-07-13 001608" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Captura de pantalla 2026-07-13 001608.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bannerSucursales1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bannerSucursales1.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="AgregarProductos2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AgregarProductos2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Captura de pantalla 2026-07-13 002233" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Captura de pantalla 2026-07-13 002233.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Captura de pantalla 2026-07-13 002933" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Captura de pantalla 2026-07-13 002933.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="VerSucursales" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\VerSucursales.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="IconoblancoMenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\IconoblancoMenu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="IconoblancoMenu1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\IconoblancoMenu1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btnReportes" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btnReportes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icoCobertura1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icoCobertura1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icoUbicacion" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icoUbicacion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Ventas" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Ventas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Captura de pantalla 2026-07-13 003501" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Captura de pantalla 2026-07-13 003501.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ventaaa" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ventaaa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="UsuarioNegro" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\UsuarioNegro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Reportes" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Reportes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Banner__1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Banner (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="picEliminar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\images.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btnReportes1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btnReportes1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btnSuc1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btnSuc1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icoCiudad" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icoCiudad.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icoCob" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icoCob.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Logiin" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Logiin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Captura de pantalla 2026-07-12 233737" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Captura de pantalla 2026-07-12 233737.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="VerEmpleados" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\VerEmpleados.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pngtree-cartoon-blue-magnifying-glass-illustration-png-image_4505525" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pngtree-cartoon-blue-magnifying-glass-illustration-png-image_45055251.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="subirImag" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\subirImag.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="mostrar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ojo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="usuario" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\usuario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="iconoSucursales" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\iconoSucursales.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="person-icon_31846" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\person-icon_31846.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Captura de pantalla 2026-07-13 001756" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Captura de pantalla 2026-07-13 001756.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Reportes2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Reportes2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="IconMenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\IconMenu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icoUbi" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icoUbi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btnBuscar1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btnBuscar1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="clients" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\clients.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CerrarSesionn" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CerrarSesionn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="usuarioooo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\usuarioooo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bannerSucursales" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bannerSucursales.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Sucursales" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sucursales.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="picEditar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\6038508.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Empleados" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Empleados.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icoUbi3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icoUbi3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Productoss" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Productoss.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icEncargado1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icEncargado1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icoSucursales" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icoSucursales.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="bannerSucursales" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bannerSucursales.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-printer-50" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-printer-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Captura de pantalla 2026-07-12 233737" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Captura de pantalla 2026-07-12 233737.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icoCiudad" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icoCiudad.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IconoblancoMenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconoblancoMenu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mapa" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mapa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icoDir3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icoDir3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="editarrbtn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\editarrbtn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Captura de pantalla 2026-07-13 001608" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Captura de pantalla 2026-07-13 001608.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="iconoSucursales" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iconoSucursales.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icNom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icNom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btnUbi1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnUbi1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icoTel3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icoTel3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="VerSucursales" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\VerSucursales.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icTel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icTel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icoEst3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icoEst3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icEncargado" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icEncargado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Captura de pantalla 2026-07-13 002233" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Captura de pantalla 2026-07-13 002233.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icoUbi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icoUbi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ventaaa1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ventaaa1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icoUbicacion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icoUbicacion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icCorreo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icCorreo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pngtree-cartoon-blue-magnifying-glass-illustration-png-image_4505525" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pngtree-cartoon-blue-magnifying-glass-illustration-png-image_45055251.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="picEliminar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sucAct" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sucAct.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UsuarioNegro" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UsuarioNegro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icoCob" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icoCob.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Captura de pantalla 2026-08-07 013259" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Captura de pantalla 2026-08-07 013259.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icDirec" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icDirec.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="titSucursales" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\titSucursales.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Captura de pantalla 2026-07-13 001756" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Captura de pantalla 2026-07-13 001756.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bannSuc3 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bannSuc3 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icCiud" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icCiud.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="detalleazul" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\detalleazul.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mostrar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ojo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="esconder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\esconder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icoCiud" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icoCiud.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icoSucursales" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icoSucursales.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btnUbi2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnUbi2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icEstado" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icEstado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btnsucursal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnsucursal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ventas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ventas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bannSucR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bannSucR.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Captura de pantalla 2026-07-13 002933" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Captura de pantalla 2026-07-13 002933.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icCodigo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icCodigo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btnUbi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnUbi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icoSuc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icoSuc.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="iconoBuscar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\iconoBuscar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="IconoblancoMenu1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconoblancoMenu1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="detallemorado" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\detallemorado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bannerSuc2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bannerSuc2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icEditar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icEditar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CerrarSesionn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CerrarSesionn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="vermas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\vermas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Impresora" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Impresora.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btnSuc1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnSuc1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Captura de pantalla 2026-07-13 003501" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Captura de pantalla 2026-07-13 003501.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Banner__1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Banner (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DerickRecortado" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DerickRecortado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="usuarioooo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\usuarioooo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Derick blanco" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Derick blanco.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sucInact1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sucInact1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AgregarProductos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AgregarProductos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icoEnc3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icoEnc3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="inicio" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\inicio.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Empleados" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Empleados.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sucRemod" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sucRemod.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-printer-50" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-printer-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Reportes2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Reportes2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Logiin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Logiin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IconMenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconMenu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Reportes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Reportes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sucInact" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sucInact.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icoPRIN3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icoPRIN3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icoPrinBusqueda3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icoPrinBusqueda3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="vermas2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\vermas2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ventaaa" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ventaaa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icoCorre3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icoCorre3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bannerSucursales1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bannerSucursales1.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icoCobertura" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icoCobertura.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="totalSuc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\totalSuc.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icoCobertura1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icoCobertura1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icoUbiDgv" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icoUbiDgv.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btnReportes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnReportes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AgregarProductos2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AgregarProductos2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="clients" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\clients.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Captura de pantalla 2026-07-12 230913" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Captura de pantalla 2026-07-12 230913.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Banner2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Banner2.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="detalleverde" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\detalleverde.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ubicacionnnnbtn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ubicacionnnnbtn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="iconoRegistrarSuc" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\iconoRegistrarSuc.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btnReportes1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnReportes1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lim" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lim.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="escondermenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\escondermenu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btnBuscar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnbuscar2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Productoss" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Productoss.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icoCiudad1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icoCiudad1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pasador-de-ubicacion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pasador-de-ubicacion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ojo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ojo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
