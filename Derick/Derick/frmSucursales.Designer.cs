@@ -409,6 +409,7 @@
             // btnVerReportes
             // 
             btnVerReportes.BackColor = Color.FromArgb(255, 136, 0);
+            btnVerReportes.Cursor = Cursors.Hand;
             btnVerReportes.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnVerReportes.ForeColor = Color.White;
             btnVerReportes.Location = new Point(435, 209);
@@ -421,6 +422,7 @@
             // btnVerMapa
             // 
             btnVerMapa.BackColor = Color.FromArgb(112, 34, 246);
+            btnVerMapa.Cursor = Cursors.Hand;
             btnVerMapa.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnVerMapa.ForeColor = Color.White;
             btnVerMapa.Location = new Point(291, 209);
@@ -434,6 +436,7 @@
             // btnBuscarSucursal
             // 
             btnBuscarSucursal.BackColor = Color.FromArgb(0, 176, 80);
+            btnBuscarSucursal.Cursor = Cursors.Hand;
             btnBuscarSucursal.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnBuscarSucursal.ForeColor = Color.White;
             btnBuscarSucursal.Location = new Point(146, 209);
@@ -447,6 +450,7 @@
             // btnNuevaSucursal
             // 
             btnNuevaSucursal.BackColor = Color.FromArgb(0, 102, 255);
+            btnNuevaSucursal.Cursor = Cursors.Hand;
             btnNuevaSucursal.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnNuevaSucursal.ForeColor = Color.White;
             btnNuevaSucursal.Location = new Point(9, 209);

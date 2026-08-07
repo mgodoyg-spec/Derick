@@ -8,7 +8,7 @@ namespace Derick
     internal class csNavegacion
     {
         public static void AbrirFormulario(
-            Panel panel,
+            Panel panelContenido,
             ref Form formularioActivo,
             Form formularioNuevo)
         {
@@ -23,9 +23,10 @@ namespace Derick
             formularioNuevo.FormBorderStyle = FormBorderStyle.None;
             formularioNuevo.Dock = DockStyle.Fill;
 
-            panel.Controls.Clear();
-            panel.Controls.Add(formularioNuevo);
-            panel.Tag = formularioNuevo;
+            panelContenido.Controls.Clear();
+            panelContenido.Controls.Add(formularioNuevo);
+
+            panelContenido.Tag = formularioNuevo;
 
             formularioNuevo.BringToFront();
             formularioNuevo.Show();

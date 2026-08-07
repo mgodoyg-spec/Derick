@@ -74,6 +74,8 @@
             pnlBienvenida = new Panel();
             lblResumen = new Label();
             lblBienvenido = new Label();
+            pictureBox2 = new PictureBox();
+            pictureBox3 = new PictureBox();
             pnlMostrarForm.SuspendLayout();
             pnlProductos.SuspendLayout();
             pnlCtnProdu.SuspendLayout();
@@ -93,6 +95,8 @@
             pnlVen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picVentas).BeginInit();
             pnlBienvenida.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // pnlMostrarForm
@@ -132,6 +136,7 @@
             // pnlCtnProdu
             // 
             pnlCtnProdu.BackColor = Color.White;
+            pnlCtnProdu.Controls.Add(pictureBox2);
             pnlCtnProdu.Controls.Add(lblProductosGenerales);
             pnlCtnProdu.Controls.Add(NumProductos);
             pnlCtnProdu.Controls.Add(lblPproductos);
@@ -172,7 +177,6 @@
             // 
             // pcProductos
             // 
-        
             pcProductos.Location = new Point(3, 23);
             pcProductos.Name = "pcProductos";
             pcProductos.Size = new Size(60, 59);
@@ -417,6 +421,7 @@
             // pnlAgregarVenta
             // 
             pnlAgregarVenta.BackColor = Color.FromArgb(244, 246, 249);
+            pnlAgregarVenta.Controls.Add(pictureBox3);
             pnlAgregarVenta.Controls.Add(btnAgregarVenta);
             pnlAgregarVenta.Controls.Add(lblAgregarVenta);
             pnlAgregarVenta.Controls.Add(lblNuevaVenta);
@@ -461,7 +466,6 @@
             // 
             // picAgregarVentas
             // 
-       
             picAgregarVentas.Location = new Point(43, 16);
             picAgregarVentas.Name = "picAgregarVentas";
             picAgregarVentas.Size = new Size(57, 59);
@@ -572,6 +576,28 @@
             lblBienvenido.TabIndex = 11;
             lblBienvenido.Text = "¡Bienvenido de nuevo!";
             // 
+            // pictureBox2
+            // 
+            pictureBox2.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox2.Image = Properties.Resources.Productoss;
+            pictureBox2.Location = new Point(3, 23);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(60, 59);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 14;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.ErrorImage = Properties.Resources.ventaaa;
+            pictureBox3.Image = Properties.Resources.ventaaa1;
+            pictureBox3.Location = new Point(43, 16);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(61, 59);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 14;
+            pictureBox3.TabStop = false;
+            // 
             // FrmInicioE
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -613,6 +639,8 @@
             ((System.ComponentModel.ISupportInitialize)picVentas).EndInit();
             pnlBienvenida.ResumeLayout(false);
             pnlBienvenida.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
         }
 
@@ -663,5 +691,7 @@
         private Label label3;
         private PictureBox pictureBox1;
         private Panel panel3;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox3;
     }
 }
