@@ -28,828 +28,1123 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProductos));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            pnl_product1 = new Panel();
-            pnl_product_acr1 = new Panel();
-            btn_acr1 = new Button();
-            lbl_actp1 = new Label();
-            pnl_product_acc1 = new Panel();
-            pnl_acc4 = new Panel();
-            btn_product4 = new Guna.UI2.WinForms.Guna2Button();
-            label5 = new Label();
-            lbl_acc4 = new Label();
-            pic_acc4 = new PictureBox();
-            pnl_acc3 = new Panel();
-            btn_product3 = new Guna.UI2.WinForms.Guna2Button();
-            label4 = new Label();
-            lbl_acc3 = new Label();
-            pic_acc3 = new PictureBox();
-            pnl_acc2 = new Panel();
-            btn_product2 = new Guna.UI2.WinForms.Guna2Button();
-            lbl_acc6 = new Label();
-            lbl_acc2 = new Label();
-            pic_acc2 = new PictureBox();
-            pnl_acc1 = new Panel();
-            picAgregarProductos = new PictureBox();
-            lbl_acc5 = new Label();
-            btn_product1 = new Guna.UI2.WinForms.Guna2Button();
-            lbl_acc1 = new Label();
-            label1 = new Label();
-            pnl_borde_p3 = new Panel();
-            pnl_borde_p2 = new Panel();
-            panel3 = new Panel();
-            lbl_tlt_p12 = new Label();
-            lbl_tlt_p8 = new Label();
-            lbl_tlt_p7 = new Label();
-            pictureBox3 = new PictureBox();
-            pnl_borde_p4 = new Panel();
+            pnl_conagg = new Panel();
+            button1 = new Button();
             panel2 = new Panel();
-            lbl_tlt_p11 = new Label();
-            lbl_tlt_p6 = new Label();
-            lbl_tlt_p5 = new Label();
+            panel8 = new Panel();
+            textBox1 = new TextBox();
+            panel7 = new Panel();
+            dataGridView1 = new DataGridView();
+            c1 = new DataGridViewTextBoxColumn();
+            c2 = new DataGridViewTextBoxColumn();
+            c3 = new DataGridViewTextBoxColumn();
+            c4 = new DataGridViewTextBoxColumn();
+            c5 = new DataGridViewTextBoxColumn();
+            c6 = new DataGridViewTextBoxColumn();
+            col_acciones = new DataGridViewTextBoxColumn();
+            panel11 = new Panel();
+            comboBox2 = new ComboBox();
+            panel10 = new Panel();
+            comboBox1 = new ComboBox();
+            label8 = new Label();
             pictureBox2 = new PictureBox();
+            panel9 = new Panel();
+            textBox2 = new TextBox();
             panel1 = new Panel();
-            lbl_tlt_p10 = new Label();
-            lbl_tlt_p4 = new Label();
-            lbl_tlt_p3 = new Label();
+            panel6 = new Panel();
+            dateTimePicker1 = new DateTimePicker();
+            panel5 = new Panel();
+            numericUpDown3 = new NumericUpDown();
+            panel4 = new Panel();
+            numericUpDown2 = new NumericUpDown();
+            label9 = new Label();
+            label6 = new Label();
+            panel3 = new Panel();
+            numericUpDown1 = new NumericUpDown();
+            label10 = new Label();
+            label7 = new Label();
+            label4 = new Label();
+            label1 = new Label();
+            label5 = new Label();
+            label2 = new Label();
             pictureBox1 = new PictureBox();
-            pnl_p1 = new Panel();
-            pcProductos = new PictureBox();
-            lbl_tlt_9 = new Label();
-            lbl_tlt_p2 = new Label();
-            lbl_tlt_p1 = new Label();
-            pnl_borde_p1 = new Panel();
-            pnl_product2 = new Panel();
-            lbl_mensajep2 = new Label();
-            lbl_mensajep = new Label();
-            pnl_product1.SuspendLayout();
-            pnl_product_acr1.SuspendLayout();
-            pnl_product_acc1.SuspendLayout();
-            pnl_acc4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pic_acc4).BeginInit();
-            pnl_acc3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pic_acc3).BeginInit();
-            pnl_acc2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pic_acc2).BeginInit();
-            pnl_acc1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picAgregarProductos).BeginInit();
-            panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            label3 = new Label();
+            lbl_agg2 = new Label();
+            pic_agg1 = new PictureBox();
+            lbl_agg1 = new Label();
+            pnl_infoagg = new Panel();
+            pnl6_agg6 = new Panel();
+            cmb_agg3 = new ComboBox();
+            lbl4_agg4 = new Label();
+            lbl3_agg3 = new Label();
+            pnl5_agg5 = new Panel();
+            txt_agg3 = new TextBox();
+            lbl2_agg2 = new Label();
+            btn_agg2 = new Button();
+            pnl4_agg4 = new Panel();
+            cmb_agg2 = new ComboBox();
+            lbl1_agg1 = new Label();
+            btn_gg1 = new Button();
+            pnl3_agg3 = new Panel();
+            cmb_agg1 = new ComboBox();
+            lbl_agg9 = new Label();
+            lbl_agg8 = new Label();
+            pnl2_agg2 = new Panel();
+            txt_agg2 = new TextBox();
+            pnl1_agg1 = new Panel();
+            txt_agg1 = new TextBox();
+            lbl_agg7 = new Label();
+            lbl_agg5 = new Label();
+            lbl_agg6 = new Label();
+            lbl_agg4 = new Label();
+            lbl_agg3 = new Label();
+            pic_agg2 = new PictureBox();
+            label11 = new Label();
+            pictureBox3 = new PictureBox();
+            button2 = new Button();
+            button3 = new Button();
+            button4 = new Button();
+            button5 = new Button();
+            button6 = new Button();
+            button7 = new Button();
+            pnl_conagg.SuspendLayout();
             panel2.SuspendLayout();
+            panel8.SuspendLayout();
+            panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            panel11.SuspendLayout();
+            panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            panel9.SuspendLayout();
             panel1.SuspendLayout();
+            panel6.SuspendLayout();
+            panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
+            panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
+            panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            pnl_p1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pcProductos).BeginInit();
-            pnl_product2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pic_agg1).BeginInit();
+            pnl_infoagg.SuspendLayout();
+            pnl6_agg6.SuspendLayout();
+            pnl5_agg5.SuspendLayout();
+            pnl4_agg4.SuspendLayout();
+            pnl3_agg3.SuspendLayout();
+            pnl2_agg2.SuspendLayout();
+            pnl1_agg1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pic_agg2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
-            // pnl_product1
+            // pnl_conagg
             // 
-            pnl_product1.BackColor = Color.FromArgb(244, 246, 249);
-            pnl_product1.Controls.Add(pnl_product_acr1);
-            pnl_product1.Controls.Add(pnl_product_acc1);
-            pnl_product1.Controls.Add(pnl_borde_p3);
-            pnl_product1.Controls.Add(pnl_borde_p2);
-            pnl_product1.Controls.Add(panel3);
-            pnl_product1.Controls.Add(panel2);
-            pnl_product1.Controls.Add(panel1);
-            pnl_product1.Controls.Add(pnl_p1);
-            pnl_product1.Controls.Add(pnl_product2);
-            pnl_product1.Dock = DockStyle.Fill;
-            pnl_product1.Location = new Point(0, 0);
-            pnl_product1.Margin = new Padding(3, 2, 3, 2);
-            pnl_product1.Name = "pnl_product1";
-            pnl_product1.Size = new Size(1200, 591);
-            pnl_product1.TabIndex = 0;
+            pnl_conagg.BackColor = Color.White;
+            pnl_conagg.Controls.Add(panel2);
+            pnl_conagg.Controls.Add(panel7);
+            pnl_conagg.Controls.Add(panel1);
+            pnl_conagg.Controls.Add(lbl_agg2);
+            pnl_conagg.Controls.Add(pic_agg1);
+            pnl_conagg.Controls.Add(lbl_agg1);
+            pnl_conagg.Controls.Add(pnl_infoagg);
+            pnl_conagg.Dock = DockStyle.Fill;
+            pnl_conagg.Location = new Point(0, 0);
+            pnl_conagg.Name = "pnl_conagg";
+            pnl_conagg.Size = new Size(1394, 889);
+            pnl_conagg.TabIndex = 1;
             // 
-            // pnl_product_acr1
+            // button1
             // 
-            pnl_product_acr1.BackColor = Color.White;
-            pnl_product_acr1.BorderStyle = BorderStyle.FixedSingle;
-            pnl_product_acr1.Controls.Add(btn_acr1);
-            pnl_product_acr1.Controls.Add(lbl_actp1);
-            pnl_product_acr1.Location = new Point(610, 322);
-            pnl_product_acr1.Margin = new Padding(3, 2, 3, 2);
-            pnl_product_acr1.Name = "pnl_product_acr1";
-            pnl_product_acr1.Size = new Size(570, 298);
-            pnl_product_acr1.TabIndex = 9;
+            button1.BackColor = Color.FromArgb(0, 102, 255);
+            button1.Cursor = Cursors.Hand;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.White;
+            button1.Image = (Image)resources.GetObject("button1.Image");
+            button1.ImageAlign = ContentAlignment.MiddleLeft;
+            button1.Location = new Point(474, 356);
+            button1.Name = "button1";
+            button1.Size = new Size(270, 53);
+            button1.TabIndex = 7;
+            button1.Text = "Guardar producto";
+            button1.UseVisualStyleBackColor = false;
             // 
-            // btn_acr1
+            // panel2
             // 
-            btn_acr1.Cursor = Cursors.Hand;
-            btn_acr1.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btn_acr1.Location = new Point(467, 19);
-            btn_acr1.Margin = new Padding(3, 2, 3, 2);
-            btn_acr1.Name = "btn_acr1";
-            btn_acr1.Size = new Size(86, 30);
-            btn_acr1.TabIndex = 9;
-            btn_acr1.Text = "Ver todo";
-            btn_acr1.UseVisualStyleBackColor = true;
+            panel2.BackColor = Color.FromArgb(244, 246, 249);
+            panel2.BorderStyle = BorderStyle.FixedSingle;
+            panel2.Controls.Add(label11);
+            panel2.Controls.Add(pictureBox3);
+            panel2.Controls.Add(panel8);
+            panel2.Location = new Point(767, 333);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(616, 158);
+            panel2.TabIndex = 5;
             // 
-            // lbl_actp1
+            // panel8
             // 
-            lbl_actp1.AutoSize = true;
-            lbl_actp1.Font = new Font("Calibri", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_actp1.Location = new Point(21, 19);
-            lbl_actp1.Name = "lbl_actp1";
-            lbl_actp1.Size = new Size(177, 27);
-            lbl_actp1.TabIndex = 8;
-            lbl_actp1.Text = "Actividad reciente";
+            panel8.BackColor = Color.White;
+            panel8.BorderStyle = BorderStyle.FixedSingle;
+            panel8.Controls.Add(textBox1);
+            panel8.Location = new Point(11, 60);
+            panel8.Name = "panel8";
+            panel8.Padding = new Padding(10);
+            panel8.Size = new Size(596, 82);
+            panel8.TabIndex = 23;
             // 
-            // pnl_product_acc1
+            // textBox1
             // 
-            pnl_product_acc1.BackColor = Color.White;
-            pnl_product_acc1.BorderStyle = BorderStyle.FixedSingle;
-            pnl_product_acc1.Controls.Add(pnl_acc4);
-            pnl_product_acc1.Controls.Add(pnl_acc3);
-            pnl_product_acc1.Controls.Add(pnl_acc2);
-            pnl_product_acc1.Controls.Add(pnl_acc1);
-            pnl_product_acc1.Controls.Add(label1);
-            pnl_product_acc1.Location = new Point(20, 322);
-            pnl_product_acc1.Margin = new Padding(3, 2, 3, 2);
-            pnl_product_acc1.Name = "pnl_product_acc1";
-            pnl_product_acc1.Size = new Size(570, 298);
-            pnl_product_acc1.TabIndex = 5;
+            textBox1.AcceptsReturn = true;
+            textBox1.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox1.Location = new Point(10, 9);
+            textBox1.MaxLength = 250;
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.PlaceholderText = "Ingrese una descripción del producto, características, uso, etc.";
+            textBox1.ScrollBars = ScrollBars.Vertical;
+            textBox1.Size = new Size(579, 63);
+            textBox1.TabIndex = 10;
             // 
-            // pnl_acc4
+            // panel7
             // 
-            pnl_acc4.BackColor = Color.FromArgb(244, 246, 249);
-            pnl_acc4.Controls.Add(btn_product4);
-            pnl_acc4.Controls.Add(label5);
-            pnl_acc4.Controls.Add(lbl_acc4);
-            pnl_acc4.Controls.Add(pic_acc4);
-            pnl_acc4.Location = new Point(416, 60);
-            pnl_acc4.Margin = new Padding(3, 2, 3, 2);
-            pnl_acc4.Name = "pnl_acc4";
-            pnl_acc4.Size = new Size(125, 220);
-            pnl_acc4.TabIndex = 10;
+            panel7.BackColor = Color.FromArgb(244, 246, 249);
+            panel7.Controls.Add(button6);
+            panel7.Controls.Add(button5);
+            panel7.Controls.Add(button4);
+            panel7.Controls.Add(button3);
+            panel7.Controls.Add(button2);
+            panel7.Controls.Add(dataGridView1);
+            panel7.Controls.Add(panel11);
+            panel7.Controls.Add(panel10);
+            panel7.Controls.Add(label8);
+            panel7.Controls.Add(pictureBox2);
+            panel7.Controls.Add(panel9);
+            panel7.Location = new Point(4, 506);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(1379, 339);
+            panel7.TabIndex = 6;
             // 
-            // btn_product4
+            // dataGridView1
             // 
-            btn_product4.BorderRadius = 12;
-            btn_product4.Cursor = Cursors.Hand;
-            btn_product4.CustomizableEdges = customizableEdges1;
-            btn_product4.DisabledState.BorderColor = Color.DarkGray;
-            btn_product4.DisabledState.CustomBorderColor = Color.DarkGray;
-            btn_product4.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btn_product4.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btn_product4.FillColor = Color.FromArgb(255, 136, 0);
-            btn_product4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btn_product4.ForeColor = Color.White;
-            btn_product4.ImageAlign = HorizontalAlignment.Right;
-            btn_product4.Location = new Point(8, 183);
-            btn_product4.Margin = new Padding(3, 2, 3, 2);
-            btn_product4.Name = "btn_product4";
-            btn_product4.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            btn_product4.Size = new Size(109, 22);
-            btn_product4.TabIndex = 13;
-            btn_product4.Text = "Ir ahora";
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.AllowUserToResizeColumns = false;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.BackgroundColor = Color.White;
+            dataGridView1.BorderStyle = BorderStyle.None;
+            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { c1, c2, c3, c4, c5, c6, col_acciones });
+            dataGridView1.Location = new Point(11, 108);
+            dataGridView1.MultiSelect = false;
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.Size = new Size(1352, 154);
+            dataGridView1.TabIndex = 15;
             // 
-            // label5
+            // c1
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Calibri", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(15, 124);
-            label5.Name = "label5";
-            label5.Size = new Size(100, 36);
-            label5.TabIndex = 5;
-            label5.Text = "Ver stock\r\ny movimientos";
+            c1.HeaderText = "Código";
+            c1.MinimumWidth = 6;
+            c1.Name = "c1";
+            c1.ReadOnly = true;
             // 
-            // lbl_acc4
+            // c2
             // 
-            lbl_acc4.AutoSize = true;
-            lbl_acc4.Font = new Font("Calibri", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_acc4.Location = new Point(26, 98);
-            lbl_acc4.Name = "lbl_acc4";
-            lbl_acc4.Size = new Size(72, 18);
-            lbl_acc4.TabIndex = 2;
-            lbl_acc4.Text = "Inventario";
+            c2.HeaderText = "Nombre";
+            c2.MinimumWidth = 6;
+            c2.Name = "c2";
+            c2.ReadOnly = true;
             // 
-            // pic_acc4
+            // c3
             // 
-            pic_acc4.BackColor = Color.Transparent;
-            pic_acc4.Image = (Image)resources.GetObject("pic_acc4.Image");
-            pic_acc4.Location = new Point(15, 17);
-            pic_acc4.Margin = new Padding(3, 2, 3, 2);
-            pic_acc4.Name = "pic_acc4";
-            pic_acc4.Size = new Size(100, 71);
-            pic_acc4.SizeMode = PictureBoxSizeMode.StretchImage;
-            pic_acc4.TabIndex = 0;
-            pic_acc4.TabStop = false;
+            c3.HeaderText = "Categoría";
+            c3.MinimumWidth = 6;
+            c3.Name = "c3";
+            c3.ReadOnly = true;
             // 
-            // pnl_acc3
+            // c4
             // 
-            pnl_acc3.BackColor = Color.FromArgb(244, 246, 249);
-            pnl_acc3.Controls.Add(btn_product3);
-            pnl_acc3.Controls.Add(label4);
-            pnl_acc3.Controls.Add(lbl_acc3);
-            pnl_acc3.Controls.Add(pic_acc3);
-            pnl_acc3.Location = new Point(284, 60);
-            pnl_acc3.Margin = new Padding(3, 2, 3, 2);
-            pnl_acc3.Name = "pnl_acc3";
-            pnl_acc3.Size = new Size(125, 220);
-            pnl_acc3.TabIndex = 10;
+            c4.HeaderText = "Stock";
+            c4.MinimumWidth = 6;
+            c4.Name = "c4";
+            c4.ReadOnly = true;
             // 
-            // btn_product3
+            // c5
             // 
-            btn_product3.BorderRadius = 12;
-            btn_product3.Cursor = Cursors.Hand;
-            btn_product3.CustomizableEdges = customizableEdges3;
-            btn_product3.DisabledState.BorderColor = Color.DarkGray;
-            btn_product3.DisabledState.CustomBorderColor = Color.DarkGray;
-            btn_product3.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btn_product3.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btn_product3.FillColor = Color.FromArgb(112, 34, 246);
-            btn_product3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btn_product3.ForeColor = Color.White;
-            btn_product3.ImageAlign = HorizontalAlignment.Right;
-            btn_product3.Location = new Point(8, 183);
-            btn_product3.Margin = new Padding(3, 2, 3, 2);
-            btn_product3.Name = "btn_product3";
-            btn_product3.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            btn_product3.Size = new Size(109, 22);
-            btn_product3.TabIndex = 12;
-            btn_product3.Text = "Ir ahora";
+            c5.HeaderText = "Precio";
+            c5.MinimumWidth = 6;
+            c5.Name = "c5";
+            c5.ReadOnly = true;
             // 
-            // label4
+            // c6
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Calibri", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(9, 124);
-            label4.Name = "label4";
-            label4.Size = new Size(110, 54);
-            label4.TabIndex = 4;
-            label4.Text = "   Administrar las\r\n      categorías \r\n     de producto";
+            c6.HeaderText = "Estado";
+            c6.MinimumWidth = 6;
+            c6.Name = "c6";
+            c6.ReadOnly = true;
             // 
-            // lbl_acc3
+            // col_acciones
             // 
-            lbl_acc3.AutoSize = true;
-            lbl_acc3.Font = new Font("Calibri", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_acc3.Location = new Point(24, 98);
-            lbl_acc3.Name = "lbl_acc3";
-            lbl_acc3.Size = new Size(73, 18);
-            lbl_acc3.TabIndex = 2;
-            lbl_acc3.Text = "Categorías";
+            col_acciones.HeaderText = "Acciones";
+            col_acciones.MinimumWidth = 6;
+            col_acciones.Name = "col_acciones";
+            col_acciones.ReadOnly = true;
             // 
-            // pic_acc3
+            // panel11
             // 
-            pic_acc3.BackColor = Color.Transparent;
-            pic_acc3.Image = (Image)resources.GetObject("pic_acc3.Image");
-            pic_acc3.Location = new Point(24, 17);
-            pic_acc3.Margin = new Padding(3, 2, 3, 2);
-            pic_acc3.Name = "pic_acc3";
-            pic_acc3.Size = new Size(80, 71);
-            pic_acc3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pic_acc3.TabIndex = 0;
-            pic_acc3.TabStop = false;
+            panel11.BackColor = Color.White;
+            panel11.BorderStyle = BorderStyle.FixedSingle;
+            panel11.Controls.Add(comboBox2);
+            panel11.Location = new Point(635, 57);
+            panel11.Name = "panel11";
+            panel11.Padding = new Padding(10);
+            panel11.Size = new Size(248, 45);
+            panel11.TabIndex = 14;
             // 
-            // pnl_acc2
+            // comboBox2
             // 
-            pnl_acc2.BackColor = Color.FromArgb(244, 246, 249);
-            pnl_acc2.Controls.Add(btn_product2);
-            pnl_acc2.Controls.Add(lbl_acc6);
-            pnl_acc2.Controls.Add(lbl_acc2);
-            pnl_acc2.Controls.Add(pic_acc2);
-            pnl_acc2.Location = new Point(153, 60);
-            pnl_acc2.Margin = new Padding(3, 2, 3, 2);
-            pnl_acc2.Name = "pnl_acc2";
-            pnl_acc2.Size = new Size(125, 220);
-            pnl_acc2.TabIndex = 10;
+            comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Location = new Point(10, 9);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(230, 28);
+            comboBox2.TabIndex = 14;
             // 
-            // btn_product2
+            // panel10
             // 
-            btn_product2.BorderRadius = 12;
-            btn_product2.Cursor = Cursors.Hand;
-            btn_product2.CustomizableEdges = customizableEdges5;
-            btn_product2.DisabledState.BorderColor = Color.DarkGray;
-            btn_product2.DisabledState.CustomBorderColor = Color.DarkGray;
-            btn_product2.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btn_product2.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btn_product2.FillColor = Color.FromArgb(0, 176, 80);
-            btn_product2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btn_product2.ForeColor = Color.White;
-            btn_product2.ImageAlign = HorizontalAlignment.Right;
-            btn_product2.Location = new Point(8, 183);
-            btn_product2.Margin = new Padding(3, 2, 3, 2);
-            btn_product2.Name = "btn_product2";
-            btn_product2.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            btn_product2.Size = new Size(109, 22);
-            btn_product2.TabIndex = 11;
-            btn_product2.Text = "Ir ahora";
-            btn_product2.Click += btn_product2_Click;
+            panel10.BackColor = Color.White;
+            panel10.BorderStyle = BorderStyle.FixedSingle;
+            panel10.Controls.Add(comboBox1);
+            panel10.Location = new Point(323, 57);
+            panel10.Name = "panel10";
+            panel10.Padding = new Padding(10);
+            panel10.Size = new Size(290, 45);
+            panel10.TabIndex = 13;
             // 
-            // lbl_acc6
+            // comboBox1
             // 
-            lbl_acc6.AutoSize = true;
-            lbl_acc6.Font = new Font("Calibri", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_acc6.Location = new Point(8, 115);
-            lbl_acc6.Name = "lbl_acc6";
-            lbl_acc6.Size = new Size(94, 72);
-            lbl_acc6.TabIndex = 3;
-            lbl_acc6.Text = "     Consultar \r\n   información\r\n   de un nuevo\r\n   producto";
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(10, 9);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(270, 28);
+            comboBox1.TabIndex = 14;
             // 
-            // lbl_acc2
+            // label8
             // 
-            lbl_acc2.AutoSize = true;
-            lbl_acc2.Font = new Font("Calibri", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_acc2.Location = new Point(2, 98);
-            lbl_acc2.Name = "lbl_acc2";
-            lbl_acc2.Size = new Size(113, 18);
-            lbl_acc2.TabIndex = 2;
-            lbl_acc2.Text = "Buscar productos";
+            label8.AutoSize = true;
+            label8.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.FromArgb(0, 102, 255);
+            label8.Location = new Point(66, 18);
+            label8.Name = "label8";
+            label8.Size = new Size(197, 22);
+            label8.TabIndex = 8;
+            label8.Text = "Listado de productos";
             // 
-            // pic_acc2
+            // pictureBox2
             // 
-            pic_acc2.BackColor = Color.Transparent;
-            pic_acc2.Image = (Image)resources.GetObject("pic_acc2.Image");
-            pic_acc2.Location = new Point(21, 17);
-            pic_acc2.Margin = new Padding(3, 2, 3, 2);
-            pic_acc2.Name = "pic_acc2";
-            pic_acc2.Size = new Size(81, 71);
-            pic_acc2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pic_acc2.TabIndex = 0;
-            pic_acc2.TabStop = false;
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(20, 8);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(40, 43);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 7;
+            pictureBox2.TabStop = false;
             // 
-            // pnl_acc1
+            // panel9
             // 
-            pnl_acc1.BackColor = Color.FromArgb(244, 246, 249);
-            pnl_acc1.Controls.Add(picAgregarProductos);
-            pnl_acc1.Controls.Add(lbl_acc5);
-            pnl_acc1.Controls.Add(btn_product1);
-            pnl_acc1.Controls.Add(lbl_acc1);
-            pnl_acc1.Location = new Point(21, 60);
-            pnl_acc1.Margin = new Padding(3, 2, 3, 2);
-            pnl_acc1.Name = "pnl_acc1";
-            pnl_acc1.Size = new Size(125, 220);
-            pnl_acc1.TabIndex = 9;
+            panel9.BackColor = Color.White;
+            panel9.BorderStyle = BorderStyle.FixedSingle;
+            panel9.Controls.Add(textBox2);
+            panel9.Location = new Point(11, 57);
+            panel9.Name = "panel9";
+            panel9.Padding = new Padding(10);
+            panel9.Size = new Size(290, 45);
+            panel9.TabIndex = 9;
             // 
-            // picAgregarProductos
+            // textBox2
             // 
-            picAgregarProductos.Image = Properties.Resources.AgregarProductos;
-            picAgregarProductos.Location = new Point(18, 10);
-            picAgregarProductos.Name = "picAgregarProductos";
-            picAgregarProductos.Size = new Size(86, 85);
-            picAgregarProductos.SizeMode = PictureBoxSizeMode.StretchImage;
-            picAgregarProductos.TabIndex = 11;
-            picAgregarProductos.TabStop = false;
+            textBox2.BorderStyle = BorderStyle.None;
+            textBox2.Font = new Font("Segoe UI", 10.8F);
+            textBox2.ForeColor = Color.Gray;
+            textBox2.Location = new Point(10, 9);
+            textBox2.Name = "textBox2";
+            textBox2.PlaceholderText = "🔍 Buscar producto";
+            textBox2.Size = new Size(270, 24);
+            textBox2.TabIndex = 7;
             // 
-            // lbl_acc5
+            // panel1
             // 
-            lbl_acc5.AutoSize = true;
-            lbl_acc5.Font = new Font("Calibri", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_acc5.Location = new Point(8, 124);
-            lbl_acc5.Name = "lbl_acc5";
-            lbl_acc5.Size = new Size(106, 36);
-            lbl_acc5.TabIndex = 2;
-            lbl_acc5.Text = "   Registrar un  \r\nnuevo producto";
+            panel1.BackColor = Color.FromArgb(244, 246, 249);
+            panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(panel6);
+            panel1.Controls.Add(panel5);
+            panel1.Controls.Add(panel4);
+            panel1.Controls.Add(label9);
+            panel1.Controls.Add(label6);
+            panel1.Controls.Add(panel3);
+            panel1.Controls.Add(label10);
+            panel1.Controls.Add(label7);
+            panel1.Controls.Add(label4);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(label5);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(label3);
+            panel1.Location = new Point(767, 77);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(616, 250);
+            panel1.TabIndex = 4;
             // 
-            // btn_product1
+            // panel6
             // 
-            btn_product1.BorderRadius = 12;
-            btn_product1.Cursor = Cursors.Hand;
-            btn_product1.CustomizableEdges = customizableEdges7;
-            btn_product1.DisabledState.BorderColor = Color.DarkGray;
-            btn_product1.DisabledState.CustomBorderColor = Color.DarkGray;
-            btn_product1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btn_product1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btn_product1.FillColor = Color.FromArgb(0, 102, 255);
-            btn_product1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btn_product1.ForeColor = Color.White;
-            btn_product1.ImageAlign = HorizontalAlignment.Right;
-            btn_product1.Location = new Point(8, 183);
-            btn_product1.Margin = new Padding(3, 2, 3, 2);
-            btn_product1.Name = "btn_product1";
-            btn_product1.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            btn_product1.Size = new Size(109, 22);
-            btn_product1.TabIndex = 10;
-            btn_product1.Text = "Ir ahora";
-            btn_product1.Click += btn_product1_Click;
+            panel6.BackColor = Color.White;
+            panel6.BorderStyle = BorderStyle.FixedSingle;
+            panel6.Controls.Add(dateTimePicker1);
+            panel6.Location = new Point(317, 180);
+            panel6.Name = "panel6";
+            panel6.Padding = new Padding(10);
+            panel6.Size = new Size(290, 45);
+            panel6.TabIndex = 14;
             // 
-            // lbl_acc1
+            // dateTimePicker1
             // 
-            lbl_acc1.AutoSize = true;
-            lbl_acc1.Font = new Font("Calibri", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_acc1.Location = new Point(5, 98);
-            lbl_acc1.Name = "lbl_acc1";
-            lbl_acc1.Size = new Size(108, 18);
-            lbl_acc1.TabIndex = 1;
-            lbl_acc1.Text = "Nuevo producto";
+            dateTimePicker1.Format = DateTimePickerFormat.Short;
+            dateTimePicker1.Location = new Point(10, 9);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(270, 27);
+            dateTimePicker1.TabIndex = 6;
             // 
-            // label1
+            // panel5
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Calibri", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(21, 19);
-            label1.Name = "label1";
-            label1.Size = new Size(158, 27);
-            label1.TabIndex = 8;
-            label1.Text = "Accesos rápidos";
+            panel5.BackColor = Color.White;
+            panel5.BorderStyle = BorderStyle.FixedSingle;
+            panel5.Controls.Add(numericUpDown3);
+            panel5.Location = new Point(317, 93);
+            panel5.Name = "panel5";
+            panel5.Padding = new Padding(10);
+            panel5.Size = new Size(290, 45);
+            panel5.TabIndex = 17;
             // 
-            // pnl_borde_p3
+            // numericUpDown3
             // 
-            pnl_borde_p3.BackColor = Color.FromArgb(112, 34, 246);
-            pnl_borde_p3.Location = new Point(608, 175);
-            pnl_borde_p3.Margin = new Padding(3, 2, 3, 2);
-            pnl_borde_p3.Name = "pnl_borde_p3";
-            pnl_borde_p3.Size = new Size(9, 124);
-            pnl_borde_p3.TabIndex = 4;
+            numericUpDown3.Location = new Point(10, 9);
+            numericUpDown3.Name = "numericUpDown3";
+            numericUpDown3.Size = new Size(270, 27);
+            numericUpDown3.TabIndex = 8;
             // 
-            // pnl_borde_p2
+            // panel4
             // 
-            pnl_borde_p2.BackColor = Color.FromArgb(0, 176, 80);
-            pnl_borde_p2.Location = new Point(314, 175);
-            pnl_borde_p2.Margin = new Padding(3, 2, 3, 2);
-            pnl_borde_p2.Name = "pnl_borde_p2";
-            pnl_borde_p2.Size = new Size(9, 124);
-            pnl_borde_p2.TabIndex = 4;
+            panel4.BackColor = Color.White;
+            panel4.BorderStyle = BorderStyle.FixedSingle;
+            panel4.Controls.Add(numericUpDown2);
+            panel4.Location = new Point(19, 180);
+            panel4.Name = "panel4";
+            panel4.Padding = new Padding(10);
+            panel4.Size = new Size(290, 45);
+            panel4.TabIndex = 14;
+            // 
+            // numericUpDown2
+            // 
+            numericUpDown2.Location = new Point(10, 9);
+            numericUpDown2.Name = "numericUpDown2";
+            numericUpDown2.Size = new Size(270, 27);
+            numericUpDown2.TabIndex = 8;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label9.ForeColor = Color.Red;
+            label9.Location = new Point(462, 152);
+            label9.Name = "label9";
+            label9.Size = new Size(21, 25);
+            label9.TabIndex = 13;
+            label9.Text = "*";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.Red;
+            label6.Location = new Point(446, 65);
+            label6.Name = "label6";
+            label6.Size = new Size(21, 25);
+            label6.TabIndex = 16;
+            label6.Text = "*";
             // 
             // panel3
             // 
             panel3.BackColor = Color.White;
-            panel3.Controls.Add(lbl_tlt_p12);
-            panel3.Controls.Add(lbl_tlt_p8);
-            panel3.Controls.Add(lbl_tlt_p7);
-            panel3.Controls.Add(pictureBox3);
-            panel3.Controls.Add(pnl_borde_p4);
-            panel3.Location = new Point(902, 175);
-            panel3.Margin = new Padding(3, 2, 3, 2);
+            panel3.BorderStyle = BorderStyle.FixedSingle;
+            panel3.Controls.Add(numericUpDown1);
+            panel3.Location = new Point(19, 93);
             panel3.Name = "panel3";
-            panel3.Size = new Size(278, 124);
-            panel3.TabIndex = 2;
+            panel3.Padding = new Padding(10);
+            panel3.Size = new Size(290, 45);
+            panel3.TabIndex = 11;
             // 
-            // lbl_tlt_p12
+            // numericUpDown1
             // 
-            lbl_tlt_p12.AutoSize = true;
-            lbl_tlt_p12.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_tlt_p12.Location = new Point(157, 51);
-            lbl_tlt_p12.Name = "lbl_tlt_p12";
-            lbl_tlt_p12.Size = new Size(21, 24);
-            lbl_tlt_p12.TabIndex = 10;
-            lbl_tlt_p12.Text = "0";
+            numericUpDown1.Location = new Point(10, 9);
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new Size(270, 27);
+            numericUpDown1.TabIndex = 8;
             // 
-            // lbl_tlt_p8
+            // label10
             // 
-            lbl_tlt_p8.AutoSize = true;
-            lbl_tlt_p8.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_tlt_p8.ForeColor = Color.FromArgb(255, 136, 0);
-            lbl_tlt_p8.Location = new Point(14, 94);
-            lbl_tlt_p8.Name = "lbl_tlt_p8";
-            lbl_tlt_p8.Size = new Size(113, 18);
-            lbl_tlt_p8.TabIndex = 10;
-            lbl_tlt_p8.Text = "Sin productos";
+            label10.AutoSize = true;
+            label10.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label10.Location = new Point(317, 152);
+            label10.Name = "label10";
+            label10.Size = new Size(149, 22);
+            label10.TabIndex = 12;
+            label10.Text = "Fecha de ingreso";
             // 
-            // lbl_tlt_p7
+            // label7
             // 
-            lbl_tlt_p7.AutoSize = true;
-            lbl_tlt_p7.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_tlt_p7.Location = new Point(88, 27);
-            lbl_tlt_p7.Name = "lbl_tlt_p7";
-            lbl_tlt_p7.Size = new Size(160, 18);
-            lbl_tlt_p7.TabIndex = 10;
-            lbl_tlt_p7.Text = "Productos sin stock";
+            label7.AutoSize = true;
+            label7.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.Location = new Point(317, 65);
+            label7.Name = "label7";
+            label7.Size = new Size(135, 22);
+            label7.TabIndex = 15;
+            label7.Text = "Precio de venta";
             // 
-            // pictureBox3
+            // label4
             // 
-            pictureBox3.BackColor = Color.Transparent;
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(14, 27);
-            pictureBox3.Margin = new Padding(3, 2, 3, 2);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(68, 56);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 10;
-            pictureBox3.TabStop = false;
+            label4.AutoSize = true;
+            label4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.Red;
+            label4.Location = new Point(164, 152);
+            label4.Name = "label4";
+            label4.Size = new Size(21, 25);
+            label4.TabIndex = 13;
+            label4.Text = "*";
             // 
-            // pnl_borde_p4
+            // label1
             // 
-            pnl_borde_p4.BackColor = Color.FromArgb(255, 136, 0);
-            pnl_borde_p4.Location = new Point(0, 0);
-            pnl_borde_p4.Margin = new Padding(3, 2, 3, 2);
-            pnl_borde_p4.Name = "pnl_borde_p4";
-            pnl_borde_p4.Size = new Size(9, 124);
-            pnl_borde_p4.TabIndex = 4;
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.FromArgb(0, 102, 255);
+            label1.Location = new Point(65, 14);
+            label1.Name = "label1";
+            label1.Size = new Size(246, 22);
+            label1.TabIndex = 7;
+            label1.Text = "Inventario, precios y fecha";
             // 
-            // panel2
+            // label5
             // 
-            panel2.BackColor = Color.White;
-            panel2.Controls.Add(lbl_tlt_p11);
-            panel2.Controls.Add(lbl_tlt_p6);
-            panel2.Controls.Add(lbl_tlt_p5);
-            panel2.Controls.Add(pictureBox2);
-            panel2.Location = new Point(608, 175);
-            panel2.Margin = new Padding(3, 2, 3, 2);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(278, 124);
-            panel2.TabIndex = 2;
+            label5.AutoSize = true;
+            label5.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.Location = new Point(19, 152);
+            label5.Name = "label5";
+            label5.Size = new Size(150, 22);
+            label5.TabIndex = 12;
+            label5.Text = "Precio de compra";
             // 
-            // lbl_tlt_p11
+            // label2
             // 
-            lbl_tlt_p11.AutoSize = true;
-            lbl_tlt_p11.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_tlt_p11.Location = new Point(134, 51);
-            lbl_tlt_p11.Name = "lbl_tlt_p11";
-            lbl_tlt_p11.Size = new Size(21, 24);
-            lbl_tlt_p11.TabIndex = 9;
-            lbl_tlt_p11.Text = "0";
-            // 
-            // lbl_tlt_p6
-            // 
-            lbl_tlt_p6.AutoSize = true;
-            lbl_tlt_p6.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_tlt_p6.ForeColor = Color.FromArgb(112, 34, 246);
-            lbl_tlt_p6.Location = new Point(14, 94);
-            lbl_tlt_p6.Name = "lbl_tlt_p6";
-            lbl_tlt_p6.Size = new Size(179, 18);
-            lbl_tlt_p6.TabIndex = 9;
-            lbl_tlt_p6.Text = "Categorías registradas";
-            // 
-            // lbl_tlt_p5
-            // 
-            lbl_tlt_p5.AutoSize = true;
-            lbl_tlt_p5.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_tlt_p5.Location = new Point(88, 27);
-            lbl_tlt_p5.Name = "lbl_tlt_p5";
-            lbl_tlt_p5.Size = new Size(90, 18);
-            lbl_tlt_p5.TabIndex = 9;
-            lbl_tlt_p5.Text = "Categorías";
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.BackColor = Color.Transparent;
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(14, 27);
-            pictureBox2.Margin = new Padding(3, 2, 3, 2);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(68, 56);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 9;
-            pictureBox2.TabStop = false;
-            // 
-            // panel1
-            // 
-            panel1.BackColor = Color.White;
-            panel1.Controls.Add(lbl_tlt_p10);
-            panel1.Controls.Add(lbl_tlt_p4);
-            panel1.Controls.Add(lbl_tlt_p3);
-            panel1.Controls.Add(pictureBox1);
-            panel1.Location = new Point(314, 175);
-            panel1.Margin = new Padding(3, 2, 3, 2);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(278, 124);
-            panel1.TabIndex = 2;
-            // 
-            // lbl_tlt_p10
-            // 
-            lbl_tlt_p10.AutoSize = true;
-            lbl_tlt_p10.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_tlt_p10.Location = new Point(149, 51);
-            lbl_tlt_p10.Name = "lbl_tlt_p10";
-            lbl_tlt_p10.Size = new Size(21, 24);
-            lbl_tlt_p10.TabIndex = 8;
-            lbl_tlt_p10.Text = "0";
-            lbl_tlt_p10.Click += label1_Click;
-            // 
-            // lbl_tlt_p4
-            // 
-            lbl_tlt_p4.AutoSize = true;
-            lbl_tlt_p4.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_tlt_p4.ForeColor = Color.FromArgb(0, 176, 80);
-            lbl_tlt_p4.Location = new Point(14, 94);
-            lbl_tlt_p4.Name = "lbl_tlt_p4";
-            lbl_tlt_p4.Size = new Size(134, 18);
-            lbl_tlt_p4.TabIndex = 8;
-            lbl_tlt_p4.Text = "Unidades totales";
-            // 
-            // lbl_tlt_p3
-            // 
-            lbl_tlt_p3.AutoSize = true;
-            lbl_tlt_p3.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_tlt_p3.Location = new Point(88, 27);
-            lbl_tlt_p3.Name = "lbl_tlt_p3";
-            lbl_tlt_p3.Size = new Size(151, 18);
-            lbl_tlt_p3.TabIndex = 8;
-            lbl_tlt_p3.Text = "Total del inventario\r\n";
+            label2.AutoSize = true;
+            label2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.Red;
+            label2.Location = new Point(121, 65);
+            label2.Name = "label2";
+            label2.Size = new Size(21, 25);
+            label2.TabIndex = 10;
+            label2.Text = "*";
             // 
             // pictureBox1
             // 
-            pictureBox1.BackColor = Color.Transparent;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(14, 27);
-            pictureBox1.Margin = new Padding(3, 2, 3, 2);
+            pictureBox1.Location = new Point(19, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(68, 56);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 8;
+            pictureBox1.Size = new Size(40, 43);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 6;
             pictureBox1.TabStop = false;
             // 
-            // pnl_p1
+            // label3
             // 
-            pnl_p1.BackColor = Color.White;
-            pnl_p1.Controls.Add(pcProductos);
-            pnl_p1.Controls.Add(lbl_tlt_9);
-            pnl_p1.Controls.Add(lbl_tlt_p2);
-            pnl_p1.Controls.Add(lbl_tlt_p1);
-            pnl_p1.Controls.Add(pnl_borde_p1);
-            pnl_p1.Location = new Point(20, 175);
-            pnl_p1.Margin = new Padding(3, 2, 3, 2);
-            pnl_p1.Name = "pnl_p1";
-            pnl_p1.Size = new Size(278, 124);
-            pnl_p1.TabIndex = 1;
+            label3.AutoSize = true;
+            label3.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Location = new Point(19, 65);
+            label3.Name = "label3";
+            label3.Size = new Size(108, 22);
+            label3.TabIndex = 9;
+            label3.Text = "Stock actual";
             // 
-            // pcProductos
+            // lbl_agg2
             // 
-            pcProductos.BackgroundImageLayout = ImageLayout.Stretch;
-            pcProductos.Image = Properties.Resources.Productoss;
-            pcProductos.Location = new Point(22, 27);
-            pcProductos.Name = "pcProductos";
-            pcProductos.Size = new Size(60, 59);
-            pcProductos.SizeMode = PictureBoxSizeMode.StretchImage;
-            pcProductos.TabIndex = 13;
-            pcProductos.TabStop = false;
+            lbl_agg2.AutoSize = true;
+            lbl_agg2.Font = new Font("Arial", 10.8F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            lbl_agg2.Location = new Point(69, 41);
+            lbl_agg2.Name = "lbl_agg2";
+            lbl_agg2.Size = new Size(547, 22);
+            lbl_agg2.TabIndex = 3;
+            lbl_agg2.Text = "Complete la información del producto o seleccione uno para editar";
             // 
-            // lbl_tlt_9
+            // pic_agg1
             // 
-            lbl_tlt_9.AutoSize = true;
-            lbl_tlt_9.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_tlt_9.Location = new Point(132, 51);
-            lbl_tlt_9.Name = "lbl_tlt_9";
-            lbl_tlt_9.Size = new Size(21, 24);
-            lbl_tlt_9.TabIndex = 7;
-            lbl_tlt_9.Text = "0";
+            pic_agg1.Image = (Image)resources.GetObject("pic_agg1.Image");
+            pic_agg1.Location = new Point(3, 13);
+            pic_agg1.Name = "pic_agg1";
+            pic_agg1.Size = new Size(60, 50);
+            pic_agg1.SizeMode = PictureBoxSizeMode.Zoom;
+            pic_agg1.TabIndex = 2;
+            pic_agg1.TabStop = false;
             // 
-            // lbl_tlt_p2
+            // lbl_agg1
             // 
-            lbl_tlt_p2.AutoSize = true;
-            lbl_tlt_p2.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_tlt_p2.ForeColor = Color.FromArgb(0, 102, 255);
-            lbl_tlt_p2.Location = new Point(14, 94);
-            lbl_tlt_p2.Name = "lbl_tlt_p2";
-            lbl_tlt_p2.Size = new Size(176, 18);
-            lbl_tlt_p2.TabIndex = 7;
-            lbl_tlt_p2.Text = "Productos registrados";
+            lbl_agg1.AutoSize = true;
+            lbl_agg1.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_agg1.ImageAlign = ContentAlignment.MiddleLeft;
+            lbl_agg1.Location = new Point(69, 12);
+            lbl_agg1.Name = "lbl_agg1";
+            lbl_agg1.Size = new Size(229, 29);
+            lbl_agg1.TabIndex = 1;
+            lbl_agg1.Text = "Agregar productos";
+            lbl_agg1.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // lbl_tlt_p1
+            // pnl_infoagg
             // 
-            lbl_tlt_p1.AutoSize = true;
-            lbl_tlt_p1.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_tlt_p1.Location = new Point(88, 27);
-            lbl_tlt_p1.Name = "lbl_tlt_p1";
-            lbl_tlt_p1.Size = new Size(129, 18);
-            lbl_tlt_p1.TabIndex = 6;
-            lbl_tlt_p1.Text = "Total Productos";
+            pnl_infoagg.BackColor = Color.FromArgb(244, 246, 249);
+            pnl_infoagg.BorderStyle = BorderStyle.FixedSingle;
+            pnl_infoagg.Controls.Add(button7);
+            pnl_infoagg.Controls.Add(button1);
+            pnl_infoagg.Controls.Add(pnl6_agg6);
+            pnl_infoagg.Controls.Add(lbl4_agg4);
+            pnl_infoagg.Controls.Add(lbl3_agg3);
+            pnl_infoagg.Controls.Add(pnl5_agg5);
+            pnl_infoagg.Controls.Add(lbl2_agg2);
+            pnl_infoagg.Controls.Add(btn_agg2);
+            pnl_infoagg.Controls.Add(pnl4_agg4);
+            pnl_infoagg.Controls.Add(lbl1_agg1);
+            pnl_infoagg.Controls.Add(btn_gg1);
+            pnl_infoagg.Controls.Add(pnl3_agg3);
+            pnl_infoagg.Controls.Add(lbl_agg9);
+            pnl_infoagg.Controls.Add(lbl_agg8);
+            pnl_infoagg.Controls.Add(pnl2_agg2);
+            pnl_infoagg.Controls.Add(pnl1_agg1);
+            pnl_infoagg.Controls.Add(lbl_agg7);
+            pnl_infoagg.Controls.Add(lbl_agg5);
+            pnl_infoagg.Controls.Add(lbl_agg6);
+            pnl_infoagg.Controls.Add(lbl_agg4);
+            pnl_infoagg.Controls.Add(lbl_agg3);
+            pnl_infoagg.Controls.Add(pic_agg2);
+            pnl_infoagg.Location = new Point(3, 77);
+            pnl_infoagg.Name = "pnl_infoagg";
+            pnl_infoagg.Size = new Size(749, 414);
+            pnl_infoagg.TabIndex = 0;
             // 
-            // pnl_borde_p1
+            // pnl6_agg6
             // 
-            pnl_borde_p1.BackColor = Color.FromArgb(0, 102, 255);
-            pnl_borde_p1.Location = new Point(0, 0);
-            pnl_borde_p1.Margin = new Padding(3, 2, 3, 2);
-            pnl_borde_p1.Name = "pnl_borde_p1";
-            pnl_borde_p1.Size = new Size(9, 124);
-            pnl_borde_p1.TabIndex = 3;
+            pnl6_agg6.BackColor = Color.White;
+            pnl6_agg6.BorderStyle = BorderStyle.FixedSingle;
+            pnl6_agg6.Controls.Add(cmb_agg3);
+            pnl6_agg6.Location = new Point(389, 291);
+            pnl6_agg6.Name = "pnl6_agg6";
+            pnl6_agg6.Padding = new Padding(10);
+            pnl6_agg6.Size = new Size(290, 45);
+            pnl6_agg6.TabIndex = 22;
             // 
-            // pnl_product2
+            // cmb_agg3
             // 
-            pnl_product2.BackgroundImage = (Image)resources.GetObject("pnl_product2.BackgroundImage");
-            pnl_product2.Controls.Add(lbl_mensajep2);
-            pnl_product2.Controls.Add(lbl_mensajep);
-            pnl_product2.Location = new Point(10, 17);
-            pnl_product2.Margin = new Padding(3, 2, 3, 2);
-            pnl_product2.Name = "pnl_product2";
-            pnl_product2.Size = new Size(1176, 140);
-            pnl_product2.TabIndex = 0;
+            cmb_agg3.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmb_agg3.FormattingEnabled = true;
+            cmb_agg3.Location = new Point(10, 9);
+            cmb_agg3.Name = "cmb_agg3";
+            cmb_agg3.Size = new Size(270, 28);
+            cmb_agg3.TabIndex = 14;
             // 
-            // lbl_mensajep2
+            // lbl4_agg4
             // 
-            lbl_mensajep2.AutoSize = true;
-            lbl_mensajep2.BackColor = Color.Transparent;
-            lbl_mensajep2.Font = new Font("Calibri Light", 12F, FontStyle.Italic);
-            lbl_mensajep2.ForeColor = Color.White;
-            lbl_mensajep2.Location = new Point(38, 75);
-            lbl_mensajep2.Name = "lbl_mensajep2";
-            lbl_mensajep2.Size = new Size(270, 19);
-            lbl_mensajep2.TabIndex = 1;
-            lbl_mensajep2.Text = "Administra la información del inventario";
+            lbl4_agg4.AutoSize = true;
+            lbl4_agg4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl4_agg4.ForeColor = Color.Red;
+            lbl4_agg4.Location = new Point(450, 263);
+            lbl4_agg4.Name = "lbl4_agg4";
+            lbl4_agg4.Size = new Size(21, 25);
+            lbl4_agg4.TabIndex = 24;
+            lbl4_agg4.Text = "*";
             // 
-            // lbl_mensajep
+            // lbl3_agg3
             // 
-            lbl_mensajep.AutoSize = true;
-            lbl_mensajep.BackColor = Color.Transparent;
-            lbl_mensajep.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_mensajep.ForeColor = Color.White;
-            lbl_mensajep.Location = new Point(38, 38);
-            lbl_mensajep.Name = "lbl_mensajep";
-            lbl_mensajep.Size = new Size(131, 29);
-            lbl_mensajep.TabIndex = 0;
-            lbl_mensajep.Text = "Productos";
+            lbl3_agg3.AutoSize = true;
+            lbl3_agg3.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl3_agg3.Location = new Point(389, 263);
+            lbl3_agg3.Name = "lbl3_agg3";
+            lbl3_agg3.Size = new Size(66, 22);
+            lbl3_agg3.TabIndex = 23;
+            lbl3_agg3.Text = "Estado";
+            // 
+            // pnl5_agg5
+            // 
+            pnl5_agg5.BackColor = Color.White;
+            pnl5_agg5.BorderStyle = BorderStyle.FixedSingle;
+            pnl5_agg5.Controls.Add(txt_agg3);
+            pnl5_agg5.Location = new Point(19, 291);
+            pnl5_agg5.Name = "pnl5_agg5";
+            pnl5_agg5.Padding = new Padding(10);
+            pnl5_agg5.Size = new Size(290, 45);
+            pnl5_agg5.TabIndex = 21;
+            // 
+            // txt_agg3
+            // 
+            txt_agg3.BorderStyle = BorderStyle.None;
+            txt_agg3.Font = new Font("Segoe UI", 10.8F);
+            txt_agg3.ForeColor = Color.Gray;
+            txt_agg3.Location = new Point(10, 9);
+            txt_agg3.Name = "txt_agg3";
+            txt_agg3.PlaceholderText = "Ingrese el color del producto";
+            txt_agg3.Size = new Size(270, 24);
+            txt_agg3.TabIndex = 7;
+            // 
+            // lbl2_agg2
+            // 
+            lbl2_agg2.AutoSize = true;
+            lbl2_agg2.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl2_agg2.Location = new Point(19, 263);
+            lbl2_agg2.Name = "lbl2_agg2";
+            lbl2_agg2.Size = new Size(53, 22);
+            lbl2_agg2.TabIndex = 19;
+            lbl2_agg2.Text = "Color";
+            // 
+            // btn_agg2
+            // 
+            btn_agg2.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_agg2.Location = new Point(685, 204);
+            btn_agg2.Name = "btn_agg2";
+            btn_agg2.Size = new Size(44, 45);
+            btn_agg2.TabIndex = 18;
+            btn_agg2.Text = "+";
+            btn_agg2.UseVisualStyleBackColor = true;
+            // 
+            // pnl4_agg4
+            // 
+            pnl4_agg4.BackColor = Color.White;
+            pnl4_agg4.BorderStyle = BorderStyle.FixedSingle;
+            pnl4_agg4.Controls.Add(cmb_agg2);
+            pnl4_agg4.Location = new Point(389, 204);
+            pnl4_agg4.Name = "pnl4_agg4";
+            pnl4_agg4.Padding = new Padding(10);
+            pnl4_agg4.Size = new Size(290, 45);
+            pnl4_agg4.TabIndex = 15;
+            // 
+            // cmb_agg2
+            // 
+            cmb_agg2.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmb_agg2.FormattingEnabled = true;
+            cmb_agg2.Location = new Point(10, 9);
+            cmb_agg2.Name = "cmb_agg2";
+            cmb_agg2.Size = new Size(270, 28);
+            cmb_agg2.TabIndex = 14;
+            // 
+            // lbl1_agg1
+            // 
+            lbl1_agg1.AutoSize = true;
+            lbl1_agg1.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl1_agg1.Location = new Point(389, 176);
+            lbl1_agg1.Name = "lbl1_agg1";
+            lbl1_agg1.Size = new Size(123, 22);
+            lbl1_agg1.TabIndex = 16;
+            lbl1_agg1.Text = "Talla / Medida";
+            // 
+            // btn_gg1
+            // 
+            btn_gg1.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_gg1.Location = new Point(315, 201);
+            btn_gg1.Name = "btn_gg1";
+            btn_gg1.Size = new Size(44, 45);
+            btn_gg1.TabIndex = 14;
+            btn_gg1.Text = "+";
+            btn_gg1.UseVisualStyleBackColor = true;
+            // 
+            // pnl3_agg3
+            // 
+            pnl3_agg3.BackColor = Color.White;
+            pnl3_agg3.BorderStyle = BorderStyle.FixedSingle;
+            pnl3_agg3.Controls.Add(cmb_agg1);
+            pnl3_agg3.Location = new Point(19, 201);
+            pnl3_agg3.Name = "pnl3_agg3";
+            pnl3_agg3.Padding = new Padding(10);
+            pnl3_agg3.Size = new Size(290, 45);
+            pnl3_agg3.TabIndex = 12;
+            // 
+            // cmb_agg1
+            // 
+            cmb_agg1.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmb_agg1.FormattingEnabled = true;
+            cmb_agg1.Location = new Point(10, 9);
+            cmb_agg1.Name = "cmb_agg1";
+            cmb_agg1.Size = new Size(270, 28);
+            cmb_agg1.TabIndex = 14;
+            // 
+            // lbl_agg9
+            // 
+            lbl_agg9.AutoSize = true;
+            lbl_agg9.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_agg9.ForeColor = Color.Red;
+            lbl_agg9.Location = new Point(102, 170);
+            lbl_agg9.Name = "lbl_agg9";
+            lbl_agg9.Size = new Size(21, 25);
+            lbl_agg9.TabIndex = 13;
+            lbl_agg9.Text = "*";
+            // 
+            // lbl_agg8
+            // 
+            lbl_agg8.AutoSize = true;
+            lbl_agg8.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_agg8.Location = new Point(19, 172);
+            lbl_agg8.Name = "lbl_agg8";
+            lbl_agg8.Size = new Size(88, 22);
+            lbl_agg8.TabIndex = 12;
+            lbl_agg8.Text = "Categoría";
+            // 
+            // pnl2_agg2
+            // 
+            pnl2_agg2.BackColor = Color.White;
+            pnl2_agg2.BorderStyle = BorderStyle.FixedSingle;
+            pnl2_agg2.Controls.Add(txt_agg2);
+            pnl2_agg2.Location = new Point(389, 110);
+            pnl2_agg2.Name = "pnl2_agg2";
+            pnl2_agg2.Padding = new Padding(10);
+            pnl2_agg2.Size = new Size(290, 45);
+            pnl2_agg2.TabIndex = 11;
+            // 
+            // txt_agg2
+            // 
+            txt_agg2.BorderStyle = BorderStyle.None;
+            txt_agg2.Font = new Font("Segoe UI", 10.8F);
+            txt_agg2.ForeColor = Color.Gray;
+            txt_agg2.Location = new Point(10, 9);
+            txt_agg2.Name = "txt_agg2";
+            txt_agg2.PlaceholderText = "Ingrese el nombre del producto";
+            txt_agg2.Size = new Size(270, 24);
+            txt_agg2.TabIndex = 7;
+            // 
+            // pnl1_agg1
+            // 
+            pnl1_agg1.BackColor = Color.White;
+            pnl1_agg1.BorderStyle = BorderStyle.FixedSingle;
+            pnl1_agg1.Controls.Add(txt_agg1);
+            pnl1_agg1.Location = new Point(19, 110);
+            pnl1_agg1.Name = "pnl1_agg1";
+            pnl1_agg1.Padding = new Padding(10);
+            pnl1_agg1.Size = new Size(290, 45);
+            pnl1_agg1.TabIndex = 8;
+            // 
+            // txt_agg1
+            // 
+            txt_agg1.BorderStyle = BorderStyle.None;
+            txt_agg1.Font = new Font("Segoe UI", 10.8F);
+            txt_agg1.ForeColor = Color.Gray;
+            txt_agg1.Location = new Point(10, 9);
+            txt_agg1.Name = "txt_agg1";
+            txt_agg1.PlaceholderText = "Ej: PROD-0001";
+            txt_agg1.Size = new Size(270, 24);
+            txt_agg1.TabIndex = 7;
+            // 
+            // lbl_agg7
+            // 
+            lbl_agg7.AutoSize = true;
+            lbl_agg7.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_agg7.ForeColor = Color.Red;
+            lbl_agg7.Location = new Point(560, 82);
+            lbl_agg7.Name = "lbl_agg7";
+            lbl_agg7.Size = new Size(21, 25);
+            lbl_agg7.TabIndex = 10;
+            lbl_agg7.Text = "*";
+            // 
+            // lbl_agg5
+            // 
+            lbl_agg5.AutoSize = true;
+            lbl_agg5.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_agg5.ForeColor = Color.Red;
+            lbl_agg5.Location = new Point(184, 82);
+            lbl_agg5.Name = "lbl_agg5";
+            lbl_agg5.Size = new Size(21, 25);
+            lbl_agg5.TabIndex = 6;
+            lbl_agg5.Text = "*";
+            // 
+            // lbl_agg6
+            // 
+            lbl_agg6.AutoSize = true;
+            lbl_agg6.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_agg6.Location = new Point(389, 82);
+            lbl_agg6.Name = "lbl_agg6";
+            lbl_agg6.Size = new Size(177, 22);
+            lbl_agg6.TabIndex = 9;
+            lbl_agg6.Text = "Nombre del producto";
+            // 
+            // lbl_agg4
+            // 
+            lbl_agg4.AutoSize = true;
+            lbl_agg4.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_agg4.Location = new Point(19, 82);
+            lbl_agg4.Name = "lbl_agg4";
+            lbl_agg4.Size = new Size(171, 22);
+            lbl_agg4.TabIndex = 5;
+            lbl_agg4.Text = "Código del producto";
+            // 
+            // lbl_agg3
+            // 
+            lbl_agg3.AutoSize = true;
+            lbl_agg3.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_agg3.ForeColor = Color.FromArgb(0, 102, 255);
+            lbl_agg3.Location = new Point(65, 23);
+            lbl_agg3.Name = "lbl_agg3";
+            lbl_agg3.Size = new Size(177, 22);
+            lbl_agg3.TabIndex = 4;
+            lbl_agg3.Text = "Información básica";
+            // 
+            // pic_agg2
+            // 
+            pic_agg2.Image = (Image)resources.GetObject("pic_agg2.Image");
+            pic_agg2.Location = new Point(19, 13);
+            pic_agg2.Name = "pic_agg2";
+            pic_agg2.Size = new Size(40, 43);
+            pic_agg2.SizeMode = PictureBoxSizeMode.Zoom;
+            pic_agg2.TabIndex = 3;
+            pic_agg2.TabStop = false;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label11.ForeColor = Color.FromArgb(0, 102, 255);
+            label11.Location = new Point(65, 21);
+            label11.Name = "label11";
+            label11.Size = new Size(199, 22);
+            label11.TabIndex = 9;
+            label11.Text = "Información adicional";
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(19, 11);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(40, 43);
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox3.TabIndex = 8;
+            pictureBox3.TabStop = false;
+            // 
+            // button2
+            // 
+            button2.Cursor = Cursors.Hand;
+            button2.FlatAppearance.BorderColor = Color.LightGray;
+            button2.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold);
+            button2.Location = new Point(1126, 287);
+            button2.Name = "button2";
+            button2.Size = new Size(35, 35);
+            button2.TabIndex = 16;
+            button2.Text = "<<";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            button3.Cursor = Cursors.Hand;
+            button3.FlatAppearance.BorderColor = Color.LightGray;
+            button3.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold);
+            button3.Location = new Point(1167, 287);
+            button3.Name = "button3";
+            button3.Size = new Size(35, 35);
+            button3.TabIndex = 17;
+            button3.Text = "<";
+            button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            button4.BackColor = Color.RoyalBlue;
+            button4.Cursor = Cursors.Hand;
+            button4.FlatAppearance.BorderSize = 0;
+            button4.FlatStyle = FlatStyle.Flat;
+            button4.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold);
+            button4.ForeColor = Color.White;
+            button4.Location = new Point(1226, 287);
+            button4.Name = "button4";
+            button4.Size = new Size(35, 35);
+            button4.TabIndex = 18;
+            button4.Text = "1";
+            button4.UseVisualStyleBackColor = false;
+            // 
+            // button5
+            // 
+            button5.Cursor = Cursors.Hand;
+            button5.FlatAppearance.BorderColor = Color.LightGray;
+            button5.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold);
+            button5.Location = new Point(1286, 287);
+            button5.Name = "button5";
+            button5.Size = new Size(35, 35);
+            button5.TabIndex = 19;
+            button5.Text = ">";
+            button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            button6.Cursor = Cursors.Hand;
+            button6.FlatAppearance.BorderColor = Color.LightGray;
+            button6.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold);
+            button6.Location = new Point(1327, 287);
+            button6.Name = "button6";
+            button6.Size = new Size(35, 35);
+            button6.TabIndex = 20;
+            button6.Text = ">>";
+            button6.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            button7.BackColor = Color.FromArgb(0, 102, 255);
+            button7.Cursor = Cursors.Hand;
+            button7.FlatStyle = FlatStyle.Flat;
+            button7.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button7.ForeColor = Color.White;
+            button7.Image = (Image)resources.GetObject("button7.Image");
+            button7.ImageAlign = ContentAlignment.MiddleLeft;
+            button7.Location = new Point(201, 356);
+            button7.Name = "button7";
+            button7.Size = new Size(270, 53);
+            button7.TabIndex = 25;
+            button7.Text = "Agregar imagen";
+            button7.UseVisualStyleBackColor = false;
             // 
             // FormProductos
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1200, 591);
-            Controls.Add(pnl_product1);
+            ClientSize = new Size(1394, 889);
+            Controls.Add(pnl_conagg);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 2, 3, 2);
             Name = "FormProductos";
             Text = "FormProductos";
-            pnl_product1.ResumeLayout(false);
-            pnl_product_acr1.ResumeLayout(false);
-            pnl_product_acr1.PerformLayout();
-            pnl_product_acc1.ResumeLayout(false);
-            pnl_product_acc1.PerformLayout();
-            pnl_acc4.ResumeLayout(false);
-            pnl_acc4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pic_acc4).EndInit();
-            pnl_acc3.ResumeLayout(false);
-            pnl_acc3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pic_acc3).EndInit();
-            pnl_acc2.ResumeLayout(false);
-            pnl_acc2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pic_acc2).EndInit();
-            pnl_acc1.ResumeLayout(false);
-            pnl_acc1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)picAgregarProductos).EndInit();
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            pnl_conagg.ResumeLayout(false);
+            pnl_conagg.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            panel8.ResumeLayout(false);
+            panel8.PerformLayout();
+            panel7.ResumeLayout(false);
+            panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            panel11.ResumeLayout(false);
+            panel10.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            panel9.ResumeLayout(false);
+            panel9.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            panel6.ResumeLayout(false);
+            panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)numericUpDown3).EndInit();
+            panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
+            panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            pnl_p1.ResumeLayout(false);
-            pnl_p1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pcProductos).EndInit();
-            pnl_product2.ResumeLayout(false);
-            pnl_product2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pic_agg1).EndInit();
+            pnl_infoagg.ResumeLayout(false);
+            pnl_infoagg.PerformLayout();
+            pnl6_agg6.ResumeLayout(false);
+            pnl5_agg5.ResumeLayout(false);
+            pnl5_agg5.PerformLayout();
+            pnl4_agg4.ResumeLayout(false);
+            pnl3_agg3.ResumeLayout(false);
+            pnl2_agg2.ResumeLayout(false);
+            pnl2_agg2.PerformLayout();
+            pnl1_agg1.ResumeLayout(false);
+            pnl1_agg1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pic_agg2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Panel pnl_product1;
-        private Panel pnl_product2;
-        private Label lbl_mensajep;
-        private Label lbl_mensajep2;
-        private Panel pnl_p1;
-        private Panel panel1;
-        private Panel panel3;
+        private Panel pnl_conagg;
+        private Button button1;
         private Panel panel2;
-        private Panel pnl_borde_p3;
-        private Panel pnl_borde_p2;
-        private Panel pnl_borde_p4;
-        private Panel pnl_borde_p1;
-        private Label lbl_tlt_p1;
-        private Label lbl_tlt_p2;
-        private PictureBox pictureBox1;
-        private Label lbl_tlt_p3;
-        private Label lbl_tlt_p8;
-        private Label lbl_tlt_p7;
-        private PictureBox pictureBox3;
-        private Label lbl_tlt_p6;
-        private Label lbl_tlt_p5;
+        private Panel panel8;
+        private TextBox textBox1;
+        private Panel panel7;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn c1;
+        private DataGridViewTextBoxColumn c2;
+        private DataGridViewTextBoxColumn c3;
+        private DataGridViewTextBoxColumn c4;
+        private DataGridViewTextBoxColumn c5;
+        private DataGridViewTextBoxColumn c6;
+        private DataGridViewTextBoxColumn col_acciones;
+        private Panel panel11;
+        private ComboBox comboBox2;
+        private Panel panel10;
+        private ComboBox comboBox1;
+        private Label label8;
         private PictureBox pictureBox2;
-        private Label lbl_tlt_p4;
-        private Label lbl_tlt_9;
-        private Label lbl_tlt_p10;
-        private Label lbl_tlt_p12;
-        private Label lbl_tlt_p11;
-        private Panel pnl_product_acc1;
-        private Label label1;
-        private Panel pnl_product_acr1;
-        private Label lbl_actp1;
-        private Panel pnl_acc1;
-        private Panel pnl_acc4;
-        private PictureBox pic_acc4;
-        private Panel pnl_acc3;
-        private PictureBox pic_acc3;
-        private Panel pnl_acc2;
-        private PictureBox pic_acc2;
-        private Label lbl_acc1;
-        private Label lbl_acc4;
-        private Label lbl_acc3;
-        private Label lbl_acc2;
-        private Label lbl_acc5;
-        private Label lbl_acc6;
-        private Label label5;
+        private Panel panel9;
+        private TextBox textBox2;
+        private Panel panel1;
+        private Panel panel6;
+        private DateTimePicker dateTimePicker1;
+        private Panel panel5;
+        private NumericUpDown numericUpDown3;
+        private Panel panel4;
+        private NumericUpDown numericUpDown2;
+        private Label label9;
+        private Label label6;
+        private Panel panel3;
+        private NumericUpDown numericUpDown1;
+        private Label label10;
+        private Label label7;
         private Label label4;
-        private Button btn_acr1;
-        private Guna.UI2.WinForms.Guna2Button btn_product2;
-        private Guna.UI2.WinForms.Guna2Button btn_product1;
-        private Guna.UI2.WinForms.Guna2Button btn_product4;
-        private Guna.UI2.WinForms.Guna2Button btn_product3;
-        private PictureBox pcProductos;
-        private PictureBox picAgregarProductos;
+        private Label label1;
+        private Label label5;
+        private Label label2;
+        private PictureBox pictureBox1;
+        private Label label3;
+        private Label lbl_agg2;
+        private PictureBox pic_agg1;
+        private Label lbl_agg1;
+        private Panel pnl_infoagg;
+        private Panel pnl6_agg6;
+        private ComboBox cmb_agg3;
+        private Label lbl4_agg4;
+        private Label lbl3_agg3;
+        private Panel pnl5_agg5;
+        private TextBox txt_agg3;
+        private Label lbl2_agg2;
+        private Button btn_agg2;
+        private Panel pnl4_agg4;
+        private ComboBox cmb_agg2;
+        private Label lbl1_agg1;
+        private Button btn_gg1;
+        private Panel pnl3_agg3;
+        private ComboBox cmb_agg1;
+        private Label lbl_agg9;
+        private Label lbl_agg8;
+        private Panel pnl2_agg2;
+        private TextBox txt_agg2;
+        private Panel pnl1_agg1;
+        private TextBox txt_agg1;
+        private Label lbl_agg7;
+        private Label lbl_agg5;
+        private Label lbl_agg6;
+        private Label lbl_agg4;
+        private Label lbl_agg3;
+        private PictureBox pic_agg2;
+        private Label label11;
+        private PictureBox pictureBox3;
+        private Button button6;
+        private Button button5;
+        private Button button4;
+        private Button button3;
+        private Button button2;
+        private Button button7;
     }
 }
