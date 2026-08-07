@@ -14,5 +14,19 @@ namespace Derick
         {
             InitializeComponent();
         }
+
+        private void lblSalir_Click(object sender, EventArgs e)
+        {
+            DialogResult respuesta = MessageBox.Show(
+            "¿Está seguro de salir?",
+            "Confirmar salida",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Question);
+
+            if (respuesta == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
     }
 }

@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InicioGerente));
             pnlMostrarForm = new Panel();
-            lblSalir = new Label();
             pnlActividadReciente = new Panel();
             btnVerTodo = new Button();
             lblActividadRe = new Label();
@@ -81,6 +80,7 @@
             NumProductos = new Label();
             lblPproductos = new Label();
             panel1 = new Panel();
+            lblSalir = new Label();
             lblResumen = new Label();
             lblBienvenido = new Label();
             pnlMostrarForm.SuspendLayout();
@@ -125,19 +125,6 @@
             pnlMostrarForm.Name = "pnlMostrarForm";
             pnlMostrarForm.Size = new Size(1186, 591);
             pnlMostrarForm.TabIndex = 4;
-            // 
-            // lblSalir
-            // 
-            lblSalir.AutoSize = true;
-            lblSalir.BackColor = Color.White;
-            lblSalir.Cursor = Cursors.Hand;
-            lblSalir.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblSalir.ForeColor = Color.Red;
-            lblSalir.Location = new Point(1100, 0);
-            lblSalir.Name = "lblSalir";
-            lblSalir.Size = new Size(25, 24);
-            lblSalir.TabIndex = 15;
-            lblSalir.Text = "X";
             // 
             // pnlActividadReciente
             // 
@@ -659,6 +646,20 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1128, 73);
             panel1.TabIndex = 14;
+            // 
+            // lblSalir
+            // 
+            lblSalir.AutoSize = true;
+            lblSalir.BackColor = Color.White;
+            lblSalir.Cursor = Cursors.Hand;
+            lblSalir.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSalir.ForeColor = Color.Red;
+            lblSalir.Location = new Point(1100, 0);
+            lblSalir.Name = "lblSalir";
+            lblSalir.Size = new Size(25, 24);
+            lblSalir.TabIndex = 15;
+            lblSalir.Text = "X";
+            lblSalir.Click += lblSalir_Click;
             // 
             // lblResumen
             // 
