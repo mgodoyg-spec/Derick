@@ -289,7 +289,6 @@
             lbl_ctg9.Size = new Size(66, 22);
             lbl_ctg9.TabIndex = 16;
             lbl_ctg9.Text = "Estado";
-            lbl_ctg9.Click += this.label2_Click;
             // 
             // lbl_ctg10
             // 
@@ -873,5 +872,9 @@
         private Button btn3_agg3;
         private Button btn2_agg2;
         private Button btn1_ctg1;
+        private Button btn1_ctg2;
+        private Button btn1_ctg3;
+        private Button btn1_ctg4;
+        private Button btn1_ctg5;
     }
 }
