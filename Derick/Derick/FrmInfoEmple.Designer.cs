@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmInfoEmple));
             pnlNuevoEmple = new Panel();
             btnCancelar = new Button();
             btnGuardar = new Button();
@@ -78,23 +79,48 @@
             picfoto = new PictureBox();
             panel3 = new Panel();
             label1 = new Label();
+            lblC3 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            label5 = new Label();
+            label6 = new Label();
+            label7 = new Label();
+            label8 = new Label();
+            label9 = new Label();
+            label10 = new Label();
+            label11 = new Label();
+            label12 = new Label();
+            label13 = new Label();
+            label14 = new Label();
+            label15 = new Label();
+            label16 = new Label();
+            label17 = new Label();
+            label18 = new Label();
+            picNVP = new PictureBox();
+            pictureBox1 = new PictureBox();
+            panel1 = new Panel();
+            pictureBox2 = new PictureBox();
             pnlNuevoEmple.SuspendLayout();
             pnlInfoLaboral.SuspendLayout();
             pnlInfoPersonal.SuspendLayout();
             pnlFoto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picfoto).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picNVP).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // pnlNuevoEmple
             // 
             pnlNuevoEmple.BackColor = Color.White;
+            pnlNuevoEmple.Controls.Add(panel1);
             pnlNuevoEmple.Controls.Add(btnCancelar);
             pnlNuevoEmple.Controls.Add(btnGuardar);
             pnlNuevoEmple.Controls.Add(pnlInfoLaboral);
             pnlNuevoEmple.Controls.Add(pnlInfoPersonal);
             pnlNuevoEmple.Controls.Add(pnlFoto);
-            pnlNuevoEmple.Controls.Add(panel3);
-            pnlNuevoEmple.Controls.Add(label1);
             pnlNuevoEmple.Dock = DockStyle.Fill;
             pnlNuevoEmple.Location = new Point(0, 0);
             pnlNuevoEmple.Name = "pnlNuevoEmple";
@@ -104,7 +130,7 @@
             // btnCancelar
             // 
             btnCancelar.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCancelar.Location = new Point(697, 644);
+            btnCancelar.Location = new Point(32, 635);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(213, 53);
             btnCancelar.TabIndex = 14;
@@ -116,7 +142,7 @@
             btnGuardar.BackColor = Color.Purple;
             btnGuardar.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnGuardar.ForeColor = Color.White;
-            btnGuardar.Location = new Point(931, 644);
+            btnGuardar.Location = new Point(260, 635);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(213, 53);
             btnGuardar.TabIndex = 13;
@@ -125,6 +151,16 @@
             // 
             // pnlInfoLaboral
             // 
+            pnlInfoLaboral.Controls.Add(pictureBox1);
+            pnlInfoLaboral.Controls.Add(label18);
+            pnlInfoLaboral.Controls.Add(label17);
+            pnlInfoLaboral.Controls.Add(label16);
+            pnlInfoLaboral.Controls.Add(label15);
+            pnlInfoLaboral.Controls.Add(label14);
+            pnlInfoLaboral.Controls.Add(label13);
+            pnlInfoLaboral.Controls.Add(label12);
+            pnlInfoLaboral.Controls.Add(label11);
+            pnlInfoLaboral.Controls.Add(label10);
             pnlInfoLaboral.Controls.Add(txtObservaciones);
             pnlInfoLaboral.Controls.Add(txtTeleEmergencia);
             pnlInfoLaboral.Controls.Add(txtEmerNombre);
@@ -145,7 +181,7 @@
             pnlInfoLaboral.Controls.Add(lblDepartamento);
             pnlInfoLaboral.Controls.Add(lblCargo);
             pnlInfoLaboral.Controls.Add(lblInfoLaboral);
-            pnlInfoLaboral.Location = new Point(694, 59);
+            pnlInfoLaboral.Location = new Point(694, 94);
             pnlInfoLaboral.Name = "pnlInfoLaboral";
             pnlInfoLaboral.Size = new Size(459, 579);
             pnlInfoLaboral.TabIndex = 12;
@@ -161,18 +197,18 @@
             // 
             // txtTeleEmergencia
             // 
-            txtTeleEmergencia.Location = new Point(211, 449);
+            txtTeleEmergencia.Location = new Point(227, 449);
             txtTeleEmergencia.MaxLength = 10;
             txtTeleEmergencia.Name = "txtTeleEmergencia";
-            txtTeleEmergencia.Size = new Size(239, 27);
+            txtTeleEmergencia.Size = new Size(223, 27);
             txtTeleEmergencia.TabIndex = 24;
             // 
             // txtEmerNombre
             // 
-            txtEmerNombre.Location = new Point(211, 399);
+            txtEmerNombre.Location = new Point(227, 399);
             txtEmerNombre.MaxLength = 50;
             txtEmerNombre.Name = "txtEmerNombre";
-            txtEmerNombre.Size = new Size(239, 27);
+            txtEmerNombre.Size = new Size(223, 27);
             txtEmerNombre.TabIndex = 23;
             // 
             // cmbEstado
@@ -343,6 +379,16 @@
             // 
             // pnlInfoPersonal
             // 
+            pnlInfoPersonal.Controls.Add(picNVP);
+            pnlInfoPersonal.Controls.Add(label9);
+            pnlInfoPersonal.Controls.Add(label8);
+            pnlInfoPersonal.Controls.Add(label7);
+            pnlInfoPersonal.Controls.Add(label6);
+            pnlInfoPersonal.Controls.Add(label5);
+            pnlInfoPersonal.Controls.Add(label4);
+            pnlInfoPersonal.Controls.Add(label3);
+            pnlInfoPersonal.Controls.Add(label2);
+            pnlInfoPersonal.Controls.Add(lblC3);
             pnlInfoPersonal.Controls.Add(txtDirreccion);
             pnlInfoPersonal.Controls.Add(txtCorreo);
             pnlInfoPersonal.Controls.Add(txtTelefono);
@@ -362,7 +408,7 @@
             pnlInfoPersonal.Controls.Add(txtCodigo);
             pnlInfoPersonal.Controls.Add(lblCodigo);
             pnlInfoPersonal.Controls.Add(lblInfoPeronal);
-            pnlInfoPersonal.Location = new Point(247, 61);
+            pnlInfoPersonal.Location = new Point(247, 94);
             pnlInfoPersonal.Name = "pnlInfoPersonal";
             pnlInfoPersonal.Size = new Size(431, 522);
             pnlInfoPersonal.TabIndex = 11;
@@ -405,9 +451,9 @@
             // dtpFechaNacimiento
             // 
             dtpFechaNacimiento.Format = DateTimePickerFormat.Short;
-            dtpFechaNacimiento.Location = new Point(197, 250);
+            dtpFechaNacimiento.Location = new Point(199, 250);
             dtpFechaNacimiento.Name = "dtpFechaNacimiento";
-            dtpFechaNacimiento.Size = new Size(230, 27);
+            dtpFechaNacimiento.Size = new Size(228, 27);
             dtpFechaNacimiento.TabIndex = 15;
             // 
             // txtCedula
@@ -549,24 +595,25 @@
             pnlFoto.Controls.Add(btnQuitarImagen);
             pnlFoto.Controls.Add(btnSeleccionarImagen);
             pnlFoto.Controls.Add(picfoto);
-            pnlFoto.Location = new Point(12, 66);
+            pnlFoto.Location = new Point(12, 95);
             pnlFoto.Name = "pnlFoto";
             pnlFoto.Size = new Size(229, 355);
             pnlFoto.TabIndex = 10;
             // 
             // btnQuitarImagen
             // 
+            btnQuitarImagen.BackColor = Color.Plum;
             btnQuitarImagen.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnQuitarImagen.Location = new Point(3, 273);
             btnQuitarImagen.Name = "btnQuitarImagen";
             btnQuitarImagen.Size = new Size(213, 53);
             btnQuitarImagen.TabIndex = 11;
             btnQuitarImagen.Text = "Quitar Imagen";
-            btnQuitarImagen.UseVisualStyleBackColor = true;
+            btnQuitarImagen.UseVisualStyleBackColor = false;
             // 
             // btnSeleccionarImagen
             // 
-            btnSeleccionarImagen.BackColor = Color.RoyalBlue;
+            btnSeleccionarImagen.BackColor = Color.Thistle;
             btnSeleccionarImagen.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSeleccionarImagen.Location = new Point(3, 226);
             btnSeleccionarImagen.Name = "btnSeleccionarImagen";
@@ -588,7 +635,7 @@
             // panel3
             // 
             panel3.BackColor = Color.Purple;
-            panel3.Location = new Point(3, 42);
+            panel3.Location = new Point(100, 40);
             panel3.Margin = new Padding(3, 4, 3, 4);
             panel3.Name = "panel3";
             panel3.Size = new Size(126, 10);
@@ -598,11 +645,250 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(0, 9);
+            label1.Location = new Point(97, 7);
             label1.Name = "label1";
             label1.Size = new Size(214, 29);
             label1.TabIndex = 0;
             label1.Text = "Nuevo Empleado";
+            // 
+            // lblC3
+            // 
+            lblC3.AutoSize = true;
+            lblC3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblC3.ForeColor = Color.DarkViolet;
+            lblC3.Location = new Point(109, 44);
+            lblC3.Name = "lblC3";
+            lblC3.Size = new Size(21, 25);
+            lblC3.TabIndex = 43;
+            lblC3.Text = "*";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.DarkViolet;
+            label2.Location = new Point(96, 93);
+            label2.Name = "label2";
+            label2.Size = new Size(21, 25);
+            label2.TabIndex = 44;
+            label2.Text = "*";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.DarkViolet;
+            label3.Location = new Point(96, 146);
+            label3.Name = "label3";
+            label3.Size = new Size(21, 25);
+            label3.TabIndex = 45;
+            label3.Text = "*";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.DarkViolet;
+            label4.Location = new Point(127, 195);
+            label4.Name = "label4";
+            label4.Size = new Size(21, 25);
+            label4.TabIndex = 46;
+            label4.Text = "*";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.DarkViolet;
+            label5.Location = new Point(183, 251);
+            label5.Name = "label5";
+            label5.Size = new Size(21, 25);
+            label5.TabIndex = 47;
+            label5.Text = "*";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.DarkViolet;
+            label6.Location = new Point(82, 303);
+            label6.Name = "label6";
+            label6.Size = new Size(21, 25);
+            label6.TabIndex = 48;
+            label6.Text = "*";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.ForeColor = Color.DarkViolet;
+            label7.Location = new Point(96, 352);
+            label7.Name = "label7";
+            label7.Size = new Size(21, 25);
+            label7.TabIndex = 49;
+            label7.Text = "*";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.DarkViolet;
+            label8.Location = new Point(80, 403);
+            label8.Name = "label8";
+            label8.Size = new Size(21, 25);
+            label8.TabIndex = 50;
+            label8.Text = "*";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label9.ForeColor = Color.DarkViolet;
+            label9.Location = new Point(96, 457);
+            label9.Name = "label9";
+            label9.Size = new Size(21, 25);
+            label9.TabIndex = 51;
+            label9.Text = "*";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label10.ForeColor = Color.DarkViolet;
+            label10.Location = new Point(146, 507);
+            label10.Name = "label10";
+            label10.Size = new Size(21, 25);
+            label10.TabIndex = 43;
+            label10.Text = "*";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label11.ForeColor = Color.DarkViolet;
+            label11.Location = new Point(88, 303);
+            label11.Name = "label11";
+            label11.Size = new Size(21, 25);
+            label11.TabIndex = 44;
+            label11.Text = "*";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label12.ForeColor = Color.DarkViolet;
+            label12.Location = new Point(163, 250);
+            label12.Name = "label12";
+            label12.Size = new Size(21, 25);
+            label12.TabIndex = 45;
+            label12.Text = "*";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label13.ForeColor = Color.DarkViolet;
+            label13.Location = new Point(88, 199);
+            label13.Name = "label13";
+            label13.Size = new Size(21, 25);
+            label13.TabIndex = 46;
+            label13.Text = "*";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label14.ForeColor = Color.DarkViolet;
+            label14.Location = new Point(177, 148);
+            label14.Name = "label14";
+            label14.Size = new Size(21, 25);
+            label14.TabIndex = 47;
+            label14.Text = "*";
+            label14.Click += label14_Click;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label15.ForeColor = Color.DarkViolet;
+            label15.Location = new Point(146, 92);
+            label15.Name = "label15";
+            label15.Size = new Size(21, 25);
+            label15.TabIndex = 48;
+            label15.Text = "*";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label16.ForeColor = Color.DarkViolet;
+            label16.Location = new Point(88, 36);
+            label16.Name = "label16";
+            label16.Size = new Size(21, 25);
+            label16.TabIndex = 49;
+            label16.Text = "*";
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label17.ForeColor = Color.DarkViolet;
+            label17.Location = new Point(201, 401);
+            label17.Name = "label17";
+            label17.Size = new Size(21, 25);
+            label17.TabIndex = 50;
+            label17.Text = "*";
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label18.ForeColor = Color.DarkViolet;
+            label18.Location = new Point(201, 457);
+            label18.Name = "label18";
+            label18.Size = new Size(21, 25);
+            label18.TabIndex = 51;
+            label18.Text = "*";
+            // 
+            // picNVP
+            // 
+            picNVP.Image = (Image)resources.GetObject("picNVP.Image");
+            picNVP.Location = new Point(222, 0);
+            picNVP.Name = "picNVP";
+            picNVP.Size = new Size(37, 31);
+            picNVP.SizeMode = PictureBoxSizeMode.StretchImage;
+            picNVP.TabIndex = 52;
+            picNVP.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(201, 3);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(37, 31);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 53;
+            pictureBox1.TabStop = false;
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(pictureBox2);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(panel3);
+            panel1.Location = new Point(3, 5);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1171, 83);
+            panel1.TabIndex = 15;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(9, 7);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(82, 73);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 42;
+            pictureBox2.TabStop = false;
             // 
             // FrmInfoEmple
             // 
@@ -614,13 +900,17 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmInfoEmple";
             pnlNuevoEmple.ResumeLayout(false);
-            pnlNuevoEmple.PerformLayout();
             pnlInfoLaboral.ResumeLayout(false);
             pnlInfoLaboral.PerformLayout();
             pnlInfoPersonal.ResumeLayout(false);
             pnlInfoPersonal.PerformLayout();
             pnlFoto.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)picfoto).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picNVP).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
         }
 
@@ -676,5 +966,27 @@
         private PictureBox picfoto;
         private Panel panel3;
         private Label label1;
+        private Label label14;
+        private Label label13;
+        private Label label12;
+        private Label label11;
+        private Label label10;
+        private Label label9;
+        private Label label8;
+        private Label label7;
+        private Label label6;
+        private Label label5;
+        private Label label4;
+        private Label label3;
+        private Label label2;
+        private Label lblC3;
+        private Label label15;
+        private Label label18;
+        private Label label17;
+        private Label label16;
+        private PictureBox pictureBox1;
+        private PictureBox picNVP;
+        private Panel panel1;
+        private PictureBox pictureBox2;
     }
 }

@@ -33,8 +33,13 @@ namespace Derick
 
         private void btnNuevoEmpleado_Click(object sender, EventArgs e)
         {
-            FrmInfoEmple frm = new FrmInfoEmple();  
+            FrmInfoEmple frm = new FrmInfoEmple();
             frm.ShowDialog();
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
