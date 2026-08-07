@@ -28,5 +28,10 @@ namespace Derick
                 Application.Exit();
             }
         }
+
+        private void pnl_conagg_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
