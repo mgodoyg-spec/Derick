@@ -81,8 +81,9 @@
             pnlCV.Controls.Add(pnlCVR);
             pnlCV.Dock = DockStyle.Fill;
             pnlCV.Location = new Point(0, 0);
+            pnlCV.Margin = new Padding(3, 2, 3, 2);
             pnlCV.Name = "pnlCV";
-            pnlCV.Size = new Size(1350, 751);
+            pnlCV.Size = new Size(1181, 563);
             pnlCV.TabIndex = 3;
             // 
             // pnlCVF
@@ -92,9 +93,10 @@
             pnlCVF.Controls.Add(btnCVExportar);
             pnlCVF.Controls.Add(btnCVImprimir);
             pnlCVF.Controls.Add(dgvCVF);
-            pnlCVF.Location = new Point(14, 240);
+            pnlCVF.Location = new Point(12, 180);
+            pnlCVF.Margin = new Padding(3, 2, 3, 2);
             pnlCVF.Name = "pnlCVF";
-            pnlCVF.Size = new Size(1315, 499);
+            pnlCVF.Size = new Size(1140, 374);
             pnlCVF.TabIndex = 6;
             // 
             // btnCVCerrar
@@ -102,9 +104,10 @@
             btnCVCerrar.FlatAppearance.BorderColor = Color.FromArgb(112, 34, 246);
             btnCVCerrar.FlatStyle = FlatStyle.Flat;
             btnCVCerrar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCVCerrar.Location = new Point(1129, 437);
+            btnCVCerrar.Location = new Point(988, 328);
+            btnCVCerrar.Margin = new Padding(3, 2, 3, 2);
             btnCVCerrar.Name = "btnCVCerrar";
-            btnCVCerrar.Size = new Size(145, 45);
+            btnCVCerrar.Size = new Size(127, 34);
             btnCVCerrar.TabIndex = 18;
             btnCVCerrar.Text = "Cerrar";
             btnCVCerrar.UseVisualStyleBackColor = false;
@@ -114,9 +117,10 @@
             btnCVExportar.FlatAppearance.BorderColor = Color.FromArgb(0, 176, 80);
             btnCVExportar.FlatStyle = FlatStyle.Flat;
             btnCVExportar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCVExportar.Location = new Point(946, 437);
+            btnCVExportar.Location = new Point(828, 328);
+            btnCVExportar.Margin = new Padding(3, 2, 3, 2);
             btnCVExportar.Name = "btnCVExportar";
-            btnCVExportar.Size = new Size(145, 45);
+            btnCVExportar.Size = new Size(127, 34);
             btnCVExportar.TabIndex = 17;
             btnCVExportar.Text = "Exportar";
             btnCVExportar.UseVisualStyleBackColor = false;
@@ -126,9 +130,10 @@
             btnCVImprimir.FlatAppearance.BorderColor = Color.FromArgb(0, 102, 255);
             btnCVImprimir.FlatStyle = FlatStyle.Flat;
             btnCVImprimir.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCVImprimir.Location = new Point(726, 437);
+            btnCVImprimir.Location = new Point(635, 328);
+            btnCVImprimir.Margin = new Padding(3, 2, 3, 2);
             btnCVImprimir.Name = "btnCVImprimir";
-            btnCVImprimir.Size = new Size(176, 45);
+            btnCVImprimir.Size = new Size(154, 34);
             btnCVImprimir.TabIndex = 16;
             btnCVImprimir.Text = "Imprimir factura";
             btnCVImprimir.UseVisualStyleBackColor = false;
@@ -145,14 +150,15 @@
             dgvCVF.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dgvCVF.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvCVF.Columns.AddRange(new DataGridViewColumn[] { colCodigo, colFecha, colHora, colVendedor, colSucursal, colSubtotal, colDescuento, colTotal, colEstado, colAcciones });
-            dgvCVF.Location = new Point(19, 17);
+            dgvCVF.Location = new Point(17, 13);
+            dgvCVF.Margin = new Padding(3, 2, 3, 2);
             dgvCVF.MultiSelect = false;
             dgvCVF.Name = "dgvCVF";
             dgvCVF.ReadOnly = true;
             dgvCVF.RowHeadersVisible = false;
             dgvCVF.RowHeadersWidth = 51;
             dgvCVF.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvCVF.Size = new Size(1273, 403);
+            dgvCVF.Size = new Size(1098, 302);
             dgvCVF.TabIndex = 15;
             // 
             // colCodigo
@@ -230,9 +236,9 @@
             lblCVR.AutoSize = true;
             lblCVR.BackColor = Color.White;
             lblCVR.Font = new Font("Calibri", 11.25F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            lblCVR.Location = new Point(79, 44);
+            lblCVR.Location = new Point(69, 33);
             lblCVR.Name = "lblCVR";
-            lblCVR.Size = new Size(409, 23);
+            lblCVR.Size = new Size(326, 18);
             lblCVR.TabIndex = 3;
             lblCVR.Text = "Busca y consulta las ventas registradas en el sistema";
             // 
@@ -240,9 +246,10 @@
             // 
             pic_agg1.BackColor = Color.White;
             pic_agg1.Image = (Image)resources.GetObject("pic_agg1.Image");
-            pic_agg1.Location = new Point(26, 20);
+            pic_agg1.Location = new Point(23, 15);
+            pic_agg1.Margin = new Padding(3, 2, 3, 2);
             pic_agg1.Name = "pic_agg1";
-            pic_agg1.Size = new Size(48, 31);
+            pic_agg1.Size = new Size(42, 23);
             pic_agg1.SizeMode = PictureBoxSizeMode.StretchImage;
             pic_agg1.TabIndex = 2;
             pic_agg1.TabStop = false;
@@ -253,9 +260,9 @@
             lblCV.BackColor = Color.White;
             lblCV.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblCV.ImageAlign = ContentAlignment.MiddleLeft;
-            lblCV.Location = new Point(79, 12);
+            lblCV.Location = new Point(69, 9);
             lblCV.Name = "lblCV";
-            lblCV.Size = new Size(373, 29);
+            lblCV.Size = new Size(297, 24);
             lblCV.TabIndex = 1;
             lblCV.Text = "Consultar e Historial de Ventas";
             lblCV.TextAlign = ContentAlignment.MiddleCenter;
@@ -275,9 +282,10 @@
             pnlCVinfo.Controls.Add(lblC2);
             pnlCVinfo.Controls.Add(lblC1);
             pnlCVinfo.Controls.Add(lblCVfechaDesde);
-            pnlCVinfo.Location = new Point(12, 94);
+            pnlCVinfo.Location = new Point(10, 70);
+            pnlCVinfo.Margin = new Padding(3, 2, 3, 2);
             pnlCVinfo.Name = "pnlCVinfo";
-            pnlCVinfo.Size = new Size(1317, 120);
+            pnlCVinfo.Size = new Size(1142, 90);
             pnlCVinfo.TabIndex = 0;
             // 
             // btnCVLimpiar
@@ -285,9 +293,10 @@
             btnCVLimpiar.FlatAppearance.BorderColor = Color.FromArgb(255, 136, 0);
             btnCVLimpiar.FlatStyle = FlatStyle.Flat;
             btnCVLimpiar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCVLimpiar.Location = new Point(1112, 39);
+            btnCVLimpiar.Location = new Point(973, 29);
+            btnCVLimpiar.Margin = new Padding(3, 2, 3, 2);
             btnCVLimpiar.Name = "btnCVLimpiar";
-            btnCVLimpiar.Size = new Size(145, 45);
+            btnCVLimpiar.Size = new Size(127, 34);
             btnCVLimpiar.TabIndex = 40;
             btnCVLimpiar.Text = "Limpiar";
             btnCVLimpiar.UseVisualStyleBackColor = false;
@@ -296,9 +305,10 @@
             // 
             btnCVBuscar.BackColor = Color.FromArgb(255, 136, 0);
             btnCVBuscar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCVBuscar.Location = new Point(900, 39);
+            btnCVBuscar.Location = new Point(788, 29);
+            btnCVBuscar.Margin = new Padding(3, 2, 3, 2);
             btnCVBuscar.Name = "btnCVBuscar";
-            btnCVBuscar.Size = new Size(145, 45);
+            btnCVBuscar.Size = new Size(127, 34);
             btnCVBuscar.TabIndex = 39;
             btnCVBuscar.Text = "Buscar";
             btnCVBuscar.UseVisualStyleBackColor = false;
@@ -307,27 +317,29 @@
             // 
             dtpCVFechaHasta.CustomFormat = "dd/MM/yyyy";
             dtpCVFechaHasta.Format = DateTimePickerFormat.Custom;
-            dtpCVFechaHasta.Location = new Point(267, 47);
+            dtpCVFechaHasta.Location = new Point(234, 35);
+            dtpCVFechaHasta.Margin = new Padding(3, 2, 3, 2);
             dtpCVFechaHasta.Name = "dtpCVFechaHasta";
-            dtpCVFechaHasta.Size = new Size(165, 27);
+            dtpCVFechaHasta.Size = new Size(145, 23);
             dtpCVFechaHasta.TabIndex = 38;
             // 
             // lblCVfechaHasta
             // 
             lblCVfechaHasta.AutoSize = true;
             lblCVfechaHasta.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblCVfechaHasta.Location = new Point(267, 21);
+            lblCVfechaHasta.Location = new Point(234, 16);
             lblCVfechaHasta.Name = "lblCVfechaHasta";
-            lblCVfechaHasta.Size = new Size(109, 22);
+            lblCVfechaHasta.Size = new Size(89, 18);
             lblCVfechaHasta.TabIndex = 37;
             lblCVfechaHasta.Text = "Fecha hasta";
             // 
             // cbCVEstado
             // 
             cbCVEstado.FormattingEnabled = true;
-            cbCVEstado.Location = new Point(545, 49);
+            cbCVEstado.Location = new Point(477, 37);
+            cbCVEstado.Margin = new Padding(3, 2, 3, 2);
             cbCVEstado.Name = "cbCVEstado";
-            cbCVEstado.Size = new Size(245, 28);
+            cbCVEstado.Size = new Size(215, 23);
             cbCVEstado.TabIndex = 31;
             // 
             // lblC3
@@ -335,9 +347,9 @@
             lblC3.AutoSize = true;
             lblC3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblC3.ForeColor = Color.Red;
-            lblC3.Location = new Point(604, 21);
+            lblC3.Location = new Point(528, 16);
             lblC3.Name = "lblC3";
-            lblC3.Size = new Size(21, 25);
+            lblC3.Size = new Size(16, 20);
             lblC3.TabIndex = 30;
             lblC3.Text = "*";
             // 
@@ -345,9 +357,9 @@
             // 
             lblCVEstado.AutoSize = true;
             lblCVEstado.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblCVEstado.Location = new Point(545, 22);
+            lblCVEstado.Location = new Point(477, 16);
             lblCVEstado.Name = "lblCVEstado";
-            lblCVEstado.Size = new Size(66, 22);
+            lblCVEstado.Size = new Size(55, 18);
             lblCVEstado.TabIndex = 29;
             lblCVEstado.Text = "Estado";
             // 
@@ -355,9 +367,10 @@
             // 
             dtpCVDesde.CustomFormat = "dd/MM/yyyy";
             dtpCVDesde.Format = DateTimePickerFormat.Custom;
-            dtpCVDesde.Location = new Point(18, 47);
+            dtpCVDesde.Location = new Point(16, 35);
+            dtpCVDesde.Margin = new Padding(3, 2, 3, 2);
             dtpCVDesde.Name = "dtpCVDesde";
-            dtpCVDesde.Size = new Size(165, 27);
+            dtpCVDesde.Size = new Size(145, 23);
             dtpCVDesde.TabIndex = 27;
             // 
             // lblC2
@@ -365,9 +378,9 @@
             lblC2.AutoSize = true;
             lblC2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblC2.ForeColor = Color.Red;
-            lblC2.Location = new Point(370, 19);
+            lblC2.Location = new Point(324, 14);
             lblC2.Name = "lblC2";
-            lblC2.Size = new Size(21, 25);
+            lblC2.Size = new Size(16, 20);
             lblC2.TabIndex = 10;
             lblC2.Text = "*";
             // 
@@ -376,9 +389,9 @@
             lblC1.AutoSize = true;
             lblC1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblC1.ForeColor = Color.Red;
-            lblC1.Location = new Point(125, 19);
+            lblC1.Location = new Point(109, 14);
             lblC1.Name = "lblC1";
-            lblC1.Size = new Size(21, 25);
+            lblC1.Size = new Size(16, 20);
             lblC1.TabIndex = 6;
             lblC1.Text = "*";
             // 
@@ -386,9 +399,9 @@
             // 
             lblCVfechaDesde.AutoSize = true;
             lblCVfechaDesde.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblCVfechaDesde.Location = new Point(18, 21);
+            lblCVfechaDesde.Location = new Point(16, 16);
             lblCVfechaDesde.Name = "lblCVfechaDesde";
-            lblCVfechaDesde.Size = new Size(114, 22);
+            lblCVfechaDesde.Size = new Size(93, 18);
             lblCVfechaDesde.TabIndex = 5;
             lblCVfechaDesde.Text = "Fecha desde";
             // 
@@ -396,10 +409,9 @@
             // 
             pnlCVR.BackColor = Color.White;
             pnlCVR.Controls.Add(lblSalirCV);
-            pnlCVR.Location = new Point(14, 4);
-            pnlCVR.Margin = new Padding(3, 4, 3, 4);
+            pnlCVR.Location = new Point(12, 3);
             pnlCVR.Name = "pnlCVR";
-            pnlCVR.Size = new Size(1315, 72);
+            pnlCVR.Size = new Size(1140, 54);
             pnlCVR.TabIndex = 22;
             // 
             // lblSalirCV
@@ -409,20 +421,21 @@
             lblSalirCV.Cursor = Cursors.Hand;
             lblSalirCV.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSalirCV.ForeColor = Color.Red;
-            lblSalirCV.Location = new Point(1283, 16);
+            lblSalirCV.Location = new Point(1106, 12);
             lblSalirCV.Name = "lblSalirCV";
-            lblSalirCV.Size = new Size(31, 29);
+            lblSalirCV.Size = new Size(25, 24);
             lblSalirCV.TabIndex = 21;
             lblSalirCV.Text = "X";
             lblSalirCV.Click += lblSalirCV_Click;
             // 
             // FrmConsultarVenta
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1350, 751);
+            ClientSize = new Size(1181, 563);
             Controls.Add(pnlCV);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FrmConsultarVenta";
             Text = "FrmConsultarVenta";
             pnlCV.ResumeLayout(false);
