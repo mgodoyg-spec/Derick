@@ -155,7 +155,7 @@
             lblSalirV.ForeColor = Color.Red;
             lblSalirV.Location = new Point(1116, 7);
             lblSalirV.Name = "lblSalirV";
-            lblSalirV.Size = new Size(25, 24);
+            lblSalirV.Size = new Size(31, 29);
             lblSalirV.TabIndex = 28;
             lblSalirV.Text = "X";
             lblSalirV.Click += lblSalirV_Click;
@@ -216,7 +216,7 @@
             label9.ForeColor = Color.Red;
             label9.Location = new Point(728, 125);
             label9.Name = "label9";
-            label9.Size = new Size(19, 23);
+            label9.Size = new Size(25, 29);
             label9.TabIndex = 36;
             label9.Text = "*";
             // 
@@ -227,7 +227,7 @@
             label10.ForeColor = Color.Black;
             label10.Location = new Point(5, 8);
             label10.Name = "label10";
-            label10.Size = new Size(167, 23);
+            label10.Size = new Size(212, 29);
             label10.TabIndex = 37;
             label10.Text = "Datos de la sucursal";
             // 
@@ -278,7 +278,7 @@
             label6.ForeColor = Color.DimGray;
             label6.Location = new Point(5, 31);
             label6.Name = "label6";
-            label6.Size = new Size(166, 15);
+            label6.Size = new Size(221, 21);
             label6.TabIndex = 36;
             label6.Text = "Los campos * son obligatorios";
             // 
@@ -289,7 +289,7 @@
             label5.ForeColor = Color.Red;
             label5.Location = new Point(752, 51);
             label5.Name = "label5";
-            label5.Size = new Size(19, 23);
+            label5.Size = new Size(25, 29);
             label5.TabIndex = 35;
             label5.Text = "*";
             // 
@@ -300,7 +300,7 @@
             lblestado.ForeColor = Color.Black;
             lblestado.Location = new Point(572, 128);
             lblestado.Name = "lblestado";
-            lblestado.Size = new Size(155, 19);
+            lblestado.Size = new Size(192, 24);
             lblestado.TabIndex = 19;
             lblestado.Text = "Estado de la sucursal:";
             // 
@@ -311,7 +311,7 @@
             cbxEstadoSucursal.Items.AddRange(new object[] { "Activa", "Inactiva", "Remodelación" });
             cbxEstadoSucursal.Location = new Point(530, 157);
             cbxEstadoSucursal.Name = "cbxEstadoSucursal";
-            cbxEstadoSucursal.Size = new Size(260, 31);
+            cbxEstadoSucursal.Size = new Size(260, 37);
             cbxEstadoSucursal.TabIndex = 14;
             // 
             // label4
@@ -321,7 +321,7 @@
             label4.ForeColor = Color.Red;
             label4.Location = new Point(118, 128);
             label4.Name = "label4";
-            label4.Size = new Size(19, 23);
+            label4.Size = new Size(25, 29);
             label4.TabIndex = 34;
             label4.Text = "*";
             // 
@@ -332,7 +332,7 @@
             label3.ForeColor = Color.Red;
             label3.Location = new Point(379, 125);
             label3.Name = "label3";
-            label3.Size = new Size(19, 23);
+            label3.Size = new Size(25, 29);
             label3.TabIndex = 33;
             label3.Text = "*";
             // 
@@ -343,7 +343,7 @@
             label2.ForeColor = Color.Red;
             label2.Location = new Point(363, 55);
             label2.Name = "label2";
-            label2.Size = new Size(19, 23);
+            label2.Size = new Size(25, 29);
             label2.TabIndex = 32;
             label2.Text = "*";
             // 
@@ -354,7 +354,7 @@
             label1.ForeColor = Color.Red;
             label1.Location = new Point(215, 57);
             label1.Name = "label1";
-            label1.Size = new Size(19, 23);
+            label1.Size = new Size(25, 29);
             label1.TabIndex = 31;
             label1.Text = "*";
             // 
@@ -424,7 +424,7 @@
             cbxEncargadoSucursal.FormattingEnabled = true;
             cbxEncargadoSucursal.Location = new Point(530, 84);
             cbxEncargadoSucursal.Name = "cbxEncargadoSucursal";
-            cbxEncargadoSucursal.Size = new Size(254, 31);
+            cbxEncargadoSucursal.Size = new Size(254, 37);
             cbxEncargadoSucursal.TabIndex = 22;
             // 
             // lblEncargadoSucursal
@@ -434,7 +434,7 @@
             lblEncargadoSucursal.ForeColor = Color.Black;
             lblEncargadoSucursal.Location = new Point(572, 55);
             lblEncargadoSucursal.Name = "lblEncargadoSucursal";
-            lblEncargadoSucursal.Size = new Size(181, 19);
+            lblEncargadoSucursal.Size = new Size(222, 24);
             lblEncargadoSucursal.TabIndex = 11;
             lblEncargadoSucursal.Text = "Encargado de la sucursal:";
             // 
@@ -443,7 +443,7 @@
             txtCorreoSucursal.Font = new Font("Calibri", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtCorreoSucursal.Location = new Point(15, 232);
             txtCorreoSucursal.Name = "txtCorreoSucursal";
-            txtCorreoSucursal.Size = new Size(219, 31);
+            txtCorreoSucursal.Size = new Size(219, 36);
             txtCorreoSucursal.TabIndex = 10;
             // 
             // lblCorreo
@@ -453,7 +453,7 @@
             lblCorreo.ForeColor = Color.Black;
             lblCorreo.Location = new Point(50, 204);
             lblCorreo.Name = "lblCorreo";
-            lblCorreo.Size = new Size(140, 19);
+            lblCorreo.Size = new Size(171, 24);
             lblCorreo.TabIndex = 9;
             lblCorreo.Text = "Correo electrónico:";
             // 
@@ -463,7 +463,7 @@
             txtTelefonoSucursal.Location = new Point(17, 153);
             txtTelefonoSucursal.MaxLength = 10;
             txtTelefonoSucursal.Name = "txtTelefonoSucursal";
-            txtTelefonoSucursal.Size = new Size(217, 31);
+            txtTelefonoSucursal.Size = new Size(217, 36);
             txtTelefonoSucursal.TabIndex = 8;
             // 
             // lbltelefono
@@ -473,7 +473,7 @@
             lbltelefono.ForeColor = Color.Black;
             lbltelefono.Location = new Point(50, 131);
             lbltelefono.Name = "lbltelefono";
-            lbltelefono.Size = new Size(76, 19);
+            lbltelefono.Size = new Size(93, 24);
             lbltelefono.TabIndex = 7;
             lbltelefono.Text = "Teléfono: ";
             // 
@@ -482,7 +482,7 @@
             txtDireccionSucursal.Font = new Font("Calibri", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtDireccionSucursal.Location = new Point(265, 153);
             txtDireccionSucursal.Name = "txtDireccionSucursal";
-            txtDireccionSucursal.Size = new Size(223, 31);
+            txtDireccionSucursal.Size = new Size(223, 36);
             txtDireccionSucursal.TabIndex = 6;
             // 
             // lblDireccion
@@ -492,7 +492,7 @@
             lblDireccion.ForeColor = Color.Black;
             lblDireccion.Location = new Point(308, 128);
             lblDireccion.Name = "lblDireccion";
-            lblDireccion.Size = new Size(77, 19);
+            lblDireccion.Size = new Size(94, 24);
             lblDireccion.TabIndex = 5;
             lblDireccion.Text = "Dirección:";
             // 
@@ -501,7 +501,7 @@
             txtCiudadSucursal.Font = new Font("Calibri", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtCiudadSucursal.Location = new Point(265, 82);
             txtCiudadSucursal.Name = "txtCiudadSucursal";
-            txtCiudadSucursal.Size = new Size(217, 31);
+            txtCiudadSucursal.Size = new Size(217, 36);
             txtCiudadSucursal.TabIndex = 4;
             // 
             // lblCiudad
@@ -511,7 +511,7 @@
             lblCiudad.ForeColor = Color.Black;
             lblCiudad.Location = new Point(307, 58);
             lblCiudad.Name = "lblCiudad";
-            lblCiudad.Size = new Size(60, 19);
+            lblCiudad.Size = new Size(75, 24);
             lblCiudad.TabIndex = 3;
             lblCiudad.Text = "Ciudad:";
             // 
@@ -520,7 +520,7 @@
             txtNombreSucursal.Font = new Font("Calibri", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtNombreSucursal.Location = new Point(15, 82);
             txtNombreSucursal.Name = "txtNombreSucursal";
-            txtNombreSucursal.Size = new Size(219, 31);
+            txtNombreSucursal.Size = new Size(219, 36);
             txtNombreSucursal.TabIndex = 2;
             // 
             // lblNombreSucursal
@@ -530,7 +530,7 @@
             lblNombreSucursal.ForeColor = Color.Black;
             lblNombreSucursal.Location = new Point(48, 60);
             lblNombreSucursal.Name = "lblNombreSucursal";
-            lblNombreSucursal.Size = new Size(165, 19);
+            lblNombreSucursal.Size = new Size(203, 24);
             lblNombreSucursal.TabIndex = 1;
             lblNombreSucursal.Text = "Nombre de la sucursal:";
             // 
@@ -556,7 +556,7 @@
             lblSeleccionarImag.ForeColor = Color.Black;
             lblSeleccionarImag.Location = new Point(60, 163);
             lblSeleccionarImag.Name = "lblSeleccionarImag";
-            lblSeleccionarImag.Size = new Size(159, 19);
+            lblSeleccionarImag.Size = new Size(189, 24);
             lblSeleccionarImag.TabIndex = 21;
             lblSeleccionarImag.Text = "Seleccione una imagen";
             // 
@@ -595,7 +595,7 @@
             lblImagenSuc.ForeColor = Color.Black;
             lblImagenSuc.Location = new Point(3, 9);
             lblImagenSuc.Name = "lblImagenSuc";
-            lblImagenSuc.Size = new Size(179, 23);
+            lblImagenSuc.Size = new Size(228, 29);
             lblImagenSuc.TabIndex = 18;
             lblImagenSuc.Text = "Imagen de la sucursal";
             // 
@@ -644,7 +644,7 @@
             lblInformacionSuc.ForeColor = Color.FromArgb(4, 59, 186);
             lblInformacionSuc.Location = new Point(43, 5);
             lblInformacionSuc.Name = "lblInformacionSuc";
-            lblInformacionSuc.Size = new Size(184, 26);
+            lblInformacionSuc.Size = new Size(240, 33);
             lblInformacionSuc.TabIndex = 18;
             lblInformacionSuc.Text = "Registro de sucursal";
             // 
@@ -681,7 +681,7 @@
             lblSucReg.Font = new Font("Calibri", 14F, FontStyle.Bold);
             lblSucReg.Location = new Point(475, 91);
             lblSucReg.Name = "lblSucReg";
-            lblSucReg.Size = new Size(187, 23);
+            lblSucReg.Size = new Size(235, 29);
             lblSucReg.TabIndex = 27;
             lblSucReg.Text = "Sucursales registradas";
             // 
@@ -693,7 +693,7 @@
             lblBuscarSucursal.ForeColor = Color.FromArgb(13, 154, 64);
             lblBuscarSucursal.Location = new Point(56, 0);
             lblBuscarSucursal.Name = "lblBuscarSucursal";
-            lblBuscarSucursal.Size = new Size(143, 26);
+            lblBuscarSucursal.Size = new Size(186, 33);
             lblBuscarSucursal.TabIndex = 27;
             lblBuscarSucursal.Text = "Buscar sucursal";
             // 
@@ -735,7 +735,7 @@
             txtBuscar.Location = new Point(29, 8);
             txtBuscar.Margin = new Padding(4);
             txtBuscar.Name = "txtBuscar";
-            txtBuscar.Size = new Size(330, 27);
+            txtBuscar.Size = new Size(330, 32);
             txtBuscar.TabIndex = 0;
             txtBuscar.Text = "Buscar";
             // 
@@ -746,7 +746,7 @@
             label8.ForeColor = Color.Black;
             label8.Location = new Point(366, 12);
             label8.Name = "label8";
-            label8.Size = new Size(60, 19);
+            label8.Size = new Size(75, 24);
             label8.TabIndex = 4;
             label8.Text = "Ciudad:";
             // 
@@ -756,7 +756,7 @@
             cbxCiudad.FormattingEnabled = true;
             cbxCiudad.Location = new Point(432, 6);
             cbxCiudad.Name = "cbxCiudad";
-            cbxCiudad.Size = new Size(121, 31);
+            cbxCiudad.Size = new Size(121, 37);
             cbxCiudad.TabIndex = 1;
             // 
             // btnBuscar
@@ -782,7 +782,7 @@
             label7.ForeColor = Color.Black;
             label7.Location = new Point(570, 12);
             label7.Name = "label7";
-            label7.Size = new Size(59, 19);
+            label7.Size = new Size(73, 24);
             label7.TabIndex = 20;
             label7.Text = "Estado:";
             // 
@@ -792,7 +792,7 @@
             cbxEstado.FormattingEnabled = true;
             cbxEstado.Location = new Point(635, 4);
             cbxEstado.Name = "cbxEstado";
-            cbxEstado.Size = new Size(121, 31);
+            cbxEstado.Size = new Size(121, 37);
             cbxEstado.TabIndex = 2;
             // 
             // pbxBuscarSucursal
@@ -812,6 +812,7 @@
             dgvSucursales.Columns.AddRange(new DataGridViewColumn[] { clCodigo, clFechaRegistro, clNombreSucursal, clCiudad, clDireccion, clTelefono, clEncargado, clEstado, clEditar, clUbicacion, clVer });
             dgvSucursales.Location = new Point(7, 117);
             dgvSucursales.Name = "dgvSucursales";
+            dgvSucursales.RowHeadersWidth = 51;
             dgvSucursales.Size = new Size(1110, 200);
             dgvSucursales.TabIndex = 22;
             dgvSucursales.CellClick += dgvSucursales_CellClick;
@@ -819,73 +820,95 @@
             // clCodigo
             // 
             clCodigo.HeaderText = "Código";
+            clCodigo.MinimumWidth = 6;
             clCodigo.Name = "clCodigo";
             clCodigo.ReadOnly = true;
+            clCodigo.Width = 125;
             // 
             // clFechaRegistro
             // 
             clFechaRegistro.HeaderText = "Fecha de registro";
+            clFechaRegistro.MinimumWidth = 6;
             clFechaRegistro.Name = "clFechaRegistro";
+            clFechaRegistro.Width = 125;
             // 
             // clNombreSucursal
             // 
             clNombreSucursal.HeaderText = "Nombre de la sucursal";
+            clNombreSucursal.MinimumWidth = 6;
             clNombreSucursal.Name = "clNombreSucursal";
             clNombreSucursal.ReadOnly = true;
+            clNombreSucursal.Width = 125;
             // 
             // clCiudad
             // 
             clCiudad.HeaderText = "Ciudad";
+            clCiudad.MinimumWidth = 6;
             clCiudad.Name = "clCiudad";
             clCiudad.ReadOnly = true;
+            clCiudad.Width = 125;
             // 
             // clDireccion
             // 
             clDireccion.HeaderText = "Dirección";
+            clDireccion.MinimumWidth = 6;
             clDireccion.Name = "clDireccion";
             clDireccion.ReadOnly = true;
+            clDireccion.Width = 125;
             // 
             // clTelefono
             // 
             clTelefono.HeaderText = "Teléfono";
+            clTelefono.MinimumWidth = 6;
             clTelefono.Name = "clTelefono";
             clTelefono.ReadOnly = true;
+            clTelefono.Width = 125;
             // 
             // clEncargado
             // 
             clEncargado.HeaderText = "Encargado";
+            clEncargado.MinimumWidth = 6;
             clEncargado.Name = "clEncargado";
+            clEncargado.Width = 125;
             // 
             // clEstado
             // 
             clEstado.HeaderText = "Estado";
+            clEstado.MinimumWidth = 6;
             clEstado.Name = "clEstado";
             clEstado.ReadOnly = true;
+            clEstado.Width = 125;
             // 
             // clEditar
             // 
             clEditar.HeaderText = "Editar";
+            clEditar.MinimumWidth = 6;
             clEditar.Name = "clEditar";
             clEditar.ReadOnly = true;
             clEditar.Resizable = DataGridViewTriState.True;
             clEditar.SortMode = DataGridViewColumnSortMode.Automatic;
+            clEditar.Width = 125;
             // 
             // clUbicacion
             // 
             clUbicacion.HeaderText = "Ubicación";
+            clUbicacion.MinimumWidth = 6;
             clUbicacion.Name = "clUbicacion";
             clUbicacion.Resizable = DataGridViewTriState.True;
             clUbicacion.ToolTipText = "📍";
+            clUbicacion.Width = 125;
             // 
             // clVer
             // 
             clVer.HeaderText = "Ver más";
+            clVer.MinimumWidth = 6;
             clVer.Name = "clVer";
             clVer.Resizable = DataGridViewTriState.True;
+            clVer.Width = 125;
             // 
             // frmSucursales
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(9F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(244, 246, 249);
             ClientSize = new Size(1186, 651);
