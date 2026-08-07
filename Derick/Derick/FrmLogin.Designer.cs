@@ -109,7 +109,7 @@
             pnlLogin.Controls.Add(lblTitulo);
             pnlLogin.Controls.Add(pictureBox2);
             pnlLogin.Dock = DockStyle.Fill;
-            pnlLogin.Font = new Font("Montserrat", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            pnlLogin.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             pnlLogin.Location = new Point(470, 0);
             pnlLogin.Name = "pnlLogin";
             pnlLogin.Size = new Size(730, 700);
@@ -134,17 +134,17 @@
             lblfinal.ForeColor = SystemColors.AppWorkspace;
             lblfinal.Location = new Point(274, 559);
             lblfinal.Name = "lblfinal";
-            lblfinal.Size = new Size(222, 48);
+            lblfinal.Size = new Size(212, 36);
             lblfinal.TabIndex = 13;
             lblfinal.Text = "      DERICK © 2026 · v1.0\r\nSistema de Gestión Interna";
             // 
             // lnlblRecContra
             // 
             lnlblRecContra.AutoSize = true;
-            lnlblRecContra.Font = new Font("Montserrat", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lnlblRecContra.Font = new Font("Microsoft Sans Serif", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lnlblRecContra.Location = new Point(422, 427);
             lnlblRecContra.Name = "lnlblRecContra";
-            lnlblRecContra.Size = new Size(167, 18);
+            lnlblRecContra.Size = new Size(173, 15);
             lnlblRecContra.TabIndex = 12;
             lnlblRecContra.TabStop = true;
             lnlblRecContra.Text = "¿Olvidaste tu contraseña?";
@@ -179,7 +179,7 @@
             txtcontrasena.Location = new Point(236, 398);
             txtcontrasena.MaxLength = 15;
             txtcontrasena.Name = "txtcontrasena";
-            txtcontrasena.Size = new Size(353, 26);
+            txtcontrasena.Size = new Size(353, 24);
             txtcontrasena.TabIndex = 9;
             txtcontrasena.UseSystemPasswordChar = true;
             // 
@@ -198,7 +198,7 @@
             lblcontraseña.AutoSize = true;
             lblcontraseña.Location = new Point(236, 357);
             lblcontraseña.Name = "lblcontraseña";
-            lblcontraseña.Size = new Size(120, 24);
+            lblcontraseña.Size = new Size(121, 18);
             lblcontraseña.TabIndex = 7;
             lblcontraseña.Text = "CONTRASEÑA";
             // 
@@ -228,7 +228,7 @@
             txtusuario.Location = new Point(236, 284);
             txtusuario.MaxLength = 15;
             txtusuario.Name = "txtusuario";
-            txtusuario.Size = new Size(353, 26);
+            txtusuario.Size = new Size(353, 24);
             txtusuario.TabIndex = 4;
             // 
             // lblusuario
@@ -236,7 +236,7 @@
             lblusuario.AutoSize = true;
             lblusuario.Location = new Point(236, 247);
             lblusuario.Name = "lblusuario";
-            lblusuario.Size = new Size(84, 24);
+            lblusuario.Size = new Size(82, 18);
             lblusuario.TabIndex = 3;
             lblusuario.Text = "USUARIO";
             // 
@@ -254,10 +254,10 @@
             // lblTitulo
             // 
             lblTitulo.AutoSize = true;
-            lblTitulo.Font = new Font("Montserrat ExtraBold", 35.9999962F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitulo.Font = new Font("Microsoft Sans Serif", 35.9999962F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitulo.Location = new Point(274, 155);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(227, 75);
+            lblTitulo.Size = new Size(212, 55);
             lblTitulo.TabIndex = 1;
             lblTitulo.Text = "DERICK";
             // 
@@ -282,7 +282,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
-            MinimumSize = new Size(1200, 700);
+            MinimumSize = new Size(1194, 538);
             Name = "frmLogin";
             StartPosition = FormStartPosition.CenterScreen;
             pnlImagen.ResumeLayout(false);

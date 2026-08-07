@@ -8,12 +8,11 @@ using System.Windows.Forms;
 
 namespace Derick
 {
-    public partial class FormAgg_Product : Form
+    public partial class FrmInicioE : Form
     {
-        public FormAgg_Product()
+        public FrmInicioE()
         {
             InitializeComponent();
-
         }
     }
 }
