@@ -138,7 +138,7 @@
             panel2.Controls.Add(textBox1);
             panel2.Controls.Add(label11);
             panel2.Controls.Add(pictureBox3);
-            panel2.Location = new Point(520, 194);
+            panel2.Location = new Point(509, 194);
             panel2.Margin = new Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
             panel2.Size = new Size(643, 146);
@@ -197,7 +197,7 @@
             panel7.Location = new Point(12, 344);
             panel7.Margin = new Padding(3, 2, 3, 2);
             panel7.Name = "panel7";
-            panel7.Size = new Size(1151, 340);
+            panel7.Size = new Size(1140, 340);
             panel7.TabIndex = 6;
             // 
             // comboBox2
@@ -250,7 +250,7 @@
             button5.Cursor = Cursors.Hand;
             button5.FlatAppearance.BorderColor = Color.LightGray;
             button5.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold);
-            button5.Location = new Point(1125, 215);
+            button5.Location = new Point(1051, 215);
             button5.Margin = new Padding(3, 2, 3, 2);
             button5.Name = "button5";
             button5.Size = new Size(31, 26);
@@ -266,7 +266,7 @@
             button4.FlatStyle = FlatStyle.Flat;
             button4.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold);
             button4.ForeColor = Color.White;
-            button4.Location = new Point(1073, 215);
+            button4.Location = new Point(1005, 210);
             button4.Margin = new Padding(3, 2, 3, 2);
             button4.Name = "button4";
             button4.Size = new Size(31, 26);
@@ -279,7 +279,7 @@
             button3.Cursor = Cursors.Hand;
             button3.FlatAppearance.BorderColor = Color.LightGray;
             button3.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold);
-            button3.Location = new Point(1021, 215);
+            button3.Location = new Point(957, 215);
             button3.Margin = new Padding(3, 2, 3, 2);
             button3.Name = "button3";
             button3.Size = new Size(31, 26);
@@ -292,7 +292,7 @@
             button2.Cursor = Cursors.Hand;
             button2.FlatAppearance.BorderColor = Color.LightGray;
             button2.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold);
-            button2.Location = new Point(985, 215);
+            button2.Location = new Point(920, 215);
             button2.Margin = new Padding(3, 2, 3, 2);
             button2.Name = "button2";
             button2.Size = new Size(31, 26);
@@ -320,7 +320,7 @@
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(1105, 95);
+            dataGridView1.Size = new Size(1085, 95);
             dataGridView1.TabIndex = 15;
             // 
             // c1
@@ -412,7 +412,7 @@
             panel1.Controls.Add(label2);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label3);
-            panel1.Location = new Point(520, 62);
+            panel1.Location = new Point(509, 62);
             panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
             panel1.Size = new Size(643, 124);
@@ -883,7 +883,7 @@
             panel3.Controls.Add(lblSalir);
             panel3.Location = new Point(12, 3);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1151, 54);
+            panel3.Size = new Size(1140, 54);
             panel3.TabIndex = 22;
             // 
             // lblSalir
@@ -893,7 +893,7 @@
             lblSalir.Cursor = Cursors.Hand;
             lblSalir.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSalir.ForeColor = Color.Red;
-            lblSalir.Location = new Point(1123, 12);
+            lblSalir.Location = new Point(1112, 12);
             lblSalir.Name = "lblSalir";
             lblSalir.Size = new Size(25, 24);
             lblSalir.TabIndex = 21;

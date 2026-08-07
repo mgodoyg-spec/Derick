@@ -1,6 +1,6 @@
 ﻿namespace Derick
 {
-    partial class FrmNuevoEmpleado
+    partial class FrmInfoEmple
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             pnlNuevoEmple = new Panel();
-            btnVolver = new Button();
             btnCancelar = new Button();
             btnGuardar = new Button();
             pnlInfoLaboral = new Panel();
@@ -79,7 +78,6 @@
             picfoto = new PictureBox();
             panel3 = new Panel();
             label1 = new Label();
-            ofdImagen = new OpenFileDialog();
             pnlNuevoEmple.SuspendLayout();
             pnlInfoLaboral.SuspendLayout();
             pnlInfoPersonal.SuspendLayout();
@@ -90,7 +88,6 @@
             // pnlNuevoEmple
             // 
             pnlNuevoEmple.BackColor = Color.White;
-            pnlNuevoEmple.Controls.Add(btnVolver);
             pnlNuevoEmple.Controls.Add(btnCancelar);
             pnlNuevoEmple.Controls.Add(btnGuardar);
             pnlNuevoEmple.Controls.Add(pnlInfoLaboral);
@@ -101,44 +98,30 @@
             pnlNuevoEmple.Dock = DockStyle.Fill;
             pnlNuevoEmple.Location = new Point(0, 0);
             pnlNuevoEmple.Name = "pnlNuevoEmple";
-            pnlNuevoEmple.Size = new Size(1353, 821);
-            pnlNuevoEmple.TabIndex = 0;
-            // 
-            // btnVolver
-            // 
-            btnVolver.FlatStyle = FlatStyle.System;
-            btnVolver.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnVolver.Location = new Point(1129, 12);
-            btnVolver.Name = "btnVolver";
-            btnVolver.Size = new Size(117, 43);
-            btnVolver.TabIndex = 28;
-            btnVolver.Text = "Volver";
-            btnVolver.UseVisualStyleBackColor = true;
-            btnVolver.Click += btnVolver_Click;
+            pnlNuevoEmple.Size = new Size(1186, 700);
+            pnlNuevoEmple.TabIndex = 1;
             // 
             // btnCancelar
             // 
             btnCancelar.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCancelar.Location = new Point(803, 660);
+            btnCancelar.Location = new Point(697, 644);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(213, 53);
             btnCancelar.TabIndex = 14;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
-            btnCancelar.Click += btnCancelar_Click;
             // 
             // btnGuardar
             // 
             btnGuardar.BackColor = Color.Purple;
             btnGuardar.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnGuardar.ForeColor = Color.White;
-            btnGuardar.Location = new Point(1033, 660);
+            btnGuardar.Location = new Point(931, 644);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(213, 53);
             btnGuardar.TabIndex = 13;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = false;
-            btnGuardar.Click += btnGuardar_Click;
             // 
             // pnlInfoLaboral
             // 
@@ -162,9 +145,9 @@
             pnlInfoLaboral.Controls.Add(lblDepartamento);
             pnlInfoLaboral.Controls.Add(lblCargo);
             pnlInfoLaboral.Controls.Add(lblInfoLaboral);
-            pnlInfoLaboral.Location = new Point(773, 61);
+            pnlInfoLaboral.Location = new Point(694, 59);
             pnlInfoLaboral.Name = "pnlInfoLaboral";
-            pnlInfoLaboral.Size = new Size(473, 579);
+            pnlInfoLaboral.Size = new Size(459, 579);
             pnlInfoLaboral.TabIndex = 12;
             // 
             // txtObservaciones
@@ -173,7 +156,7 @@
             txtObservaciones.MaxLength = 200;
             txtObservaciones.Multiline = true;
             txtObservaciones.Name = "txtObservaciones";
-            txtObservaciones.Size = new Size(250, 50);
+            txtObservaciones.Size = new Size(239, 50);
             txtObservaciones.TabIndex = 25;
             // 
             // txtTeleEmergencia
@@ -181,18 +164,16 @@
             txtTeleEmergencia.Location = new Point(211, 449);
             txtTeleEmergencia.MaxLength = 10;
             txtTeleEmergencia.Name = "txtTeleEmergencia";
-            txtTeleEmergencia.Size = new Size(250, 27);
+            txtTeleEmergencia.Size = new Size(239, 27);
             txtTeleEmergencia.TabIndex = 24;
-            txtTeleEmergencia.KeyPress += txtTeleEmergencia_KeyPress;
             // 
             // txtEmerNombre
             // 
             txtEmerNombre.Location = new Point(211, 399);
             txtEmerNombre.MaxLength = 50;
             txtEmerNombre.Name = "txtEmerNombre";
-            txtEmerNombre.Size = new Size(250, 27);
+            txtEmerNombre.Size = new Size(239, 27);
             txtEmerNombre.TabIndex = 23;
-            txtEmerNombre.KeyPress += txtEmerNombre_KeyPress;
             // 
             // cmbEstado
             // 
@@ -201,7 +182,7 @@
             cmbEstado.Items.AddRange(new object[] { "Activo", "Inactivo" });
             cmbEstado.Location = new Point(211, 301);
             cmbEstado.Name = "cmbEstado";
-            cmbEstado.Size = new Size(250, 28);
+            cmbEstado.Size = new Size(239, 28);
             cmbEstado.TabIndex = 22;
             // 
             // cmbTipoContrato
@@ -211,7 +192,7 @@
             cmbTipoContrato.Items.AddRange(new object[] { "Indefinido", "Temporal" });
             cmbTipoContrato.Location = new Point(211, 247);
             cmbTipoContrato.Name = "cmbTipoContrato";
-            cmbTipoContrato.Size = new Size(250, 28);
+            cmbTipoContrato.Size = new Size(239, 28);
             cmbTipoContrato.TabIndex = 21;
             // 
             // txtSalario
@@ -219,17 +200,15 @@
             txtSalario.Location = new Point(211, 191);
             txtSalario.MaxLength = 10;
             txtSalario.Name = "txtSalario";
-            txtSalario.Size = new Size(250, 27);
+            txtSalario.Size = new Size(239, 27);
             txtSalario.TabIndex = 20;
-            txtSalario.TextChanged += txtSalario_TextChanged;
-            txtSalario.KeyPress += txtSalario_KeyPress;
             // 
             // dtpFechaIngreso
             // 
             dtpFechaIngreso.Format = DateTimePickerFormat.Short;
-            dtpFechaIngreso.Location = new Point(211, 139);
+            dtpFechaIngreso.Location = new Point(211, 141);
             dtpFechaIngreso.Name = "dtpFechaIngreso";
-            dtpFechaIngreso.Size = new Size(250, 27);
+            dtpFechaIngreso.Size = new Size(239, 27);
             dtpFechaIngreso.TabIndex = 19;
             // 
             // cmbDepartamento
@@ -239,7 +218,7 @@
             cmbDepartamento.Items.AddRange(new object[] { "Gerencia", "Ventas", "Administración", "Sistemas", "Logística", "Recursos Humanos" });
             cmbDepartamento.Location = new Point(211, 82);
             cmbDepartamento.Name = "cmbDepartamento";
-            cmbDepartamento.Size = new Size(250, 28);
+            cmbDepartamento.Size = new Size(239, 28);
             cmbDepartamento.TabIndex = 18;
             // 
             // cmbCargo
@@ -249,7 +228,7 @@
             cmbCargo.Items.AddRange(new object[] { "Gerente general", "Empleado" });
             cmbCargo.Location = new Point(211, 36);
             cmbCargo.Name = "cmbCargo";
-            cmbCargo.Size = new Size(250, 28);
+            cmbCargo.Size = new Size(239, 28);
             cmbCargo.TabIndex = 17;
             // 
             // lblObservaciones
@@ -383,26 +362,26 @@
             pnlInfoPersonal.Controls.Add(txtCodigo);
             pnlInfoPersonal.Controls.Add(lblCodigo);
             pnlInfoPersonal.Controls.Add(lblInfoPeronal);
-            pnlInfoPersonal.Location = new Point(287, 61);
+            pnlInfoPersonal.Location = new Point(247, 61);
             pnlInfoPersonal.Name = "pnlInfoPersonal";
-            pnlInfoPersonal.Size = new Size(467, 522);
+            pnlInfoPersonal.Size = new Size(431, 522);
             pnlInfoPersonal.TabIndex = 11;
             // 
             // txtDirreccion
             // 
-            txtDirreccion.Location = new Point(199, 457);
+            txtDirreccion.Location = new Point(197, 452);
             txtDirreccion.MaxLength = 200;
             txtDirreccion.Multiline = true;
             txtDirreccion.Name = "txtDirreccion";
-            txtDirreccion.Size = new Size(250, 50);
+            txtDirreccion.Size = new Size(230, 50);
             txtDirreccion.TabIndex = 19;
             // 
             // txtCorreo
             // 
-            txtCorreo.Location = new Point(199, 403);
+            txtCorreo.Location = new Point(197, 403);
             txtCorreo.MaxLength = 100;
             txtCorreo.Name = "txtCorreo";
-            txtCorreo.Size = new Size(250, 27);
+            txtCorreo.Size = new Size(230, 27);
             txtCorreo.TabIndex = 18;
             // 
             // txtTelefono
@@ -410,26 +389,25 @@
             txtTelefono.Location = new Point(199, 353);
             txtTelefono.MaxLength = 10;
             txtTelefono.Name = "txtTelefono";
-            txtTelefono.Size = new Size(250, 27);
+            txtTelefono.Size = new Size(228, 27);
             txtTelefono.TabIndex = 17;
-            txtTelefono.KeyPress += txtTelefono_KeyPress;
             // 
             // cmbGenero
             // 
             cmbGenero.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbGenero.FormattingEnabled = true;
             cmbGenero.Items.AddRange(new object[] { "Masculino", "Femenino" });
-            cmbGenero.Location = new Point(199, 304);
+            cmbGenero.Location = new Point(197, 304);
             cmbGenero.Name = "cmbGenero";
-            cmbGenero.Size = new Size(250, 28);
+            cmbGenero.Size = new Size(230, 28);
             cmbGenero.TabIndex = 16;
             // 
             // dtpFechaNacimiento
             // 
             dtpFechaNacimiento.Format = DateTimePickerFormat.Short;
-            dtpFechaNacimiento.Location = new Point(199, 250);
+            dtpFechaNacimiento.Location = new Point(197, 250);
             dtpFechaNacimiento.Name = "dtpFechaNacimiento";
-            dtpFechaNacimiento.Size = new Size(250, 27);
+            dtpFechaNacimiento.Size = new Size(230, 27);
             dtpFechaNacimiento.TabIndex = 15;
             // 
             // txtCedula
@@ -437,27 +415,24 @@
             txtCedula.Location = new Point(199, 195);
             txtCedula.MaxLength = 10;
             txtCedula.Name = "txtCedula";
-            txtCedula.Size = new Size(250, 27);
+            txtCedula.Size = new Size(228, 27);
             txtCedula.TabIndex = 14;
-            txtCedula.KeyPress += txtCedula_KeyPress;
             // 
             // txtApellidos
             // 
             txtApellidos.Location = new Point(199, 144);
             txtApellidos.MaxLength = 50;
             txtApellidos.Name = "txtApellidos";
-            txtApellidos.Size = new Size(250, 27);
+            txtApellidos.Size = new Size(228, 27);
             txtApellidos.TabIndex = 13;
-            txtApellidos.KeyPress += txtApellidos_keyPress;
             // 
             // txtNombre
             // 
             txtNombre.Location = new Point(199, 91);
             txtNombre.MaxLength = 50;
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(250, 27);
+            txtNombre.Size = new Size(228, 27);
             txtNombre.TabIndex = 12;
-            txtNombre.KeyPress += txtNombre_KeyPress;
             // 
             // lblDireccion
             // 
@@ -545,7 +520,7 @@
             txtCodigo.Location = new Point(199, 39);
             txtCodigo.Name = "txtCodigo";
             txtCodigo.ReadOnly = true;
-            txtCodigo.Size = new Size(250, 27);
+            txtCodigo.Size = new Size(228, 27);
             txtCodigo.TabIndex = 3;
             // 
             // lblCodigo
@@ -576,36 +551,34 @@
             pnlFoto.Controls.Add(picfoto);
             pnlFoto.Location = new Point(12, 66);
             pnlFoto.Name = "pnlFoto";
-            pnlFoto.Size = new Size(255, 404);
+            pnlFoto.Size = new Size(229, 355);
             pnlFoto.TabIndex = 10;
             // 
             // btnQuitarImagen
             // 
             btnQuitarImagen.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnQuitarImagen.Location = new Point(20, 321);
+            btnQuitarImagen.Location = new Point(3, 273);
             btnQuitarImagen.Name = "btnQuitarImagen";
             btnQuitarImagen.Size = new Size(213, 53);
             btnQuitarImagen.TabIndex = 11;
             btnQuitarImagen.Text = "Quitar Imagen";
             btnQuitarImagen.UseVisualStyleBackColor = true;
-            btnQuitarImagen.Click += btnQuitarImagen_Click;
             // 
             // btnSeleccionarImagen
             // 
             btnSeleccionarImagen.BackColor = Color.RoyalBlue;
             btnSeleccionarImagen.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSeleccionarImagen.Location = new Point(20, 278);
+            btnSeleccionarImagen.Location = new Point(3, 226);
             btnSeleccionarImagen.Name = "btnSeleccionarImagen";
             btnSeleccionarImagen.Size = new Size(213, 37);
             btnSeleccionarImagen.TabIndex = 1;
             btnSeleccionarImagen.Text = "Seleccionar Imagen";
             btnSeleccionarImagen.UseVisualStyleBackColor = false;
-            btnSeleccionarImagen.Click += btnSeleccionarImagen_Click;
             // 
             // picfoto
             // 
             picfoto.BorderStyle = BorderStyle.FixedSingle;
-            picfoto.Location = new Point(34, 66);
+            picfoto.Location = new Point(19, 30);
             picfoto.Name = "picfoto";
             picfoto.Size = new Size(182, 180);
             picfoto.SizeMode = PictureBoxSizeMode.Zoom;
@@ -615,7 +588,7 @@
             // panel3
             // 
             panel3.BackColor = Color.Purple;
-            panel3.Location = new Point(3, 49);
+            panel3.Location = new Point(3, 42);
             panel3.Margin = new Padding(3, 4, 3, 4);
             panel3.Name = "panel3";
             panel3.Size = new Size(126, 10);
@@ -625,28 +598,21 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(0, 16);
+            label1.Location = new Point(0, 9);
             label1.Name = "label1";
             label1.Size = new Size(214, 29);
             label1.TabIndex = 0;
             label1.Text = "Nuevo Empleado";
             // 
-            // ofdImagen
-            // 
-            ofdImagen.FileName = "openFileDialog1";
-            ofdImagen.Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png;*.bmp";
-            ofdImagen.Title = "Seleccionar imagen del empleado";
-            // 
-            // FrmNuevoEmpleado
+            // FrmInfoEmple
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1353, 821);
+            ClientSize = new Size(1186, 700);
             Controls.Add(pnlNuevoEmple);
-            FormBorderStyle = FormBorderStyle.None;
-            Name = "FrmNuevoEmpleado";
-            Text = "FrmNuevoEmpleado";
-            Load += FrmNuevoEmpleado_Load;
+            Name = "FrmInfoEmple";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "FrmInfoEmple";
             pnlNuevoEmple.ResumeLayout(false);
             pnlNuevoEmple.PerformLayout();
             pnlInfoLaboral.ResumeLayout(false);
@@ -661,35 +627,18 @@
         #endregion
 
         private Panel pnlNuevoEmple;
-        private Label label1;
-        private Panel panel3;
-        private Panel pnlFoto;
-        private PictureBox picfoto;
-        private Button btnQuitarImagen;
-        private Button btnSeleccionarImagen;
-        private Panel pnlInfoPersonal;
-        private TextBox txtCodigo;
-        private Label lblCodigo;
-        private Label lblInfoPeronal;
-        private Label lblDireccion;
-        private Label lblCorreo;
-        private Label lblTelefono;
-        private Label lblGenero;
-        private Label lblFechaNacimiento;
-        private Label lblCedula;
-        private Label lblApellidos;
-        private Label lblNombres;
-        private DateTimePicker dtpFechaNacimiento;
-        private TextBox txtCedula;
-        private TextBox txtApellidos;
-        private TextBox txtNombre;
-        private TextBox txtDirreccion;
-        private TextBox txtCorreo;
-        private TextBox txtTelefono;
-        private ComboBox cmbGenero;
-        private OpenFileDialog ofdImagen;
+        private Button btnCancelar;
+        private Button btnGuardar;
         private Panel pnlInfoLaboral;
-        private Label lblInfoLaboral;
+        private TextBox txtObservaciones;
+        private TextBox txtTeleEmergencia;
+        private TextBox txtEmerNombre;
+        private ComboBox cmbEstado;
+        private ComboBox cmbTipoContrato;
+        private TextBox txtSalario;
+        private DateTimePicker dtpFechaIngreso;
+        private ComboBox cmbDepartamento;
+        private ComboBox cmbCargo;
         private Label lblObservaciones;
         private Label lblTelEmergencia;
         private Label lblEmergencia;
@@ -700,17 +649,32 @@
         private Label lblFechaIngreso;
         private Label lblDepartamento;
         private Label lblCargo;
-        private TextBox txtObservaciones;
-        private TextBox txtTeleEmergencia;
-        private TextBox txtEmerNombre;
-        private ComboBox cmbEstado;
-        private ComboBox cmbTipoContrato;
-        private TextBox txtSalario;
-        private DateTimePicker dtpFechaIngreso;
-        private ComboBox cmbDepartamento;
-        private ComboBox cmbCargo;
-        private Button btnCancelar;
-        private Button btnGuardar;
-        private Button btnVolver;
+        private Label lblInfoLaboral;
+        private Panel pnlInfoPersonal;
+        private TextBox txtDirreccion;
+        private TextBox txtCorreo;
+        private TextBox txtTelefono;
+        private ComboBox cmbGenero;
+        private DateTimePicker dtpFechaNacimiento;
+        private TextBox txtCedula;
+        private TextBox txtApellidos;
+        private TextBox txtNombre;
+        private Label lblDireccion;
+        private Label lblCorreo;
+        private Label lblTelefono;
+        private Label lblGenero;
+        private Label lblFechaNacimiento;
+        private Label lblCedula;
+        private Label lblApellidos;
+        private Label lblNombres;
+        private TextBox txtCodigo;
+        private Label lblCodigo;
+        private Label lblInfoPeronal;
+        private Panel pnlFoto;
+        private Button btnQuitarImagen;
+        private Button btnSeleccionarImagen;
+        private PictureBox picfoto;
+        private Panel panel3;
+        private Label label1;
     }
 }

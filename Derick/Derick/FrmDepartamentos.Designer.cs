@@ -28,88 +28,126 @@
         /// </summary>
         private void InitializeComponent()
         {
-            pnlDepartamentos = new Panel();
-            btnVolver = new Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDepartamentos));
+            panel2 = new Panel();
+            label3 = new Label();
+            lblDepa = new Label();
             btnDepa = new Button();
-            panel3 = new Panel();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            pictureBox2 = new PictureBox();
+            textBox1 = new TextBox();
             dgvDepartamentos = new DataGridView();
-            ColID = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             ColDepa = new DataGridViewTextBoxColumn();
             ColDes = new DataGridViewTextBoxColumn();
             ColEmple = new DataGridViewTextBoxColumn();
-            ColEstado = new DataGridViewTextBoxColumn();
-            ColEditar = new DataGridViewImageColumn();
-            ColEliminar = new DataGridViewImageColumn();
-            lblDepa = new Label();
-            pnlDepartamentos.SuspendLayout();
+            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
+            dataGridViewImageColumn1 = new DataGridViewImageColumn();
+            dataGridViewImageColumn2 = new DataGridViewImageColumn();
+            pictureBox1 = new PictureBox();
+            panel2.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvDepartamentos).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // pnlDepartamentos
+            // panel2
             // 
-            pnlDepartamentos.BackColor = Color.White;
-            pnlDepartamentos.Controls.Add(btnVolver);
-            pnlDepartamentos.Controls.Add(btnDepa);
-            pnlDepartamentos.Controls.Add(panel3);
-            pnlDepartamentos.Controls.Add(dgvDepartamentos);
-            pnlDepartamentos.Controls.Add(lblDepa);
-            pnlDepartamentos.Dock = DockStyle.Fill;
-            pnlDepartamentos.Location = new Point(0, 0);
-            pnlDepartamentos.Name = "pnlDepartamentos";
-            pnlDepartamentos.Size = new Size(1317, 727);
-            pnlDepartamentos.TabIndex = 0;
+            panel2.BackColor = Color.White;
+            panel2.Controls.Add(pictureBox1);
+            panel2.Controls.Add(label3);
+            panel2.Controls.Add(lblDepa);
+            panel2.Controls.Add(btnDepa);
+            panel2.Controls.Add(flowLayoutPanel1);
+            panel2.Controls.Add(dgvDepartamentos);
+            panel2.Dock = DockStyle.Fill;
+            panel2.Location = new Point(0, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(1186, 700);
+            panel2.TabIndex = 29;
             // 
-            // btnVolver
+            // label3
             // 
-            btnVolver.FlatStyle = FlatStyle.System;
-            btnVolver.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnVolver.Location = new Point(1143, 26);
-            btnVolver.Name = "btnVolver";
-            btnVolver.Size = new Size(117, 43);
-            btnVolver.TabIndex = 29;
-            btnVolver.Text = "Volver";
-            btnVolver.UseVisualStyleBackColor = true;
-            btnVolver.Click += btnVolver_Click;
+            label3.AutoSize = true;
+            label3.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.Black;
+            label3.Location = new Point(72, 42);
+            label3.Name = "label3";
+            label3.Size = new Size(364, 22);
+            label3.TabIndex = 33;
+            label3.Text = "Administra los departamentos de la empresa";
+            // 
+            // lblDepa
+            // 
+            lblDepa.AutoSize = true;
+            lblDepa.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDepa.Location = new Point(72, 13);
+            lblDepa.Name = "lblDepa";
+            lblDepa.Size = new Size(190, 29);
+            lblDepa.TabIndex = 29;
+            lblDepa.Text = "Departamentos";
             // 
             // btnDepa
             // 
             btnDepa.BackColor = Color.Purple;
+            btnDepa.FlatStyle = FlatStyle.Flat;
             btnDepa.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnDepa.ForeColor = Color.White;
-            btnDepa.Location = new Point(1012, 115);
+            btnDepa.Location = new Point(904, 111);
             btnDepa.Name = "btnDepa";
             btnDepa.Size = new Size(248, 53);
-            btnDepa.TabIndex = 14;
+            btnDepa.TabIndex = 28;
             btnDepa.Text = "+ Nuevo Departamento";
             btnDepa.UseVisualStyleBackColor = false;
             // 
-            // panel3
+            // flowLayoutPanel1
             // 
-            panel3.BackColor = Color.Purple;
-            panel3.Location = new Point(12, 59);
-            panel3.Margin = new Padding(3, 4, 3, 4);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(126, 10);
-            panel3.TabIndex = 10;
+            flowLayoutPanel1.BackColor = Color.White;
+            flowLayoutPanel1.BorderStyle = BorderStyle.FixedSingle;
+            flowLayoutPanel1.Controls.Add(pictureBox2);
+            flowLayoutPanel1.Controls.Add(textBox1);
+            flowLayoutPanel1.Location = new Point(17, 117);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(280, 40);
+            flowLayoutPanel1.TabIndex = 27;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Properties.Resources.pngtree_cartoon_blue_magnifying_glass_illustration_png_image_4505525;
+            pictureBox2.Location = new Point(3, 3);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(45, 39);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 27;
+            pictureBox2.TabStop = false;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(54, 3);
+            textBox1.Name = "textBox1";
+            textBox1.PlaceholderText = "Buscar departamento.....";
+            textBox1.Size = new Size(212, 27);
+            textBox1.TabIndex = 26;
             // 
             // dgvDepartamentos
             // 
             dgvDepartamentos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvDepartamentos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDepartamentos.Columns.AddRange(new DataGridViewColumn[] { ColID, ColDepa, ColDes, ColEmple, ColEstado, ColEditar, ColEliminar });
-            dgvDepartamentos.Location = new Point(12, 201);
+            dgvDepartamentos.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, ColDepa, ColDes, ColEmple, dataGridViewTextBoxColumn2, dataGridViewImageColumn1, dataGridViewImageColumn2 });
+            dgvDepartamentos.Location = new Point(5, 190);
             dgvDepartamentos.Name = "dgvDepartamentos";
             dgvDepartamentos.RowHeadersVisible = false;
             dgvDepartamentos.RowHeadersWidth = 51;
             dgvDepartamentos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvDepartamentos.Size = new Size(1248, 329);
-            dgvDepartamentos.TabIndex = 2;
+            dgvDepartamentos.Size = new Size(1152, 329);
+            dgvDepartamentos.TabIndex = 3;
             // 
-            // ColID
+            // dataGridViewTextBoxColumn1
             // 
-            ColID.HeaderText = "ID";
-            ColID.MinimumWidth = 6;
-            ColID.Name = "ColID";
+            dataGridViewTextBoxColumn1.HeaderText = "ID";
+            dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // ColDepa
             // 
@@ -129,69 +167,77 @@
             ColEmple.MinimumWidth = 6;
             ColEmple.Name = "ColEmple";
             // 
-            // ColEstado
+            // dataGridViewTextBoxColumn2
             // 
-            ColEstado.HeaderText = "Estado";
-            ColEstado.MinimumWidth = 6;
-            ColEstado.Name = "ColEstado";
+            dataGridViewTextBoxColumn2.HeaderText = "Estado";
+            dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
-            // ColEditar
+            // dataGridViewImageColumn1
             // 
-            ColEditar.HeaderText = "Editar";
-            ColEditar.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            ColEditar.MinimumWidth = 6;
-            ColEditar.Name = "ColEditar";
-            ColEditar.Resizable = DataGridViewTriState.True;
-            ColEditar.SortMode = DataGridViewColumnSortMode.Automatic;
+            dataGridViewImageColumn1.HeaderText = "Editar";
+            dataGridViewImageColumn1.Image = Properties.Resources.download__2_1;
+            dataGridViewImageColumn1.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            dataGridViewImageColumn1.MinimumWidth = 6;
+            dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            dataGridViewImageColumn1.Resizable = DataGridViewTriState.True;
+            dataGridViewImageColumn1.SortMode = DataGridViewColumnSortMode.Automatic;
             // 
-            // ColEliminar
+            // dataGridViewImageColumn2
             // 
-            ColEliminar.HeaderText = "Eliminar";
-            ColEliminar.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            ColEliminar.MinimumWidth = 6;
-            ColEliminar.Name = "ColEliminar";
-            ColEliminar.Resizable = DataGridViewTriState.True;
-            ColEliminar.SortMode = DataGridViewColumnSortMode.Automatic;
+            dataGridViewImageColumn2.HeaderText = "Eliminar";
+            dataGridViewImageColumn2.Image = Properties.Resources.download__1_1;
+            dataGridViewImageColumn2.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            dataGridViewImageColumn2.MinimumWidth = 6;
+            dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            dataGridViewImageColumn2.Resizable = DataGridViewTriState.True;
+            dataGridViewImageColumn2.SortMode = DataGridViewColumnSortMode.Automatic;
             // 
-            // lblDepa
+            // pictureBox1
             // 
-            lblDepa.AutoSize = true;
-            lblDepa.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblDepa.Location = new Point(12, 26);
-            lblDepa.Name = "lblDepa";
-            lblDepa.Size = new Size(190, 29);
-            lblDepa.TabIndex = 1;
-            lblDepa.Text = "Departamentos";
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(8, 13);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(58, 51);
+            pictureBox1.TabIndex = 43;
+            pictureBox1.TabStop = false;
             // 
             // FrmDepartamentos
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1317, 727);
-            Controls.Add(pnlDepartamentos);
-            FormBorderStyle = FormBorderStyle.None;
+            ClientSize = new Size(1186, 700);
+            Controls.Add(panel2);
             Name = "FrmDepartamentos";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmDepartamentos";
-            pnlDepartamentos.ResumeLayout(false);
-            pnlDepartamentos.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            flowLayoutPanel1.ResumeLayout(false);
+            flowLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvDepartamentos).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Panel pnlDepartamentos;
+        private Panel panel2;
+        private Label label3;
         private Label lblDepa;
+        private Button btnDepa;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private PictureBox pictureBox2;
+        private TextBox textBox1;
         private DataGridView dgvDepartamentos;
-        private DataGridViewTextBoxColumn ColID;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn ColDepa;
         private DataGridViewTextBoxColumn ColDes;
         private DataGridViewTextBoxColumn ColEmple;
-        private DataGridViewTextBoxColumn ColEstado;
-        private DataGridViewImageColumn ColEditar;
-        private DataGridViewImageColumn ColEliminar;
-        private Panel panel3;
-        private Button btnDepa;
-        private Button btnVolver;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private DataGridViewImageColumn dataGridViewImageColumn1;
+        private DataGridViewImageColumn dataGridViewImageColumn2;
+        private PictureBox pictureBox1;
     }
 }
