@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDepartamentos));
             panel2 = new Panel();
+            pictureBox1 = new PictureBox();
             label3 = new Label();
             lblDepa = new Label();
             btnDepa = new Button();
@@ -44,20 +45,20 @@
             dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
             dataGridViewImageColumn1 = new DataGridViewImageColumn();
             dataGridViewImageColumn2 = new DataGridViewImageColumn();
-            pictureBox1 = new PictureBox();
+            panel3 = new Panel();
+            lblC3 = new Label();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvDepartamentos).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // panel2
             // 
             panel2.BackColor = Color.White;
-            panel2.Controls.Add(pictureBox1);
-            panel2.Controls.Add(label3);
-            panel2.Controls.Add(lblDepa);
+            panel2.Controls.Add(panel3);
             panel2.Controls.Add(btnDepa);
             panel2.Controls.Add(flowLayoutPanel1);
             panel2.Controls.Add(dgvDepartamentos);
@@ -67,12 +68,22 @@
             panel2.Size = new Size(1186, 700);
             panel2.TabIndex = 29;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(3, 3);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(75, 77);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 43;
+            pictureBox1.TabStop = false;
+            // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.Black;
-            label3.Location = new Point(72, 42);
+            label3.Location = new Point(89, 47);
             label3.Name = "label3";
             label3.Size = new Size(364, 22);
             label3.TabIndex = 33;
@@ -82,7 +93,7 @@
             // 
             lblDepa.AutoSize = true;
             lblDepa.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblDepa.Location = new Point(72, 13);
+            lblDepa.Location = new Point(89, 18);
             lblDepa.Name = "lblDepa";
             lblDepa.Size = new Size(190, 29);
             lblDepa.TabIndex = 29;
@@ -94,7 +105,7 @@
             btnDepa.FlatStyle = FlatStyle.Flat;
             btnDepa.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnDepa.ForeColor = Color.White;
-            btnDepa.Location = new Point(904, 111);
+            btnDepa.Location = new Point(910, 152);
             btnDepa.Name = "btnDepa";
             btnDepa.Size = new Size(248, 53);
             btnDepa.TabIndex = 28;
@@ -107,9 +118,10 @@
             flowLayoutPanel1.BorderStyle = BorderStyle.FixedSingle;
             flowLayoutPanel1.Controls.Add(pictureBox2);
             flowLayoutPanel1.Controls.Add(textBox1);
-            flowLayoutPanel1.Location = new Point(17, 117);
+            flowLayoutPanel1.Controls.Add(lblC3);
+            flowLayoutPanel1.Location = new Point(8, 148);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(280, 40);
+            flowLayoutPanel1.Size = new Size(301, 40);
             flowLayoutPanel1.TabIndex = 27;
             // 
             // pictureBox2
@@ -133,9 +145,10 @@
             // dgvDepartamentos
             // 
             dgvDepartamentos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvDepartamentos.BackgroundColor = Color.White;
             dgvDepartamentos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDepartamentos.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, ColDepa, ColDes, ColEmple, dataGridViewTextBoxColumn2, dataGridViewImageColumn1, dataGridViewImageColumn2 });
-            dgvDepartamentos.Location = new Point(5, 190);
+            dgvDepartamentos.Location = new Point(16, 246);
             dgvDepartamentos.Name = "dgvDepartamentos";
             dgvDepartamentos.RowHeadersVisible = false;
             dgvDepartamentos.RowHeadersWidth = 51;
@@ -193,14 +206,26 @@
             dataGridViewImageColumn2.Resizable = DataGridViewTriState.True;
             dataGridViewImageColumn2.SortMode = DataGridViewColumnSortMode.Automatic;
             // 
-            // pictureBox1
+            // panel3
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(8, 13);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(58, 51);
-            pictureBox1.TabIndex = 43;
-            pictureBox1.TabStop = false;
+            panel3.Controls.Add(pictureBox1);
+            panel3.Controls.Add(lblDepa);
+            panel3.Controls.Add(label3);
+            panel3.Location = new Point(8, 21);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(1150, 83);
+            panel3.TabIndex = 46;
+            // 
+            // lblC3
+            // 
+            lblC3.AutoSize = true;
+            lblC3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblC3.ForeColor = Color.DarkViolet;
+            lblC3.Location = new Point(272, 0);
+            lblC3.Name = "lblC3";
+            lblC3.Size = new Size(21, 25);
+            lblC3.TabIndex = 47;
+            lblC3.Text = "*";
             // 
             // FrmDepartamentos
             // 
@@ -212,12 +237,13 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmDepartamentos";
             panel2.ResumeLayout(false);
-            panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             flowLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvDepartamentos).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -239,5 +265,7 @@
         private DataGridViewImageColumn dataGridViewImageColumn1;
         private DataGridViewImageColumn dataGridViewImageColumn2;
         private PictureBox pictureBox1;
+        private Panel panel3;
+        private Label lblC3;
     }
 }

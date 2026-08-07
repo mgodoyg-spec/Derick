@@ -38,6 +38,7 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEmple));
             pnlEmple = new Panel();
             panel1 = new Panel();
             btnReportes = new Button();
@@ -71,11 +72,26 @@
             dataGridViewImageColumn1 = new DataGridViewImageColumn();
             dataGridViewImageColumn2 = new DataGridViewImageColumn();
             ColVer = new DataGridViewImageColumn();
+            lblC3 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            panel2 = new Panel();
+            pictureBox2 = new PictureBox();
+            pictureBox3 = new PictureBox();
+            pictureBox4 = new PictureBox();
+            panel3 = new Panel();
+            pictureBox5 = new PictureBox();
             pnlEmple.SuspendLayout();
             panel1.SuspendLayout();
             pnlBuscar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvEmpleados).BeginInit();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             SuspendLayout();
             // 
             // pnlEmple
@@ -91,23 +107,22 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
-            panel1.Controls.Add(btnReportes);
-            panel1.Controls.Add(btnDepa);
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(panel3);
+            panel1.Controls.Add(panel2);
+            panel1.Controls.Add(label3);
+            panel1.Controls.Add(lblC3);
             panel1.Controls.Add(gbtn_busc6);
             panel1.Controls.Add(gbtn_busc4);
             panel1.Controls.Add(lbl_busc4);
             panel1.Controls.Add(gbtn_busc3);
             panel1.Controls.Add(gbtn_busc2);
             panel1.Controls.Add(gbtn_busc1);
-            panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(lblEstado);
             panel1.Controls.Add(btnNuevoEmpleado);
             panel1.Controls.Add(cmbEstado);
             panel1.Controls.Add(cmbDepartamento);
             panel1.Controls.Add(pnlBuscar);
-            panel1.Controls.Add(lblListaEmple);
             panel1.Controls.Add(dgvEmpleados);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
@@ -117,34 +132,37 @@
             // 
             // btnReportes
             // 
+            btnReportes.BackColor = Color.Violet;
             btnReportes.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnReportes.Location = new Point(438, 12);
+            btnReportes.Location = new Point(684, 22);
             btnReportes.Name = "btnReportes";
-            btnReportes.Size = new Size(208, 44);
+            btnReportes.Size = new Size(305, 44);
             btnReportes.TabIndex = 41;
             btnReportes.Text = "Reportes";
-            btnReportes.UseVisualStyleBackColor = true;
+            btnReportes.UseVisualStyleBackColor = false;
             // 
             // btnDepa
             // 
+            btnDepa.BackColor = Color.Plum;
             btnDepa.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnDepa.Location = new Point(224, 12);
+            btnDepa.Location = new Point(352, 22);
             btnDepa.Name = "btnDepa";
-            btnDepa.Size = new Size(208, 44);
+            btnDepa.Size = new Size(305, 44);
             btnDepa.TabIndex = 40;
             btnDepa.Text = "Departamentos";
-            btnDepa.UseVisualStyleBackColor = true;
+            btnDepa.UseVisualStyleBackColor = false;
             btnDepa.Click += btnDepa_Click;
             // 
             // button1
             // 
+            button1.BackColor = Color.Thistle;
             button1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Location = new Point(12, 12);
+            button1.Location = new Point(25, 22);
             button1.Name = "button1";
-            button1.Size = new Size(208, 44);
+            button1.Size = new Size(305, 44);
             button1.TabIndex = 39;
             button1.Text = "Lista de empleados";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             // 
             // gbtn_busc6
             // 
@@ -159,7 +177,7 @@
             gbtn_busc6.FillColor = Color.White;
             gbtn_busc6.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             gbtn_busc6.ForeColor = Color.Black;
-            gbtn_busc6.Location = new Point(1106, 588);
+            gbtn_busc6.Location = new Point(1106, 636);
             gbtn_busc6.Name = "gbtn_busc6";
             gbtn_busc6.ShadowDecoration.CustomizableEdges = customizableEdges2;
             gbtn_busc6.Size = new Size(44, 44);
@@ -180,7 +198,7 @@
             gbtn_busc4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             gbtn_busc4.ForeColor = Color.Black;
             gbtn_busc4.HoverState.FillColor = Color.FromArgb(112, 34, 246);
-            gbtn_busc4.Location = new Point(1056, 588);
+            gbtn_busc4.Location = new Point(1056, 636);
             gbtn_busc4.Name = "gbtn_busc4";
             gbtn_busc4.ShadowDecoration.CustomizableEdges = customizableEdges4;
             gbtn_busc4.Size = new Size(44, 44);
@@ -192,7 +210,7 @@
             lbl_busc4.AutoSize = true;
             lbl_busc4.Cursor = Cursors.Hand;
             lbl_busc4.Font = new Font("Calibri", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_busc4.Location = new Point(1014, 597);
+            lbl_busc4.Location = new Point(1014, 645);
             lbl_busc4.Name = "lbl_busc4";
             lbl_busc4.Size = new Size(36, 35);
             lbl_busc4.TabIndex = 36;
@@ -212,7 +230,7 @@
             gbtn_busc3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             gbtn_busc3.ForeColor = Color.Black;
             gbtn_busc3.HoverState.FillColor = Color.FromArgb(112, 34, 246);
-            gbtn_busc3.Location = new Point(964, 588);
+            gbtn_busc3.Location = new Point(964, 636);
             gbtn_busc3.Name = "gbtn_busc3";
             gbtn_busc3.ShadowDecoration.CustomizableEdges = customizableEdges6;
             gbtn_busc3.Size = new Size(44, 44);
@@ -233,7 +251,7 @@
             gbtn_busc2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             gbtn_busc2.ForeColor = Color.Black;
             gbtn_busc2.HoverState.FillColor = Color.FromArgb(112, 34, 246);
-            gbtn_busc2.Location = new Point(914, 588);
+            gbtn_busc2.Location = new Point(914, 636);
             gbtn_busc2.Name = "gbtn_busc2";
             gbtn_busc2.ShadowDecoration.CustomizableEdges = customizableEdges8;
             gbtn_busc2.Size = new Size(44, 44);
@@ -253,7 +271,7 @@
             gbtn_busc1.FillColor = Color.White;
             gbtn_busc1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             gbtn_busc1.ForeColor = Color.Black;
-            gbtn_busc1.Location = new Point(864, 588);
+            gbtn_busc1.Location = new Point(864, 636);
             gbtn_busc1.Name = "gbtn_busc1";
             gbtn_busc1.ShadowDecoration.CustomizableEdges = customizableEdges10;
             gbtn_busc1.Size = new Size(44, 44);
@@ -265,7 +283,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(12, 114);
+            label2.Location = new Point(106, 45);
             label2.Name = "label2";
             label2.Size = new Size(420, 22);
             label2.TabIndex = 32;
@@ -275,8 +293,8 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.ForeColor = SystemColors.ActiveBorder;
-            label1.Location = new Point(367, 156);
+            label1.ForeColor = Color.DarkViolet;
+            label1.Location = new Point(367, 234);
             label1.Name = "label1";
             label1.Size = new Size(137, 22);
             label1.TabIndex = 31;
@@ -286,8 +304,8 @@
             // 
             lblEstado.AutoSize = true;
             lblEstado.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblEstado.ForeColor = SystemColors.ActiveBorder;
-            lblEstado.Location = new Point(658, 156);
+            lblEstado.ForeColor = Color.DarkViolet;
+            lblEstado.Location = new Point(658, 234);
             lblEstado.Name = "lblEstado";
             lblEstado.Size = new Size(71, 22);
             lblEstado.TabIndex = 30;
@@ -298,7 +316,7 @@
             btnNuevoEmpleado.BackColor = Color.Purple;
             btnNuevoEmpleado.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnNuevoEmpleado.ForeColor = Color.White;
-            btnNuevoEmpleado.Location = new Point(948, 168);
+            btnNuevoEmpleado.Location = new Point(940, 234);
             btnNuevoEmpleado.Name = "btnNuevoEmpleado";
             btnNuevoEmpleado.Size = new Size(213, 53);
             btnNuevoEmpleado.TabIndex = 29;
@@ -311,7 +329,7 @@
             cmbEstado.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbEstado.FormattingEnabled = true;
             cmbEstado.Items.AddRange(new object[] { "Todos", "Activo", "Inactivo" });
-            cmbEstado.Location = new Point(658, 193);
+            cmbEstado.Location = new Point(658, 259);
             cmbEstado.Name = "cmbEstado";
             cmbEstado.Size = new Size(250, 28);
             cmbEstado.TabIndex = 28;
@@ -321,7 +339,7 @@
             cmbDepartamento.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbDepartamento.FormattingEnabled = true;
             cmbDepartamento.Items.AddRange(new object[] { "Todos los departamentos", "Gerencia", "Ventas", "Administración", "Sistemas", "Logística", "Recursos Humanos" });
-            cmbDepartamento.Location = new Point(367, 193);
+            cmbDepartamento.Location = new Point(367, 259);
             cmbDepartamento.Name = "cmbDepartamento";
             cmbDepartamento.Size = new Size(250, 28);
             cmbDepartamento.TabIndex = 27;
@@ -332,9 +350,10 @@
             pnlBuscar.BorderStyle = BorderStyle.FixedSingle;
             pnlBuscar.Controls.Add(pictureBox1);
             pnlBuscar.Controls.Add(txtBuscar);
-            pnlBuscar.Location = new Point(12, 181);
+            pnlBuscar.Controls.Add(label4);
+            pnlBuscar.Location = new Point(12, 244);
             pnlBuscar.Name = "pnlBuscar";
-            pnlBuscar.Size = new Size(280, 40);
+            pnlBuscar.Size = new Size(303, 40);
             pnlBuscar.TabIndex = 26;
             // 
             // pictureBox1
@@ -359,7 +378,7 @@
             // 
             lblListaEmple.AutoSize = true;
             lblListaEmple.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblListaEmple.Location = new Point(12, 75);
+            lblListaEmple.Location = new Point(106, 16);
             lblListaEmple.Name = "lblListaEmple";
             lblListaEmple.Size = new Size(244, 29);
             lblListaEmple.TabIndex = 2;
@@ -368,9 +387,10 @@
             // dgvEmpleados
             // 
             dgvEmpleados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvEmpleados.BackgroundColor = Color.White;
             dgvEmpleados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvEmpleados.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, ColImagen, ColEmpleado, ColCargo, ColDepartamento, ColTelefono, ColCorreo, dataGridViewTextBoxColumn2, dataGridViewImageColumn1, dataGridViewImageColumn2, ColVer });
-            dgvEmpleados.Location = new Point(12, 243);
+            dgvEmpleados.Location = new Point(12, 301);
             dgvEmpleados.Name = "dgvEmpleados";
             dgvEmpleados.RowHeadersVisible = false;
             dgvEmpleados.RowHeadersWidth = 51;
@@ -458,6 +478,103 @@
             ColVer.Resizable = DataGridViewTriState.True;
             ColVer.SortMode = DataGridViewColumnSortMode.Automatic;
             // 
+            // lblC3
+            // 
+            lblC3.AutoSize = true;
+            lblC3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblC3.ForeColor = Color.DarkViolet;
+            lblC3.Location = new Point(498, 234);
+            lblC3.Name = "lblC3";
+            lblC3.Size = new Size(21, 25);
+            lblC3.TabIndex = 42;
+            lblC3.Text = "*";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.DarkViolet;
+            label3.Location = new Point(723, 234);
+            label3.Name = "label3";
+            label3.Size = new Size(21, 25);
+            label3.TabIndex = 43;
+            label3.Text = "*";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.DarkViolet;
+            label4.Location = new Point(272, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(21, 25);
+            label4.TabIndex = 44;
+            label4.Text = "*";
+            label4.Click += label4_Click;
+            // 
+            // panel2
+            // 
+            panel2.Controls.Add(pictureBox4);
+            panel2.Controls.Add(pictureBox3);
+            panel2.Controls.Add(pictureBox2);
+            panel2.Controls.Add(button1);
+            panel2.Controls.Add(btnDepa);
+            panel2.Controls.Add(btnReportes);
+            panel2.Location = new Point(3, 3);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(1186, 90);
+            panel2.TabIndex = 44;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(25, 22);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(59, 44);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 41;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(352, 22);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(59, 44);
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox3.TabIndex = 42;
+            pictureBox3.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(685, 22);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(59, 44);
+            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 43;
+            pictureBox4.TabStop = false;
+            // 
+            // panel3
+            // 
+            panel3.Controls.Add(pictureBox5);
+            panel3.Controls.Add(lblListaEmple);
+            panel3.Controls.Add(label2);
+            panel3.Location = new Point(3, 114);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(1150, 83);
+            panel3.TabIndex = 45;
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
+            pictureBox5.Location = new Point(9, 7);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(82, 73);
+            pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox5.TabIndex = 42;
+            pictureBox5.TabStop = false;
+            // 
             // FrmEmple
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -474,6 +591,13 @@
             pnlBuscar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvEmpleados).EndInit();
+            panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ResumeLayout(false);
         }
 
@@ -512,5 +636,14 @@
         private DataGridViewImageColumn dataGridViewImageColumn1;
         private DataGridViewImageColumn dataGridViewImageColumn2;
         private DataGridViewImageColumn ColVer;
+        private Label label3;
+        private Label lblC3;
+        private Label label4;
+        private Panel panel2;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox4;
+        private PictureBox pictureBox3;
+        private Panel panel3;
+        private PictureBox pictureBox5;
     }
 }
