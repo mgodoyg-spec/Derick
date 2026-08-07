@@ -1,6 +1,6 @@
 ﻿namespace Derick
 {
-    partial class InicioGerente
+    partial class FormsDeRespaldo
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InicioGerente));
             pnlMostrarForm = new Panel();
             pnlActividadReciente = new Panel();
             btnVerTodo = new Button();
@@ -52,12 +51,12 @@
             btnAgregarVenta = new Button();
             lblNuevaVenta = new Label();
             pnlVentas = new Panel();
-            pnlBordeVentas = new Panel();
             pnlVen = new Panel();
             label7 = new Label();
             label8 = new Label();
             lblVentasHoy = new Label();
             picVentas = new PictureBox();
+            pnlBordeVentas = new Panel();
             pnlEmpleados = new Panel();
             pnlBordeEmple = new Panel();
             pnlEmp = new Panel();
@@ -123,7 +122,7 @@
             pnlMostrarForm.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             pnlMostrarForm.Location = new Point(0, 0);
             pnlMostrarForm.Name = "pnlMostrarForm";
-            pnlMostrarForm.Size = new Size(1186, 591);
+            pnlMostrarForm.Size = new Size(800, 450);
             pnlMostrarForm.TabIndex = 4;
             // 
             // pnlActividadReciente
@@ -133,14 +132,14 @@
             pnlActividadReciente.Controls.Add(lblActividadRe);
             pnlActividadReciente.Location = new Point(321, 263);
             pnlActividadReciente.Name = "pnlActividadReciente";
-            pnlActividadReciente.Size = new Size(841, 360);
+            pnlActividadReciente.Size = new Size(863, 360);
             pnlActividadReciente.TabIndex = 6;
             // 
             // btnVerTodo
             // 
             btnVerTodo.Cursor = Cursors.Hand;
             btnVerTodo.Font = new Font("Calibri", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnVerTodo.Location = new Point(737, 19);
+            btnVerTodo.Location = new Point(755, 19);
             btnVerTodo.Name = "btnVerTodo";
             btnVerTodo.Size = new Size(86, 30);
             btnVerTodo.TabIndex = 14;
@@ -362,20 +361,12 @@
             // pnlVentas
             // 
             pnlVentas.BackColor = Color.White;
-            pnlVentas.Controls.Add(pnlBordeVentas);
             pnlVentas.Controls.Add(pnlVen);
-            pnlVentas.Location = new Point(717, 103);
+            pnlVentas.Controls.Add(pnlBordeVentas);
+            pnlVentas.Location = new Point(902, 124);
             pnlVentas.Name = "pnlVentas";
-            pnlVentas.Size = new Size(214, 124);
+            pnlVentas.Size = new Size(282, 124);
             pnlVentas.TabIndex = 5;
-            // 
-            // pnlBordeVentas
-            // 
-            pnlBordeVentas.BackColor = Color.FromArgb(255, 136, 0);
-            pnlBordeVentas.Location = new Point(3, 118);
-            pnlBordeVentas.Name = "pnlBordeVentas";
-            pnlBordeVentas.Size = new Size(210, 6);
-            pnlBordeVentas.TabIndex = 8;
             // 
             // pnlVen
             // 
@@ -386,7 +377,7 @@
             pnlVen.Controls.Add(picVentas);
             pnlVen.Location = new Point(19, 0);
             pnlVen.Name = "pnlVen";
-            pnlVen.Size = new Size(195, 124);
+            pnlVen.Size = new Size(241, 124);
             pnlVen.TabIndex = 9;
             // 
             // label7
@@ -428,22 +419,30 @@
             picVentas.TabIndex = 0;
             picVentas.TabStop = false;
             // 
+            // pnlBordeVentas
+            // 
+            pnlBordeVentas.BackColor = Color.FromArgb(255, 136, 0);
+            pnlBordeVentas.Location = new Point(0, 0);
+            pnlBordeVentas.Name = "pnlBordeVentas";
+            pnlBordeVentas.Size = new Size(4, 124);
+            pnlBordeVentas.TabIndex = 8;
+            // 
             // pnlEmpleados
             // 
             pnlEmpleados.BackColor = Color.White;
             pnlEmpleados.Controls.Add(pnlBordeEmple);
             pnlEmpleados.Controls.Add(pnlEmp);
-            pnlEmpleados.Location = new Point(488, 103);
+            pnlEmpleados.Location = new Point(605, 124);
             pnlEmpleados.Name = "pnlEmpleados";
-            pnlEmpleados.Size = new Size(212, 124);
+            pnlEmpleados.Size = new Size(278, 124);
             pnlEmpleados.TabIndex = 4;
             // 
             // pnlBordeEmple
             // 
             pnlBordeEmple.BackColor = Color.FromArgb(112, 34, 246);
-            pnlBordeEmple.Location = new Point(0, 118);
+            pnlBordeEmple.Location = new Point(0, 3);
             pnlBordeEmple.Name = "pnlBordeEmple";
-            pnlBordeEmple.Size = new Size(210, 6);
+            pnlBordeEmple.Size = new Size(4, 124);
             pnlBordeEmple.TabIndex = 8;
             // 
             // pnlEmp
@@ -455,7 +454,7 @@
             pnlEmp.Controls.Add(LblEmple);
             pnlEmp.Location = new Point(19, 0);
             pnlEmp.Name = "pnlEmp";
-            pnlEmp.Size = new Size(193, 124);
+            pnlEmp.Size = new Size(241, 124);
             pnlEmp.TabIndex = 1;
             // 
             // pictureBox1
@@ -644,22 +643,20 @@
             panel1.Controls.Add(lblBienvenido);
             panel1.Location = new Point(34, 12);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1128, 73);
+            panel1.Size = new Size(1150, 73);
             panel1.TabIndex = 14;
             // 
             // lblSalir
             // 
             lblSalir.AutoSize = true;
-            lblSalir.BackColor = Color.White;
             lblSalir.Cursor = Cursors.Hand;
             lblSalir.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSalir.ForeColor = Color.Red;
-            lblSalir.Location = new Point(1100, 0);
+            lblSalir.Location = new Point(563, 24);
             lblSalir.Name = "lblSalir";
             lblSalir.Size = new Size(25, 24);
             lblSalir.TabIndex = 15;
             lblSalir.Text = "X";
-            lblSalir.Click += lblSalir_Click;
             // 
             // lblResumen
             // 
@@ -683,18 +680,14 @@
             lblBienvenido.TabIndex = 11;
             lblBienvenido.Text = "¡Bienvenido de nuevo!";
             // 
-            // InicioGerente
+            // FormsDeRespaldo
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ActiveBorder;
-            ClientSize = new Size(1186, 591);
+            ClientSize = new Size(800, 450);
             Controls.Add(pnlMostrarForm);
-            FormBorderStyle = FormBorderStyle.None;
-            Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "InicioGerente";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "InicioGerente";
+            Name = "FormsDeRespaldo";
+            Text = "FormsDeRespaldo";
             pnlMostrarForm.ResumeLayout(false);
             pnlActividadReciente.ResumeLayout(false);
             pnlActividadReciente.PerformLayout();
@@ -736,7 +729,6 @@
         #endregion
 
         private Panel pnlMostrarForm;
-        private Label lblSalir;
         private Panel pnlActividadReciente;
         private Button btnVerTodo;
         private Label lblActividadRe;
@@ -759,12 +751,12 @@
         private Button btnAgregarVenta;
         private Label lblNuevaVenta;
         private Panel pnlVentas;
-        private Panel pnlBordeVentas;
         private Panel pnlVen;
         private Label label7;
         private Label label8;
         private Label lblVentasHoy;
         private PictureBox picVentas;
+        private Panel pnlBordeVentas;
         private Panel pnlEmpleados;
         private Panel pnlBordeEmple;
         private Panel pnlEmp;
@@ -787,6 +779,7 @@
         private Label NumProductos;
         private Label lblPproductos;
         private Panel panel1;
+        private Label lblSalir;
         private Label lblResumen;
         private Label lblBienvenido;
     }

@@ -10,43 +10,23 @@ namespace Derick
 {
     public partial class FormProductos : Form
     {
-        private Form activo;
         public FormProductos()
         {
             InitializeComponent();
         }
-        public void AbrirFormulario(Form formulario)
+
+        private void lblSalir_Click(object sender, EventArgs e)
         {
-            if (activo != null)
+            DialogResult respuesta = MessageBox.Show(
+            "¿Está seguro de salir?",
+            "Confirmar salida",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Question);
+
+            if (respuesta == DialogResult.Yes)
             {
-                activo.Close();
+                Application.Exit();
             }
-            activo = formulario;
-            formulario.TopLevel = false;
-            formulario.FormBorderStyle = FormBorderStyle.None;
-            formulario.Dock = DockStyle.Fill;
-
-            pnl_product1.Controls.Clear();
-            pnl_product1.Controls.Add(formulario);
-            formulario.Show();
-        }
-        public void MostrarFrm()
-        {
-            AbrirFormulario(new FormProductos());
-        }
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_product1_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario(new FormAgg_Product());
-        }
-
-        private void btn_product2_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario(new FormBusc_Product());
         }
     }
 }
