@@ -43,17 +43,16 @@ namespace Derick
 
         private void btnNuevoEmpleado_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(new FrmNuevoEmpleado());
+            AbrirFormulario(new FrmEmple());
         }
 
         private void btnBuscarEmpleado_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(new FrmListaEmpleados());
+           
         }
 
         private void btndepa_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(new FrmListaEmpleados());
         }
     }
 }
