@@ -33,6 +33,7 @@
             pbImageninicio = new PictureBox();
             pictureBox1 = new PictureBox();
             pnlLogin = new Panel();
+            button1 = new Button();
             pictureBox3 = new PictureBox();
             lblSalir = new Label();
             lblfinal = new Label();
@@ -92,6 +93,7 @@
             // 
             // pnlLogin
             // 
+            pnlLogin.Controls.Add(button1);
             pnlLogin.Controls.Add(pictureBox3);
             pnlLogin.Controls.Add(lblSalir);
             pnlLogin.Controls.Add(lblfinal);
@@ -112,6 +114,17 @@
             pnlLogin.Name = "pnlLogin";
             pnlLogin.Size = new Size(730, 700);
             pnlLogin.TabIndex = 1;
+            // 
+            // button1
+            // 
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Location = new Point(583, 638);
+            button1.Name = "button1";
+            button1.Size = new Size(147, 62);
+            button1.TabIndex = 16;
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // pictureBox3
             // 
@@ -307,5 +320,6 @@
         private Label lblfinal;
         private Label lblSalir;
         private PictureBox pictureBox3;
+        private Button button1;
     }
 }

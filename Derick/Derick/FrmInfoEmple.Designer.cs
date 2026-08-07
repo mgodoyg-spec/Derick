@@ -44,6 +44,7 @@
             label20 = new Label();
             label19 = new Label();
             panel1 = new Panel();
+            lblSalirV = new Label();
             label1 = new Label();
             lblInformacionSuc = new Label();
             pictureBox2 = new PictureBox();
@@ -110,7 +111,8 @@
             txtCodigo = new TextBox();
             lblCodigo = new Label();
             lblInfoPeronal = new Label();
-            lblSalirV = new Label();
+            textBox3 = new TextBox();
+            label22 = new Label();
             pnlNuevoEmple.SuspendLayout();
             pnlImagen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbxAgregarImagen).BeginInit();
@@ -228,6 +230,8 @@
             // panel2
             // 
             panel2.BorderStyle = BorderStyle.FixedSingle;
+            panel2.Controls.Add(textBox3);
+            panel2.Controls.Add(label22);
             panel2.Controls.Add(textBox2);
             panel2.Controls.Add(label21);
             panel2.Controls.Add(textBox1);
@@ -236,12 +240,12 @@
             panel2.Location = new Point(10, 313);
             panel2.Margin = new Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(201, 149);
+            panel2.Size = new Size(201, 203);
             panel2.TabIndex = 16;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(4, 115);
+            textBox2.Location = new Point(4, 100);
             textBox2.Margin = new Padding(3, 2, 3, 2);
             textBox2.MaxLength = 10;
             textBox2.Name = "textBox2";
@@ -252,11 +256,11 @@
             // 
             label21.AutoSize = true;
             label21.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label21.Location = new Point(4, 94);
+            label21.Location = new Point(4, 78);
             label21.Name = "label21";
-            label21.Size = new Size(57, 16);
+            label21.Size = new Size(79, 16);
             label21.TabIndex = 19;
-            label21.Text = "Usuario:";
+            label21.Text = "Contraseña:";
             // 
             // textBox1
             // 
@@ -298,6 +302,20 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1006, 62);
             panel1.TabIndex = 15;
+            // 
+            // lblSalirV
+            // 
+            lblSalirV.AutoSize = true;
+            lblSalirV.BackColor = Color.Transparent;
+            lblSalirV.Cursor = Cursors.Hand;
+            lblSalirV.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSalirV.ForeColor = Color.Red;
+            lblSalirV.Location = new Point(974, 7);
+            lblSalirV.Name = "lblSalirV";
+            lblSalirV.Size = new Size(25, 24);
+            lblSalirV.TabIndex = 45;
+            lblSalirV.Text = "X";
+            lblSalirV.Click += lblSalirV_Click;
             // 
             // label1
             // 
@@ -1056,19 +1074,24 @@
             lblInfoPeronal.TabIndex = 1;
             lblInfoPeronal.Text = "Información personal";
             // 
-            // lblSalirV
+            // textBox3
             // 
-            lblSalirV.AutoSize = true;
-            lblSalirV.BackColor = Color.Transparent;
-            lblSalirV.Cursor = Cursors.Hand;
-            lblSalirV.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblSalirV.ForeColor = Color.Red;
-            lblSalirV.Location = new Point(974, 7);
-            lblSalirV.Name = "lblSalirV";
-            lblSalirV.Size = new Size(25, 24);
-            lblSalirV.TabIndex = 45;
-            lblSalirV.Text = "X";
-            lblSalirV.Click += lblSalirV_Click;
+            textBox3.Location = new Point(4, 151);
+            textBox3.Margin = new Padding(3, 2, 3, 2);
+            textBox3.MaxLength = 10;
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(185, 23);
+            textBox3.TabIndex = 22;
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label22.Location = new Point(4, 132);
+            label22.Name = "label22";
+            label22.Size = new Size(31, 16);
+            label22.TabIndex = 21;
+            label22.Text = "Rol:";
             // 
             // FrmInfoEmple
             // 
@@ -1184,5 +1207,7 @@
         private PictureBox pbxImagenEmple;
         private Button btnAgregarImagen;
         private Label lblSalirV;
+        private TextBox textBox3;
+        private Label label22;
     }
 }
