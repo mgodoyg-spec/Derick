@@ -28,5 +28,14 @@ namespace Derick
                 Application.Exit();
             }
         }
+        private void InicioGerente_Load(object sender, EventArgs e)
+        {
+            lblFechaHora.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+        }
+
+        private void timerReloj_Tick(object sender, EventArgs e)
+        {
+            lblFechaHora.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+        }
     }
 }

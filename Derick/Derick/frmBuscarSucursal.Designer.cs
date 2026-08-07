@@ -28,23 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            pnlTituloBuscarSucursales = new Panel();
-            lblDescripcionSuc = new Label();
-            pbxIconoDerick = new PictureBox();
-            lblBuscarSucursal = new Label();
             pnlBuscarSucursal = new Panel();
-            pbxBuscarSucursal = new PictureBox();
-            pnlInformacion = new Panel();
-            btnEditar = new Button();
-            lblCodigo = new Label();
-            lblEncargadoSucursal = new Label();
-            lblCorreo = new Label();
-            lbltelefono = new Label();
-            lblDireccion = new Label();
-            lblCiudadSucursal = new Label();
-            lblNombreSucursal = new Label();
-            lbEstadoSucursal = new Label();
-            lblInformacion = new Label();
+            lblSucReg = new Label();
+            pnlSucursalesRemodelacion = new Panel();
+            pictureBox4 = new PictureBox();
+            lblSucursalesRemodelacion = new Label();
+            lblSucRemod = new Label();
+            pnlSucursalesInactivas = new Panel();
+            pictureBox3 = new PictureBox();
+            lblSucursalesInactivas = new Label();
+            lblSucInac = new Label();
+            pnlSucursalesActivas = new Panel();
+            pictureBox2 = new PictureBox();
+            lblSucursalesActivas = new Label();
+            lblSucAct = new Label();
+            pnlTotalSucursales = new Panel();
+            lblTotalSucursales = new Label();
+            lbltotalsuc = new Label();
+            pictureBox1 = new PictureBox();
             dgvSucursales = new DataGridView();
             clCodigo = new DataGridViewTextBoxColumn();
             clNombreSucursal = new DataGridViewTextBoxColumn();
@@ -52,224 +53,230 @@
             clDireccion = new DataGridViewTextBoxColumn();
             clTelefono = new DataGridViewTextBoxColumn();
             clEstado = new DataGridViewTextBoxColumn();
-            clAcciones = new DataGridViewTextBoxColumn();
+            clEditar = new DataGridViewButtonColumn();
+            clUbicacion = new DataGridViewButtonColumn();
+            clVer = new DataGridViewButtonColumn();
+            pbxBuscarSucursal = new PictureBox();
             btnBuscar = new Button();
-            lblestado = new Label();
-            lblCiudad = new Label();
+            label7 = new Label();
+            label8 = new Label();
             cbxEstado = new ComboBox();
             cbxCiudad = new ComboBox();
             txtBuscar = new TextBox();
-            pnlTituloBuscarSucursales.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pbxIconoDerick).BeginInit();
+            pnlBusqueda = new Panel();
+            lblBuscarSucursal = new Label();
             pnlBuscarSucursal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pbxBuscarSucursal).BeginInit();
-            pnlInformacion.SuspendLayout();
+            pnlSucursalesRemodelacion.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            pnlSucursalesInactivas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            pnlSucursalesActivas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            pnlTotalSucursales.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvSucursales).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbxBuscarSucursal).BeginInit();
+            pnlBusqueda.SuspendLayout();
             SuspendLayout();
-            // 
-            // pnlTituloBuscarSucursales
-            // 
-            pnlTituloBuscarSucursales.BackColor = Color.Black;
-            pnlTituloBuscarSucursales.Controls.Add(lblDescripcionSuc);
-            pnlTituloBuscarSucursales.Controls.Add(pbxIconoDerick);
-            pnlTituloBuscarSucursales.Controls.Add(lblBuscarSucursal);
-            pnlTituloBuscarSucursales.Location = new Point(306, 13);
-            pnlTituloBuscarSucursales.Margin = new Padding(4);
-            pnlTituloBuscarSucursales.Name = "pnlTituloBuscarSucursales";
-            pnlTituloBuscarSucursales.Size = new Size(626, 100);
-            pnlTituloBuscarSucursales.TabIndex = 1;
-            // 
-            // lblDescripcionSuc
-            // 
-            lblDescripcionSuc.AutoSize = true;
-            lblDescripcionSuc.Font = new Font("Calibri Light", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            lblDescripcionSuc.ForeColor = Color.White;
-            lblDescripcionSuc.Location = new Point(158, 61);
-            lblDescripcionSuc.Margin = new Padding(4, 0, 4, 0);
-            lblDescripcionSuc.Name = "lblDescripcionSuc";
-            lblDescripcionSuc.Size = new Size(349, 19);
-            lblDescripcionSuc.TabIndex = 2;
-            lblDescripcionSuc.Text = "Consulta la información de las sucursales registradas";
-            // 
-            // pbxIconoDerick
-            // 
-            pbxIconoDerick.BackgroundImage = Properties.Resources.DerickRecortado;
-            pbxIconoDerick.BackgroundImageLayout = ImageLayout.Zoom;
-            pbxIconoDerick.Location = new Point(15, 4);
-            pbxIconoDerick.Margin = new Padding(4);
-            pbxIconoDerick.Name = "pbxIconoDerick";
-            pbxIconoDerick.Size = new Size(105, 89);
-            pbxIconoDerick.TabIndex = 1;
-            pbxIconoDerick.TabStop = false;
-            // 
-            // lblBuscarSucursal
-            // 
-            lblBuscarSucursal.AutoSize = true;
-            lblBuscarSucursal.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblBuscarSucursal.ForeColor = Color.WhiteSmoke;
-            lblBuscarSucursal.Location = new Point(197, 15);
-            lblBuscarSucursal.Margin = new Padding(4, 0, 4, 0);
-            lblBuscarSucursal.Name = "lblBuscarSucursal";
-            lblBuscarSucursal.Size = new Size(261, 37);
-            lblBuscarSucursal.TabIndex = 0;
-            lblBuscarSucursal.Text = "Buscar sucursal";
             // 
             // pnlBuscarSucursal
             // 
-            pnlBuscarSucursal.BackColor = Color.White;
-            pnlBuscarSucursal.Controls.Add(pbxBuscarSucursal);
-            pnlBuscarSucursal.Controls.Add(pnlInformacion);
+            pnlBuscarSucursal.Anchor = AnchorStyles.Left;
+            pnlBuscarSucursal.BackColor = Color.FromArgb(244, 246, 249);
+            pnlBuscarSucursal.Controls.Add(lblSucReg);
+            pnlBuscarSucursal.Controls.Add(pnlSucursalesRemodelacion);
+            pnlBuscarSucursal.Controls.Add(pnlSucursalesInactivas);
+            pnlBuscarSucursal.Controls.Add(pnlSucursalesActivas);
+            pnlBuscarSucursal.Controls.Add(pnlTotalSucursales);
             pnlBuscarSucursal.Controls.Add(dgvSucursales);
-            pnlBuscarSucursal.Controls.Add(btnBuscar);
-            pnlBuscarSucursal.Controls.Add(lblestado);
-            pnlBuscarSucursal.Controls.Add(lblCiudad);
-            pnlBuscarSucursal.Controls.Add(cbxEstado);
-            pnlBuscarSucursal.Controls.Add(cbxCiudad);
-            pnlBuscarSucursal.Controls.Add(txtBuscar);
-            pnlBuscarSucursal.Location = new Point(62, 139);
+            pnlBuscarSucursal.Font = new Font("Calibri", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            pnlBuscarSucursal.Location = new Point(24, 171);
             pnlBuscarSucursal.Margin = new Padding(4);
             pnlBuscarSucursal.Name = "pnlBuscarSucursal";
-            pnlBuscarSucursal.Size = new Size(1097, 482);
-            pnlBuscarSucursal.TabIndex = 2;
+            pnlBuscarSucursal.Size = new Size(1074, 578);
+            pnlBuscarSucursal.TabIndex = 4;
             // 
-            // pbxBuscarSucursal
+            // lblSucReg
             // 
-            pbxBuscarSucursal.BackgroundImage = Properties.Resources.iconoBuscar;
-            pbxBuscarSucursal.BackgroundImageLayout = ImageLayout.Zoom;
-            pbxBuscarSucursal.Location = new Point(15, 13);
-            pbxBuscarSucursal.Name = "pbxBuscarSucursal";
-            pbxBuscarSucursal.Size = new Size(39, 48);
-            pbxBuscarSucursal.TabIndex = 24;
-            pbxBuscarSucursal.TabStop = false;
+            lblSucReg.AutoSize = true;
+            lblSucReg.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSucReg.Location = new Point(448, 17);
+            lblSucReg.Name = "lblSucReg";
+            lblSucReg.Size = new Size(201, 26);
+            lblSucReg.TabIndex = 27;
+            lblSucReg.Text = "Sucursales registradas";
             // 
-            // pnlInformacion
+            // pnlSucursalesRemodelacion
             // 
-            pnlInformacion.BackColor = Color.FromArgb(244, 246, 249);
-            pnlInformacion.Controls.Add(btnEditar);
-            pnlInformacion.Controls.Add(lblCodigo);
-            pnlInformacion.Controls.Add(lblEncargadoSucursal);
-            pnlInformacion.Controls.Add(lblCorreo);
-            pnlInformacion.Controls.Add(lbltelefono);
-            pnlInformacion.Controls.Add(lblDireccion);
-            pnlInformacion.Controls.Add(lblCiudadSucursal);
-            pnlInformacion.Controls.Add(lblNombreSucursal);
-            pnlInformacion.Controls.Add(lbEstadoSucursal);
-            pnlInformacion.Controls.Add(lblInformacion);
-            pnlInformacion.Location = new Point(786, 79);
-            pnlInformacion.Name = "pnlInformacion";
-            pnlInformacion.Size = new Size(298, 377);
-            pnlInformacion.TabIndex = 23;
+            pnlSucursalesRemodelacion.BackColor = Color.White;
+            pnlSucursalesRemodelacion.Controls.Add(pictureBox4);
+            pnlSucursalesRemodelacion.Controls.Add(lblSucursalesRemodelacion);
+            pnlSucursalesRemodelacion.Controls.Add(lblSucRemod);
+            pnlSucursalesRemodelacion.Location = new Point(777, 351);
+            pnlSucursalesRemodelacion.Name = "pnlSucursalesRemodelacion";
+            pnlSucursalesRemodelacion.Size = new Size(238, 110);
+            pnlSucursalesRemodelacion.TabIndex = 26;
             // 
-            // btnEditar
+            // pictureBox4
             // 
-            btnEditar.BackColor = Color.FromArgb(0, 176, 80);
-            btnEditar.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEditar.ForeColor = Color.White;
-            btnEditar.Location = new Point(94, 319);
-            btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(127, 34);
-            btnEditar.TabIndex = 33;
-            btnEditar.Text = "Editar";
-            btnEditar.UseVisualStyleBackColor = false;
+            pictureBox4.BackgroundImage = Properties.Resources.sucRemod;
+            pictureBox4.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox4.Location = new Point(5, 32);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(60, 57);
+            pictureBox4.TabIndex = 9;
+            pictureBox4.TabStop = false;
             // 
-            // lblCodigo
+            // lblSucursalesRemodelacion
             // 
-            lblCodigo.AutoSize = true;
-            lblCodigo.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCodigo.Location = new Point(14, 48);
-            lblCodigo.Name = "lblCodigo";
-            lblCodigo.Size = new Size(142, 20);
-            lblCodigo.TabIndex = 31;
-            lblCodigo.Text = "Código sucursal:";
+            lblSucursalesRemodelacion.AutoSize = true;
+            lblSucursalesRemodelacion.Font = new Font("Calibri", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSucursalesRemodelacion.Location = new Point(129, 49);
+            lblSucursalesRemodelacion.Name = "lblSucursalesRemodelacion";
+            lblSucursalesRemodelacion.Size = new Size(25, 29);
+            lblSucursalesRemodelacion.TabIndex = 8;
+            lblSucursalesRemodelacion.Text = "0";
             // 
-            // lblEncargadoSucursal
+            // lblSucRemod
             // 
-            lblEncargadoSucursal.AutoSize = true;
-            lblEncargadoSucursal.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblEncargadoSucursal.Location = new Point(14, 249);
-            lblEncargadoSucursal.Name = "lblEncargadoSucursal";
-            lblEncargadoSucursal.Size = new Size(217, 20);
-            lblEncargadoSucursal.TabIndex = 30;
-            lblEncargadoSucursal.Text = "Encargado de la sucursal:";
+            lblSucRemod.AutoSize = true;
+            lblSucRemod.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSucRemod.Location = new Point(3, 1);
+            lblSucRemod.Name = "lblSucRemod";
+            lblSucRemod.Size = new Size(235, 23);
+            lblSucRemod.TabIndex = 7;
+            lblSucRemod.Text = "Sucursales en remodelación ";
             // 
-            // lblCorreo
+            // pnlSucursalesInactivas
             // 
-            lblCorreo.AutoSize = true;
-            lblCorreo.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCorreo.Location = new Point(14, 217);
-            lblCorreo.Name = "lblCorreo";
-            lblCorreo.Size = new Size(161, 20);
-            lblCorreo.TabIndex = 29;
-            lblCorreo.Text = "Correo electrónico:";
+            pnlSucursalesInactivas.BackColor = Color.White;
+            pnlSucursalesInactivas.Controls.Add(pictureBox3);
+            pnlSucursalesInactivas.Controls.Add(lblSucursalesInactivas);
+            pnlSucursalesInactivas.Controls.Add(lblSucInac);
+            pnlSucursalesInactivas.Location = new Point(533, 351);
+            pnlSucursalesInactivas.Name = "pnlSucursalesInactivas";
+            pnlSucursalesInactivas.Size = new Size(238, 110);
+            pnlSucursalesInactivas.TabIndex = 26;
             // 
-            // lbltelefono
+            // pictureBox3
             // 
-            lbltelefono.AutoSize = true;
-            lbltelefono.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbltelefono.Location = new Point(14, 182);
-            lbltelefono.Name = "lbltelefono";
-            lbltelefono.Size = new Size(84, 20);
-            lbltelefono.TabIndex = 28;
-            lbltelefono.Text = "Teléfono:";
+            pictureBox3.BackgroundImage = Properties.Resources.sucInact1;
+            pictureBox3.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox3.Location = new Point(3, 32);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(60, 57);
+            pictureBox3.TabIndex = 7;
+            pictureBox3.TabStop = false;
             // 
-            // lblDireccion
+            // lblSucursalesInactivas
             // 
-            lblDireccion.AutoSize = true;
-            lblDireccion.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblDireccion.Location = new Point(14, 151);
-            lblDireccion.Name = "lblDireccion";
-            lblDireccion.Size = new Size(89, 20);
-            lblDireccion.TabIndex = 27;
-            lblDireccion.Text = "Dirección:";
+            lblSucursalesInactivas.AutoSize = true;
+            lblSucursalesInactivas.Font = new Font("Calibri", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSucursalesInactivas.Location = new Point(127, 49);
+            lblSucursalesInactivas.Name = "lblSucursalesInactivas";
+            lblSucursalesInactivas.Size = new Size(25, 29);
+            lblSucursalesInactivas.TabIndex = 6;
+            lblSucursalesInactivas.Text = "0";
             // 
-            // lblCiudadSucursal
+            // lblSucInac
             // 
-            lblCiudadSucursal.AutoSize = true;
-            lblCiudadSucursal.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCiudadSucursal.Location = new Point(14, 118);
-            lblCiudadSucursal.Name = "lblCiudadSucursal";
-            lblCiudadSucursal.Size = new Size(70, 20);
-            lblCiudadSucursal.TabIndex = 26;
-            lblCiudadSucursal.Text = "Ciudad:";
+            lblSucInac.AutoSize = true;
+            lblSucInac.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSucInac.Location = new Point(45, 3);
+            lblSucInac.Name = "lblSucInac";
+            lblSucInac.Size = new Size(167, 23);
+            lblSucInac.TabIndex = 5;
+            lblSucInac.Text = "Sucursales inactivas";
             // 
-            // lblNombreSucursal
+            // pnlSucursalesActivas
             // 
-            lblNombreSucursal.AutoSize = true;
-            lblNombreSucursal.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblNombreSucursal.Location = new Point(14, 84);
-            lblNombreSucursal.Name = "lblNombreSucursal";
-            lblNombreSucursal.Size = new Size(192, 20);
-            lblNombreSucursal.TabIndex = 25;
-            lblNombreSucursal.Text = "Nombre de la sucursal:";
+            pnlSucursalesActivas.BackColor = Color.White;
+            pnlSucursalesActivas.Controls.Add(pictureBox2);
+            pnlSucursalesActivas.Controls.Add(lblSucursalesActivas);
+            pnlSucursalesActivas.Controls.Add(lblSucAct);
+            pnlSucursalesActivas.Location = new Point(289, 351);
+            pnlSucursalesActivas.Name = "pnlSucursalesActivas";
+            pnlSucursalesActivas.Size = new Size(238, 110);
+            pnlSucursalesActivas.TabIndex = 26;
             // 
-            // lbEstadoSucursal
+            // pictureBox2
             // 
-            lbEstadoSucursal.AutoSize = true;
-            lbEstadoSucursal.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbEstadoSucursal.Location = new Point(14, 282);
-            lbEstadoSucursal.Name = "lbEstadoSucursal";
-            lbEstadoSucursal.Size = new Size(187, 20);
-            lbEstadoSucursal.TabIndex = 32;
-            lbEstadoSucursal.Text = "Estado de la sucursal:";
+            pictureBox2.BackgroundImage = Properties.Resources.sucAct;
+            pictureBox2.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox2.Location = new Point(9, 32);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(60, 57);
+            pictureBox2.TabIndex = 5;
+            pictureBox2.TabStop = false;
             // 
-            // lblInformacion
+            // lblSucursalesActivas
             // 
-            lblInformacion.AutoSize = true;
-            lblInformacion.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblInformacion.ForeColor = Color.FromArgb(0, 176, 80);
-            lblInformacion.Location = new Point(47, 14);
-            lblInformacion.Name = "lblInformacion";
-            lblInformacion.Size = new Size(207, 20);
-            lblInformacion.TabIndex = 24;
-            lblInformacion.Text = "Información por sucursal";
+            lblSucursalesActivas.AutoSize = true;
+            lblSucursalesActivas.Font = new Font("Calibri", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSucursalesActivas.Location = new Point(124, 49);
+            lblSucursalesActivas.Name = "lblSucursalesActivas";
+            lblSucursalesActivas.Size = new Size(25, 29);
+            lblSucursalesActivas.TabIndex = 4;
+            lblSucursalesActivas.Text = "0";
+            // 
+            // lblSucAct
+            // 
+            lblSucAct.AutoSize = true;
+            lblSucAct.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSucAct.Location = new Point(70, 3);
+            lblSucAct.Name = "lblSucAct";
+            lblSucAct.Size = new Size(152, 23);
+            lblSucAct.TabIndex = 3;
+            lblSucAct.Text = "Sucursales activas";
+            // 
+            // pnlTotalSucursales
+            // 
+            pnlTotalSucursales.BackColor = Color.White;
+            pnlTotalSucursales.Controls.Add(lblTotalSucursales);
+            pnlTotalSucursales.Controls.Add(lbltotalsuc);
+            pnlTotalSucursales.Controls.Add(pictureBox1);
+            pnlTotalSucursales.Location = new Point(45, 351);
+            pnlTotalSucursales.Name = "pnlTotalSucursales";
+            pnlTotalSucursales.Size = new Size(238, 110);
+            pnlTotalSucursales.TabIndex = 25;
+            // 
+            // lblTotalSucursales
+            // 
+            lblTotalSucursales.AutoSize = true;
+            lblTotalSucursales.Font = new Font("Calibri", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTotalSucursales.Location = new Point(122, 49);
+            lblTotalSucursales.Name = "lblTotalSucursales";
+            lblTotalSucursales.Size = new Size(25, 29);
+            lblTotalSucursales.TabIndex = 2;
+            lblTotalSucursales.Text = "0";
+            // 
+            // lbltotalsuc
+            // 
+            lbltotalsuc.AutoSize = true;
+            lbltotalsuc.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbltotalsuc.Location = new Point(69, 3);
+            lbltotalsuc.Name = "lbltotalsuc";
+            lbltotalsuc.Size = new Size(135, 23);
+            lbltotalsuc.TabIndex = 1;
+            lbltotalsuc.Text = "Total sucursales";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImage = Properties.Resources.totalSuc;
+            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox1.Location = new Point(3, 32);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(60, 57);
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
             // 
             // dgvSucursales
             // 
             dgvSucursales.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvSucursales.Columns.AddRange(new DataGridViewColumn[] { clCodigo, clNombreSucursal, clCiudad, clDireccion, clTelefono, clEstado, clAcciones });
-            dgvSucursales.Location = new Point(36, 78);
+            dgvSucursales.Columns.AddRange(new DataGridViewColumn[] { clCodigo, clNombreSucursal, clCiudad, clDireccion, clTelefono, clEstado, clEditar, clUbicacion, clVer });
+            dgvSucursales.Location = new Point(48, 46);
             dgvSucursales.Name = "dgvSucursales";
-            dgvSucursales.Size = new Size(737, 378);
+            dgvSucursales.Size = new Size(936, 299);
             dgvSucursales.TabIndex = 22;
             // 
             // clCodigo
@@ -308,68 +315,124 @@
             clEstado.Name = "clEstado";
             clEstado.ReadOnly = true;
             // 
-            // clAcciones
+            // clEditar
             // 
-            clAcciones.HeaderText = "Acciones";
-            clAcciones.Name = "clAcciones";
-            clAcciones.ReadOnly = true;
+            clEditar.HeaderText = "Editar";
+            clEditar.Name = "clEditar";
+            clEditar.ReadOnly = true;
+            clEditar.Resizable = DataGridViewTriState.True;
+            clEditar.SortMode = DataGridViewColumnSortMode.Automatic;
+            // 
+            // clUbicacion
+            // 
+            clUbicacion.HeaderText = "Ubicación";
+            clUbicacion.Name = "clUbicacion";
+            // 
+            // clVer
+            // 
+            clVer.HeaderText = "Ver más";
+            clVer.Name = "clVer";
+            // 
+            // pbxBuscarSucursal
+            // 
+            pbxBuscarSucursal.BackgroundImage = Properties.Resources.iconoBuscar;
+            pbxBuscarSucursal.BackgroundImageLayout = ImageLayout.Zoom;
+            pbxBuscarSucursal.Location = new Point(3, 3);
+            pbxBuscarSucursal.Name = "pbxBuscarSucursal";
+            pbxBuscarSucursal.Size = new Size(43, 39);
+            pbxBuscarSucursal.TabIndex = 24;
+            pbxBuscarSucursal.TabStop = false;
             // 
             // btnBuscar
             // 
             btnBuscar.BackColor = Color.FromArgb(0, 176, 80);
-            btnBuscar.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBuscar.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnBuscar.ForeColor = Color.White;
-            btnBuscar.Location = new Point(890, 21);
+            btnBuscar.Location = new Point(836, 48);
             btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(127, 29);
+            btnBuscar.Size = new Size(149, 31);
             btnBuscar.TabIndex = 21;
             btnBuscar.Text = "Buscar";
             btnBuscar.UseVisualStyleBackColor = false;
             // 
-            // lblestado
+            // label7
             // 
-            lblestado.AutoSize = true;
-            lblestado.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblestado.Location = new Point(662, 24);
-            lblestado.Name = "lblestado";
-            lblestado.Size = new Size(71, 20);
-            lblestado.TabIndex = 20;
-            lblestado.Text = "Estado:";
+            label7.AutoSize = true;
+            label7.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.ForeColor = Color.DimGray;
+            label7.Location = new Point(587, 52);
+            label7.Name = "label7";
+            label7.Size = new Size(68, 23);
+            label7.TabIndex = 20;
+            label7.Text = "Estado:";
             // 
-            // lblCiudad
+            // label8
             // 
-            lblCiudad.AutoSize = true;
-            lblCiudad.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCiudad.Location = new Point(441, 24);
-            lblCiudad.Name = "lblCiudad";
-            lblCiudad.Size = new Size(70, 20);
-            lblCiudad.TabIndex = 4;
-            lblCiudad.Text = "Ciudad:";
+            label8.AutoSize = true;
+            label8.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.DimGray;
+            label8.Location = new Point(351, 52);
+            label8.Name = "label8";
+            label8.Size = new Size(69, 23);
+            label8.TabIndex = 4;
+            label8.Text = "Ciudad:";
             // 
             // cbxEstado
             // 
+            cbxEstado.Font = new Font("Calibri", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbxEstado.FormattingEnabled = true;
-            cbxEstado.Location = new Point(739, 21);
+            cbxEstado.Location = new Point(661, 49);
             cbxEstado.Name = "cbxEstado";
-            cbxEstado.Size = new Size(121, 28);
+            cbxEstado.Size = new Size(121, 31);
             cbxEstado.TabIndex = 2;
             // 
             // cbxCiudad
             // 
+            cbxCiudad.Font = new Font("Calibri", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbxCiudad.FormattingEnabled = true;
-            cbxCiudad.Location = new Point(517, 21);
+            cbxCiudad.Location = new Point(426, 49);
             cbxCiudad.Name = "cbxCiudad";
-            cbxCiudad.Size = new Size(121, 28);
+            cbxCiudad.Size = new Size(121, 31);
             cbxCiudad.TabIndex = 1;
             // 
             // txtBuscar
             // 
-            txtBuscar.Location = new Point(59, 23);
+            txtBuscar.Font = new Font("Calibri", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtBuscar.ForeColor = Color.DimGray;
+            txtBuscar.Location = new Point(12, 49);
             txtBuscar.Margin = new Padding(4);
             txtBuscar.Name = "txtBuscar";
-            txtBuscar.Size = new Size(364, 26);
+            txtBuscar.Size = new Size(323, 31);
             txtBuscar.TabIndex = 0;
-            txtBuscar.Text = "Buscar por nombre...";
+            txtBuscar.Text = "Buscar";
+            // 
+            // pnlBusqueda
+            // 
+            pnlBusqueda.BackColor = Color.White;
+            pnlBusqueda.Controls.Add(lblBuscarSucursal);
+            pnlBusqueda.Controls.Add(pbxBuscarSucursal);
+            pnlBusqueda.Controls.Add(txtBuscar);
+            pnlBusqueda.Controls.Add(label8);
+            pnlBusqueda.Controls.Add(cbxCiudad);
+            pnlBusqueda.Controls.Add(btnBuscar);
+            pnlBusqueda.Controls.Add(label7);
+            pnlBusqueda.Controls.Add(cbxEstado);
+            pnlBusqueda.Location = new Point(24, 27);
+            pnlBusqueda.Name = "pnlBusqueda";
+            pnlBusqueda.Size = new Size(1024, 103);
+            pnlBusqueda.TabIndex = 5;
+            // 
+            // lblBuscarSucursal
+            // 
+            lblBuscarSucursal.AutoSize = true;
+            lblBuscarSucursal.BackColor = Color.White;
+            lblBuscarSucursal.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblBuscarSucursal.ForeColor = Color.FromArgb(0, 176, 80);
+            lblBuscarSucursal.Location = new Point(52, 3);
+            lblBuscarSucursal.Name = "lblBuscarSucursal";
+            lblBuscarSucursal.Size = new Size(143, 26);
+            lblBuscarSucursal.TabIndex = 27;
+            lblBuscarSucursal.Text = "Buscar sucursal";
             // 
             // frmBuscarSucursal
             // 
@@ -377,39 +440,58 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(244, 246, 249);
             ClientSize = new Size(1200, 650);
+            Controls.Add(pnlBusqueda);
             Controls.Add(pnlBuscarSucursal);
-            Controls.Add(pnlTituloBuscarSucursales);
             Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(4);
             Name = "frmBuscarSucursal";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "frmBuscarSucursal";
-            pnlTituloBuscarSucursales.ResumeLayout(false);
-            pnlTituloBuscarSucursales.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pbxIconoDerick).EndInit();
+            Load += frmBuscarSucursal_Load;
             pnlBuscarSucursal.ResumeLayout(false);
             pnlBuscarSucursal.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pbxBuscarSucursal).EndInit();
-            pnlInformacion.ResumeLayout(false);
-            pnlInformacion.PerformLayout();
+            pnlSucursalesRemodelacion.ResumeLayout(false);
+            pnlSucursalesRemodelacion.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            pnlSucursalesInactivas.ResumeLayout(false);
+            pnlSucursalesInactivas.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            pnlSucursalesActivas.ResumeLayout(false);
+            pnlSucursalesActivas.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            pnlTotalSucursales.ResumeLayout(false);
+            pnlTotalSucursales.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvSucursales).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbxBuscarSucursal).EndInit();
+            pnlBusqueda.ResumeLayout(false);
+            pnlBusqueda.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
-
-        private Panel pnlTituloBuscarSucursales;
-        private Label lblDescripcionSuc;
-        private PictureBox pbxIconoDerick;
-        private Label lblBuscarSucursal;
+        private Label label4;
+        private Label label1;
+        private Label label3;
         private Panel pnlBuscarSucursal;
-        private TextBox txtBuscar;
-        private ComboBox cbxEstado;
-        private ComboBox cbxCiudad;
-        private Label lblCiudad;
-        private Label lblestado;
-        private Button btnBuscar;
+        private Panel pnlSucursalesRemodelacion;
+        private PictureBox pictureBox4;
+        private Label lblSucursalesRemodelacion;
+        private Label lblSucRemod;
+        private Panel pnlSucursalesInactivas;
+        private PictureBox pictureBox3;
+        private Label lblSucursalesInactivas;
+        private Label lblSucInac;
+        private Panel pnlSucursalesActivas;
+        private PictureBox pictureBox2;
+        private Label lblSucursalesActivas;
+        private Label lblSucAct;
+        private Panel pnlTotalSucursales;
+        private Label lblTotalSucursales;
+        private Label lbltotalsuc;
+        private PictureBox pictureBox1;
+        private PictureBox pbxBuscarSucursal;
         private DataGridView dgvSucursales;
         private DataGridViewTextBoxColumn clCodigo;
         private DataGridViewTextBoxColumn clNombreSucursal;
@@ -417,21 +499,17 @@
         private DataGridViewTextBoxColumn clDireccion;
         private DataGridViewTextBoxColumn clTelefono;
         private DataGridViewTextBoxColumn clEstado;
-        private DataGridViewTextBoxColumn clAcciones;
-        private Panel pnlInformacion;
-        private Label lblInformacion;
-        private Label label4;
-        private Label lblCodigo;
-        private Label lblEncargadoSucursal;
-        private Label lblCorreo;
-        private Label lbltelefono;
-        private Label lblDireccion;
-        private Label label1;
-        private Label lblNombreSucursal;
-        private Label label3;
-        private Label lbEstadoSucursal;
-        private Button btnEditar;
-        private PictureBox pbxBuscarSucursal;
-        private Label lblCiudadSucursal;
+        private DataGridViewButtonColumn clEditar;
+        private DataGridViewButtonColumn clUbicacion;
+        private DataGridViewButtonColumn clVer;
+        private Button btnBuscar;
+        private Label label7;
+        private Label label8;
+        private ComboBox cbxEstado;
+        private ComboBox cbxCiudad;
+        private TextBox txtBuscar;
+        private Panel pnlBusqueda;
+        private Label lblBuscarSucursal;
+        private Label lblSucReg;
     }
 }

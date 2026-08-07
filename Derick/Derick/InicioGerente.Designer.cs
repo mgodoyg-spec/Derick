@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InicioGerente));
             pnlMostrarForm = new Panel();
             pnlActividadReciente = new Panel();
@@ -80,9 +81,11 @@
             NumProductos = new Label();
             lblPproductos = new Label();
             panel1 = new Panel();
+            lblFechaHora = new Label();
             lblSalir = new Label();
             lblResumen = new Label();
             lblBienvenido = new Label();
+            timerReloj = new System.Windows.Forms.Timer(components);
             pnlMostrarForm.SuspendLayout();
             pnlActividadReciente.SuspendLayout();
             pnlAccesoRapido.SuspendLayout();
@@ -131,7 +134,7 @@
             pnlActividadReciente.BackColor = Color.White;
             pnlActividadReciente.Controls.Add(btnVerTodo);
             pnlActividadReciente.Controls.Add(lblActividadRe);
-            pnlActividadReciente.Location = new Point(321, 263);
+            pnlActividadReciente.Location = new Point(303, 263);
             pnlActividadReciente.Name = "pnlActividadReciente";
             pnlActividadReciente.Size = new Size(841, 360);
             pnlActividadReciente.TabIndex = 6;
@@ -166,7 +169,7 @@
             pnlAccesoRapido.Controls.Add(pnlAgregarProductos);
             pnlAccesoRapido.Controls.Add(pnlVerSucursales);
             pnlAccesoRapido.Controls.Add(pnlAgregarVenta);
-            pnlAccesoRapido.Location = new Point(34, 263);
+            pnlAccesoRapido.Location = new Point(16, 263);
             pnlAccesoRapido.Name = "pnlAccesoRapido";
             pnlAccesoRapido.Size = new Size(278, 360);
             pnlAccesoRapido.TabIndex = 3;
@@ -364,7 +367,7 @@
             pnlVentas.BackColor = Color.White;
             pnlVentas.Controls.Add(pnlBordeVentas);
             pnlVentas.Controls.Add(pnlVen);
-            pnlVentas.Location = new Point(717, 103);
+            pnlVentas.Location = new Point(837, 103);
             pnlVentas.Name = "pnlVentas";
             pnlVentas.Size = new Size(214, 124);
             pnlVentas.TabIndex = 5;
@@ -433,7 +436,7 @@
             pnlEmpleados.BackColor = Color.White;
             pnlEmpleados.Controls.Add(pnlBordeEmple);
             pnlEmpleados.Controls.Add(pnlEmp);
-            pnlEmpleados.Location = new Point(488, 103);
+            pnlEmpleados.Location = new Point(598, 103);
             pnlEmpleados.Name = "pnlEmpleados";
             pnlEmpleados.Size = new Size(212, 124);
             pnlEmpleados.TabIndex = 4;
@@ -502,7 +505,7 @@
             pnlSucursales.BackColor = Color.White;
             pnlSucursales.Controls.Add(pnlBordeSucur);
             pnlSucursales.Controls.Add(pnlSuc);
-            pnlSucursales.Location = new Point(259, 103);
+            pnlSucursales.Location = new Point(359, 103);
             pnlSucursales.Name = "pnlSucursales";
             pnlSucursales.Size = new Size(210, 124);
             pnlSucursales.TabIndex = 3;
@@ -571,7 +574,7 @@
             pnlProductos.BackColor = Color.White;
             pnlProductos.Controls.Add(pnlBordePro);
             pnlProductos.Controls.Add(pnlCtnProdu);
-            pnlProductos.Location = new Point(34, 103);
+            pnlProductos.Location = new Point(122, 103);
             pnlProductos.Name = "pnlProductos";
             pnlProductos.Size = new Size(210, 124);
             pnlProductos.TabIndex = 2;
@@ -639,13 +642,24 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(lblFechaHora);
             panel1.Controls.Add(lblSalir);
             panel1.Controls.Add(lblResumen);
             panel1.Controls.Add(lblBienvenido);
-            panel1.Location = new Point(34, 12);
+            panel1.Location = new Point(16, 12);
             panel1.Name = "panel1";
             panel1.Size = new Size(1128, 73);
             panel1.TabIndex = 14;
+            // 
+            // lblFechaHora
+            // 
+            lblFechaHora.AutoSize = true;
+            lblFechaHora.Font = new Font("Calibri", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblFechaHora.Location = new Point(948, 19);
+            lblFechaHora.Name = "lblFechaHora";
+            lblFechaHora.Size = new Size(46, 18);
+            lblFechaHora.TabIndex = 16;
+            lblFechaHora.Text = "label1";
             // 
             // lblSalir
             // 
@@ -683,6 +697,12 @@
             lblBienvenido.TabIndex = 11;
             lblBienvenido.Text = "¡Bienvenido de nuevo!";
             // 
+            // timerReloj
+            // 
+            timerReloj.Enabled = true;
+            timerReloj.Interval = 1000;
+            timerReloj.Tick += timerReloj_Tick;
+            // 
             // InicioGerente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -695,6 +715,7 @@
             Name = "InicioGerente";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "InicioGerente";
+            Load += InicioGerente_Load;
             pnlMostrarForm.ResumeLayout(false);
             pnlActividadReciente.ResumeLayout(false);
             pnlActividadReciente.PerformLayout();
@@ -789,5 +810,7 @@
         private Panel panel1;
         private Label lblResumen;
         private Label lblBienvenido;
+        private Label lblFechaHora;
+        private System.Windows.Forms.Timer timerReloj;
     }
 }

@@ -131,6 +131,7 @@
             // 
             // pnl_inf1
             // 
+<<<<<<< HEAD
             pnl_inf1.BackColor = Color.White;
             pnl_inf1.BorderStyle = BorderStyle.FixedSingle;
             pnl_inf1.Controls.Add(txt_descrp);
@@ -140,6 +141,18 @@
             pnl_inf1.Name = "pnl_inf1";
             pnl_inf1.Size = new Size(735, 194);
             pnl_inf1.TabIndex = 5;
+=======
+            panel2.BackColor = Color.White;
+            panel2.BorderStyle = BorderStyle.FixedSingle;
+            panel2.Controls.Add(textBox1);
+            panel2.Controls.Add(label11);
+            panel2.Controls.Add(pictureBox3);
+            panel2.Location = new Point(509, 194);
+            panel2.Margin = new Padding(3, 2, 3, 2);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(643, 146);
+            panel2.TabIndex = 5;
+>>>>>>> main
             // 
             // txt_descrp
             // 
@@ -177,6 +190,7 @@
             // 
             // pnl_lis1
             // 
+<<<<<<< HEAD
             pnl_lis1.BackColor = Color.White;
             pnl_lis1.Controls.Add(cmb_agg5);
             pnl_lis1.Controls.Add(cmb_agg4);
@@ -193,6 +207,25 @@
             pnl_lis1.Name = "pnl_lis1";
             pnl_lis1.Size = new Size(1315, 453);
             pnl_lis1.TabIndex = 6;
+=======
+            panel7.BackColor = Color.White;
+            panel7.Controls.Add(comboBox2);
+            panel7.Controls.Add(comboBox1);
+            panel7.Controls.Add(textBox2);
+            panel7.Controls.Add(button6);
+            panel7.Controls.Add(button5);
+            panel7.Controls.Add(button4);
+            panel7.Controls.Add(button3);
+            panel7.Controls.Add(button2);
+            panel7.Controls.Add(dataGridView1);
+            panel7.Controls.Add(label8);
+            panel7.Controls.Add(pictureBox2);
+            panel7.Location = new Point(12, 344);
+            panel7.Margin = new Padding(3, 2, 3, 2);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(1140, 340);
+            panel7.TabIndex = 6;
+>>>>>>> main
             // 
             // cmb_agg5
             // 
@@ -237,6 +270,7 @@
             // 
             // btn4_agg4
             // 
+<<<<<<< HEAD
             btn4_agg4.Cursor = Cursors.Hand;
             btn4_agg4.FlatAppearance.BorderColor = Color.LightGray;
             btn4_agg4.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold);
@@ -246,9 +280,22 @@
             btn4_agg4.TabIndex = 19;
             btn4_agg4.Text = ">";
             btn4_agg4.UseVisualStyleBackColor = true;
+=======
+            button5.Cursor = Cursors.Hand;
+            button5.FlatAppearance.BorderColor = Color.LightGray;
+            button5.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold);
+            button5.Location = new Point(1051, 215);
+            button5.Margin = new Padding(3, 2, 3, 2);
+            button5.Name = "button5";
+            button5.Size = new Size(31, 26);
+            button5.TabIndex = 19;
+            button5.Text = ">";
+            button5.UseVisualStyleBackColor = true;
+>>>>>>> main
             // 
             // btn3_agg3
             // 
+<<<<<<< HEAD
             btn3_agg3.BackColor = Color.RoyalBlue;
             btn3_agg3.Cursor = Cursors.Hand;
             btn3_agg3.FlatAppearance.BorderSize = 0;
@@ -261,9 +308,25 @@
             btn3_agg3.TabIndex = 18;
             btn3_agg3.Text = "1";
             btn3_agg3.UseVisualStyleBackColor = false;
+=======
+            button4.BackColor = Color.RoyalBlue;
+            button4.Cursor = Cursors.Hand;
+            button4.FlatAppearance.BorderSize = 0;
+            button4.FlatStyle = FlatStyle.Flat;
+            button4.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold);
+            button4.ForeColor = Color.White;
+            button4.Location = new Point(1005, 210);
+            button4.Margin = new Padding(3, 2, 3, 2);
+            button4.Name = "button4";
+            button4.Size = new Size(31, 26);
+            button4.TabIndex = 18;
+            button4.Text = "1";
+            button4.UseVisualStyleBackColor = false;
+>>>>>>> main
             // 
             // btn2_agg2
             // 
+<<<<<<< HEAD
             btn2_agg2.Cursor = Cursors.Hand;
             btn2_agg2.FlatAppearance.BorderColor = Color.LightGray;
             btn2_agg2.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold);
@@ -273,9 +336,22 @@
             btn2_agg2.TabIndex = 17;
             btn2_agg2.Text = "<";
             btn2_agg2.UseVisualStyleBackColor = true;
+=======
+            button3.Cursor = Cursors.Hand;
+            button3.FlatAppearance.BorderColor = Color.LightGray;
+            button3.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold);
+            button3.Location = new Point(957, 215);
+            button3.Margin = new Padding(3, 2, 3, 2);
+            button3.Name = "button3";
+            button3.Size = new Size(31, 26);
+            button3.TabIndex = 17;
+            button3.Text = "<";
+            button3.UseVisualStyleBackColor = true;
+>>>>>>> main
             // 
             // btn1_agg1
             // 
+<<<<<<< HEAD
             btn1_agg1.Cursor = Cursors.Hand;
             btn1_agg1.FlatAppearance.BorderColor = Color.LightGray;
             btn1_agg1.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold);
@@ -285,9 +361,22 @@
             btn1_agg1.TabIndex = 16;
             btn1_agg1.Text = "<<";
             btn1_agg1.UseVisualStyleBackColor = true;
+=======
+            button2.Cursor = Cursors.Hand;
+            button2.FlatAppearance.BorderColor = Color.LightGray;
+            button2.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold);
+            button2.Location = new Point(920, 215);
+            button2.Margin = new Padding(3, 2, 3, 2);
+            button2.Name = "button2";
+            button2.Size = new Size(31, 26);
+            button2.TabIndex = 16;
+            button2.Text = "<<";
+            button2.UseVisualStyleBackColor = true;
+>>>>>>> main
             // 
             // dtg1_agg
             // 
+<<<<<<< HEAD
             dtg1_agg.AllowUserToAddRows = false;
             dtg1_agg.AllowUserToDeleteRows = false;
             dtg1_agg.AllowUserToResizeColumns = false;
@@ -307,6 +396,28 @@
             dtg1_agg.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dtg1_agg.Size = new Size(1271, 127);
             dtg1_agg.TabIndex = 15;
+=======
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.AllowUserToResizeColumns = false;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.BackgroundColor = Color.White;
+            dataGridView1.BorderStyle = BorderStyle.None;
+            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { c1, c2, c3, c4, c5, c6, col_acciones });
+            dataGridView1.Location = new Point(16, 72);
+            dataGridView1.Margin = new Padding(3, 2, 3, 2);
+            dataGridView1.MultiSelect = false;
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.Size = new Size(1085, 95);
+            dataGridView1.TabIndex = 15;
+>>>>>>> main
             // 
             // c1
             // 
@@ -380,6 +491,7 @@
             // 
             // pnl_inv1
             // 
+<<<<<<< HEAD
             pnl_inv1.BackColor = Color.White;
             pnl_inv1.BorderStyle = BorderStyle.FixedSingle;
             pnl_inv1.Controls.Add(fecha1_agg);
@@ -400,6 +512,29 @@
             pnl_inv1.Name = "pnl_inv1";
             pnl_inv1.Size = new Size(735, 165);
             pnl_inv1.TabIndex = 4;
+=======
+            panel1.BackColor = Color.White;
+            panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(dateTimePicker1);
+            panel1.Controls.Add(numericUpDown3);
+            panel1.Controls.Add(numericUpDown2);
+            panel1.Controls.Add(numericUpDown1);
+            panel1.Controls.Add(label9);
+            panel1.Controls.Add(label6);
+            panel1.Controls.Add(label10);
+            panel1.Controls.Add(label7);
+            panel1.Controls.Add(label4);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(label5);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(label3);
+            panel1.Location = new Point(509, 62);
+            panel1.Margin = new Padding(3, 2, 3, 2);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(643, 124);
+            panel1.TabIndex = 4;
+>>>>>>> main
             // 
             // fecha1_agg
             // 
@@ -844,6 +979,7 @@
             // 
             // pnl_enc1
             // 
+<<<<<<< HEAD
             pnl_enc1.BackColor = Color.White;
             pnl_enc1.Controls.Add(lblSalir);
             pnl_enc1.Controls.Add(pic_agg1);
@@ -852,6 +988,14 @@
             pnl_enc1.Name = "pnl_enc1";
             pnl_enc1.Size = new Size(1315, 72);
             pnl_enc1.TabIndex = 22;
+=======
+            panel3.BackColor = Color.White;
+            panel3.Controls.Add(lblSalir);
+            panel3.Location = new Point(12, 3);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(1140, 54);
+            panel3.TabIndex = 22;
+>>>>>>> main
             // 
             // lblSalir
             // 
@@ -860,7 +1004,11 @@
             lblSalir.Cursor = Cursors.Hand;
             lblSalir.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSalir.ForeColor = Color.Red;
+<<<<<<< HEAD
             lblSalir.Location = new Point(1281, 21);
+=======
+            lblSalir.Location = new Point(1112, 12);
+>>>>>>> main
             lblSalir.Name = "lblSalir";
             lblSalir.Size = new Size(31, 29);
             lblSalir.TabIndex = 21;
