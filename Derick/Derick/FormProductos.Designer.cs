@@ -28,9 +28,55 @@
         /// </summary>
         private void InitializeComponent()
         {
+<<<<<<< HEAD
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProductos));
             pnl_conagg = new Panel();
             button1 = new Button();
+=======
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProductos));
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            pnl_product1 = new Panel();
+            pnl_product_acr1 = new Panel();
+            btn_acr1 = new Button();
+            lbl_actp1 = new Label();
+            pnl_product_acc1 = new Panel();
+            pnl_acc4 = new Panel();
+            btn_product4 = new Guna.UI2.WinForms.Guna2Button();
+            label5 = new Label();
+            lbl_acc4 = new Label();
+            pic_acc4 = new PictureBox();
+            pnl_acc3 = new Panel();
+            btn_product3 = new Guna.UI2.WinForms.Guna2Button();
+            label4 = new Label();
+            lbl_acc3 = new Label();
+            pic_acc3 = new PictureBox();
+            pnl_acc2 = new Panel();
+            btn_product2 = new Guna.UI2.WinForms.Guna2Button();
+            lbl_acc6 = new Label();
+            lbl_acc2 = new Label();
+            pic_acc2 = new PictureBox();
+            pnl_acc1 = new Panel();
+            picAgregarProductos = new PictureBox();
+            lbl_acc5 = new Label();
+            btn_product1 = new Guna.UI2.WinForms.Guna2Button();
+            lbl_acc1 = new Label();
+            label1 = new Label();
+            pnl_borde_p3 = new Panel();
+            pnl_borde_p2 = new Panel();
+            panel3 = new Panel();
+            lbl_tlt_p12 = new Label();
+            lbl_tlt_p8 = new Label();
+            lbl_tlt_p7 = new Label();
+            pictureBox3 = new PictureBox();
+            pnl_borde_p4 = new Panel();
+>>>>>>> main
             panel2 = new Panel();
             panel8 = new Panel();
             textBox1 = new TextBox();
@@ -69,6 +115,7 @@
             label5 = new Label();
             label2 = new Label();
             pictureBox1 = new PictureBox();
+<<<<<<< HEAD
             label3 = new Label();
             lbl_agg2 = new Label();
             pic_agg1 = new PictureBox();
@@ -109,6 +156,30 @@
             button6 = new Button();
             button7 = new Button();
             pnl_conagg.SuspendLayout();
+=======
+            pnl_p1 = new Panel();
+            pcProductos = new PictureBox();
+            lbl_tlt_9 = new Label();
+            lbl_tlt_p2 = new Label();
+            lbl_tlt_p1 = new Label();
+            pnl_borde_p1 = new Panel();
+            pnl_product2 = new Panel();
+            lbl_mensajep2 = new Label();
+            lbl_mensajep = new Label();
+            pnl_product1.SuspendLayout();
+            pnl_product_acr1.SuspendLayout();
+            pnl_product_acc1.SuspendLayout();
+            pnl_acc4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pic_acc4).BeginInit();
+            pnl_acc3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pic_acc3).BeginInit();
+            pnl_acc2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pic_acc2).BeginInit();
+            pnl_acc1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picAgregarProductos).BeginInit();
+            panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+>>>>>>> main
             panel2.SuspendLayout();
             panel8.SuspendLayout();
             panel7.SuspendLayout();
@@ -156,6 +227,7 @@
             // 
             // button1
             // 
+<<<<<<< HEAD
             button1.BackColor = Color.FromArgb(0, 102, 255);
             button1.Cursor = Cursors.Hand;
             button1.FlatStyle = FlatStyle.Flat;
@@ -169,6 +241,17 @@
             button1.TabIndex = 7;
             button1.Text = "Guardar producto";
             button1.UseVisualStyleBackColor = false;
+=======
+            pnl_product_acr1.BackColor = Color.White;
+            pnl_product_acr1.BorderStyle = BorderStyle.FixedSingle;
+            pnl_product_acr1.Controls.Add(btn_acr1);
+            pnl_product_acr1.Controls.Add(lbl_actp1);
+            pnl_product_acr1.Location = new Point(610, 322);
+            pnl_product_acr1.Margin = new Padding(3, 2, 3, 2);
+            pnl_product_acr1.Name = "pnl_product_acr1";
+            pnl_product_acr1.Size = new Size(570, 298);
+            pnl_product_acr1.TabIndex = 9;
+>>>>>>> main
             // 
             // panel2
             // 
@@ -195,6 +278,7 @@
             // 
             // textBox1
             // 
+<<<<<<< HEAD
             textBox1.AcceptsReturn = true;
             textBox1.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBox1.Location = new Point(10, 9);
@@ -205,9 +289,24 @@
             textBox1.ScrollBars = ScrollBars.Vertical;
             textBox1.Size = new Size(579, 63);
             textBox1.TabIndex = 10;
+=======
+            pnl_product_acc1.BackColor = Color.White;
+            pnl_product_acc1.BorderStyle = BorderStyle.FixedSingle;
+            pnl_product_acc1.Controls.Add(pnl_acc4);
+            pnl_product_acc1.Controls.Add(pnl_acc3);
+            pnl_product_acc1.Controls.Add(pnl_acc2);
+            pnl_product_acc1.Controls.Add(pnl_acc1);
+            pnl_product_acc1.Controls.Add(label1);
+            pnl_product_acc1.Location = new Point(20, 322);
+            pnl_product_acc1.Margin = new Padding(3, 2, 3, 2);
+            pnl_product_acc1.Name = "pnl_product_acc1";
+            pnl_product_acc1.Size = new Size(570, 298);
+            pnl_product_acc1.TabIndex = 5;
+>>>>>>> main
             // 
             // panel7
             // 
+<<<<<<< HEAD
             panel7.BackColor = Color.FromArgb(244, 246, 249);
             panel7.Controls.Add(button6);
             panel7.Controls.Add(button5);
@@ -246,6 +345,39 @@
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(1352, 154);
             dataGridView1.TabIndex = 15;
+=======
+            pnl_acc4.BackColor = Color.FromArgb(244, 246, 249);
+            pnl_acc4.Controls.Add(btn_product4);
+            pnl_acc4.Controls.Add(label5);
+            pnl_acc4.Controls.Add(lbl_acc4);
+            pnl_acc4.Controls.Add(pic_acc4);
+            pnl_acc4.Location = new Point(416, 60);
+            pnl_acc4.Margin = new Padding(3, 2, 3, 2);
+            pnl_acc4.Name = "pnl_acc4";
+            pnl_acc4.Size = new Size(125, 220);
+            pnl_acc4.TabIndex = 10;
+            // 
+            // btn_product4
+            // 
+            btn_product4.BorderRadius = 12;
+            btn_product4.Cursor = Cursors.Hand;
+            btn_product4.CustomizableEdges = customizableEdges1;
+            btn_product4.DisabledState.BorderColor = Color.DarkGray;
+            btn_product4.DisabledState.CustomBorderColor = Color.DarkGray;
+            btn_product4.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btn_product4.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btn_product4.FillColor = Color.FromArgb(255, 136, 0);
+            btn_product4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_product4.ForeColor = Color.White;
+            btn_product4.ImageAlign = HorizontalAlignment.Right;
+            btn_product4.Location = new Point(8, 183);
+            btn_product4.Margin = new Padding(3, 2, 3, 2);
+            btn_product4.Name = "btn_product4";
+            btn_product4.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            btn_product4.Size = new Size(109, 22);
+            btn_product4.TabIndex = 13;
+            btn_product4.Text = "Ir ahora";
+>>>>>>> main
             // 
             // c1
             // 
@@ -263,13 +395,26 @@
             // 
             // c3
             // 
+<<<<<<< HEAD
             c3.HeaderText = "Categoría";
             c3.MinimumWidth = 6;
             c3.Name = "c3";
             c3.ReadOnly = true;
+=======
+            pic_acc4.BackColor = Color.Transparent;
+            pic_acc4.Image = (Image)resources.GetObject("pic_acc4.Image");
+            pic_acc4.Location = new Point(15, 17);
+            pic_acc4.Margin = new Padding(3, 2, 3, 2);
+            pic_acc4.Name = "pic_acc4";
+            pic_acc4.Size = new Size(100, 71);
+            pic_acc4.SizeMode = PictureBoxSizeMode.StretchImage;
+            pic_acc4.TabIndex = 0;
+            pic_acc4.TabStop = false;
+>>>>>>> main
             // 
             // c4
             // 
+<<<<<<< HEAD
             c4.HeaderText = "Stock";
             c4.MinimumWidth = 6;
             c4.Name = "c4";
@@ -281,6 +426,39 @@
             c5.MinimumWidth = 6;
             c5.Name = "c5";
             c5.ReadOnly = true;
+=======
+            pnl_acc3.BackColor = Color.FromArgb(244, 246, 249);
+            pnl_acc3.Controls.Add(btn_product3);
+            pnl_acc3.Controls.Add(label4);
+            pnl_acc3.Controls.Add(lbl_acc3);
+            pnl_acc3.Controls.Add(pic_acc3);
+            pnl_acc3.Location = new Point(284, 60);
+            pnl_acc3.Margin = new Padding(3, 2, 3, 2);
+            pnl_acc3.Name = "pnl_acc3";
+            pnl_acc3.Size = new Size(125, 220);
+            pnl_acc3.TabIndex = 10;
+            // 
+            // btn_product3
+            // 
+            btn_product3.BorderRadius = 12;
+            btn_product3.Cursor = Cursors.Hand;
+            btn_product3.CustomizableEdges = customizableEdges3;
+            btn_product3.DisabledState.BorderColor = Color.DarkGray;
+            btn_product3.DisabledState.CustomBorderColor = Color.DarkGray;
+            btn_product3.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btn_product3.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btn_product3.FillColor = Color.FromArgb(112, 34, 246);
+            btn_product3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_product3.ForeColor = Color.White;
+            btn_product3.ImageAlign = HorizontalAlignment.Right;
+            btn_product3.Location = new Point(8, 183);
+            btn_product3.Margin = new Padding(3, 2, 3, 2);
+            btn_product3.Name = "btn_product3";
+            btn_product3.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            btn_product3.Size = new Size(109, 22);
+            btn_product3.TabIndex = 12;
+            btn_product3.Text = "Ir ahora";
+>>>>>>> main
             // 
             // c6
             // 
@@ -298,6 +476,7 @@
             // 
             // panel11
             // 
+<<<<<<< HEAD
             panel11.BackColor = Color.White;
             panel11.BorderStyle = BorderStyle.FixedSingle;
             panel11.Controls.Add(comboBox2);
@@ -306,9 +485,21 @@
             panel11.Padding = new Padding(10);
             panel11.Size = new Size(248, 45);
             panel11.TabIndex = 14;
+=======
+            pic_acc3.BackColor = Color.Transparent;
+            pic_acc3.Image = (Image)resources.GetObject("pic_acc3.Image");
+            pic_acc3.Location = new Point(24, 17);
+            pic_acc3.Margin = new Padding(3, 2, 3, 2);
+            pic_acc3.Name = "pic_acc3";
+            pic_acc3.Size = new Size(80, 71);
+            pic_acc3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pic_acc3.TabIndex = 0;
+            pic_acc3.TabStop = false;
+>>>>>>> main
             // 
             // comboBox2
             // 
+<<<<<<< HEAD
             comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox2.FormattingEnabled = true;
             comboBox2.Location = new Point(10, 9);
@@ -326,6 +517,40 @@
             panel10.Padding = new Padding(10);
             panel10.Size = new Size(290, 45);
             panel10.TabIndex = 13;
+=======
+            pnl_acc2.BackColor = Color.FromArgb(244, 246, 249);
+            pnl_acc2.Controls.Add(btn_product2);
+            pnl_acc2.Controls.Add(lbl_acc6);
+            pnl_acc2.Controls.Add(lbl_acc2);
+            pnl_acc2.Controls.Add(pic_acc2);
+            pnl_acc2.Location = new Point(153, 60);
+            pnl_acc2.Margin = new Padding(3, 2, 3, 2);
+            pnl_acc2.Name = "pnl_acc2";
+            pnl_acc2.Size = new Size(125, 220);
+            pnl_acc2.TabIndex = 10;
+            // 
+            // btn_product2
+            // 
+            btn_product2.BorderRadius = 12;
+            btn_product2.Cursor = Cursors.Hand;
+            btn_product2.CustomizableEdges = customizableEdges5;
+            btn_product2.DisabledState.BorderColor = Color.DarkGray;
+            btn_product2.DisabledState.CustomBorderColor = Color.DarkGray;
+            btn_product2.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btn_product2.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btn_product2.FillColor = Color.FromArgb(0, 176, 80);
+            btn_product2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_product2.ForeColor = Color.White;
+            btn_product2.ImageAlign = HorizontalAlignment.Right;
+            btn_product2.Location = new Point(8, 183);
+            btn_product2.Margin = new Padding(3, 2, 3, 2);
+            btn_product2.Name = "btn_product2";
+            btn_product2.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            btn_product2.Size = new Size(109, 22);
+            btn_product2.TabIndex = 11;
+            btn_product2.Text = "Ir ahora";
+            btn_product2.Click += btn_product2_Click;
+>>>>>>> main
             // 
             // comboBox1
             // 
@@ -349,6 +574,7 @@
             // 
             // pictureBox2
             // 
+<<<<<<< HEAD
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
             pictureBox2.Location = new Point(20, 8);
             pictureBox2.Name = "pictureBox2";
@@ -356,9 +582,21 @@
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 7;
             pictureBox2.TabStop = false;
+=======
+            pic_acc2.BackColor = Color.Transparent;
+            pic_acc2.Image = (Image)resources.GetObject("pic_acc2.Image");
+            pic_acc2.Location = new Point(21, 17);
+            pic_acc2.Margin = new Padding(3, 2, 3, 2);
+            pic_acc2.Name = "pic_acc2";
+            pic_acc2.Size = new Size(81, 71);
+            pic_acc2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pic_acc2.TabIndex = 0;
+            pic_acc2.TabStop = false;
+>>>>>>> main
             // 
             // panel9
             // 
+<<<<<<< HEAD
             panel9.BackColor = Color.White;
             panel9.BorderStyle = BorderStyle.FixedSingle;
             panel9.Controls.Add(textBox2);
@@ -401,6 +639,28 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(616, 250);
             panel1.TabIndex = 4;
+=======
+            pnl_acc1.BackColor = Color.FromArgb(244, 246, 249);
+            pnl_acc1.Controls.Add(picAgregarProductos);
+            pnl_acc1.Controls.Add(lbl_acc5);
+            pnl_acc1.Controls.Add(btn_product1);
+            pnl_acc1.Controls.Add(lbl_acc1);
+            pnl_acc1.Location = new Point(21, 60);
+            pnl_acc1.Margin = new Padding(3, 2, 3, 2);
+            pnl_acc1.Name = "pnl_acc1";
+            pnl_acc1.Size = new Size(125, 220);
+            pnl_acc1.TabIndex = 9;
+            // 
+            // picAgregarProductos
+            // 
+            picAgregarProductos.Image = Properties.Resources.AgregarProductos;
+            picAgregarProductos.Location = new Point(18, 10);
+            picAgregarProductos.Name = "picAgregarProductos";
+            picAgregarProductos.Size = new Size(86, 85);
+            picAgregarProductos.SizeMode = PictureBoxSizeMode.StretchImage;
+            picAgregarProductos.TabIndex = 11;
+            picAgregarProductos.TabStop = false;
+>>>>>>> main
             // 
             // panel6
             // 
@@ -415,11 +675,33 @@
             // 
             // dateTimePicker1
             // 
+<<<<<<< HEAD
             dateTimePicker1.Format = DateTimePickerFormat.Short;
             dateTimePicker1.Location = new Point(10, 9);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(270, 27);
             dateTimePicker1.TabIndex = 6;
+=======
+            btn_product1.BorderRadius = 12;
+            btn_product1.Cursor = Cursors.Hand;
+            btn_product1.CustomizableEdges = customizableEdges7;
+            btn_product1.DisabledState.BorderColor = Color.DarkGray;
+            btn_product1.DisabledState.CustomBorderColor = Color.DarkGray;
+            btn_product1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btn_product1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btn_product1.FillColor = Color.FromArgb(0, 102, 255);
+            btn_product1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_product1.ForeColor = Color.White;
+            btn_product1.ImageAlign = HorizontalAlignment.Right;
+            btn_product1.Location = new Point(8, 183);
+            btn_product1.Margin = new Padding(3, 2, 3, 2);
+            btn_product1.Name = "btn_product1";
+            btn_product1.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            btn_product1.Size = new Size(109, 22);
+            btn_product1.TabIndex = 10;
+            btn_product1.Text = "Ir ahora";
+            btn_product1.Click += btn_product1_Click;
+>>>>>>> main
             // 
             // panel5
             // 
@@ -519,6 +801,7 @@
             // 
             // label4
             // 
+<<<<<<< HEAD
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.Red;
@@ -527,6 +810,17 @@
             label4.Size = new Size(21, 25);
             label4.TabIndex = 13;
             label4.Text = "*";
+=======
+            pictureBox3.BackColor = Color.Transparent;
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(14, 27);
+            pictureBox3.Margin = new Padding(3, 2, 3, 2);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(68, 56);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 10;
+            pictureBox3.TabStop = false;
+>>>>>>> main
             // 
             // label1
             // 
@@ -551,6 +845,7 @@
             // 
             // label2
             // 
+<<<<<<< HEAD
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.Red;
@@ -559,15 +854,111 @@
             label2.Size = new Size(21, 25);
             label2.TabIndex = 10;
             label2.Text = "*";
+=======
+            lbl_tlt_p11.AutoSize = true;
+            lbl_tlt_p11.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_tlt_p11.Location = new Point(134, 51);
+            lbl_tlt_p11.Name = "lbl_tlt_p11";
+            lbl_tlt_p11.Size = new Size(21, 24);
+            lbl_tlt_p11.TabIndex = 9;
+            lbl_tlt_p11.Text = "0";
+            // 
+            // lbl_tlt_p6
+            // 
+            lbl_tlt_p6.AutoSize = true;
+            lbl_tlt_p6.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_tlt_p6.ForeColor = Color.FromArgb(112, 34, 246);
+            lbl_tlt_p6.Location = new Point(14, 94);
+            lbl_tlt_p6.Name = "lbl_tlt_p6";
+            lbl_tlt_p6.Size = new Size(179, 18);
+            lbl_tlt_p6.TabIndex = 9;
+            lbl_tlt_p6.Text = "Categorías registradas";
+            // 
+            // lbl_tlt_p5
+            // 
+            lbl_tlt_p5.AutoSize = true;
+            lbl_tlt_p5.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_tlt_p5.Location = new Point(88, 27);
+            lbl_tlt_p5.Name = "lbl_tlt_p5";
+            lbl_tlt_p5.Size = new Size(90, 18);
+            lbl_tlt_p5.TabIndex = 9;
+            lbl_tlt_p5.Text = "Categorías";
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = Color.Transparent;
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(14, 27);
+            pictureBox2.Margin = new Padding(3, 2, 3, 2);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(68, 56);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 9;
+            pictureBox2.TabStop = false;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.White;
+            panel1.Controls.Add(lbl_tlt_p10);
+            panel1.Controls.Add(lbl_tlt_p4);
+            panel1.Controls.Add(lbl_tlt_p3);
+            panel1.Controls.Add(pictureBox1);
+            panel1.Location = new Point(314, 175);
+            panel1.Margin = new Padding(3, 2, 3, 2);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(278, 124);
+            panel1.TabIndex = 2;
+            // 
+            // lbl_tlt_p10
+            // 
+            lbl_tlt_p10.AutoSize = true;
+            lbl_tlt_p10.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_tlt_p10.Location = new Point(149, 51);
+            lbl_tlt_p10.Name = "lbl_tlt_p10";
+            lbl_tlt_p10.Size = new Size(21, 24);
+            lbl_tlt_p10.TabIndex = 8;
+            lbl_tlt_p10.Text = "0";
+            lbl_tlt_p10.Click += label1_Click;
+            // 
+            // lbl_tlt_p4
+            // 
+            lbl_tlt_p4.AutoSize = true;
+            lbl_tlt_p4.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_tlt_p4.ForeColor = Color.FromArgb(0, 176, 80);
+            lbl_tlt_p4.Location = new Point(14, 94);
+            lbl_tlt_p4.Name = "lbl_tlt_p4";
+            lbl_tlt_p4.Size = new Size(134, 18);
+            lbl_tlt_p4.TabIndex = 8;
+            lbl_tlt_p4.Text = "Unidades totales";
+            // 
+            // lbl_tlt_p3
+            // 
+            lbl_tlt_p3.AutoSize = true;
+            lbl_tlt_p3.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_tlt_p3.Location = new Point(88, 27);
+            lbl_tlt_p3.Name = "lbl_tlt_p3";
+            lbl_tlt_p3.Size = new Size(151, 18);
+            lbl_tlt_p3.TabIndex = 8;
+            lbl_tlt_p3.Text = "Total del inventario\r\n";
+>>>>>>> main
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+<<<<<<< HEAD
             pictureBox1.Location = new Point(19, 4);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(40, 43);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 6;
+=======
+            pictureBox1.Location = new Point(14, 27);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(68, 56);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 8;
+>>>>>>> main
             pictureBox1.TabStop = false;
             // 
             // label3
@@ -582,6 +973,7 @@
             // 
             // lbl_agg2
             // 
+<<<<<<< HEAD
             lbl_agg2.AutoSize = true;
             lbl_agg2.Font = new Font("Arial", 10.8F, FontStyle.Italic, GraphicsUnit.Point, 0);
             lbl_agg2.Location = new Point(69, 41);
@@ -589,6 +981,16 @@
             lbl_agg2.Size = new Size(547, 22);
             lbl_agg2.TabIndex = 3;
             lbl_agg2.Text = "Complete la información del producto o seleccione uno para editar";
+=======
+            pcProductos.BackgroundImageLayout = ImageLayout.Stretch;
+            pcProductos.Image = Properties.Resources.Productoss;
+            pcProductos.Location = new Point(22, 27);
+            pcProductos.Name = "pcProductos";
+            pcProductos.Size = new Size(60, 59);
+            pcProductos.SizeMode = PictureBoxSizeMode.StretchImage;
+            pcProductos.TabIndex = 13;
+            pcProductos.TabStop = false;
+>>>>>>> main
             // 
             // pic_agg1
             // 
@@ -1023,9 +1425,33 @@
             Controls.Add(pnl_conagg);
             FormBorderStyle = FormBorderStyle.None;
             Name = "FormProductos";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormProductos";
+<<<<<<< HEAD
             pnl_conagg.ResumeLayout(false);
             pnl_conagg.PerformLayout();
+=======
+            pnl_product1.ResumeLayout(false);
+            pnl_product_acr1.ResumeLayout(false);
+            pnl_product_acr1.PerformLayout();
+            pnl_product_acc1.ResumeLayout(false);
+            pnl_product_acc1.PerformLayout();
+            pnl_acc4.ResumeLayout(false);
+            pnl_acc4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pic_acc4).EndInit();
+            pnl_acc3.ResumeLayout(false);
+            pnl_acc3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pic_acc3).EndInit();
+            pnl_acc2.ResumeLayout(false);
+            pnl_acc2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pic_acc2).EndInit();
+            pnl_acc1.ResumeLayout(false);
+            pnl_acc1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picAgregarProductos).EndInit();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+>>>>>>> main
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel8.ResumeLayout(false);
@@ -1103,6 +1529,7 @@
         private Label label10;
         private Label label7;
         private Label label4;
+<<<<<<< HEAD
         private Label label1;
         private Label label5;
         private Label label2;
@@ -1146,5 +1573,14 @@
         private Button button3;
         private Button button2;
         private Button button7;
+=======
+        private Button btn_acr1;
+        private Guna.UI2.WinForms.Guna2Button btn_product2;
+        private Guna.UI2.WinForms.Guna2Button btn_product1;
+        private Guna.UI2.WinForms.Guna2Button btn_product4;
+        private Guna.UI2.WinForms.Guna2Button btn_product3;
+        private PictureBox pcProductos;
+        private PictureBox picAgregarProductos;
+>>>>>>> main
     }
 }

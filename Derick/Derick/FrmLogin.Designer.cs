@@ -33,16 +33,15 @@
             pbImageninicio = new PictureBox();
             pictureBox1 = new PictureBox();
             pnlLogin = new Panel();
+            pictureBox3 = new PictureBox();
             lblSalir = new Label();
             lblfinal = new Label();
-            lnlblRecContra = new LinkLabel();
             btnInisesion = new Button();
             pbojo = new PictureBox();
             txtcontrasena = new TextBox();
             pictureBox4 = new PictureBox();
             lblcontraseña = new Label();
             pbcontraseña = new PictureBox();
-            pictureBox3 = new PictureBox();
             txtusuario = new TextBox();
             lblusuario = new Label();
             pbusuario = new PictureBox();
@@ -52,10 +51,10 @@
             ((System.ComponentModel.ISupportInitialize)pbImageninicio).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             pnlLogin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbojo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbcontraseña).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbusuario).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
@@ -73,7 +72,7 @@
             // 
             // pbImageninicio
             // 
-            pbImageninicio.Image = Properties.Resources.Captura_de_pantalla_2026_07_12_160041;
+            pbImageninicio.Image = Properties.Resources.Logiin;
             pbImageninicio.Location = new Point(0, 0);
             pbImageninicio.Name = "pbImageninicio";
             pbImageninicio.Size = new Size(470, 700);
@@ -93,16 +92,15 @@
             // 
             // pnlLogin
             // 
+            pnlLogin.Controls.Add(pictureBox3);
             pnlLogin.Controls.Add(lblSalir);
             pnlLogin.Controls.Add(lblfinal);
-            pnlLogin.Controls.Add(lnlblRecContra);
             pnlLogin.Controls.Add(btnInisesion);
             pnlLogin.Controls.Add(pbojo);
             pnlLogin.Controls.Add(txtcontrasena);
             pnlLogin.Controls.Add(pictureBox4);
             pnlLogin.Controls.Add(lblcontraseña);
             pnlLogin.Controls.Add(pbcontraseña);
-            pnlLogin.Controls.Add(pictureBox3);
             pnlLogin.Controls.Add(txtusuario);
             pnlLogin.Controls.Add(lblusuario);
             pnlLogin.Controls.Add(pbusuario);
@@ -114,6 +112,17 @@
             pnlLogin.Name = "pnlLogin";
             pnlLogin.Size = new Size(730, 700);
             pnlLogin.TabIndex = 1;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.BackColor = Color.Transparent;
+            pictureBox3.Image = Properties.Resources.usuarioooo;
+            pictureBox3.Location = new Point(205, 284);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(25, 24);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 15;
+            pictureBox3.TabStop = false;
             // 
             // lblSalir
             // 
@@ -137,17 +146,6 @@
             lblfinal.Size = new Size(212, 36);
             lblfinal.TabIndex = 13;
             lblfinal.Text = "      DERICK © 2026 · v1.0\r\nSistema de Gestión Interna";
-            // 
-            // lnlblRecContra
-            // 
-            lnlblRecContra.AutoSize = true;
-            lnlblRecContra.Font = new Font("Microsoft Sans Serif", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lnlblRecContra.Location = new Point(422, 427);
-            lnlblRecContra.Name = "lnlblRecContra";
-            lnlblRecContra.Size = new Size(173, 15);
-            lnlblRecContra.TabIndex = 12;
-            lnlblRecContra.TabStop = true;
-            lnlblRecContra.Text = "¿Olvidaste tu contraseña?";
             // 
             // btnInisesion
             // 
@@ -212,16 +210,6 @@
             pbcontraseña.SizeMode = PictureBoxSizeMode.StretchImage;
             pbcontraseña.TabIndex = 6;
             pbcontraseña.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.Image = Properties.Resources.icono_usuario_blanco;
-            pictureBox3.Location = new Point(191, 277);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(48, 52);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 5;
-            pictureBox3.TabStop = false;
             // 
             // txtusuario
             // 
@@ -290,10 +278,10 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             pnlLogin.ResumeLayout(false);
             pnlLogin.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbojo).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbcontraseña).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbusuario).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
@@ -309,7 +297,6 @@
         private PictureBox pbusuario;
         private Label lblusuario;
         private TextBox txtusuario;
-        private PictureBox pictureBox3;
         private PictureBox pictureBox4;
         private Label lblcontraseña;
         private PictureBox pbcontraseña;
@@ -317,8 +304,8 @@
         private TextBox txtcontrasena;
         private Button btnInisesion;
         private PictureBox pbImageninicio;
-        private LinkLabel lnlblRecContra;
         private Label lblfinal;
         private Label lblSalir;
+        private PictureBox pictureBox3;
     }
 }

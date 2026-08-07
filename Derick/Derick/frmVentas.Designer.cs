@@ -292,6 +292,7 @@
             btnBuscarVenta.TabIndex = 0;
             btnBuscarVenta.Text = "Ir ahora ->";
             btnBuscarVenta.UseVisualStyleBackColor = false;
+            btnBuscarVenta.Click += btnBuscarVenta_Click;
             // 
             // lblConsultarVenta
             // 
@@ -403,6 +404,7 @@
             btnNuevaVenta.TabIndex = 0;
             btnNuevaVenta.Text = "Ir ahora ->";
             btnNuevaVenta.UseVisualStyleBackColor = false;
+            btnNuevaVenta.Click += btnNuevaVenta_Click;
             // 
             // lblPermitirVenta
             // 

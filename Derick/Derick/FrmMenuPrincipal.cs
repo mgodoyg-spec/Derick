@@ -15,8 +15,28 @@ namespace Derick
         public FrmMenuPrincipal()
         {
             InitializeComponent();
-            pnlMostrar.PerformLayout();
-            this.AutoScaleMode = AutoScaleMode.None;
+            // MENÚ IZQUIERDO
+            pnlcontenido.Location = new Point(0, 0);
+            pnlcontenido.Size = new Size(200, this.ClientSize.Height);
+
+            pnlcontenido.Anchor =
+                AnchorStyles.Top |
+                AnchorStyles.Bottom |
+                AnchorStyles.Left;
+
+            // PANEL DE CONTENIDO
+            pnlMostrarForm.Location = new Point(200, 0);
+
+            pnlMostrarForm.Size = new Size(
+                this.ClientSize.Width - 200,
+                this.ClientSize.Height
+            );
+
+            pnlMostrarForm.Anchor =
+                AnchorStyles.Top |
+                AnchorStyles.Bottom |
+                AnchorStyles.Left |
+                AnchorStyles.Right;
         }
         private void FrmMenuPrincipal_Load(object sender, EventArgs e)
         {
