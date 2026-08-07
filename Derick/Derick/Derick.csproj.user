@@ -13,7 +13,13 @@
     <Compile Update="FormsDeRespaldo.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FrmBuscarClienteV.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="frmBuscarSucursal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmConsultarVenta.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FrmConsultarVentas.cs">
@@ -68,6 +74,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FrmVentasE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmVentasN.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="InicioGerente.cs">
