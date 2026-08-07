@@ -8,13 +8,11 @@ using System.Windows.Forms;
 
 namespace Derick
 {
-    public partial class FormBusc_Product : Form
+    public partial class FormPromociones : Form
     {
-        private BindingList<Producto> listaproductos = new BindingList<Producto>();
-        public FormBusc_Product()
+        public FormPromociones()
         {
             InitializeComponent();
-
         }
     }
 }

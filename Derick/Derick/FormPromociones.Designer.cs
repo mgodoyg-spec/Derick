@@ -1,6 +1,6 @@
 ﻿namespace Derick
 {
-    partial class FormBusc_Product
+    partial class FormPromociones
     {
         /// <summary>
         /// Required designer variable.
@@ -30,14 +30,13 @@
         {
             SuspendLayout();
             // 
-            // FormBusc_Product
+            // FormPromociones
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1200, 700);
-            FormBorderStyle = FormBorderStyle.None;
-            Name = "FormBusc_Product";
-            Text = "FormBusc_Product";
+            ClientSize = new Size(1337, 741);
+            Name = "FormPromociones";
+            Text = "FormPromociones";
             ResumeLayout(false);
         }
 

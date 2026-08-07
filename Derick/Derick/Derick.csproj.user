@@ -4,10 +4,13 @@
     <Compile Update="FormAgg_Product.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FormBusc_Product.cs">
+    <Compile Update="FormCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FormProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormPromociones.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FormsDeRespaldo.cs">
