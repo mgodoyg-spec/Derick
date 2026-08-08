@@ -201,6 +201,7 @@
             txtBuscar.Size = new Size(330, 27);
             txtBuscar.TabIndex = 0;
             txtBuscar.Text = "Buscar";
+            txtBuscar.TextChanged += this.txtBuscar_TextChanged;
             // 
             // label8
             // 
@@ -221,6 +222,7 @@
             cbxCiudad.Name = "cbxCiudad";
             cbxCiudad.Size = new Size(121, 31);
             cbxCiudad.TabIndex = 1;
+            cbxCiudad.TextChanged += this.cbxCiudad_SelectedIndexChanged;
             // 
             // btnBuscar
             // 
@@ -258,6 +260,7 @@
             cbxEstado.Name = "cbxEstado";
             cbxEstado.Size = new Size(121, 31);
             cbxEstado.TabIndex = 2;
+            cbxEstado.TextChanged += this.cbxEstado_SelectedIndexChanged;
             // 
             // pbxBuscarSucursal
             // 

@@ -48,11 +48,13 @@
             ClImagen = new DataGridViewImageColumn();
             pictureBox1 = new PictureBox();
             pnlBusqueda = new Panel();
+            label1 = new Label();
+            cbxSucursal = new ComboBox();
             btnNuevoEmple = new Button();
             btnLimpiar = new Button();
             txtBuscar = new TextBox();
             label8 = new Label();
-            cbxCiudad = new ComboBox();
+            cbxDepa = new ComboBox();
             label7 = new Label();
             cbxEstado = new ComboBox();
             pbxBuscarSucursal = new PictureBox();
@@ -78,6 +80,7 @@
             // 
             // pnlSucursales
             // 
+            pnlSucursales.BackColor = Color.FromArgb(244, 246, 249);
             pnlSucursales.Controls.Add(lblSalirV);
             pnlSucursales.Controls.Add(pnlBuscarSucursal);
             pnlSucursales.Dock = DockStyle.Fill;
@@ -111,7 +114,7 @@
             pnlBuscarSucursal.Controls.Add(pnlBusqueda);
             pnlBuscarSucursal.Controls.Add(pbxBuscarSucursal);
             pnlBuscarSucursal.Font = new Font("Calibri", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            pnlBuscarSucursal.Location = new Point(13, 13);
+            pnlBuscarSucursal.Location = new Point(13, 37);
             pnlBuscarSucursal.Margin = new Padding(4);
             pnlBuscarSucursal.Name = "pnlBuscarSucursal";
             pnlBuscarSucursal.Size = new Size(1186, 700);
@@ -238,17 +241,41 @@
             // pnlBusqueda
             // 
             pnlBusqueda.BackColor = Color.FromArgb(244, 246, 249);
+            pnlBusqueda.Controls.Add(label1);
+            pnlBusqueda.Controls.Add(cbxSucursal);
             pnlBusqueda.Controls.Add(btnNuevoEmple);
             pnlBusqueda.Controls.Add(btnLimpiar);
             pnlBusqueda.Controls.Add(txtBuscar);
             pnlBusqueda.Controls.Add(label8);
-            pnlBusqueda.Controls.Add(cbxCiudad);
+            pnlBusqueda.Controls.Add(cbxDepa);
             pnlBusqueda.Controls.Add(label7);
             pnlBusqueda.Controls.Add(cbxEstado);
             pnlBusqueda.Location = new Point(7, 45);
             pnlBusqueda.Name = "pnlBusqueda";
             pnlBusqueda.Size = new Size(1129, 43);
             pnlBusqueda.TabIndex = 6;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            label1.ForeColor = Color.Black;
+            label1.Location = new Point(487, 13);
+            label1.Name = "label1";
+            label1.Size = new Size(70, 19);
+            label1.TabIndex = 25;
+            label1.Text = "Sucursal:";
+            // 
+            // cbxSucursal
+            // 
+            cbxSucursal.Font = new Font("Calibri", 11F);
+            cbxSucursal.FormattingEnabled = true;
+            cbxSucursal.Items.AddRange(new object[] { "Gerencia", "Ventas", "Administración", "Sistemas", "Logística", "Recursos Humanos" });
+            cbxSucursal.Location = new Point(563, 8);
+            cbxSucursal.Name = "cbxSucursal";
+            cbxSucursal.Size = new Size(121, 26);
+            cbxSucursal.TabIndex = 24;
+            cbxSucursal.SelectedIndexChanged += cbxSucursal_SelectedIndexChanged;
             // 
             // btnNuevoEmple
             // 
@@ -258,7 +285,7 @@
             btnNuevoEmple.ForeColor = Color.White;
             btnNuevoEmple.ImageAlign = ContentAlignment.MiddleLeft;
             btnNuevoEmple.ImageIndex = 5;
-            btnNuevoEmple.Location = new Point(777, 5);
+            btnNuevoEmple.Location = new Point(914, 6);
             btnNuevoEmple.Name = "btnNuevoEmple";
             btnNuevoEmple.Size = new Size(135, 33);
             btnNuevoEmple.TabIndex = 23;
@@ -275,9 +302,9 @@
             btnLimpiar.ForeColor = Color.Black;
             btnLimpiar.ImageAlign = ContentAlignment.MiddleLeft;
             btnLimpiar.ImageIndex = 2;
-            btnLimpiar.Location = new Point(943, 5);
+            btnLimpiar.Location = new Point(1055, 7);
             btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(98, 28);
+            btnLimpiar.Size = new Size(71, 28);
             btnLimpiar.TabIndex = 22;
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.TextAlign = ContentAlignment.MiddleRight;
@@ -287,40 +314,42 @@
             // 
             txtBuscar.Font = new Font("Calibri", 12F);
             txtBuscar.ForeColor = Color.DimGray;
-            txtBuscar.Location = new Point(4, 10);
+            txtBuscar.Location = new Point(4, 8);
             txtBuscar.Margin = new Padding(4);
             txtBuscar.Name = "txtBuscar";
-            txtBuscar.Size = new Size(299, 27);
+            txtBuscar.Size = new Size(230, 27);
             txtBuscar.TabIndex = 0;
             txtBuscar.Text = "Buscar";
+            txtBuscar.TextChanged += txtBuscar_TextChanged;
             // 
             // label8
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Calibri", 12F, FontStyle.Bold);
             label8.ForeColor = Color.Black;
-            label8.Location = new Point(319, 13);
+            label8.Location = new Point(241, 12);
             label8.Name = "label8";
             label8.Size = new Size(113, 19);
             label8.TabIndex = 4;
             label8.Text = "Departamento:";
             // 
-            // cbxCiudad
+            // cbxDepa
             // 
-            cbxCiudad.Font = new Font("Calibri", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cbxCiudad.FormattingEnabled = true;
-            cbxCiudad.Items.AddRange(new object[] { "Gerencia", "Ventas", "Administración", "Sistemas", "Logística", "Recursos Humanos" });
-            cbxCiudad.Location = new Point(432, 6);
-            cbxCiudad.Name = "cbxCiudad";
-            cbxCiudad.Size = new Size(121, 31);
-            cbxCiudad.TabIndex = 1;
+            cbxDepa.Font = new Font("Calibri", 11F);
+            cbxDepa.FormattingEnabled = true;
+            cbxDepa.Items.AddRange(new object[] { "Gerencia", "Ventas", "Administración", "Sistemas", "Logística", "Recursos Humanos" });
+            cbxDepa.Location = new Point(360, 8);
+            cbxDepa.Name = "cbxDepa";
+            cbxDepa.Size = new Size(121, 26);
+            cbxDepa.TabIndex = 1;
+            cbxDepa.SelectedIndexChanged += cbxDepa_SelectedIndexChanged;
             // 
             // label7
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Calibri", 12F, FontStyle.Bold);
             label7.ForeColor = Color.Black;
-            label7.Location = new Point(570, 12);
+            label7.Location = new Point(691, 13);
             label7.Name = "label7";
             label7.Size = new Size(59, 19);
             label7.TabIndex = 20;
@@ -328,13 +357,14 @@
             // 
             // cbxEstado
             // 
-            cbxEstado.Font = new Font("Calibri", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbxEstado.Font = new Font("Calibri", 11F);
             cbxEstado.FormattingEnabled = true;
             cbxEstado.Items.AddRange(new object[] { "Activo", "Inactivo" });
-            cbxEstado.Location = new Point(635, 4);
+            cbxEstado.Location = new Point(772, 9);
             cbxEstado.Name = "cbxEstado";
-            cbxEstado.Size = new Size(121, 31);
+            cbxEstado.Size = new Size(121, 26);
             cbxEstado.TabIndex = 2;
+            cbxEstado.SelectedIndexChanged += cbxEstado_SelectedIndexChanged;
             // 
             // pbxBuscarSucursal
             // 
@@ -381,7 +411,7 @@
         private Button btnLimpiar;
         private TextBox txtBuscar;
         private Label label8;
-        private ComboBox cbxCiudad;
+        private ComboBox cbxDepa;
         private Label label7;
         private ComboBox cbxEstado;
         private PictureBox pbxBuscarSucursal;
@@ -400,5 +430,7 @@
         private DataGridViewImageColumn clEliminar;
         private DataGridViewImageColumn clVer;
         private DataGridViewImageColumn ClImagen;
+        private Label label1;
+        private ComboBox cbxSucursal;
     }
 }

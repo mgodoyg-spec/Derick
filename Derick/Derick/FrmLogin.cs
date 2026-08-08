@@ -16,7 +16,7 @@ namespace Derick
 
             string cadena = @"Data Source=MICHELLE\SQLEXPRESS;Initial Catalog=Derick;Integrated Security=True;TrustServerCertificate=True";
 
-            using (SqlConnection cn = new SqlConnection(cadena))
+            using (SqlConnection cn = csConexion.ObtenerConexion())
             {
                 try
                 {
