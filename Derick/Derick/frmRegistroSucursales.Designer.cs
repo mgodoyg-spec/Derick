@@ -31,12 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegistroSucursales));
             lblNombreSucursal = new Label();
             pnlRegistroSucursal = new Panel();
+            lblSalirV = new Label();
             label6 = new Label();
             label5 = new Label();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
-            label1 = new Label();
             pbxIcoEncargado = new PictureBox();
             pbxIcoCorreo = new PictureBox();
             pbxIcoTelefono = new PictureBox();
@@ -72,7 +72,7 @@
             lblDescripcionEstado = new Label();
             lblestado = new Label();
             pnlRegistrarSuc = new Panel();
-            lblSalirV = new Label();
+            label1 = new Label();
             pnlRegistroSucursal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbxIcoEncargado).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbxIcoCorreo).BeginInit();
@@ -135,6 +135,20 @@
             pnlRegistroSucursal.Size = new Size(548, 333);
             pnlRegistroSucursal.TabIndex = 2;
             // 
+            // lblSalirV
+            // 
+            lblSalirV.AutoSize = true;
+            lblSalirV.BackColor = Color.White;
+            lblSalirV.Cursor = Cursors.Hand;
+            lblSalirV.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSalirV.ForeColor = Color.Red;
+            lblSalirV.Location = new Point(520, 0);
+            lblSalirV.Name = "lblSalirV";
+            lblSalirV.Size = new Size(25, 24);
+            lblSalirV.TabIndex = 29;
+            lblSalirV.Text = "X";
+            lblSalirV.Click += lblSalirV_Click;
+            // 
             // label6
             // 
             label6.AutoSize = true;
@@ -189,17 +203,6 @@
             label2.Size = new Size(19, 23);
             label2.TabIndex = 32;
             label2.Text = "*";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.Red;
-            label1.Location = new Point(215, 59);
-            label1.Name = "label1";
-            label1.Size = new Size(19, 23);
-            label1.TabIndex = 31;
-            label1.Text = "*";
             // 
             // pbxIcoEncargado
             // 
@@ -566,19 +569,16 @@
             pnlRegistrarSuc.Size = new Size(564, 642);
             pnlRegistrarSuc.TabIndex = 16;
             // 
-            // lblSalirV
+            // label1
             // 
-            lblSalirV.AutoSize = true;
-            lblSalirV.BackColor = Color.White;
-            lblSalirV.Cursor = Cursors.Hand;
-            lblSalirV.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblSalirV.ForeColor = Color.Red;
-            lblSalirV.Location = new Point(520, 0);
-            lblSalirV.Name = "lblSalirV";
-            lblSalirV.Size = new Size(25, 24);
-            lblSalirV.TabIndex = 29;
-            lblSalirV.Text = "X";
-            lblSalirV.Click += lblSalirV_Click;
+            label1.AutoSize = true;
+            label1.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Red;
+            label1.Location = new Point(215, 59);
+            label1.Name = "label1";
+            label1.Size = new Size(19, 23);
+            label1.TabIndex = 31;
+            label1.Text = "*";
             // 
             // frmRegistroSucursales
             // 
@@ -656,9 +656,9 @@
         private Label label4;
         private Label label3;
         private Label label2;
-        private Label label1;
         private Label label6;
         private Label label7;
         private Label lblSalirV;
+        private Label label1;
     }
 }

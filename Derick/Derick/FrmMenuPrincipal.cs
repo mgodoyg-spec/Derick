@@ -102,7 +102,7 @@ namespace Derick
         private void btnempleados_Click(object sender, EventArgs e)
         {
             csBotonActivo.MarcarBotonActivo(pnlIndicador, btnempleados);
-            csNavegacion.AbrirFormulario( pnlMostrarForm, ref formularioActivo,new FrmEmpleados());
+            csNavegacion.AbrirFormulario( pnlMostrarForm, ref formularioActivo,new FrmEmple());
         }
 
         private void btnventas_Click(object sender, EventArgs e)

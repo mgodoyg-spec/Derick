@@ -176,5 +176,10 @@ namespace Derick
                 MessageBox.Show("Ver información del producto");
             }
         }
+
+        private void pnl_conagg_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
