@@ -88,12 +88,12 @@ namespace Derick
             dvg_agg.AutoSizeColumnsMode =
             DataGridViewAutoSizeColumnsMode.Fill;
 
-            dvg_agg.Columns["clCodigo"].FillWeight = 8;
+            dvg_agg.Columns["clCodigo"].FillWeight = 18;
             dvg_agg.Columns["clImagen"].FillWeight = 15;
             dvg_agg.Columns["clNombreProducto"].FillWeight = 18;
-            dvg_agg.Columns["clCategoraa"].FillWeight = 15;
-            dvg_agg.Columns["clTalla"].FillWeight = 12;
-            dvg_agg.Columns["clColor"].FillWeight = 15;
+            dvg_agg.Columns["clCategoria"].FillWeight = 15;
+            dvg_agg.Columns["clTallas"].FillWeight = 12;
+            dvg_agg.Columns["clColores"].FillWeight = 15;
             dvg_agg.Columns["clPrecio"].FillWeight = 10;
             dvg_agg.Columns["clStock"].FillWeight = 10;
             dvg_agg.Columns["clEstado"].FillWeight = 10;
@@ -125,9 +125,9 @@ namespace Derick
                 "clCodigo",
                 "clImagen",
                 "clNombreProducto",
-                "clCategoría",
-                "clTalla(s)",
-                "clColor(es)",
+                "clCategoria",
+                "clTallas",
+                "clColores",
                 "clPrecio",
                 "clStock",
                 "clEstado",
@@ -143,7 +143,7 @@ namespace Derick
             }
             dvg_agg.Rows.Clear();
             dvg_agg.Rows.Add(
-                  "P001",null, "Camiseta Oversize", "Camisetas", "S, M, L", "Negro, Blanco",       
+                  "P001", null, "Camiseta Oversize", "Camisetas", "S, M, L", "Negro, Blanco",
                   "$25.00", "35", "Activo", null, null, null
             );
         }
@@ -177,9 +177,12 @@ namespace Derick
             }
         }
 
-        private void pnl_conagg_Paint(object sender, PaintEventArgs e)
-        {
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FormAgg_Product frm_agg = new FormAgg_Product();
+            frm_agg.StartPosition = FormStartPosition.CenterScreen;
+            frm_agg.ShowDialog(this);
         }
     }
 }

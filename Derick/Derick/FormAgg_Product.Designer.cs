@@ -29,555 +29,509 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAgg_Product));
+            pnlcont1 = new Panel();
+            label4 = new Label();
+            comboBox1 = new ComboBox();
+            label3 = new Label();
+            textBox2 = new TextBox();
+            label2 = new Label();
+            textBox1 = new TextBox();
+            label1 = new Label();
+            panel1 = new Panel();
+            pic2_e = new PictureBox();
+            lbl1 = new Label();
+            pic1_e = new PictureBox();
+            comboBox2 = new ComboBox();
+            textBox3 = new TextBox();
+            label5 = new Label();
+            textBox4 = new TextBox();
+            label6 = new Label();
+            comboBox3 = new ComboBox();
+            label7 = new Label();
+            textBox5 = new TextBox();
+            label8 = new Label();
+            label9 = new Label();
+            label10 = new Label();
+            panel2 = new Panel();
+            pictureBox1 = new PictureBox();
+            label11 = new Label();
+            label12 = new Label();
+            button1 = new Button();
             pnl_img1 = new Panel();
             pnl_img2 = new Panel();
-            pic_agg1 = new PictureBox();
-            lbl_img1 = new Label();
-            lbl_img2 = new Label();
-            btn_voler1 = new Label();
-            lbl_img3 = new Label();
             pnl_img3 = new Panel();
-            pnl1_img1 = new Panel();
-            pic1_img1 = new PictureBox();
-            lbl1_img1 = new Label();
-            lbl1_img2 = new Label();
-            pnl1_img2 = new Panel();
-            lbl1_img4 = new Label();
-            lbl1_img3 = new Label();
-            pic1_img2 = new PictureBox();
-            pnl1_img3 = new Panel();
-            lbl1_img6 = new Label();
-            lbl1_img5 = new Label();
-            pic1_img3 = new PictureBox();
             pnl_img4 = new Panel();
-            lbl1_img8 = new Label();
-            lbl1_img7 = new Label();
-            pic1_img4 = new PictureBox();
-            pnl1_img5 = new Panel();
-            lbl1_img10 = new Label();
-            lbl1_img9 = new Label();
-            pic1_img5 = new PictureBox();
-            lbl_img4 = new Label();
-            lbl_img5 = new Label();
-            lbl_img6 = new Label();
-            btn_selecimg = new Button();
-            lbl_img7 = new Label();
-            lbl_img8 = new Label();
-            pnl_imp1 = new Panel();
-            btn_cancel = new Button();
-            button1 = new Button();
-            pnl_img1.SuspendLayout();
-            pnl_img2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pic_agg1).BeginInit();
-            pnl_img3.SuspendLayout();
-            pnl1_img1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pic1_img1).BeginInit();
-            pnl1_img2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pic1_img2).BeginInit();
-            pnl1_img3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pic1_img3).BeginInit();
-            pnl_img4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pic1_img4).BeginInit();
-            pnl1_img5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pic1_img5).BeginInit();
-            pnl_imp1.SuspendLayout();
+            pnl_img5 = new Panel();
+            comboBox4 = new ComboBox();
+            label13 = new Label();
+            button2 = new Button();
+            button3 = new Button();
+            pnlcont1.SuspendLayout();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pic2_e).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pic1_e).BeginInit();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // pnl_img1
-            // 
-            pnl_img1.BackColor = Color.White;
-            pnl_img1.Controls.Add(pnl_imp1);
-            pnl_img1.Controls.Add(lbl_img8);
-            pnl_img1.Controls.Add(lbl_img7);
-            pnl_img1.Controls.Add(btn_selecimg);
-            pnl_img1.Controls.Add(pnl_img3);
-            pnl_img1.Controls.Add(pnl_img2);
-            pnl_img1.Dock = DockStyle.Fill;
-            pnl_img1.Location = new Point(0, 0);
-            pnl_img1.Name = "pnl_img1";
-            pnl_img1.Size = new Size(1175, 670);
-            pnl_img1.TabIndex = 0;
-            // 
-            // pnl_img2
-            // 
-            pnl_img2.BackColor = Color.White;
-            pnl_img2.BorderStyle = BorderStyle.FixedSingle;
-            pnl_img2.Controls.Add(btn_voler1);
-            pnl_img2.Controls.Add(lbl_img2);
-            pnl_img2.Controls.Add(lbl_img1);
-            pnl_img2.Controls.Add(pic_agg1);
-            pnl_img2.Dock = DockStyle.Top;
-            pnl_img2.Location = new Point(0, 0);
-            pnl_img2.Name = "pnl_img2";
-            pnl_img2.Size = new Size(1175, 106);
-            pnl_img2.TabIndex = 0;
-            // 
-            // pic_agg1
-            // 
-            pic_agg1.BackColor = Color.White;
-            pic_agg1.Image = (Image)resources.GetObject("pic_agg1.Image");
-            pic_agg1.Location = new Point(11, 23);
-            pic_agg1.Name = "pic_agg1";
-            pic_agg1.Size = new Size(50, 55);
-            pic_agg1.SizeMode = PictureBoxSizeMode.Zoom;
-            pic_agg1.TabIndex = 3;
-            pic_agg1.TabStop = false;
-            // 
-            // lbl_img1
-            // 
-            lbl_img1.AutoSize = true;
-            lbl_img1.BackColor = Color.White;
-            lbl_img1.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_img1.ImageAlign = ContentAlignment.MiddleLeft;
-            lbl_img1.Location = new Point(83, 23);
-            lbl_img1.Name = "lbl_img1";
-            lbl_img1.Size = new Size(422, 29);
-            lbl_img1.TabIndex = 4;
-            lbl_img1.Text = "Agregar imágenes de los producos";
-            lbl_img1.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // lbl_img2
-            // 
-            lbl_img2.AutoSize = true;
-            lbl_img2.BackColor = Color.White;
-            lbl_img2.Font = new Font("Calibri", 11.25F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            lbl_img2.Location = new Point(83, 55);
-            lbl_img2.Name = "lbl_img2";
-            lbl_img2.Size = new Size(403, 23);
-            lbl_img2.TabIndex = 5;
-            lbl_img2.Text = "Seleccione una o más imágenes para este producto";
-            // 
-            // btn_voler1
-            // 
-            btn_voler1.AutoSize = true;
-            btn_voler1.BackColor = Color.White;
-            btn_voler1.Cursor = Cursors.Hand;
-            btn_voler1.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btn_voler1.ForeColor = Color.Red;
-            btn_voler1.Location = new Point(1139, 36);
-            btn_voler1.Name = "btn_voler1";
-            btn_voler1.Size = new Size(31, 29);
-            btn_voler1.TabIndex = 22;
-            btn_voler1.Text = "X";
-            // 
-            // lbl_img3
-            // 
-            lbl_img3.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_img3.ForeColor = Color.FromArgb(0, 102, 255);
-            lbl_img3.Image = (Image)resources.GetObject("lbl_img3.Image");
-            lbl_img3.ImageAlign = ContentAlignment.MiddleLeft;
-            lbl_img3.Location = new Point(23, 14);
-            lbl_img3.Name = "lbl_img3";
-            lbl_img3.Size = new Size(173, 32);
-            lbl_img3.TabIndex = 5;
-            lbl_img3.Text = "Vista previa";
-            lbl_img3.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // pnl_img3
-            // 
-            pnl_img3.Controls.Add(lbl_img6);
-            pnl_img3.Controls.Add(lbl_img5);
-            pnl_img3.Controls.Add(lbl_img4);
-            pnl_img3.Controls.Add(pnl1_img5);
-            pnl_img3.Controls.Add(pnl_img4);
-            pnl_img3.Controls.Add(pnl1_img3);
-            pnl_img3.Controls.Add(pnl1_img2);
-            pnl_img3.Controls.Add(pnl1_img1);
-            pnl_img3.Controls.Add(lbl_img3);
-            pnl_img3.Dock = DockStyle.Top;
-            pnl_img3.Location = new Point(0, 106);
-            pnl_img3.Name = "pnl_img3";
-            pnl_img3.Size = new Size(1175, 324);
-            pnl_img3.TabIndex = 1;
-            // 
-            // pnl1_img1
-            // 
-            pnl1_img1.Controls.Add(lbl1_img2);
-            pnl1_img1.Controls.Add(lbl1_img1);
-            pnl1_img1.Controls.Add(pic1_img1);
-            pnl1_img1.Location = new Point(69, 60);
-            pnl1_img1.Name = "pnl1_img1";
-            pnl1_img1.Size = new Size(180, 209);
-            pnl1_img1.TabIndex = 6;
-            // 
-            // pic1_img1
-            // 
-            pic1_img1.Image = (Image)resources.GetObject("pic1_img1.Image");
-            pic1_img1.Location = new Point(15, 18);
-            pic1_img1.Name = "pic1_img1";
-            pic1_img1.Size = new Size(151, 90);
-            pic1_img1.SizeMode = PictureBoxSizeMode.Zoom;
-            pic1_img1.TabIndex = 0;
-            pic1_img1.TabStop = false;
-            // 
-            // lbl1_img1
-            // 
-            lbl1_img1.AutoSize = true;
-            lbl1_img1.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl1_img1.Location = new Point(19, 124);
-            lbl1_img1.Name = "lbl1_img1";
-            lbl1_img1.Size = new Size(136, 21);
-            lbl1_img1.TabIndex = 1;
-            lbl1_img1.Text = "Agregar imagen";
-            // 
-            // lbl1_img2
-            // 
-            lbl1_img2.AutoSize = true;
-            lbl1_img2.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl1_img2.ForeColor = Color.Gray;
-            lbl1_img2.Location = new Point(14, 156);
-            lbl1_img2.Name = "lbl1_img2";
-            lbl1_img2.Size = new Size(155, 38);
-            lbl1_img2.TabIndex = 2;
-            lbl1_img2.Text = "Formato: JPG, PNG\r\nMáx: 5 MB";
-            // 
-            // pnl1_img2
-            // 
-            pnl1_img2.Controls.Add(lbl1_img4);
-            pnl1_img2.Controls.Add(lbl1_img3);
-            pnl1_img2.Controls.Add(pic1_img2);
-            pnl1_img2.Location = new Point(282, 60);
-            pnl1_img2.Name = "pnl1_img2";
-            pnl1_img2.Size = new Size(180, 209);
-            pnl1_img2.TabIndex = 7;
-            // 
-            // lbl1_img4
-            // 
-            lbl1_img4.AutoSize = true;
-            lbl1_img4.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl1_img4.ForeColor = Color.Gray;
-            lbl1_img4.Location = new Point(14, 156);
-            lbl1_img4.Name = "lbl1_img4";
-            lbl1_img4.Size = new Size(155, 38);
-            lbl1_img4.TabIndex = 2;
-            lbl1_img4.Text = "Formato: JPG, PNG\r\nMáx: 5 MB";
-            // 
-            // lbl1_img3
-            // 
-            lbl1_img3.AutoSize = true;
-            lbl1_img3.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl1_img3.Location = new Point(19, 124);
-            lbl1_img3.Name = "lbl1_img3";
-            lbl1_img3.Size = new Size(136, 21);
-            lbl1_img3.TabIndex = 1;
-            lbl1_img3.Text = "Agregar imagen";
-            // 
-            // pic1_img2
-            // 
-            pic1_img2.Image = (Image)resources.GetObject("pic1_img2.Image");
-            pic1_img2.Location = new Point(15, 18);
-            pic1_img2.Name = "pic1_img2";
-            pic1_img2.Size = new Size(151, 90);
-            pic1_img2.SizeMode = PictureBoxSizeMode.Zoom;
-            pic1_img2.TabIndex = 0;
-            pic1_img2.TabStop = false;
-            // 
-            // pnl1_img3
-            // 
-            pnl1_img3.Controls.Add(lbl1_img6);
-            pnl1_img3.Controls.Add(lbl1_img5);
-            pnl1_img3.Controls.Add(pic1_img3);
-            pnl1_img3.Location = new Point(490, 60);
-            pnl1_img3.Name = "pnl1_img3";
-            pnl1_img3.Size = new Size(180, 209);
-            pnl1_img3.TabIndex = 7;
-            // 
-            // lbl1_img6
-            // 
-            lbl1_img6.AutoSize = true;
-            lbl1_img6.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl1_img6.ForeColor = Color.Gray;
-            lbl1_img6.Location = new Point(14, 156);
-            lbl1_img6.Name = "lbl1_img6";
-            lbl1_img6.Size = new Size(155, 38);
-            lbl1_img6.TabIndex = 2;
-            lbl1_img6.Text = "Formato: JPG, PNG\r\nMáx: 5 MB";
-            // 
-            // lbl1_img5
-            // 
-            lbl1_img5.AutoSize = true;
-            lbl1_img5.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl1_img5.Location = new Point(19, 124);
-            lbl1_img5.Name = "lbl1_img5";
-            lbl1_img5.Size = new Size(136, 21);
-            lbl1_img5.TabIndex = 1;
-            lbl1_img5.Text = "Agregar imagen";
-            // 
-            // pic1_img3
-            // 
-            pic1_img3.Image = (Image)resources.GetObject("pic1_img3.Image");
-            pic1_img3.Location = new Point(15, 18);
-            pic1_img3.Name = "pic1_img3";
-            pic1_img3.Size = new Size(151, 90);
-            pic1_img3.SizeMode = PictureBoxSizeMode.Zoom;
-            pic1_img3.TabIndex = 0;
-            pic1_img3.TabStop = false;
-            // 
-            // pnl_img4
-            // 
-            pnl_img4.Controls.Add(lbl1_img8);
-            pnl_img4.Controls.Add(lbl1_img7);
-            pnl_img4.Controls.Add(pic1_img4);
-            pnl_img4.Location = new Point(695, 60);
-            pnl_img4.Name = "pnl_img4";
-            pnl_img4.Size = new Size(180, 209);
-            pnl_img4.TabIndex = 7;
-            // 
-            // lbl1_img8
-            // 
-            lbl1_img8.AutoSize = true;
-            lbl1_img8.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl1_img8.ForeColor = Color.Gray;
-            lbl1_img8.Location = new Point(14, 156);
-            lbl1_img8.Name = "lbl1_img8";
-            lbl1_img8.Size = new Size(155, 38);
-            lbl1_img8.TabIndex = 2;
-            lbl1_img8.Text = "Formato: JPG, PNG\r\nMáx: 5 MB";
-            // 
-            // lbl1_img7
-            // 
-            lbl1_img7.AutoSize = true;
-            lbl1_img7.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl1_img7.Location = new Point(19, 124);
-            lbl1_img7.Name = "lbl1_img7";
-            lbl1_img7.Size = new Size(136, 21);
-            lbl1_img7.TabIndex = 1;
-            lbl1_img7.Text = "Agregar imagen";
-            // 
-            // pic1_img4
-            // 
-            pic1_img4.Image = (Image)resources.GetObject("pic1_img4.Image");
-            pic1_img4.Location = new Point(15, 18);
-            pic1_img4.Name = "pic1_img4";
-            pic1_img4.Size = new Size(151, 90);
-            pic1_img4.SizeMode = PictureBoxSizeMode.Zoom;
-            pic1_img4.TabIndex = 0;
-            pic1_img4.TabStop = false;
-            // 
-            // pnl1_img5
-            // 
-            pnl1_img5.Controls.Add(lbl1_img10);
-            pnl1_img5.Controls.Add(lbl1_img9);
-            pnl1_img5.Controls.Add(pic1_img5);
-            pnl1_img5.Location = new Point(908, 60);
-            pnl1_img5.Name = "pnl1_img5";
-            pnl1_img5.Size = new Size(180, 209);
-            pnl1_img5.TabIndex = 7;
-            // 
-            // lbl1_img10
-            // 
-            lbl1_img10.AutoSize = true;
-            lbl1_img10.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl1_img10.ForeColor = Color.Gray;
-            lbl1_img10.Location = new Point(14, 156);
-            lbl1_img10.Name = "lbl1_img10";
-            lbl1_img10.Size = new Size(155, 38);
-            lbl1_img10.TabIndex = 2;
-            lbl1_img10.Text = "Formato: JPG, PNG\r\nMáx: 5 MB";
-            // 
-            // lbl1_img9
-            // 
-            lbl1_img9.AutoSize = true;
-            lbl1_img9.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl1_img9.Location = new Point(19, 124);
-            lbl1_img9.Name = "lbl1_img9";
-            lbl1_img9.Size = new Size(136, 21);
-            lbl1_img9.TabIndex = 1;
-            lbl1_img9.Text = "Agregar imagen";
-            // 
-            // pic1_img5
-            // 
-            pic1_img5.Image = (Image)resources.GetObject("pic1_img5.Image");
-            pic1_img5.Location = new Point(15, 18);
-            pic1_img5.Name = "pic1_img5";
-            pic1_img5.Size = new Size(151, 90);
-            pic1_img5.SizeMode = PictureBoxSizeMode.Zoom;
-            pic1_img5.TabIndex = 0;
-            pic1_img5.TabStop = false;
-            // 
-            // lbl_img4
-            // 
-            lbl_img4.AutoSize = true;
-            lbl_img4.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_img4.ForeColor = Color.Gray;
-            lbl_img4.Location = new Point(413, 285);
-            lbl_img4.Name = "lbl_img4";
-            lbl_img4.Size = new Size(165, 21);
-            lbl_img4.TabIndex = 8;
-            lbl_img4.Text = "Hasta 5 imágenes (";
-            // 
-            // lbl_img5
-            // 
-            lbl_img5.AutoSize = true;
-            lbl_img5.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_img5.ForeColor = Color.FromArgb(0, 102, 255);
-            lbl_img5.Location = new Point(575, 285);
-            lbl_img5.Name = "lbl_img5";
-            lbl_img5.Size = new Size(35, 21);
-            lbl_img5.TabIndex = 9;
-            lbl_img5.Text = "0/5";
-            // 
-            // lbl_img6
-            // 
-            lbl_img6.AutoSize = true;
-            lbl_img6.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_img6.ForeColor = Color.Gray;
-            lbl_img6.Location = new Point(605, 285);
-            lbl_img6.Name = "lbl_img6";
-            lbl_img6.Size = new Size(135, 21);
-            lbl_img6.TabIndex = 9;
-            lbl_img6.Text = "seleccionadas )";
-            // 
-            // btn_selecimg
-            // 
-            btn_selecimg.FlatAppearance.BorderColor = Color.FromArgb(0, 102, 255);
-            btn_selecimg.FlatAppearance.BorderSize = 2;
-            btn_selecimg.FlatStyle = FlatStyle.Flat;
-            btn_selecimg.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn_selecimg.ForeColor = Color.FromArgb(0, 102, 255);
-            btn_selecimg.Image = (Image)resources.GetObject("btn_selecimg.Image");
-            btn_selecimg.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_selecimg.Location = new Point(436, 450);
-            btn_selecimg.Name = "btn_selecimg";
-            btn_selecimg.Size = new Size(284, 49);
-            btn_selecimg.TabIndex = 2;
-            btn_selecimg.Text = "Seleccionar imágenes";
-            btn_selecimg.UseVisualStyleBackColor = true;
-            // 
-            // lbl_img7
-            // 
-            lbl_img7.AutoSize = true;
-            lbl_img7.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_img7.ForeColor = Color.Gray;
-            lbl_img7.Location = new Point(153, 514);
-            lbl_img7.Name = "lbl_img7";
-            lbl_img7.Size = new Size(371, 21);
-            lbl_img7.TabIndex = 10;
-            lbl_img7.Text = "Puede seleccionar múltiples archivos a la vez";
-            // 
-            // lbl_img8
-            // 
-            lbl_img8.AutoSize = true;
-            lbl_img8.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_img8.ForeColor = Color.Gray;
-            lbl_img8.Location = new Point(605, 514);
-            lbl_img8.Name = "lbl_img8";
-            lbl_img8.Size = new Size(455, 21);
-            lbl_img8.TabIndex = 11;
-            lbl_img8.Text = "Formatos permitidos: JPG, PNG: Máx. 5 MB por imagen";
-            // 
-            // pnl_imp1
-            // 
-            pnl_imp1.Controls.Add(button1);
-            pnl_imp1.Controls.Add(btn_cancel);
-            pnl_imp1.Dock = DockStyle.Bottom;
-            pnl_imp1.Location = new Point(0, 567);
-            pnl_imp1.Name = "pnl_imp1";
-            pnl_imp1.Size = new Size(1175, 103);
-            pnl_imp1.TabIndex = 12;
-            // 
-            // btn_cancel
-            // 
-            btn_cancel.Cursor = Cursors.Hand;
-            btn_cancel.FlatStyle = FlatStyle.Flat;
-            btn_cancel.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn_cancel.Location = new Point(12, 27);
-            btn_cancel.Name = "btn_cancel";
-            btn_cancel.Size = new Size(160, 49);
-            btn_cancel.TabIndex = 0;
-            btn_cancel.Text = "Cancelar";
-            btn_cancel.UseVisualStyleBackColor = true;
+            // pnlcont1
+            // 
+            pnlcont1.BackColor = Color.FromArgb(244, 246, 249);
+            pnlcont1.Controls.Add(button3);
+            pnlcont1.Controls.Add(button2);
+            pnlcont1.Controls.Add(comboBox4);
+            pnlcont1.Controls.Add(label13);
+            pnlcont1.Controls.Add(pnl_img5);
+            pnlcont1.Controls.Add(pnl_img4);
+            pnlcont1.Controls.Add(pnl_img3);
+            pnlcont1.Controls.Add(pnl_img2);
+            pnlcont1.Controls.Add(pnl_img1);
+            pnlcont1.Controls.Add(panel2);
+            pnlcont1.Controls.Add(label10);
+            pnlcont1.Controls.Add(label9);
+            pnlcont1.Controls.Add(textBox5);
+            pnlcont1.Controls.Add(label8);
+            pnlcont1.Controls.Add(comboBox3);
+            pnlcont1.Controls.Add(label7);
+            pnlcont1.Controls.Add(textBox4);
+            pnlcont1.Controls.Add(label6);
+            pnlcont1.Controls.Add(textBox3);
+            pnlcont1.Controls.Add(label5);
+            pnlcont1.Controls.Add(comboBox2);
+            pnlcont1.Controls.Add(label4);
+            pnlcont1.Controls.Add(comboBox1);
+            pnlcont1.Controls.Add(label3);
+            pnlcont1.Controls.Add(textBox2);
+            pnlcont1.Controls.Add(label2);
+            pnlcont1.Controls.Add(textBox1);
+            pnlcont1.Controls.Add(label1);
+            pnlcont1.Controls.Add(panel1);
+            pnlcont1.Dock = DockStyle.Fill;
+            pnlcont1.Location = new Point(0, 0);
+            pnlcont1.Name = "pnlcont1";
+            pnlcont1.Size = new Size(709, 736);
+            pnlcont1.TabIndex = 0;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.Location = new Point(12, 280);
+            label4.Name = "label4";
+            label4.Size = new Size(71, 22);
+            label4.TabIndex = 7;
+            label4.Text = "Talla(s)";
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "Camisetas", "Blusas", "Busos", "Pantalones" });
+            comboBox1.Location = new Point(12, 240);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(254, 28);
+            comboBox1.TabIndex = 6;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Location = new Point(12, 215);
+            label3.Name = "label3";
+            label3.Size = new Size(88, 22);
+            label3.TabIndex = 5;
+            label3.Text = "Categoría";
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(12, 174);
+            textBox2.Name = "textBox2";
+            textBox2.PlaceholderText = "Ej: Camisa Negra";
+            textBox2.Size = new Size(287, 27);
+            textBox2.TabIndex = 4;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(12, 149);
+            label2.Name = "label2";
+            label2.Size = new Size(177, 22);
+            label2.TabIndex = 3;
+            label2.Text = "Nombre del producto";
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(12, 110);
+            textBox1.Name = "textBox1";
+            textBox1.PlaceholderText = "Ej: P007";
+            textBox1.Size = new Size(287, 27);
+            textBox1.TabIndex = 2;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(12, 85);
+            label1.Name = "label1";
+            label1.Size = new Size(171, 22);
+            label1.TabIndex = 1;
+            label1.Text = "Código del producto";
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(9, 22, 50);
+            panel1.Controls.Add(pic2_e);
+            panel1.Controls.Add(lbl1);
+            panel1.Controls.Add(pic1_e);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(709, 67);
+            panel1.TabIndex = 0;
+            // 
+            // pic2_e
+            // 
+            pic2_e.Image = (Image)resources.GetObject("pic2_e.Image");
+            pic2_e.Location = new Point(659, 16);
+            pic2_e.Name = "pic2_e";
+            pic2_e.Size = new Size(31, 31);
+            pic2_e.SizeMode = PictureBoxSizeMode.Zoom;
+            pic2_e.TabIndex = 1;
+            pic2_e.TabStop = false;
+            pic2_e.Click += pic2_e_Click;
+            // 
+            // lbl1
+            // 
+            lbl1.AutoSize = true;
+            lbl1.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl1.ForeColor = Color.White;
+            lbl1.Location = new Point(87, 18);
+            lbl1.Name = "lbl1";
+            lbl1.Size = new Size(212, 29);
+            lbl1.TabIndex = 1;
+            lbl1.Text = "Agregar productos";
+            // 
+            // pic1_e
+            // 
+            pic1_e.Image = (Image)resources.GetObject("pic1_e.Image");
+            pic1_e.Location = new Point(12, 3);
+            pic1_e.Name = "pic1_e";
+            pic1_e.Size = new Size(69, 55);
+            pic1_e.SizeMode = PictureBoxSizeMode.Zoom;
+            pic1_e.TabIndex = 0;
+            pic1_e.TabStop = false;
+            // 
+            // comboBox2
+            // 
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Items.AddRange(new object[] { "S", "L", "M", "X", "XS", "XL", "XXL" });
+            comboBox2.Location = new Point(12, 305);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(254, 28);
+            comboBox2.TabIndex = 8;
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(12, 443);
+            textBox3.Name = "textBox3";
+            textBox3.PlaceholderText = "$ 0.00";
+            textBox3.Size = new Size(135, 27);
+            textBox3.TabIndex = 10;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.Location = new Point(12, 418);
+            label5.Name = "label5";
+            label5.Size = new Size(135, 22);
+            label5.TabIndex = 9;
+            label5.Text = "Precio de venta";
+            // 
+            // textBox4
+            // 
+            textBox4.Location = new Point(164, 443);
+            textBox4.Name = "textBox4";
+            textBox4.PlaceholderText = "0";
+            textBox4.Size = new Size(135, 27);
+            textBox4.TabIndex = 12;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.Location = new Point(164, 418);
+            label6.Name = "label6";
+            label6.Size = new Size(55, 22);
+            label6.TabIndex = 11;
+            label6.Text = "Stock";
+            // 
+            // comboBox3
+            // 
+            comboBox3.FormattingEnabled = true;
+            comboBox3.Items.AddRange(new object[] { "Activado", "Desactivado" });
+            comboBox3.Location = new Point(12, 510);
+            comboBox3.Name = "comboBox3";
+            comboBox3.Size = new Size(287, 28);
+            comboBox3.TabIndex = 14;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.Location = new Point(12, 485);
+            label7.Name = "label7";
+            label7.Size = new Size(66, 22);
+            label7.TabIndex = 13;
+            label7.Text = "Estado";
+            // 
+            // textBox5
+            // 
+            textBox5.Location = new Point(12, 589);
+            textBox5.MaxLength = 250;
+            textBox5.Multiline = true;
+            textBox5.Name = "textBox5";
+            textBox5.PlaceholderText = "Ej: Camisa Negra de algodón, de corte clásico...";
+            textBox5.Size = new Size(287, 100);
+            textBox5.TabIndex = 16;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.Location = new Point(12, 553);
+            label8.Name = "label8";
+            label8.Size = new Size(104, 22);
+            label8.TabIndex = 15;
+            label8.Text = "Descripción";
+            // 
+            // label9
+            // 
+            label9.BackColor = Color.Gray;
+            label9.Location = new Point(322, 85);
+            label9.Name = "label9";
+            label9.Size = new Size(1, 623);
+            label9.TabIndex = 17;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label10.Location = new Point(344, 85);
+            label10.Name = "label10";
+            label10.Size = new Size(191, 22);
+            label10.TabIndex = 18;
+            label10.Text = "Imágenes del producto";
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.White;
+            panel2.BorderStyle = BorderStyle.FixedSingle;
+            panel2.Controls.Add(button1);
+            panel2.Controls.Add(label12);
+            panel2.Controls.Add(label11);
+            panel2.Controls.Add(pictureBox1);
+            panel2.Location = new Point(344, 112);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(351, 221);
+            panel2.TabIndex = 19;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(120, 23);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(84, 78);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 20;
+            pictureBox1.TabStop = false;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label11.Location = new Point(66, 103);
+            label11.Name = "label11";
+            label11.Size = new Size(198, 22);
+            label11.TabIndex = 20;
+            label11.Text = "Seleccionar imagen(es)";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label12.ForeColor = Color.Gray;
+            label12.Location = new Point(20, 128);
+            label12.Name = "label12";
+            label12.Size = new Size(284, 20);
+            label12.TabIndex = 21;
+            label12.Text = "Puede seleccionar hasta 5 imágenes";
             // 
             // button1
             // 
-            button1.BackColor = Color.FromArgb(0, 102, 255);
             button1.Cursor = Cursors.Hand;
+            button1.FlatAppearance.BorderColor = Color.FromArgb(0, 102, 255);
+            button1.FlatAppearance.BorderSize = 2;
             button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.White;
+            button1.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button1.Image = (Image)resources.GetObject("button1.Image");
             button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(908, 27);
+            button1.Location = new Point(66, 167);
             button1.Name = "button1";
-            button1.Size = new Size(233, 49);
-            button1.TabIndex = 1;
-            button1.Text = "Aceptar y cerrar";
-            button1.UseVisualStyleBackColor = false;
+            button1.Size = new Size(198, 42);
+            button1.TabIndex = 20;
+            button1.Text = "     Elegir imágenes";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // pnl_img1
+            // 
+            pnl_img1.BorderStyle = BorderStyle.FixedSingle;
+            pnl_img1.Location = new Point(344, 340);
+            pnl_img1.Name = "pnl_img1";
+            pnl_img1.Size = new Size(113, 118);
+            pnl_img1.TabIndex = 20;
+            // 
+            // pnl_img2
+            // 
+            pnl_img2.BorderStyle = BorderStyle.FixedSingle;
+            pnl_img2.Location = new Point(463, 339);
+            pnl_img2.Name = "pnl_img2";
+            pnl_img2.Size = new Size(113, 118);
+            pnl_img2.TabIndex = 21;
+            // 
+            // pnl_img3
+            // 
+            pnl_img3.BorderStyle = BorderStyle.FixedSingle;
+            pnl_img3.Location = new Point(582, 339);
+            pnl_img3.Name = "pnl_img3";
+            pnl_img3.Size = new Size(113, 118);
+            pnl_img3.TabIndex = 22;
+            // 
+            // pnl_img4
+            // 
+            pnl_img4.BorderStyle = BorderStyle.FixedSingle;
+            pnl_img4.Location = new Point(344, 464);
+            pnl_img4.Name = "pnl_img4";
+            pnl_img4.Size = new Size(113, 118);
+            pnl_img4.TabIndex = 23;
+            // 
+            // pnl_img5
+            // 
+            pnl_img5.BorderStyle = BorderStyle.FixedSingle;
+            pnl_img5.Location = new Point(463, 464);
+            pnl_img5.Name = "pnl_img5";
+            pnl_img5.Size = new Size(113, 118);
+            pnl_img5.TabIndex = 24;
+            // 
+            // comboBox4
+            // 
+            comboBox4.FormattingEnabled = true;
+            comboBox4.Items.AddRange(new object[] { "Negro", "Blanco", "Rojo", "Gris" });
+            comboBox4.Location = new Point(12, 375);
+            comboBox4.Name = "comboBox4";
+            comboBox4.Size = new Size(254, 28);
+            comboBox4.TabIndex = 26;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label13.Location = new Point(12, 350);
+            label13.Name = "label13";
+            label13.Size = new Size(84, 22);
+            label13.TabIndex = 25;
+            label13.Text = "Color(es)";
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.FromArgb(0, 102, 255);
+            button2.Cursor = Cursors.Hand;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.ForeColor = Color.White;
+            button2.Image = (Image)resources.GetObject("button2.Image");
+            button2.ImageAlign = ContentAlignment.MiddleLeft;
+            button2.Location = new Point(502, 675);
+            button2.Name = "button2";
+            button2.Size = new Size(204, 49);
+            button2.TabIndex = 27;
+            button2.Text = "    Guardar producto";
+            button2.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            button3.FlatAppearance.BorderColor = Color.Gray;
+            button3.FlatAppearance.BorderSize = 2;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button3.Location = new Point(355, 675);
+            button3.Name = "button3";
+            button3.Size = new Size(141, 49);
+            button3.TabIndex = 28;
+            button3.Text = "Cancelar";
+            button3.UseVisualStyleBackColor = true;
             // 
             // FormAgg_Product
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1175, 670);
-            Controls.Add(pnl_img1);
+            ClientSize = new Size(709, 736);
+            Controls.Add(pnlcont1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "FormAgg_Product";
             Text = "FormAgg_Product";
-            pnl_img1.ResumeLayout(false);
-            pnl_img1.PerformLayout();
-            pnl_img2.ResumeLayout(false);
-            pnl_img2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pic_agg1).EndInit();
-            pnl_img3.ResumeLayout(false);
-            pnl_img3.PerformLayout();
-            pnl1_img1.ResumeLayout(false);
-            pnl1_img1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pic1_img1).EndInit();
-            pnl1_img2.ResumeLayout(false);
-            pnl1_img2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pic1_img2).EndInit();
-            pnl1_img3.ResumeLayout(false);
-            pnl1_img3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pic1_img3).EndInit();
-            pnl_img4.ResumeLayout(false);
-            pnl_img4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pic1_img4).EndInit();
-            pnl1_img5.ResumeLayout(false);
-            pnl1_img5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pic1_img5).EndInit();
-            pnl_imp1.ResumeLayout(false);
+            pnlcont1.ResumeLayout(false);
+            pnlcont1.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pic2_e).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pic1_e).EndInit();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
         private Button btn_agg1;
         private Button btn_agg2;
-        private Panel pnl_img1;
-        private Panel pnl_img2;
-        private PictureBox pic_agg1;
-        private Label lbl_img1;
-        private Label lbl_img2;
-        private Label btn_voler1;
-        private Panel pnl_img3;
-        private Label lbl_img3;
-        private Panel pnl1_img1;
-        private Label lbl1_img2;
-        private Label lbl1_img1;
-        private PictureBox pic1_img1;
-        private Panel pnl1_img5;
-        private Label lbl1_img10;
-        private Label lbl1_img9;
-        private PictureBox pic1_img5;
-        private Panel pnl_img4;
-        private Label lbl1_img8;
-        private Label lbl1_img7;
-        private PictureBox pic1_img4;
-        private Panel pnl1_img3;
-        private Label lbl1_img6;
-        private Label lbl1_img5;
-        private PictureBox pic1_img3;
-        private Panel pnl1_img2;
-        private Label lbl1_img4;
-        private Label lbl1_img3;
-        private PictureBox pic1_img2;
-        private Label lbl_img4;
-        private Label lbl_img6;
-        private Label lbl_img5;
-        private Button btn_selecimg;
-        private Label lbl_img8;
-        private Label lbl_img7;
-        private Panel pnl_imp1;
-        private Button btn_cancel;
+        private Panel pnlcont1;
+        private Panel panel1;
+        private Label lbl1;
+        private PictureBox pic1_e;
+        private PictureBox pic2_e;
+        private Label label3;
+        private TextBox textBox2;
+        private Label label2;
+        private TextBox textBox1;
+        private Label label1;
+        private ComboBox comboBox1;
+        private Label label4;
+        private ComboBox comboBox2;
+        private TextBox textBox4;
+        private Label label6;
+        private TextBox textBox3;
+        private Label label5;
+        private ComboBox comboBox3;
+        private Label label7;
+        private Label label9;
+        private TextBox textBox5;
+        private Label label8;
+        private Label label10;
+        private Panel panel2;
+        private PictureBox pictureBox1;
         private Button button1;
+        private Label label12;
+        private Label label11;
+        private Panel pnl_img5;
+        private Panel pnl_img4;
+        private Panel pnl_img3;
+        private Panel pnl_img2;
+        private Panel pnl_img1;
+        private ComboBox comboBox4;
+        private Label label13;
+        private Button button3;
+        private Button button2;
     }
 }

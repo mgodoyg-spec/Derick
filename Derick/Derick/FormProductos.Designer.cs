@@ -47,6 +47,18 @@
             label1 = new Label();
             button5 = new Button();
             dvg_agg = new DataGridView();
+            clCodigo = new DataGridViewTextBoxColumn();
+            clImagen = new DataGridViewImageColumn();
+            clNombreProducto = new DataGridViewTextBoxColumn();
+            clCategoria = new DataGridViewTextBoxColumn();
+            clTallas = new DataGridViewTextBoxColumn();
+            clColores = new DataGridViewTextBoxColumn();
+            clPrecio = new DataGridViewTextBoxColumn();
+            clStock = new DataGridViewTextBoxColumn();
+            clEstado = new DataGridViewTextBoxColumn();
+            clEditar = new DataGridViewImageColumn();
+            clEliminar = new DataGridViewImageColumn();
+            clVerTodo = new DataGridViewImageColumn();
             button3 = new Button();
             panel9 = new Panel();
             pictureBox1 = new PictureBox();
@@ -55,18 +67,6 @@
             pic_agg1 = new PictureBox();
             lbl_agg1 = new Label();
             img_icons = new ImageList(components);
-            c1 = new DataGridViewTextBoxColumn();
-            c2 = new DataGridViewImageColumn();
-            c3 = new DataGridViewTextBoxColumn();
-            c4 = new DataGridViewTextBoxColumn();
-            c5 = new DataGridViewTextBoxColumn();
-            c6 = new DataGridViewTextBoxColumn();
-            c8 = new DataGridViewTextBoxColumn();
-            c9 = new DataGridViewTextBoxColumn();
-            c10 = new DataGridViewTextBoxColumn();
-            c11 = new DataGridViewImageColumn();
-            c12 = new DataGridViewImageColumn();
-            c13 = new DataGridViewImageColumn();
             pnl_conagg.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pic_raya1).BeginInit();
             panel7.SuspendLayout();
@@ -108,6 +108,7 @@
             button1.TabIndex = 9;
             button1.Text = "Agregar producto";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // pic_raya1
             // 
@@ -295,7 +296,7 @@
             dvg_agg.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dvg_agg.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dvg_agg.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dvg_agg.Columns.AddRange(new DataGridViewColumn[] { c1, c2, c3, c4, c5, c6, c8, c9, c10, c11, c12, c13 });
+            dvg_agg.Columns.AddRange(new DataGridViewColumn[] { clCodigo, clImagen, clNombreProducto, clCategoria, clTallas, clColores, clPrecio, clStock, clEstado, clEditar, clEliminar, clVerTodo });
             dvg_agg.Location = new Point(11, 108);
             dvg_agg.MultiSelect = false;
             dvg_agg.Name = "dvg_agg";
@@ -305,6 +306,90 @@
             dvg_agg.Size = new Size(1352, 536);
             dvg_agg.TabIndex = 15;
             dvg_agg.CellClick += dvg_agg_CellClick;
+            // 
+            // clCodigo
+            // 
+            clCodigo.FillWeight = 147.593521F;
+            clCodigo.HeaderText = "Código";
+            clCodigo.MinimumWidth = 6;
+            clCodigo.Name = "clCodigo";
+            // 
+            // clImagen
+            // 
+            clImagen.FillWeight = 95.67327F;
+            clImagen.HeaderText = "Imagen";
+            clImagen.MinimumWidth = 6;
+            clImagen.Name = "clImagen";
+            // 
+            // clNombreProducto
+            // 
+            clNombreProducto.FillWeight = 95.67327F;
+            clNombreProducto.HeaderText = "Nombre del producto";
+            clNombreProducto.MinimumWidth = 6;
+            clNombreProducto.Name = "clNombreProducto";
+            // 
+            // clCategoria
+            // 
+            clCategoria.FillWeight = 95.67327F;
+            clCategoria.HeaderText = "Categoría";
+            clCategoria.MinimumWidth = 6;
+            clCategoria.Name = "clCategoria";
+            // 
+            // clTallas
+            // 
+            clTallas.FillWeight = 95.67327F;
+            clTallas.HeaderText = "Talla(s)";
+            clTallas.MinimumWidth = 6;
+            clTallas.Name = "clTallas";
+            // 
+            // clColores
+            // 
+            clColores.FillWeight = 95.67327F;
+            clColores.HeaderText = "Color(es)";
+            clColores.MinimumWidth = 6;
+            clColores.Name = "clColores";
+            // 
+            // clPrecio
+            // 
+            clPrecio.FillWeight = 95.67327F;
+            clPrecio.HeaderText = "Precio";
+            clPrecio.MinimumWidth = 6;
+            clPrecio.Name = "clPrecio";
+            // 
+            // clStock
+            // 
+            clStock.FillWeight = 95.67327F;
+            clStock.HeaderText = "Stock";
+            clStock.MinimumWidth = 6;
+            clStock.Name = "clStock";
+            // 
+            // clEstado
+            // 
+            clEstado.FillWeight = 95.67327F;
+            clEstado.HeaderText = "Estado";
+            clEstado.MinimumWidth = 6;
+            clEstado.Name = "clEstado";
+            // 
+            // clEditar
+            // 
+            clEditar.FillWeight = 95.67327F;
+            clEditar.HeaderText = "Editar";
+            clEditar.MinimumWidth = 6;
+            clEditar.Name = "clEditar";
+            // 
+            // clEliminar
+            // 
+            clEliminar.FillWeight = 95.67327F;
+            clEliminar.HeaderText = "Eliminar";
+            clEliminar.MinimumWidth = 6;
+            clEliminar.Name = "clEliminar";
+            // 
+            // clVerTodo
+            // 
+            clVerTodo.FillWeight = 95.67327F;
+            clVerTodo.HeaderText = "Ver Todo";
+            clVerTodo.MinimumWidth = 6;
+            clVerTodo.Name = "clVerTodo";
             // 
             // button3
             // 
@@ -399,90 +484,6 @@
             img_icons.Images.SetKeyName(1, "eliminar.png");
             img_icons.Images.SetKeyName(2, "vertodo.png");
             // 
-            // c1
-            // 
-            c1.FillWeight = 147.593521F;
-            c1.HeaderText = "Código";
-            c1.MinimumWidth = 6;
-            c1.Name = "c1";
-            // 
-            // c2
-            // 
-            c2.FillWeight = 95.67327F;
-            c2.HeaderText = "Imagen";
-            c2.MinimumWidth = 6;
-            c2.Name = "c2";
-            // 
-            // c3
-            // 
-            c3.FillWeight = 95.67327F;
-            c3.HeaderText = "Nombre del producto";
-            c3.MinimumWidth = 6;
-            c3.Name = "c3";
-            // 
-            // c4
-            // 
-            c4.FillWeight = 95.67327F;
-            c4.HeaderText = "Categoría";
-            c4.MinimumWidth = 6;
-            c4.Name = "c4";
-            // 
-            // c5
-            // 
-            c5.FillWeight = 95.67327F;
-            c5.HeaderText = "Talla(s)";
-            c5.MinimumWidth = 6;
-            c5.Name = "c5";
-            // 
-            // c6
-            // 
-            c6.FillWeight = 95.67327F;
-            c6.HeaderText = "Color(es)";
-            c6.MinimumWidth = 6;
-            c6.Name = "c6";
-            // 
-            // c8
-            // 
-            c8.FillWeight = 95.67327F;
-            c8.HeaderText = "Precio";
-            c8.MinimumWidth = 6;
-            c8.Name = "c8";
-            // 
-            // c9
-            // 
-            c9.FillWeight = 95.67327F;
-            c9.HeaderText = "Stock";
-            c9.MinimumWidth = 6;
-            c9.Name = "c9";
-            // 
-            // c10
-            // 
-            c10.FillWeight = 95.67327F;
-            c10.HeaderText = "Estado";
-            c10.MinimumWidth = 6;
-            c10.Name = "c10";
-            // 
-            // c11
-            // 
-            c11.FillWeight = 95.67327F;
-            c11.HeaderText = "Editar";
-            c11.MinimumWidth = 6;
-            c11.Name = "c11";
-            // 
-            // c12
-            // 
-            c12.FillWeight = 95.67327F;
-            c12.HeaderText = "Eliminar";
-            c12.MinimumWidth = 6;
-            c12.Name = "c12";
-            // 
-            // c13
-            // 
-            c13.FillWeight = 95.67327F;
-            c13.HeaderText = "Ver Todo";
-            c13.MinimumWidth = 6;
-            c13.Name = "c13";
-            // 
             // FormProductos
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -537,17 +538,17 @@
         private Button button1;
         private ImageList img_icons;
         private PictureBox pictureBox1;
-        private DataGridViewTextBoxColumn c1;
-        private DataGridViewImageColumn c2;
-        private DataGridViewTextBoxColumn c3;
-        private DataGridViewTextBoxColumn c4;
-        private DataGridViewTextBoxColumn c5;
-        private DataGridViewTextBoxColumn c6;
-        private DataGridViewTextBoxColumn c8;
-        private DataGridViewTextBoxColumn c9;
-        private DataGridViewTextBoxColumn c10;
-        private DataGridViewImageColumn c11;
-        private DataGridViewImageColumn c12;
-        private DataGridViewImageColumn c13;
+        private DataGridViewTextBoxColumn clCodigo;
+        private DataGridViewImageColumn clImagen;
+        private DataGridViewTextBoxColumn clNombreProducto;
+        private DataGridViewTextBoxColumn clCategoria;
+        private DataGridViewTextBoxColumn clTallas;
+        private DataGridViewTextBoxColumn clColores;
+        private DataGridViewTextBoxColumn clPrecio;
+        private DataGridViewTextBoxColumn clStock;
+        private DataGridViewTextBoxColumn clEstado;
+        private DataGridViewImageColumn clEditar;
+        private DataGridViewImageColumn clEliminar;
+        private DataGridViewImageColumn clVerTodo;
     }
 }

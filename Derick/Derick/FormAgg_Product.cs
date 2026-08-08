@@ -15,5 +15,10 @@ namespace Derick
             InitializeComponent();
 
         }
+
+        private void pic2_e_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
