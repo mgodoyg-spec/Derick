@@ -67,6 +67,7 @@
             pic_agg1 = new PictureBox();
             lbl_agg1 = new Label();
             img_icons = new ImageList(components);
+            button7 = new Button();
             pnl_conagg.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pic_raya1).BeginInit();
             pnl_agg2.SuspendLayout();
@@ -82,6 +83,7 @@
             // pnl_conagg
             // 
             pnl_conagg.BackColor = Color.FromArgb(244, 246, 249);
+            pnl_conagg.Controls.Add(button7);
             pnl_conagg.Controls.Add(button1);
             pnl_conagg.Controls.Add(pic_raya1);
             pnl_conagg.Controls.Add(pnl_agg2);
@@ -484,6 +486,16 @@
             img_icons.Images.SetKeyName(1, "eliminar.png");
             img_icons.Images.SetKeyName(2, "vertodo.png");
             // 
+            // button7
+            // 
+            button7.Location = new Point(524, 21);
+            button7.Name = "button7";
+            button7.Size = new Size(94, 29);
+            button7.TabIndex = 10;
+            button7.Text = "button7";
+            button7.UseVisualStyleBackColor = true;
+            button7.Click += button7_Click;
+            // 
             // FormProductos
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -550,5 +562,6 @@
         private DataGridViewImageColumn clEditar;
         private DataGridViewImageColumn clEliminar;
         private DataGridViewImageColumn clVerTodo;
+        private Button button7;
     }
 }

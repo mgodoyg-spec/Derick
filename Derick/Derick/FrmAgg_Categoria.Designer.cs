@@ -31,6 +31,12 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAgg_Categoria));
             pnlagg_ctg = new Panel();
+            btn_grd = new Button();
+            txt1 = new TextBox();
+            lble_5 = new Label();
+            lbl_ry1 = new Label();
+            cmb_ctg = new ComboBox();
+            lble_4 = new Label();
             btn_abajo = new Button();
             btn_arriba = new Button();
             lbl_icono = new Label();
@@ -38,21 +44,15 @@
             txt_ctg1 = new TextBox();
             lble_2 = new Label();
             pnl1_ctg = new Panel();
+            btn_cls = new PictureBox();
             lble_1 = new Label();
             pic1_e = new PictureBox();
             ctmCategoria = new ContextMenuStrip(components);
             imgCategoria = new ImageList(components);
-            lble_4 = new Label();
-            cmb_ctg = new ComboBox();
-            lbl_ry1 = new Label();
-            lble_5 = new Label();
-            txt1 = new TextBox();
-            btn_grd = new Button();
-            btn_cls = new PictureBox();
             pnlagg_ctg.SuspendLayout();
             pnl1_ctg.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pic1_e).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btn_cls).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pic1_e).BeginInit();
             SuspendLayout();
             // 
             // pnlagg_ctg
@@ -76,6 +76,70 @@
             pnlagg_ctg.Name = "pnlagg_ctg";
             pnlagg_ctg.Size = new Size(634, 409);
             pnlagg_ctg.TabIndex = 0;
+            // 
+            // btn_grd
+            // 
+            btn_grd.BackColor = Color.FromArgb(0, 102, 255);
+            btn_grd.Cursor = Cursors.Hand;
+            btn_grd.FlatAppearance.BorderSize = 0;
+            btn_grd.FlatStyle = FlatStyle.Flat;
+            btn_grd.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_grd.ForeColor = Color.White;
+            btn_grd.Image = (Image)resources.GetObject("btn_grd.Image");
+            btn_grd.ImageAlign = ContentAlignment.MiddleLeft;
+            btn_grd.Location = new Point(419, 348);
+            btn_grd.Name = "btn_grd";
+            btn_grd.Size = new Size(204, 49);
+            btn_grd.TabIndex = 40;
+            btn_grd.Text = "    Guardar categoría";
+            btn_grd.UseVisualStyleBackColor = false;
+            // 
+            // txt1
+            // 
+            txt1.Location = new Point(336, 115);
+            txt1.MaxLength = 250;
+            txt1.Multiline = true;
+            txt1.Name = "txt1";
+            txt1.PlaceholderText = "Escriba una descripción de la categoria...";
+            txt1.Size = new Size(287, 165);
+            txt1.TabIndex = 39;
+            // 
+            // lble_5
+            // 
+            lble_5.AutoSize = true;
+            lble_5.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lble_5.Location = new Point(336, 90);
+            lble_5.Name = "lble_5";
+            lble_5.Size = new Size(196, 22);
+            lble_5.TabIndex = 38;
+            lble_5.Text = "Nombre de la categoría";
+            // 
+            // lbl_ry1
+            // 
+            lbl_ry1.BackColor = Color.Gray;
+            lbl_ry1.Location = new Point(310, 90);
+            lbl_ry1.Name = "lbl_ry1";
+            lbl_ry1.Size = new Size(1, 255);
+            lbl_ry1.TabIndex = 37;
+            // 
+            // cmb_ctg
+            // 
+            cmb_ctg.FormattingEnabled = true;
+            cmb_ctg.Items.AddRange(new object[] { "Activo", "Desabilitado" });
+            cmb_ctg.Location = new Point(12, 252);
+            cmb_ctg.Name = "cmb_ctg";
+            cmb_ctg.Size = new Size(273, 28);
+            cmb_ctg.TabIndex = 36;
+            // 
+            // lble_4
+            // 
+            lble_4.AutoSize = true;
+            lble_4.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lble_4.Location = new Point(12, 227);
+            lble_4.Name = "lble_4";
+            lble_4.Size = new Size(66, 22);
+            lble_4.TabIndex = 35;
+            lble_4.Text = "Estado";
             // 
             // btn_abajo
             // 
@@ -102,6 +166,7 @@
             btn_arriba.TabIndex = 33;
             btn_arriba.UseVisualStyleBackColor = true;
             btn_arriba.Visible = false;
+            btn_arriba.Click += btn_arriba_Click;
             // 
             // lbl_icono
             // 
@@ -128,11 +193,12 @@
             // txt_ctg1
             // 
             txt_ctg1.Location = new Point(12, 115);
-            txt_ctg1.MaxLength = 10;
+            txt_ctg1.MaxLength = 30;
             txt_ctg1.Name = "txt_ctg1";
             txt_ctg1.PlaceholderText = "Ej: Busos";
             txt_ctg1.Size = new Size(273, 27);
             txt_ctg1.TabIndex = 3;
+            txt_ctg1.KeyPress += txt_ctg1_KeyPress;
             // 
             // lble_2
             // 
@@ -157,6 +223,18 @@
             pnl1_ctg.Size = new Size(634, 67);
             pnl1_ctg.TabIndex = 0;
             // 
+            // btn_cls
+            // 
+            btn_cls.Cursor = Cursors.Hand;
+            btn_cls.Image = (Image)resources.GetObject("btn_cls.Image");
+            btn_cls.Location = new Point(589, 16);
+            btn_cls.Name = "btn_cls";
+            btn_cls.Size = new Size(31, 31);
+            btn_cls.SizeMode = PictureBoxSizeMode.Zoom;
+            btn_cls.TabIndex = 41;
+            btn_cls.TabStop = false;
+            btn_cls.Click += btn_cls_Click;
+            // 
             // lble_1
             // 
             lble_1.AutoSize = true;
@@ -180,90 +258,17 @@
             // 
             // ctmCategoria
             // 
+            ctmCategoria.AutoClose = false;
             ctmCategoria.ImageScalingSize = new Size(20, 20);
             ctmCategoria.Name = "ctmCategoria";
             ctmCategoria.Size = new Size(61, 4);
+            ctmCategoria.Closed += ctmCategoria_Closed;
             // 
             // imgCategoria
             // 
             imgCategoria.ColorDepth = ColorDepth.Depth32Bit;
             imgCategoria.ImageSize = new Size(35, 35);
             imgCategoria.TransparentColor = Color.Transparent;
-            // 
-            // lble_4
-            // 
-            lble_4.AutoSize = true;
-            lble_4.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lble_4.Location = new Point(12, 227);
-            lble_4.Name = "lble_4";
-            lble_4.Size = new Size(66, 22);
-            lble_4.TabIndex = 35;
-            lble_4.Text = "Estado";
-            // 
-            // cmb_ctg
-            // 
-            cmb_ctg.FormattingEnabled = true;
-            cmb_ctg.Items.AddRange(new object[] { "Activo", "Desabilitado" });
-            cmb_ctg.Location = new Point(12, 252);
-            cmb_ctg.Name = "cmb_ctg";
-            cmb_ctg.Size = new Size(273, 28);
-            cmb_ctg.TabIndex = 36;
-            // 
-            // lbl_ry1
-            // 
-            lbl_ry1.BackColor = Color.Gray;
-            lbl_ry1.Location = new Point(310, 90);
-            lbl_ry1.Name = "lbl_ry1";
-            lbl_ry1.Size = new Size(1, 255);
-            lbl_ry1.TabIndex = 37;
-            // 
-            // lble_5
-            // 
-            lble_5.AutoSize = true;
-            lble_5.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lble_5.Location = new Point(336, 90);
-            lble_5.Name = "lble_5";
-            lble_5.Size = new Size(196, 22);
-            lble_5.TabIndex = 38;
-            lble_5.Text = "Nombre de la categoría";
-            // 
-            // txt1
-            // 
-            txt1.Location = new Point(336, 115);
-            txt1.MaxLength = 250;
-            txt1.Multiline = true;
-            txt1.Name = "txt1";
-            txt1.PlaceholderText = "Escriba una descripción de la categoria...";
-            txt1.Size = new Size(287, 165);
-            txt1.TabIndex = 39;
-            // 
-            // btn_grd
-            // 
-            btn_grd.BackColor = Color.FromArgb(0, 102, 255);
-            btn_grd.Cursor = Cursors.Hand;
-            btn_grd.FlatAppearance.BorderSize = 0;
-            btn_grd.FlatStyle = FlatStyle.Flat;
-            btn_grd.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btn_grd.ForeColor = Color.White;
-            btn_grd.Image = (Image)resources.GetObject("btn_grd.Image");
-            btn_grd.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_grd.Location = new Point(419, 348);
-            btn_grd.Name = "btn_grd";
-            btn_grd.Size = new Size(204, 49);
-            btn_grd.TabIndex = 40;
-            btn_grd.Text = "    Guardar categoría";
-            btn_grd.UseVisualStyleBackColor = false;
-            // 
-            // btn_cls
-            // 
-            btn_cls.Cursor = Cursors.Hand;
-            btn_cls.Image = (Image)resources.GetObject("btn_cls.Image");
-            btn_cls.Location = new Point(589, 16);
-            btn_cls.Name = "btn_cls";
-            btn_cls.Size = new Size(31, 31);
-            btn_cls.SizeMode = PictureBoxSizeMode.Zoom;
-            btn_cls.TabIndex = 41;
-            btn_cls.TabStop = false;
             // 
             // FrmAgg_Categoria
             // 
@@ -279,8 +284,8 @@
             pnlagg_ctg.PerformLayout();
             pnl1_ctg.ResumeLayout(false);
             pnl1_ctg.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pic1_e).EndInit();
             ((System.ComponentModel.ISupportInitialize)btn_cls).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pic1_e).EndInit();
             ResumeLayout(false);
         }
 

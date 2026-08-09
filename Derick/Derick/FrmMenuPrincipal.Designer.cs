@@ -76,21 +76,21 @@ namespace Derick
             cmsMenuPerfil.ImageScalingSize = new Size(20, 20);
             cmsMenuPerfil.Items.AddRange(new ToolStripItem[] { miPerfilToolStripMenuItem, cerrarSesiónToolStripMenuItem });
             cmsMenuPerfil.Name = "contextMenuStrip1";
-            cmsMenuPerfil.Size = new Size(148, 56);
+            cmsMenuPerfil.Size = new Size(170, 56);
             cmsMenuPerfil.Closed += cmsMenuPerfil_Closed;
             // 
             // miPerfilToolStripMenuItem
             // 
             miPerfilToolStripMenuItem.Image = Properties.Resources.person_icon_31846;
             miPerfilToolStripMenuItem.Name = "miPerfilToolStripMenuItem";
-            miPerfilToolStripMenuItem.Size = new Size(147, 26);
+            miPerfilToolStripMenuItem.Size = new Size(169, 26);
             miPerfilToolStripMenuItem.Text = "Mi Perfil";
             // 
             // cerrarSesiónToolStripMenuItem
             // 
             cerrarSesiónToolStripMenuItem.Image = Properties.Resources.CerrarSesionn;
             cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
-            cerrarSesiónToolStripMenuItem.Size = new Size(147, 26);
+            cerrarSesiónToolStripMenuItem.Size = new Size(169, 26);
             cerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión";
             cerrarSesiónToolStripMenuItem.Click += cerrarSesiónToolStripMenuItem_Click;
             // 
@@ -149,7 +149,7 @@ namespace Derick
             lblFlecha.ForeColor = SystemColors.ButtonHighlight;
             lblFlecha.Location = new Point(138, 20);
             lblFlecha.Name = "lblFlecha";
-            lblFlecha.Size = new Size(17, 13);
+            lblFlecha.Size = new Size(19, 17);
             lblFlecha.TabIndex = 2;
             lblFlecha.Text = "▼";
             lblFlecha.Click += pnlPerfil_Click;
@@ -162,7 +162,7 @@ namespace Derick
             lblusuario.ForeColor = Color.White;
             lblusuario.Location = new Point(45, 15);
             lblusuario.Name = "lblusuario";
-            lblusuario.Size = new Size(57, 20);
+            lblusuario.Size = new Size(70, 25);
             lblusuario.TabIndex = 1;
             lblusuario.Text = "admin";
             lblusuario.Click += pnlPerfil_Click;
@@ -203,7 +203,7 @@ namespace Derick
             lblTitulo.ForeColor = Color.White;
             lblTitulo.Location = new Point(57, 18);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(96, 25);
+            lblTitulo.Size = new Size(124, 31);
             lblTitulo.TabIndex = 2;
             lblTitulo.Text = "DERICK";
             // 

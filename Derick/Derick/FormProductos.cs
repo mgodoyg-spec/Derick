@@ -182,5 +182,12 @@ namespace Derick
             frm_agg.StartPosition = FormStartPosition.CenterScreen;
             frm_agg.ShowDialog(this);
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            FrmAgg_Categoria frm_agg = new FrmAgg_Categoria();
+            frm_agg.StartPosition = FormStartPosition.CenterScreen;
+            frm_agg.ShowDialog(this);
+        }
     }
 }
