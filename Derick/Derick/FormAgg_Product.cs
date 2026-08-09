@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.IdentityModel.Protocols.OpenIdConnect;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,10 +12,30 @@ namespace Derick
 {
     public partial class FormAgg_Product : Form
     {
+        private List<PictureBox> piclist;
+        private List<PictureBox> piclist1;
+        private List<string> rt = new List<string>();
+        private PictureBox? picSelect = null;
         public FormAgg_Product()
         {
             InitializeComponent();
 
+            piclist = new List<PictureBox>()
+            {
+                pic_img1,
+                pic_img2,
+                pic_img3,
+                pic_img4,
+                pic_img5
+            };
+            piclist1 = new List<PictureBox>()
+            {
+                pic2,
+                pic3,
+                pic4,
+                pic5,
+                pic6
+            };
         }
         private void FormAgg_Product_Load(object sender, EventArgs e)
         {
@@ -43,7 +65,7 @@ namespace Derick
         private void CTColor()
         {
             cmColores.Items.Clear();
-            string[] clrs = { "Negro", "Azul", "Blanco"};
+            string[] clrs = { "Negro", "Azul", "Blanco" };
             foreach (string clr in clrs)
             {
                 ToolStripMenuItem item = new ToolStripMenuItem(clr);
@@ -60,6 +82,20 @@ namespace Derick
 
             cmColores.Items.Add(agregarColor);
         }
+        private void seleccionarImagen_Click(object sender, EventArgs e)
+        {
+            PictureBox pic = (PictureBox)sender;
+            if (pic.Image != null)
+            {
+                foreach (PictureBox p in piclist)
+                {
+                    p.BorderStyle = BorderStyle.FixedSingle;
+                }
+                picSelect = pic;
+                picSelect.BorderStyle = BorderStyle.Fixed3D;
+            }
+        }
+        ////////////////////////////////////////////////////////////
         private void Talla_CheckedChanged(object sender, EventArgs e)
         {
             List<string> tallasSeleccionadas = new List<string>();
@@ -158,6 +194,187 @@ namespace Derick
         {
             btn_color1.Visible = false;
             btn_color.Visible = true;
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != '\b' && e.KeyChar != '-')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) || e.KeyChar == '\b')
+            {
+                return;
+            }
+            if (e.KeyChar == '.' && !txt_prc.Text.Contains('.'))
+            {
+                return;
+            }
+            e.Handled = true;
+        }
+        private void btn_guardar_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txt_cd.Text))
+            {
+                MessageBox.Show(
+                    "Ingrese el código del producto.",
+                    "Campo obligatorio",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                txt_cd.Focus();
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txt_nmb.Text))
+            {
+                MessageBox.Show(
+                    "Ingrese el nombre del producto.",
+                    "Campo obligatorio",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                txt_nmb.Focus();
+                return;
+            }
+
+            if (txt_nmb.Text.Trim().Length < 3)
+            {
+                MessageBox.Show(
+                    "El nombre del producto debe tener al menos 3 caracteres.",
+                    "Nombre inválido",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                txt_nmb.Focus();
+                return;
+            }
+
+            decimal precio;
+
+            if (!decimal.TryParse(txt_prc.Text, out precio))
+            {
+                MessageBox.Show(
+                    "Ingrese un precio válido.",
+                    "Precio inválido",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                txt_prc.Focus();
+                return;
+            }
+
+            if (precio <= 0)
+            {
+                MessageBox.Show(
+                    "El precio debe ser mayor que 0.",
+                    "Precio inválido",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                txt_prc.Focus();
+                return;
+            }
+
+            MessageBox.Show(
+                "Datos válidos.",
+                "Correcto",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+        }
+
+        private void btn_subir_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog opn = new OpenFileDialog())
+            {
+                opn.Title = "Seleccionar imagen";
+                opn.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif";
+                opn.Multiselect = true;
+
+                if (opn.ShowDialog() == DialogResult.OK)
+                {
+                    if (opn.FileNames.Length > 5)
+                    {
+                        MessageBox.Show(
+                            "No se pueden seleccionar más de 5 imágenes.",
+                            "Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning);
+                        return;
+                    }
+                    foreach (PictureBox pic in piclist)
+                    {
+                        pic.Image = null;
+                    }
+                    rt.Clear();
+                    for (int i = 0; i < opn.FileNames.Length; i++)
+                    {
+                        string ruta = opn.FileNames[i];
+                        piclist[i].Image = Image.FromFile(ruta);
+                        piclist[i].SizeMode = PictureBoxSizeMode.Zoom;
+                        piclist1[i].Visible = false;
+                        rt.Add(ruta);
+                    }
+                }
+            }
+
+        }
+
+        private void btn_quitar_Click(object sender, EventArgs e)
+        {
+            if (picSelect == null)
+            {
+                MessageBox.Show(
+                    "Primero seleccione una imagen.",
+                    "Aviso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+
+                return;
+            }
+
+            int posicion = piclist.IndexOf(picSelect);
+
+            // Eliminar la ruta
+            if (posicion >= 0 && posicion < rt.Count)
+            {
+                rt.RemoveAt(posicion);
+            }
+
+            // Reorganizar las imágenes
+            for (int i = 0; i < piclist.Count; i++)
+            {
+                piclist[i].Image = null;
+
+                if (i < rt.Count)
+                {
+                    piclist[i].Image = Image.FromFile(rt[i]);
+                    piclist[i].SizeMode = PictureBoxSizeMode.Zoom;
+                    piclist1[i].Visible = false;
+                }
+                else 
+                {
+                    piclist1[i].Visible = true;
+                }
+            }
+            if (picSelect != null)
+            {
+                picSelect.BorderStyle = BorderStyle.FixedSingle;
+            }
+            picSelect = null;
         }
     }
 }

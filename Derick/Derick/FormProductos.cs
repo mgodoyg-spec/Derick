@@ -176,8 +176,6 @@ namespace Derick
                 MessageBox.Show("Ver información del producto");
             }
         }
-
-
         private void button1_Click(object sender, EventArgs e)
         {
             FormAgg_Product frm_agg = new FormAgg_Product();

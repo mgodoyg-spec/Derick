@@ -31,6 +31,17 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAgg_Product));
             pnlcont1 = new Panel();
+            pic6 = new PictureBox();
+            pic5 = new PictureBox();
+            pic4 = new PictureBox();
+            pic3 = new PictureBox();
+            btn_guardar = new Button();
+            pic2 = new PictureBox();
+            pic_img5 = new PictureBox();
+            pic_img4 = new PictureBox();
+            pic_img3 = new PictureBox();
+            pic_img2 = new PictureBox();
+            pic_img1 = new PictureBox();
             btn_color1 = new Button();
             btn_color = new Button();
             lbl_color = new Label();
@@ -38,46 +49,50 @@
             lbl_tallas = new Label();
             btn_tallas = new Button();
             button4 = new Button();
-            button2 = new Button();
-            label13 = new Label();
-            pnl_img5 = new Panel();
-            pnl_img4 = new Panel();
-            pnl_img3 = new Panel();
-            pnl_img2 = new Panel();
-            pnl_img1 = new Panel();
-            panel2 = new Panel();
-            button3 = new Button();
-            button1 = new Button();
-            label12 = new Label();
-            label11 = new Label();
-            pictureBox1 = new PictureBox();
-            label10 = new Label();
+            lbl6 = new Label();
+            pnl_cont1 = new Panel();
+            btn_quitar = new Button();
+            btn_subir = new Button();
+            lbl1_3 = new Label();
+            pic1 = new PictureBox();
+            lbl1_2 = new Label();
+            lbl1_1 = new Label();
             label9 = new Label();
-            textBox5 = new TextBox();
-            label8 = new Label();
-            comboBox3 = new ComboBox();
-            label7 = new Label();
+            txt_dsp = new TextBox();
+            lbl10 = new Label();
+            cmb_est = new ComboBox();
+            lbl9 = new Label();
             textBox4 = new TextBox();
-            label6 = new Label();
-            textBox3 = new TextBox();
-            label5 = new Label();
-            label4 = new Label();
-            comboBox1 = new ComboBox();
-            label3 = new Label();
-            textBox2 = new TextBox();
-            label2 = new Label();
-            textBox1 = new TextBox();
-            label1 = new Label();
-            panel1 = new Panel();
+            lbl8 = new Label();
+            txt_prc = new TextBox();
+            lbl7 = new Label();
+            lbl5 = new Label();
+            cmb_ctg = new ComboBox();
+            lbl4 = new Label();
+            txt_nmb = new TextBox();
+            lbl3 = new Label();
+            txt_cd = new TextBox();
+            lbl2 = new Label();
+            pnl_con = new Panel();
             pic2_e = new PictureBox();
             lbl1 = new Label();
             pic1_e = new PictureBox();
             cmTallas = new ContextMenuStrip(components);
             cmColores = new ContextMenuStrip(components);
             pnlcont1.SuspendLayout();
-            panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pic6).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pic5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pic4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pic3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pic2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pic_img5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pic_img4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pic_img3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pic_img2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pic_img1).BeginInit();
+            pnl_cont1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pic1).BeginInit();
+            pnl_con.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pic2_e).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pic1_e).BeginInit();
             SuspendLayout();
@@ -85,6 +100,17 @@
             // pnlcont1
             // 
             pnlcont1.BackColor = Color.FromArgb(244, 246, 249);
+            pnlcont1.Controls.Add(pic6);
+            pnlcont1.Controls.Add(pic5);
+            pnlcont1.Controls.Add(pic4);
+            pnlcont1.Controls.Add(pic3);
+            pnlcont1.Controls.Add(btn_guardar);
+            pnlcont1.Controls.Add(pic2);
+            pnlcont1.Controls.Add(pic_img5);
+            pnlcont1.Controls.Add(pic_img4);
+            pnlcont1.Controls.Add(pic_img3);
+            pnlcont1.Controls.Add(pic_img2);
+            pnlcont1.Controls.Add(pic_img1);
             pnlcont1.Controls.Add(btn_color1);
             pnlcont1.Controls.Add(btn_color);
             pnlcont1.Controls.Add(lbl_color);
@@ -92,37 +118,164 @@
             pnlcont1.Controls.Add(lbl_tallas);
             pnlcont1.Controls.Add(btn_tallas);
             pnlcont1.Controls.Add(button4);
-            pnlcont1.Controls.Add(button2);
-            pnlcont1.Controls.Add(label13);
-            pnlcont1.Controls.Add(pnl_img5);
-            pnlcont1.Controls.Add(pnl_img4);
-            pnlcont1.Controls.Add(pnl_img3);
-            pnlcont1.Controls.Add(pnl_img2);
-            pnlcont1.Controls.Add(pnl_img1);
-            pnlcont1.Controls.Add(panel2);
-            pnlcont1.Controls.Add(label10);
+            pnlcont1.Controls.Add(lbl6);
+            pnlcont1.Controls.Add(pnl_cont1);
+            pnlcont1.Controls.Add(lbl1_1);
             pnlcont1.Controls.Add(label9);
-            pnlcont1.Controls.Add(textBox5);
-            pnlcont1.Controls.Add(label8);
-            pnlcont1.Controls.Add(comboBox3);
-            pnlcont1.Controls.Add(label7);
+            pnlcont1.Controls.Add(txt_dsp);
+            pnlcont1.Controls.Add(lbl10);
+            pnlcont1.Controls.Add(cmb_est);
+            pnlcont1.Controls.Add(lbl9);
             pnlcont1.Controls.Add(textBox4);
-            pnlcont1.Controls.Add(label6);
-            pnlcont1.Controls.Add(textBox3);
-            pnlcont1.Controls.Add(label5);
-            pnlcont1.Controls.Add(label4);
-            pnlcont1.Controls.Add(comboBox1);
-            pnlcont1.Controls.Add(label3);
-            pnlcont1.Controls.Add(textBox2);
-            pnlcont1.Controls.Add(label2);
-            pnlcont1.Controls.Add(textBox1);
-            pnlcont1.Controls.Add(label1);
-            pnlcont1.Controls.Add(panel1);
+            pnlcont1.Controls.Add(lbl8);
+            pnlcont1.Controls.Add(txt_prc);
+            pnlcont1.Controls.Add(lbl7);
+            pnlcont1.Controls.Add(lbl5);
+            pnlcont1.Controls.Add(cmb_ctg);
+            pnlcont1.Controls.Add(lbl4);
+            pnlcont1.Controls.Add(txt_nmb);
+            pnlcont1.Controls.Add(lbl3);
+            pnlcont1.Controls.Add(txt_cd);
+            pnlcont1.Controls.Add(lbl2);
+            pnlcont1.Controls.Add(pnl_con);
             pnlcont1.Dock = DockStyle.Fill;
             pnlcont1.Location = new Point(0, 0);
             pnlcont1.Name = "pnlcont1";
             pnlcont1.Size = new Size(709, 736);
             pnlcont1.TabIndex = 0;
+            // 
+            // pic6
+            // 
+            pic6.BackColor = Color.White;
+            pic6.Image = (Image)resources.GetObject("pic6.Image");
+            pic6.Location = new Point(484, 566);
+            pic6.Name = "pic6";
+            pic6.Size = new Size(70, 64);
+            pic6.SizeMode = PictureBoxSizeMode.Zoom;
+            pic6.TabIndex = 45;
+            pic6.TabStop = false;
+            // 
+            // pic5
+            // 
+            pic5.BackColor = Color.White;
+            pic5.Image = (Image)resources.GetObject("pic5.Image");
+            pic5.Location = new Point(365, 566);
+            pic5.Name = "pic5";
+            pic5.Size = new Size(70, 64);
+            pic5.SizeMode = PictureBoxSizeMode.Zoom;
+            pic5.TabIndex = 44;
+            pic5.TabStop = false;
+            // 
+            // pic4
+            // 
+            pic4.BackColor = Color.White;
+            pic4.Image = (Image)resources.GetObject("pic4.Image");
+            pic4.Location = new Point(604, 443);
+            pic4.Name = "pic4";
+            pic4.Size = new Size(70, 64);
+            pic4.SizeMode = PictureBoxSizeMode.Zoom;
+            pic4.TabIndex = 43;
+            pic4.TabStop = false;
+            // 
+            // pic3
+            // 
+            pic3.BackColor = Color.White;
+            pic3.Image = (Image)resources.GetObject("pic3.Image");
+            pic3.Location = new Point(484, 443);
+            pic3.Name = "pic3";
+            pic3.Size = new Size(70, 64);
+            pic3.SizeMode = PictureBoxSizeMode.Zoom;
+            pic3.TabIndex = 42;
+            pic3.TabStop = false;
+            // 
+            // btn_guardar
+            // 
+            btn_guardar.BackColor = Color.FromArgb(0, 102, 255);
+            btn_guardar.Cursor = Cursors.Hand;
+            btn_guardar.FlatAppearance.BorderSize = 0;
+            btn_guardar.FlatStyle = FlatStyle.Flat;
+            btn_guardar.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_guardar.ForeColor = Color.White;
+            btn_guardar.Image = (Image)resources.GetObject("btn_guardar.Image");
+            btn_guardar.ImageAlign = ContentAlignment.MiddleLeft;
+            btn_guardar.Location = new Point(491, 675);
+            btn_guardar.Name = "btn_guardar";
+            btn_guardar.Size = new Size(204, 49);
+            btn_guardar.TabIndex = 27;
+            btn_guardar.Text = "    Guardar producto";
+            btn_guardar.UseVisualStyleBackColor = false;
+            btn_guardar.Click += btn_guardar_Click;
+            // 
+            // pic2
+            // 
+            pic2.BackColor = Color.White;
+            pic2.Image = (Image)resources.GetObject("pic2.Image");
+            pic2.Location = new Point(365, 443);
+            pic2.Name = "pic2";
+            pic2.Size = new Size(70, 64);
+            pic2.SizeMode = PictureBoxSizeMode.Zoom;
+            pic2.TabIndex = 41;
+            pic2.TabStop = false;
+            // 
+            // pic_img5
+            // 
+            pic_img5.BackColor = Color.White;
+            pic_img5.BorderStyle = BorderStyle.FixedSingle;
+            pic_img5.Location = new Point(463, 539);
+            pic_img5.Name = "pic_img5";
+            pic_img5.Size = new Size(113, 118);
+            pic_img5.SizeMode = PictureBoxSizeMode.Zoom;
+            pic_img5.TabIndex = 40;
+            pic_img5.TabStop = false;
+            pic_img5.Click += seleccionarImagen_Click;
+            // 
+            // pic_img4
+            // 
+            pic_img4.BackColor = Color.White;
+            pic_img4.BorderStyle = BorderStyle.FixedSingle;
+            pic_img4.Location = new Point(344, 539);
+            pic_img4.Name = "pic_img4";
+            pic_img4.Size = new Size(113, 118);
+            pic_img4.SizeMode = PictureBoxSizeMode.Zoom;
+            pic_img4.TabIndex = 39;
+            pic_img4.TabStop = false;
+            pic_img4.Click += seleccionarImagen_Click;
+            // 
+            // pic_img3
+            // 
+            pic_img3.BackColor = Color.White;
+            pic_img3.BorderStyle = BorderStyle.FixedSingle;
+            pic_img3.Location = new Point(582, 415);
+            pic_img3.Name = "pic_img3";
+            pic_img3.Size = new Size(113, 118);
+            pic_img3.SizeMode = PictureBoxSizeMode.Zoom;
+            pic_img3.TabIndex = 38;
+            pic_img3.TabStop = false;
+            pic_img3.Click += seleccionarImagen_Click;
+            // 
+            // pic_img2
+            // 
+            pic_img2.BackColor = Color.White;
+            pic_img2.BorderStyle = BorderStyle.FixedSingle;
+            pic_img2.Location = new Point(463, 415);
+            pic_img2.Name = "pic_img2";
+            pic_img2.Size = new Size(113, 118);
+            pic_img2.SizeMode = PictureBoxSizeMode.Zoom;
+            pic_img2.TabIndex = 37;
+            pic_img2.TabStop = false;
+            pic_img2.Click += seleccionarImagen_Click;
+            // 
+            // pic_img1
+            // 
+            pic_img1.BackColor = Color.White;
+            pic_img1.BorderStyle = BorderStyle.FixedSingle;
+            pic_img1.Location = new Point(344, 415);
+            pic_img1.Name = "pic_img1";
+            pic_img1.Size = new Size(113, 118);
+            pic_img1.SizeMode = PictureBoxSizeMode.Zoom;
+            pic_img1.TabIndex = 36;
+            pic_img1.TabStop = false;
+            pic_img1.Click += seleccionarImagen_Click;
             // 
             // btn_color1
             // 
@@ -214,156 +367,101 @@
             button4.TabIndex = 28;
             button4.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // lbl6
             // 
-            button2.BackColor = Color.FromArgb(0, 102, 255);
-            button2.Cursor = Cursors.Hand;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.ForeColor = Color.White;
-            button2.Image = (Image)resources.GetObject("button2.Image");
-            button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(502, 675);
-            button2.Name = "button2";
-            button2.Size = new Size(204, 49);
-            button2.TabIndex = 27;
-            button2.Text = "    Guardar producto";
-            button2.UseVisualStyleBackColor = false;
+            lbl6.AutoSize = true;
+            lbl6.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl6.Location = new Point(12, 350);
+            lbl6.Name = "lbl6";
+            lbl6.Size = new Size(84, 22);
+            lbl6.TabIndex = 25;
+            lbl6.Text = "Color(es)";
             // 
-            // label13
+            // pnl_cont1
             // 
-            label13.AutoSize = true;
-            label13.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label13.Location = new Point(12, 350);
-            label13.Name = "label13";
-            label13.Size = new Size(84, 22);
-            label13.TabIndex = 25;
-            label13.Text = "Color(es)";
+            pnl_cont1.BackColor = Color.White;
+            pnl_cont1.BorderStyle = BorderStyle.FixedSingle;
+            pnl_cont1.Controls.Add(btn_quitar);
+            pnl_cont1.Controls.Add(btn_subir);
+            pnl_cont1.Controls.Add(lbl1_3);
+            pnl_cont1.Controls.Add(pic1);
+            pnl_cont1.Controls.Add(lbl1_2);
+            pnl_cont1.Location = new Point(344, 112);
+            pnl_cont1.Name = "pnl_cont1";
+            pnl_cont1.Size = new Size(351, 291);
+            pnl_cont1.TabIndex = 19;
             // 
-            // pnl_img5
+            // btn_quitar
             // 
-            pnl_img5.BorderStyle = BorderStyle.FixedSingle;
-            pnl_img5.Location = new Point(463, 539);
-            pnl_img5.Name = "pnl_img5";
-            pnl_img5.Size = new Size(113, 118);
-            pnl_img5.TabIndex = 24;
+            btn_quitar.FlatAppearance.BorderColor = Color.Gray;
+            btn_quitar.FlatAppearance.BorderSize = 2;
+            btn_quitar.FlatStyle = FlatStyle.Flat;
+            btn_quitar.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_quitar.Location = new Point(66, 225);
+            btn_quitar.Name = "btn_quitar";
+            btn_quitar.Size = new Size(198, 49);
+            btn_quitar.TabIndex = 28;
+            btn_quitar.Text = "Quitar imagen";
+            btn_quitar.UseVisualStyleBackColor = true;
+            btn_quitar.Click += btn_quitar_Click;
             // 
-            // pnl_img4
+            // btn_subir
             // 
-            pnl_img4.BorderStyle = BorderStyle.FixedSingle;
-            pnl_img4.Location = new Point(344, 539);
-            pnl_img4.Name = "pnl_img4";
-            pnl_img4.Size = new Size(113, 118);
-            pnl_img4.TabIndex = 23;
+            btn_subir.Cursor = Cursors.Hand;
+            btn_subir.FlatAppearance.BorderColor = Color.FromArgb(0, 102, 255);
+            btn_subir.FlatAppearance.BorderSize = 2;
+            btn_subir.FlatStyle = FlatStyle.Flat;
+            btn_subir.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_subir.Image = (Image)resources.GetObject("btn_subir.Image");
+            btn_subir.ImageAlign = ContentAlignment.MiddleLeft;
+            btn_subir.Location = new Point(66, 178);
+            btn_subir.Name = "btn_subir";
+            btn_subir.Size = new Size(198, 42);
+            btn_subir.TabIndex = 20;
+            btn_subir.Text = "     Elegir imágenes";
+            btn_subir.UseVisualStyleBackColor = true;
+            btn_subir.Click += btn_subir_Click;
             // 
-            // pnl_img3
+            // lbl1_3
             // 
-            pnl_img3.BorderStyle = BorderStyle.FixedSingle;
-            pnl_img3.Location = new Point(584, 415);
-            pnl_img3.Name = "pnl_img3";
-            pnl_img3.Size = new Size(113, 118);
-            pnl_img3.TabIndex = 22;
+            lbl1_3.AutoSize = true;
+            lbl1_3.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl1_3.ForeColor = Color.Gray;
+            lbl1_3.Location = new Point(20, 128);
+            lbl1_3.Name = "lbl1_3";
+            lbl1_3.Size = new Size(284, 20);
+            lbl1_3.TabIndex = 21;
+            lbl1_3.Text = "Puede seleccionar hasta 5 imágenes";
             // 
-            // pnl_img2
+            // pic1
             // 
-            pnl_img2.BorderStyle = BorderStyle.FixedSingle;
-            pnl_img2.Location = new Point(463, 415);
-            pnl_img2.Name = "pnl_img2";
-            pnl_img2.Size = new Size(113, 118);
-            pnl_img2.TabIndex = 21;
+            pic1.Image = (Image)resources.GetObject("pic1.Image");
+            pic1.Location = new Point(118, 22);
+            pic1.Name = "pic1";
+            pic1.Size = new Size(84, 78);
+            pic1.SizeMode = PictureBoxSizeMode.Zoom;
+            pic1.TabIndex = 20;
+            pic1.TabStop = false;
             // 
-            // pnl_img1
+            // lbl1_2
             // 
-            pnl_img1.BorderStyle = BorderStyle.FixedSingle;
-            pnl_img1.Location = new Point(344, 415);
-            pnl_img1.Name = "pnl_img1";
-            pnl_img1.Size = new Size(113, 118);
-            pnl_img1.TabIndex = 20;
+            lbl1_2.AutoSize = true;
+            lbl1_2.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl1_2.Location = new Point(66, 103);
+            lbl1_2.Name = "lbl1_2";
+            lbl1_2.Size = new Size(198, 22);
+            lbl1_2.TabIndex = 20;
+            lbl1_2.Text = "Seleccionar imagen(es)";
             // 
-            // panel2
+            // lbl1_1
             // 
-            panel2.BackColor = Color.White;
-            panel2.BorderStyle = BorderStyle.FixedSingle;
-            panel2.Controls.Add(button3);
-            panel2.Controls.Add(button1);
-            panel2.Controls.Add(label12);
-            panel2.Controls.Add(label11);
-            panel2.Controls.Add(pictureBox1);
-            panel2.Location = new Point(344, 112);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(351, 291);
-            panel2.TabIndex = 19;
-            // 
-            // button3
-            // 
-            button3.FlatAppearance.BorderColor = Color.Gray;
-            button3.FlatAppearance.BorderSize = 2;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.Location = new Point(66, 225);
-            button3.Name = "button3";
-            button3.Size = new Size(198, 49);
-            button3.TabIndex = 28;
-            button3.Text = "Quitar imagen";
-            button3.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            button1.Cursor = Cursors.Hand;
-            button1.FlatAppearance.BorderColor = Color.FromArgb(0, 102, 255);
-            button1.FlatAppearance.BorderSize = 2;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Image = (Image)resources.GetObject("button1.Image");
-            button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(66, 178);
-            button1.Name = "button1";
-            button1.Size = new Size(198, 42);
-            button1.TabIndex = 20;
-            button1.Text = "     Elegir imágenes";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label12.ForeColor = Color.Gray;
-            label12.Location = new Point(20, 128);
-            label12.Name = "label12";
-            label12.Size = new Size(284, 20);
-            label12.TabIndex = 21;
-            label12.Text = "Puede seleccionar hasta 5 imágenes";
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label11.Location = new Point(66, 103);
-            label11.Name = "label11";
-            label11.Size = new Size(198, 22);
-            label11.TabIndex = 20;
-            label11.Text = "Seleccionar imagen(es)";
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(120, 23);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(84, 78);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 20;
-            pictureBox1.TabStop = false;
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label10.Location = new Point(344, 85);
-            label10.Name = "label10";
-            label10.Size = new Size(191, 22);
-            label10.TabIndex = 18;
-            label10.Text = "Imágenes del producto";
+            lbl1_1.AutoSize = true;
+            lbl1_1.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl1_1.Location = new Point(344, 85);
+            lbl1_1.Name = "lbl1_1";
+            lbl1_1.Size = new Size(191, 22);
+            lbl1_1.TabIndex = 18;
+            lbl1_1.Text = "Imágenes del producto";
             // 
             // label9
             // 
@@ -373,44 +471,44 @@
             label9.Size = new Size(1, 623);
             label9.TabIndex = 17;
             // 
-            // textBox5
+            // txt_dsp
             // 
-            textBox5.Location = new Point(12, 589);
-            textBox5.MaxLength = 250;
-            textBox5.Multiline = true;
-            textBox5.Name = "textBox5";
-            textBox5.PlaceholderText = "Ej: Camisa Negra de algodón, de corte clásico...";
-            textBox5.Size = new Size(287, 100);
-            textBox5.TabIndex = 16;
+            txt_dsp.Location = new Point(12, 589);
+            txt_dsp.MaxLength = 250;
+            txt_dsp.Multiline = true;
+            txt_dsp.Name = "txt_dsp";
+            txt_dsp.PlaceholderText = "Ej: Camisa Negra de algodón, de corte clásico...";
+            txt_dsp.Size = new Size(287, 100);
+            txt_dsp.TabIndex = 16;
             // 
-            // label8
+            // lbl10
             // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.Location = new Point(12, 553);
-            label8.Name = "label8";
-            label8.Size = new Size(104, 22);
-            label8.TabIndex = 15;
-            label8.Text = "Descripción";
+            lbl10.AutoSize = true;
+            lbl10.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl10.Location = new Point(12, 553);
+            lbl10.Name = "lbl10";
+            lbl10.Size = new Size(104, 22);
+            lbl10.TabIndex = 15;
+            lbl10.Text = "Descripción";
             // 
-            // comboBox3
+            // cmb_est
             // 
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Items.AddRange(new object[] { "Activado", "Desactivado" });
-            comboBox3.Location = new Point(12, 510);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(287, 28);
-            comboBox3.TabIndex = 14;
+            cmb_est.FormattingEnabled = true;
+            cmb_est.Items.AddRange(new object[] { "Activado", "Desactivado" });
+            cmb_est.Location = new Point(12, 510);
+            cmb_est.Name = "cmb_est";
+            cmb_est.Size = new Size(287, 28);
+            cmb_est.TabIndex = 14;
             // 
-            // label7
+            // lbl9
             // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.Location = new Point(12, 485);
-            label7.Name = "label7";
-            label7.Size = new Size(66, 22);
-            label7.TabIndex = 13;
-            label7.Text = "Estado";
+            lbl9.AutoSize = true;
+            lbl9.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl9.Location = new Point(12, 485);
+            lbl9.Name = "lbl9";
+            lbl9.Size = new Size(66, 22);
+            lbl9.TabIndex = 13;
+            lbl9.Text = "Estado";
             // 
             // textBox4
             // 
@@ -420,110 +518,116 @@
             textBox4.Size = new Size(135, 27);
             textBox4.TabIndex = 12;
             // 
-            // label6
+            // lbl8
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(164, 418);
-            label6.Name = "label6";
-            label6.Size = new Size(55, 22);
-            label6.TabIndex = 11;
-            label6.Text = "Stock";
+            lbl8.AutoSize = true;
+            lbl8.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl8.Location = new Point(164, 418);
+            lbl8.Name = "lbl8";
+            lbl8.Size = new Size(55, 22);
+            lbl8.TabIndex = 11;
+            lbl8.Text = "Stock";
             // 
-            // textBox3
+            // txt_prc
             // 
-            textBox3.Location = new Point(12, 443);
-            textBox3.Name = "textBox3";
-            textBox3.PlaceholderText = "$ 0.00";
-            textBox3.Size = new Size(135, 27);
-            textBox3.TabIndex = 10;
+            txt_prc.Location = new Point(12, 443);
+            txt_prc.MaxLength = 10;
+            txt_prc.Name = "txt_prc";
+            txt_prc.PlaceholderText = "$ 0.00";
+            txt_prc.Size = new Size(135, 27);
+            txt_prc.TabIndex = 10;
+            txt_prc.KeyPress += textBox3_KeyPress;
             // 
-            // label5
+            // lbl7
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(12, 418);
-            label5.Name = "label5";
-            label5.Size = new Size(135, 22);
-            label5.TabIndex = 9;
-            label5.Text = "Precio de venta";
+            lbl7.AutoSize = true;
+            lbl7.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl7.Location = new Point(12, 418);
+            lbl7.Name = "lbl7";
+            lbl7.Size = new Size(135, 22);
+            lbl7.TabIndex = 9;
+            lbl7.Text = "Precio de venta";
             // 
-            // label4
+            // lbl5
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(12, 280);
-            label4.Name = "label4";
-            label4.Size = new Size(71, 22);
-            label4.TabIndex = 7;
-            label4.Text = "Talla(s)";
+            lbl5.AutoSize = true;
+            lbl5.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl5.Location = new Point(12, 280);
+            lbl5.Name = "lbl5";
+            lbl5.Size = new Size(71, 22);
+            lbl5.TabIndex = 7;
+            lbl5.Text = "Talla(s)";
             // 
-            // comboBox1
+            // cmb_ctg
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Camisetas", "Blusas", "Busos", "Pantalones" });
-            comboBox1.Location = new Point(12, 240);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(254, 28);
-            comboBox1.TabIndex = 6;
+            cmb_ctg.FormattingEnabled = true;
+            cmb_ctg.Items.AddRange(new object[] { "Camisetas", "Blusas", "Busos", "Pantalones" });
+            cmb_ctg.Location = new Point(12, 240);
+            cmb_ctg.Name = "cmb_ctg";
+            cmb_ctg.Size = new Size(254, 28);
+            cmb_ctg.TabIndex = 6;
             // 
-            // label3
+            // lbl4
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(12, 215);
-            label3.Name = "label3";
-            label3.Size = new Size(88, 22);
-            label3.TabIndex = 5;
-            label3.Text = "Categoría";
+            lbl4.AutoSize = true;
+            lbl4.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl4.Location = new Point(12, 215);
+            lbl4.Name = "lbl4";
+            lbl4.Size = new Size(88, 22);
+            lbl4.TabIndex = 5;
+            lbl4.Text = "Categoría";
             // 
-            // textBox2
+            // txt_nmb
             // 
-            textBox2.Location = new Point(12, 174);
-            textBox2.Name = "textBox2";
-            textBox2.PlaceholderText = "Ej: Camisa Negra";
-            textBox2.Size = new Size(287, 27);
-            textBox2.TabIndex = 4;
+            txt_nmb.Location = new Point(12, 174);
+            txt_nmb.MaxLength = 100;
+            txt_nmb.Name = "txt_nmb";
+            txt_nmb.PlaceholderText = "Ej: Camisa Negra";
+            txt_nmb.Size = new Size(287, 27);
+            txt_nmb.TabIndex = 4;
+            txt_nmb.KeyPress += textBox2_KeyPress;
             // 
-            // label2
+            // lbl3
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(12, 149);
-            label2.Name = "label2";
-            label2.Size = new Size(177, 22);
-            label2.TabIndex = 3;
-            label2.Text = "Nombre del producto";
+            lbl3.AutoSize = true;
+            lbl3.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl3.Location = new Point(12, 149);
+            lbl3.Name = "lbl3";
+            lbl3.Size = new Size(177, 22);
+            lbl3.TabIndex = 3;
+            lbl3.Text = "Nombre del producto";
             // 
-            // textBox1
+            // txt_cd
             // 
-            textBox1.Location = new Point(12, 110);
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "Ej: P007";
-            textBox1.Size = new Size(287, 27);
-            textBox1.TabIndex = 2;
+            txt_cd.Location = new Point(12, 110);
+            txt_cd.MaxLength = 10;
+            txt_cd.Name = "txt_cd";
+            txt_cd.PlaceholderText = "Ej: P007";
+            txt_cd.Size = new Size(287, 27);
+            txt_cd.TabIndex = 2;
+            txt_cd.KeyPress += textBox1_KeyPress;
             // 
-            // label1
+            // lbl2
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(12, 85);
-            label1.Name = "label1";
-            label1.Size = new Size(171, 22);
-            label1.TabIndex = 1;
-            label1.Text = "Código del producto";
+            lbl2.AutoSize = true;
+            lbl2.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl2.Location = new Point(12, 85);
+            lbl2.Name = "lbl2";
+            lbl2.Size = new Size(171, 22);
+            lbl2.TabIndex = 1;
+            lbl2.Text = "Código del producto";
             // 
-            // panel1
+            // pnl_con
             // 
-            panel1.BackColor = Color.FromArgb(9, 22, 50);
-            panel1.Controls.Add(pic2_e);
-            panel1.Controls.Add(lbl1);
-            panel1.Controls.Add(pic1_e);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(709, 67);
-            panel1.TabIndex = 0;
+            pnl_con.BackColor = Color.FromArgb(9, 22, 50);
+            pnl_con.Controls.Add(pic2_e);
+            pnl_con.Controls.Add(lbl1);
+            pnl_con.Controls.Add(pic1_e);
+            pnl_con.Dock = DockStyle.Top;
+            pnl_con.Location = new Point(0, 0);
+            pnl_con.Name = "pnl_con";
+            pnl_con.Size = new Size(709, 67);
+            pnl_con.TabIndex = 0;
             // 
             // pic2_e
             // 
@@ -571,7 +675,7 @@
             cmColores.AutoClose = false;
             cmColores.ImageScalingSize = new Size(20, 20);
             cmColores.Name = "cmColores";
-            cmColores.Size = new Size(211, 32);
+            cmColores.Size = new Size(61, 4);
             cmColores.Closed += cmColores_Closed;
             // 
             // FormAgg_Product
@@ -586,11 +690,21 @@
             Load += FormAgg_Product_Load;
             pnlcont1.ResumeLayout(false);
             pnlcont1.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pic6).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pic5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pic4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pic3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pic2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pic_img5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pic_img4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pic_img3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pic_img2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pic_img1).EndInit();
+            pnl_cont1.ResumeLayout(false);
+            pnl_cont1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pic1).EndInit();
+            pnl_con.ResumeLayout(false);
+            pnl_con.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pic2_e).EndInit();
             ((System.ComponentModel.ISupportInitialize)pic1_e).EndInit();
             ResumeLayout(false);
@@ -600,40 +714,36 @@
         private Button btn_agg1;
         private Button btn_agg2;
         private Panel pnlcont1;
-        private Panel panel1;
+        private Panel pnl_con;
         private Label lbl1;
         private PictureBox pic1_e;
         private PictureBox pic2_e;
-        private Label label3;
-        private TextBox textBox2;
-        private Label label2;
-        private TextBox textBox1;
-        private Label label1;
-        private ComboBox comboBox1;
-        private Label label4;
+        private Label lbl4;
+        private TextBox txt_nmb;
+        private Label lbl3;
+        private TextBox txt_cd;
+        private Label lbl2;
+        private ComboBox cmb_ctg;
+        private Label lbl5;
         private TextBox textBox4;
-        private Label label6;
-        private TextBox textBox3;
-        private Label label5;
-        private ComboBox comboBox3;
-        private Label label7;
+        private Label lbl8;
+        private TextBox txt_prc;
+        private Label lbl7;
+        private ComboBox cmb_est;
+        private Label lbl9;
         private Label label9;
-        private TextBox textBox5;
-        private Label label8;
-        private Label label10;
-        private Panel panel2;
-        private PictureBox pictureBox1;
-        private Button button1;
-        private Label label12;
-        private Label label11;
+        private TextBox txt_dsp;
+        private Label lbl10;
+        private Label lbl1_1;
+        private Panel pnl_cont1;
+        private PictureBox pic1;
+        private Button btn_subir;
+        private Label lbl1_3;
+        private Label lbl1_2;
         private Panel pnl_img5;
-        private Panel pnl_img4;
-        private Panel pnl_img3;
-        private Panel pnl_img2;
-        private Panel pnl_img1;
-        private Label label13;
-        private Button button3;
-        private Button button2;
+        private Label lbl6;
+        private Button btn_quitar;
+        private Button btn_guardar;
         private Button button4;
         private Label lbl_tallas;
         private Button btn_tallas;
@@ -643,5 +753,15 @@
         private Label lbl_color;
         private Button btn_color1;
         private Button btn_color;
+        private PictureBox pic_img5;
+        private PictureBox pic_img4;
+        private PictureBox pic_img3;
+        private PictureBox pic_img2;
+        private PictureBox pic_img1;
+        private PictureBox pic2;
+        private PictureBox pic5;
+        private PictureBox pic4;
+        private PictureBox pic3;
+        private PictureBox pic6;
     }
 }
