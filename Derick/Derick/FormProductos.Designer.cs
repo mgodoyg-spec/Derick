@@ -33,18 +33,18 @@
             pnl_conagg = new Panel();
             button1 = new Button();
             pic_raya1 = new PictureBox();
-            panel7 = new Panel();
+            pnl_agg2 = new Panel();
             pic_limpiar = new PictureBox();
             btn_limpiar = new Button();
             btn_buscar = new Button();
             pnl_cmb2 = new Panel();
             cmb_agg2 = new ComboBox();
-            label2 = new Label();
+            lbl_agg3 = new Label();
             pnl_cmb1 = new Panel();
             cmb_agg1 = new ComboBox();
             button6 = new Button();
             button2 = new Button();
-            label1 = new Label();
+            lbl_agg2 = new Label();
             button5 = new Button();
             dvg_agg = new DataGridView();
             clCodigo = new DataGridViewTextBoxColumn();
@@ -69,7 +69,7 @@
             img_icons = new ImageList(components);
             pnl_conagg.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pic_raya1).BeginInit();
-            panel7.SuspendLayout();
+            pnl_agg2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pic_limpiar).BeginInit();
             pnl_cmb2.SuspendLayout();
             pnl_cmb1.SuspendLayout();
@@ -81,10 +81,10 @@
             // 
             // pnl_conagg
             // 
-            pnl_conagg.BackColor = Color.White;
+            pnl_conagg.BackColor = Color.FromArgb(244, 246, 249);
             pnl_conagg.Controls.Add(button1);
             pnl_conagg.Controls.Add(pic_raya1);
-            pnl_conagg.Controls.Add(panel7);
+            pnl_conagg.Controls.Add(pnl_agg2);
             pnl_conagg.Controls.Add(pic_agg1);
             pnl_conagg.Controls.Add(lbl_agg1);
             pnl_conagg.Dock = DockStyle.Fill;
@@ -119,27 +119,27 @@
             pic_raya1.TabIndex = 7;
             pic_raya1.TabStop = false;
             // 
-            // panel7
+            // pnl_agg2
             // 
-            panel7.BackColor = Color.FromArgb(244, 246, 249);
-            panel7.Controls.Add(pic_limpiar);
-            panel7.Controls.Add(btn_limpiar);
-            panel7.Controls.Add(btn_buscar);
-            panel7.Controls.Add(pnl_cmb2);
-            panel7.Controls.Add(label2);
-            panel7.Controls.Add(pnl_cmb1);
-            panel7.Controls.Add(button6);
-            panel7.Controls.Add(button2);
-            panel7.Controls.Add(label1);
-            panel7.Controls.Add(button5);
-            panel7.Controls.Add(dvg_agg);
-            panel7.Controls.Add(button3);
-            panel7.Controls.Add(panel9);
-            panel7.Controls.Add(button4);
-            panel7.Location = new Point(10, 68);
-            panel7.Name = "panel7";
-            panel7.Size = new Size(1370, 713);
-            panel7.TabIndex = 6;
+            pnl_agg2.BackColor = Color.White;
+            pnl_agg2.Controls.Add(pic_limpiar);
+            pnl_agg2.Controls.Add(btn_limpiar);
+            pnl_agg2.Controls.Add(btn_buscar);
+            pnl_agg2.Controls.Add(pnl_cmb2);
+            pnl_agg2.Controls.Add(lbl_agg3);
+            pnl_agg2.Controls.Add(pnl_cmb1);
+            pnl_agg2.Controls.Add(button6);
+            pnl_agg2.Controls.Add(button2);
+            pnl_agg2.Controls.Add(lbl_agg2);
+            pnl_agg2.Controls.Add(button5);
+            pnl_agg2.Controls.Add(dvg_agg);
+            pnl_agg2.Controls.Add(button3);
+            pnl_agg2.Controls.Add(panel9);
+            pnl_agg2.Controls.Add(button4);
+            pnl_agg2.Location = new Point(10, 68);
+            pnl_agg2.Name = "pnl_agg2";
+            pnl_agg2.Size = new Size(1370, 713);
+            pnl_agg2.TabIndex = 6;
             // 
             // pic_limpiar
             // 
@@ -204,18 +204,18 @@
             cmb_agg2.Size = new Size(190, 28);
             cmb_agg2.TabIndex = 14;
             // 
-            // label2
+            // lbl_agg3
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.Black;
-            label2.ImageAlign = ContentAlignment.MiddleLeft;
-            label2.Location = new Point(670, 31);
-            label2.Name = "label2";
-            label2.Size = new Size(78, 22);
-            label2.TabIndex = 17;
-            label2.Text = "Estado:";
-            label2.TextAlign = ContentAlignment.MiddleLeft;
+            lbl_agg3.AutoSize = true;
+            lbl_agg3.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_agg3.ForeColor = Color.Black;
+            lbl_agg3.ImageAlign = ContentAlignment.MiddleLeft;
+            lbl_agg3.Location = new Point(670, 31);
+            lbl_agg3.Name = "lbl_agg3";
+            lbl_agg3.Size = new Size(78, 22);
+            lbl_agg3.TabIndex = 17;
+            lbl_agg3.Text = "Estado:";
+            lbl_agg3.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // pnl_cmb1
             // 
@@ -262,18 +262,18 @@
             button2.Text = "<<";
             button2.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // lbl_agg2
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.Black;
-            label1.ImageAlign = ContentAlignment.MiddleLeft;
-            label1.Location = new Point(330, 32);
-            label1.Name = "label1";
-            label1.Size = new Size(103, 22);
-            label1.TabIndex = 15;
-            label1.Text = "Categoría:";
-            label1.TextAlign = ContentAlignment.MiddleLeft;
+            lbl_agg2.AutoSize = true;
+            lbl_agg2.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_agg2.ForeColor = Color.Black;
+            lbl_agg2.ImageAlign = ContentAlignment.MiddleLeft;
+            lbl_agg2.Location = new Point(330, 32);
+            lbl_agg2.Name = "lbl_agg2";
+            lbl_agg2.Size = new Size(103, 22);
+            lbl_agg2.TabIndex = 15;
+            lbl_agg2.Text = "Categoría:";
+            lbl_agg2.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // button5
             // 
@@ -498,8 +498,8 @@
             pnl_conagg.ResumeLayout(false);
             pnl_conagg.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pic_raya1).EndInit();
-            panel7.ResumeLayout(false);
-            panel7.PerformLayout();
+            pnl_agg2.ResumeLayout(false);
+            pnl_agg2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pic_limpiar).EndInit();
             pnl_cmb2.ResumeLayout(false);
             pnl_cmb1.ResumeLayout(false);
@@ -514,7 +514,7 @@
         #endregion
 
         private Panel pnl_conagg;
-        private Panel panel7;
+        private Panel pnl_agg2;
         private DataGridView dvg_agg;
         private ComboBox cmb_agg1;
         private Panel panel9;
@@ -527,11 +527,11 @@
         private Button button3;
         private Button button2;
         private PictureBox pic_raya1;
-        private Label label1;
+        private Label lbl_agg2;
         private Button btn_buscar;
         private Panel pnl_cmb2;
         private ComboBox cmb_agg2;
-        private Label label2;
+        private Label lbl_agg3;
         private Panel pnl_cmb1;
         private Button btn_limpiar;
         private PictureBox pic_limpiar;

@@ -62,7 +62,6 @@
             lbl10 = new Label();
             cmb_est = new ComboBox();
             lbl9 = new Label();
-            textBox4 = new TextBox();
             lbl8 = new Label();
             txt_prc = new TextBox();
             lbl7 = new Label();
@@ -79,6 +78,7 @@
             pic1_e = new PictureBox();
             cmTallas = new ContextMenuStrip(components);
             cmColores = new ContextMenuStrip(components);
+            btn_abr = new Button();
             pnlcont1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pic6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pic5).BeginInit();
@@ -100,6 +100,7 @@
             // pnlcont1
             // 
             pnlcont1.BackColor = Color.FromArgb(244, 246, 249);
+            pnlcont1.Controls.Add(btn_abr);
             pnlcont1.Controls.Add(pic6);
             pnlcont1.Controls.Add(pic5);
             pnlcont1.Controls.Add(pic4);
@@ -126,7 +127,6 @@
             pnlcont1.Controls.Add(lbl10);
             pnlcont1.Controls.Add(cmb_est);
             pnlcont1.Controls.Add(lbl9);
-            pnlcont1.Controls.Add(textBox4);
             pnlcont1.Controls.Add(lbl8);
             pnlcont1.Controls.Add(txt_prc);
             pnlcont1.Controls.Add(lbl7);
@@ -510,14 +510,6 @@
             lbl9.TabIndex = 13;
             lbl9.Text = "Estado";
             // 
-            // textBox4
-            // 
-            textBox4.Location = new Point(164, 443);
-            textBox4.Name = "textBox4";
-            textBox4.PlaceholderText = "0";
-            textBox4.Size = new Size(135, 27);
-            textBox4.TabIndex = 12;
-            // 
             // lbl8
             // 
             lbl8.AutoSize = true;
@@ -678,6 +670,19 @@
             cmColores.Size = new Size(61, 4);
             cmColores.Closed += cmColores_Closed;
             // 
+            // btn_abr
+            // 
+            btn_abr.Cursor = Cursors.Hand;
+            btn_abr.FlatAppearance.BorderSize = 0;
+            btn_abr.ForeColor = Color.Gray;
+            btn_abr.Location = new Point(164, 443);
+            btn_abr.Name = "btn_abr";
+            btn_abr.Size = new Size(135, 27);
+            btn_abr.TabIndex = 46;
+            btn_abr.Text = "Configurar stock";
+            btn_abr.UseVisualStyleBackColor = true;
+            btn_abr.Click += btn_abr_Click;
+            // 
             // FormAgg_Product
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -725,7 +730,6 @@
         private Label lbl2;
         private ComboBox cmb_ctg;
         private Label lbl5;
-        private TextBox textBox4;
         private Label lbl8;
         private TextBox txt_prc;
         private Label lbl7;
@@ -763,5 +767,6 @@
         private PictureBox pic4;
         private PictureBox pic3;
         private PictureBox pic6;
+        private Button btn_abr;
     }
 }

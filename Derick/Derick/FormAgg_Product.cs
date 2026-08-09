@@ -58,8 +58,8 @@ namespace Derick
             cmTallas.Items.Add(new ToolStripSeparator());
             ToolStripMenuItem agregarTalla = new ToolStripMenuItem();
             agregarTalla.Text = "+ Agregar talla";
+            // Cuando presiones "+ Agregar talla"
             agregarTalla.Click += Agg_Tallas_Click;
-
             cmTallas.Items.Add(agregarTalla);
         }
         private void CTColor()
@@ -136,13 +136,80 @@ namespace Derick
                 lbl_color.Text = "Seleccionar color(es)";
             }
         }
-        private void Agg_Tallas_Click(object sender, EventArgs e)
+        private void Agg_Tallas_Click(object? sender, EventArgs e)
         {
-            //Formulario para agregar una nueva talla
+            frm_secundario1 frm = new frm_secundario1();
+            frm.StartPosition = FormStartPosition.Manual;
+            frm.Location = new Point(
+                this.Right + 10,
+                this.Top
+            );
+
+            if (frm.ShowDialog(this) == DialogResult.OK)
+            {
+                string tallaNueva = frm.Ntll.Trim().ToUpper();
+                foreach (ToolStripItem elemento in cmTallas.Items)
+                {
+                    if (elemento is ToolStripMenuItem item)
+                    {
+                        if (item.Text.Equals(
+                            tallaNueva,
+                            StringComparison.OrdinalIgnoreCase))
+                        {
+                            MessageBox.Show(
+                                "La talla " + tallaNueva + " ya existe.",
+                                "Talla duplicada",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning
+                            );
+                            return;
+                        }
+                    }
+                }
+                ToolStripMenuItem nuevaTalla = new ToolStripMenuItem(tallaNueva);
+                nuevaTalla.CheckOnClick = true;
+                nuevaTalla.CheckedChanged += Talla_CheckedChanged;
+                cmTallas.Items.Insert(cmTallas.Items.Count - 2, nuevaTalla
+                );
+            }
         }
         private void Agg_Colores_Click(object sender, EventArgs e)
         {
-            //Formulario para agregar un nuevo color
+            frm_secundario2 frm = new frm_secundario2();
+            frm.StartPosition = FormStartPosition.Manual;
+            frm.Location = new Point(
+                this.Right + 10,
+                this.Top
+            );
+
+            if (frm.ShowDialog(this) == DialogResult.OK)
+            {
+                string nuevoColor = frm.ncolor;
+                bool existe = false;
+                foreach (ToolStripItem elemento in cmColores.Items)
+                {
+                    if (elemento is ToolStripMenuItem item)
+                    {
+                        if (item.Text.Equals(
+                            nuevoColor,
+                            StringComparison.OrdinalIgnoreCase))
+                        {
+                            existe = true;
+                            break;
+                        }
+                    }
+                }
+                if (existe)
+                {
+                    MessageBox.Show("Ese color ya existe.");
+                    return;
+                }
+                ToolStripMenuItem nuevoItem = new ToolStripMenuItem(nuevoColor);
+                nuevoItem.CheckOnClick = true;
+                nuevoItem.CheckedChanged += Color_CheckedChanged;
+                int posicion = cmColores.Items.Count - 2;
+                cmColores.Items.Insert(posicion, nuevoItem);
+            }
         }
 
         private void pic2_e_Click(object sender, EventArgs e)
@@ -365,7 +432,7 @@ namespace Derick
                     piclist[i].SizeMode = PictureBoxSizeMode.Zoom;
                     piclist1[i].Visible = false;
                 }
-                else 
+                else
                 {
                     piclist1[i].Visible = true;
                 }
@@ -375,6 +442,68 @@ namespace Derick
                 picSelect.BorderStyle = BorderStyle.FixedSingle;
             }
             picSelect = null;
+        }
+
+        private void btn_abr_Click(object sender, EventArgs e)
+        {
+            bool hayTallas = false;
+            bool hayColores = false;
+            foreach (ToolStripItem elemento in cmTallas.Items)
+            {
+                if (elemento is ToolStripMenuItem item && item.Checked)
+                {
+                    hayTallas = true;
+                    break;
+                }
+            }
+            foreach (ToolStripItem elemento in cmColores.Items)
+            {
+                if (elemento is ToolStripMenuItem item && item.Checked)
+                {
+                    hayColores = true;
+                    break;
+                }
+            }
+            if (!hayTallas || !hayColores)
+            {
+                MessageBox.Show(
+                    "Primero seleccione al menos una talla y un color.",
+                    "Stock",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+
+                return;
+            }
+
+            // Listas para guardar las selecciones
+            List<string> tallas = new List<string>();
+            List<string> colores = new List<string>();
+            foreach (ToolStripItem elemento in cmTallas.Items)
+            {
+                if (elemento is ToolStripMenuItem item && item.Checked)
+                {
+                    tallas.Add(item.Text);
+                }
+            }
+            foreach (ToolStripItem elemento in cmColores.Items)
+            {
+                if (elemento is ToolStripMenuItem item && item.Checked)
+                {
+                    colores.Add(item.Text);
+                }
+            }
+            frmEditar_stock frm = new frmEditar_stock(tallas, colores);
+            frm.StartPosition = FormStartPosition.Manual;
+            frm.Location = new Point(
+                this.Right + 10,
+                this.Top
+            );
+            if (frm.ShowDialog(this) == DialogResult.OK)
+            {
+                int total = frm.S_total;
+                btn_abr.Text = total + " unidades";
+            }
         }
     }
 }
