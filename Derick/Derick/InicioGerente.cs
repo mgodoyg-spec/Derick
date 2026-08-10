@@ -38,7 +38,7 @@ namespace Derick
             CargarResumen();
         }
       
-        // cargar los conteos del resumen (sucursales, empleados)
+        // cargar los conteos del resumen de sucursales y empleados
         private void CargarResumen()
         {
             csConectaSQL oConexion = new csConectaSQL();

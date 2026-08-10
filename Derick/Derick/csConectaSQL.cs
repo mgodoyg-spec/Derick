@@ -20,7 +20,7 @@ namespace Derick
         SqlDataAdapter oDA;
         public csConectaSQL()
         {
-            Server = @"MICHELLE\SQLEXPRESS";
+            Server = "100.123.50.34,1433";
             Database = "Derick";
             Usuario = "Michelle";
             Clave = "Michelle@27";
