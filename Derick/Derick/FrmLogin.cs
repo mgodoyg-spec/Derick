@@ -1,4 +1,5 @@
 using Microsoft.Data.SqlClient;
+using System.Data;
 namespace Derick
 {
     public partial class frmLogin : Form
@@ -14,61 +15,54 @@ namespace Derick
             string usuario = txtusuario.Text.Trim();
             string contrasena = txtcontrasena.Text.Trim();
 
-            string cadena = @"Data Source=MICHELLE\SQLEXPRESS;Initial Catalog=Derick;Integrated Security=True;TrustServerCertificate=True";
-
-            using (SqlConnection cn = csConexion.ObtenerConexion())
+            try
             {
-                try
+                csConectaSQL oConexion = new csConectaSQL();
+
+                string usuarioEsc = usuario.Replace("'", "''");
+                string contrasenaEsc = contrasena.Replace("'", "''");
+
+                string consulta = @"SELECT IdRol
+                            FROM Usuario
+                            WHERE Usuario = '" + usuarioEsc + @"'
+                            AND Contrasena = '" + contrasenaEsc + @"'
+                            AND Estado = 1";
+
+                DataTable dt = oConexion.RetornaRegistros(consulta);
+
+                if (dt != null && dt.Rows.Count > 0)
                 {
-                    cn.Open();
+                    int idRol = Convert.ToInt32(dt.Rows[0]["IdRol"]);
 
-                    string consulta = @"SELECT IdRol 
-                                FROM Usuario 
-                                WHERE Usuario = @usuario 
-                                AND Contrasena = @contrasena 
-                                AND Estado = 1";
-
-                    SqlCommand cmd = new SqlCommand(consulta, cn);
-
-                    cmd.Parameters.AddWithValue("@usuario", usuario);
-                    cmd.Parameters.AddWithValue("@contrasena", contrasena);
-
-                    object resultado = cmd.ExecuteScalar();
-
-                    if (resultado != null)
+                    if (idRol == 1)
                     {
-                        int idRol = Convert.ToInt32(resultado);
-
-                        if (idRol == 1)
-                        {
-                            FrmMenuPrincipal frmMenu = new FrmMenuPrincipal();
-                            frmMenu.usuarioActual = usuario;
-                            frmMenu.Show();
-                            this.Hide();
-                        }
-                        else if (idRol == 2)
-                        {
-                            FrmMenuEmpleados frmMenu = new FrmMenuEmpleados();
-                            frmMenu.usuarioActual = usuario;
-                            frmMenu.Show();
-                            this.Hide();
-                        }
+                        FrmMenuPrincipal frmMenu = new FrmMenuPrincipal();
+                        frmMenu.usuarioActual = usuario;
+                        frmMenu.Show();
+                        this.Hide();
                     }
-                    else
+                    else if (idRol == 2)
                     {
-                        MessageBox.Show("Usuario o contraseña incorrectos.",
-                            "Error de acceso",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Warning);
+                        FrmMenuEmpleados frmMenu = new FrmMenuEmpleados();
+                        frmMenu.usuarioActual = usuario;
+                        frmMenu.Show();
+                        this.Hide();
                     }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show("Error de conexión: " + ex.Message,
-                        "Error",
+                    MessageBox.Show("Usuario o contraseña incorrectos.",
+                        "Error de acceso",
                         MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
+                        MessageBoxIcon.Warning);
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error de conexión: " + ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
         }
 

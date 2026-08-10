@@ -81,7 +81,11 @@
             NumProductos = new Label();
             lblPproductos = new Label();
             panel1 = new Panel();
-            lblFechaHora = new Label();
+            pnlFechaHora = new Panel();
+            pictureBox2 = new PictureBox();
+            lblHora = new Label();
+            label3 = new Label();
+            lblFecha = new Label();
             lblSalir = new Label();
             lblResumen = new Label();
             lblBienvenido = new Label();
@@ -110,6 +114,8 @@
             pnlCtnProdu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcProductos).BeginInit();
             panel1.SuspendLayout();
+            pnlFechaHora.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // pnlMostrarForm
@@ -642,7 +648,7 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
-            panel1.Controls.Add(lblFechaHora);
+            panel1.Controls.Add(pnlFechaHora);
             panel1.Controls.Add(lblSalir);
             panel1.Controls.Add(lblResumen);
             panel1.Controls.Add(lblBienvenido);
@@ -651,15 +657,56 @@
             panel1.Size = new Size(1128, 73);
             panel1.TabIndex = 14;
             // 
-            // lblFechaHora
+            // pnlFechaHora
             // 
-            lblFechaHora.AutoSize = true;
-            lblFechaHora.Font = new Font("Calibri", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblFechaHora.Location = new Point(948, 19);
-            lblFechaHora.Name = "lblFechaHora";
-            lblFechaHora.Size = new Size(46, 18);
-            lblFechaHora.TabIndex = 16;
-            lblFechaHora.Text = "label1";
+            pnlFechaHora.BackColor = Color.FromArgb(245, 247, 255);
+            pnlFechaHora.Controls.Add(pictureBox2);
+            pnlFechaHora.Controls.Add(lblHora);
+            pnlFechaHora.Controls.Add(label3);
+            pnlFechaHora.Controls.Add(lblFecha);
+            pnlFechaHora.Location = new Point(843, 21);
+            pnlFechaHora.Name = "pnlFechaHora";
+            pnlFechaHora.Size = new Size(251, 35);
+            pnlFechaHora.TabIndex = 17;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Properties.Resources._5ae6cd086554160a79be9f44;
+            pictureBox2.Location = new Point(3, 6);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(20, 23);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 18;
+            pictureBox2.TabStop = false;
+            // 
+            // lblHora
+            // 
+            lblHora.AutoSize = true;
+            lblHora.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
+            lblHora.Location = new Point(163, 8);
+            lblHora.Name = "lblHora";
+            lblHora.Size = new Size(48, 20);
+            lblHora.TabIndex = 18;
+            lblHora.Text = "label1";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(152, 8);
+            label3.Name = "label3";
+            label3.Size = new Size(14, 18);
+            label3.TabIndex = 19;
+            label3.Text = "|";
+            // 
+            // lblFecha
+            // 
+            lblFecha.AutoSize = true;
+            lblFecha.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
+            lblFecha.Location = new Point(29, 9);
+            lblFecha.Name = "lblFecha";
+            lblFecha.Size = new Size(48, 20);
+            lblFecha.TabIndex = 16;
+            lblFecha.Text = "label1";
             // 
             // lblSalir
             // 
@@ -751,13 +798,15 @@
             ((System.ComponentModel.ISupportInitialize)pcProductos).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            pnlFechaHora.ResumeLayout(false);
+            pnlFechaHora.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel pnlMostrarForm;
-        private Label lblSalir;
         private Panel pnlActividadReciente;
         private Button btnVerTodo;
         private Label lblActividadRe;
@@ -807,10 +856,15 @@
         private Label lblProductosGenerales;
         private Label NumProductos;
         private Label lblPproductos;
+        private System.Windows.Forms.Timer timerReloj;
         private Panel panel1;
+        private Panel pnlFechaHora;
+        private Label lblHora;
+        private Label label3;
+        private Label lblFecha;
+        private Label lblSalir;
         private Label lblResumen;
         private Label lblBienvenido;
-        private Label lblFechaHora;
-        private System.Windows.Forms.Timer timerReloj;
+        private PictureBox pictureBox2;
     }
 }

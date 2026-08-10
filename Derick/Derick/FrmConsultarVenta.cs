@@ -28,5 +28,11 @@ namespace Derick
                 Application.Exit();
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmVentasN frm = new FrmVentasN();
+            frm.ShowDialog();
+        }
     }
 }

@@ -9,167 +9,81 @@ namespace Derick
 {
     public partial class frmRegistroSucursales : Form
     {
-
         string rutaImagen = "";
-
         public frmRegistroSucursales()
         {
             InitializeComponent();
         }
-
-
         private void frmRegistroSucursales_Load(object sender, EventArgs e)
         {
             CargarEncargados();
         }
 
-
-        // ============================
-        // CARGAR ENCARGADOS DEL COMBO
-        // ============================
-
+        // cargar encargados en el combo
         private void CargarEncargados()
         {
-            using (SqlConnection con = csConexion.ObtenerConexion())
-            {
-                con.Open();
-
-                string query = @"SELECT 
-                                Nombres + ' ' + Apellidos AS Encargado
-                                FROM Empleados";
-
-                SqlDataAdapter da = new SqlDataAdapter(query, con);
-
-                DataTable dt = new DataTable();
-
-                da.Fill(dt);
-
-
-                cbxEncargadoSucursal.DataSource = dt;
-                cbxEncargadoSucursal.DisplayMember = "Encargado";
-                cbxEncargadoSucursal.ValueMember = "Encargado";
-
-                cbxEncargadoSucursal.Text = "";
-            }
+            csConectaSQL oConexion = new csConectaSQL();
+            string query = "SELECT Nombres + ' ' + Apellidos AS Encargado FROM Empleados";
+            DataTable dt = oConexion.RetornaRegistros(query);
+            cbxEncargadoSucursal.DataSource = dt;
+            cbxEncargadoSucursal.DisplayMember = "Encargado";
+            cbxEncargadoSucursal.ValueMember = "Encargado";
+            cbxEncargadoSucursal.Text = "";
         }
-
-
-
-        // ============================
-        // SELECCIONAR IMAGEN
-        // ============================
-
+        // seleccionar imagen
         private void btnAgregarImagen_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
-
             ofd.Filter = "Imágenes|*.jpg;*.jpeg;*.png;*.bmp";
-
 
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 pbxImagenSucursal.Image = Image.FromFile(ofd.FileName);
                 pbxImagenSucursal.SizeMode = PictureBoxSizeMode.Zoom;
-
                 rutaImagen = ofd.FileName;
-
                 pbxAgregarImagen.Visible = false;
                 lblSeleccionarImag.Visible = false;
             }
         }
-
-
-
-        // ============================
-        // QUITAR IMAGEN
-        // ============================
-
+        // quitar imagen
         private void btnQuitarImagen_Click(object sender, EventArgs e)
         {
-
             DialogResult r = MessageBox.Show(
                 "¿Está seguro de eliminar la imagen?",
                 "Eliminar imagen",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
 
-
             if (r == DialogResult.Yes)
             {
-
                 if (pbxImagenSucursal.Image != null)
-                {
                     pbxImagenSucursal.Image.Dispose();
-                }
-
 
                 pbxImagenSucursal.Image = null;
-
                 rutaImagen = "";
-
                 pbxAgregarImagen.Visible = true;
                 lblSeleccionarImag.Visible = true;
             }
-
         }
 
-
-
-        // ============================
-        // GENERAR CODIGO
-        // ============================
-
+        // generar codigo de sucursal
         private string GenerarCodigo()
         {
-
+            csConectaSQL oConexion = new csConectaSQL();
+            string query = "SELECT MAX(IdSucursal) FROM Sucursales";
+            DataTable dt = oConexion.RetornaRegistros(query);
             string codigo = "SUC001";
-
-
-            using (SqlConnection con = csConexion.ObtenerConexion())
+            if (dt.Rows.Count > 0 && dt.Rows[0][0] != DBNull.Value)
             {
-
-                con.Open();
-
-
-                string query = @"SELECT MAX(IdSucursal) 
-                                 FROM Sucursales";
-
-
-                SqlCommand cmd = new SqlCommand(query, con);
-
-
-                object resultado = cmd.ExecuteScalar();
-
-
-                if (resultado != DBNull.Value && resultado != null)
-                {
-
-                    int ultimo = Convert.ToInt32(resultado);
-
-                    codigo = "SUC" + (ultimo + 1)
-                            .ToString("D3");
-
-                }
-
+                int ultimo = Convert.ToInt32(dt.Rows[0][0]);
+                codigo = "SUC" + (ultimo + 1).ToString("D3");
             }
-
-
             return codigo;
-
         }
 
-
-
-
-
-        // ============================
-        // REGISTRAR SUCURSAL
-        // ============================
-
+        // registrar sucursal
         private void btnRegistrarSucursal_Click(object sender, EventArgs e)
         {
-
-
             if (string.IsNullOrWhiteSpace(txtNombreSucursal.Text) ||
                string.IsNullOrWhiteSpace(txtCiudadSucursal.Text) ||
                string.IsNullOrWhiteSpace(txtDireccionSucursal.Text) ||
@@ -177,144 +91,48 @@ namespace Derick
                string.IsNullOrWhiteSpace(cbxEncargadoSucursal.Text) ||
                string.IsNullOrWhiteSpace(cbxEstadoSucursal.Text))
             {
-
                 MessageBox.Show(
                     "Complete todos los campos obligatorios",
                     "Aviso",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
-
                 return;
-
             }
 
-
-
-            using (SqlConnection con = csConexion.ObtenerConexion())
+            try
             {
+                csConectaSQL oConexion = new csConectaSQL();
 
-                con.Open();
+                // escapamos comillas simples para que nombres o direcciones con apostrofe no rompan el insert, ya que insertDatos recibe el
+                // sql armado como texto
+                string codigo = GenerarCodigo();
+                string nombreEsc = txtNombreSucursal.Text.Trim().Replace("'", "''");
+                string ciudadEsc = txtCiudadSucursal.Text.Trim().Replace("'", "''");
+                string direccionEsc = txtDireccionSucursal.Text.Trim().Replace("'", "''");
+                string telefonoEsc = txtTelefonoSucursal.Text.Trim().Replace("'", "''");
+                string correoEsc = txtCorreoSucursal.Text.Trim().Replace("'", "''");
+                string encargadoEsc = cbxEncargadoSucursal.Text.Replace("'", "''");
+                string fotoEsc = rutaImagen.Replace("'", "''");
+                string campos = "Codigo,NombreSucursal,Ciudad,Direccion,Telefono,Correo,EncargadoSucursal,RutaFoto";
+                string datos = "'" + codigo + "','" + nombreEsc + "','" + ciudadEsc + "','" + direccionEsc
+                    + "','" + telefonoEsc + "','" + correoEsc + "','" + encargadoEsc + "','" + fotoEsc + "'";
+                oConexion.insertDatos("Sucursales", campos, datos);
+                MessageBox.Show(
+                    "Sucursal registrada correctamente",
+                    "Éxito",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
 
-
-                try
-                {
-
-
-                    string query = @"
-
-                    INSERT INTO Sucursales
-                    (
-                    Codigo,
-                    NombreSucursal,
-                    Ciudad,
-                    Direccion,
-                    Telefono,
-                    Correo,
-                    EncargadoSucursal,
-                    RutaFoto
-                    )
-
-                    VALUES
-                    (
-                    @codigo,
-                    @nombre,
-                    @ciudad,
-                    @direccion,
-                    @telefono,
-                    @correo,
-                    @encargado,
-                    @foto
-                    )";
-
-
-                    SqlCommand cmd = new SqlCommand(query, con);
-
-
-
-                    cmd.Parameters.AddWithValue(
-                        "@codigo",
-                        GenerarCodigo()
-                    );
-
-
-                    cmd.Parameters.AddWithValue(
-                        "@nombre",
-                        txtNombreSucursal.Text.Trim()
-                    );
-
-
-                    cmd.Parameters.AddWithValue(
-                        "@ciudad",
-                        txtCiudadSucursal.Text.Trim()
-                    );
-
-
-                    cmd.Parameters.AddWithValue(
-                        "@direccion",
-                        txtDireccionSucursal.Text.Trim()
-                    );
-
-
-                    cmd.Parameters.AddWithValue(
-                        "@telefono",
-                        txtTelefonoSucursal.Text.Trim()
-                    );
-
-
-                    cmd.Parameters.AddWithValue(
-                        "@correo",
-                        txtCorreoSucursal.Text.Trim()
-                    );
-
-
-                    cmd.Parameters.AddWithValue(
-                        "@encargado",
-                        cbxEncargadoSucursal.Text
-                    );
-
-
-                    cmd.Parameters.AddWithValue(
-                        "@foto",
-                        rutaImagen
-                    );
-
-
-
-                    cmd.ExecuteNonQuery();
-
-
-
-                    MessageBox.Show(
-                        "Sucursal registrada correctamente",
-                        "Éxito",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
-
-
-
-                    this.Close();
-
-
-                }
-                catch (Exception ex)
-                {
-
-                    MessageBox.Show(
-                        "Error al registrar: " + ex.Message);
-
-                }
-
-
+                this.Close();
             }
-
-
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al registrar: " + ex.Message);
+            }
         }
-
         private void lblSalirV_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
-
     }
 }

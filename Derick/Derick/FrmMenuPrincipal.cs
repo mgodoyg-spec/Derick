@@ -108,7 +108,7 @@ namespace Derick
         private void btnventas_Click(object sender, EventArgs e)
         {
             csBotonActivo.MarcarBotonActivo(pnlIndicador, btnventas);
-            csNavegacion.AbrirFormulario( pnlMostrarForm, ref formularioActivo,new frmVentas());
+            csNavegacion.AbrirFormulario( pnlMostrarForm, ref formularioActivo,new FrmConsultarVenta());
         }
 
         private void btnsucursales_Click(object sender, EventArgs e)

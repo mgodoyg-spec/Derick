@@ -84,16 +84,30 @@ namespace Derick
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            // Validación de campos obligatorios (ya NO incluye usuario/contraseña/rol)
             if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
-    string.IsNullOrWhiteSpace(txtApellidos.Text) ||
-    string.IsNullOrWhiteSpace(txtCedula.Text) ||
-    string.IsNullOrWhiteSpace(txtUsuario.Text) ||
-    string.IsNullOrWhiteSpace(txtContrasena.Text) ||
-    string.IsNullOrWhiteSpace(cmbRol.Text))
+                string.IsNullOrWhiteSpace(txtApellidos.Text) ||
+                string.IsNullOrWhiteSpace(txtCedula.Text))
             {
                 MessageBox.Show("Por favor completa todos los campos obligatorios.");
                 return;
             }
+
+            // Determinar si el empleado tendrá acceso al sistema
+            bool tieneUsuario = !string.IsNullOrWhiteSpace(txtUsuario.Text);
+            bool tieneContrasena = !string.IsNullOrWhiteSpace(txtContrasena.Text);
+            bool tieneRol = !string.IsNullOrWhiteSpace(cmbRol.Text);
+
+            // Si llenó solo alguno de los tres, se le pide completar todos
+            if ((tieneUsuario || tieneContrasena || tieneRol) &&
+                !(tieneUsuario && tieneContrasena && tieneRol))
+            {
+                MessageBox.Show("Para crear acceso al sistema debes completar Usuario, Contraseña y Rol. " +
+                                 "Si el empleado no tendrá acceso, deja los tres campos vacíos.");
+                return;
+            }
+
+            bool crearAccesoSistema = tieneUsuario && tieneContrasena && tieneRol;
 
             using (SqlConnection con = csConexion.ObtenerConexion())
             {
@@ -102,35 +116,38 @@ namespace Derick
 
                 try
                 {
-                    // 1. Buscar el IdRol correspondiente al texto seleccionado
-                    string queryRol = "SELECT IdRol FROM Rol WHERE NombreRol = @nombreRol";
+                    int idRol = 0;
 
-                    SqlCommand cmdRol = new SqlCommand(queryRol, con, tran);
-                    cmdRol.Parameters.AddWithValue("@nombreRol", cmbRol.Text.Trim());
-
-                    object idRolObj = cmdRol.ExecuteScalar();
-
-                    if (idRolObj == null)
+                    // 1. Solo buscar el rol si se va a crear acceso al sistema
+                    if (crearAccesoSistema)
                     {
-                        MessageBox.Show("El rol '" + cmbRol.Text +
-                                        "' no existe. Selecciona un rol válido.");
-                        tran.Rollback();
-                        return;
+                        string queryRol = "SELECT IdRol FROM Rol WHERE NombreRol = @nombreRol";
+
+                        SqlCommand cmdRol = new SqlCommand(queryRol, con, tran);
+                        cmdRol.Parameters.AddWithValue("@nombreRol", cmbRol.Text.Trim());
+
+                        object idRolObj = cmdRol.ExecuteScalar();
+
+                        if (idRolObj == null)
+                        {
+                            MessageBox.Show("El rol '" + cmbRol.Text +
+                                            "' no existe. Selecciona un rol válido.");
+                            tran.Rollback();
+                            return;
+                        }
+
+                        idRol = Convert.ToInt32(idRolObj);
                     }
 
-                    int idRol = Convert.ToInt32(idRolObj);
-
-
-                    // 2. Insertar el empleado
+                    // 2. Insertar el empleado (siempre)
                     string queryEmpleado = @"INSERT INTO Empleados
-        (Codigo, Nombres, Apellidos, Cedula, FechaNacimiento, Genero,
-         Telefono, Correo, Direccion, Cargo, Departamento, FechaIngreso,
-         Salario, TipoContrato, Estado, ContactoEmergencia, TelefonoEmergencia)
-        VALUES
-        (@codigo, @nombres, @apellidos, @cedula, @fechaNac, @genero,
-         @telefono, @correo, @direccion, @cargo, @departamento, @fechaIngreso,
-         @salario, @tipoContrato, @estado, @contactoEmerg, @telEmerg)";
-
+                    (Codigo, Nombres, Apellidos, Cedula, FechaNacimiento, Genero,
+                    Telefono, Correo, Direccion, Cargo, Departamento, FechaIngreso,
+                    Salario, TipoContrato, Estado, ContactoEmergencia, TelefonoEmergencia)
+                    VALUES
+                    (@codigo, @nombres, @apellidos, @cedula, @fechaNac, @genero,
+                    @telefono, @correo, @direccion, @cargo, @departamento, @fechaIngreso,
+                    @salario, @tipoContrato, @estado, @contactoEmerg, @telEmerg)";
 
                     SqlCommand cmdEmp = new SqlCommand(queryEmpleado, con, tran);
 
@@ -173,47 +190,47 @@ namespace Derick
 
                     cmdEmp.ExecuteNonQuery();
 
+                    // 3. Solo crear el usuario si el empleado tendrá acceso al sistema
+                    if (crearAccesoSistema)
+                    {
+                        string queryId = "SELECT IdEmpleado FROM Empleados WHERE Codigo = @codigo";
 
-                    // 3. Obtener el IdEmpleado recién creado
-                    string queryId = "SELECT IdEmpleado FROM Empleados WHERE Codigo = @codigo";
+                        SqlCommand cmdId = new SqlCommand(queryId, con, tran);
+                        cmdId.Parameters.AddWithValue("@codigo", txtCodigo.Text.Trim());
 
-                    SqlCommand cmdId = new SqlCommand(queryId, con, tran);
-                    cmdId.Parameters.AddWithValue("@codigo", txtCodigo.Text.Trim());
+                        int idEmpleado = Convert.ToInt32(cmdId.ExecuteScalar());
 
-                    int idEmpleado = Convert.ToInt32(cmdId.ExecuteScalar());
+                        string queryUsuario = @"INSERT INTO Usuario
+                        (IdEmpleado, IdRol, Usuario, Contrasena, Estado)
+                        VALUES
+                        (@idEmp, @idRol, @usuario, @clave, @estado)";
 
+                        SqlCommand cmdUser = new SqlCommand(queryUsuario, con, tran);
 
-                    // 4. Insertar el usuario
-                    string queryUsuario = @"INSERT INTO Usuario
-        (IdEmpleado, IdRol, Usuario, Contrasena, Estado)
-        VALUES
-        (@idEmp, @idRol, @usuario, @clave, @estado)";
+                        cmdUser.Parameters.AddWithValue("@idEmp", idEmpleado);
+                        cmdUser.Parameters.AddWithValue("@idRol", idRol);
+                        cmdUser.Parameters.AddWithValue("@usuario", txtUsuario.Text.Trim());
+                        cmdUser.Parameters.AddWithValue("@clave", txtContrasena.Text);
+                        cmdUser.Parameters.AddWithValue("@estado", 1);
 
-                    SqlCommand cmdUser = new SqlCommand(queryUsuario, con, tran);
+                        cmdUser.ExecuteNonQuery();
+                    }
 
-                    cmdUser.Parameters.AddWithValue("@idEmp", idEmpleado);
-                    cmdUser.Parameters.AddWithValue("@idRol", idRol);
-                    cmdUser.Parameters.AddWithValue("@usuario", txtUsuario.Text.Trim());
-                    cmdUser.Parameters.AddWithValue("@clave", txtContrasena.Text);
-                    cmdUser.Parameters.AddWithValue("@estado", 1);
-
-                    cmdUser.ExecuteNonQuery();
-
-
-                    // 5. Confirmar todo
+                    // 4. Confirmar todo
                     tran.Commit();
 
-                    MessageBox.Show("Empleado y usuario registrados con éxito.");
+                    MessageBox.Show(crearAccesoSistema
+                        ? "Empleado y usuario registrados con éxito."
+                        : "Empleado registrado con éxito (sin acceso al sistema).");
 
                     this.Close();
                 }
                 catch (Exception ex)
                 {
                     tran.Rollback();
-
                     MessageBox.Show("Error al guardar: " + ex.Message);
                 }
             }
         }
-        }
     }
+}
