@@ -505,5 +505,16 @@ namespace Derick
                 btn_abr.Text = total + " unidades";
             }
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            FrmAgg_Categoria frmAgg_Categoria = new FrmAgg_Categoria();
+            frmAgg_Categoria.StartPosition = FormStartPosition.Manual;
+            frmAgg_Categoria.Location = new Point(
+                this.Left - 10,
+                this.Top
+            );
+            frmAgg_Categoria.ShowDialog(this);
+        }
     }
 }

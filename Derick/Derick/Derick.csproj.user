@@ -7,6 +7,9 @@
     <Compile Update="FormAgg_Promocion.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FormAgg_Proveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FormCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -14,6 +17,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FormPromociones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormProveedores.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FormsDeRespaldo.cs">

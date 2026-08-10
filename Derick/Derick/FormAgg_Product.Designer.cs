@@ -379,6 +379,7 @@
             button4.Size = new Size(27, 28);
             button4.TabIndex = 28;
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // lbl6
             // 
