@@ -31,6 +31,7 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProductos));
             pnl_conagg = new Panel();
+            button7 = new Button();
             button1 = new Button();
             pic_raya1 = new PictureBox();
             pnl_agg2 = new Panel();
@@ -67,7 +68,7 @@
             pic_agg1 = new PictureBox();
             lbl_agg1 = new Label();
             img_icons = new ImageList(components);
-            button7 = new Button();
+            button8 = new Button();
             pnl_conagg.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pic_raya1).BeginInit();
             pnl_agg2.SuspendLayout();
@@ -83,6 +84,7 @@
             // pnl_conagg
             // 
             pnl_conagg.BackColor = Color.FromArgb(244, 246, 249);
+            pnl_conagg.Controls.Add(button8);
             pnl_conagg.Controls.Add(button7);
             pnl_conagg.Controls.Add(button1);
             pnl_conagg.Controls.Add(pic_raya1);
@@ -94,6 +96,16 @@
             pnl_conagg.Name = "pnl_conagg";
             pnl_conagg.Size = new Size(1394, 889);
             pnl_conagg.TabIndex = 1;
+            // 
+            // button7
+            // 
+            button7.Location = new Point(524, 21);
+            button7.Name = "button7";
+            button7.Size = new Size(94, 29);
+            button7.TabIndex = 10;
+            button7.Text = "button7";
+            button7.UseVisualStyleBackColor = true;
+            button7.Click += button7_Click;
             // 
             // button1
             // 
@@ -486,15 +498,15 @@
             img_icons.Images.SetKeyName(1, "eliminar.png");
             img_icons.Images.SetKeyName(2, "vertodo.png");
             // 
-            // button7
+            // button8
             // 
-            button7.Location = new Point(524, 21);
-            button7.Name = "button7";
-            button7.Size = new Size(94, 29);
-            button7.TabIndex = 10;
-            button7.Text = "button7";
-            button7.UseVisualStyleBackColor = true;
-            button7.Click += button7_Click;
+            button8.Location = new Point(651, 21);
+            button8.Name = "button8";
+            button8.Size = new Size(94, 29);
+            button8.TabIndex = 11;
+            button8.Text = "button8";
+            button8.UseVisualStyleBackColor = true;
+            button8.Click += button8_Click;
             // 
             // FormProductos
             // 
@@ -563,5 +575,6 @@
         private DataGridViewImageColumn clEliminar;
         private DataGridViewImageColumn clVerTodo;
         private Button button7;
+        private Button button8;
     }
 }

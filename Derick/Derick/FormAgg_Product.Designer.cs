@@ -31,6 +31,7 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAgg_Product));
             pnlcont1 = new Panel();
+            btn_abr = new Button();
             pic6 = new PictureBox();
             pic5 = new PictureBox();
             pic4 = new PictureBox();
@@ -78,7 +79,6 @@
             pic1_e = new PictureBox();
             cmTallas = new ContextMenuStrip(components);
             cmColores = new ContextMenuStrip(components);
-            btn_abr = new Button();
             pnlcont1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pic6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pic5).BeginInit();
@@ -143,6 +143,19 @@
             pnlcont1.Name = "pnlcont1";
             pnlcont1.Size = new Size(709, 736);
             pnlcont1.TabIndex = 0;
+            // 
+            // btn_abr
+            // 
+            btn_abr.Cursor = Cursors.Hand;
+            btn_abr.FlatAppearance.BorderSize = 0;
+            btn_abr.ForeColor = Color.Gray;
+            btn_abr.Location = new Point(164, 443);
+            btn_abr.Name = "btn_abr";
+            btn_abr.Size = new Size(135, 27);
+            btn_abr.TabIndex = 46;
+            btn_abr.Text = "Configurar stock";
+            btn_abr.UseVisualStyleBackColor = true;
+            btn_abr.Click += btn_abr_Click;
             // 
             // pic6
             // 
@@ -612,6 +625,7 @@
             // pnl_con
             // 
             pnl_con.BackColor = Color.FromArgb(9, 22, 50);
+            pnl_con.BorderStyle = BorderStyle.Fixed3D;
             pnl_con.Controls.Add(pic2_e);
             pnl_con.Controls.Add(lbl1);
             pnl_con.Controls.Add(pic1_e);
@@ -669,19 +683,6 @@
             cmColores.Name = "cmColores";
             cmColores.Size = new Size(61, 4);
             cmColores.Closed += cmColores_Closed;
-            // 
-            // btn_abr
-            // 
-            btn_abr.Cursor = Cursors.Hand;
-            btn_abr.FlatAppearance.BorderSize = 0;
-            btn_abr.ForeColor = Color.Gray;
-            btn_abr.Location = new Point(164, 443);
-            btn_abr.Name = "btn_abr";
-            btn_abr.Size = new Size(135, 27);
-            btn_abr.TabIndex = 46;
-            btn_abr.Text = "Configurar stock";
-            btn_abr.UseVisualStyleBackColor = true;
-            btn_abr.Click += btn_abr_Click;
             // 
             // FormAgg_Product
             // 
