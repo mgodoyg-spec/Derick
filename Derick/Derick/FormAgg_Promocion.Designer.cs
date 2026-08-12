@@ -124,7 +124,6 @@
             btn_guardar.BackColor = Color.FromArgb(0, 102, 255);
             btn_guardar.Cursor = Cursors.Hand;
             btn_guardar.FlatAppearance.BorderSize = 0;
-            btn_guardar.FlatStyle = FlatStyle.Flat;
             btn_guardar.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_guardar.ForeColor = Color.White;
             btn_guardar.Image = (Image)resources.GetObject("btn_guardar.Image");

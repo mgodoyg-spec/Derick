@@ -41,7 +41,6 @@
             clDescripcion = new DataGridViewTextBoxColumn();
             clEditar = new DataGridViewImageColumn();
             clEliminar = new DataGridViewImageColumn();
-            pic_ctg3 = new PictureBox();
             lbl_ctg3 = new Label();
             btn_limp1 = new Button();
             pnl_ctg2 = new Panel();
@@ -60,7 +59,6 @@
             pnl_ctg1.SuspendLayout();
             pnl_cont1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_catg).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pic_ctg3).BeginInit();
             pnl_ctg2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pic_ctg2).BeginInit();
             pnl_ctg3.SuspendLayout();
@@ -80,19 +78,18 @@
             pnl_ctg1.Dock = DockStyle.Fill;
             pnl_ctg1.Location = new Point(0, 0);
             pnl_ctg1.Name = "pnl_ctg1";
-            pnl_ctg1.Size = new Size(1394, 889);
+            pnl_ctg1.Size = new Size(1186, 651);
             pnl_ctg1.TabIndex = 0;
             // 
             // btn_ctg1
             // 
             btn_ctg1.BackColor = Color.FromArgb(0, 102, 255);
             btn_ctg1.Cursor = Cursors.Hand;
-            btn_ctg1.FlatStyle = FlatStyle.Flat;
             btn_ctg1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btn_ctg1.ForeColor = Color.White;
             btn_ctg1.Image = (Image)resources.GetObject("btn_ctg1.Image");
             btn_ctg1.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_ctg1.Location = new Point(1132, 15);
+            btn_ctg1.Location = new Point(913, 15);
             btn_ctg1.Name = "btn_ctg1";
             btn_ctg1.Size = new Size(248, 47);
             btn_ctg1.TabIndex = 31;
@@ -104,28 +101,28 @@
             // 
             pnl_cont1.BackColor = Color.White;
             pnl_cont1.Controls.Add(dgv_catg);
-            pnl_cont1.Controls.Add(pic_ctg3);
             pnl_cont1.Controls.Add(lbl_ctg3);
             pnl_cont1.Controls.Add(btn_limp1);
             pnl_cont1.Controls.Add(pnl_ctg2);
-            pnl_cont1.Controls.Add(btn_bus1);
             pnl_cont1.Controls.Add(pnl_ctg3);
             pnl_cont1.Controls.Add(pnl_ctg4);
+            pnl_cont1.Controls.Add(btn_bus1);
             pnl_cont1.Controls.Add(lbl_agg3);
-            pnl_cont1.Location = new Point(10, 68);
+            pnl_cont1.Location = new Point(12, 78);
             pnl_cont1.Name = "pnl_cont1";
-            pnl_cont1.Size = new Size(1370, 713);
+            pnl_cont1.Size = new Size(1162, 561);
             pnl_cont1.TabIndex = 11;
             // 
             // dgv_catg
             // 
             dgv_catg.BackgroundColor = Color.White;
+            dgv_catg.BorderStyle = BorderStyle.None;
             dgv_catg.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_catg.Columns.AddRange(new DataGridViewColumn[] { clID, clIcono, clCategoria, clEstado, clDescripcion, clEditar, clEliminar });
             dgv_catg.Location = new Point(11, 108);
             dgv_catg.Name = "dgv_catg";
             dgv_catg.RowHeadersWidth = 51;
-            dgv_catg.Size = new Size(1352, 536);
+            dgv_catg.Size = new Size(1138, 436);
             dgv_catg.TabIndex = 31;
             // 
             // clID
@@ -179,24 +176,13 @@
             clEliminar.Name = "clEliminar";
             clEliminar.Width = 125;
             // 
-            // pic_ctg3
-            // 
-            pic_ctg3.BackColor = Color.White;
-            pic_ctg3.Image = (Image)resources.GetObject("pic_ctg3.Image");
-            pic_ctg3.Location = new Point(1183, 20);
-            pic_ctg3.Name = "pic_ctg3";
-            pic_ctg3.Size = new Size(50, 47);
-            pic_ctg3.SizeMode = PictureBoxSizeMode.Zoom;
-            pic_ctg3.TabIndex = 30;
-            pic_ctg3.TabStop = false;
-            // 
             // lbl_ctg3
             // 
             lbl_ctg3.AutoSize = true;
             lbl_ctg3.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_ctg3.ForeColor = Color.Black;
             lbl_ctg3.ImageAlign = ContentAlignment.MiddleLeft;
-            lbl_ctg3.Location = new Point(335, 33);
+            lbl_ctg3.Location = new Point(308, 32);
             lbl_ctg3.Name = "lbl_ctg3";
             lbl_ctg3.Size = new Size(103, 22);
             lbl_ctg3.TabIndex = 26;
@@ -207,13 +193,12 @@
             // 
             btn_limp1.BackColor = Color.White;
             btn_limp1.Cursor = Cursors.Hand;
-            btn_limp1.FlatStyle = FlatStyle.Flat;
             btn_limp1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btn_limp1.ForeColor = Color.Black;
             btn_limp1.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_limp1.Location = new Point(1183, 20);
+            btn_limp1.Location = new Point(1009, 20);
             btn_limp1.Name = "btn_limp1";
-            btn_limp1.Size = new Size(176, 47);
+            btn_limp1.Size = new Size(140, 47);
             btn_limp1.TabIndex = 29;
             btn_limp1.Text = "Limpiar";
             btn_limp1.UseVisualStyleBackColor = false;
@@ -256,14 +241,13 @@
             // 
             btn_bus1.BackColor = Color.FromArgb(0, 176, 80);
             btn_bus1.Cursor = Cursors.Hand;
-            btn_bus1.FlatStyle = FlatStyle.Flat;
             btn_bus1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btn_bus1.ForeColor = Color.White;
             btn_bus1.Image = (Image)resources.GetObject("btn_bus1.Image");
             btn_bus1.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_bus1.Location = new Point(1001, 20);
+            btn_bus1.Location = new Point(863, 20);
             btn_bus1.Name = "btn_bus1";
-            btn_bus1.Size = new Size(176, 47);
+            btn_bus1.Size = new Size(140, 47);
             btn_bus1.TabIndex = 23;
             btn_bus1.Text = "Buscar";
             btn_bus1.UseVisualStyleBackColor = false;
@@ -273,10 +257,10 @@
             pnl_ctg3.BackColor = Color.White;
             pnl_ctg3.BorderStyle = BorderStyle.FixedSingle;
             pnl_ctg3.Controls.Add(cmb_ctg1);
-            pnl_ctg3.Location = new Point(444, 20);
+            pnl_ctg3.Location = new Point(417, 20);
             pnl_ctg3.Name = "pnl_ctg3";
             pnl_ctg3.Padding = new Padding(10);
-            pnl_ctg3.Size = new Size(218, 45);
+            pnl_ctg3.Size = new Size(154, 45);
             pnl_ctg3.TabIndex = 25;
             // 
             // cmb_ctg1
@@ -286,7 +270,7 @@
             cmb_ctg1.FormattingEnabled = true;
             cmb_ctg1.Location = new Point(13, 9);
             cmb_ctg1.Name = "cmb_ctg1";
-            cmb_ctg1.Size = new Size(190, 28);
+            cmb_ctg1.Size = new Size(126, 28);
             cmb_ctg1.TabIndex = 14;
             // 
             // pnl_ctg4
@@ -294,10 +278,10 @@
             pnl_ctg4.BackColor = Color.White;
             pnl_ctg4.BorderStyle = BorderStyle.FixedSingle;
             pnl_ctg4.Controls.Add(cmb_ctg2);
-            pnl_ctg4.Location = new Point(759, 20);
+            pnl_ctg4.Location = new Point(673, 20);
             pnl_ctg4.Name = "pnl_ctg4";
             pnl_ctg4.Padding = new Padding(10);
-            pnl_ctg4.Size = new Size(218, 45);
+            pnl_ctg4.Size = new Size(148, 45);
             pnl_ctg4.TabIndex = 27;
             // 
             // cmb_ctg2
@@ -307,7 +291,7 @@
             cmb_ctg2.FormattingEnabled = true;
             cmb_ctg2.Location = new Point(13, 9);
             cmb_ctg2.Name = "cmb_ctg2";
-            cmb_ctg2.Size = new Size(190, 28);
+            cmb_ctg2.Size = new Size(122, 28);
             cmb_ctg2.TabIndex = 14;
             // 
             // lbl_agg3
@@ -316,7 +300,7 @@
             lbl_agg3.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_agg3.ForeColor = Color.Black;
             lbl_agg3.ImageAlign = ContentAlignment.MiddleLeft;
-            lbl_agg3.Location = new Point(675, 28);
+            lbl_agg3.Location = new Point(589, 36);
             lbl_agg3.Name = "lbl_agg3";
             lbl_agg3.Size = new Size(78, 22);
             lbl_agg3.TabIndex = 28;
@@ -360,14 +344,14 @@
             img_ctg.ColorDepth = ColorDepth.Depth32Bit;
             img_ctg.ImageStream = (ImageListStreamer)resources.GetObject("img_ctg.ImageStream");
             img_ctg.TransparentColor = Color.Transparent;
-            img_ctg.Images.SetKeyName(0, "edit.png");
+            img_ctg.Images.SetKeyName(0, "editar (1).png");
             img_ctg.Images.SetKeyName(1, "contenedor-de-basura.png");
             // 
             // FormCategoria
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1394, 889);
+            ClientSize = new Size(1186, 651);
             Controls.Add(pnl_ctg1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "FormCategoria";
@@ -378,7 +362,6 @@
             pnl_cont1.ResumeLayout(false);
             pnl_cont1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_catg).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pic_ctg3).EndInit();
             pnl_ctg2.ResumeLayout(false);
             pnl_ctg2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pic_ctg2).EndInit();
@@ -401,7 +384,6 @@
         private PictureBox pic_ctg1;
         private Label lbl_ctg1;
         private Panel pnl_cont1;
-        private PictureBox pic_ctg3;
         private Label lbl_ctg3;
         private Button btn_limp1;
         private Panel pnl_ctg2;

@@ -206,7 +206,6 @@
             btn_guardar.BackColor = Color.FromArgb(0, 102, 255);
             btn_guardar.Cursor = Cursors.Hand;
             btn_guardar.FlatAppearance.BorderSize = 0;
-            btn_guardar.FlatStyle = FlatStyle.Flat;
             btn_guardar.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_guardar.ForeColor = Color.White;
             btn_guardar.Image = (Image)resources.GetObject("btn_guardar.Image");
@@ -409,7 +408,6 @@
             // 
             btn_quitar.FlatAppearance.BorderColor = Color.Gray;
             btn_quitar.FlatAppearance.BorderSize = 2;
-            btn_quitar.FlatStyle = FlatStyle.Flat;
             btn_quitar.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_quitar.Location = new Point(66, 225);
             btn_quitar.Name = "btn_quitar";
@@ -424,7 +422,6 @@
             btn_subir.Cursor = Cursors.Hand;
             btn_subir.FlatAppearance.BorderColor = Color.FromArgb(0, 102, 255);
             btn_subir.FlatAppearance.BorderSize = 2;
-            btn_subir.FlatStyle = FlatStyle.Flat;
             btn_subir.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btn_subir.Image = (Image)resources.GetObject("btn_subir.Image");
             btn_subir.ImageAlign = ContentAlignment.MiddleLeft;

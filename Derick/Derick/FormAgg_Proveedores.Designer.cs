@@ -81,7 +81,6 @@
             btnGuardarProv.BackColor = Color.FromArgb(0, 102, 255);
             btnGuardarProv.Cursor = Cursors.Hand;
             btnGuardarProv.FlatAppearance.BorderSize = 0;
-            btnGuardarProv.FlatStyle = FlatStyle.Flat;
             btnGuardarProv.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnGuardarProv.ForeColor = Color.White;
             btnGuardarProv.Image = (Image)resources.GetObject("btnGuardarProv.Image");
