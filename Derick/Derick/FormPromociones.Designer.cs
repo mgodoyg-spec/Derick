@@ -80,6 +80,7 @@
             pnl_prm.Controls.Add(lbl_prm1);
             pnl_prm.Dock = DockStyle.Fill;
             pnl_prm.Location = new Point(0, 0);
+            pnl_prm.Margin = new Padding(3, 2, 3, 2);
             pnl_prm.Name = "pnl_prm";
             pnl_prm.Size = new Size(1186, 651);
             pnl_prm.TabIndex = 0;
@@ -95,9 +96,10 @@
             pnl_prm2.Controls.Add(lbl_prm4);
             pnl_prm2.Controls.Add(pn2);
             pnl_prm2.Controls.Add(btn_busP);
-            pnl_prm2.Location = new Point(12, 67);
+            pnl_prm2.Location = new Point(10, 50);
+            pnl_prm2.Margin = new Padding(3, 2, 3, 2);
             pnl_prm2.Name = "pnl_prm2";
-            pnl_prm2.Size = new Size(1162, 572);
+            pnl_prm2.Size = new Size(1164, 599);
             pnl_prm2.TabIndex = 36;
             // 
             // dgvPromociones
@@ -107,10 +109,11 @@
             dgvPromociones.BorderStyle = BorderStyle.None;
             dgvPromociones.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvPromociones.Columns.AddRange(new DataGridViewColumn[] { clId, clNombrePromocion, clTipo, clDescuento, clFechaInicio, clFechaFin, clEstado, clDescripcion, clEditar, clEliminar });
-            dgvPromociones.Location = new Point(11, 108);
+            dgvPromociones.Location = new Point(10, 81);
+            dgvPromociones.Margin = new Padding(3, 2, 3, 2);
             dgvPromociones.Name = "dgvPromociones";
             dgvPromociones.RowHeadersWidth = 51;
-            dgvPromociones.Size = new Size(1135, 440);
+            dgvPromociones.Size = new Size(1140, 500);
             dgvPromociones.TabIndex = 31;
             // 
             // clId
@@ -189,9 +192,9 @@
             lbl_prm3.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_prm3.ForeColor = Color.Black;
             lbl_prm3.ImageAlign = ContentAlignment.MiddleLeft;
-            lbl_prm3.Location = new Point(239, 33);
+            lbl_prm3.Location = new Point(235, 23);
             lbl_prm3.Name = "lbl_prm3";
-            lbl_prm3.Size = new Size(182, 22);
+            lbl_prm3.Size = new Size(155, 18);
             lbl_prm3.TabIndex = 26;
             lbl_prm3.Text = "Tipo de promoción:";
             lbl_prm3.TextAlign = ContentAlignment.MiddleLeft;
@@ -202,10 +205,11 @@
             pn1.BorderStyle = BorderStyle.FixedSingle;
             pn1.Controls.Add(pic_prm2);
             pn1.Controls.Add(txt_busqPrm);
-            pn1.Location = new Point(12, 20);
+            pn1.Location = new Point(10, 15);
+            pn1.Margin = new Padding(3, 2, 3, 2);
             pn1.Name = "pn1";
-            pn1.Padding = new Padding(10);
-            pn1.Size = new Size(221, 45);
+            pn1.Padding = new Padding(9, 8, 9, 8);
+            pn1.Size = new Size(219, 34);
             pn1.TabIndex = 24;
             // 
             // pic_prm2
@@ -213,8 +217,9 @@
             pic_prm2.BackColor = Color.White;
             pic_prm2.Image = (Image)resources.GetObject("pic_prm2.Image");
             pic_prm2.Location = new Point(-2, -1);
+            pic_prm2.Margin = new Padding(3, 2, 3, 2);
             pic_prm2.Name = "pic_prm2";
-            pic_prm2.Size = new Size(50, 45);
+            pic_prm2.Size = new Size(44, 34);
             pic_prm2.SizeMode = PictureBoxSizeMode.Zoom;
             pic_prm2.TabIndex = 23;
             pic_prm2.TabStop = false;
@@ -224,10 +229,11 @@
             txt_busqPrm.BorderStyle = BorderStyle.None;
             txt_busqPrm.Font = new Font("Segoe UI", 10.8F);
             txt_busqPrm.ForeColor = Color.Gray;
-            txt_busqPrm.Location = new Point(5, 9);
+            txt_busqPrm.Location = new Point(39, 7);
+            txt_busqPrm.Margin = new Padding(3, 2, 3, 2);
             txt_busqPrm.Name = "txt_busqPrm";
             txt_busqPrm.PlaceholderText = "          Buscar producto";
-            txt_busqPrm.Size = new Size(201, 24);
+            txt_busqPrm.Size = new Size(176, 20);
             txt_busqPrm.TabIndex = 7;
             // 
             // pn3
@@ -235,10 +241,11 @@
             pn3.BackColor = Color.White;
             pn3.BorderStyle = BorderStyle.FixedSingle;
             pn3.Controls.Add(cmbP2);
-            pn3.Location = new Point(674, 22);
+            pn3.Location = new Point(620, 16);
+            pn3.Margin = new Padding(3, 2, 3, 2);
             pn3.Name = "pn3";
-            pn3.Padding = new Padding(10);
-            pn3.Size = new Size(156, 45);
+            pn3.Padding = new Padding(9, 8, 9, 8);
+            pn3.Size = new Size(137, 34);
             pn3.TabIndex = 27;
             // 
             // cmbP2
@@ -246,9 +253,10 @@
             cmbP2.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbP2.FlatStyle = FlatStyle.Flat;
             cmbP2.FormattingEnabled = true;
-            cmbP2.Location = new Point(13, 9);
+            cmbP2.Location = new Point(11, 7);
+            cmbP2.Margin = new Padding(3, 2, 3, 2);
             cmbP2.Name = "cmbP2";
-            cmbP2.Size = new Size(130, 28);
+            cmbP2.Size = new Size(114, 23);
             cmbP2.TabIndex = 14;
             // 
             // btn_limpP
@@ -259,12 +267,14 @@
             btn_limpP.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btn_limpP.ForeColor = Color.Black;
             btn_limpP.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_limpP.Location = new Point(1006, 22);
+            btn_limpP.Location = new Point(1022, 16);
+            btn_limpP.Margin = new Padding(3, 2, 3, 2);
             btn_limpP.Name = "btn_limpP";
-            btn_limpP.Size = new Size(140, 47);
+            btn_limpP.Size = new Size(128, 37);
             btn_limpP.TabIndex = 29;
             btn_limpP.Text = "Limpiar";
             btn_limpP.UseVisualStyleBackColor = false;
+            btn_limpP.Click += btn_limpP_Click;
             // 
             // lbl_prm4
             // 
@@ -272,9 +282,9 @@
             lbl_prm4.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_prm4.ForeColor = Color.Black;
             lbl_prm4.ImageAlign = ContentAlignment.MiddleLeft;
-            lbl_prm4.Location = new Point(599, 33);
+            lbl_prm4.Location = new Point(548, 25);
             lbl_prm4.Name = "lbl_prm4";
-            lbl_prm4.Size = new Size(78, 22);
+            lbl_prm4.Size = new Size(66, 18);
             lbl_prm4.TabIndex = 28;
             lbl_prm4.Text = "Estado:";
             lbl_prm4.TextAlign = ContentAlignment.MiddleLeft;
@@ -284,10 +294,11 @@
             pn2.BackColor = Color.White;
             pn2.BorderStyle = BorderStyle.FixedSingle;
             pn2.Controls.Add(cmbP);
-            pn2.Location = new Point(427, 22);
+            pn2.Location = new Point(396, 13);
+            pn2.Margin = new Padding(3, 2, 3, 2);
             pn2.Name = "pn2";
-            pn2.Padding = new Padding(10);
-            pn2.Size = new Size(166, 45);
+            pn2.Padding = new Padding(9, 8, 9, 8);
+            pn2.Size = new Size(146, 34);
             pn2.TabIndex = 25;
             // 
             // cmbP
@@ -295,9 +306,10 @@
             cmbP.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbP.FlatStyle = FlatStyle.Flat;
             cmbP.FormattingEnabled = true;
-            cmbP.Location = new Point(13, 9);
+            cmbP.Location = new Point(11, 7);
+            cmbP.Margin = new Padding(3, 2, 3, 2);
             cmbP.Name = "cmbP";
-            cmbP.Size = new Size(138, 28);
+            cmbP.Size = new Size(121, 23);
             cmbP.TabIndex = 14;
             // 
             // btn_busP
@@ -309,12 +321,14 @@
             btn_busP.ForeColor = Color.White;
             btn_busP.Image = (Image)resources.GetObject("btn_busP.Image");
             btn_busP.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_busP.Location = new Point(850, 22);
+            btn_busP.Location = new Point(879, 15);
+            btn_busP.Margin = new Padding(3, 2, 3, 2);
             btn_busP.Name = "btn_busP";
-            btn_busP.Size = new Size(140, 47);
+            btn_busP.Size = new Size(128, 37);
             btn_busP.TabIndex = 23;
             btn_busP.Text = "     Buscar";
             btn_busP.UseVisualStyleBackColor = false;
+            btn_busP.Click += btn_busP_Click;
             // 
             // btn_aggP
             // 
@@ -324,9 +338,10 @@
             btn_aggP.ForeColor = Color.White;
             btn_aggP.Image = (Image)resources.GetObject("btn_aggP.Image");
             btn_aggP.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_aggP.Location = new Point(926, 14);
+            btn_aggP.Location = new Point(957, 8);
+            btn_aggP.Margin = new Padding(3, 2, 3, 2);
             btn_aggP.Name = "btn_aggP";
-            btn_aggP.Size = new Size(248, 47);
+            btn_aggP.Size = new Size(217, 38);
             btn_aggP.TabIndex = 35;
             btn_aggP.Text = "      Agregar promoción";
             btn_aggP.UseVisualStyleBackColor = false;
@@ -335,18 +350,20 @@
             // lblry
             // 
             lblry.BackColor = Color.FromArgb(0, 176, 80);
-            lblry.Location = new Point(75, 54);
+            lblry.Location = new Point(66, 40);
+            lblry.Margin = new Padding(3, 2, 3, 2);
             lblry.Name = "lblry";
-            lblry.Size = new Size(284, 4);
+            lblry.Size = new Size(248, 3);
             lblry.TabIndex = 34;
             lblry.TabStop = false;
             // 
             // pic_prm
             // 
             pic_prm.Image = (Image)resources.GetObject("pic_prm.Image");
-            pic_prm.Location = new Point(9, 11);
+            pic_prm.Location = new Point(8, 8);
+            pic_prm.Margin = new Padding(3, 2, 3, 2);
             pic_prm.Name = "pic_prm";
-            pic_prm.Size = new Size(60, 50);
+            pic_prm.Size = new Size(52, 38);
             pic_prm.SizeMode = PictureBoxSizeMode.Zoom;
             pic_prm.TabIndex = 33;
             pic_prm.TabStop = false;
@@ -357,9 +374,9 @@
             lbl_prm1.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_prm1.ForeColor = Color.FromArgb(0, 176, 80);
             lbl_prm1.ImageAlign = ContentAlignment.MiddleLeft;
-            lbl_prm1.Location = new Point(69, 22);
+            lbl_prm1.Location = new Point(60, 16);
             lbl_prm1.Name = "lbl_prm1";
-            lbl_prm1.Size = new Size(299, 29);
+            lbl_prm1.Size = new Size(239, 24);
             lbl_prm1.TabIndex = 32;
             lbl_prm1.Text = "Gestión de promociones";
             lbl_prm1.TextAlign = ContentAlignment.MiddleLeft;
@@ -374,11 +391,12 @@
             // 
             // FormPromociones
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1186, 651);
             Controls.Add(pnl_prm);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FormPromociones";
             Text = "FormPromociones";
             Load += FormPromociones_Load;

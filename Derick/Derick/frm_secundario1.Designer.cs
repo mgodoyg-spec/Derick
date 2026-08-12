@@ -53,8 +53,9 @@
             pnl_sc1.Controls.Add(pnl_enc1);
             pnl_sc1.Dock = DockStyle.Fill;
             pnl_sc1.Location = new Point(0, 0);
+            pnl_sc1.Margin = new Padding(3, 2, 3, 2);
             pnl_sc1.Name = "pnl_sc1";
-            pnl_sc1.Size = new Size(448, 298);
+            pnl_sc1.Size = new Size(392, 224);
             pnl_sc1.TabIndex = 0;
             // 
             // pnl_cd1
@@ -63,9 +64,10 @@
             pnl_cd1.Controls.Add(lbl2);
             pnl_cd1.Controls.Add(txt_cd);
             pnl_cd1.Dock = DockStyle.Fill;
-            pnl_cd1.Location = new Point(0, 81);
+            pnl_cd1.Location = new Point(0, 62);
+            pnl_cd1.Margin = new Padding(3, 2, 3, 2);
             pnl_cd1.Name = "pnl_cd1";
-            pnl_cd1.Size = new Size(448, 217);
+            pnl_cd1.Size = new Size(392, 162);
             pnl_cd1.TabIndex = 4;
             // 
             // pnl_cd2
@@ -75,9 +77,10 @@
             pnl_cd2.Controls.Add(btnguardar);
             pnl_cd2.Controls.Add(btncerrar);
             pnl_cd2.Dock = DockStyle.Bottom;
-            pnl_cd2.Location = new Point(0, 122);
+            pnl_cd2.Location = new Point(0, 90);
+            pnl_cd2.Margin = new Padding(3, 2, 3, 2);
             pnl_cd2.Name = "pnl_cd2";
-            pnl_cd2.Size = new Size(448, 95);
+            pnl_cd2.Size = new Size(392, 72);
             pnl_cd2.TabIndex = 4;
             // 
             // btnguardar
@@ -89,9 +92,10 @@
             btnguardar.ForeColor = Color.White;
             btnguardar.Image = (Image)resources.GetObject("btnguardar.Image");
             btnguardar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnguardar.Location = new Point(234, 21);
+            btnguardar.Location = new Point(210, 16);
+            btnguardar.Margin = new Padding(3, 2, 3, 2);
             btnguardar.Name = "btnguardar";
-            btnguardar.Size = new Size(176, 47);
+            btnguardar.Size = new Size(154, 43);
             btnguardar.TabIndex = 1;
             btnguardar.Text = "Guardar";
             btnguardar.UseVisualStyleBackColor = false;
@@ -106,9 +110,10 @@
             btncerrar.ForeColor = Color.FromArgb(0, 102, 255);
             btncerrar.Image = (Image)resources.GetObject("btncerrar.Image");
             btncerrar.ImageAlign = ContentAlignment.MiddleLeft;
-            btncerrar.Location = new Point(20, 21);
+            btncerrar.Location = new Point(18, 16);
+            btncerrar.Margin = new Padding(3, 2, 3, 2);
             btncerrar.Name = "btncerrar";
-            btncerrar.Size = new Size(176, 47);
+            btncerrar.Size = new Size(154, 43);
             btncerrar.TabIndex = 0;
             btncerrar.Text = "Cancelar";
             btncerrar.UseVisualStyleBackColor = false;
@@ -118,20 +123,21 @@
             // 
             lbl2.AutoSize = true;
             lbl2.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl2.Location = new Point(12, 24);
+            lbl2.Location = new Point(10, 18);
             lbl2.Name = "lbl2";
-            lbl2.Size = new Size(155, 22);
+            lbl2.Size = new Size(127, 18);
             lbl2.TabIndex = 2;
             lbl2.Text = "Nombre de la talla";
             // 
             // txt_cd
             // 
             txt_cd.CharacterCasing = CharacterCasing.Upper;
-            txt_cd.Location = new Point(12, 49);
+            txt_cd.Location = new Point(10, 37);
+            txt_cd.Margin = new Padding(3, 2, 3, 2);
             txt_cd.MaxLength = 10;
             txt_cd.Name = "txt_cd";
             txt_cd.PlaceholderText = "Ej: XXL, XXXL";
-            txt_cd.Size = new Size(209, 27);
+            txt_cd.Size = new Size(183, 23);
             txt_cd.TabIndex = 3;
             // 
             // pnl_enc1
@@ -142,39 +148,42 @@
             pnl_enc1.Controls.Add(pic_ntll);
             pnl_enc1.Dock = DockStyle.Top;
             pnl_enc1.Location = new Point(0, 0);
+            pnl_enc1.Margin = new Padding(3, 2, 3, 2);
             pnl_enc1.Name = "pnl_enc1";
-            pnl_enc1.Size = new Size(448, 81);
+            pnl_enc1.Size = new Size(392, 62);
             pnl_enc1.TabIndex = 0;
             // 
             // lbl_sc
             // 
             lbl_sc.AutoSize = true;
             lbl_sc.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_sc.Location = new Point(82, 27);
+            lbl_sc.Location = new Point(72, 20);
             lbl_sc.Name = "lbl_sc";
-            lbl_sc.Size = new Size(185, 22);
+            lbl_sc.Size = new Size(151, 18);
             lbl_sc.TabIndex = 2;
             lbl_sc.Text = "Agregar nueva talla";
             // 
             // pic_ntll
             // 
             pic_ntll.Image = (Image)resources.GetObject("pic_ntll.Image");
-            pic_ntll.Location = new Point(11, 11);
+            pic_ntll.Location = new Point(10, 8);
+            pic_ntll.Margin = new Padding(3, 2, 3, 2);
             pic_ntll.Name = "pic_ntll";
-            pic_ntll.Size = new Size(65, 58);
+            pic_ntll.Size = new Size(57, 44);
             pic_ntll.SizeMode = PictureBoxSizeMode.Zoom;
             pic_ntll.TabIndex = 1;
             pic_ntll.TabStop = false;
             // 
             // frm_secundario1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             BackgroundImageLayout = ImageLayout.None;
-            ClientSize = new Size(448, 298);
+            ClientSize = new Size(392, 224);
             Controls.Add(pnl_sc1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "frm_secundario1";
             Text = "frm_secundario1";
             Load += frm_secundario1_Load;
