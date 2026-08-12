@@ -67,6 +67,9 @@
     <Compile Update="FrmMenuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FrmMiPerfil.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FrmNuevaVenta.cs">
       <SubType>Form</SubType>
     </Compile>
