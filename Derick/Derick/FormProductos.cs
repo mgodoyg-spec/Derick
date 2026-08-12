@@ -86,15 +86,15 @@ namespace Derick
             dvg_agg.AutoSizeColumnsMode =
             DataGridViewAutoSizeColumnsMode.Fill;
 
-            dvg_agg.Columns["clCodigo"].FillWeight = 13;
-            dvg_agg.Columns["clImagen"].FillWeight = 10;
-            dvg_agg.Columns["clNombreProducto"].FillWeight = 17;
-            dvg_agg.Columns["clCategoria"].FillWeight = 13;
-            dvg_agg.Columns["clTallas"].FillWeight = 9;
-            dvg_agg.Columns["clColores"].FillWeight = 11;
-            dvg_agg.Columns["clPrecio"].FillWeight = 9;
-            dvg_agg.Columns["clStock"].FillWeight = 8;
-            dvg_agg.Columns["clEstado"].FillWeight = 9;
+            dvg_agg.Columns["clCodigo"].FillWeight = 8;
+            dvg_agg.Columns["clImagen"].FillWeight = 12;
+            dvg_agg.Columns["clNombreProducto"].FillWeight = 20;
+            dvg_agg.Columns["clCategoria"].FillWeight = 12;
+            dvg_agg.Columns["clTallas"].FillWeight = 20;
+            dvg_agg.Columns["clColores"].FillWeight = 13;
+            dvg_agg.Columns["clPrecio"].FillWeight = 18;
+            dvg_agg.Columns["clStock"].FillWeight = 10;
+            dvg_agg.Columns["clEstado"].FillWeight = 8;
 
             dvg_agg.Columns["clEditar"].FillWeight = 8;
             dvg_agg.Columns["clEliminar"].FillWeight = 8;
