@@ -386,8 +386,7 @@
             img_promociones.ColorDepth = ColorDepth.Depth32Bit;
             img_promociones.ImageStream = (ImageListStreamer)resources.GetObject("img_promociones.ImageStream");
             img_promociones.TransparentColor = Color.Transparent;
-            img_promociones.Images.SetKeyName(0, "editar (1).png");
-            img_promociones.Images.SetKeyName(1, "contenedor-de-basura.png");
+            img_promociones.Images.SetKeyName(0, "eliminar1.png");
             // 
             // FormPromociones
             // 

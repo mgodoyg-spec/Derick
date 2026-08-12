@@ -400,9 +400,7 @@
             img_icons.ColorDepth = ColorDepth.Depth32Bit;
             img_icons.ImageStream = (ImageListStreamer)resources.GetObject("img_icons.ImageStream");
             img_icons.TransparentColor = Color.Transparent;
-            img_icons.Images.SetKeyName(0, "editar (1).png");
-            img_icons.Images.SetKeyName(1, "contenedor-de-basura.png");
-            img_icons.Images.SetKeyName(2, "ojo2.png");
+            img_icons.Images.SetKeyName(0, "eliminar1.png");
             // 
             // FormProductos
             // 
