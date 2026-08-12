@@ -107,5 +107,34 @@ namespace Derick
                 return false;
             }
         }
+        public int Ins_RetrID(string tabla, string campos, string datos)
+        {
+            try
+            {
+                if (abrirConexion())
+                {
+                    string sql =
+                        "INSERT INTO " + tabla +
+                        " (" + campos + ") " +
+                        "VALUES (" + datos + "); " +
+                        "SELECT CAST(SCOPE_IDENTITY() AS INT);";
+
+                    SqlCommand cmd = new SqlCommand(sql, oCon);
+
+                    int id = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    cerrarConexion();
+
+                    return id;
+                }
+
+                return -1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return -1;
+            }
+        }
     }
 }
