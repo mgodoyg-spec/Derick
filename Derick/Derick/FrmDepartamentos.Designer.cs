@@ -109,6 +109,7 @@
             dgvDepa.RowHeadersWidth = 51;
             dgvDepa.Size = new Size(1126, 510);
             dgvDepa.TabIndex = 28;
+            dgvDepa.CellContentClick += dgvDepa_CellContentClick;
             // 
             // clCodigo
             // 
@@ -193,6 +194,7 @@
             btnNuevoDepa.Text = "Nuevo Departamento";
             btnNuevoDepa.TextAlign = ContentAlignment.MiddleRight;
             btnNuevoDepa.UseVisualStyleBackColor = false;
+            btnNuevoDepa.Click += btnNuevoDepa_Click;
             // 
             // imlIcons
             // 
@@ -241,6 +243,7 @@
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.TextAlign = ContentAlignment.MiddleRight;
             btnLimpiar.UseVisualStyleBackColor = false;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
             // txtBuscar
             // 
@@ -252,6 +255,7 @@
             txtBuscar.Size = new Size(330, 32);
             txtBuscar.TabIndex = 0;
             txtBuscar.Text = "Buscar";
+            txtBuscar.TextChanged += txtBuscar_TextChanged;
             // 
             // pbxBuscarSucursal
             // 
