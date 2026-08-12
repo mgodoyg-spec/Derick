@@ -18,6 +18,8 @@ namespace Derick
 
         private void FormProveedores_Load(object sender, EventArgs e)
         {
+            CargarEstadosProveedor();
+            CargarOrdenProveedor();
             CargarProveedores();
         }
         private void C_Proveedor()
@@ -73,17 +75,11 @@ namespace Derick
             dgvProveedor.Columns["clEstado"].FillWeight = 12;
             dgvProveedor.Columns["clEditar"].FillWeight = 8;
             dgvProveedor.Columns["clEliminar"].FillWeight = 8;
-            // ==============================
-            // EDITAR
-            // ==============================
             DataGridViewImageColumn editar = (DataGridViewImageColumn)dgvProveedor.Columns["clEditar"];
-            editar.Image = imgProveedor.Images[0];
+            editar.Image = Properties.Resources.editarrbtn;
             editar.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            // ==============================
-            // ELIMINAR
-            // ==============================
-            DataGridViewImageColumn eliminar = (DataGridViewImageColumn)dgvProveedor.Columns["clEliminar"];
-            eliminar.Image = imgProveedor.Images[1];
+            DataGridViewImageColumn eliminar = (DataGridViewImageColumn)dgvProveedor.Columns["clEliminar"]; 
+            eliminar.Image = imgProveedor.Images[0];
             eliminar.ImageLayout = DataGridViewImageCellLayout.Zoom;
             // ==============================
             // CENTRAR COLUMNAS
@@ -143,7 +139,117 @@ namespace Derick
                 );
             }
         }
+        private void FiltrarProveedores()
+        {
+            string texto = txt01.Text.Trim();
+            string estado = cmb01.Text.Trim();
+            string ordenar = cmb02.Text.Trim();
 
+            string sql = @"
+        SELECT
+            IdProveedor,
+            Nombre,
+            Contacto,
+            Telefono,
+            Correo,
+            Estado
+        FROM Proveedores
+        WHERE 1 = 1
+    ";
+
+            // Buscar por varios campos
+            if (!string.IsNullOrWhiteSpace(texto))
+            {
+                sql +=
+                    $" AND (Nombre LIKE '%{texto}%' " +
+                    $"OR Contacto LIKE '%{texto}%' " +
+                    $"OR Telefono LIKE '%{texto}%' " +
+                    $"OR Correo LIKE '%{texto}%')";
+            }
+
+            // Filtrar por estado
+            if (estado != "Todos" &&
+                !string.IsNullOrWhiteSpace(estado))
+            {
+                if (estado == "Activo")
+                    sql += " AND Estado = 1";
+                else if (estado == "Inactivo")
+                    sql += " AND Estado = 0";
+            }
+
+            // Ordenar
+            if (ordenar == "Nombre A-Z")
+                sql += " ORDER BY Nombre ASC";
+            else if (ordenar == "Nombre Z-A")
+                sql += " ORDER BY Nombre DESC";
+            else if (ordenar == "Más recientes")
+                sql += " ORDER BY IdProveedor DESC";
+            else
+                sql += " ORDER BY IdProveedor ASC";
+
+            csConectaSQL conexion = new csConectaSQL();
+
+            DataTable dt = conexion.RetornaRegistros(sql);
+
+            if (dt == null)
+                return;
+
+            dgvProveedor.Rows.Clear();
+
+            foreach (DataRow fila in dt.Rows)
+            {
+                string estadoTexto =
+                    Convert.ToBoolean(fila["Estado"])
+                    ? "Activo"
+                    : "Inactivo";
+
+                dgvProveedor.Rows.Add(
+                    fila["IdProveedor"].ToString(),
+                    fila["Nombre"].ToString(),
+                    fila["Contacto"].ToString(),
+                    fila["Telefono"].ToString(),
+                    fila["Correo"].ToString(),
+                    estadoTexto,
+                    null,
+                    null
+                );
+            }
+        }
+        private void CargarEstadosProveedor()
+        {
+            cmb01.Items.Clear();
+
+            cmb01.Items.Add("Todos");
+            cmb01.Items.Add("Activo");
+            cmb01.Items.Add("Inactivo");
+
+            cmb01.SelectedIndex = 0;
+        }
+        private void CargarOrdenProveedor()
+        {
+            cmb02.Items.Clear();
+
+            cmb02.Items.Add("Predeterminado");
+            cmb02.Items.Add("Nombre A-Z");
+            cmb02.Items.Add("Nombre Z-A");
+            cmb02.Items.Add("Más recientes");
+
+            cmb02.SelectedIndex = 0;
+        }
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            FiltrarProveedores();
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txt01.Clear();
+
+            cmb01.SelectedIndex = 0;
+            cmb02.SelectedIndex = 0;
+
+            CargarProveedores();
+        }
         private void btn_ctg1_Click(object sender, EventArgs e)
         {
             FormAgg_Proveedores frm_aggPR = new FormAgg_Proveedores();

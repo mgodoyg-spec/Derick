@@ -56,8 +56,9 @@
             pnl_clr.Controls.Add(pnl2);
             pnl_clr.Dock = DockStyle.Fill;
             pnl_clr.Location = new Point(0, 0);
+            pnl_clr.Margin = new Padding(3, 2, 3, 2);
             pnl_clr.Name = "pnl_clr";
-            pnl_clr.Size = new Size(430, 339);
+            pnl_clr.Size = new Size(376, 254);
             pnl_clr.TabIndex = 0;
             // 
             // pnl1
@@ -69,9 +70,10 @@
             pnl1.Controls.Add(txt_clr);
             pnl1.Controls.Add(pnl3);
             pnl1.Dock = DockStyle.Fill;
-            pnl1.Location = new Point(0, 81);
+            pnl1.Location = new Point(0, 62);
+            pnl1.Margin = new Padding(3, 2, 3, 2);
             pnl1.Name = "pnl1";
-            pnl1.Size = new Size(430, 258);
+            pnl1.Size = new Size(376, 192);
             pnl1.TabIndex = 1;
             // 
             // btn_elig
@@ -82,9 +84,10 @@
             btn_elig.ForeColor = Color.FromArgb(0, 102, 255);
             btn_elig.Image = (Image)resources.GetObject("btn_elig.Image");
             btn_elig.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_elig.Location = new Point(123, 112);
+            btn_elig.Location = new Point(108, 84);
+            btn_elig.Margin = new Padding(3, 2, 3, 2);
             btn_elig.Name = "btn_elig";
-            btn_elig.Size = new Size(161, 42);
+            btn_elig.Size = new Size(141, 32);
             btn_elig.TabIndex = 8;
             btn_elig.Text = "      Elegir color";
             btn_elig.UseVisualStyleBackColor = true;
@@ -93,18 +96,19 @@
             // pnl_clr1
             // 
             pnl_clr1.BorderStyle = BorderStyle.FixedSingle;
-            pnl_clr1.Location = new Point(12, 100);
+            pnl_clr1.Location = new Point(10, 75);
+            pnl_clr1.Margin = new Padding(3, 2, 3, 2);
             pnl_clr1.Name = "pnl_clr1";
-            pnl_clr1.Size = new Size(82, 66);
+            pnl_clr1.Size = new Size(72, 50);
             pnl_clr1.TabIndex = 7;
             // 
             // lcl_clr3
             // 
             lcl_clr3.AutoSize = true;
             lcl_clr3.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lcl_clr3.Location = new Point(12, 75);
+            lcl_clr3.Location = new Point(10, 56);
             lcl_clr3.Name = "lcl_clr3";
-            lcl_clr3.Size = new Size(98, 22);
+            lcl_clr3.Size = new Size(78, 18);
             lcl_clr3.TabIndex = 6;
             lcl_clr3.Text = "Vista privia";
             // 
@@ -112,19 +116,20 @@
             // 
             lbl_clr2.AutoSize = true;
             lbl_clr2.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_clr2.Location = new Point(12, 11);
+            lbl_clr2.Location = new Point(10, 8);
             lbl_clr2.Name = "lbl_clr2";
-            lbl_clr2.Size = new Size(146, 22);
+            lbl_clr2.Size = new Size(123, 18);
             lbl_clr2.TabIndex = 4;
             lbl_clr2.Text = "Nombre del color";
             // 
             // txt_clr
             // 
-            txt_clr.Location = new Point(12, 36);
+            txt_clr.Location = new Point(10, 27);
+            txt_clr.Margin = new Padding(3, 2, 3, 2);
             txt_clr.MaxLength = 10;
             txt_clr.Name = "txt_clr";
             txt_clr.PlaceholderText = "Ej: Azul marino";
-            txt_clr.Size = new Size(209, 27);
+            txt_clr.Size = new Size(183, 23);
             txt_clr.TabIndex = 5;
             txt_clr.KeyPress += txt_clr_KeyPress;
             // 
@@ -135,9 +140,10 @@
             pnl3.Controls.Add(btn_guardar);
             pnl3.Controls.Add(btn_cerrar);
             pnl3.Dock = DockStyle.Bottom;
-            pnl3.Location = new Point(0, 172);
+            pnl3.Location = new Point(0, 126);
+            pnl3.Margin = new Padding(3, 2, 3, 2);
             pnl3.Name = "pnl3";
-            pnl3.Size = new Size(430, 86);
+            pnl3.Size = new Size(376, 66);
             pnl3.TabIndex = 0;
             // 
             // btn_guardar
@@ -149,9 +155,10 @@
             btn_guardar.ForeColor = Color.White;
             btn_guardar.Image = (Image)resources.GetObject("btn_guardar.Image");
             btn_guardar.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_guardar.Location = new Point(236, 17);
+            btn_guardar.Location = new Point(206, 13);
+            btn_guardar.Margin = new Padding(3, 2, 3, 2);
             btn_guardar.Name = "btn_guardar";
-            btn_guardar.Size = new Size(176, 47);
+            btn_guardar.Size = new Size(154, 40);
             btn_guardar.TabIndex = 7;
             btn_guardar.Text = "Guardar";
             btn_guardar.UseVisualStyleBackColor = false;
@@ -166,9 +173,10 @@
             btn_cerrar.ForeColor = Color.FromArgb(0, 102, 255);
             btn_cerrar.Image = (Image)resources.GetObject("btn_cerrar.Image");
             btn_cerrar.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_cerrar.Location = new Point(22, 17);
+            btn_cerrar.Location = new Point(19, 13);
+            btn_cerrar.Margin = new Padding(3, 2, 3, 2);
             btn_cerrar.Name = "btn_cerrar";
-            btn_cerrar.Size = new Size(176, 47);
+            btn_cerrar.Size = new Size(154, 40);
             btn_cerrar.TabIndex = 6;
             btn_cerrar.Text = "Cancelar";
             btn_cerrar.UseVisualStyleBackColor = false;
@@ -182,37 +190,40 @@
             pnl2.Controls.Add(pic_ncl);
             pnl2.Dock = DockStyle.Top;
             pnl2.Location = new Point(0, 0);
+            pnl2.Margin = new Padding(3, 2, 3, 2);
             pnl2.Name = "pnl2";
-            pnl2.Size = new Size(430, 81);
+            pnl2.Size = new Size(376, 62);
             pnl2.TabIndex = 0;
             // 
             // lbl_clr1
             // 
             lbl_clr1.AutoSize = true;
             lbl_clr1.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_clr1.Location = new Point(83, 32);
+            lbl_clr1.Location = new Point(73, 24);
             lbl_clr1.Name = "lbl_clr1";
-            lbl_clr1.Size = new Size(219, 22);
+            lbl_clr1.Size = new Size(183, 18);
             lbl_clr1.TabIndex = 3;
             lbl_clr1.Text = "Agregar un nuevo color";
             // 
             // pic_ncl
             // 
             pic_ncl.Image = (Image)resources.GetObject("pic_ncl.Image");
-            pic_ncl.Location = new Point(12, 12);
+            pic_ncl.Location = new Point(10, 9);
+            pic_ncl.Margin = new Padding(3, 2, 3, 2);
             pic_ncl.Name = "pic_ncl";
-            pic_ncl.Size = new Size(65, 58);
+            pic_ncl.Size = new Size(57, 44);
             pic_ncl.SizeMode = PictureBoxSizeMode.Zoom;
             pic_ncl.TabIndex = 2;
             pic_ncl.TabStop = false;
             // 
             // frm_secundario2
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(430, 339);
+            ClientSize = new Size(376, 254);
             Controls.Add(pnl_clr);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "frm_secundario2";
             Text = "frm_secundario2";
             pnl_clr.ResumeLayout(false);

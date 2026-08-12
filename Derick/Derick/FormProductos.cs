@@ -17,10 +17,8 @@ namespace Derick
 
         private void FormProductos_Load_1(object sender, EventArgs e)
         {
-            cmb_agg1.Items.Add("Todas");
-            cmb_agg1.SelectedIndex = 0;
-            cmb_agg2.Items.Add("Todos");
-            cmb_agg2.SelectedIndex = 0;
+            CargarCategoriasFiltro();
+            CargarEstadosFiltro();
 
             /////////////////////////////////////////////////////////
 
@@ -102,22 +100,14 @@ namespace Derick
             dvg_agg.Columns["clEliminar"].FillWeight = 8;
             dvg_agg.Columns["clVerTodo"].FillWeight = 8;
 
-            // Editar
-            DataGridViewImageColumn editar =
-            (DataGridViewImageColumn)dvg_agg.Columns["clEditar"];
-            editar.Image = img_icons.Images[0];
+            DataGridViewImageColumn editar = (DataGridViewImageColumn)dvg_agg.Columns["clEditar"];
+            editar.Image = Properties.Resources.editarrbtn;
             editar.ImageLayout = DataGridViewImageCellLayout.Zoom;
-
-            // Eliminar
-            DataGridViewImageColumn eliminar =
-            (DataGridViewImageColumn)dvg_agg.Columns["clEliminar"];
-            eliminar.Image = img_icons.Images[1];
+            DataGridViewImageColumn eliminar =(DataGridViewImageColumn)dvg_agg.Columns["clEliminar"];
+            eliminar.Image = img_icons.Images[0];
             eliminar.ImageLayout = DataGridViewImageCellLayout.Zoom;
-
-            // Ver todo
-            DataGridViewImageColumn ver =
-            (DataGridViewImageColumn)dvg_agg.Columns["clVerTodo"];
-            ver.Image = img_icons.Images[2];
+            DataGridViewImageColumn ver = (DataGridViewImageColumn)dvg_agg.Columns["clVerTodo"];
+            ver.Image = Properties.Resources.ojo;
             ver.ImageLayout = DataGridViewImageCellLayout.Zoom;
 
             string[] columnasCentro =
@@ -217,6 +207,123 @@ namespace Derick
                     null
                 );
             }
+        }
+        private void FiltrarProductos()
+        {
+            string texto = txt1.Text.Trim();
+            string categoria = cmb_agg1.Text.Trim();
+            string estado = cmb_agg2.Text.Trim();
+
+            string sql = @"
+        SELECT
+            Codigo,
+            Nombre,
+            Categoria,
+            Talla,
+            Color,
+            Precio,
+            Estado
+        FROM Productos
+        WHERE 1 = 1
+    ";
+
+            if (!string.IsNullOrWhiteSpace(texto))
+            {
+                sql += $" AND (Codigo LIKE '%{texto}%' OR Nombre LIKE '%{texto}%')";
+            }
+
+            if (categoria != "Todas" && !string.IsNullOrWhiteSpace(categoria))
+            {
+                sql += $" AND Categoria = '{categoria}'";
+            }
+
+            if (estado != "Todos" && !string.IsNullOrWhiteSpace(estado))
+            {
+                if (estado == "Activo")
+                    sql += " AND Estado = 1";
+                else if (estado == "Inactivo")
+                    sql += " AND Estado = 0";
+            }
+
+            sql += " ORDER BY Codigo";
+
+            csConectaSQL conexion = new csConectaSQL();
+
+            DataTable dt = conexion.RetornaRegistros(sql);
+
+            if (dt == null)
+                return;
+
+            dvg_agg.Rows.Clear();
+
+            foreach (DataRow fila in dt.Rows)
+            {
+                string estadoTexto =
+                    Convert.ToBoolean(fila["Estado"])
+                    ? "Activo"
+                    : "Inactivo";
+
+                decimal precio = Convert.ToDecimal(fila["Precio"]);
+
+                dvg_agg.Rows.Add(
+                    fila["Codigo"].ToString(),
+                    null,
+                    fila["Nombre"].ToString(),
+                    fila["Categoria"].ToString(),
+                    fila["Talla"].ToString(),
+                    fila["Color"].ToString(),
+                    "$" + precio.ToString("0.00"),
+                    "0",
+                    estadoTexto,
+                    null,
+                    null,
+                    null
+                );
+            }
+        }
+        private void CargarCategoriasFiltro()
+        {
+            cmb_agg1.Items.Clear();
+            cmb_agg1.Items.Add("Todas");
+
+            csConectaSQL conexion = new csConectaSQL();
+
+            DataTable dt = conexion.RetornaRegistros(
+                "SELECT Nombre FROM Categorias ORDER BY Nombre"
+            );
+
+            if (dt != null)
+            {
+                foreach (DataRow fila in dt.Rows)
+                {
+                    cmb_agg1.Items.Add(
+                        fila["Nombre"].ToString()
+                    );
+                }
+            }
+
+            cmb_agg1.SelectedIndex = 0;
+        }
+        private void CargarEstadosFiltro()
+        {
+            cmb_agg2.Items.Clear();
+
+            cmb_agg2.Items.Add("Todos");
+            cmb_agg2.Items.Add("Activo");
+            cmb_agg2.Items.Add("Inactivo");
+
+            cmb_agg2.SelectedIndex = 0;
+        }
+        private void btn_buscar_Click(object sender, EventArgs e)
+        {
+            FiltrarProductos();
+        }
+        private void btn_limpiar_Click(object sender, EventArgs e)
+        {
+            txt1.Clear();
+            cmb_agg1.SelectedIndex = 0;
+            cmb_agg2.SelectedIndex = 0;
+            CargarProductos();
         }
         private void button1_Click(object sender, EventArgs e)
         {
