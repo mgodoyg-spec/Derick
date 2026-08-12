@@ -182,7 +182,8 @@ namespace Derick
                 WHEN Estado = 1 THEN 'Activo'
                 ELSE 'Inactivo'
             END AS Estado,
-            RutaFoto
+            RutaFoto,
+            Foto
         FROM Empleados
         WHERE Nombres LIKE '%" + filtroEsc + @"%'
         AND ('" + deptoEsc + @"' = '' 
@@ -201,28 +202,46 @@ namespace Derick
             if (dt == null)
                 return;
 
-            // Crear columna temporal para guardar la imagen que verá el DataGridView
+            // Columna que mostrará la imagen en el DataGridView
             dt.Columns.Add("ImagenEmpleado", typeof(Image));
 
             foreach (DataRow fila in dt.Rows)
             {
-                string ruta = fila["RutaFoto"] == DBNull.Value
-                    ? ""
-                    : fila["RutaFoto"].ToString();
-
-                if (!string.IsNullOrWhiteSpace(ruta) &&
-                    System.IO.File.Exists(ruta))
+                // 1. PRIMERO: intentar cargar Foto desde SQL
+                if (fila["Foto"] != DBNull.Value)
                 {
-                    using (Image imgTemporal = Image.FromFile(ruta))
+                    byte[] bytesFoto = (byte[])fila["Foto"];
+
+                    using (System.IO.MemoryStream ms =
+                           new System.IO.MemoryStream(bytesFoto))
+                    using (Image imgTemporal = Image.FromStream(ms))
                     {
-                        // Hacemos una copia para que el archivo no quede bloqueado
-                        fila["ImagenEmpleado"] = new Bitmap(imgTemporal);
+                        fila["ImagenEmpleado"] =
+                            new Bitmap(imgTemporal);
                     }
                 }
                 else
                 {
-                    fila["ImagenEmpleado"] =
-                        Properties.Resources.person_icon_31846;
+                    // 2. RESPALDO: empleados antiguos con RutaFoto
+                    string ruta = fila["RutaFoto"] == DBNull.Value
+                        ? ""
+                        : fila["RutaFoto"].ToString();
+
+                    if (!string.IsNullOrWhiteSpace(ruta) &&
+                        System.IO.File.Exists(ruta))
+                    {
+                        using (Image imgTemporal = Image.FromFile(ruta))
+                        {
+                            fila["ImagenEmpleado"] =
+                                new Bitmap(imgTemporal);
+                        }
+                    }
+                    else
+                    {
+                        // 3. Si no existe ninguna imagen
+                        fila["ImagenEmpleado"] =
+                            Properties.Resources.person_icon_31846;
+                    }
                 }
             }
 
@@ -236,7 +255,7 @@ namespace Derick
             dgvEmpleados.Columns["clCorreo"].DataPropertyName = "Correo";
             dgvEmpleados.Columns["clEstado"].DataPropertyName = "Estado";
 
-            // La foto queda enlazada al DataTable
+            // Imagen enlazada al DataTable
             dgvEmpleados.Columns["clImagen"].DataPropertyName = "ImagenEmpleado";
 
             dgvEmpleados.DataSource = dt;
