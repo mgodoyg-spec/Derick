@@ -78,17 +78,11 @@ namespace Derick
             dgvPromociones.Columns["clDescripcion"].FillWeight = 17;
             dgvPromociones.Columns["clEditar"].FillWeight = 6;
             dgvPromociones.Columns["clEliminar"].FillWeight = 6;
-            // ==============================
-            // EDITAR
-            // ==============================
             DataGridViewImageColumn editar = (DataGridViewImageColumn)dgvPromociones.Columns["clEditar"];
-            editar.Image = img_promociones.Images[0];
+            editar.Image = Properties.Resources.editarrbtn;
             editar.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            // ==============================
-            // ELIMINAR
-            // ==============================
             DataGridViewImageColumn eliminar = (DataGridViewImageColumn)dgvPromociones.Columns["clEliminar"];
-            eliminar.Image = img_promociones.Images[1];
+            eliminar.Image = img_promociones.Images[0];
             eliminar.ImageLayout = DataGridViewImageCellLayout.Zoom;
             // ==============================
             // CENTRAR COLUMNAS
@@ -96,7 +90,7 @@ namespace Derick
             string[] columnasCentro =
             {
                 "clId",
-                "clNombrePromocion",
+                "clNombrePromocion", 
                 "clTipo",
                 "clDescuento",
                 "clFechaInicio",

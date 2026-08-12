@@ -367,8 +367,7 @@
             imgProveedor.ColorDepth = ColorDepth.Depth32Bit;
             imgProveedor.ImageStream = (ImageListStreamer)resources.GetObject("imgProveedor.ImageStream");
             imgProveedor.TransparentColor = Color.Transparent;
-            imgProveedor.Images.SetKeyName(0, "editar (1).png");
-            imgProveedor.Images.SetKeyName(1, "contenedor-de-basura.png");
+            imgProveedor.Images.SetKeyName(0, "eliminar1.png");
             // 
             // FormProveedores
             // 

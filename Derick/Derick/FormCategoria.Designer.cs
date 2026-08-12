@@ -362,8 +362,7 @@
             img_ctg.ColorDepth = ColorDepth.Depth32Bit;
             img_ctg.ImageStream = (ImageListStreamer)resources.GetObject("img_ctg.ImageStream");
             img_ctg.TransparentColor = Color.Transparent;
-            img_ctg.Images.SetKeyName(0, "editar (1).png");
-            img_ctg.Images.SetKeyName(1, "contenedor-de-basura.png");
+            img_ctg.Images.SetKeyName(0, "eliminar1.png");
             // 
             // FormCategoria
             // 

@@ -100,22 +100,14 @@ namespace Derick
             dvg_agg.Columns["clEliminar"].FillWeight = 8;
             dvg_agg.Columns["clVerTodo"].FillWeight = 8;
 
-            // Editar
-            DataGridViewImageColumn editar =
-            (DataGridViewImageColumn)dvg_agg.Columns["clEditar"];
-            editar.Image = img_icons.Images[0];
+            DataGridViewImageColumn editar = (DataGridViewImageColumn)dvg_agg.Columns["clEditar"];
+            editar.Image = Properties.Resources.editarrbtn;
             editar.ImageLayout = DataGridViewImageCellLayout.Zoom;
-
-            // Eliminar
-            DataGridViewImageColumn eliminar =
-            (DataGridViewImageColumn)dvg_agg.Columns["clEliminar"];
-            eliminar.Image = img_icons.Images[1];
+            DataGridViewImageColumn eliminar =(DataGridViewImageColumn)dvg_agg.Columns["clEliminar"];
+            eliminar.Image = img_icons.Images[0];
             eliminar.ImageLayout = DataGridViewImageCellLayout.Zoom;
-
-            // Ver todo
-            DataGridViewImageColumn ver =
-            (DataGridViewImageColumn)dvg_agg.Columns["clVerTodo"];
-            ver.Image = img_icons.Images[2];
+            DataGridViewImageColumn ver = (DataGridViewImageColumn)dvg_agg.Columns["clVerTodo"];
+            ver.Image = Properties.Resources.ojo;
             ver.ImageLayout = DataGridViewImageCellLayout.Zoom;
 
             string[] columnasCentro =

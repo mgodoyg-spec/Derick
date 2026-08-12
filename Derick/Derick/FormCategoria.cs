@@ -137,30 +137,12 @@ namespace Derick
                 DataGridViewImageCellLayout.Zoom;
 
 
-            // ==============================
-            // COLUMNA EDITAR
-            // ==============================
-
-            DataGridViewImageColumn editar =
-                (DataGridViewImageColumn)dgv_catg.Columns["clEditar"];
-
-            editar.Image = img_ctg.Images[0];
-
-            editar.ImageLayout =
-                DataGridViewImageCellLayout.Zoom;
-
-
-            // ==============================
-            // COLUMNA ELIMINAR
-            // ==============================
-
-            DataGridViewImageColumn eliminar =
-                (DataGridViewImageColumn)dgv_catg.Columns["clEliminar"];
-
-            eliminar.Image = img_ctg.Images[1];
-
-            eliminar.ImageLayout =
-                DataGridViewImageCellLayout.Zoom;
+            DataGridViewImageColumn editar = (DataGridViewImageColumn)dgv_catg.Columns["clEditar"];
+            editar.Image = Properties.Resources.editarrbtn;
+            editar.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            DataGridViewImageColumn eliminar = (DataGridViewImageColumn)dgv_catg.Columns["clEliminar"];
+            eliminar.Image = img_ctg.Images[0];
+            eliminar.ImageLayout = DataGridViewImageCellLayout.Zoom;
 
 
             // ==============================
