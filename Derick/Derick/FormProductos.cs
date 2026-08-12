@@ -56,7 +56,7 @@ namespace Derick
             dvg_agg.ColumnHeadersDefaultCellStyle.Alignment =
             DataGridViewContentAlignment.MiddleCenter;
 
-            dvg_agg.RowTemplate.Height = 55;
+            dvg_agg.RowTemplate.Height = 45;
 
             dvg_agg.DefaultCellStyle.Font =
             new Font("Segoe UI", 10);
@@ -104,7 +104,7 @@ namespace Derick
             editar.Image = Properties.Resources.editarrbtn;
             editar.ImageLayout = DataGridViewImageCellLayout.Zoom;
             DataGridViewImageColumn eliminar =(DataGridViewImageColumn)dvg_agg.Columns["clEliminar"];
-            eliminar.Image = img_icons.Images[0];
+            eliminar.Image = Properties.Resources.picEliminar;
             eliminar.ImageLayout = DataGridViewImageCellLayout.Zoom;
             DataGridViewImageColumn ver = (DataGridViewImageColumn)dvg_agg.Columns["clVerTodo"];
             ver.Image = Properties.Resources.ojo;
