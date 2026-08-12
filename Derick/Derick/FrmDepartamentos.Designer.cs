@@ -28,244 +28,284 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDepartamentos));
-            panel2 = new Panel();
+            pnlDepa = new Panel();
+            lblSalirV = new Label();
+            pnlDepar = new Panel();
+            dgvDepa = new DataGridView();
+            clCodigo = new DataGridViewTextBoxColumn();
+            clDepartamento = new DataGridViewTextBoxColumn();
+            clDescripcion = new DataGridViewTextBoxColumn();
+            clEmpleados = new DataGridViewTextBoxColumn();
+            clEstado = new DataGridViewTextBoxColumn();
+            clEditar = new DataGridViewImageColumn();
+            clEliminar = new DataGridViewImageColumn();
             pictureBox1 = new PictureBox();
-            label3 = new Label();
-            lblDepa = new Label();
-            btnDepa = new Button();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            pictureBox2 = new PictureBox();
-            textBox1 = new TextBox();
-            dgvDepartamentos = new DataGridView();
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            ColDepa = new DataGridViewTextBoxColumn();
-            ColDes = new DataGridViewTextBoxColumn();
-            ColEmple = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
-            dataGridViewImageColumn1 = new DataGridViewImageColumn();
-            dataGridViewImageColumn2 = new DataGridViewImageColumn();
-            panel3 = new Panel();
-            lblC3 = new Label();
-            panel2.SuspendLayout();
+            btnNuevoDepa = new Button();
+            imlIcons = new ImageList(components);
+            lblBuscarSucursal = new Label();
+            pnlBusqueda = new Panel();
+            btnLimpiar = new Button();
+            txtBuscar = new TextBox();
+            pbxBuscarSucursal = new PictureBox();
+            pnlDepa.SuspendLayout();
+            pnlDepar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvDepa).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dgvDepartamentos).BeginInit();
-            panel3.SuspendLayout();
+            pnlBusqueda.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pbxBuscarSucursal).BeginInit();
             SuspendLayout();
             // 
-            // panel2
+            // pnlDepa
             // 
-            panel2.BackColor = Color.White;
-            panel2.Controls.Add(panel3);
-            panel2.Controls.Add(btnDepa);
-            panel2.Controls.Add(flowLayoutPanel1);
-            panel2.Controls.Add(dgvDepartamentos);
-            panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(0, 0);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(1186, 700);
-            panel2.TabIndex = 29;
+            pnlDepa.Controls.Add(lblSalirV);
+            pnlDepa.Controls.Add(pnlDepar);
+            pnlDepa.Dock = DockStyle.Fill;
+            pnlDepa.Location = new Point(0, 0);
+            pnlDepa.Name = "pnlDepa";
+            pnlDepa.Size = new Size(1168, 604);
+            pnlDepa.TabIndex = 10;
+            // 
+            // lblSalirV
+            // 
+            lblSalirV.AutoSize = true;
+            lblSalirV.BackColor = Color.Transparent;
+            lblSalirV.Cursor = Cursors.Hand;
+            lblSalirV.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSalirV.ForeColor = Color.Red;
+            lblSalirV.Location = new Point(1138, 9);
+            lblSalirV.Name = "lblSalirV";
+            lblSalirV.Size = new Size(31, 29);
+            lblSalirV.TabIndex = 30;
+            lblSalirV.Text = "X";
+            lblSalirV.Click += lblSalirV_Click;
+            // 
+            // pnlDepar
+            // 
+            pnlDepar.Anchor = AnchorStyles.Left;
+            pnlDepar.BackColor = Color.White;
+            pnlDepar.Controls.Add(dgvDepa);
+            pnlDepar.Controls.Add(pictureBox1);
+            pnlDepar.Controls.Add(btnNuevoDepa);
+            pnlDepar.Controls.Add(lblBuscarSucursal);
+            pnlDepar.Controls.Add(pnlBusqueda);
+            pnlDepar.Controls.Add(pbxBuscarSucursal);
+            pnlDepar.Font = new Font("Calibri", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            pnlDepar.Location = new Point(4, 4);
+            pnlDepar.Margin = new Padding(4);
+            pnlDepar.Name = "pnlDepar";
+            pnlDepar.Size = new Size(1150, 630);
+            pnlDepar.TabIndex = 7;
+            // 
+            // dgvDepa
+            // 
+            dgvDepa.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            dgvDepa.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvDepa.Columns.AddRange(new DataGridViewColumn[] { clCodigo, clDepartamento, clDescripcion, clEmpleados, clEstado, clEditar, clEliminar });
+            dgvDepa.Cursor = Cursors.Hand;
+            dgvDepa.Location = new Point(10, 88);
+            dgvDepa.Name = "dgvDepa";
+            dgvDepa.RowHeadersWidth = 51;
+            dgvDepa.Size = new Size(1126, 510);
+            dgvDepa.TabIndex = 28;
+            // 
+            // clCodigo
+            // 
+            clCodigo.HeaderText = "Código";
+            clCodigo.MinimumWidth = 6;
+            clCodigo.Name = "clCodigo";
+            clCodigo.ReadOnly = true;
+            clCodigo.Width = 125;
+            // 
+            // clDepartamento
+            // 
+            clDepartamento.HeaderText = "Departamento";
+            clDepartamento.MinimumWidth = 6;
+            clDepartamento.Name = "clDepartamento";
+            clDepartamento.Width = 125;
+            // 
+            // clDescripcion
+            // 
+            clDescripcion.HeaderText = "Descripción";
+            clDescripcion.MinimumWidth = 6;
+            clDescripcion.Name = "clDescripcion";
+            clDescripcion.ReadOnly = true;
+            clDescripcion.Width = 125;
+            // 
+            // clEmpleados
+            // 
+            clEmpleados.HeaderText = "Empleados";
+            clEmpleados.MinimumWidth = 6;
+            clEmpleados.Name = "clEmpleados";
+            clEmpleados.ReadOnly = true;
+            clEmpleados.Width = 125;
+            // 
+            // clEstado
+            // 
+            clEstado.HeaderText = "Estado";
+            clEstado.MinimumWidth = 6;
+            clEstado.Name = "clEstado";
+            clEstado.ReadOnly = true;
+            clEstado.Width = 125;
+            // 
+            // clEditar
+            // 
+            clEditar.HeaderText = "Editar";
+            clEditar.MinimumWidth = 6;
+            clEditar.Name = "clEditar";
+            clEditar.ReadOnly = true;
+            clEditar.Resizable = DataGridViewTriState.True;
+            clEditar.SortMode = DataGridViewColumnSortMode.Automatic;
+            clEditar.Width = 125;
+            // 
+            // clEliminar
+            // 
+            clEliminar.HeaderText = "Eliminar";
+            clEliminar.MinimumWidth = 6;
+            clEliminar.Name = "clEliminar";
+            clEliminar.Resizable = DataGridViewTriState.True;
+            clEliminar.Width = 125;
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(3, 3);
+            pictureBox1.BackgroundImage = Properties.Resources.detalleverde;
+            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox1.Location = new Point(56, 25);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(75, 77);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 43;
+            pictureBox1.Size = new Size(204, 14);
+            pictureBox1.TabIndex = 25;
             pictureBox1.TabStop = false;
             // 
-            // label3
+            // btnNuevoDepa
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.Black;
-            label3.Location = new Point(89, 47);
-            label3.Name = "label3";
-            label3.Size = new Size(364, 22);
-            label3.TabIndex = 33;
-            label3.Text = "Administra los departamentos de la empresa";
+            btnNuevoDepa.BackColor = Color.FromArgb(4, 59, 186);
+            btnNuevoDepa.Cursor = Cursors.Hand;
+            btnNuevoDepa.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            btnNuevoDepa.ForeColor = Color.White;
+            btnNuevoDepa.ImageAlign = ContentAlignment.MiddleLeft;
+            btnNuevoDepa.ImageIndex = 1;
+            btnNuevoDepa.ImageList = imlIcons;
+            btnNuevoDepa.Location = new Point(849, -4);
+            btnNuevoDepa.Name = "btnNuevoDepa";
+            btnNuevoDepa.Size = new Size(262, 48);
+            btnNuevoDepa.TabIndex = 16;
+            btnNuevoDepa.Text = "Nuevo Departamento";
+            btnNuevoDepa.TextAlign = ContentAlignment.MiddleRight;
+            btnNuevoDepa.UseVisualStyleBackColor = false;
             // 
-            // lblDepa
+            // imlIcons
             // 
-            lblDepa.AutoSize = true;
-            lblDepa.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblDepa.Location = new Point(89, 18);
-            lblDepa.Name = "lblDepa";
-            lblDepa.Size = new Size(190, 29);
-            lblDepa.TabIndex = 29;
-            lblDepa.Text = "Departamentos";
+            imlIcons.ColorDepth = ColorDepth.Depth32Bit;
+            imlIcons.ImageStream = (ImageListStreamer)resources.GetObject("imlIcons.ImageStream");
+            imlIcons.TransparentColor = Color.Transparent;
+            imlIcons.Images.SetKeyName(0, "Gemini_Generated_Image_c85q6c85q6c85q6c.png");
+            imlIcons.Images.SetKeyName(1, "1d25cfbc-39f5-4edf-8684-e760e10ab95c.jpg");
+            imlIcons.Images.SetKeyName(2, "7bb243ea-43e2-408e-8686-3e555c8b6433.jpg");
             // 
-            // btnDepa
+            // lblBuscarSucursal
             // 
-            btnDepa.BackColor = Color.Purple;
-            btnDepa.FlatStyle = FlatStyle.Flat;
-            btnDepa.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnDepa.ForeColor = Color.White;
-            btnDepa.Location = new Point(910, 152);
-            btnDepa.Name = "btnDepa";
-            btnDepa.Size = new Size(248, 53);
-            btnDepa.TabIndex = 28;
-            btnDepa.Text = "+ Nuevo Departamento";
-            btnDepa.UseVisualStyleBackColor = false;
+            lblBuscarSucursal.AutoSize = true;
+            lblBuscarSucursal.BackColor = Color.White;
+            lblBuscarSucursal.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblBuscarSucursal.ForeColor = Color.FromArgb(13, 154, 64);
+            lblBuscarSucursal.Location = new Point(56, 0);
+            lblBuscarSucursal.Name = "lblBuscarSucursal";
+            lblBuscarSucursal.Size = new Size(190, 33);
+            lblBuscarSucursal.TabIndex = 27;
+            lblBuscarSucursal.Text = "Departamentos";
             // 
-            // flowLayoutPanel1
+            // pnlBusqueda
             // 
-            flowLayoutPanel1.BackColor = Color.White;
-            flowLayoutPanel1.BorderStyle = BorderStyle.FixedSingle;
-            flowLayoutPanel1.Controls.Add(pictureBox2);
-            flowLayoutPanel1.Controls.Add(textBox1);
-            flowLayoutPanel1.Controls.Add(lblC3);
-            flowLayoutPanel1.Location = new Point(8, 148);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(301, 40);
-            flowLayoutPanel1.TabIndex = 27;
+            pnlBusqueda.BackColor = Color.FromArgb(244, 246, 249);
+            pnlBusqueda.Controls.Add(btnLimpiar);
+            pnlBusqueda.Controls.Add(txtBuscar);
+            pnlBusqueda.Location = new Point(7, 45);
+            pnlBusqueda.Name = "pnlBusqueda";
+            pnlBusqueda.Size = new Size(1129, 43);
+            pnlBusqueda.TabIndex = 6;
             // 
-            // pictureBox2
+            // btnLimpiar
             // 
-            pictureBox2.Image = Properties.Resources.pngtree_cartoon_blue_magnifying_glass_illustration_png_image_4505525;
-            pictureBox2.Location = new Point(3, 3);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(45, 39);
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox2.TabIndex = 27;
-            pictureBox2.TabStop = false;
+            btnLimpiar.BackColor = Color.White;
+            btnLimpiar.Cursor = Cursors.Hand;
+            btnLimpiar.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            btnLimpiar.ForeColor = Color.Black;
+            btnLimpiar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnLimpiar.ImageIndex = 0;
+            btnLimpiar.ImageList = imlIcons;
+            btnLimpiar.Location = new Point(970, 2);
+            btnLimpiar.Name = "btnLimpiar";
+            btnLimpiar.Size = new Size(134, 40);
+            btnLimpiar.TabIndex = 22;
+            btnLimpiar.Text = "Limpiar";
+            btnLimpiar.TextAlign = ContentAlignment.MiddleRight;
+            btnLimpiar.UseVisualStyleBackColor = false;
             // 
-            // textBox1
+            // txtBuscar
             // 
-            textBox1.Location = new Point(54, 3);
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "Buscar departamento.....";
-            textBox1.Size = new Size(212, 27);
-            textBox1.TabIndex = 26;
+            txtBuscar.Font = new Font("Calibri", 12F);
+            txtBuscar.ForeColor = Color.DimGray;
+            txtBuscar.Location = new Point(29, 8);
+            txtBuscar.Margin = new Padding(4);
+            txtBuscar.Name = "txtBuscar";
+            txtBuscar.Size = new Size(330, 32);
+            txtBuscar.TabIndex = 0;
+            txtBuscar.Text = "Buscar";
             // 
-            // dgvDepartamentos
+            // pbxBuscarSucursal
             // 
-            dgvDepartamentos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvDepartamentos.BackgroundColor = Color.White;
-            dgvDepartamentos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDepartamentos.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, ColDepa, ColDes, ColEmple, dataGridViewTextBoxColumn2, dataGridViewImageColumn1, dataGridViewImageColumn2 });
-            dgvDepartamentos.Location = new Point(16, 246);
-            dgvDepartamentos.Name = "dgvDepartamentos";
-            dgvDepartamentos.RowHeadersVisible = false;
-            dgvDepartamentos.RowHeadersWidth = 51;
-            dgvDepartamentos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvDepartamentos.Size = new Size(1152, 329);
-            dgvDepartamentos.TabIndex = 3;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            dataGridViewTextBoxColumn1.HeaderText = "ID";
-            dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // ColDepa
-            // 
-            ColDepa.HeaderText = "Departamento";
-            ColDepa.MinimumWidth = 6;
-            ColDepa.Name = "ColDepa";
-            // 
-            // ColDes
-            // 
-            ColDes.HeaderText = "Descripción";
-            ColDes.MinimumWidth = 6;
-            ColDes.Name = "ColDes";
-            // 
-            // ColEmple
-            // 
-            ColEmple.HeaderText = "Empleados";
-            ColEmple.MinimumWidth = 6;
-            ColEmple.Name = "ColEmple";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            dataGridViewTextBoxColumn2.HeaderText = "Estado";
-            dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewImageColumn1
-            // 
-            dataGridViewImageColumn1.HeaderText = "Editar";
-            dataGridViewImageColumn1.Image = Properties.Resources.download__2_1;
-            dataGridViewImageColumn1.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            dataGridViewImageColumn1.MinimumWidth = 6;
-            dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            dataGridViewImageColumn1.Resizable = DataGridViewTriState.True;
-            dataGridViewImageColumn1.SortMode = DataGridViewColumnSortMode.Automatic;
-            // 
-            // dataGridViewImageColumn2
-            // 
-            dataGridViewImageColumn2.HeaderText = "Eliminar";
-            dataGridViewImageColumn2.Image = Properties.Resources.download__1_1;
-            dataGridViewImageColumn2.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            dataGridViewImageColumn2.MinimumWidth = 6;
-            dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            dataGridViewImageColumn2.Resizable = DataGridViewTriState.True;
-            dataGridViewImageColumn2.SortMode = DataGridViewColumnSortMode.Automatic;
-            // 
-            // panel3
-            // 
-            panel3.Controls.Add(pictureBox1);
-            panel3.Controls.Add(lblDepa);
-            panel3.Controls.Add(label3);
-            panel3.Location = new Point(8, 21);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(1150, 83);
-            panel3.TabIndex = 46;
-            // 
-            // lblC3
-            // 
-            lblC3.AutoSize = true;
-            lblC3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblC3.ForeColor = Color.DarkViolet;
-            lblC3.Location = new Point(272, 0);
-            lblC3.Name = "lblC3";
-            lblC3.Size = new Size(21, 25);
-            lblC3.TabIndex = 47;
-            lblC3.Text = "*";
+            pbxBuscarSucursal.BackgroundImage = (Image)resources.GetObject("pbxBuscarSucursal.BackgroundImage");
+            pbxBuscarSucursal.BackgroundImageLayout = ImageLayout.Zoom;
+            pbxBuscarSucursal.Location = new Point(7, 0);
+            pbxBuscarSucursal.Name = "pbxBuscarSucursal";
+            pbxBuscarSucursal.Size = new Size(43, 39);
+            pbxBuscarSucursal.TabIndex = 24;
+            pbxBuscarSucursal.TabStop = false;
             // 
             // FrmDepartamentos
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1186, 700);
-            Controls.Add(panel2);
+            ClientSize = new Size(1168, 604);
+            Controls.Add(pnlDepa);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "FrmDepartamentos";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmDepartamentos";
-            panel2.ResumeLayout(false);
+            Load += FrmDepartamentos_Load;
+            pnlDepa.ResumeLayout(false);
+            pnlDepa.PerformLayout();
+            pnlDepar.ResumeLayout(false);
+            pnlDepar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvDepa).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            flowLayoutPanel1.ResumeLayout(false);
-            flowLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dgvDepartamentos).EndInit();
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
+            pnlBusqueda.ResumeLayout(false);
+            pnlBusqueda.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pbxBuscarSucursal).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Panel panel2;
-        private Label label3;
-        private Label lblDepa;
-        private Button btnDepa;
-        private FlowLayoutPanel flowLayoutPanel1;
-        private PictureBox pictureBox2;
-        private TextBox textBox1;
-        private DataGridView dgvDepartamentos;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn ColDepa;
-        private DataGridViewTextBoxColumn ColDes;
-        private DataGridViewTextBoxColumn ColEmple;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private DataGridViewImageColumn dataGridViewImageColumn1;
-        private DataGridViewImageColumn dataGridViewImageColumn2;
+        private Panel pnlDepa;
+        private Label lblSalirV;
+        private Panel pnlDepar;
         private PictureBox pictureBox1;
-        private Panel panel3;
-        private Label lblC3;
+        private Button btnNuevoDepa;
+        private Label lblBuscarSucursal;
+        private Panel pnlBusqueda;
+        private Button btnLimpiar;
+        private TextBox txtBuscar;
+        private PictureBox pbxBuscarSucursal;
+        private DataGridView dgvDepa;
+        private ImageList imlIcons;
+        private DataGridViewTextBoxColumn clCodigo;
+        private DataGridViewTextBoxColumn clDepartamento;
+        private DataGridViewTextBoxColumn clDescripcion;
+        private DataGridViewTextBoxColumn clEmpleados;
+        private DataGridViewTextBoxColumn clEstado;
+        private DataGridViewImageColumn clEditar;
+        private DataGridViewImageColumn clEliminar;
     }
 }

@@ -63,6 +63,26 @@ namespace Derick.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1d25cfbc_39f5_4edf_8684_e760e10ab95c {
+            get {
+                object obj = ResourceManager.GetObject("1d25cfbc-39f5-4edf-8684-e760e10ab95c", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1d25cfbc_39f5_4edf_8684_e760e10ab95c1 {
+            get {
+                object obj = ResourceManager.GetObject("1d25cfbc-39f5-4edf-8684-e760e10ab95c1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _5ae6cd086554160a79be9f44 {
             get {
                 object obj = ResourceManager.GetObject("5ae6cd086554160a79be9f44", resourceCulture);
