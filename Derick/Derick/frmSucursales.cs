@@ -8,66 +8,181 @@ namespace Derick
 {
     public partial class frmSucursales : Form
     {
+        private bool cargandoFiltros = false;
         public frmSucursales()
         {
             InitializeComponent();
         }
         private void frmSucursales_Load(object sender, EventArgs e)
         {
-            //diseño del datagridview
+            // Diseño general dgv
             dgvSucursales.EnableHeadersVisualStyles = false;
             dgvSucursales.BorderStyle = BorderStyle.None;
             dgvSucursales.BackgroundColor = Color.White;
-            dgvSucursales.GridColor = Color.FromArgb(235, 235, 235);
-            dgvSucursales.CellBorderStyle =DataGridViewCellBorderStyle.SingleHorizontal;
+
+            dgvSucursales.GridColor =
+                Color.FromArgb(235, 235, 235);
+
+            dgvSucursales.CellBorderStyle =
+                DataGridViewCellBorderStyle.SingleHorizontal;
+
             dgvSucursales.ReadOnly = true;
             dgvSucursales.MultiSelect = false;
-            dgvSucursales.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+            dgvSucursales.SelectionMode =
+                DataGridViewSelectionMode.FullRowSelect;
+
             dgvSucursales.AllowUserToAddRows = false;
             dgvSucursales.AllowUserToDeleteRows = false;
             dgvSucursales.AllowUserToResizeRows = false;
             dgvSucursales.AllowUserToResizeColumns = false;
+
             dgvSucursales.RowHeadersVisible = false;
-            //encabezado
-            dgvSucursales.ColumnHeadersHeight = 50;
-            dgvSucursales.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dgvSucursales.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(46, 57, 75);
-            dgvSucursales.ColumnHeadersDefaultCellStyle.ForeColor =Color.White;
-            dgvSucursales.ColumnHeadersDefaultCellStyle.Font =new Font("Segoe UI", 10, FontStyle.Bold);
-            dgvSucursales.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            //encabezaodo
+
+            dgvSucursales.ColumnHeadersHeight = 55;
+
+            dgvSucursales.ColumnHeadersBorderStyle =
+                DataGridViewHeaderBorderStyle.None;
+
+            dgvSucursales.ColumnHeadersDefaultCellStyle.BackColor =
+                Color.FromArgb(46, 57, 75);
+
+            dgvSucursales.ColumnHeadersDefaultCellStyle.ForeColor =
+                Color.White;
+
+            dgvSucursales.ColumnHeadersDefaultCellStyle.Font =
+                new Font("Segoe UI", 10, FontStyle.Bold);
+
+            dgvSucursales.ColumnHeadersDefaultCellStyle.Alignment =
+                DataGridViewContentAlignment.MiddleCenter;
+
+
             //filas
+
             dgvSucursales.RowTemplate.Height = 45;
-            dgvSucursales.DefaultCellStyle.Font = new Font("Segoe UI", 10);
-            dgvSucursales.DefaultCellStyle.ForeColor =Color.FromArgb(45, 45, 45);
-            dgvSucursales.DefaultCellStyle.BackColor =Color.White;
-            dgvSucursales.AlternatingRowsDefaultCellStyle.BackColor =Color.FromArgb(248, 249, 251);
-            dgvSucursales.DefaultCellStyle.SelectionBackColor = Color.FromArgb(225, 235, 250);
-            dgvSucursales.DefaultCellStyle.SelectionForeColor =Color.Black;
-            dgvSucursales.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvSucursales.DefaultCellStyle.Padding =new Padding(5);
-            //columnas
+
+            dgvSucursales.DefaultCellStyle.Font =
+                new Font("Segoe UI", 10);
+
+            dgvSucursales.DefaultCellStyle.ForeColor =
+                Color.FromArgb(45, 45, 45);
+
+            dgvSucursales.DefaultCellStyle.BackColor =
+                Color.White;
+
+            dgvSucursales.AlternatingRowsDefaultCellStyle.BackColor =
+                Color.FromArgb(248, 249, 251);
+
+            dgvSucursales.DefaultCellStyle.SelectionBackColor =
+                Color.FromArgb(225, 235, 250);
+
+            dgvSucursales.DefaultCellStyle.SelectionForeColor =
+                Color.Black;
+
+            dgvSucursales.DefaultCellStyle.Alignment =
+                DataGridViewContentAlignment.MiddleCenter;
+
+            dgvSucursales.DefaultCellStyle.Padding =
+                new Padding(5);
+
+            //tamaño columnas
+
             dgvSucursales.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvSucursales.Columns["clCodigo"].FillWeight = 8;
+
+            dgvSucursales.Columns["clFechaRegistro"].Visible = true;
+            dgvSucursales.Columns["clDireccion"].Visible = false;
+            dgvSucursales.Columns["clTelefono"].Visible = false;
+
+
+            // CÓDIGO
+            dgvSucursales.Columns["clCodigo"].FillWeight = 12;
+            dgvSucursales.Columns["clCodigo"].MinimumWidth = 80;
+
+            //FECHA
+            dgvSucursales.Columns["clFechaRegistro"].Visible = true;
             dgvSucursales.Columns["clFechaRegistro"].FillWeight = 12;
-            dgvSucursales.Columns["clNombreSucursal"].FillWeight = 20;
-            dgvSucursales.Columns["clCiudad"].FillWeight = 12;
-            dgvSucursales.Columns["clDireccion"].FillWeight = 20;
-            dgvSucursales.Columns["clTelefono"].FillWeight = 13;
-            dgvSucursales.Columns["clEncargado"].FillWeight = 18;
-            dgvSucursales.Columns["clEstado"].FillWeight = 10;
+            dgvSucursales.Columns["clFechaRegistro"].MinimumWidth = 100;
+
+            dgvSucursales.Columns["clFechaRegistro"]
+                .DefaultCellStyle.Format = "dd/MM/yyyy";
+
+
+            // NOMBRE DE LA SUCURSAL
+            dgvSucursales.Columns["clNombreSucursal"].FillWeight = 30;
+            dgvSucursales.Columns["clNombreSucursal"].MinimumWidth = 200;
+
+
+            // CIUDAD
+            dgvSucursales.Columns["clCiudad"].FillWeight = 16;
+            dgvSucursales.Columns["clCiudad"].MinimumWidth = 110;
+
+
+            // ENCARGADO
+            dgvSucursales.Columns["clEncargado"].FillWeight = 20;
+            dgvSucursales.Columns["clEncargado"].MinimumWidth = 150;
+
+
+            // ESTADO
+            dgvSucursales.Columns["clEstado"].FillWeight = 12;
+            dgvSucursales.Columns["clEstado"].MinimumWidth = 90;
+
+
+            // EDITAR
             dgvSucursales.Columns["clEditar"].FillWeight = 8;
-            dgvSucursales.Columns["clUbicacion"].FillWeight = 8;
+            dgvSucursales.Columns["clEditar"].MinimumWidth = 70;
+
+
+            // UBICACIÓN
+            dgvSucursales.Columns["clUbicacion"].FillWeight = 9;
+            dgvSucursales.Columns["clUbicacion"].MinimumWidth = 80;
+
+
+            // VER MÁS
             dgvSucursales.Columns["clVer"].FillWeight = 8;
-            DataGridViewImageColumn editar =(DataGridViewImageColumn)dgvSucursales.Columns["clEditar"];
-            editar.Image = Properties.Resources.editarrbtn;
-            editar.ImageLayout =DataGridViewImageCellLayout.Zoom;
-            DataGridViewImageColumn ubicacion =(DataGridViewImageColumn)dgvSucursales.Columns["clUbicacion"];
-            ubicacion.Image =Properties.Resources.ubicacionnnnbtn;
-            ubicacion.ImageLayout =DataGridViewImageCellLayout.Zoom;
-            DataGridViewImageColumn ver = (DataGridViewImageColumn)dgvSucursales.Columns["clVer"];
-            ver.Image = Properties.Resources.ojo;
-            ver.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            // cargar datos
+            dgvSucursales.Columns["clVer"].MinimumWidth = 70;
+
+            // Acciones
+            dgvSucursales.Columns["clEditar"].FillWeight = 8;
+            dgvSucursales.Columns["clUbicacion"].FillWeight = 9;
+            dgvSucursales.Columns["clVer"].FillWeight = 8;
+
+            //editar
+
+            DataGridViewImageColumn editar =
+                (DataGridViewImageColumn)dgvSucursales.Columns["clEditar"];
+
+            editar.Image =
+                Properties.Resources.editarrbtn;
+
+            editar.ImageLayout =
+                DataGridViewImageCellLayout.Zoom;
+
+            //ubicacion
+
+            DataGridViewImageColumn ubicacion =
+                (DataGridViewImageColumn)dgvSucursales.Columns["clUbicacion"];
+
+            ubicacion.Image =
+                Properties.Resources.ubicacionnnnbtn;
+
+            ubicacion.ImageLayout =
+                DataGridViewImageCellLayout.Zoom;
+
+            //ver
+
+            DataGridViewImageColumn ver =
+                (DataGridViewImageColumn)dgvSucursales.Columns["clVer"];
+
+            ver.Image =
+                Properties.Resources.ojo;
+
+            ver.ImageLayout =
+                DataGridViewImageCellLayout.Zoom;
+
+            //Cargar datos
+
             CargarComboCiudad();
             CargarComboEstado();
             CargarSucursales();
@@ -76,67 +191,80 @@ namespace Derick
         // cargar ciudades en el combo box
         private void CargarComboCiudad()
         {
+            cargandoFiltros = true;
+
             csConectaSQL oConexion = new csConectaSQL();
-            string query = "SELECT DISTINCT Ciudad FROM Sucursales";
-            DataTable dt = oConexion.RetornaRegistros(query);
+
+            string query =
+                "SELECT DISTINCT Ciudad " +
+                "FROM Sucursales " +
+                "ORDER BY Ciudad";
+
+            DataTable dt =
+                oConexion.RetornaRegistros(query);
 
             cbxCiudad.DataSource = dt;
             cbxCiudad.DisplayMember = "Ciudad";
             cbxCiudad.ValueMember = "Ciudad";
+
+            // Ninguna ciudad seleccionada
+            cbxCiudad.SelectedIndex = -1;
             cbxCiudad.Text = "";
+
+            cargandoFiltros = false;
         }
         // estados en el combo box
         private void CargarComboEstado()
         {
+            cargandoFiltros = true;
+
             cbxEstado.Items.Clear();
+
             cbxEstado.Items.Add("Activa");
             cbxEstado.Items.Add("Inactiva");
             cbxEstado.Items.Add("Remodelación");
+
+            cbxEstado.SelectedIndex = -1;
             cbxEstado.Text = "";
+
+            cargandoFiltros = false;
         }
         // mostrar sucursales en el datagridview
         private void CargarSucursales(
-        string buscar = "",
-        string ciudad = "",
-        string estado = "")
+            string buscar = "",
+            string ciudad = "",
+            string estado = "")
         {
-            csConectaSQL oConexion = new csConectaSQL();
+            csSucursal sucursal = new csSucursal();
 
-            // Escapamos comillas simples para que nombres como "O'Brien" no rompan la consulta. RetornaRegistros recibe el SQL ya armado
-            // como texto, asi que la limpieza se hace aquí antes de concatenar
-            string buscarEsc = buscar.Trim().Replace("'", "''");
-            string ciudadEsc = ciudad.Replace("'", "''");
-            string estadoEsc = estado.Replace("'", "''");
-
-            string query = @"
-                SELECT
-                Codigo,
-                GETDATE() AS FechaRegistro,
-                NombreSucursal,
-                Ciudad,
-                Direccion,
-                Telefono,
-                EncargadoSucursal,
-                Estado
-                FROM Sucursales
-                WHERE
-                (Codigo LIKE '%" + buscarEsc + @"%'
-                OR NombreSucursal LIKE '%" + buscarEsc + @"%')
-                AND ('" + ciudadEsc + @"' = '' OR Ciudad = '" + ciudadEsc + @"')
-                AND ('" + estadoEsc + @"' = '' OR Estado = '" + estadoEsc + @"')
-                ";
-
-            DataTable dt = oConexion.RetornaRegistros(query);
+            DataTable dt =
+                sucursal.Listar(buscar, ciudad, estado);
 
             dgvSucursales.AutoGenerateColumns = false;
-            dgvSucursales.Columns["clCodigo"].DataPropertyName = "Codigo";
-            dgvSucursales.Columns["clFechaRegistro"].DataPropertyName = "FechaRegistro";
-            dgvSucursales.Columns["clNombreSucursal"].DataPropertyName = "NombreSucursal";
-            dgvSucursales.Columns["clCiudad"].DataPropertyName = "Ciudad";
-            dgvSucursales.Columns["clDireccion"].DataPropertyName = "Direccion";
-            dgvSucursales.Columns["clTelefono"].DataPropertyName = "Telefono";
-            dgvSucursales.Columns["clEncargado"].DataPropertyName = "EncargadoSucursal";
-            dgvSucursales.Columns["clEstado"].DataPropertyName = "Estado";
+
+            dgvSucursales.Columns["clCodigo"].DataPropertyName =
+                "Codigo";
+
+            dgvSucursales.Columns["clFechaRegistro"].DataPropertyName ="FechaRegistro";
+
+            dgvSucursales.Columns["clNombreSucursal"].DataPropertyName =
+                "NombreSucursal";
+
+            dgvSucursales.Columns["clCiudad"].DataPropertyName =
+                "Ciudad";
+
+            dgvSucursales.Columns["clDireccion"].DataPropertyName =
+                "Direccion";
+
+            dgvSucursales.Columns["clTelefono"].DataPropertyName =
+                "Telefono";
+
+            dgvSucursales.Columns["clEncargado"].DataPropertyName =
+                "EncargadoSucursal";
+
+            dgvSucursales.Columns["clEstado"].DataPropertyName =
+                "Estado";
+
             dgvSucursales.DataSource = dt;
         }
         //registrar sucursal
@@ -151,27 +279,54 @@ namespace Derick
         //buscar sucursal
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            CargarSucursales( txtBuscar.Text, cbxCiudad.Text,cbxEstado.Text);
+            AplicarFiltros();
         }
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-            CargarSucursales( txtBuscar.Text,cbxCiudad.Text,cbxEstado.Text);
+            if (cargandoFiltros)
+                return;
+
+            string buscar = txtBuscar.Text;
+
+            if (buscar == "Buscar")
+                buscar = "";
+
+            CargarSucursales(
+                buscar,
+                cbxCiudad.Text,
+                cbxEstado.Text);
         }
         private void cbxCiudad_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CargarSucursales(txtBuscar.Text,cbxCiudad.Text,cbxEstado.Text);
+            if (cargandoFiltros)
+                return;
+
+            AplicarFiltros();
         }
         private void cbxEstado_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CargarSucursales(txtBuscar.Text, cbxCiudad.Text,cbxEstado.Text);
+            if (cargandoFiltros)
+                return;
+
+            AplicarFiltros();
 
         }
         // limpiar filtros
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            txtBuscar.Clear();
+            cargandoFiltros = true;
+
+            txtBuscar.Text = "Buscar";
+            txtBuscar.ForeColor = Color.Gray;
+
+            cbxCiudad.SelectedIndex = -1;
             cbxCiudad.Text = "";
+
+            cbxEstado.SelectedIndex = -1;
             cbxEstado.Text = "";
+
+            cargandoFiltros = false;
+
             CargarSucursales();
 
         }
@@ -184,16 +339,85 @@ namespace Derick
             string columna = dgvSucursales.Columns[e.ColumnIndex].Name;
             if (columna == "clEditar")
             {
-                MessageBox.Show("Editar sucursal");
+                string codigo = dgvSucursales.Rows[e.RowIndex].Cells["clCodigo"].Value.ToString();
+
+
+                csSucursal sucursal =
+                    new csSucursal();
+
+                csSucursal encontrada =
+                    sucursal.BuscarPorCodigo(codigo);
+
+
+                if (encontrada != null)
+                {
+                    frmRegistroSucursales frm =
+                        new frmRegistroSucursales(encontrada);
+
+                    frm.ShowDialog();
+
+                    CargarSucursales();
+                    CargarComboCiudad();
+                }
+                else
+                {
+                    MessageBox.Show(
+                        "No se encontró la sucursal.",
+                        "Aviso",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                }
             }
             if (columna == "clUbicacion")
             {
-                frmUbicacionSucursales frm =new frmUbicacionSucursales();
-                frm.Show();
+                string codigo =dgvSucursales.Rows[e.RowIndex].Cells["clCodigo"].Value.ToString();
+
+                csSucursal sucursal =
+                    new csSucursal();
+
+                csSucursal encontrada =
+                    sucursal.BuscarPorCodigo(codigo);
+
+                if (encontrada != null)
+                {
+                    frmUbicacionSucursales frm =
+                        new frmUbicacionSucursales(encontrada);
+
+                    frm.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show(
+                        "No se encontró la sucursal.",
+                        "Aviso",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                }
             }
             if (columna == "clVer")
             {
-                MessageBox.Show("Ver información");
+                string codigo = dgvSucursales.Rows[e.RowIndex].Cells["clCodigo"].Value.ToString();
+
+                csSucursal sucursal = new csSucursal();
+
+                csSucursal encontrada =
+                    sucursal.BuscarPorCodigo(codigo);
+
+                if (encontrada != null)
+                {
+                    frmVerSucursales frm =
+                        new frmVerSucursales(encontrada);
+
+                    frm.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show(
+                        "No se encontró la sucursal.",
+                        "Aviso",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                }
             }
 
         }
@@ -210,6 +434,34 @@ namespace Derick
                 Application.Exit();
             }
 
+        }
+        private void AplicarFiltros()
+        {
+            string buscar = txtBuscar.Text;
+
+            if (buscar == "Buscar")
+                buscar = "";
+
+            CargarSucursales(
+                buscar,
+                cbxCiudad.Text,
+                cbxEstado.Text);
+        }
+        private void txtBuscar_Enter(object sender, EventArgs e)
+        {
+            if (txtBuscar.Text == "Buscar")
+            {
+                txtBuscar.Text = "";
+                txtBuscar.ForeColor = Color.Black;
+            }
+        }
+        private void txtBuscar_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtBuscar.Text))
+            {
+                txtBuscar.Text = "Buscar";
+                txtBuscar.ForeColor = Color.Gray;
+            }
         }
     }
 }

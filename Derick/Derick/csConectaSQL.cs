@@ -107,6 +107,62 @@ namespace Derick
                 return false;
             }
         }
+
+        public bool actualizarDatos(string tabla, string datos, string condicion)
+        {
+            try
+            {
+                if (abrirConexion())
+                {
+                    Cadena = "UPDATE " + tabla +
+                             " SET " + datos +
+                             " WHERE " + condicion;
+
+                    oCom = new SqlCommand(Cadena, oCon);
+                    oCom.ExecuteNonQuery();
+
+                    cerrarConexion();
+
+                    return true;
+                }
+
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
+        public bool ejecutarComando(string sql, params SqlParameter[] parametros)
+        {
+            try
+            {
+                if (abrirConexion())
+                {
+                    oCom = new SqlCommand(sql, oCon);
+
+                    if (parametros != null)
+                    {
+                        oCom.Parameters.AddRange(parametros);
+                    }
+
+                    oCom.ExecuteNonQuery();
+
+                    cerrarConexion();
+
+                    return true;
+                }
+
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                cerrarConexion();
+                return false;
+            }
+        }
         public int Ins_RetrID(string tabla, string campos, string datos)
         {
             try
