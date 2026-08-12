@@ -82,7 +82,6 @@
             btn_grd.BackColor = Color.FromArgb(0, 102, 255);
             btn_grd.Cursor = Cursors.Hand;
             btn_grd.FlatAppearance.BorderSize = 0;
-            btn_grd.FlatStyle = FlatStyle.Flat;
             btn_grd.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_grd.ForeColor = Color.White;
             btn_grd.Image = (Image)resources.GetObject("btn_grd.Image");

@@ -77,7 +77,6 @@
             btn_ccl.Cursor = Cursors.Hand;
             btn_ccl.FlatAppearance.BorderColor = Color.FromArgb(0, 102, 255);
             btn_ccl.FlatAppearance.BorderSize = 2;
-            btn_ccl.FlatStyle = FlatStyle.Flat;
             btn_ccl.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btn_ccl.ForeColor = Color.FromArgb(0, 102, 255);
             btn_ccl.Image = (Image)resources.GetObject("btn_ccl.Image");
@@ -94,7 +93,6 @@
             // 
             btn_acpt.BackColor = Color.FromArgb(0, 102, 255);
             btn_acpt.Cursor = Cursors.Hand;
-            btn_acpt.FlatStyle = FlatStyle.Flat;
             btn_acpt.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btn_acpt.ForeColor = Color.White;
             btn_acpt.Image = (Image)resources.GetObject("btn_acpt.Image");

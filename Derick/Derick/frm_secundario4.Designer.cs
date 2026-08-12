@@ -71,7 +71,6 @@
             // btn_aceptar
             // 
             btn_aceptar.BackColor = Color.FromArgb(0, 102, 255);
-            btn_aceptar.FlatStyle = FlatStyle.Flat;
             btn_aceptar.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btn_aceptar.ForeColor = Color.White;
             btn_aceptar.Image = (Image)resources.GetObject("btn_aceptar.Image");
@@ -90,7 +89,6 @@
             btn_cerra.Cursor = Cursors.Hand;
             btn_cerra.FlatAppearance.BorderColor = Color.FromArgb(0, 102, 255);
             btn_cerra.FlatAppearance.BorderSize = 2;
-            btn_cerra.FlatStyle = FlatStyle.Flat;
             btn_cerra.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btn_cerra.ForeColor = Color.FromArgb(0, 102, 255);
             btn_cerra.Image = (Image)resources.GetObject("btn_cerra.Image");
@@ -147,7 +145,6 @@
             btn_bus1.BackColor = Color.FromArgb(0, 176, 80);
             btn_bus1.Cursor = Cursors.Hand;
             btn_bus1.FlatAppearance.BorderColor = Color.FromArgb(0, 176, 80);
-            btn_bus1.FlatStyle = FlatStyle.Flat;
             btn_bus1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btn_bus1.ForeColor = Color.White;
             btn_bus1.Image = (Image)resources.GetObject("btn_bus1.Image");

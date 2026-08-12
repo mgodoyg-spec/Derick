@@ -65,16 +65,16 @@ namespace Derick
             // TAMAÑO DE COLUMNAS
             // ==============================
             dgvPromociones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvPromociones.Columns["clId"].FillWeight = 8;
-            dgvPromociones.Columns["clNombrePromocion"].FillWeight = 20;
-            dgvPromociones.Columns["clTipo"].FillWeight = 13;
-            dgvPromociones.Columns["clDescuento"].FillWeight = 12;
-            dgvPromociones.Columns["clFechaInicio"].FillWeight = 14;
-            dgvPromociones.Columns["clFechaFin"].FillWeight = 14;
-            dgvPromociones.Columns["clEstado"].FillWeight = 12;
-            dgvPromociones.Columns["clDescripcion"].FillWeight = 25;
-            dgvPromociones.Columns["clEditar"].FillWeight = 7;
-            dgvPromociones.Columns["clEliminar"].FillWeight = 7;
+            dgvPromociones.Columns["clId"].FillWeight = 6;
+            dgvPromociones.Columns["clNombrePromocion"].FillWeight = 16;
+            dgvPromociones.Columns["clTipo"].FillWeight = 11;
+            dgvPromociones.Columns["clDescuento"].FillWeight = 10;
+            dgvPromociones.Columns["clFechaInicio"].FillWeight = 11;
+            dgvPromociones.Columns["clFechaFin"].FillWeight = 11;
+            dgvPromociones.Columns["clEstado"].FillWeight = 9;
+            dgvPromociones.Columns["clDescripcion"].FillWeight = 17;
+            dgvPromociones.Columns["clEditar"].FillWeight = 6;
+            dgvPromociones.Columns["clEliminar"].FillWeight = 6;
             // ==============================
             // EDITAR
             // ==============================

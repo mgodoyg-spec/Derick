@@ -85,7 +85,6 @@
             btnguardar.BackColor = Color.FromArgb(0, 102, 255);
             btnguardar.Cursor = Cursors.Hand;
             btnguardar.FlatAppearance.BorderColor = Color.Black;
-            btnguardar.FlatStyle = FlatStyle.Flat;
             btnguardar.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnguardar.ForeColor = Color.White;
             btnguardar.Image = (Image)resources.GetObject("btnguardar.Image");
@@ -103,7 +102,6 @@
             btncerrar.BackColor = Color.White;
             btncerrar.Cursor = Cursors.Hand;
             btncerrar.FlatAppearance.BorderColor = Color.FromArgb(0, 102, 255);
-            btncerrar.FlatStyle = FlatStyle.Flat;
             btncerrar.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btncerrar.ForeColor = Color.FromArgb(0, 102, 255);
             btncerrar.Image = (Image)resources.GetObject("btncerrar.Image");
