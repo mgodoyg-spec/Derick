@@ -77,6 +77,7 @@
             pnl_ctg1.Controls.Add(lbl_ctg1);
             pnl_ctg1.Dock = DockStyle.Fill;
             pnl_ctg1.Location = new Point(0, 0);
+            pnl_ctg1.Margin = new Padding(3, 2, 3, 2);
             pnl_ctg1.Name = "pnl_ctg1";
             pnl_ctg1.Size = new Size(1186, 651);
             pnl_ctg1.TabIndex = 0;
@@ -89,9 +90,10 @@
             btn_ctg1.ForeColor = Color.White;
             btn_ctg1.Image = (Image)resources.GetObject("btn_ctg1.Image");
             btn_ctg1.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_ctg1.Location = new Point(913, 15);
+            btn_ctg1.Location = new Point(957, 9);
+            btn_ctg1.Margin = new Padding(3, 2, 3, 2);
             btn_ctg1.Name = "btn_ctg1";
-            btn_ctg1.Size = new Size(248, 47);
+            btn_ctg1.Size = new Size(217, 38);
             btn_ctg1.TabIndex = 31;
             btn_ctg1.Text = "Agregar categoría";
             btn_ctg1.UseVisualStyleBackColor = false;
@@ -108,9 +110,10 @@
             pnl_cont1.Controls.Add(pnl_ctg4);
             pnl_cont1.Controls.Add(btn_bus1);
             pnl_cont1.Controls.Add(lbl_agg3);
-            pnl_cont1.Location = new Point(12, 78);
+            pnl_cont1.Location = new Point(10, 58);
+            pnl_cont1.Margin = new Padding(3, 2, 3, 2);
             pnl_cont1.Name = "pnl_cont1";
-            pnl_cont1.Size = new Size(1162, 561);
+            pnl_cont1.Size = new Size(1164, 582);
             pnl_cont1.TabIndex = 11;
             // 
             // dgv_catg
@@ -120,10 +123,11 @@
             dgv_catg.BorderStyle = BorderStyle.None;
             dgv_catg.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_catg.Columns.AddRange(new DataGridViewColumn[] { clID, clIcono, clCategoria, clEstado, clDescripcion, clEditar, clEliminar });
-            dgv_catg.Location = new Point(11, 108);
+            dgv_catg.Location = new Point(10, 81);
+            dgv_catg.Margin = new Padding(3, 2, 3, 2);
             dgv_catg.Name = "dgv_catg";
             dgv_catg.RowHeadersWidth = 51;
-            dgv_catg.Size = new Size(1138, 436);
+            dgv_catg.Size = new Size(1143, 488);
             dgv_catg.TabIndex = 31;
             // 
             // clID
@@ -183,9 +187,9 @@
             lbl_ctg3.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_ctg3.ForeColor = Color.Black;
             lbl_ctg3.ImageAlign = ContentAlignment.MiddleLeft;
-            lbl_ctg3.Location = new Point(308, 32);
+            lbl_ctg3.Location = new Point(270, 24);
             lbl_ctg3.Name = "lbl_ctg3";
-            lbl_ctg3.Size = new Size(103, 22);
+            lbl_ctg3.Size = new Size(86, 18);
             lbl_ctg3.TabIndex = 26;
             lbl_ctg3.Text = "Categoría:";
             lbl_ctg3.TextAlign = ContentAlignment.MiddleLeft;
@@ -197,12 +201,14 @@
             btn_limp1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btn_limp1.ForeColor = Color.Black;
             btn_limp1.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_limp1.Location = new Point(1009, 20);
+            btn_limp1.Location = new Point(1025, 12);
+            btn_limp1.Margin = new Padding(3, 2, 3, 2);
             btn_limp1.Name = "btn_limp1";
-            btn_limp1.Size = new Size(140, 47);
+            btn_limp1.Size = new Size(128, 37);
             btn_limp1.TabIndex = 29;
             btn_limp1.Text = "Limpiar";
             btn_limp1.UseVisualStyleBackColor = false;
+            btn_limp1.Click += btn_limp1_Click;
             // 
             // pnl_ctg2
             // 
@@ -210,10 +216,11 @@
             pnl_ctg2.BorderStyle = BorderStyle.FixedSingle;
             pnl_ctg2.Controls.Add(pic_ctg2);
             pnl_ctg2.Controls.Add(txt_busqctg);
-            pnl_ctg2.Location = new Point(12, 20);
+            pnl_ctg2.Location = new Point(10, 15);
+            pnl_ctg2.Margin = new Padding(3, 2, 3, 2);
             pnl_ctg2.Name = "pnl_ctg2";
-            pnl_ctg2.Padding = new Padding(10);
-            pnl_ctg2.Size = new Size(290, 45);
+            pnl_ctg2.Padding = new Padding(9, 8, 9, 8);
+            pnl_ctg2.Size = new Size(254, 34);
             pnl_ctg2.TabIndex = 24;
             // 
             // pic_ctg2
@@ -221,8 +228,9 @@
             pic_ctg2.BackColor = Color.White;
             pic_ctg2.Image = (Image)resources.GetObject("pic_ctg2.Image");
             pic_ctg2.Location = new Point(-2, -1);
+            pic_ctg2.Margin = new Padding(3, 2, 3, 2);
             pic_ctg2.Name = "pic_ctg2";
-            pic_ctg2.Size = new Size(50, 45);
+            pic_ctg2.Size = new Size(44, 34);
             pic_ctg2.SizeMode = PictureBoxSizeMode.Zoom;
             pic_ctg2.TabIndex = 23;
             pic_ctg2.TabStop = false;
@@ -232,10 +240,11 @@
             txt_busqctg.BorderStyle = BorderStyle.None;
             txt_busqctg.Font = new Font("Segoe UI", 10.8F);
             txt_busqctg.ForeColor = Color.Gray;
-            txt_busqctg.Location = new Point(5, 9);
+            txt_busqctg.Location = new Point(48, 7);
+            txt_busqctg.Margin = new Padding(3, 2, 3, 2);
             txt_busqctg.Name = "txt_busqctg";
             txt_busqctg.PlaceholderText = "          Buscar producto";
-            txt_busqctg.Size = new Size(270, 24);
+            txt_busqctg.Size = new Size(192, 20);
             txt_busqctg.TabIndex = 7;
             // 
             // pnl_ctg3
@@ -243,10 +252,11 @@
             pnl_ctg3.BackColor = Color.White;
             pnl_ctg3.BorderStyle = BorderStyle.FixedSingle;
             pnl_ctg3.Controls.Add(cmb_ctg1);
-            pnl_ctg3.Location = new Point(417, 20);
+            pnl_ctg3.Location = new Point(365, 15);
+            pnl_ctg3.Margin = new Padding(3, 2, 3, 2);
             pnl_ctg3.Name = "pnl_ctg3";
-            pnl_ctg3.Padding = new Padding(10);
-            pnl_ctg3.Size = new Size(154, 45);
+            pnl_ctg3.Padding = new Padding(9, 8, 9, 8);
+            pnl_ctg3.Size = new Size(135, 34);
             pnl_ctg3.TabIndex = 25;
             // 
             // cmb_ctg1
@@ -254,9 +264,10 @@
             cmb_ctg1.DropDownStyle = ComboBoxStyle.DropDownList;
             cmb_ctg1.FlatStyle = FlatStyle.Flat;
             cmb_ctg1.FormattingEnabled = true;
-            cmb_ctg1.Location = new Point(13, 9);
+            cmb_ctg1.Location = new Point(11, 7);
+            cmb_ctg1.Margin = new Padding(3, 2, 3, 2);
             cmb_ctg1.Name = "cmb_ctg1";
-            cmb_ctg1.Size = new Size(126, 28);
+            cmb_ctg1.Size = new Size(111, 23);
             cmb_ctg1.TabIndex = 14;
             // 
             // pnl_ctg4
@@ -264,10 +275,11 @@
             pnl_ctg4.BackColor = Color.White;
             pnl_ctg4.BorderStyle = BorderStyle.FixedSingle;
             pnl_ctg4.Controls.Add(cmb_ctg2);
-            pnl_ctg4.Location = new Point(673, 20);
+            pnl_ctg4.Location = new Point(589, 15);
+            pnl_ctg4.Margin = new Padding(3, 2, 3, 2);
             pnl_ctg4.Name = "pnl_ctg4";
-            pnl_ctg4.Padding = new Padding(10);
-            pnl_ctg4.Size = new Size(148, 45);
+            pnl_ctg4.Padding = new Padding(9, 8, 9, 8);
+            pnl_ctg4.Size = new Size(130, 34);
             pnl_ctg4.TabIndex = 27;
             // 
             // cmb_ctg2
@@ -275,9 +287,10 @@
             cmb_ctg2.DropDownStyle = ComboBoxStyle.DropDownList;
             cmb_ctg2.FlatStyle = FlatStyle.Flat;
             cmb_ctg2.FormattingEnabled = true;
-            cmb_ctg2.Location = new Point(13, 9);
+            cmb_ctg2.Location = new Point(11, 7);
+            cmb_ctg2.Margin = new Padding(3, 2, 3, 2);
             cmb_ctg2.Name = "cmb_ctg2";
-            cmb_ctg2.Size = new Size(122, 28);
+            cmb_ctg2.Size = new Size(107, 23);
             cmb_ctg2.TabIndex = 14;
             // 
             // btn_bus1
@@ -288,12 +301,14 @@
             btn_bus1.ForeColor = Color.White;
             btn_bus1.Image = (Image)resources.GetObject("btn_bus1.Image");
             btn_bus1.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_bus1.Location = new Point(863, 20);
+            btn_bus1.Location = new Point(878, 12);
+            btn_bus1.Margin = new Padding(3, 2, 3, 2);
             btn_bus1.Name = "btn_bus1";
-            btn_bus1.Size = new Size(140, 47);
+            btn_bus1.Size = new Size(128, 37);
             btn_bus1.TabIndex = 23;
             btn_bus1.Text = "Buscar";
             btn_bus1.UseVisualStyleBackColor = false;
+            btn_bus1.Click += btn_bus1_Click;
             // 
             // lbl_agg3
             // 
@@ -301,9 +316,9 @@
             lbl_agg3.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_agg3.ForeColor = Color.Black;
             lbl_agg3.ImageAlign = ContentAlignment.MiddleLeft;
-            lbl_agg3.Location = new Point(589, 36);
+            lbl_agg3.Location = new Point(515, 27);
             lbl_agg3.Name = "lbl_agg3";
-            lbl_agg3.Size = new Size(78, 22);
+            lbl_agg3.Size = new Size(66, 18);
             lbl_agg3.TabIndex = 28;
             lbl_agg3.Text = "Estado:";
             lbl_agg3.TextAlign = ContentAlignment.MiddleLeft;
@@ -311,18 +326,20 @@
             // lbl_ry
             // 
             lbl_ry.BackColor = Color.FromArgb(0, 176, 80);
-            lbl_ry.Location = new Point(78, 55);
+            lbl_ry.Location = new Point(68, 41);
+            lbl_ry.Margin = new Padding(3, 2, 3, 2);
             lbl_ry.Name = "lbl_ry";
-            lbl_ry.Size = new Size(257, 4);
+            lbl_ry.Size = new Size(225, 3);
             lbl_ry.TabIndex = 10;
             lbl_ry.TabStop = false;
             // 
             // pic_ctg1
             // 
             pic_ctg1.Image = (Image)resources.GetObject("pic_ctg1.Image");
-            pic_ctg1.Location = new Point(12, 12);
+            pic_ctg1.Location = new Point(10, 9);
+            pic_ctg1.Margin = new Padding(3, 2, 3, 2);
             pic_ctg1.Name = "pic_ctg1";
-            pic_ctg1.Size = new Size(60, 50);
+            pic_ctg1.Size = new Size(52, 38);
             pic_ctg1.SizeMode = PictureBoxSizeMode.Zoom;
             pic_ctg1.TabIndex = 9;
             pic_ctg1.TabStop = false;
@@ -333,9 +350,9 @@
             lbl_ctg1.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_ctg1.ForeColor = Color.FromArgb(0, 176, 80);
             lbl_ctg1.ImageAlign = ContentAlignment.MiddleLeft;
-            lbl_ctg1.Location = new Point(72, 23);
+            lbl_ctg1.Location = new Point(63, 17);
             lbl_ctg1.Name = "lbl_ctg1";
-            lbl_ctg1.Size = new Size(269, 29);
+            lbl_ctg1.Size = new Size(213, 24);
             lbl_ctg1.TabIndex = 8;
             lbl_ctg1.Text = "Gestión de categorías";
             lbl_ctg1.TextAlign = ContentAlignment.MiddleLeft;
@@ -350,11 +367,12 @@
             // 
             // FormCategoria
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1186, 651);
             Controls.Add(pnl_ctg1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FormCategoria";
             Text = "FormBusc_Product";
             Load += FormCategoria_Load;

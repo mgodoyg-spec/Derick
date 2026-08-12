@@ -115,8 +115,9 @@
             pnl_aggP1.Controls.Add(pnl_aggP2);
             pnl_aggP1.Dock = DockStyle.Fill;
             pnl_aggP1.Location = new Point(0, 0);
+            pnl_aggP1.Margin = new Padding(3, 2, 3, 2);
             pnl_aggP1.Name = "pnl_aggP1";
-            pnl_aggP1.Size = new Size(644, 736);
+            pnl_aggP1.Size = new Size(564, 552);
             pnl_aggP1.TabIndex = 0;
             // 
             // btn_guardar
@@ -128,9 +129,10 @@
             btn_guardar.ForeColor = Color.White;
             btn_guardar.Image = (Image)resources.GetObject("btn_guardar.Image");
             btn_guardar.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_guardar.Location = new Point(428, 665);
+            btn_guardar.Location = new Point(375, 496);
+            btn_guardar.Margin = new Padding(3, 2, 3, 2);
             btn_guardar.Name = "btn_guardar";
-            btn_guardar.Size = new Size(204, 49);
+            btn_guardar.Size = new Size(178, 45);
             btn_guardar.TabIndex = 37;
             btn_guardar.Text = "      Guardar promoción";
             btn_guardar.UseVisualStyleBackColor = false;
@@ -144,9 +146,10 @@
             pnlP6.Controls.Add(lbl_p3);
             pnlP6.Controls.Add(lbl_porcentaje);
             pnlP6.Controls.Add(picP3);
-            pnlP6.Location = new Point(320, 404);
+            pnlP6.Location = new Point(280, 303);
+            pnlP6.Margin = new Padding(3, 2, 3, 2);
             pnlP6.Name = "pnlP6";
-            pnlP6.Size = new Size(312, 227);
+            pnlP6.Size = new Size(273, 170);
             pnlP6.TabIndex = 36;
             // 
             // pnlP5
@@ -156,9 +159,10 @@
             pnlP5.Controls.Add(lbl_p6);
             pnlP5.Controls.Add(lbl_p7);
             pnlP5.Controls.Add(lbl_p5);
-            pnlP5.Location = new Point(10, 140);
+            pnlP5.Location = new Point(9, 105);
+            pnlP5.Margin = new Padding(3, 2, 3, 2);
             pnlP5.Name = "pnlP5";
-            pnlP5.Size = new Size(297, 76);
+            pnlP5.Size = new Size(260, 57);
             pnlP5.TabIndex = 38;
             // 
             // lbl_p8
@@ -166,9 +170,9 @@
             lbl_p8.AutoSize = true;
             lbl_p8.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbl_p8.ForeColor = Color.FromArgb(0, 192, 0);
-            lbl_p8.Location = new Point(84, 41);
+            lbl_p8.Location = new Point(74, 31);
             lbl_p8.Name = "lbl_p8";
-            lbl_p8.Size = new Size(59, 22);
+            lbl_p8.Size = new Size(47, 18);
             lbl_p8.TabIndex = 37;
             lbl_p8.Text = "Activa";
             // 
@@ -177,9 +181,9 @@
             lbl_p6.AutoSize = true;
             lbl_p6.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbl_p6.ForeColor = Color.DimGray;
-            lbl_p6.Location = new Point(110, 10);
+            lbl_p6.Location = new Point(96, 8);
             lbl_p6.Name = "lbl_p6";
-            lbl_p6.Size = new Size(173, 22);
+            lbl_p6.Size = new Size(146, 18);
             lbl_p6.TabIndex = 37;
             lbl_p6.Text = "Todos los productos";
             // 
@@ -187,9 +191,9 @@
             // 
             lbl_p7.AutoSize = true;
             lbl_p7.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_p7.Location = new Point(9, 41);
+            lbl_p7.Location = new Point(8, 31);
             lbl_p7.Name = "lbl_p7";
-            lbl_p7.Size = new Size(71, 22);
+            lbl_p7.Size = new Size(59, 18);
             lbl_p7.TabIndex = 37;
             lbl_p7.Text = "Estado:";
             // 
@@ -197,9 +201,9 @@
             // 
             lbl_p5.AutoSize = true;
             lbl_p5.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_p5.Location = new Point(9, 10);
+            lbl_p5.Location = new Point(8, 8);
             lbl_p5.Name = "lbl_p5";
-            lbl_p5.Size = new Size(103, 22);
+            lbl_p5.Size = new Size(82, 18);
             lbl_p5.TabIndex = 37;
             lbl_p5.Text = "Aplicable a:";
             // 
@@ -208,9 +212,9 @@
             lbl_p4.AutoSize = true;
             lbl_p4.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbl_p4.ForeColor = Color.DimGray;
-            lbl_p4.Location = new Point(10, 116);
+            lbl_p4.Location = new Point(9, 87);
             lbl_p4.Name = "lbl_p4";
-            lbl_p4.Size = new Size(297, 21);
+            lbl_p4.Size = new Size(237, 17);
             lbl_p4.TabIndex = 37;
             lbl_p4.Text = "Válido del 01/08/2026 al 30/08/2026";
             // 
@@ -218,9 +222,9 @@
             // 
             lbl_p3.AutoSize = true;
             lbl_p3.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_p3.Location = new Point(10, 94);
+            lbl_p3.Location = new Point(9, 70);
             lbl_p3.Name = "lbl_p3";
-            lbl_p3.Size = new Size(258, 22);
+            lbl_p3.Size = new Size(213, 18);
             lbl_p3.TabIndex = 36;
             lbl_p3.Text = "20% de descuento en Camisas";
             // 
@@ -229,18 +233,19 @@
             lbl_porcentaje.AutoSize = true;
             lbl_porcentaje.Font = new Font("Microsoft Sans Serif", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbl_porcentaje.ForeColor = Color.FromArgb(0, 192, 0);
-            lbl_porcentaje.Location = new Point(102, 24);
+            lbl_porcentaje.Location = new Point(89, 18);
             lbl_porcentaje.Name = "lbl_porcentaje";
-            lbl_porcentaje.Size = new Size(85, 39);
+            lbl_porcentaje.Size = new Size(68, 31);
             lbl_porcentaje.TabIndex = 24;
             lbl_porcentaje.Text = "20%";
             // 
             // picP3
             // 
             picP3.Image = (Image)resources.GetObject("picP3.Image");
-            picP3.Location = new Point(15, 12);
+            picP3.Location = new Point(13, 9);
+            picP3.Margin = new Padding(3, 2, 3, 2);
             picP3.Name = "picP3";
-            picP3.Size = new Size(65, 67);
+            picP3.Size = new Size(57, 50);
             picP3.SizeMode = PictureBoxSizeMode.Zoom;
             picP3.TabIndex = 1;
             picP3.TabStop = false;
@@ -249,9 +254,9 @@
             // 
             lbl_p2.AutoSize = true;
             lbl_p2.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_p2.Location = new Point(320, 379);
+            lbl_p2.Location = new Point(280, 284);
             lbl_p2.Name = "lbl_p2";
-            lbl_p2.Size = new Size(104, 22);
+            lbl_p2.Size = new Size(83, 18);
             lbl_p2.TabIndex = 35;
             lbl_p2.Text = "Vista previa";
             // 
@@ -259,9 +264,10 @@
             // 
             pnlP3.BackColor = Color.FromArgb(0, 176, 80);
             pnlP3.Controls.Add(pnlP4);
-            pnlP3.Location = new Point(320, 214);
+            pnlP3.Location = new Point(280, 160);
+            pnlP3.Margin = new Padding(3, 2, 3, 2);
             pnlP3.Name = "pnlP3";
-            pnlP3.Size = new Size(310, 146);
+            pnlP3.Size = new Size(271, 110);
             pnlP3.TabIndex = 34;
             // 
             // pnlP4
@@ -270,9 +276,10 @@
             pnlP4.Controls.Add(lbl);
             pnlP4.Controls.Add(lbl_p1);
             pnlP4.Controls.Add(picP2);
-            pnlP4.Location = new Point(3, 3);
+            pnlP4.Location = new Point(3, 2);
+            pnlP4.Margin = new Padding(3, 2, 3, 2);
             pnlP4.Name = "pnlP4";
-            pnlP4.Size = new Size(304, 140);
+            pnlP4.Size = new Size(266, 105);
             pnlP4.TabIndex = 0;
             // 
             // lbl
@@ -280,9 +287,9 @@
             lbl.AutoSize = true;
             lbl.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbl.ForeColor = Color.DimGray;
-            lbl.Location = new Point(10, 64);
+            lbl.Location = new Point(9, 48);
             lbl.Name = "lbl";
-            lbl.Size = new Size(279, 63);
+            lbl.Size = new Size(229, 51);
             lbl.TabIndex = 35;
             lbl.Text = "El descuento se aplicara como un\r\nporcentaje sobre el precio de la\r\nventa del producto.";
             // 
@@ -290,18 +297,19 @@
             // 
             lbl_p1.AutoSize = true;
             lbl_p1.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_p1.Location = new Point(62, 21);
+            lbl_p1.Location = new Point(54, 16);
             lbl_p1.Name = "lbl_p1";
-            lbl_p1.Size = new Size(185, 22);
+            lbl_p1.Size = new Size(153, 18);
             lbl_p1.TabIndex = 35;
             lbl_p1.Text = "Descuento porcentual";
             // 
             // picP2
             // 
             picP2.Image = (Image)resources.GetObject("picP2.Image");
-            picP2.Location = new Point(12, 8);
+            picP2.Location = new Point(10, 6);
+            picP2.Margin = new Padding(3, 2, 3, 2);
             picP2.Name = "picP2";
-            picP2.Size = new Size(44, 41);
+            picP2.Size = new Size(38, 31);
             picP2.SizeMode = PictureBoxSizeMode.Zoom;
             picP2.TabIndex = 0;
             picP2.TabStop = false;
@@ -312,9 +320,10 @@
             btn_vnt.BackgroundImageLayout = ImageLayout.Zoom;
             btn_vnt.Cursor = Cursors.Hand;
             btn_vnt.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btn_vnt.Location = new Point(591, 172);
+            btn_vnt.Location = new Point(517, 129);
+            btn_vnt.Margin = new Padding(3, 2, 3, 2);
             btn_vnt.Name = "btn_vnt";
-            btn_vnt.Size = new Size(27, 28);
+            btn_vnt.Size = new Size(24, 21);
             btn_vnt.TabIndex = 33;
             btn_vnt.UseVisualStyleBackColor = true;
             btn_vnt.Click += btn_vnt_Click;
@@ -326,18 +335,19 @@
             lblP9.FlatStyle = FlatStyle.Flat;
             lblP9.ForeColor = Color.Gray;
             lblP9.ImageAlign = ContentAlignment.MiddleRight;
-            lblP9.Location = new Point(320, 172);
+            lblP9.Location = new Point(280, 129);
             lblP9.Name = "lblP9";
-            lblP9.Size = new Size(265, 27);
+            lblP9.Size = new Size(232, 20);
             lblP9.TabIndex = 32;
             // 
             // rb_ps
             // 
             rb_ps.AutoSize = true;
             rb_ps.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            rb_ps.Location = new Point(320, 137);
+            rb_ps.Location = new Point(280, 103);
+            rb_ps.Margin = new Padding(3, 2, 3, 2);
             rb_ps.Name = "rb_ps";
-            rb_ps.Size = new Size(213, 23);
+            rb_ps.Size = new Size(183, 20);
             rb_ps.TabIndex = 25;
             rb_ps.TabStop = true;
             rb_ps.Text = "Productos seleccionados";
@@ -348,9 +358,10 @@
             // 
             rb_tp.AutoSize = true;
             rb_tp.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            rb_tp.Location = new Point(320, 107);
+            rb_tp.Location = new Point(280, 80);
+            rb_tp.Margin = new Padding(3, 2, 3, 2);
             rb_tp.Name = "rb_tp";
-            rb_tp.Size = new Size(174, 23);
+            rb_tp.Size = new Size(152, 20);
             rb_tp.TabIndex = 24;
             rb_tp.TabStop = true;
             rb_tp.Text = "Todos los productos";
@@ -361,37 +372,38 @@
             // 
             lblP8.AutoSize = true;
             lblP8.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblP8.Location = new Point(320, 79);
+            lblP8.Location = new Point(280, 59);
             lblP8.Name = "lblP8";
-            lblP8.Size = new Size(80, 22);
+            lblP8.Size = new Size(64, 18);
             lblP8.TabIndex = 23;
             lblP8.Text = "Aplicar a";
             // 
             // label9
             // 
             label9.BackColor = Color.Gray;
-            label9.Location = new Point(293, 79);
+            label9.Location = new Point(256, 59);
             label9.Name = "label9";
-            label9.Size = new Size(1, 623);
+            label9.Size = new Size(1, 467);
             label9.TabIndex = 22;
             // 
             // txt_Pdsp
             // 
-            txt_Pdsp.Location = new Point(18, 513);
+            txt_Pdsp.Location = new Point(16, 385);
+            txt_Pdsp.Margin = new Padding(3, 2, 3, 2);
             txt_Pdsp.MaxLength = 250;
             txt_Pdsp.Multiline = true;
             txt_Pdsp.Name = "txt_Pdsp";
             txt_Pdsp.PlaceholderText = "Escriba una descripción de la promoción";
-            txt_Pdsp.Size = new Size(256, 118);
+            txt_Pdsp.Size = new Size(224, 90);
             txt_Pdsp.TabIndex = 21;
             // 
             // lblP7
             // 
             lblP7.AutoSize = true;
             lblP7.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblP7.Location = new Point(18, 488);
+            lblP7.Location = new Point(16, 366);
             lblP7.Name = "lblP7";
-            lblP7.Size = new Size(104, 22);
+            lblP7.Size = new Size(87, 18);
             lblP7.TabIndex = 20;
             lblP7.Text = "Descripción";
             // 
@@ -399,54 +411,57 @@
             // 
             cmb_p3.FormattingEnabled = true;
             cmb_p3.Items.AddRange(new object[] { "Activo", "Inactivo" });
-            cmb_p3.Location = new Point(13, 443);
+            cmb_p3.Location = new Point(11, 332);
+            cmb_p3.Margin = new Padding(3, 2, 3, 2);
             cmb_p3.Name = "cmb_p3";
-            cmb_p3.Size = new Size(261, 28);
+            cmb_p3.Size = new Size(229, 23);
             cmb_p3.TabIndex = 19;
             // 
             // lblP6
             // 
             lblP6.AutoSize = true;
             lblP6.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblP6.Location = new Point(13, 418);
+            lblP6.Location = new Point(11, 314);
             lblP6.Name = "lblP6";
-            lblP6.Size = new Size(66, 22);
+            lblP6.Size = new Size(55, 18);
             lblP6.TabIndex = 18;
             lblP6.Text = "Estado";
             // 
             // dtp_fin
             // 
             dtp_fin.Format = DateTimePickerFormat.Short;
-            dtp_fin.Location = new Point(13, 374);
+            dtp_fin.Location = new Point(11, 280);
+            dtp_fin.Margin = new Padding(3, 2, 3, 2);
             dtp_fin.Name = "dtp_fin";
-            dtp_fin.Size = new Size(261, 27);
+            dtp_fin.Size = new Size(229, 23);
             dtp_fin.TabIndex = 17;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(13, 349);
+            label3.Location = new Point(11, 262);
             label3.Name = "label3";
-            label3.Size = new Size(109, 22);
+            label3.Size = new Size(88, 18);
             label3.TabIndex = 16;
             label3.Text = "Fecha de fin";
             // 
             // dtp_inicio
             // 
             dtp_inicio.Format = DateTimePickerFormat.Short;
-            dtp_inicio.Location = new Point(13, 306);
+            dtp_inicio.Location = new Point(11, 230);
+            dtp_inicio.Margin = new Padding(3, 2, 3, 2);
             dtp_inicio.Name = "dtp_inicio";
-            dtp_inicio.Size = new Size(261, 27);
+            dtp_inicio.Size = new Size(229, 23);
             dtp_inicio.TabIndex = 15;
             // 
             // lblP5
             // 
             lblP5.AutoSize = true;
             lblP5.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblP5.Location = new Point(13, 281);
+            lblP5.Location = new Point(11, 211);
             lblP5.Name = "lblP5";
-            lblP5.Size = new Size(131, 22);
+            lblP5.Size = new Size(107, 18);
             lblP5.TabIndex = 14;
             lblP5.Text = "Fecha de inicio";
             // 
@@ -454,18 +469,20 @@
             // 
             cmb_p2.FormattingEnabled = true;
             cmb_p2.Items.AddRange(new object[] { "%", "$" });
-            cmb_p2.Location = new Point(188, 238);
+            cmb_p2.Location = new Point(164, 178);
+            cmb_p2.Margin = new Padding(3, 2, 3, 2);
             cmb_p2.Name = "cmb_p2";
-            cmb_p2.Size = new Size(86, 28);
+            cmb_p2.Size = new Size(76, 23);
             cmb_p2.TabIndex = 13;
             // 
             // txt_p2
             // 
-            txt_p2.Location = new Point(13, 239);
+            txt_p2.Location = new Point(11, 179);
+            txt_p2.Margin = new Padding(3, 2, 3, 2);
             txt_p2.MaxLength = 100;
             txt_p2.Name = "txt_p2";
             txt_p2.PlaceholderText = "Ej: 20";
-            txt_p2.Size = new Size(159, 27);
+            txt_p2.Size = new Size(140, 23);
             txt_p2.TabIndex = 12;
             txt_p2.KeyPress += txt_p2_KeyPress;
             // 
@@ -473,9 +490,9 @@
             // 
             lblP4.AutoSize = true;
             lblP4.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblP4.Location = new Point(13, 214);
+            lblP4.Location = new Point(11, 160);
             lblP4.Name = "lblP4";
-            lblP4.Size = new Size(96, 22);
+            lblP4.Size = new Size(80, 18);
             lblP4.TabIndex = 11;
             lblP4.Text = "Descuento";
             // 
@@ -483,28 +500,30 @@
             // 
             cmb_p1.FormattingEnabled = true;
             cmb_p1.Items.AddRange(new object[] { "Descuento porcentual", "Descuento fijo" });
-            cmb_p1.Location = new Point(13, 170);
+            cmb_p1.Location = new Point(11, 128);
+            cmb_p1.Margin = new Padding(3, 2, 3, 2);
             cmb_p1.Name = "cmb_p1";
-            cmb_p1.Size = new Size(261, 28);
+            cmb_p1.Size = new Size(229, 23);
             cmb_p1.TabIndex = 10;
             // 
             // lblP3
             // 
             lblP3.AutoSize = true;
             lblP3.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblP3.Location = new Point(13, 145);
+            lblP3.Location = new Point(11, 109);
             lblP3.Name = "lblP3";
-            lblP3.Size = new Size(159, 22);
+            lblP3.Size = new Size(133, 18);
             lblP3.TabIndex = 9;
             lblP3.Text = "Tipo de promoción";
             // 
             // txt_p1
             // 
-            txt_p1.Location = new Point(13, 104);
+            txt_p1.Location = new Point(11, 78);
+            txt_p1.Margin = new Padding(3, 2, 3, 2);
             txt_p1.MaxLength = 100;
             txt_p1.Name = "txt_p1";
             txt_p1.PlaceholderText = "Ej: Promoción por verano";
-            txt_p1.Size = new Size(261, 27);
+            txt_p1.Size = new Size(229, 23);
             txt_p1.TabIndex = 8;
             txt_p1.KeyPress += txt_p1_KeyPress;
             // 
@@ -512,9 +531,9 @@
             // 
             lblP2.AutoSize = true;
             lblP2.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblP2.Location = new Point(13, 79);
+            lblP2.Location = new Point(11, 59);
             lblP2.Name = "lblP2";
-            lblP2.Size = new Size(205, 22);
+            lblP2.Size = new Size(173, 18);
             lblP2.TabIndex = 7;
             lblP2.Text = "Nombre de la promoción";
             // 
@@ -527,17 +546,19 @@
             pnl_aggP2.Controls.Add(picP1);
             pnl_aggP2.Dock = DockStyle.Top;
             pnl_aggP2.Location = new Point(0, 0);
+            pnl_aggP2.Margin = new Padding(3, 2, 3, 2);
             pnl_aggP2.Name = "pnl_aggP2";
-            pnl_aggP2.Size = new Size(644, 67);
+            pnl_aggP2.Size = new Size(564, 51);
             pnl_aggP2.TabIndex = 0;
             // 
             // btn_salirP
             // 
             btn_salirP.Cursor = Cursors.Hand;
             btn_salirP.Image = (Image)resources.GetObject("btn_salirP.Image");
-            btn_salirP.Location = new Point(599, 16);
+            btn_salirP.Location = new Point(524, 12);
+            btn_salirP.Margin = new Padding(3, 2, 3, 2);
             btn_salirP.Name = "btn_salirP";
-            btn_salirP.Size = new Size(31, 31);
+            btn_salirP.Size = new Size(27, 23);
             btn_salirP.SizeMode = PictureBoxSizeMode.Zoom;
             btn_salirP.TabIndex = 4;
             btn_salirP.TabStop = false;
@@ -548,29 +569,31 @@
             lblP1.AutoSize = true;
             lblP1.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblP1.ForeColor = Color.White;
-            lblP1.Location = new Point(86, 18);
+            lblP1.Location = new Point(75, 14);
             lblP1.Name = "lblP1";
-            lblP1.Size = new Size(220, 29);
+            lblP1.Size = new Size(174, 24);
             lblP1.TabIndex = 3;
             lblP1.Text = "Agregar promoción";
             // 
             // picP1
             // 
             picP1.Image = (Image)resources.GetObject("picP1.Image");
-            picP1.Location = new Point(11, 3);
+            picP1.Location = new Point(10, 2);
+            picP1.Margin = new Padding(3, 2, 3, 2);
             picP1.Name = "picP1";
-            picP1.Size = new Size(69, 55);
+            picP1.Size = new Size(60, 41);
             picP1.SizeMode = PictureBoxSizeMode.Zoom;
             picP1.TabIndex = 2;
             picP1.TabStop = false;
             // 
             // FormAgg_Promocion
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(644, 736);
+            ClientSize = new Size(564, 552);
             Controls.Add(pnl_aggP1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FormAgg_Promocion";
             Text = "FormAgg_Promocion";
             Load += FormAgg_Promocion_Load;

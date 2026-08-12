@@ -57,7 +57,7 @@
             clVerTodo = new DataGridViewImageColumn();
             panel9 = new Panel();
             pictureBox1 = new PictureBox();
-            textBox2 = new TextBox();
+            txt1 = new TextBox();
             pic_agg1 = new PictureBox();
             lbl_agg1 = new Label();
             img_icons = new ImageList(components);
@@ -95,10 +95,10 @@
             button1.ForeColor = Color.White;
             button1.Image = (Image)resources.GetObject("button1.Image");
             button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(810, 17);
+            button1.Location = new Point(946, 13);
             button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
-            button1.Size = new Size(217, 35);
+            button1.Size = new Size(217, 38);
             button1.TabIndex = 9;
             button1.Text = "Agregar producto";
             button1.UseVisualStyleBackColor = false;
@@ -128,7 +128,7 @@
             pnl_agg2.Location = new Point(9, 57);
             pnl_agg2.Margin = new Padding(3, 2, 3, 2);
             pnl_agg2.Name = "pnl_agg2";
-            pnl_agg2.Size = new Size(1017, 409);
+            pnl_agg2.Size = new Size(1165, 583);
             pnl_agg2.TabIndex = 6;
             // 
             // btn_buscar
@@ -139,13 +139,14 @@
             btn_buscar.ForeColor = Color.White;
             btn_buscar.Image = (Image)resources.GetObject("btn_buscar.Image");
             btn_buscar.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_buscar.Location = new Point(739, 14);
+            btn_buscar.Location = new Point(880, 12);
             btn_buscar.Margin = new Padding(3, 2, 3, 2);
             btn_buscar.Name = "btn_buscar";
-            btn_buscar.Size = new Size(122, 35);
+            btn_buscar.Size = new Size(128, 37);
             btn_buscar.TabIndex = 8;
             btn_buscar.Text = "Buscar";
             btn_buscar.UseVisualStyleBackColor = false;
+            btn_buscar.Click += btn_buscar_Click;
             // 
             // pnl_cmb2
             // 
@@ -214,13 +215,14 @@
             btn_limpiar.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btn_limpiar.ForeColor = Color.Black;
             btn_limpiar.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_limpiar.Location = new Point(892, 15);
+            btn_limpiar.Location = new Point(1026, 12);
             btn_limpiar.Margin = new Padding(3, 2, 3, 2);
             btn_limpiar.Name = "btn_limpiar";
-            btn_limpiar.Size = new Size(114, 34);
+            btn_limpiar.Size = new Size(128, 38);
             btn_limpiar.TabIndex = 21;
             btn_limpiar.Text = "Limpiar";
             btn_limpiar.UseVisualStyleBackColor = false;
+            btn_limpiar.Click += btn_limpiar_Click;
             // 
             // lbl_agg2
             // 
@@ -253,7 +255,7 @@
             dvg_agg.RowHeadersVisible = false;
             dvg_agg.RowHeadersWidth = 51;
             dvg_agg.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dvg_agg.Size = new Size(996, 319);
+            dvg_agg.Size = new Size(1144, 493);
             dvg_agg.TabIndex = 15;
             dvg_agg.CellClick += dvg_agg_CellClick;
             // 
@@ -337,7 +339,7 @@
             panel9.BackColor = Color.White;
             panel9.BorderStyle = BorderStyle.FixedSingle;
             panel9.Controls.Add(pictureBox1);
-            panel9.Controls.Add(textBox2);
+            panel9.Controls.Add(txt1);
             panel9.Location = new Point(10, 15);
             panel9.Margin = new Padding(3, 2, 3, 2);
             panel9.Name = "panel9";
@@ -357,17 +359,17 @@
             pictureBox1.TabIndex = 23;
             pictureBox1.TabStop = false;
             // 
-            // textBox2
+            // txt1
             // 
-            textBox2.BorderStyle = BorderStyle.None;
-            textBox2.Font = new Font("Segoe UI", 10.8F);
-            textBox2.ForeColor = Color.Gray;
-            textBox2.Location = new Point(4, 7);
-            textBox2.Margin = new Padding(3, 2, 3, 2);
-            textBox2.Name = "textBox2";
-            textBox2.PlaceholderText = "          Buscar producto";
-            textBox2.Size = new Size(236, 20);
-            textBox2.TabIndex = 7;
+            txt1.BorderStyle = BorderStyle.None;
+            txt1.Font = new Font("Segoe UI", 10.8F);
+            txt1.ForeColor = Color.Gray;
+            txt1.Location = new Point(48, 7);
+            txt1.Margin = new Padding(3, 2, 3, 2);
+            txt1.Name = "txt1";
+            txt1.PlaceholderText = "          Buscar producto";
+            txt1.Size = new Size(192, 20);
+            txt1.TabIndex = 7;
             // 
             // pic_agg1
             // 
@@ -436,7 +438,7 @@
         private DataGridView dvg_agg;
         private ComboBox cmb_agg1;
         private Panel panel9;
-        private TextBox textBox2;
+        private TextBox txt1;
         private PictureBox pic_agg1;
         private Label lbl_agg1;
         private PictureBox pic_raya1;

@@ -64,8 +64,9 @@
             pnl_sec1.Controls.Add(pnl_sec2);
             pnl_sec1.Dock = DockStyle.Fill;
             pnl_sec1.Location = new Point(0, 0);
+            pnl_sec1.Margin = new Padding(3, 2, 3, 2);
             pnl_sec1.Name = "pnl_sec1";
-            pnl_sec1.Size = new Size(548, 571);
+            pnl_sec1.Size = new Size(480, 428);
             pnl_sec1.TabIndex = 0;
             // 
             // btn_aceptar
@@ -75,9 +76,10 @@
             btn_aceptar.ForeColor = Color.White;
             btn_aceptar.Image = (Image)resources.GetObject("btn_aceptar.Image");
             btn_aceptar.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_aceptar.Location = new Point(393, 505);
+            btn_aceptar.Location = new Point(333, 372);
+            btn_aceptar.Margin = new Padding(3, 2, 3, 2);
             btn_aceptar.Name = "btn_aceptar";
-            btn_aceptar.Size = new Size(143, 45);
+            btn_aceptar.Size = new Size(135, 41);
             btn_aceptar.TabIndex = 29;
             btn_aceptar.Text = "     Aceptar";
             btn_aceptar.UseVisualStyleBackColor = false;
@@ -93,9 +95,10 @@
             btn_cerra.ForeColor = Color.FromArgb(0, 102, 255);
             btn_cerra.Image = (Image)resources.GetObject("btn_cerra.Image");
             btn_cerra.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_cerra.Location = new Point(244, 505);
+            btn_cerra.Location = new Point(181, 372);
+            btn_cerra.Margin = new Padding(3, 2, 3, 2);
             btn_cerra.Name = "btn_cerra";
-            btn_cerra.Size = new Size(143, 45);
+            btn_cerra.Size = new Size(125, 41);
             btn_cerra.TabIndex = 28;
             btn_cerra.Text = "     Cancelar";
             btn_cerra.UseVisualStyleBackColor = false;
@@ -106,10 +109,11 @@
             dgv_prm.BackgroundColor = Color.White;
             dgv_prm.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_prm.Columns.AddRange(new DataGridViewColumn[] { clSeleccionar, clCodigo, clProducto, clPrecio });
-            dgv_prm.Location = new Point(11, 163);
+            dgv_prm.Location = new Point(10, 122);
+            dgv_prm.Margin = new Padding(3, 2, 3, 2);
             dgv_prm.Name = "dgv_prm";
             dgv_prm.RowHeadersWidth = 51;
-            dgv_prm.Size = new Size(525, 314);
+            dgv_prm.Size = new Size(459, 236);
             dgv_prm.TabIndex = 27;
             // 
             // clSeleccionar
@@ -149,9 +153,10 @@
             btn_bus1.ForeColor = Color.White;
             btn_bus1.Image = (Image)resources.GetObject("btn_bus1.Image");
             btn_bus1.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_bus1.Location = new Point(319, 98);
+            btn_bus1.Location = new Point(279, 74);
+            btn_bus1.Margin = new Padding(3, 2, 3, 2);
             btn_bus1.Name = "btn_bus1";
-            btn_bus1.Size = new Size(176, 47);
+            btn_bus1.Size = new Size(154, 35);
             btn_bus1.TabIndex = 26;
             btn_bus1.Text = "Buscar";
             btn_bus1.UseVisualStyleBackColor = false;
@@ -162,10 +167,11 @@
             pnl_ctg2.BorderStyle = BorderStyle.FixedSingle;
             pnl_ctg2.Controls.Add(pic_ctg2);
             pnl_ctg2.Controls.Add(txt_busqctg);
-            pnl_ctg2.Location = new Point(12, 98);
+            pnl_ctg2.Location = new Point(10, 74);
+            pnl_ctg2.Margin = new Padding(3, 2, 3, 2);
             pnl_ctg2.Name = "pnl_ctg2";
-            pnl_ctg2.Padding = new Padding(10);
-            pnl_ctg2.Size = new Size(290, 45);
+            pnl_ctg2.Padding = new Padding(9, 8, 9, 8);
+            pnl_ctg2.Size = new Size(254, 34);
             pnl_ctg2.TabIndex = 25;
             // 
             // pic_ctg2
@@ -173,8 +179,9 @@
             pic_ctg2.BackColor = Color.White;
             pic_ctg2.Image = (Image)resources.GetObject("pic_ctg2.Image");
             pic_ctg2.Location = new Point(-2, -1);
+            pic_ctg2.Margin = new Padding(3, 2, 3, 2);
             pic_ctg2.Name = "pic_ctg2";
-            pic_ctg2.Size = new Size(50, 45);
+            pic_ctg2.Size = new Size(44, 34);
             pic_ctg2.SizeMode = PictureBoxSizeMode.Zoom;
             pic_ctg2.TabIndex = 23;
             pic_ctg2.TabStop = false;
@@ -184,10 +191,11 @@
             txt_busqctg.BorderStyle = BorderStyle.None;
             txt_busqctg.Font = new Font("Segoe UI", 10.8F);
             txt_busqctg.ForeColor = Color.Gray;
-            txt_busqctg.Location = new Point(5, 9);
+            txt_busqctg.Location = new Point(4, 7);
+            txt_busqctg.Margin = new Padding(3, 2, 3, 2);
             txt_busqctg.Name = "txt_busqctg";
             txt_busqctg.PlaceholderText = "          Buscar producto";
-            txt_busqctg.Size = new Size(270, 24);
+            txt_busqctg.Size = new Size(236, 20);
             txt_busqctg.TabIndex = 7;
             // 
             // pnl_sec2
@@ -199,26 +207,28 @@
             pnl_sec2.Controls.Add(lbl_ry);
             pnl_sec2.Dock = DockStyle.Top;
             pnl_sec2.Location = new Point(0, 0);
+            pnl_sec2.Margin = new Padding(3, 2, 3, 2);
             pnl_sec2.Name = "pnl_sec2";
-            pnl_sec2.Size = new Size(548, 92);
+            pnl_sec2.Size = new Size(480, 70);
             pnl_sec2.TabIndex = 0;
             // 
             // lbl_sc
             // 
             lbl_sc.AutoSize = true;
             lbl_sc.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_sc.Location = new Point(85, 30);
+            lbl_sc.Location = new Point(74, 22);
             lbl_sc.Name = "lbl_sc";
-            lbl_sc.Size = new Size(227, 25);
+            lbl_sc.Size = new Size(188, 20);
             lbl_sc.TabIndex = 6;
             lbl_sc.Text = "Seleccionar productos";
             // 
             // pic_ntll
             // 
             pic_ntll.Image = (Image)resources.GetObject("pic_ntll.Image");
-            pic_ntll.Location = new Point(14, 14);
+            pic_ntll.Location = new Point(12, 10);
+            pic_ntll.Margin = new Padding(3, 2, 3, 2);
             pic_ntll.Name = "pic_ntll";
-            pic_ntll.Size = new Size(65, 58);
+            pic_ntll.Size = new Size(57, 44);
             pic_ntll.SizeMode = PictureBoxSizeMode.Zoom;
             pic_ntll.TabIndex = 5;
             pic_ntll.TabStop = false;
@@ -226,18 +236,19 @@
             // lbl_ry
             // 
             lbl_ry.BackColor = Color.FromArgb(0, 102, 255);
-            lbl_ry.Location = new Point(-7, 86);
+            lbl_ry.Location = new Point(-6, 64);
             lbl_ry.Name = "lbl_ry";
-            lbl_ry.Size = new Size(554, 2);
+            lbl_ry.Size = new Size(485, 2);
             lbl_ry.TabIndex = 2;
             // 
             // frm_secundario4
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(548, 571);
+            ClientSize = new Size(480, 428);
             Controls.Add(pnl_sec1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "frm_secundario4";
             Text = "frm_secundario4";
             Load += frm_secundario4_Load;

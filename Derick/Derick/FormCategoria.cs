@@ -19,6 +19,9 @@ namespace Derick
 
         private void FormCategoria_Load(object sender, EventArgs e)
         {
+            CargarCategoriasFiltro();
+            CargarEstadosFiltro();
+            CargarCategorias();
             // ==============================
             // CONFIGURACIÓN GENERAL
             // ==============================
@@ -226,6 +229,120 @@ namespace Derick
                     null                                // Eliminar
                 );
             }
+        }
+        private void FiltrarCategorias()
+        {
+            string texto = txt_busqctg.Text.Trim();
+            string categoria = cmb_ctg1.Text.Trim();
+            string estado = cmb_ctg2.Text.Trim();
+
+            string sql = @"
+            SELECT
+            IdCategoria,
+            Nombre,
+            Descripcion,
+            Estado
+            FROM Categorias
+            WHERE 1 = 1 ";
+
+            // Buscar por nombre o descripción
+            if (!string.IsNullOrWhiteSpace(texto))
+            {
+                sql += $" AND (Nombre LIKE '%{texto}%' " +
+                       $"OR Descripcion LIKE '%{texto}%')";
+            }
+
+            // Filtrar por categoría
+            if (categoria != "Todas" &&
+                !string.IsNullOrWhiteSpace(categoria))
+            {
+                sql += $" AND Nombre = '{categoria}'";
+            }
+
+            // Filtrar por estado
+            if (estado != "Todos" &&
+                !string.IsNullOrWhiteSpace(estado))
+            {
+                if (estado == "Activo")
+                    sql += " AND Estado = 1";
+                else if (estado == "Inactivo")
+                    sql += " AND Estado = 0";
+            }
+
+            sql += " ORDER BY IdCategoria";
+
+            csConectaSQL conexion = new csConectaSQL();
+
+            DataTable dt = conexion.RetornaRegistros(sql);
+
+            if (dt == null)
+                return;
+
+            dgv_catg.Rows.Clear();
+
+            foreach (DataRow fila in dt.Rows)
+            {
+                string estadoTexto =
+                    Convert.ToBoolean(fila["Estado"])
+                    ? "Activo"
+                    : "Inactivo";
+
+                dgv_catg.Rows.Add(
+                    fila["IdCategoria"].ToString(),
+                    null, // Ícono
+                    fila["Nombre"].ToString(),
+                    estadoTexto,
+                    fila["Descripcion"].ToString(),
+                    null, // Editar
+                    null  // Eliminar
+                );
+            }
+        }
+        private void CargarCategoriasFiltro()
+        {
+            cmb_ctg1.Items.Clear();
+
+            cmb_ctg1.Items.Add("Todas");
+
+            csConectaSQL conexion = new csConectaSQL();
+
+            DataTable dt = conexion.RetornaRegistros(
+                "SELECT Nombre FROM Categorias ORDER BY Nombre"
+            );
+
+            if (dt != null)
+            {
+                foreach (DataRow fila in dt.Rows)
+                {
+                    cmb_ctg1.Items.Add(
+                        fila["Nombre"].ToString()
+                    );
+                }
+            }
+
+            cmb_ctg1.SelectedIndex = 0;
+        }
+        private void CargarEstadosFiltro()
+        {
+            cmb_ctg2.Items.Clear();
+
+            cmb_ctg2.Items.Add("Todos");
+            cmb_ctg2.Items.Add("Activo");
+            cmb_ctg2.Items.Add("Inactivo");
+
+            cmb_ctg2.SelectedIndex = 0;
+        }
+        private void btn_bus1_Click(object sender, EventArgs e)
+        {
+            FiltrarCategorias();
+        }
+
+        private void btn_limp1_Click(object sender, EventArgs e)
+        {
+            txt_busqctg.Clear();
+            cmb_ctg1.SelectedIndex = 0;
+            cmb_ctg2.SelectedIndex = 0;
+            CargarCategorias();
         }
 
         private void btn_ctg1_Click(object sender, EventArgs e)
