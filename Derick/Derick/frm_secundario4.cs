@@ -20,7 +20,7 @@ namespace Derick
         }
         private void frm_secundario4_Load(object sender, EventArgs e)
         {
-
+            CargarProductos();
         }
         private void C_prm()
         {
@@ -94,7 +94,33 @@ namespace Derick
             // ==============================
             dgv_prm.Rows.Clear();
         }
+        private void CargarProductos()
+        {
+            csConectaSQL conexion = new csConectaSQL();
 
+            DataTable dt = conexion.RetornaRegistros(
+                "SELECT IdProductos, Codigo, Nombre, Precio " +
+                "FROM Productos ORDER BY Nombre"
+            );
+
+            if (dt == null)
+                return;
+
+            dgv_prm.Rows.Clear();
+
+            foreach (DataRow fila in dt.Rows)
+            {
+                int indice = dgv_prm.Rows.Add(
+                    false,
+                    fila["Codigo"].ToString(),
+                    fila["Nombre"].ToString(),
+                    Convert.ToDecimal(fila["Precio"]).ToString("0.00")
+                );
+
+                dgv_prm.Rows[indice].Tag =
+                    Convert.ToInt32(fila["IdProductos"]);
+            }
+        }
         private void btn_aceptar_Click(object sender, EventArgs e)
         {
             prd_selet.Clear();
@@ -105,19 +131,14 @@ namespace Derick
                 bool seleccionado = Convert.ToBoolean(
                     fila.Cells["clSeleccionar"].Value ?? false
                 );
-
                 if (seleccionado)
                 {
-                    int idProducto = Convert.ToInt32(
-                        fila.Cells["clId"].Value
-                    );
-
+                    int idProducto = Convert.ToInt32(fila.Tag);
                     string nombreProducto = fila.Cells["clProducto"].Value?.ToString() ?? "";
                     prd_selet.Add(idProducto);
                     nm_selet.Add(nombreProducto);
                 }
             }
-            // Validar que haya seleccionado al menos uno
             if (prd_selet.Count == 0)
             {
                 MessageBox.Show(
@@ -128,7 +149,6 @@ namespace Derick
                 );
                 return;
             }
-            // Indicar al formulario anterior que todo salió bien
             DialogResult = DialogResult.OK;
             Close();
         }

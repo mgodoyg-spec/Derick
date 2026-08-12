@@ -93,6 +93,7 @@
             btn_grd.TabIndex = 40;
             btn_grd.Text = "    Guardar categoría";
             btn_grd.UseVisualStyleBackColor = false;
+            btn_grd.Click += btn_grd_Click;
             // 
             // txt1
             // 
@@ -110,9 +111,9 @@
             lble_5.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lble_5.Location = new Point(336, 90);
             lble_5.Name = "lble_5";
-            lble_5.Size = new Size(196, 22);
+            lble_5.Size = new Size(227, 22);
             lble_5.TabIndex = 38;
-            lble_5.Text = "Nombre de la categoría";
+            lble_5.Text = "Descripción de la categoría";
             // 
             // lbl_ry1
             // 

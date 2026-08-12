@@ -163,13 +163,51 @@ namespace Derick
             // ==========================================
             // TODO CORRECTO
             // ==========================================
+            string nombre = txt_NP.Text.Trim();
+            string contacto = txt_CNC.Text.Trim();
+            string telefono = txt_TL.Text.Trim();
+            string correo = txt_CE.Text.Trim();
+            string direccion = txt_DRC.Text.Trim();
+            int estado = cmb_Estado.Text.Equals(
+                "Activo",
+                StringComparison.OrdinalIgnoreCase)
+                ? 1
+                : 0;
+
+            csConectaSQL conexion = new csConectaSQL();
+
+            string campos =
+                "Nombre, Contacto, Telefono, Correo, Direccion, Estado";
+
+            string datos =
+                $"'{nombre}', " +
+                $"'{contacto}', " +
+                $"'{telefono}', " +
+                $"'{correo}', " +
+                $"'{direccion}', " +
+                $"{estado}";
+
+            bool guardado = conexion.insertDatos(
+                "Proveedores",
+                campos,
+                datos
+            );
+            if (!guardado)
+            {
+                MessageBox.Show(
+                    "No se pudo guardar el proveedor.",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return;
+            }
             MessageBox.Show(
                 "Proveedor registrado correctamente.",
                 "Proveedor",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information
             );
-            // Más adelante aquí irá el INSERT a SQL Server.
             DialogResult = DialogResult.OK;
             Close();
         }

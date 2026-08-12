@@ -24,6 +24,7 @@ namespace Derick
                 if (colorDialog.ShowDialog() == DialogResult.OK)
                 {
                     pnl_clr1.BackColor = colorDialog.Color;
+                    clrSelect = colorDialog.Color;
                 }
             }
         }
@@ -31,12 +32,54 @@ namespace Derick
         private void btn_guardar_Click(object sender, EventArgs e)
         {
             string nombre = txt_clr.Text.Trim();
+
             if (string.IsNullOrWhiteSpace(nombre))
             {
-                MessageBox.Show("Ingrese el nombre del color.");
+                MessageBox.Show(
+                    "Ingrese el nombre del color.",
+                    "Campo obligatorio",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                txt_clr.Focus();
+                return;
+            }
+            csConectaSQL conexion = new csConectaSQL();
+            DataTable dt = conexion.RetornaRegistros(
+                $"SELECT IdColor FROM Colores WHERE Nombre = '{nombre}'"
+            );
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                MessageBox.Show(
+                    "El color ya existe.",
+                    "Color duplicado",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
+            string codigoHex = ColorTranslator.ToHtml(clrSelect);
+            bool guardado = conexion.insertDatos(
+                "Colores",
+                "Nombre, CodigoHex",
+                $"'{nombre}', '{codigoHex}'"
+            );
+            if (!guardado)
+            {
+                MessageBox.Show(
+                    "No se pudo guardar el color.",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
                 return;
             }
             ncolor = nombre;
+            MessageBox.Show(
+                "Color guardado correctamente.",
+                "Guardado",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
             this.DialogResult = DialogResult.OK;
             this.Close();
         }

@@ -16,6 +16,7 @@ namespace Derick
         private List<PictureBox> piclist1;
         private List<string> rt = new List<string>();
         private PictureBox? picSelect = null;
+        private List<DetalleStock> detallesStock = new List<DetalleStock>();
         public FormAgg_Product()
         {
             InitializeComponent();
@@ -41,45 +42,51 @@ namespace Derick
         {
             CTalla();
             CTColor();
+            C_CTG();
         }
         private void CTalla()
         {
             cmTallas.Items.Clear();
-            string[] tlls = { "S", "M", "L", };
-            foreach (string tll in tlls)
+            csConectaSQL conexion = new csConectaSQL();
+            DataTable dt = conexion.RetornaRegistros(
+                "SELECT Nombre FROM Tallas ORDER BY IdTalla"
+            );
+            if (dt != null)
             {
-                ToolStripMenuItem item = new ToolStripMenuItem(tll);
-                item.CheckOnClick = true;
-                item.CheckedChanged += Talla_CheckedChanged;
-
-                cmTallas.Items.Add(item);
+                foreach (DataRow fila in dt.Rows)
+                {
+                    string talla = fila["Nombre"].ToString();
+                    ToolStripMenuItem item = new ToolStripMenuItem(talla);
+                    item.CheckOnClick = true;
+                    item.CheckedChanged += Talla_CheckedChanged;
+                    cmTallas.Items.Add(item);
+                }
             }
-
             cmTallas.Items.Add(new ToolStripSeparator());
             ToolStripMenuItem agregarTalla = new ToolStripMenuItem();
             agregarTalla.Text = "+ Agregar talla";
-            // Cuando presiones "+ Agregar talla"
             agregarTalla.Click += Agg_Tallas_Click;
             cmTallas.Items.Add(agregarTalla);
         }
         private void CTColor()
         {
             cmColores.Items.Clear();
-            string[] clrs = { "Negro", "Azul", "Blanco" };
-            foreach (string clr in clrs)
+            csConectaSQL conexion = new csConectaSQL();
+            DataTable dt = conexion.RetornaRegistros("SELECT Nombre FROM Colores ORDER BY IdColor");
+            if (dt != null)
             {
-                ToolStripMenuItem item = new ToolStripMenuItem(clr);
-                item.CheckOnClick = true;
-                item.CheckedChanged += Color_CheckedChanged;
-
-                cmColores.Items.Add(item);
+                foreach (DataRow fila in dt.Rows)
+                {
+                    string color = fila["Nombre"].ToString();
+                    ToolStripMenuItem item = new ToolStripMenuItem(color);
+                    item.CheckOnClick = true;
+                    item.CheckedChanged += Color_CheckedChanged;
+                    cmColores.Items.Add(item);
+                }
             }
-
             cmColores.Items.Add(new ToolStripSeparator());
-            ToolStripMenuItem agregarColor = new ToolStripMenuItem();
-            agregarColor.Text = "+ Agregar color";
+            ToolStripMenuItem agregarColor = new ToolStripMenuItem("+ Agregar color");
             agregarColor.Click += Agg_Colores_Click;
-
             cmColores.Items.Add(agregarColor);
         }
         private void seleccionarImagen_Click(object sender, EventArgs e)
@@ -93,6 +100,21 @@ namespace Derick
                 }
                 picSelect = pic;
                 picSelect.BorderStyle = BorderStyle.Fixed3D;
+            }
+        }
+        private void C_CTG()
+        {
+            csConectaSQL conexion = new csConectaSQL();
+
+            DataTable dt = conexion.RetornaRegistros(
+                "SELECT Nombre FROM Categorias WHERE Estado = 1 ORDER BY Nombre"
+            );
+            if (dt == null)
+                return;
+            cmb_ctg.Items.Clear();
+            foreach (DataRow fila in dt.Rows)
+            {
+                cmb_ctg.Items.Add(fila["Nombre"].ToString());
             }
         }
         ////////////////////////////////////////////////////////////
@@ -293,6 +315,7 @@ namespace Derick
         }
         private void btn_guardar_Click(object sender, EventArgs e)
         {
+            // VALIDAR CÓDIGO
             if (string.IsNullOrWhiteSpace(txt_cd.Text))
             {
                 MessageBox.Show(
@@ -305,6 +328,7 @@ namespace Derick
                 return;
             }
 
+            // VALIDAR NOMBRE
             if (string.IsNullOrWhiteSpace(txt_nmb.Text))
             {
                 MessageBox.Show(
@@ -329,6 +353,7 @@ namespace Derick
                 return;
             }
 
+            // VALIDAR PRECIO
             decimal precio;
 
             if (!decimal.TryParse(txt_prc.Text, out precio))
@@ -355,11 +380,110 @@ namespace Derick
                 return;
             }
 
+            // VALIDAR CATEGORÍA
+            if (string.IsNullOrWhiteSpace(cmb_ctg.Text))
+            {
+                MessageBox.Show(
+                    "Seleccione una categoría.",
+                    "Categoría obligatoria",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                cmb_ctg.Focus();
+                return;
+            }
+
+            // OBTENER TALLAS SELECCIONADAS
+            List<string> tallasSeleccionadas = new List<string>();
+
+            foreach (ToolStripItem elemento in cmTallas.Items)
+            {
+                if (elemento is ToolStripMenuItem item && item.Checked)
+                {
+                    tallasSeleccionadas.Add(item.Text);
+                }
+            }
+
+            if (tallasSeleccionadas.Count == 0)
+            {
+                MessageBox.Show(
+                    "Seleccione al menos una talla.",
+                    "Talla obligatoria",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
+
+            // OBTENER COLORES SELECCIONADOS
+            List<string> coloresSeleccionados = new List<string>();
+
+            foreach (ToolStripItem elemento in cmColores.Items)
+            {
+                if (elemento is ToolStripMenuItem item && item.Checked)
+                {
+                    coloresSeleccionados.Add(item.Text);
+                }
+            }
+
+            if (coloresSeleccionados.Count == 0)
+            {
+                MessageBox.Show(
+                    "Seleccione al menos un color.",
+                    "Color obligatorio",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
+
+            // CONVERTIR TALLAS Y COLORES A TEXTO
+            string tallas = string.Join(", ", tallasSeleccionadas);
+            string colores = string.Join(", ", coloresSeleccionados);
+
+            // OBTENER DATOS DEL FORMULARIO
+            string codigo = txt_cd.Text.Trim();
+            string nombre = txt_nmb.Text.Trim();
+            string categoria = cmb_ctg.Text.Trim();
+
+            // CONEXIÓN
+            csConectaSQL conexion = new csConectaSQL();
+            string campos = "Codigo, Nombre, Categoria, Talla, Color, Precio, Estado";
+            string datos =
+                $"'{codigo}', " +
+                $"'{nombre}', " +
+                $"'{categoria}', " +
+                $"'{tallas}', " +
+                $"'{colores}', " +
+                $"{precio.ToString(System.Globalization.CultureInfo.InvariantCulture)}, " +
+                "1";
+
+            // GUARDAR PRODUCTO Y OBTENER SU ID
+            int idProducto = conexion.Ins_RetrID(
+                "Productos",
+                campos,
+                datos
+            );
+
+            // COMPROBAR SI SE GUARDÓ
+            if (idProducto == -1)
+            {
+                MessageBox.Show(
+                    "No se pudo guardar el producto.",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return;
+            }
+
             MessageBox.Show(
-                "Datos válidos.",
-                "Correcto",
+                "Producto guardado correctamente.",
+                "Guardado",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
 
         private void btn_subir_Click(object sender, EventArgs e)
@@ -502,6 +626,7 @@ namespace Derick
             if (frm.ShowDialog(this) == DialogResult.OK)
             {
                 int total = frm.S_total;
+                detallesStock = frm.DetallesStock;
                 btn_abr.Text = total + " unidades";
             }
         }
@@ -514,7 +639,12 @@ namespace Derick
                 this.Left - 10,
                 this.Top
             );
-            frmAgg_Categoria.ShowDialog(this);
+            if (frmAgg_Categoria.ShowDialog(this) == DialogResult.OK)
+            {
+                string nuevaCategoria = frmAgg_Categoria.CategoriaCreada;
+                cmb_ctg.Items.Add(nuevaCategoria);
+                cmb_ctg.SelectedItem = nuevaCategoria;
+            }
         }
     }
 }

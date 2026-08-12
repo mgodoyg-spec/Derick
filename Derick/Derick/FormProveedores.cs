@@ -18,7 +18,7 @@ namespace Derick
 
         private void FormProveedores_Load(object sender, EventArgs e)
         {
-
+            CargarProveedores();
         }
         private void C_Proveedor()
         {
@@ -110,6 +110,49 @@ namespace Derick
             // EMPEZAR VACÍO
             // ==============================
             dgvProveedor.Rows.Clear();
+        }
+        private void CargarProveedores()
+        {
+            csConectaSQL conexion = new csConectaSQL();
+
+            DataTable dt = conexion.RetornaRegistros(
+                "SELECT IdProveedor, Nombre, Contacto, Telefono, Correo, Estado " +
+                "FROM Proveedores ORDER BY IdProveedor"
+            );
+
+            if (dt == null)
+                return;
+
+            dgvProveedor.Rows.Clear();
+
+            foreach (DataRow fila in dt.Rows)
+            {
+                string estado = Convert.ToBoolean(fila["Estado"])
+                    ? "Activo"
+                    : "Inactivo";
+
+                dgvProveedor.Rows.Add(
+                    fila["IdProveedor"].ToString(),
+                    fila["Nombre"].ToString(),
+                    fila["Contacto"].ToString(),
+                    fila["Telefono"].ToString(),
+                    fila["Correo"].ToString(),
+                    estado,
+                    null,
+                    null
+                );
+            }
+        }
+
+        private void btn_ctg1_Click(object sender, EventArgs e)
+        {
+            FormAgg_Proveedores frm_aggPR = new FormAgg_Proveedores();
+            frm_aggPR.StartPosition = FormStartPosition.CenterScreen;
+
+            if (frm_aggPR.ShowDialog(this) == DialogResult.OK)
+            {
+                CargarProveedores();
+            }
         }
     }
 }

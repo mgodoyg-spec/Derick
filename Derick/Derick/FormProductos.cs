@@ -141,11 +141,7 @@ namespace Derick
                 dvg_agg.Columns[columna].DefaultCellStyle.Alignment =
                     DataGridViewContentAlignment.MiddleCenter;
             }
-            dvg_agg.Rows.Clear();
-            dvg_agg.Rows.Add(
-                  "P001", null, "Camiseta Oversize", "Camisetas", "S, M, L", "Negro, Blanco",
-                  "$25.00", "35", "Activo", null, null, null
-            );
+            CargarProductos();
         }
         private void dvg_agg_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -176,32 +172,58 @@ namespace Derick
                 MessageBox.Show("Ver información del producto");
             }
         }
+        private void CargarProductos()
+        {
+            csConectaSQL conexion = new csConectaSQL();
+
+            string sql = @"
+                  SELECT 
+                  Codigo,
+                  Nombre,
+                  Categoria,
+                  Talla,
+                  Color,
+                  Precio,
+                  Estado
+                  FROM Productos";
+
+            DataTable dt = conexion.RetornaRegistros(sql);
+
+            if (dt == null)
+                return;
+
+            dvg_agg.Rows.Clear();
+
+            foreach (DataRow fila in dt.Rows)
+            {
+                string estado = Convert.ToBoolean(fila["Estado"])
+                    ? "Activo"
+                    : "Inactivo";
+
+                decimal precio = Convert.ToDecimal(fila["Precio"]);
+
+                dvg_agg.Rows.Add(
+                    fila["Codigo"].ToString(),
+                    null,
+                    fila["Nombre"].ToString(),
+                    fila["Categoria"].ToString(),
+                    fila["Talla"].ToString(),
+                    fila["Color"].ToString(),
+                    "$" + precio.ToString("0.00"),
+                    "0",
+                    estado,
+                    null,
+                    null,
+                    null
+                );
+            }
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             FormAgg_Product frm_agg = new FormAgg_Product();
             frm_agg.StartPosition = FormStartPosition.CenterScreen;
             frm_agg.ShowDialog(this);
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            FrmAgg_Categoria frm_agg = new FrmAgg_Categoria();
-            frm_agg.StartPosition = FormStartPosition.CenterScreen;
-            frm_agg.ShowDialog(this);
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-            FormAgg_Promocion frm_agg = new FormAgg_Promocion();
-            frm_agg.StartPosition = FormStartPosition.CenterScreen;
-            frm_agg.ShowDialog(this);
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-            FormAgg_Proveedores frm_aggp = new FormAgg_Proveedores();
-            frm_aggp.StartPosition = FormStartPosition.CenterScreen;
-            frm_aggp.ShowDialog(this);
+            CargarProductos();
         }
     }
 }

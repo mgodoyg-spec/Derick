@@ -49,7 +49,7 @@
             btn_tallas1 = new Button();
             lbl_tallas = new Label();
             btn_tallas = new Button();
-            button4 = new Button();
+            btn_AbrirCTG = new Button();
             lbl6 = new Label();
             pnl_cont1 = new Panel();
             btn_quitar = new Button();
@@ -118,7 +118,7 @@
             pnlcont1.Controls.Add(btn_tallas1);
             pnlcont1.Controls.Add(lbl_tallas);
             pnlcont1.Controls.Add(btn_tallas);
-            pnlcont1.Controls.Add(button4);
+            pnlcont1.Controls.Add(btn_AbrirCTG);
             pnlcont1.Controls.Add(lbl6);
             pnlcont1.Controls.Add(pnl_cont1);
             pnlcont1.Controls.Add(lbl1_1);
@@ -368,18 +368,18 @@
             btn_tallas.UseVisualStyleBackColor = true;
             btn_tallas.Click += btn_tallas_Click;
             // 
-            // button4
+            // btn_AbrirCTG
             // 
-            button4.BackgroundImage = (Image)resources.GetObject("button4.BackgroundImage");
-            button4.BackgroundImageLayout = ImageLayout.Zoom;
-            button4.Cursor = Cursors.Hand;
-            button4.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button4.Location = new Point(272, 240);
-            button4.Name = "button4";
-            button4.Size = new Size(27, 28);
-            button4.TabIndex = 28;
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
+            btn_AbrirCTG.BackgroundImage = (Image)resources.GetObject("btn_AbrirCTG.BackgroundImage");
+            btn_AbrirCTG.BackgroundImageLayout = ImageLayout.Zoom;
+            btn_AbrirCTG.Cursor = Cursors.Hand;
+            btn_AbrirCTG.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_AbrirCTG.Location = new Point(272, 240);
+            btn_AbrirCTG.Name = "btn_AbrirCTG";
+            btn_AbrirCTG.Size = new Size(27, 28);
+            btn_AbrirCTG.TabIndex = 28;
+            btn_AbrirCTG.UseVisualStyleBackColor = true;
+            btn_AbrirCTG.Click += button4_Click;
             // 
             // lbl6
             // 
@@ -750,7 +750,7 @@
         private Label lbl6;
         private Button btn_quitar;
         private Button btn_guardar;
-        private Button button4;
+        private Button btn_AbrirCTG;
         private Label lbl_tallas;
         private Button btn_tallas;
         private ContextMenuStrip cmTallas;

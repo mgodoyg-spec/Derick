@@ -116,7 +116,7 @@
             // txt_DRC
             // 
             txt_DRC.Location = new Point(12, 375);
-            txt_DRC.MaxLength = 10;
+            txt_DRC.MaxLength = 200;
             txt_DRC.Name = "txt_DRC";
             txt_DRC.PlaceholderText = "Ingrese la dirección";
             txt_DRC.Size = new Size(287, 27);

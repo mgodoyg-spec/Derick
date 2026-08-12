@@ -18,6 +18,7 @@ namespace Derick
         private void FormPromociones_Load(object sender, EventArgs e)
         {
             Edt();
+            C_Prm();
         }
         private void Edt()
         {
@@ -83,7 +84,7 @@ namespace Derick
             // ==============================
             // ELIMINAR
             // ==============================
-            DataGridViewImageColumn eliminar =(DataGridViewImageColumn)dgvPromociones.Columns["clEliminar"];
+            DataGridViewImageColumn eliminar = (DataGridViewImageColumn)dgvPromociones.Columns["clEliminar"];
             eliminar.Image = img_promociones.Images[1];
             eliminar.ImageLayout = DataGridViewImageCellLayout.Zoom;
             // ==============================
@@ -111,6 +112,51 @@ namespace Derick
             // EMPEZAR VACÍO
             // ==============================
             dgvPromociones.Rows.Clear();
+        }
+        private void C_Prm()
+        {
+            csConectaSQL conexion = new csConectaSQL();
+
+            DataTable dt = conexion.RetornaRegistros(
+                "SELECT IdPromocion, Nombre, TipoDescuento, ValorDescuento, " +
+                "FechaInicio, FechaFin, Estado, Descripcion " +
+                "FROM Promociones ORDER BY IdPromocion"
+            );
+
+            if (dt == null)
+                return;
+
+            dgvPromociones.Rows.Clear();
+
+            foreach (DataRow fila in dt.Rows)
+            {
+                string estado = Convert.ToBoolean(fila["Estado"])
+                    ? "Activo"
+                    : "Inactivo";
+
+                dgvPromociones.Rows.Add(
+                    fila["IdPromocion"].ToString(),
+                    fila["Nombre"].ToString(),
+                    fila["TipoDescuento"].ToString(),
+                    fila["ValorDescuento"].ToString(),
+                    Convert.ToDateTime(fila["FechaInicio"]).ToString("dd/MM/yyyy"),
+                    Convert.ToDateTime(fila["FechaFin"]).ToString("dd/MM/yyyy"),
+                    estado,
+                    fila["Descripcion"].ToString(),
+                    null, // Editar
+                    null  // Eliminar
+                );
+            }
+        }
+        private void btn_aggP_Click(object sender, EventArgs e)
+        {
+            FormAgg_Promocion frm = new FormAgg_Promocion();
+            frm.StartPosition = FormStartPosition.CenterScreen;
+
+            if (frm.ShowDialog(this) == DialogResult.OK)
+            {
+                C_Prm();
+            }
         }
     }
 }

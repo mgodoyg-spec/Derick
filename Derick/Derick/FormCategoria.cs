@@ -166,13 +166,13 @@ namespace Derick
 
             string[] columnasCentro =
             {
-        "clId",
-        "clIcono",
-        "clCategoria",
-        "clEstado",
-        "clEditar",
-        "clEliminar"
-    };
+                   "clId",
+                   "clIcono",
+                   "clCategoria",
+                   "clEstado",
+                   "clEditar",
+                   "clEliminar"
+            };
 
             foreach (string columna in columnasCentro)
             {
@@ -193,6 +193,49 @@ namespace Derick
             // ==============================
 
             dgv_catg.Rows.Clear();
+
+            CargarCategorias();
+        }
+        private void CargarCategorias()
+        {
+            csConectaSQL conexion = new csConectaSQL();
+
+            DataTable dt = conexion.RetornaRegistros(
+                "SELECT IdCategoria, Nombre, Descripcion, Estado " +
+                "FROM Categorias ORDER BY IdCategoria"
+            );
+
+            if (dt == null)
+                return;
+
+            dgv_catg.Rows.Clear();
+
+            foreach (DataRow fila in dt.Rows)
+            {
+                string estado = Convert.ToBoolean(fila["Estado"])
+                    ? "Activo"
+                    : "Inactivo";
+
+                dgv_catg.Rows.Add(
+                    fila["IdCategoria"].ToString(),
+                    null,                               // Ícono
+                    fila["Nombre"].ToString(),
+                    estado,
+                    fila["Descripcion"].ToString(),
+                    null,                               // Editar
+                    null                                // Eliminar
+                );
+            }
+        }
+
+        private void btn_ctg1_Click(object sender, EventArgs e)
+        {
+            FrmAgg_Categoria frnctg = new FrmAgg_Categoria();
+            frnctg.StartPosition = FormStartPosition.CenterScreen;
+            if (frnctg.ShowDialog(this) == DialogResult.OK)
+            {
+                CargarCategorias();
+            }
         }
     }
 }

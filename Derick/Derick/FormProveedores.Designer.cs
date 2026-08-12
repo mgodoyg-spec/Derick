@@ -46,6 +46,14 @@
             lbl03 = new Label();
             btn4 = new Button();
             dgvProveedor = new DataGridView();
+            clId = new DataGridViewTextBoxColumn();
+            clNombreProveedor = new DataGridViewTextBoxColumn();
+            clContacto = new DataGridViewTextBoxColumn();
+            clTelefono = new DataGridViewTextBoxColumn();
+            clCorreo = new DataGridViewTextBoxColumn();
+            clEstado = new DataGridViewTextBoxColumn();
+            clEditar = new DataGridViewImageColumn();
+            clEliminar = new DataGridViewImageColumn();
             btn2 = new Button();
             pnl01 = new Panel();
             pic02 = new PictureBox();
@@ -55,14 +63,6 @@
             pic01 = new PictureBox();
             lbl01 = new Label();
             imgProveedor = new ImageList(components);
-            clId = new DataGridViewTextBoxColumn();
-            clNombreProveedor = new DataGridViewTextBoxColumn();
-            clContacto = new DataGridViewTextBoxColumn();
-            clTelefono = new DataGridViewTextBoxColumn();
-            clCorreo = new DataGridViewTextBoxColumn();
-            clEstado = new DataGridViewTextBoxColumn();
-            clEditar = new DataGridViewImageColumn();
-            clEliminar = new DataGridViewImageColumn();
             pnl_prov.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)lbl02).BeginInit();
             pnl04.SuspendLayout();
@@ -285,6 +285,54 @@
             dgvProveedor.Size = new Size(1352, 536);
             dgvProveedor.TabIndex = 15;
             // 
+            // clId
+            // 
+            clId.HeaderText = "ID";
+            clId.MinimumWidth = 6;
+            clId.Name = "clId";
+            // 
+            // clNombreProveedor
+            // 
+            clNombreProveedor.HeaderText = "Nombre del proveedor";
+            clNombreProveedor.MinimumWidth = 6;
+            clNombreProveedor.Name = "clNombreProveedor";
+            // 
+            // clContacto
+            // 
+            clContacto.HeaderText = "Contacto";
+            clContacto.MinimumWidth = 6;
+            clContacto.Name = "clContacto";
+            // 
+            // clTelefono
+            // 
+            clTelefono.HeaderText = "Teléfono";
+            clTelefono.MinimumWidth = 6;
+            clTelefono.Name = "clTelefono";
+            // 
+            // clCorreo
+            // 
+            clCorreo.HeaderText = "Correo electrónico";
+            clCorreo.MinimumWidth = 6;
+            clCorreo.Name = "clCorreo";
+            // 
+            // clEstado
+            // 
+            clEstado.HeaderText = "Estado";
+            clEstado.MinimumWidth = 6;
+            clEstado.Name = "clEstado";
+            // 
+            // clEditar
+            // 
+            clEditar.HeaderText = "Editar";
+            clEditar.MinimumWidth = 6;
+            clEditar.Name = "clEditar";
+            // 
+            // clEliminar
+            // 
+            clEliminar.HeaderText = "Eliminar";
+            clEliminar.MinimumWidth = 6;
+            clEliminar.Name = "clEliminar";
+            // 
             // btn2
             // 
             btn2.Cursor = Cursors.Hand;
@@ -361,6 +409,7 @@
             btn_ctg1.TabIndex = 34;
             btn_ctg1.Text = "Agregar proveedor";
             btn_ctg1.UseVisualStyleBackColor = false;
+            btn_ctg1.Click += btn_ctg1_Click;
             // 
             // pic01
             // 
@@ -392,54 +441,6 @@
             imgProveedor.TransparentColor = Color.Transparent;
             imgProveedor.Images.SetKeyName(0, "edit.png");
             imgProveedor.Images.SetKeyName(1, "contenedor-de-basura.png");
-            // 
-            // clId
-            // 
-            clId.HeaderText = "ID";
-            clId.MinimumWidth = 6;
-            clId.Name = "clId";
-            // 
-            // clNombreProveedor
-            // 
-            clNombreProveedor.HeaderText = "Nombre del proveedor";
-            clNombreProveedor.MinimumWidth = 6;
-            clNombreProveedor.Name = "clNombreProveedor";
-            // 
-            // clContacto
-            // 
-            clContacto.HeaderText = "Contacto";
-            clContacto.MinimumWidth = 6;
-            clContacto.Name = "clContacto";
-            // 
-            // clTelefono
-            // 
-            clTelefono.HeaderText = "Teléfono";
-            clTelefono.MinimumWidth = 6;
-            clTelefono.Name = "clTelefono";
-            // 
-            // clCorreo
-            // 
-            clCorreo.HeaderText = "Correo electrónico";
-            clCorreo.MinimumWidth = 6;
-            clCorreo.Name = "clCorreo";
-            // 
-            // clEstado
-            // 
-            clEstado.HeaderText = "Estado";
-            clEstado.MinimumWidth = 6;
-            clEstado.Name = "clEstado";
-            // 
-            // clEditar
-            // 
-            clEditar.HeaderText = "Editar";
-            clEditar.MinimumWidth = 6;
-            clEditar.Name = "clEditar";
-            // 
-            // clEliminar
-            // 
-            clEliminar.HeaderText = "Eliminar";
-            clEliminar.MinimumWidth = 6;
-            clEliminar.Name = "clEliminar";
             // 
             // FormProveedores
             // 

@@ -399,7 +399,7 @@
             // cmb_p3
             // 
             cmb_p3.FormattingEnabled = true;
-            cmb_p3.Items.AddRange(new object[] { "Camisetas", "Blusas", "Busos", "Pantalones" });
+            cmb_p3.Items.AddRange(new object[] { "Activo", "Inactivo" });
             cmb_p3.Location = new Point(13, 443);
             cmb_p3.Name = "cmb_p3";
             cmb_p3.Size = new Size(261, 28);

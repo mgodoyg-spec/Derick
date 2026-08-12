@@ -13,6 +13,7 @@ namespace Derick
         private List<string> tallas;
         private List<string> colores;
         public int S_total { get; private set; }
+        public List<DetalleStock> DetallesStock { get; private set; } = new List<DetalleStock>();
         public frmEditar_stock()
         {
             InitializeComponent();
@@ -154,12 +155,14 @@ namespace Derick
         private void btn_aceptar_Click(object sender, EventArgs e)
         {
             int total = 0;
-
+            DetallesStock.Clear();
             foreach (DataGridViewRow fila in dgv_stock.Rows)
             {
                 if (fila.IsNewRow)
                     continue;
-                string valor = fila.Cells["clStock"].Value?.ToString() ?? "";
+                string talla = fila.Cells["clTalla"].Value?.ToString() ?? "";
+                string color = fila.Cells["clColor"].Value?.ToString() ?? "";
+                string valor =fila.Cells["clStock"].Value?.ToString() ?? "";
                 if (!int.TryParse(valor, out int stock))
                 {
                     MessageBox.Show(
@@ -180,6 +183,11 @@ namespace Derick
                     );
                     return;
                 }
+                DetalleStock detalle = new DetalleStock();
+                detalle.Talla = talla;
+                detalle.Color = color;
+                detalle.stock = stock;
+                DetallesStock.Add(detalle);
                 total += stock;
             }
             S_total = total;

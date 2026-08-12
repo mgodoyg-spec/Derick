@@ -34,6 +34,13 @@
             btn_ctg1 = new Button();
             pnl_cont1 = new Panel();
             dgv_catg = new DataGridView();
+            clID = new DataGridViewTextBoxColumn();
+            clIcono = new DataGridViewImageColumn();
+            clCategoria = new DataGridViewTextBoxColumn();
+            clEstado = new DataGridViewTextBoxColumn();
+            clDescripcion = new DataGridViewTextBoxColumn();
+            clEditar = new DataGridViewImageColumn();
+            clEliminar = new DataGridViewImageColumn();
             pic_ctg3 = new PictureBox();
             lbl_ctg3 = new Label();
             btn_limp1 = new Button();
@@ -50,13 +57,6 @@
             pic_ctg1 = new PictureBox();
             lbl_ctg1 = new Label();
             img_ctg = new ImageList(components);
-            clID = new DataGridViewTextBoxColumn();
-            clIcono = new DataGridViewImageColumn();
-            clCategoria = new DataGridViewTextBoxColumn();
-            clEstado = new DataGridViewTextBoxColumn();
-            clDescripcion = new DataGridViewTextBoxColumn();
-            clEditar = new DataGridViewImageColumn();
-            clEliminar = new DataGridViewImageColumn();
             pnl_ctg1.SuspendLayout();
             pnl_cont1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_catg).BeginInit();
@@ -98,6 +98,7 @@
             btn_ctg1.TabIndex = 31;
             btn_ctg1.Text = "Agregar categoría";
             btn_ctg1.UseVisualStyleBackColor = false;
+            btn_ctg1.Click += btn_ctg1_Click;
             // 
             // pnl_cont1
             // 
@@ -126,6 +127,57 @@
             dgv_catg.RowHeadersWidth = 51;
             dgv_catg.Size = new Size(1352, 536);
             dgv_catg.TabIndex = 31;
+            // 
+            // clID
+            // 
+            clID.HeaderText = "ID";
+            clID.MinimumWidth = 6;
+            clID.Name = "clID";
+            clID.Width = 125;
+            // 
+            // clIcono
+            // 
+            clIcono.HeaderText = "Ícono";
+            clIcono.MinimumWidth = 6;
+            clIcono.Name = "clIcono";
+            clIcono.Resizable = DataGridViewTriState.True;
+            clIcono.SortMode = DataGridViewColumnSortMode.Automatic;
+            clIcono.Width = 125;
+            // 
+            // clCategoria
+            // 
+            clCategoria.HeaderText = "Categoría";
+            clCategoria.MinimumWidth = 6;
+            clCategoria.Name = "clCategoria";
+            clCategoria.Width = 125;
+            // 
+            // clEstado
+            // 
+            clEstado.HeaderText = "Estado";
+            clEstado.MinimumWidth = 6;
+            clEstado.Name = "clEstado";
+            clEstado.Width = 125;
+            // 
+            // clDescripcion
+            // 
+            clDescripcion.HeaderText = "Descripción";
+            clDescripcion.MinimumWidth = 6;
+            clDescripcion.Name = "clDescripcion";
+            clDescripcion.Width = 125;
+            // 
+            // clEditar
+            // 
+            clEditar.HeaderText = "Editar";
+            clEditar.MinimumWidth = 6;
+            clEditar.Name = "clEditar";
+            clEditar.Width = 125;
+            // 
+            // clEliminar
+            // 
+            clEliminar.HeaderText = "Eliminar";
+            clEliminar.MinimumWidth = 6;
+            clEliminar.Name = "clEliminar";
+            clEliminar.Width = 125;
             // 
             // pic_ctg3
             // 
@@ -310,57 +362,6 @@
             img_ctg.TransparentColor = Color.Transparent;
             img_ctg.Images.SetKeyName(0, "edit.png");
             img_ctg.Images.SetKeyName(1, "contenedor-de-basura.png");
-            // 
-            // clID
-            // 
-            clID.HeaderText = "ID";
-            clID.MinimumWidth = 6;
-            clID.Name = "clID";
-            clID.Width = 125;
-            // 
-            // clIcono
-            // 
-            clIcono.HeaderText = "Ícono";
-            clIcono.MinimumWidth = 6;
-            clIcono.Name = "clIcono";
-            clIcono.Resizable = DataGridViewTriState.True;
-            clIcono.SortMode = DataGridViewColumnSortMode.Automatic;
-            clIcono.Width = 125;
-            // 
-            // clCategoria
-            // 
-            clCategoria.HeaderText = "Categoría";
-            clCategoria.MinimumWidth = 6;
-            clCategoria.Name = "clCategoria";
-            clCategoria.Width = 125;
-            // 
-            // clEstado
-            // 
-            clEstado.HeaderText = "Estado";
-            clEstado.MinimumWidth = 6;
-            clEstado.Name = "clEstado";
-            clEstado.Width = 125;
-            // 
-            // clDescripcion
-            // 
-            clDescripcion.HeaderText = "Descripción";
-            clDescripcion.MinimumWidth = 6;
-            clDescripcion.Name = "clDescripcion";
-            clDescripcion.Width = 125;
-            // 
-            // clEditar
-            // 
-            clEditar.HeaderText = "Editar";
-            clEditar.MinimumWidth = 6;
-            clEditar.Name = "clEditar";
-            clEditar.Width = 125;
-            // 
-            // clEliminar
-            // 
-            clEliminar.HeaderText = "Eliminar";
-            clEliminar.MinimumWidth = 6;
-            clEliminar.Name = "clEliminar";
-            clEliminar.Width = 125;
             // 
             // FormCategoria
             // 

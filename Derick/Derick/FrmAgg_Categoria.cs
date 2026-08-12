@@ -11,6 +11,7 @@ namespace Derick
     public partial class FrmAgg_Categoria : Form
     {
         private Image? iconoCategoria = null;
+        public string CategoriaCreada { get; private set; } = "";
         public FrmAgg_Categoria()
         {
             InitializeComponent();
@@ -65,6 +66,68 @@ namespace Derick
             {
                 e.Handled = true;
             }
+        }
+        private void btn_grd_Click(object sender, EventArgs e)
+        {
+            string nombre = txt_ctg1.Text.Trim();
+            string descripcion = txt1.Text.Trim();
+            string estadoTexto = cmb_ctg.Text.Trim();
+            if (string.IsNullOrWhiteSpace(nombre))
+            {
+                MessageBox.Show(
+                    "Ingrese el nombre de la categoría.",
+                    "Campo obligatorio",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                txt_ctg1.Focus();
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(estadoTexto))
+            {
+                MessageBox.Show(
+                    "Seleccione un estado.",
+                    "Campo obligatorio",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                cmb_ctg.Focus();
+                return;
+            }
+            int estado;
+            if (estadoTexto.Equals("Activo", StringComparison.OrdinalIgnoreCase))
+                estado = 1;
+            else
+                estado = 0;
+            csConectaSQL conexion = new csConectaSQL();
+            string campos = "Nombre, Descripcion, Estado";
+            string datos =
+                $"'{nombre}', " +
+                $"'{descripcion}', " +
+                $"{estado}";
+            bool guardado = conexion.insertDatos(
+                "Categorias",
+                campos,
+                datos
+            );
+            if (!guardado)
+            {
+                MessageBox.Show(
+                    "No se pudo guardar la categoría.",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return;
+            }
+            CategoriaCreada = nombre;
+            MessageBox.Show(
+                "Categoría guardada correctamente.",
+                "Guardado",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
         private void btn_cls_Click(object sender, EventArgs e)
         {

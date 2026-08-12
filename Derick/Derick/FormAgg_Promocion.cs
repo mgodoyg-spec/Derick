@@ -225,13 +225,79 @@ namespace Derick
                 btn_vnt.Focus();
                 return;
             }
-            MessageBox.Show(
-                "Promoción registrada correctamente.",
-                "Promoción",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information
+            string nombre = txt_p1.Text.Trim();
+            string descripcion = txt_Pdsp.Text.Trim();
+            string tipoDescuento = cmb_p1.Text.Trim();
+
+            DateTime fechaInicio = dtp_inicio.Value.Date;
+            DateTime fechaFin = dtp_fin.Value.Date;
+
+            int estado = cmb_p3.Text.Equals(
+                "Activo",
+                StringComparison.OrdinalIgnoreCase)
+                ? 1
+                : 0;
+
+            int aplicaTodos = rb_tp.Checked ? 1 : 0;
+
+            csConectaSQL conexion = new csConectaSQL();
+
+            string campos =
+                "Nombre, Descripcion, TipoDescuento, ValorDescuento, " +
+                "FechaInicio, FechaFin, IdSucursal, Estado, AplicaTodos";
+
+            string datos =
+                $"'{nombre}', " +
+                $"'{descripcion}', " +
+                $"'{tipoDescuento}', " +
+                $"{descuento.ToString(System.Globalization.CultureInfo.InvariantCulture)}, " +
+                $"'{fechaInicio:yyyy-MM-dd}', " +
+                $"'{fechaFin:yyyy-MM-dd}', " +
+                $"NULL, " +
+                $"{estado}, " +
+                $"{aplicaTodos}";
+
+            int idPromocion = conexion.Ins_RetrID(
+                "Promociones",
+                campos,
+                datos
             );
-            // Más adelante aquí irá el INSERT a SQL Server.
+
+            if (idPromocion == -1)
+            {
+                MessageBox.Show(
+                    "No se pudo guardar la promoción.",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return;
+            }
+            if (rb_ps.Checked)
+            {
+                foreach (int idProducto in prd_selct)
+                {
+                    bool guardado = conexion.insertDatos(
+                        "PromocionProducto",
+                        "IdPromocion, IdProducto",
+                        $"{idPromocion}, {idProducto}"
+                    );
+
+                    if (!guardado)
+                    {
+                        MessageBox.Show(
+                            "La promoción se guardó, pero hubo un problema al asociar uno de los productos.",
+                            "Advertencia",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning);
+
+                        return;
+                    }
+                }
+            }
+            MessageBox.Show("Promoción registrada correctamente.","Promoción",
+            MessageBoxButtons.OK,
+            MessageBoxIcon.Information);
             DialogResult = DialogResult.OK;
             Close();
         }
