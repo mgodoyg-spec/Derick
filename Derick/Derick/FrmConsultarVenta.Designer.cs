@@ -62,6 +62,7 @@
             lblCVfechaDesde = new Label();
             pnlCVR = new Panel();
             lblSalirCV = new Label();
+            button1 = new Button();
             pnlCV.SuspendLayout();
             pnlCVF.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCVF).BeginInit();
@@ -79,11 +80,10 @@
             pnlCV.Controls.Add(lblCV);
             pnlCV.Controls.Add(pnlCVinfo);
             pnlCV.Controls.Add(pnlCVR);
-            pnlCV.Dock = DockStyle.Fill;
-            pnlCV.Location = new Point(0, 0);
+            pnlCV.Location = new Point(1, 31);
             pnlCV.Margin = new Padding(3, 2, 3, 2);
             pnlCV.Name = "pnlCV";
-            pnlCV.Size = new Size(1181, 563);
+            pnlCV.Size = new Size(1150, 630);
             pnlCV.TabIndex = 3;
             // 
             // pnlCVF
@@ -96,7 +96,7 @@
             pnlCVF.Location = new Point(12, 180);
             pnlCVF.Margin = new Padding(3, 2, 3, 2);
             pnlCVF.Name = "pnlCVF";
-            pnlCVF.Size = new Size(1140, 374);
+            pnlCVF.Size = new Size(1131, 374);
             pnlCVF.TabIndex = 6;
             // 
             // btnCVCerrar
@@ -104,7 +104,7 @@
             btnCVCerrar.FlatAppearance.BorderColor = Color.FromArgb(112, 34, 246);
             btnCVCerrar.FlatStyle = FlatStyle.Flat;
             btnCVCerrar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCVCerrar.Location = new Point(988, 328);
+            btnCVCerrar.Location = new Point(972, 328);
             btnCVCerrar.Margin = new Padding(3, 2, 3, 2);
             btnCVCerrar.Name = "btnCVCerrar";
             btnCVCerrar.Size = new Size(127, 34);
@@ -158,7 +158,7 @@
             dgvCVF.RowHeadersVisible = false;
             dgvCVF.RowHeadersWidth = 51;
             dgvCVF.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvCVF.Size = new Size(1098, 302);
+            dgvCVF.Size = new Size(1082, 302);
             dgvCVF.TabIndex = 15;
             // 
             // colCodigo
@@ -262,9 +262,9 @@
             lblCV.ImageAlign = ContentAlignment.MiddleLeft;
             lblCV.Location = new Point(69, 9);
             lblCV.Name = "lblCV";
-            lblCV.Size = new Size(297, 24);
+            lblCV.Size = new Size(290, 24);
             lblCV.TabIndex = 1;
-            lblCV.Text = "Consultar e Historial de Ventas";
+            lblCV.Text = "Consulta e Historial de Ventas";
             lblCV.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // pnlCVinfo
@@ -285,7 +285,7 @@
             pnlCVinfo.Location = new Point(10, 70);
             pnlCVinfo.Margin = new Padding(3, 2, 3, 2);
             pnlCVinfo.Name = "pnlCVinfo";
-            pnlCVinfo.Size = new Size(1142, 90);
+            pnlCVinfo.Size = new Size(1133, 90);
             pnlCVinfo.TabIndex = 0;
             // 
             // btnCVLimpiar
@@ -408,10 +408,11 @@
             // pnlCVR
             // 
             pnlCVR.BackColor = Color.White;
+            pnlCVR.Controls.Add(button1);
             pnlCVR.Controls.Add(lblSalirCV);
             pnlCVR.Location = new Point(12, 3);
             pnlCVR.Name = "pnlCVR";
-            pnlCVR.Size = new Size(1140, 54);
+            pnlCVR.Size = new Size(1131, 54);
             pnlCVR.TabIndex = 22;
             // 
             // lblSalirCV
@@ -428,15 +429,30 @@
             lblSalirCV.Text = "X";
             lblSalirCV.Click += lblSalirCV_Click;
             // 
+            // button1
+            // 
+            button1.BackColor = Color.FromArgb(255, 136, 0);
+            button1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.Location = new Point(870, 8);
+            button1.Margin = new Padding(3, 2, 3, 2);
+            button1.Name = "button1";
+            button1.Size = new Size(127, 34);
+            button1.TabIndex = 40;
+            button1.Text = "Nueva Venta";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
             // FrmConsultarVenta
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(244, 246, 249);
             ClientSize = new Size(1181, 563);
             Controls.Add(pnlCV);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 2, 3, 2);
             Name = "FrmConsultarVenta";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmConsultarVenta";
             pnlCV.ResumeLayout(false);
             pnlCV.PerformLayout();
@@ -516,5 +532,6 @@
         private DataGridViewTextBoxColumn colTotal;
         private DataGridViewTextBoxColumn colEstado;
         private DataGridViewTextBoxColumn colAcciones;
+        private Button button1;
     }
 }

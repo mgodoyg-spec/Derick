@@ -68,9 +68,6 @@
             lblR6 = new Label();
             picNVA = new PictureBox();
             lblNVBuscarProducto = new Label();
-            lblNVR = new Label();
-            picNVR = new PictureBox();
-            lblVN = new Label();
             pnlNVinfo = new Panel();
             picNVB = new PictureBox();
             txtNVCliente = new TextBox();
@@ -92,6 +89,9 @@
             picNVI = new PictureBox();
             pnlNVR = new Panel();
             lblSalirV = new Label();
+            lblNVR = new Label();
+            lblVN = new Label();
+            picNVR = new PictureBox();
             pnlNV.SuspendLayout();
             pnlNVRV.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudNVD).BeginInit();
@@ -103,30 +103,26 @@
             ((System.ComponentModel.ISupportInitialize)picNVBP).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudNVCantidad).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picNVA).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)picNVR).BeginInit();
             pnlNVinfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picNVB).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picNVI).BeginInit();
             pnlNVR.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picNVR).BeginInit();
             SuspendLayout();
             // 
             // pnlNV
             // 
+            pnlNV.Anchor = AnchorStyles.None;
             pnlNV.BackColor = Color.FromArgb(244, 246, 249);
             pnlNV.Controls.Add(pnlNVRV);
             pnlNV.Controls.Add(pnlNVProductosAgregados);
             pnlNV.Controls.Add(pnlNVAP);
-            pnlNV.Controls.Add(lblNVR);
-            pnlNV.Controls.Add(picNVR);
-            pnlNV.Controls.Add(lblVN);
             pnlNV.Controls.Add(pnlNVinfo);
             pnlNV.Controls.Add(pnlNVR);
-            pnlNV.Dock = DockStyle.Fill;
             pnlNV.Location = new Point(0, 0);
-            pnlNV.Margin = new Padding(3, 2, 3, 2);
             pnlNV.Name = "pnlNV";
-            pnlNV.Size = new Size(1197, 591);
-            pnlNV.TabIndex = 2;
+            pnlNV.Size = new Size(1186, 651);
+            pnlNV.TabIndex = 9;
             // 
             // pnlNVRV
             // 
@@ -143,7 +139,7 @@
             pnlNVRV.Controls.Add(lblNVSubtotal);
             pnlNVRV.Controls.Add(lblNVResumenVenta);
             pnlNVRV.Controls.Add(picNVRV);
-            pnlNVRV.Location = new Point(829, 69);
+            pnlNVRV.Location = new Point(819, 78);
             pnlNVRV.Margin = new Padding(3, 2, 3, 2);
             pnlNVRV.Name = "pnlNVRV";
             pnlNVRV.Size = new Size(320, 176);
@@ -272,7 +268,7 @@
             pnlNVProductosAgregados.Controls.Add(dgvNVPA);
             pnlNVProductosAgregados.Controls.Add(lblNVProductosA);
             pnlNVProductosAgregados.Controls.Add(picNVP);
-            pnlNVProductosAgregados.Location = new Point(10, 268);
+            pnlNVProductosAgregados.Location = new Point(12, 268);
             pnlNVProductosAgregados.Margin = new Padding(3, 2, 3, 2);
             pnlNVProductosAgregados.Name = "pnlNVProductosAgregados";
             pnlNVProductosAgregados.Size = new Size(1139, 269);
@@ -429,7 +425,7 @@
             pnlNVAP.Controls.Add(lblR6);
             pnlNVAP.Controls.Add(picNVA);
             pnlNVAP.Controls.Add(lblNVBuscarProducto);
-            pnlNVAP.Location = new Point(533, 69);
+            pnlNVAP.Location = new Point(522, 78);
             pnlNVAP.Margin = new Padding(3, 2, 3, 2);
             pnlNVAP.Name = "pnlNVAP";
             pnlNVAP.Size = new Size(290, 175);
@@ -446,6 +442,7 @@
             btnNVAgregar.TabIndex = 39;
             btnNVAgregar.Text = "+ Agregar";
             btnNVAgregar.UseVisualStyleBackColor = false;
+            btnNVAgregar.Click += btnNVAgregar_Click;
             // 
             // lblNVCantidad
             // 
@@ -542,42 +539,6 @@
             lblNVBuscarProducto.TabIndex = 9;
             lblNVBuscarProducto.Text = "Buscar Producto";
             // 
-            // lblNVR
-            // 
-            lblNVR.AutoSize = true;
-            lblNVR.BackColor = Color.White;
-            lblNVR.Font = new Font("Calibri", 11.25F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            lblNVR.Location = new Point(69, 33);
-            lblNVR.Name = "lblNVR";
-            lblNVR.Size = new Size(245, 18);
-            lblNVR.TabIndex = 3;
-            lblNVR.Text = "Registra una nueva venta en el sistema";
-            // 
-            // picNVR
-            // 
-            picNVR.BackColor = Color.White;
-            picNVR.Image = (Image)resources.GetObject("picNVR.Image");
-            picNVR.Location = new Point(23, 15);
-            picNVR.Margin = new Padding(3, 2, 3, 2);
-            picNVR.Name = "picNVR";
-            picNVR.Size = new Size(42, 23);
-            picNVR.SizeMode = PictureBoxSizeMode.StretchImage;
-            picNVR.TabIndex = 2;
-            picNVR.TabStop = false;
-            // 
-            // lblVN
-            // 
-            lblVN.AutoSize = true;
-            lblVN.BackColor = Color.White;
-            lblVN.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblVN.ImageAlign = ContentAlignment.MiddleLeft;
-            lblVN.Location = new Point(69, 9);
-            lblVN.Name = "lblVN";
-            lblVN.Size = new Size(130, 24);
-            lblVN.TabIndex = 1;
-            lblVN.Text = "Nueva Venta";
-            lblVN.TextAlign = ContentAlignment.MiddleCenter;
-            // 
             // pnlNVinfo
             // 
             pnlNVinfo.BackColor = Color.White;
@@ -600,7 +561,7 @@
             pnlNVinfo.Controls.Add(lblNVfecha);
             pnlNVinfo.Controls.Add(lblNVI);
             pnlNVinfo.Controls.Add(picNVI);
-            pnlNVinfo.Location = new Point(10, 70);
+            pnlNVinfo.Location = new Point(12, 78);
             pnlNVinfo.Margin = new Padding(3, 2, 3, 2);
             pnlNVinfo.Name = "pnlNVinfo";
             pnlNVinfo.Size = new Size(503, 176);
@@ -616,7 +577,6 @@
             picNVB.SizeMode = PictureBoxSizeMode.StretchImage;
             picNVB.TabIndex = 36;
             picNVB.TabStop = false;
-            picNVB.Click += picNVB_Click;
             // 
             // txtNVCliente
             // 
@@ -801,7 +761,10 @@
             // 
             pnlNVR.BackColor = Color.White;
             pnlNVR.Controls.Add(lblSalirV);
-            pnlNVR.Location = new Point(12, 3);
+            pnlNVR.Controls.Add(lblNVR);
+            pnlNVR.Controls.Add(lblVN);
+            pnlNVR.Controls.Add(picNVR);
+            pnlNVR.Location = new Point(12, 12);
             pnlNVR.Name = "pnlNVR";
             pnlNVR.Size = new Size(1137, 54);
             pnlNVR.TabIndex = 22;
@@ -818,20 +781,56 @@
             lblSalirV.Size = new Size(25, 24);
             lblSalirV.TabIndex = 21;
             lblSalirV.Text = "X";
-            lblSalirV.Click += lblSalirV_Click;
+            lblSalirV.Click += lblSalirV_Click_1;
+            // 
+            // lblNVR
+            // 
+            lblNVR.AutoSize = true;
+            lblNVR.BackColor = Color.White;
+            lblNVR.Font = new Font("Calibri", 11.25F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            lblNVR.Location = new Point(58, 27);
+            lblNVR.Name = "lblNVR";
+            lblNVR.Size = new Size(245, 18);
+            lblNVR.TabIndex = 3;
+            lblNVR.Text = "Registra una nueva venta en el sistema";
+            // 
+            // lblVN
+            // 
+            lblVN.AutoSize = true;
+            lblVN.BackColor = Color.White;
+            lblVN.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblVN.ImageAlign = ContentAlignment.MiddleLeft;
+            lblVN.Location = new Point(59, 3);
+            lblVN.Name = "lblVN";
+            lblVN.Size = new Size(130, 24);
+            lblVN.TabIndex = 1;
+            lblVN.Text = "Nueva Venta";
+            lblVN.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // picNVR
+            // 
+            picNVR.BackColor = Color.White;
+            picNVR.Image = (Image)resources.GetObject("picNVR.Image");
+            picNVR.Location = new Point(11, 12);
+            picNVR.Margin = new Padding(3, 2, 3, 2);
+            picNVR.Name = "picNVR";
+            picNVR.Size = new Size(42, 23);
+            picNVR.SizeMode = PictureBoxSizeMode.StretchImage;
+            picNVR.TabIndex = 2;
+            picNVR.TabStop = false;
             // 
             // FrmVentasN
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1197, 591);
+            ClientSize = new Size(1186, 651);
             Controls.Add(pnlNV);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 2, 3, 2);
             Name = "FrmVentasN";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmVentasN";
             pnlNV.ResumeLayout(false);
-            pnlNV.PerformLayout();
             pnlNVRV.ResumeLayout(false);
             pnlNVRV.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)nudNVD).EndInit();
@@ -845,46 +844,76 @@
             ((System.ComponentModel.ISupportInitialize)picNVBP).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudNVCantidad).EndInit();
             ((System.ComponentModel.ISupportInitialize)picNVA).EndInit();
-            ((System.ComponentModel.ISupportInitialize)picNVR).EndInit();
             pnlNVinfo.ResumeLayout(false);
             pnlNVinfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picNVB).EndInit();
             ((System.ComponentModel.ISupportInitialize)picNVI).EndInit();
             pnlNVR.ResumeLayout(false);
             pnlNVR.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picNVR).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
-
-        private Panel pnlNV;
-        private Panel pnlNVRV;
-        private Label lblNVResumenVenta;
-        private PictureBox picNVRV;
-        private Panel pnlNVProductosAgregados;
         private ComboBox comboBox2;
         private ComboBox comboBox1;
         private TextBox textBox2;
-        private DataGridView dgvNVPA;
-        private Label lblNVProductosA;
-        private PictureBox picNVP;
-        private Panel pnlNVAP;
-        private NumericUpDown nudNVCantidad;
-        private Label lblR7;
-        private Label lblNVAgregarProductos;
-        private Label lblR6;
-        private PictureBox picNVA;
-        private Label lblNVBuscarProducto;
-        private Label lblNVR;
-        private PictureBox picNVR;
-        private Label lblVN;
-        private Panel pnlNVinfo;
         private Button btn_agg2;
         private ComboBox cmb_agg2;
         private TextBox txt_agg1;
         private ComboBox cmb_agg1;
         private Label lbl1_agg1;
         private Button btn_gg1;
+        private Panel pnlNV;
+        private Panel pnlNVRV;
+        private Label lblNVTotalPagar;
+        private Label lblR10;
+        private Label lblNVTotal;
+        private NumericUpDown nudNVD;
+        private Label lblNVD;
+        private Label lblR9;
+        private Label lblNVDescuento;
+        private Label lblR8;
+        private Label lblNVSubtotal;
+        private Label lblNVResumenVenta;
+        private PictureBox picNVRV;
+        private Panel pnlNVProductosAgregados;
+        private Button btnNVGuardar;
+        private Button btnNVCancelar;
+        private Button btnNVLimpiar;
+        private DataGridView dgvNVPA;
+        private DataGridViewTextBoxColumn colCodigo;
+        private DataGridViewTextBoxColumn colProducto;
+        private DataGridViewTextBoxColumn colTalla;
+        private DataGridViewTextBoxColumn colColor;
+        private DataGridViewTextBoxColumn colCantidad;
+        private DataGridViewTextBoxColumn colPrecio;
+        private DataGridViewTextBoxColumn colSubtotal;
+        private DataGridViewTextBoxColumn colAcciones;
+        private Label lblNVProductosA;
+        private PictureBox picNVP;
+        private Panel pnlNVAP;
+        private Button btnNVAgregar;
+        private Label lblNVCantidad;
+        private PictureBox picNVBP;
+        private TextBox txtNVBuscarProducto;
+        private NumericUpDown nudNVCantidad;
+        private Label lblR7;
+        private Label lblNVAgregarProductos;
+        private Label lblR6;
+        private PictureBox picNVA;
+        private Label lblNVBuscarProducto;
+        private Panel pnlNVinfo;
+        private PictureBox picNVB;
+        private TextBox txtNVCliente;
+        private ComboBox comboBox3;
+        private Label lblNVSucursal;
+        private Label lblR4;
+        private ComboBox cbNVVendedor;
+        private Label lblR3;
+        private Label lblNVVen;
+        private DateTimePicker dateTimePicker2;
+        private DateTimePicker dtpNV;
         private Label lblR5;
         private Label lblNVCliente;
         private Label lblR2;
@@ -895,39 +924,8 @@
         private PictureBox picNVI;
         private Panel pnlNVR;
         private Label lblSalirV;
-        private DateTimePicker dtpNV;
-        private DateTimePicker dateTimePicker2;
-        private Label lblNVVen;
-        private ComboBox cbNVVendedor;
-        private Label lblR3;
-        private ComboBox comboBox3;
-        private Label lblNVSucursal;
-        private Label lblR4;
-        private TextBox txtNVCliente;
-        private PictureBox picNVB;
-        private TextBox txtNVBuscarProducto;
-        private Label lblNVCantidad;
-        private PictureBox picNVBP;
-        private Button btnNVAgregar;
-        private Label lblNVSubtotal;
-        private Label lblR8;
-        private Label lblNVDescuento;
-        private Label lblNVD;
-        private Label lblR9;
-        private Label lblNVTotal;
-        private NumericUpDown nudNVD;
-        private Label lblNVTotalPagar;
-        private Label lblR10;
-        private DataGridViewTextBoxColumn colCodigo;
-        private DataGridViewTextBoxColumn colProducto;
-        private DataGridViewTextBoxColumn colTalla;
-        private DataGridViewTextBoxColumn colColor;
-        private DataGridViewTextBoxColumn colCantidad;
-        private DataGridViewTextBoxColumn colPrecio;
-        private DataGridViewTextBoxColumn colSubtotal;
-        private DataGridViewTextBoxColumn colAcciones;
-        private Button btnNVGuardar;
-        private Button btnNVCancelar;
-        private Button btnNVLimpiar;
+        private Label lblNVR;
+        private Label lblVN;
+        private PictureBox picNVR;
     }
 }

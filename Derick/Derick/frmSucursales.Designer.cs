@@ -104,7 +104,7 @@
             pnlBuscarSucursal.Location = new Point(13, 13);
             pnlBuscarSucursal.Margin = new Padding(4);
             pnlBuscarSucursal.Name = "pnlBuscarSucursal";
-            pnlBuscarSucursal.Size = new Size(1153, 630);
+            pnlBuscarSucursal.Size = new Size(1150, 630);
             pnlBuscarSucursal.TabIndex = 7;
             // 
             // pictureBox1
@@ -201,6 +201,7 @@
             txtBuscar.Size = new Size(330, 27);
             txtBuscar.TabIndex = 0;
             txtBuscar.Text = "Buscar";
+            txtBuscar.TextChanged += txtBuscar_TextChanged;
             // 
             // label8
             // 
@@ -221,6 +222,7 @@
             cbxCiudad.Name = "cbxCiudad";
             cbxCiudad.Size = new Size(121, 31);
             cbxCiudad.TabIndex = 1;
+            cbxCiudad.TextChanged += cbxCiudad_SelectedIndexChanged;
             // 
             // btnBuscar
             // 
@@ -258,6 +260,7 @@
             cbxEstado.Name = "cbxEstado";
             cbxEstado.Size = new Size(121, 31);
             cbxEstado.TabIndex = 2;
+            cbxEstado.TextChanged += cbxEstado_SelectedIndexChanged;
             // 
             // pbxBuscarSucursal
             // 
@@ -277,7 +280,7 @@
             dgvSucursales.Cursor = Cursors.Hand;
             dgvSucursales.Location = new Point(7, 94);
             dgvSucursales.Name = "dgvSucursales";
-            dgvSucursales.Size = new Size(1129, 510);
+            dgvSucursales.Size = new Size(1126, 510);
             dgvSucursales.TabIndex = 22;
             dgvSucursales.CellClick += dgvSucursales_CellClick;
             // 

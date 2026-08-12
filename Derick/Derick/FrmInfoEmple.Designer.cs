@@ -38,9 +38,12 @@
             pbxImagenEmple = new PictureBox();
             btnAgregarImagen = new Button();
             panel2 = new Panel();
-            textBox2 = new TextBox();
+            cmbRol = new ComboBox();
+            txtRol = new TextBox();
+            label22 = new Label();
+            txtContrasena = new TextBox();
             label21 = new Label();
-            textBox1 = new TextBox();
+            txtUsuario = new TextBox();
             label20 = new Label();
             label19 = new Label();
             panel1 = new Panel();
@@ -60,8 +63,6 @@
             label13 = new Label();
             label12 = new Label();
             label11 = new Label();
-            label10 = new Label();
-            txtObservaciones = new TextBox();
             txtTeleEmergencia = new TextBox();
             txtEmerNombre = new TextBox();
             cmbEstado = new ComboBox();
@@ -70,7 +71,6 @@
             dtpFechaIngreso = new DateTimePicker();
             cmbDepartamento = new ComboBox();
             cmbCargo = new ComboBox();
-            lblObservaciones = new Label();
             lblTelEmergencia = new Label();
             lblEmergencia = new Label();
             lblInfoAdicional = new Label();
@@ -111,8 +111,6 @@
             txtCodigo = new TextBox();
             lblCodigo = new Label();
             lblInfoPeronal = new Label();
-            textBox3 = new TextBox();
-            label22 = new Label();
             pnlNuevoEmple.SuspendLayout();
             pnlImagen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbxAgregarImagen).BeginInit();
@@ -230,11 +228,12 @@
             // panel2
             // 
             panel2.BorderStyle = BorderStyle.FixedSingle;
-            panel2.Controls.Add(textBox3);
+            panel2.Controls.Add(cmbRol);
+            panel2.Controls.Add(txtRol);
             panel2.Controls.Add(label22);
-            panel2.Controls.Add(textBox2);
+            panel2.Controls.Add(txtContrasena);
             panel2.Controls.Add(label21);
-            panel2.Controls.Add(textBox1);
+            panel2.Controls.Add(txtUsuario);
             panel2.Controls.Add(label20);
             panel2.Controls.Add(label19);
             panel2.Location = new Point(10, 313);
@@ -243,14 +242,44 @@
             panel2.Size = new Size(201, 203);
             panel2.TabIndex = 16;
             // 
-            // textBox2
+            // cmbRol
             // 
-            textBox2.Location = new Point(4, 100);
-            textBox2.Margin = new Padding(3, 2, 3, 2);
-            textBox2.MaxLength = 10;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(185, 23);
-            textBox2.TabIndex = 20;
+            cmbRol.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbRol.FormattingEnabled = true;
+            cmbRol.Items.AddRange(new object[] { "Administrador", "Vendedor" });
+            cmbRol.Location = new Point(4, 152);
+            cmbRol.Margin = new Padding(3, 2, 3, 2);
+            cmbRol.Name = "cmbRol";
+            cmbRol.Size = new Size(185, 23);
+            cmbRol.TabIndex = 54;
+            // 
+            // txtRol
+            // 
+            txtRol.Location = new Point(4, 151);
+            txtRol.Margin = new Padding(3, 2, 3, 2);
+            txtRol.MaxLength = 10;
+            txtRol.Name = "txtRol";
+            txtRol.Size = new Size(185, 23);
+            txtRol.TabIndex = 22;
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label22.Location = new Point(4, 132);
+            label22.Name = "label22";
+            label22.Size = new Size(31, 16);
+            label22.TabIndex = 21;
+            label22.Text = "Rol:";
+            // 
+            // txtContrasena
+            // 
+            txtContrasena.Location = new Point(4, 100);
+            txtContrasena.Margin = new Padding(3, 2, 3, 2);
+            txtContrasena.MaxLength = 10;
+            txtContrasena.Name = "txtContrasena";
+            txtContrasena.Size = new Size(185, 23);
+            txtContrasena.TabIndex = 20;
             // 
             // label21
             // 
@@ -262,14 +291,14 @@
             label21.TabIndex = 19;
             label21.Text = "Contraseña:";
             // 
-            // textBox1
+            // txtUsuario
             // 
-            textBox1.Location = new Point(4, 53);
-            textBox1.Margin = new Padding(3, 2, 3, 2);
-            textBox1.MaxLength = 10;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(185, 23);
-            textBox1.TabIndex = 18;
+            txtUsuario.Location = new Point(4, 53);
+            txtUsuario.Margin = new Padding(3, 2, 3, 2);
+            txtUsuario.MaxLength = 10;
+            txtUsuario.Name = "txtUsuario";
+            txtUsuario.Size = new Size(185, 23);
+            txtUsuario.TabIndex = 18;
             // 
             // label20
             // 
@@ -374,6 +403,7 @@
             btnGuardar.TabIndex = 13;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = false;
+            btnGuardar.Click += btnGuardar_Click;
             // 
             // pnlInfoLaboral
             // 
@@ -386,8 +416,6 @@
             pnlInfoLaboral.Controls.Add(label13);
             pnlInfoLaboral.Controls.Add(label12);
             pnlInfoLaboral.Controls.Add(label11);
-            pnlInfoLaboral.Controls.Add(label10);
-            pnlInfoLaboral.Controls.Add(txtObservaciones);
             pnlInfoLaboral.Controls.Add(txtTeleEmergencia);
             pnlInfoLaboral.Controls.Add(txtEmerNombre);
             pnlInfoLaboral.Controls.Add(cmbEstado);
@@ -396,7 +424,6 @@
             pnlInfoLaboral.Controls.Add(dtpFechaIngreso);
             pnlInfoLaboral.Controls.Add(cmbDepartamento);
             pnlInfoLaboral.Controls.Add(cmbCargo);
-            pnlInfoLaboral.Controls.Add(lblObservaciones);
             pnlInfoLaboral.Controls.Add(lblTelEmergencia);
             pnlInfoLaboral.Controls.Add(lblEmergencia);
             pnlInfoLaboral.Controls.Add(lblInfoAdicional);
@@ -513,27 +540,6 @@
             label11.TabIndex = 44;
             label11.Text = "*";
             // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.ForeColor = Color.Red;
-            label10.Location = new Point(128, 380);
-            label10.Name = "label10";
-            label10.Size = new Size(16, 20);
-            label10.TabIndex = 43;
-            label10.Text = "*";
-            // 
-            // txtObservaciones
-            // 
-            txtObservaciones.Location = new Point(185, 380);
-            txtObservaciones.Margin = new Padding(3, 2, 3, 2);
-            txtObservaciones.MaxLength = 200;
-            txtObservaciones.Multiline = true;
-            txtObservaciones.Name = "txtObservaciones";
-            txtObservaciones.Size = new Size(210, 38);
-            txtObservaciones.TabIndex = 25;
-            // 
             // txtTeleEmergencia
             // 
             txtTeleEmergencia.Location = new Point(199, 337);
@@ -613,17 +619,6 @@
             cmbCargo.Name = "cmbCargo";
             cmbCargo.Size = new Size(210, 23);
             cmbCargo.TabIndex = 17;
-            // 
-            // lblObservaciones
-            // 
-            lblObservaciones.AutoSize = true;
-            lblObservaciones.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblObservaciones.ForeColor = Color.DimGray;
-            lblObservaciones.Location = new Point(18, 380);
-            lblObservaciones.Name = "lblObservaciones";
-            lblObservaciones.Size = new Size(112, 18);
-            lblObservaciones.TabIndex = 12;
-            lblObservaciones.Text = "Observaciones:";
             // 
             // lblTelEmergencia
             // 
@@ -1074,25 +1069,6 @@
             lblInfoPeronal.TabIndex = 1;
             lblInfoPeronal.Text = "Información personal";
             // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(4, 151);
-            textBox3.Margin = new Padding(3, 2, 3, 2);
-            textBox3.MaxLength = 10;
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(185, 23);
-            textBox3.TabIndex = 22;
-            // 
-            // label22
-            // 
-            label22.AutoSize = true;
-            label22.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label22.Location = new Point(4, 132);
-            label22.Name = "label22";
-            label22.Size = new Size(31, 16);
-            label22.TabIndex = 21;
-            label22.Text = "Rol:";
-            // 
             // FrmInfoEmple
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1104,6 +1080,7 @@
             Name = "FrmInfoEmple";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmInfoEmple";
+            Load += FrmInfoEmple_Load;
             pnlNuevoEmple.ResumeLayout(false);
             pnlImagen.ResumeLayout(false);
             pnlImagen.PerformLayout();
@@ -1129,7 +1106,6 @@
         private Button btnCancelar;
         private Button btnGuardar;
         private Panel pnlInfoLaboral;
-        private TextBox txtObservaciones;
         private TextBox txtTeleEmergencia;
         private TextBox txtEmerNombre;
         private ComboBox cmbEstado;
@@ -1138,7 +1114,6 @@
         private DateTimePicker dtpFechaIngreso;
         private ComboBox cmbDepartamento;
         private ComboBox cmbCargo;
-        private Label lblObservaciones;
         private Label lblTelEmergencia;
         private Label lblEmergencia;
         private Label lblInfoAdicional;
@@ -1173,7 +1148,6 @@
         private Label label13;
         private Label label12;
         private Label label11;
-        private Label label10;
         private Label label9;
         private Label label8;
         private Label label7;
@@ -1192,10 +1166,10 @@
         private Panel panel1;
         private PictureBox pictureBox2;
         private Panel panel2;
-        private TextBox textBox1;
+        private TextBox txtUsuario;
         private Label label20;
         private Label label19;
-        private TextBox textBox2;
+        private TextBox txtContrasena;
         private Label label21;
         private Label lblInformacionSuc;
         private Label label1;
@@ -1207,7 +1181,8 @@
         private PictureBox pbxImagenEmple;
         private Button btnAgregarImagen;
         private Label lblSalirV;
-        private TextBox textBox3;
+        private TextBox txtRol;
         private Label label22;
+        private ComboBox cmbRol;
     }
 }

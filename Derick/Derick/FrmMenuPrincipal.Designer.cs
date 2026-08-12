@@ -37,13 +37,13 @@ namespace Derick
             pnlMostrar = new Panel();
             pnlMostrarForm = new Panel();
             pnlcontenido = new Panel();
+            lblTitulo = new Label();
+            pictureBox2 = new PictureBox();
             pnlPerfil = new Panel();
             lblFlecha = new Label();
             lblusuario = new Label();
             pbusuario = new PictureBox();
             pnlIndicador = new Panel();
-            pictureBox2 = new PictureBox();
-            lblTitulo = new Label();
             btnreportes = new Button();
             btninicio = new Button();
             btnproductos = new Button();
@@ -53,9 +53,9 @@ namespace Derick
             cmsMenuPerfil.SuspendLayout();
             pnlMostrar.SuspendLayout();
             pnlcontenido.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             pnlPerfil.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbusuario).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // imlBotones
@@ -76,21 +76,21 @@ namespace Derick
             cmsMenuPerfil.ImageScalingSize = new Size(20, 20);
             cmsMenuPerfil.Items.AddRange(new ToolStripItem[] { miPerfilToolStripMenuItem, cerrarSesiónToolStripMenuItem });
             cmsMenuPerfil.Name = "contextMenuStrip1";
-            cmsMenuPerfil.Size = new Size(170, 56);
+            cmsMenuPerfil.Size = new Size(148, 56);
             cmsMenuPerfil.Closed += cmsMenuPerfil_Closed;
             // 
             // miPerfilToolStripMenuItem
             // 
             miPerfilToolStripMenuItem.Image = Properties.Resources.person_icon_31846;
             miPerfilToolStripMenuItem.Name = "miPerfilToolStripMenuItem";
-            miPerfilToolStripMenuItem.Size = new Size(169, 26);
+            miPerfilToolStripMenuItem.Size = new Size(147, 26);
             miPerfilToolStripMenuItem.Text = "Mi Perfil";
             // 
             // cerrarSesiónToolStripMenuItem
             // 
             cerrarSesiónToolStripMenuItem.Image = Properties.Resources.CerrarSesionn;
             cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
-            cerrarSesiónToolStripMenuItem.Size = new Size(169, 26);
+            cerrarSesiónToolStripMenuItem.Size = new Size(147, 26);
             cerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión";
             cerrarSesiónToolStripMenuItem.Click += cerrarSesiónToolStripMenuItem_Click;
             // 
@@ -102,7 +102,7 @@ namespace Derick
             pnlMostrar.Dock = DockStyle.Fill;
             pnlMostrar.Location = new Point(0, 0);
             pnlMostrar.Name = "pnlMostrar";
-            pnlMostrar.Size = new Size(1386, 700);
+            pnlMostrar.Size = new Size(1370, 700);
             pnlMostrar.TabIndex = 1;
             // 
             // pnlMostrarForm
@@ -115,10 +115,10 @@ namespace Derick
             // pnlcontenido
             // 
             pnlcontenido.BackColor = Color.Black;
+            pnlcontenido.Controls.Add(lblTitulo);
+            pnlcontenido.Controls.Add(pictureBox2);
             pnlcontenido.Controls.Add(pnlPerfil);
             pnlcontenido.Controls.Add(pnlIndicador);
-            pnlcontenido.Controls.Add(pictureBox2);
-            pnlcontenido.Controls.Add(lblTitulo);
             pnlcontenido.Controls.Add(btnreportes);
             pnlcontenido.Controls.Add(btninicio);
             pnlcontenido.Controls.Add(btnproductos);
@@ -129,6 +129,27 @@ namespace Derick
             pnlcontenido.Name = "pnlcontenido";
             pnlcontenido.Size = new Size(170, 700);
             pnlcontenido.TabIndex = 20;
+            // 
+            // lblTitulo
+            // 
+            lblTitulo.AutoSize = true;
+            lblTitulo.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitulo.ForeColor = Color.White;
+            lblTitulo.Location = new Point(57, 18);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(96, 25);
+            lblTitulo.TabIndex = 2;
+            lblTitulo.Text = "DERICK";
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Properties.Resources.DerickRecortado;
+            pictureBox2.Location = new Point(12, 0);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(39, 43);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 1;
+            pictureBox2.TabStop = false;
             // 
             // pnlPerfil
             // 
@@ -149,7 +170,7 @@ namespace Derick
             lblFlecha.ForeColor = SystemColors.ButtonHighlight;
             lblFlecha.Location = new Point(138, 20);
             lblFlecha.Name = "lblFlecha";
-            lblFlecha.Size = new Size(19, 17);
+            lblFlecha.Size = new Size(17, 13);
             lblFlecha.TabIndex = 2;
             lblFlecha.Text = "▼";
             lblFlecha.Click += pnlPerfil_Click;
@@ -162,7 +183,7 @@ namespace Derick
             lblusuario.ForeColor = Color.White;
             lblusuario.Location = new Point(45, 15);
             lblusuario.Name = "lblusuario";
-            lblusuario.Size = new Size(70, 25);
+            lblusuario.Size = new Size(57, 20);
             lblusuario.TabIndex = 1;
             lblusuario.Text = "admin";
             lblusuario.Click += pnlPerfil_Click;
@@ -185,27 +206,6 @@ namespace Derick
             pnlIndicador.Name = "pnlIndicador";
             pnlIndicador.Size = new Size(91, 3);
             pnlIndicador.TabIndex = 18;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.Image = Properties.Resources.DerickRecortado;
-            pictureBox2.Location = new Point(12, 3);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(39, 43);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 1;
-            pictureBox2.TabStop = false;
-            // 
-            // lblTitulo
-            // 
-            lblTitulo.AutoSize = true;
-            lblTitulo.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitulo.ForeColor = Color.White;
-            lblTitulo.Location = new Point(57, 18);
-            lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(124, 31);
-            lblTitulo.TabIndex = 2;
-            lblTitulo.Text = "DERICK";
             // 
             // btnreportes
             // 
@@ -330,7 +330,7 @@ namespace Derick
             // FrmMenuPrincipal
             // 
             AutoScaleMode = AutoScaleMode.None;
-            ClientSize = new Size(1386, 700);
+            ClientSize = new Size(1370, 700);
             Controls.Add(pnlMostrar);
             Font = new Font("Microsoft Sans Serif", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.None;
@@ -346,10 +346,10 @@ namespace Derick
             pnlMostrar.ResumeLayout(false);
             pnlcontenido.ResumeLayout(false);
             pnlcontenido.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             pnlPerfil.ResumeLayout(false);
             pnlPerfil.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pbusuario).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
         }
 
