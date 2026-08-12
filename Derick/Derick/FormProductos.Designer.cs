@@ -34,15 +34,21 @@
             button1 = new Button();
             pic_raya1 = new PictureBox();
             pnl_agg2 = new Panel();
-            btn_limpiar = new Button();
             btn_buscar = new Button();
             pnl_cmb2 = new Panel();
             cmb_agg2 = new ComboBox();
             lbl_agg3 = new Label();
             pnl_cmb1 = new Panel();
             cmb_agg1 = new ComboBox();
+            btn_limpiar = new Button();
             lbl_agg2 = new Label();
             dvg_agg = new DataGridView();
+            panel9 = new Panel();
+            pictureBox1 = new PictureBox();
+            textBox2 = new TextBox();
+            pic_agg1 = new PictureBox();
+            lbl_agg1 = new Label();
+            img_icons = new ImageList(components);
             clCodigo = new DataGridViewTextBoxColumn();
             clImagen = new DataGridViewImageColumn();
             clNombreProducto = new DataGridViewTextBoxColumn();
@@ -55,12 +61,6 @@
             clEditar = new DataGridViewImageColumn();
             clEliminar = new DataGridViewImageColumn();
             clVerTodo = new DataGridViewImageColumn();
-            panel9 = new Panel();
-            pictureBox1 = new PictureBox();
-            textBox2 = new TextBox();
-            pic_agg1 = new PictureBox();
-            lbl_agg1 = new Label();
-            img_icons = new ImageList(components);
             pnl_conagg.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pic_raya1).BeginInit();
             pnl_agg2.SuspendLayout();
@@ -126,21 +126,6 @@
             pnl_agg2.Name = "pnl_agg2";
             pnl_agg2.Size = new Size(1162, 545);
             pnl_agg2.TabIndex = 6;
-            // 
-            // btn_limpiar
-            // 
-            btn_limpiar.BackColor = Color.White;
-            btn_limpiar.Cursor = Cursors.Hand;
-            btn_limpiar.FlatStyle = FlatStyle.Flat;
-            btn_limpiar.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn_limpiar.ForeColor = Color.Black;
-            btn_limpiar.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_limpiar.Location = new Point(1019, 20);
-            btn_limpiar.Name = "btn_limpiar";
-            btn_limpiar.Size = new Size(130, 46);
-            btn_limpiar.TabIndex = 21;
-            btn_limpiar.Text = "Limpiar";
-            btn_limpiar.UseVisualStyleBackColor = false;
             // 
             // btn_buscar
             // 
@@ -212,6 +197,21 @@
             cmb_agg1.Size = new Size(143, 28);
             cmb_agg1.TabIndex = 14;
             // 
+            // btn_limpiar
+            // 
+            btn_limpiar.BackColor = Color.White;
+            btn_limpiar.Cursor = Cursors.Hand;
+            btn_limpiar.FlatStyle = FlatStyle.Flat;
+            btn_limpiar.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_limpiar.ForeColor = Color.Black;
+            btn_limpiar.ImageAlign = ContentAlignment.MiddleLeft;
+            btn_limpiar.Location = new Point(1019, 20);
+            btn_limpiar.Name = "btn_limpiar";
+            btn_limpiar.Size = new Size(130, 46);
+            btn_limpiar.TabIndex = 21;
+            btn_limpiar.Text = "Limpiar";
+            btn_limpiar.UseVisualStyleBackColor = false;
+            // 
             // lbl_agg2
             // 
             lbl_agg2.AutoSize = true;
@@ -228,6 +228,7 @@
             // dvg_agg
             // 
             dvg_agg.AllowUserToResizeColumns = false;
+            dvg_agg.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dvg_agg.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dvg_agg.BackgroundColor = Color.White;
             dvg_agg.BorderStyle = BorderStyle.None;
@@ -244,90 +245,6 @@
             dvg_agg.Size = new Size(1138, 425);
             dvg_agg.TabIndex = 15;
             dvg_agg.CellClick += dvg_agg_CellClick;
-            // 
-            // clCodigo
-            // 
-            clCodigo.FillWeight = 147.593521F;
-            clCodigo.HeaderText = "Código";
-            clCodigo.MinimumWidth = 6;
-            clCodigo.Name = "clCodigo";
-            // 
-            // clImagen
-            // 
-            clImagen.FillWeight = 95.67327F;
-            clImagen.HeaderText = "Imagen";
-            clImagen.MinimumWidth = 6;
-            clImagen.Name = "clImagen";
-            // 
-            // clNombreProducto
-            // 
-            clNombreProducto.FillWeight = 95.67327F;
-            clNombreProducto.HeaderText = "Nombre del producto";
-            clNombreProducto.MinimumWidth = 6;
-            clNombreProducto.Name = "clNombreProducto";
-            // 
-            // clCategoria
-            // 
-            clCategoria.FillWeight = 95.67327F;
-            clCategoria.HeaderText = "Categoría";
-            clCategoria.MinimumWidth = 6;
-            clCategoria.Name = "clCategoria";
-            // 
-            // clTallas
-            // 
-            clTallas.FillWeight = 95.67327F;
-            clTallas.HeaderText = "Talla(s)";
-            clTallas.MinimumWidth = 6;
-            clTallas.Name = "clTallas";
-            // 
-            // clColores
-            // 
-            clColores.FillWeight = 95.67327F;
-            clColores.HeaderText = "Color(es)";
-            clColores.MinimumWidth = 6;
-            clColores.Name = "clColores";
-            // 
-            // clPrecio
-            // 
-            clPrecio.FillWeight = 95.67327F;
-            clPrecio.HeaderText = "Precio";
-            clPrecio.MinimumWidth = 6;
-            clPrecio.Name = "clPrecio";
-            // 
-            // clStock
-            // 
-            clStock.FillWeight = 95.67327F;
-            clStock.HeaderText = "Stock";
-            clStock.MinimumWidth = 6;
-            clStock.Name = "clStock";
-            // 
-            // clEstado
-            // 
-            clEstado.FillWeight = 95.67327F;
-            clEstado.HeaderText = "Estado";
-            clEstado.MinimumWidth = 6;
-            clEstado.Name = "clEstado";
-            // 
-            // clEditar
-            // 
-            clEditar.FillWeight = 95.67327F;
-            clEditar.HeaderText = "Editar";
-            clEditar.MinimumWidth = 6;
-            clEditar.Name = "clEditar";
-            // 
-            // clEliminar
-            // 
-            clEliminar.FillWeight = 95.67327F;
-            clEliminar.HeaderText = "Eliminar";
-            clEliminar.MinimumWidth = 6;
-            clEliminar.Name = "clEliminar";
-            // 
-            // clVerTodo
-            // 
-            clVerTodo.FillWeight = 95.67327F;
-            clVerTodo.HeaderText = "Ver Todo";
-            clVerTodo.MinimumWidth = 6;
-            clVerTodo.Name = "clVerTodo";
             // 
             // panel9
             // 
@@ -394,6 +311,81 @@
             img_icons.Images.SetKeyName(0, "editar (1).png");
             img_icons.Images.SetKeyName(1, "contenedor-de-basura.png");
             img_icons.Images.SetKeyName(2, "ojo2.png");
+            // 
+            // clCodigo
+            // 
+            clCodigo.FillWeight = 147.593521F;
+            clCodigo.HeaderText = "Código";
+            clCodigo.Name = "clCodigo";
+            // 
+            // clImagen
+            // 
+            clImagen.FillWeight = 95.67327F;
+            clImagen.HeaderText = "Imagen";
+            clImagen.Name = "clImagen";
+            // 
+            // clNombreProducto
+            // 
+            clNombreProducto.FillWeight = 95.67327F;
+            clNombreProducto.HeaderText = "Nombre del producto";
+            clNombreProducto.Name = "clNombreProducto";
+            // 
+            // clCategoria
+            // 
+            clCategoria.FillWeight = 95.67327F;
+            clCategoria.HeaderText = "Categoría";
+            clCategoria.Name = "clCategoria";
+            // 
+            // clTallas
+            // 
+            clTallas.FillWeight = 95.67327F;
+            clTallas.HeaderText = "Talla(s)";
+            clTallas.Name = "clTallas";
+            // 
+            // clColores
+            // 
+            clColores.FillWeight = 95.67327F;
+            clColores.HeaderText = "Color(es)";
+            clColores.Name = "clColores";
+            // 
+            // clPrecio
+            // 
+            clPrecio.FillWeight = 95.67327F;
+            clPrecio.HeaderText = "Precio";
+            clPrecio.Name = "clPrecio";
+            // 
+            // clStock
+            // 
+            clStock.FillWeight = 95.67327F;
+            clStock.HeaderText = "Stock";
+            clStock.Name = "clStock";
+            // 
+            // clEstado
+            // 
+            clEstado.FillWeight = 95.67327F;
+            clEstado.HeaderText = "Estado";
+            clEstado.Name = "clEstado";
+            // 
+            // clEditar
+            // 
+            clEditar.FillWeight = 95.67327F;
+            clEditar.HeaderText = "Editar";
+            clEditar.MinimumWidth = 55;
+            clEditar.Name = "clEditar";
+            // 
+            // clEliminar
+            // 
+            clEliminar.FillWeight = 95.67327F;
+            clEliminar.HeaderText = "Eliminar";
+            clEliminar.MinimumWidth = 55;
+            clEliminar.Name = "clEliminar";
+            // 
+            // clVerTodo
+            // 
+            clVerTodo.FillWeight = 95.67327F;
+            clVerTodo.HeaderText = "Ver Todo";
+            clVerTodo.MinimumWidth = 55;
+            clVerTodo.Name = "clVerTodo";
             // 
             // FormProductos
             // 

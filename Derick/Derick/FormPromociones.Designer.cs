@@ -33,6 +33,16 @@
             pnl_prm = new Panel();
             pnl_prm2 = new Panel();
             dgvPromociones = new DataGridView();
+            clId = new DataGridViewTextBoxColumn();
+            clNombrePromocion = new DataGridViewTextBoxColumn();
+            clTipo = new DataGridViewTextBoxColumn();
+            clDescuento = new DataGridViewTextBoxColumn();
+            clFechaInicio = new DataGridViewTextBoxColumn();
+            clFechaFin = new DataGridViewTextBoxColumn();
+            clEstado = new DataGridViewTextBoxColumn();
+            clDescripcion = new DataGridViewTextBoxColumn();
+            clEditar = new DataGridViewImageColumn();
+            clEliminar = new DataGridViewImageColumn();
             lbl_prm3 = new Label();
             pn1 = new Panel();
             pic_prm2 = new PictureBox();
@@ -49,16 +59,6 @@
             pic_prm = new PictureBox();
             lbl_prm1 = new Label();
             img_promociones = new ImageList(components);
-            clId = new DataGridViewTextBoxColumn();
-            clNombrePromocion = new DataGridViewTextBoxColumn();
-            clTipo = new DataGridViewTextBoxColumn();
-            clDescuento = new DataGridViewTextBoxColumn();
-            clFechaInicio = new DataGridViewTextBoxColumn();
-            clFechaFin = new DataGridViewTextBoxColumn();
-            clEstado = new DataGridViewTextBoxColumn();
-            clDescripcion = new DataGridViewTextBoxColumn();
-            clEditar = new DataGridViewImageColumn();
-            clEliminar = new DataGridViewImageColumn();
             pnl_prm.SuspendLayout();
             pnl_prm2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPromociones).BeginInit();
@@ -102,6 +102,7 @@
             // 
             // dgvPromociones
             // 
+            dgvPromociones.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvPromociones.BackgroundColor = Color.White;
             dgvPromociones.BorderStyle = BorderStyle.None;
             dgvPromociones.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -111,6 +112,76 @@
             dgvPromociones.RowHeadersWidth = 51;
             dgvPromociones.Size = new Size(1135, 440);
             dgvPromociones.TabIndex = 31;
+            // 
+            // clId
+            // 
+            clId.HeaderText = "ID";
+            clId.MinimumWidth = 6;
+            clId.Name = "clId";
+            clId.Width = 125;
+            // 
+            // clNombrePromocion
+            // 
+            clNombrePromocion.HeaderText = "Promoción";
+            clNombrePromocion.MinimumWidth = 6;
+            clNombrePromocion.Name = "clNombrePromocion";
+            clNombrePromocion.Width = 125;
+            // 
+            // clTipo
+            // 
+            clTipo.HeaderText = "Tipo";
+            clTipo.MinimumWidth = 6;
+            clTipo.Name = "clTipo";
+            clTipo.Width = 125;
+            // 
+            // clDescuento
+            // 
+            clDescuento.HeaderText = "Descuento";
+            clDescuento.MinimumWidth = 6;
+            clDescuento.Name = "clDescuento";
+            clDescuento.Width = 125;
+            // 
+            // clFechaInicio
+            // 
+            clFechaInicio.HeaderText = "Fecha inicio";
+            clFechaInicio.MinimumWidth = 6;
+            clFechaInicio.Name = "clFechaInicio";
+            clFechaInicio.Width = 125;
+            // 
+            // clFechaFin
+            // 
+            clFechaFin.HeaderText = "Fecha fin";
+            clFechaFin.MinimumWidth = 6;
+            clFechaFin.Name = "clFechaFin";
+            clFechaFin.Width = 125;
+            // 
+            // clEstado
+            // 
+            clEstado.HeaderText = "Estado";
+            clEstado.MinimumWidth = 6;
+            clEstado.Name = "clEstado";
+            clEstado.Width = 125;
+            // 
+            // clDescripcion
+            // 
+            clDescripcion.HeaderText = "Descripción";
+            clDescripcion.MinimumWidth = 6;
+            clDescripcion.Name = "clDescripcion";
+            clDescripcion.Width = 125;
+            // 
+            // clEditar
+            // 
+            clEditar.HeaderText = "Editar";
+            clEditar.MinimumWidth = 6;
+            clEditar.Name = "clEditar";
+            clEditar.Width = 125;
+            // 
+            // clEliminar
+            // 
+            clEliminar.HeaderText = "Eliminar";
+            clEliminar.MinimumWidth = 6;
+            clEliminar.Name = "clEliminar";
+            clEliminar.Width = 125;
             // 
             // lbl_prm3
             // 
@@ -300,66 +371,6 @@
             img_promociones.TransparentColor = Color.Transparent;
             img_promociones.Images.SetKeyName(0, "editar (1).png");
             img_promociones.Images.SetKeyName(1, "contenedor-de-basura.png");
-            // 
-            // clId
-            // 
-            clId.HeaderText = "ID";
-            clId.Name = "clId";
-            clId.Width = 125;
-            // 
-            // clNombrePromocion
-            // 
-            clNombrePromocion.HeaderText = "Promoción";
-            clNombrePromocion.Name = "clNombrePromocion";
-            clNombrePromocion.Width = 125;
-            // 
-            // clTipo
-            // 
-            clTipo.HeaderText = "Tipo";
-            clTipo.Name = "clTipo";
-            clTipo.Width = 125;
-            // 
-            // clDescuento
-            // 
-            clDescuento.HeaderText = "Descuento";
-            clDescuento.Name = "clDescuento";
-            clDescuento.Width = 125;
-            // 
-            // clFechaInicio
-            // 
-            clFechaInicio.HeaderText = "Fecha inicio";
-            clFechaInicio.Name = "clFechaInicio";
-            clFechaInicio.Width = 125;
-            // 
-            // clFechaFin
-            // 
-            clFechaFin.HeaderText = "Fecha fin";
-            clFechaFin.Name = "clFechaFin";
-            clFechaFin.Width = 125;
-            // 
-            // clEstado
-            // 
-            clEstado.HeaderText = "Estado";
-            clEstado.Name = "clEstado";
-            clEstado.Width = 125;
-            // 
-            // clDescripcion
-            // 
-            clDescripcion.HeaderText = "Descripción";
-            clDescripcion.Name = "clDescripcion";
-            clDescripcion.Width = 125;
-            // 
-            // clEditar
-            // 
-            clEditar.HeaderText = "Editar";
-            clEditar.Name = "clEditar";
-            clEditar.Width = 125;
-            // 
-            // clEliminar
-            // 
-            clEliminar.HeaderText = "Eliminar";
-            clEliminar.Name = "clEliminar";
-            clEliminar.Width = 125;
             // 
             // FormPromociones
             // 
