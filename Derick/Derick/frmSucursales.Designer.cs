@@ -83,7 +83,7 @@
             lblSalirV.Cursor = Cursors.Hand;
             lblSalirV.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSalirV.ForeColor = Color.Red;
-            lblSalirV.Location = new Point(1138, 9);
+            lblSalirV.Location = new Point(1149, 0);
             lblSalirV.Name = "lblSalirV";
             lblSalirV.Size = new Size(25, 24);
             lblSalirV.TabIndex = 30;
@@ -126,7 +126,7 @@
             btnRegistrarSucursal.ImageAlign = ContentAlignment.MiddleLeft;
             btnRegistrarSucursal.ImageIndex = 4;
             btnRegistrarSucursal.ImageList = imlIcons;
-            btnRegistrarSucursal.Location = new Point(913, 7);
+            btnRegistrarSucursal.Location = new Point(913, 3);
             btnRegistrarSucursal.Name = "btnRegistrarSucursal";
             btnRegistrarSucursal.Size = new Size(223, 39);
             btnRegistrarSucursal.TabIndex = 16;
@@ -190,6 +190,7 @@
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.TextAlign = ContentAlignment.MiddleRight;
             btnLimpiar.UseVisualStyleBackColor = false;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
             // txtBuscar
             // 
@@ -202,6 +203,8 @@
             txtBuscar.TabIndex = 0;
             txtBuscar.Text = "Buscar";
             txtBuscar.TextChanged += txtBuscar_TextChanged;
+            txtBuscar.Enter += txtBuscar_Enter;
+            txtBuscar.Leave += txtBuscar_Leave;
             // 
             // label8
             // 
@@ -222,7 +225,7 @@
             cbxCiudad.Name = "cbxCiudad";
             cbxCiudad.Size = new Size(121, 31);
             cbxCiudad.TabIndex = 1;
-            cbxCiudad.TextChanged += cbxCiudad_SelectedIndexChanged;
+            cbxCiudad.SelectedIndexChanged += cbxCiudad_SelectedIndexChanged;
             // 
             // btnBuscar
             // 
@@ -240,6 +243,7 @@
             btnBuscar.Text = "Buscar";
             btnBuscar.TextAlign = ContentAlignment.MiddleRight;
             btnBuscar.UseVisualStyleBackColor = false;
+            btnBuscar.Click += btnBuscar_Click;
             // 
             // label7
             // 
@@ -260,7 +264,7 @@
             cbxEstado.Name = "cbxEstado";
             cbxEstado.Size = new Size(121, 31);
             cbxEstado.TabIndex = 2;
-            cbxEstado.TextChanged += cbxEstado_SelectedIndexChanged;
+            cbxEstado.SelectedIndexChanged += cbxEstado_SelectedIndexChanged;
             // 
             // pbxBuscarSucursal
             // 
