@@ -99,7 +99,7 @@
             lblSalirV.Cursor = Cursors.Hand;
             lblSalirV.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSalirV.ForeColor = Color.Red;
-            lblSalirV.Location = new Point(1202, 9);
+            lblSalirV.Location = new Point(1070, 20);
             lblSalirV.Name = "lblSalirV";
             lblSalirV.Size = new Size(31, 29);
             lblSalirV.TabIndex = 30;
@@ -132,10 +132,10 @@
             btnDepa.ImageAlign = ContentAlignment.MiddleLeft;
             btnDepa.ImageIndex = 0;
             btnDepa.ImageList = imlIcons;
-            btnDepa.Location = new Point(1052, 0);
+            btnDepa.Location = new Point(894, 4);
             btnDepa.Margin = new Padding(3, 4, 3, 4);
             btnDepa.Name = "btnDepa";
-            btnDepa.Size = new Size(166, 52);
+            btnDepa.Size = new Size(192, 52);
             btnDepa.TabIndex = 30;
             btnDepa.Text = "Departamentos";
             btnDepa.TextAlign = ContentAlignment.MiddleRight;
@@ -173,7 +173,7 @@
             dgvEmpleados.Margin = new Padding(3, 4, 3, 4);
             dgvEmpleados.Name = "dgvEmpleados";
             dgvEmpleados.RowHeadersWidth = 51;
-            dgvEmpleados.Size = new Size(1210, 510);
+            dgvEmpleados.Size = new Size(1064, 510);
             dgvEmpleados.TabIndex = 28;
             dgvEmpleados.CellContentClick += dgvEmpleados_CellContentClick;
             // 
@@ -294,7 +294,7 @@
             pnlBusqueda.Location = new Point(8, 60);
             pnlBusqueda.Margin = new Padding(3, 4, 3, 4);
             pnlBusqueda.Name = "pnlBusqueda";
-            pnlBusqueda.Size = new Size(1210, 43);
+            pnlBusqueda.Size = new Size(1078, 43);
             pnlBusqueda.TabIndex = 6;
             // 
             // label1
@@ -329,10 +329,10 @@
             btnNuevoEmple.ImageAlign = ContentAlignment.MiddleLeft;
             btnNuevoEmple.ImageIndex = 2;
             btnNuevoEmple.ImageList = imlIcons;
-            btnNuevoEmple.Location = new Point(859, 1);
+            btnNuevoEmple.Location = new Point(865, -1);
             btnNuevoEmple.Margin = new Padding(3, 4, 3, 4);
             btnNuevoEmple.Name = "btnNuevoEmple";
-            btnNuevoEmple.Size = new Size(206, 44);
+            btnNuevoEmple.Size = new Size(111, 44);
             btnNuevoEmple.TabIndex = 23;
             btnNuevoEmple.Text = "Nuevo empleado";
             btnNuevoEmple.TextAlign = ContentAlignment.MiddleRight;
@@ -348,10 +348,10 @@
             btnLimpiar.ImageAlign = ContentAlignment.MiddleLeft;
             btnLimpiar.ImageIndex = 1;
             btnLimpiar.ImageList = imlIcons;
-            btnLimpiar.Location = new Point(1071, 2);
+            btnLimpiar.Location = new Point(982, 2);
             btnLimpiar.Margin = new Padding(3, 4, 3, 4);
             btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(125, 37);
+            btnLimpiar.Size = new Size(96, 37);
             btnLimpiar.TabIndex = 22;
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.TextAlign = ContentAlignment.MiddleRight;
@@ -409,7 +409,7 @@
             cbxEstado.Font = new Font("Calibri", 11F);
             cbxEstado.FormattingEnabled = true;
             cbxEstado.Items.AddRange(new object[] { "Activo", "Inactivo" });
-            cbxEstado.Location = new Point(715, 12);
+            cbxEstado.Location = new Point(704, 7);
             cbxEstado.Margin = new Padding(3, 4, 3, 4);
             cbxEstado.Name = "cbxEstado";
             cbxEstado.Size = new Size(138, 30);
