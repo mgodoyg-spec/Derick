@@ -155,33 +155,79 @@ namespace Derick
         }
 
         // mostrar empleados en el datagridview
-        private void CargarEmpleados(string filtroBusqueda = "", string departamento = "", string estadoFiltro = "", string sucursal = "")
+        private void CargarEmpleados(
+    string filtroBusqueda = "",
+    string departamento = "",
+    string estadoFiltro = "",
+    string sucursal = "")
         {
             csConectaSQL oConexion = new csConectaSQL();
 
-            // escapamos comillas simples para que nombres con apostrofe no rompen la consulta
+            // Escapar comillas simples
             string filtroEsc = filtroBusqueda.Replace("'", "''");
             string deptoEsc = departamento.Replace("'", "''");
             string sucursalEsc = sucursal.Replace("'", "''");
+
             int estadoBit = estadoFiltro == "Activo" ? 1 : 0;
 
-            string query = @"SELECT Codigo,
-                             Nombres + ' ' + Apellidos AS Empleado,
-                             Cargo,
-                             Departamento,
-                             Telefono,
-                             Correo,
-                             CASE WHEN Estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado,
-                 RutaFoto
-                      FROM Empleados
-                      WHERE Nombres LIKE '%" + filtroEsc + @"%'
-                      AND ('" + deptoEsc + @"' = '' OR Departamento = '" + deptoEsc + @"')
-                      AND ('" + estadoFiltro + @"' = '' OR Estado = " + estadoBit + @")
-                      AND ('" + sucursalEsc + @"' = '' OR IdSucursal = (SELECT IdSucursal FROM Sucursales WHERE NombreSucursal = '" + sucursalEsc + @"'))";
+            string query = @"
+        SELECT
+            Codigo,
+            Nombres + ' ' + Apellidos AS Empleado,
+            Cargo,
+            Departamento,
+            Telefono,
+            Correo,
+            CASE 
+                WHEN Estado = 1 THEN 'Activo'
+                ELSE 'Inactivo'
+            END AS Estado,
+            RutaFoto
+        FROM Empleados
+        WHERE Nombres LIKE '%" + filtroEsc + @"%'
+        AND ('" + deptoEsc + @"' = '' 
+             OR Departamento = '" + deptoEsc + @"')
+        AND ('" + estadoFiltro + @"' = '' 
+             OR Estado = " + estadoBit + @")
+        AND ('" + sucursalEsc + @"' = '' 
+             OR IdSucursal = (
+                 SELECT IdSucursal
+                 FROM Sucursales
+                 WHERE NombreSucursal = '" + sucursalEsc + @"'
+             ))";
 
             DataTable dt = oConexion.RetornaRegistros(query);
 
+            if (dt == null)
+                return;
+
+            // Crear columna temporal para guardar la imagen que verá el DataGridView
+            dt.Columns.Add("ImagenEmpleado", typeof(Image));
+
+            foreach (DataRow fila in dt.Rows)
+            {
+                string ruta = fila["RutaFoto"] == DBNull.Value
+                    ? ""
+                    : fila["RutaFoto"].ToString();
+
+                if (!string.IsNullOrWhiteSpace(ruta) &&
+                    System.IO.File.Exists(ruta))
+                {
+                    using (Image imgTemporal = Image.FromFile(ruta))
+                    {
+                        // Hacemos una copia para que el archivo no quede bloqueado
+                        fila["ImagenEmpleado"] = new Bitmap(imgTemporal);
+                    }
+                }
+                else
+                {
+                    fila["ImagenEmpleado"] =
+                        Properties.Resources.person_icon_31846;
+                }
+            }
+
             dgvEmpleados.AutoGenerateColumns = false;
+
             dgvEmpleados.Columns["clCodigo"].DataPropertyName = "Codigo";
             dgvEmpleados.Columns["clEmpleado"].DataPropertyName = "Empleado";
             dgvEmpleados.Columns["clCargo"].DataPropertyName = "Cargo";
@@ -189,27 +235,11 @@ namespace Derick
             dgvEmpleados.Columns["clTelefono"].DataPropertyName = "Telefono";
             dgvEmpleados.Columns["clCorreo"].DataPropertyName = "Correo";
             dgvEmpleados.Columns["clEstado"].DataPropertyName = "Estado";
-            dgvEmpleados.DataSource = dt;
-            for (int i = 0; i < dgvEmpleados.Rows.Count; i++)
-            {
-                string ruta = dt.Rows[i]["RutaFoto"] == DBNull.Value
-                    ? ""
-                    : dt.Rows[i]["RutaFoto"].ToString();
 
-                if (!string.IsNullOrWhiteSpace(ruta) && System.IO.File.Exists(ruta))
-                {
-                    using (Image imgTemporal = Image.FromFile(ruta))
-                    {
-                        dgvEmpleados.Rows[i].Cells["clImagen"].Value =
-                            new Bitmap(imgTemporal);
-                    }
-                }
-                else
-                {
-                    dgvEmpleados.Rows[i].Cells["clImagen"].Value =
-                        Properties.Resources.person_icon_31846;
-                }
-            }
+            // La foto queda enlazada al DataTable
+            dgvEmpleados.Columns["clImagen"].DataPropertyName = "ImagenEmpleado";
+
+            dgvEmpleados.DataSource = dt;
         }
         private void EliminarEmpleado(string codigo)
         {
