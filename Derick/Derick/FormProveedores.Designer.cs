@@ -207,6 +207,7 @@
             // dgvProveedor
             // 
             dgvProveedor.AllowUserToResizeColumns = false;
+            dgvProveedor.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvProveedor.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvProveedor.BackgroundColor = Color.White;
             dgvProveedor.BorderStyle = BorderStyle.None;

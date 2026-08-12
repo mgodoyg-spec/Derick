@@ -46,11 +46,11 @@
             pnl_ctg2 = new Panel();
             pic_ctg2 = new PictureBox();
             txt_busqctg = new TextBox();
-            btn_bus1 = new Button();
             pnl_ctg3 = new Panel();
             cmb_ctg1 = new ComboBox();
             pnl_ctg4 = new Panel();
             cmb_ctg2 = new ComboBox();
+            btn_bus1 = new Button();
             lbl_agg3 = new Label();
             lbl_ry = new PictureBox();
             pic_ctg1 = new PictureBox();
@@ -115,6 +115,7 @@
             // 
             // dgv_catg
             // 
+            dgv_catg.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgv_catg.BackgroundColor = Color.White;
             dgv_catg.BorderStyle = BorderStyle.None;
             dgv_catg.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -237,21 +238,6 @@
             txt_busqctg.Size = new Size(270, 24);
             txt_busqctg.TabIndex = 7;
             // 
-            // btn_bus1
-            // 
-            btn_bus1.BackColor = Color.FromArgb(0, 176, 80);
-            btn_bus1.Cursor = Cursors.Hand;
-            btn_bus1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn_bus1.ForeColor = Color.White;
-            btn_bus1.Image = (Image)resources.GetObject("btn_bus1.Image");
-            btn_bus1.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_bus1.Location = new Point(863, 20);
-            btn_bus1.Name = "btn_bus1";
-            btn_bus1.Size = new Size(140, 47);
-            btn_bus1.TabIndex = 23;
-            btn_bus1.Text = "Buscar";
-            btn_bus1.UseVisualStyleBackColor = false;
-            // 
             // pnl_ctg3
             // 
             pnl_ctg3.BackColor = Color.White;
@@ -293,6 +279,21 @@
             cmb_ctg2.Name = "cmb_ctg2";
             cmb_ctg2.Size = new Size(122, 28);
             cmb_ctg2.TabIndex = 14;
+            // 
+            // btn_bus1
+            // 
+            btn_bus1.BackColor = Color.FromArgb(0, 176, 80);
+            btn_bus1.Cursor = Cursors.Hand;
+            btn_bus1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_bus1.ForeColor = Color.White;
+            btn_bus1.Image = (Image)resources.GetObject("btn_bus1.Image");
+            btn_bus1.ImageAlign = ContentAlignment.MiddleLeft;
+            btn_bus1.Location = new Point(863, 20);
+            btn_bus1.Name = "btn_bus1";
+            btn_bus1.Size = new Size(140, 47);
+            btn_bus1.TabIndex = 23;
+            btn_bus1.Text = "Buscar";
+            btn_bus1.UseVisualStyleBackColor = false;
             // 
             // lbl_agg3
             // 
