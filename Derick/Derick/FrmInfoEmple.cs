@@ -12,9 +12,19 @@ namespace Derick
 {
     public partial class FrmInfoEmple : Form
     {
+        private string codigoEditar = null;
+        private string rutaFoto = "";
+        private byte[] fotoBytes = null;
+
         public FrmInfoEmple()
         {
             InitializeComponent();
+        }
+
+        public FrmInfoEmple(string codigo)
+        {
+            InitializeComponent();
+            codigoEditar = codigo;
         }
 
         private void label14_Click(object sender, EventArgs e)
@@ -29,21 +39,41 @@ namespace Derick
 
             if (ofd.ShowDialog() == DialogResult.OK)
             {
-                pbxImagenEmple.Image = Image.FromFile(ofd.FileName);
+                rutaFoto = ofd.FileName;
+
+                // Guardar los bytes reales de la imagen
+                fotoBytes = System.IO.File.ReadAllBytes(rutaFoto);
+
+                // Mostrar la imagen sin dejar bloqueado el archivo
+                using (System.IO.MemoryStream ms = new System.IO.MemoryStream(fotoBytes))
+                using (Image imgTemporal = Image.FromStream(ms))
+                {
+                    pbxImagenEmple.Image = new Bitmap(imgTemporal);
+                }
+
                 pbxImagenEmple.SizeMode = PictureBoxSizeMode.Zoom;
             }
         }
 
         private void btnQuitarImagen_Click(object sender, EventArgs e)
         {
-            DialogResult r2 = MessageBox.Show("¿Esta seguro de eliminar la imagen?", "Eliminar imagen",
-            MessageBoxButtons.YesNo,
-            MessageBoxIcon.Question);
+            DialogResult r2 = MessageBox.Show(
+                "¿Está seguro de eliminar la imagen?",
+                "Eliminar imagen",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
 
             if (r2 == DialogResult.Yes)
             {
-                pbxImagenEmple.Image.Dispose();
-                pbxImagenEmple.Image = null;
+                if (pbxImagenEmple.Image != null)
+                {
+                    pbxImagenEmple.Image.Dispose();
+                    pbxImagenEmple.Image = null;
+                }
+
+                rutaFoto = "";
+                fotoBytes = null;
                 pbxAgregarImagen.Visible = true;
                 lblSeleccionarImag.Visible = true;
             }
@@ -56,35 +86,124 @@ namespace Derick
 
         private void FrmInfoEmple_Load(object sender, EventArgs e)
         {
-            GenerarCodigo();
+            if (codigoEditar == null)
+            {
+                GenerarCodigo();
+            }
+            else
+            {
+                CargarEmpleado(codigoEditar);
+            }
         }
         private void GenerarCodigo()
         {
-            using (SqlConnection con = csConexion.ObtenerConexion())
-            {
-                con.Open();
-                string query = "SELECT MAX(Codigo) FROM Empleados";
-                SqlCommand cmd = new SqlCommand(query, con);
-                object resultado = cmd.ExecuteScalar();
+            csConectaSQL oConexion = new csConectaSQL();
 
-                int siguiente = 1;
-                if (resultado != DBNull.Value && resultado != null)
+            string query = "SELECT MAX(Codigo) AS UltimoCodigo FROM Empleados";
+
+            DataTable dt = oConexion.RetornaRegistros(query);
+
+            int siguiente = 1;
+
+            if (dt.Rows.Count > 0 &&
+                dt.Rows[0]["UltimoCodigo"] != DBNull.Value &&
+                dt.Rows[0]["UltimoCodigo"] != null)
+            {
+                string ultimo = dt.Rows[0]["UltimoCodigo"].ToString();
+
+                string soloNumeros = new string(
+                    ultimo.Where(char.IsDigit).ToArray()
+                );
+
+                if (int.TryParse(soloNumeros, out int numero))
                 {
-                    string ultimo = resultado.ToString();
-                    string soloNumeros = new string(ultimo.Where(char.IsDigit).ToArray());
-                    if (int.TryParse(soloNumeros, out int numero))
+                    siguiente = numero + 1;
+                }
+            }
+
+            txtCodigo.Text = "SC" + siguiente.ToString("D3");
+        }
+        private void CargarEmpleado(string codigo)
+        {
+            csConectaSQL oConexion = new csConectaSQL();
+
+            string codigoEsc = codigo.Replace("'", "''");
+            string query = @"SELECT Nombres, Apellidos, Cedula, FechaNacimiento,
+                        Genero, Telefono, Correo, Direccion, Cargo,
+                        Departamento, FechaIngreso, Salario,
+                        TipoContrato, Estado, ContactoEmergencia,
+                        TelefonoEmergencia, RutaFoto, Foto
+                 FROM Empleados
+                 WHERE Codigo = '" + codigoEsc + "'";
+
+            DataTable dt = oConexion.RetornaRegistros(query);
+
+            if (dt.Rows.Count > 0)
+            {
+                DataRow dr = dt.Rows[0];
+                rutaFoto = dr["RutaFoto"].ToString();
+
+                // Primero intentar cargar la imagen almacenada en SQL
+                if (dr["Foto"] != DBNull.Value)
+                {
+                    fotoBytes = (byte[])dr["Foto"];
+
+                    using (System.IO.MemoryStream ms = new System.IO.MemoryStream(fotoBytes))
+                    using (Image imgTemporal = Image.FromStream(ms))
                     {
-                        siguiente = numero + 1;
+                        pbxImagenEmple.Image = new Bitmap(imgTemporal);
                     }
+
+                    pbxImagenEmple.SizeMode = PictureBoxSizeMode.Zoom;
+                }
+                // Compatibilidad con empleados antiguos que solo tienen RutaFoto
+                else if (!string.IsNullOrWhiteSpace(rutaFoto) &&
+                         System.IO.File.Exists(rutaFoto))
+                {
+                    fotoBytes = System.IO.File.ReadAllBytes(rutaFoto);
+
+                    using (System.IO.MemoryStream ms = new System.IO.MemoryStream(fotoBytes))
+                    using (Image imgTemporal = Image.FromStream(ms))
+                    {
+                        pbxImagenEmple.Image = new Bitmap(imgTemporal);
+                    }
+
+                    pbxImagenEmple.SizeMode = PictureBoxSizeMode.Zoom;
                 }
 
-                txtCodigo.Text = "SC" + siguiente.ToString("D3");
+                txtCodigo.Text = codigo;
+                txtNombre.Text = dr["Nombres"].ToString();
+                txtApellidos.Text = dr["Apellidos"].ToString();
+                txtCedula.Text = dr["Cedula"].ToString();
+
+                if (dr["FechaNacimiento"] != DBNull.Value)
+                    dtpFechaNacimiento.Value = Convert.ToDateTime(dr["FechaNacimiento"]);
+
+                cmbGenero.Text = dr["Genero"].ToString();
+                txtTelefono.Text = dr["Telefono"].ToString();
+                txtCorreo.Text = dr["Correo"].ToString();
+                txtDirreccion.Text = dr["Direccion"].ToString();
+                cmbCargo.Text = dr["Cargo"].ToString();
+                cmbDepartamento.Text = dr["Departamento"].ToString();
+
+                if (dr["FechaIngreso"] != DBNull.Value)
+                    dtpFechaIngreso.Value = Convert.ToDateTime(dr["FechaIngreso"]);
+
+                txtSalario.Text = dr["Salario"].ToString();
+                cmbTipoContrato.Text = dr["TipoContrato"].ToString();
+
+                cmbEstado.Text = Convert.ToBoolean(dr["Estado"])
+                    ? "Activo"
+                    : "Inactivo";
+
+                txtEmerNombre.Text = dr["ContactoEmergencia"].ToString();
+                txtTeleEmergencia.Text = dr["TelefonoEmergencia"].ToString();
             }
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            // Validación de campos obligatorios (ya NO incluye usuario/contraseña/rol)
+            // Validación de campos obligatorios
             if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
                 string.IsNullOrWhiteSpace(txtApellidos.Text) ||
                 string.IsNullOrWhiteSpace(txtCedula.Text))
@@ -98,40 +217,58 @@ namespace Derick
             bool tieneContrasena = !string.IsNullOrWhiteSpace(txtContrasena.Text);
             bool tieneRol = !string.IsNullOrWhiteSpace(cmbRol.Text);
 
-            // Si llenó solo alguno de los tres, se le pide completar todos
+            // Si llenó solo alguno de los tres, pedir completar todos
             if ((tieneUsuario || tieneContrasena || tieneRol) &&
                 !(tieneUsuario && tieneContrasena && tieneRol))
             {
-                MessageBox.Show("Para crear acceso al sistema debes completar Usuario, Contraseña y Rol. " +
-                                 "Si el empleado no tendrá acceso, deja los tres campos vacíos.");
+                MessageBox.Show(
+                    "Para crear acceso al sistema debes completar Usuario, Contraseña y Rol. " +
+                    "Si el empleado no tendrá acceso, deja los tres campos vacíos."
+                );
+
                 return;
             }
 
-            bool crearAccesoSistema = tieneUsuario && tieneContrasena && tieneRol;
+            bool crearAccesoSistema =
+                tieneUsuario &&
+                tieneContrasena &&
+                tieneRol;
 
-            using (SqlConnection con = csConexion.ObtenerConexion())
+            using (SqlConnection con = csConexionRemota.ObtenerConexion())
             {
                 con.Open();
+
                 SqlTransaction tran = con.BeginTransaction();
 
                 try
                 {
                     int idRol = 0;
 
-                    // 1. Solo buscar el rol si se va a crear acceso al sistema
+                    // Buscar rol solamente si tendrá acceso al sistema
                     if (crearAccesoSistema)
                     {
-                        string queryRol = "SELECT IdRol FROM Rol WHERE NombreRol = @nombreRol";
+                        string queryRol = @"
+                    SELECT IdRol
+                    FROM Rol
+                    WHERE NombreRol = @nombreRol";
 
-                        SqlCommand cmdRol = new SqlCommand(queryRol, con, tran);
-                        cmdRol.Parameters.AddWithValue("@nombreRol", cmbRol.Text.Trim());
+                        SqlCommand cmdRol =
+                            new SqlCommand(queryRol, con, tran);
+
+                        cmdRol.Parameters.AddWithValue(
+                            "@nombreRol",
+                            cmbRol.Text.Trim()
+                        );
 
                         object idRolObj = cmdRol.ExecuteScalar();
 
                         if (idRolObj == null)
                         {
-                            MessageBox.Show("El rol '" + cmbRol.Text +
-                                            "' no existe. Selecciona un rol válido.");
+                            MessageBox.Show(
+                                "El rol '" + cmbRol.Text +
+                                "' no existe. Selecciona un rol válido."
+                            );
+
                             tran.Rollback();
                             return;
                         }
@@ -139,30 +276,148 @@ namespace Derick
                         idRol = Convert.ToInt32(idRolObj);
                     }
 
-                    // 2. Insertar el empleado (siempre)
-                    string queryEmpleado = @"INSERT INTO Empleados
-                    (Codigo, Nombres, Apellidos, Cedula, FechaNacimiento, Genero,
-                    Telefono, Correo, Direccion, Cargo, Departamento, FechaIngreso,
-                    Salario, TipoContrato, Estado, ContactoEmergencia, TelefonoEmergencia)
+                    // INSERT O UPDATE DEL EMPLEADO
+                    string queryEmpleado;
+
+                    if (codigoEditar == null)
+                    {
+                        // NUEVO EMPLEADO
+                        queryEmpleado = @"
+                    INSERT INTO Empleados
+                    (
+                        Codigo,
+                        Nombres,
+                        Apellidos,
+                        Cedula,
+                        FechaNacimiento,
+                        Genero,
+                        Telefono,
+                        Correo,
+                        Direccion,
+                        Cargo,
+                        Departamento,
+                        FechaIngreso,
+                        Salario,
+                        TipoContrato,
+                        Estado,
+                        ContactoEmergencia,
+                        TelefonoEmergencia,
+                        RutaFoto,
+                        Foto
+                    )
                     VALUES
-                    (@codigo, @nombres, @apellidos, @cedula, @fechaNac, @genero,
-                    @telefono, @correo, @direccion, @cargo, @departamento, @fechaIngreso,
-                    @salario, @tipoContrato, @estado, @contactoEmerg, @telEmerg)";
+                    (
+                        @codigo,
+                        @nombres,
+                        @apellidos,
+                        @cedula,
+                        @fechaNac,
+                        @genero,
+                        @telefono,
+                        @correo,
+                        @direccion,
+                        @cargo,
+                        @departamento,
+                        @fechaIngreso,
+                        @salario,
+                        @tipoContrato,
+                        @estado,
+                        @contactoEmerg,
+                        @telEmerg,
+                        @rutaFoto,
+                        @foto
+                    )";
+                    }
+                    else
+                    {
+                        // EDITAR EMPLEADO
+                        queryEmpleado = @"
+                    UPDATE Empleados
+                    SET
+                        Nombres = @nombres,
+                        Apellidos = @apellidos,
+                        Cedula = @cedula,
+                        FechaNacimiento = @fechaNac,
+                        Genero = @genero,
+                        Telefono = @telefono,
+                        Correo = @correo,
+                        Direccion = @direccion,
+                        Cargo = @cargo,
+                        Departamento = @departamento,
+                        FechaIngreso = @fechaIngreso,
+                        Salario = @salario,
+                        TipoContrato = @tipoContrato,
+                        Estado = @estado,
+                        ContactoEmergencia = @contactoEmerg,
+                        TelefonoEmergencia = @telEmerg,
+                        RutaFoto = @rutaFoto,
+                        Foto = @foto
+                    WHERE Codigo = @codigo";
+                    }
 
-                    SqlCommand cmdEmp = new SqlCommand(queryEmpleado, con, tran);
+                    SqlCommand cmdEmp =
+                        new SqlCommand(queryEmpleado, con, tran);
 
-                    cmdEmp.Parameters.AddWithValue("@codigo", txtCodigo.Text.Trim());
-                    cmdEmp.Parameters.AddWithValue("@nombres", txtNombre.Text.Trim());
-                    cmdEmp.Parameters.AddWithValue("@apellidos", txtApellidos.Text.Trim());
-                    cmdEmp.Parameters.AddWithValue("@cedula", txtCedula.Text.Trim());
-                    cmdEmp.Parameters.AddWithValue("@fechaNac", dtpFechaNacimiento.Value);
-                    cmdEmp.Parameters.AddWithValue("@genero", cmbGenero.Text);
-                    cmdEmp.Parameters.AddWithValue("@telefono", txtTelefono.Text.Trim());
-                    cmdEmp.Parameters.AddWithValue("@correo", txtCorreo.Text.Trim());
-                    cmdEmp.Parameters.AddWithValue("@direccion", txtDirreccion.Text.Trim());
-                    cmdEmp.Parameters.AddWithValue("@cargo", cmbCargo.Text);
-                    cmdEmp.Parameters.AddWithValue("@departamento", cmbDepartamento.Text);
-                    cmdEmp.Parameters.AddWithValue("@fechaIngreso", dtpFechaIngreso.Value);
+                    // Parámetros normales
+                    cmdEmp.Parameters.AddWithValue(
+                        "@codigo",
+                        txtCodigo.Text.Trim()
+                    );
+
+                    cmdEmp.Parameters.AddWithValue(
+                        "@nombres",
+                        txtNombre.Text.Trim()
+                    );
+
+                    cmdEmp.Parameters.AddWithValue(
+                        "@apellidos",
+                        txtApellidos.Text.Trim()
+                    );
+
+                    cmdEmp.Parameters.AddWithValue(
+                        "@cedula",
+                        txtCedula.Text.Trim()
+                    );
+
+                    cmdEmp.Parameters.AddWithValue(
+                        "@fechaNac",
+                        dtpFechaNacimiento.Value
+                    );
+
+                    cmdEmp.Parameters.AddWithValue(
+                        "@genero",
+                        cmbGenero.Text
+                    );
+
+                    cmdEmp.Parameters.AddWithValue(
+                        "@telefono",
+                        txtTelefono.Text.Trim()
+                    );
+
+                    cmdEmp.Parameters.AddWithValue(
+                        "@correo",
+                        txtCorreo.Text.Trim()
+                    );
+
+                    cmdEmp.Parameters.AddWithValue(
+                        "@direccion",
+                        txtDirreccion.Text.Trim()
+                    );
+
+                    cmdEmp.Parameters.AddWithValue(
+                        "@cargo",
+                        cmbCargo.Text
+                    );
+
+                    cmdEmp.Parameters.AddWithValue(
+                        "@departamento",
+                        cmbDepartamento.Text
+                    );
+
+                    cmdEmp.Parameters.AddWithValue(
+                        "@fechaIngreso",
+                        dtpFechaIngreso.Value
+                    );
 
                     cmdEmp.Parameters.AddWithValue(
                         "@salario",
@@ -171,7 +426,10 @@ namespace Derick
                             : decimal.Parse(txtSalario.Text)
                     );
 
-                    cmdEmp.Parameters.AddWithValue("@tipoContrato", cmbTipoContrato.Text);
+                    cmdEmp.Parameters.AddWithValue(
+                        "@tipoContrato",
+                        cmbTipoContrato.Text
+                    );
 
                     cmdEmp.Parameters.AddWithValue(
                         "@estado",
@@ -188,47 +446,122 @@ namespace Derick
                         txtTeleEmergencia.Text.Trim()
                     );
 
+                    // Ruta local de la imagen
+                    cmdEmp.Parameters.AddWithValue(
+                        "@rutaFoto",
+                        string.IsNullOrWhiteSpace(rutaFoto)
+                            ? (object)DBNull.Value
+                            : rutaFoto
+                    );
+
+                    // IMAGEN REAL GUARDADA EN SQL
+                    SqlParameter parametroFoto =
+                        cmdEmp.Parameters.Add(
+                            "@foto",
+                            SqlDbType.VarBinary,
+                            -1
+                        );
+
+                    parametroFoto.Value =
+                        fotoBytes == null
+                            ? (object)DBNull.Value
+                            : fotoBytes;
+
+                    // Ejecutar INSERT o UPDATE
                     cmdEmp.ExecuteNonQuery();
 
-                    // 3. Solo crear el usuario si el empleado tendrá acceso al sistema
+                    // Crear usuario solamente si tendrá acceso
                     if (crearAccesoSistema)
                     {
-                        string queryId = "SELECT IdEmpleado FROM Empleados WHERE Codigo = @codigo";
+                        string queryId = @"
+                    SELECT IdEmpleado
+                    FROM Empleados
+                    WHERE Codigo = @codigo";
 
-                        SqlCommand cmdId = new SqlCommand(queryId, con, tran);
-                        cmdId.Parameters.AddWithValue("@codigo", txtCodigo.Text.Trim());
+                        SqlCommand cmdId =
+                            new SqlCommand(queryId, con, tran);
 
-                        int idEmpleado = Convert.ToInt32(cmdId.ExecuteScalar());
+                        cmdId.Parameters.AddWithValue(
+                            "@codigo",
+                            txtCodigo.Text.Trim()
+                        );
 
-                        string queryUsuario = @"INSERT INTO Usuario
-                        (IdEmpleado, IdRol, Usuario, Contrasena, Estado)
-                        VALUES
-                        (@idEmp, @idRol, @usuario, @clave, @estado)";
+                        int idEmpleado =
+                            Convert.ToInt32(cmdId.ExecuteScalar());
 
-                        SqlCommand cmdUser = new SqlCommand(queryUsuario, con, tran);
+                        string queryUsuario = @"
+                    INSERT INTO Usuario
+                    (
+                        IdEmpleado,
+                        IdRol,
+                        Usuario,
+                        Contrasena,
+                        Estado
+                    )
+                    VALUES
+                    (
+                        @idEmp,
+                        @idRol,
+                        @usuario,
+                        @clave,
+                        @estado
+                    )";
 
-                        cmdUser.Parameters.AddWithValue("@idEmp", idEmpleado);
-                        cmdUser.Parameters.AddWithValue("@idRol", idRol);
-                        cmdUser.Parameters.AddWithValue("@usuario", txtUsuario.Text.Trim());
-                        cmdUser.Parameters.AddWithValue("@clave", txtContrasena.Text);
-                        cmdUser.Parameters.AddWithValue("@estado", 1);
+                        SqlCommand cmdUser =
+                            new SqlCommand(queryUsuario, con, tran);
+
+                        cmdUser.Parameters.AddWithValue(
+                            "@idEmp",
+                            idEmpleado
+                        );
+
+                        cmdUser.Parameters.AddWithValue(
+                            "@idRol",
+                            idRol
+                        );
+
+                        cmdUser.Parameters.AddWithValue(
+                            "@usuario",
+                            txtUsuario.Text.Trim()
+                        );
+
+                        cmdUser.Parameters.AddWithValue(
+                            "@clave",
+                            txtContrasena.Text
+                        );
+
+                        cmdUser.Parameters.AddWithValue(
+                            "@estado",
+                            1
+                        );
 
                         cmdUser.ExecuteNonQuery();
                     }
 
-                    // 4. Confirmar todo
+                    // Confirmar los cambios
                     tran.Commit();
 
-                    MessageBox.Show(crearAccesoSistema
-                        ? "Empleado y usuario registrados con éxito."
-                        : "Empleado registrado con éxito (sin acceso al sistema).");
+                    MessageBox.Show(
+                        codigoEditar == null
+                            ? "Empleado registrado correctamente."
+                            : "Empleado actualizado correctamente.",
+                        "Empleado",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
+                    );
 
                     this.Close();
                 }
                 catch (Exception ex)
                 {
                     tran.Rollback();
-                    MessageBox.Show("Error al guardar: " + ex.Message);
+
+                    MessageBox.Show(
+                        "Error al guardar: " + ex.Message,
+                        "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
                 }
             }
         }

@@ -16,29 +16,16 @@ namespace Derick
             InitializeComponent();
         }
 
-        private void dgvEmpleados_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-        }
-
         private void btnDepa_Click(object sender, EventArgs e)
         {
             FrmDepartamentos frm = new FrmDepartamentos();
             frm.ShowDialog();
         }
-
-        private void btnVolver_Click(object sender, EventArgs e)
-        {
-        }
-
         private void btnNuevoEmpleado_Click(object sender, EventArgs e)
         {
             FrmInfoEmple frm = new FrmInfoEmple();
             frm.ShowDialog();
             CargarEmpleados();
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
         }
 
         private void FrmEmple_Load(object sender, EventArgs e)
@@ -168,32 +155,98 @@ namespace Derick
         }
 
         // mostrar empleados en el datagridview
-        private void CargarEmpleados(string filtroBusqueda = "", string departamento = "", string estadoFiltro = "", string sucursal = "")
+        private void CargarEmpleados(
+    string filtroBusqueda = "",
+    string departamento = "",
+    string estadoFiltro = "",
+    string sucursal = "")
         {
             csConectaSQL oConexion = new csConectaSQL();
 
-            // escapamos comillas simples para que nombres con apostrofe no rompen la consulta
+            // Escapar comillas simples
             string filtroEsc = filtroBusqueda.Replace("'", "''");
             string deptoEsc = departamento.Replace("'", "''");
             string sucursalEsc = sucursal.Replace("'", "''");
+
             int estadoBit = estadoFiltro == "Activo" ? 1 : 0;
 
-            string query = @"SELECT Codigo,
-                             Nombres + ' ' + Apellidos AS Empleado,
-                             Cargo,
-                             Departamento,
-                             Telefono,
-                             Correo,
-                             CASE WHEN Estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado
-                      FROM Empleados
-                      WHERE Nombres LIKE '%" + filtroEsc + @"%'
-                      AND ('" + deptoEsc + @"' = '' OR Departamento = '" + deptoEsc + @"')
-                      AND ('" + estadoFiltro + @"' = '' OR Estado = " + estadoBit + @")
-                      AND ('" + sucursalEsc + @"' = '' OR IdSucursal = (SELECT IdSucursal FROM Sucursales WHERE NombreSucursal = '" + sucursalEsc + @"'))";
+            string query = @"
+        SELECT
+            Codigo,
+            Nombres + ' ' + Apellidos AS Empleado,
+            Cargo,
+            Departamento,
+            Telefono,
+            Correo,
+            CASE 
+                WHEN Estado = 1 THEN 'Activo'
+                ELSE 'Inactivo'
+            END AS Estado,
+            RutaFoto,
+            Foto
+        FROM Empleados
+        WHERE Nombres LIKE '%" + filtroEsc + @"%'
+        AND ('" + deptoEsc + @"' = '' 
+             OR Departamento = '" + deptoEsc + @"')
+        AND ('" + estadoFiltro + @"' = '' 
+             OR Estado = " + estadoBit + @")
+        AND ('" + sucursalEsc + @"' = '' 
+             OR IdSucursal = (
+                 SELECT IdSucursal
+                 FROM Sucursales
+                 WHERE NombreSucursal = '" + sucursalEsc + @"'
+             ))";
 
             DataTable dt = oConexion.RetornaRegistros(query);
 
+            if (dt == null)
+                return;
+
+            // Columna que mostrará la imagen en el DataGridView
+            dt.Columns.Add("ImagenEmpleado", typeof(Image));
+
+            foreach (DataRow fila in dt.Rows)
+            {
+                // 1. PRIMERO: intentar cargar Foto desde SQL
+                if (fila["Foto"] != DBNull.Value)
+                {
+                    byte[] bytesFoto = (byte[])fila["Foto"];
+
+                    using (System.IO.MemoryStream ms =
+                           new System.IO.MemoryStream(bytesFoto))
+                    using (Image imgTemporal = Image.FromStream(ms))
+                    {
+                        fila["ImagenEmpleado"] =
+                            new Bitmap(imgTemporal);
+                    }
+                }
+                else
+                {
+                    // 2. RESPALDO: empleados antiguos con RutaFoto
+                    string ruta = fila["RutaFoto"] == DBNull.Value
+                        ? ""
+                        : fila["RutaFoto"].ToString();
+
+                    if (!string.IsNullOrWhiteSpace(ruta) &&
+                        System.IO.File.Exists(ruta))
+                    {
+                        using (Image imgTemporal = Image.FromFile(ruta))
+                        {
+                            fila["ImagenEmpleado"] =
+                                new Bitmap(imgTemporal);
+                        }
+                    }
+                    else
+                    {
+                        // 3. Si no existe ninguna imagen
+                        fila["ImagenEmpleado"] =
+                            Properties.Resources.person_icon_31846;
+                    }
+                }
+            }
+
             dgvEmpleados.AutoGenerateColumns = false;
+
             dgvEmpleados.Columns["clCodigo"].DataPropertyName = "Codigo";
             dgvEmpleados.Columns["clEmpleado"].DataPropertyName = "Empleado";
             dgvEmpleados.Columns["clCargo"].DataPropertyName = "Cargo";
@@ -201,7 +254,113 @@ namespace Derick
             dgvEmpleados.Columns["clTelefono"].DataPropertyName = "Telefono";
             dgvEmpleados.Columns["clCorreo"].DataPropertyName = "Correo";
             dgvEmpleados.Columns["clEstado"].DataPropertyName = "Estado";
+
+            // Imagen enlazada al DataTable
+            dgvEmpleados.Columns["clImagen"].DataPropertyName = "ImagenEmpleado";
+
             dgvEmpleados.DataSource = dt;
+        }
+        private void EliminarEmpleado(string codigo)
+        {
+            using (SqlConnection con = csConexionRemota.ObtenerConexion())
+            {
+                con.Open();
+
+                SqlTransaction tran = con.BeginTransaction();
+
+                try
+                {
+                    // Buscar el IdEmpleado a partir del código
+                    string queryId = @"
+                SELECT IdEmpleado
+                FROM Empleados
+                WHERE Codigo = @codigo";
+
+                    SqlCommand cmdId = new SqlCommand(queryId, con, tran);
+                    cmdId.Parameters.AddWithValue("@codigo", codigo);
+
+                    object resultado = cmdId.ExecuteScalar();
+
+                    if (resultado == null)
+                    {
+                        tran.Rollback();
+
+                        MessageBox.Show(
+                            "No se encontró el empleado.",
+                            "Aviso",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning
+                        );
+
+                        return;
+                    }
+
+                    int idEmpleado = Convert.ToInt32(resultado);
+
+
+                    // Eliminar usuario relacionado, si tiene uno
+                    string queryUsuario = @"
+                DELETE FROM Usuario
+                WHERE IdEmpleado = @idEmpleado";
+
+                    SqlCommand cmdUsuario = new SqlCommand(queryUsuario, con, tran);
+                    cmdUsuario.Parameters.AddWithValue("@idEmpleado", idEmpleado);
+                    cmdUsuario.ExecuteNonQuery();
+
+
+                    // Eliminar empleado
+                    string queryEmpleado = @"
+                DELETE FROM Empleados
+                WHERE IdEmpleado = @idEmpleado";
+
+                    SqlCommand cmdEmpleado = new SqlCommand(queryEmpleado, con, tran);
+                    cmdEmpleado.Parameters.AddWithValue("@idEmpleado", idEmpleado);
+
+                    int filasAfectadas = cmdEmpleado.ExecuteNonQuery();
+
+
+                    if (filasAfectadas > 0)
+                    {
+                        tran.Commit();
+
+                        MessageBox.Show(
+                            "Empleado eliminado correctamente.",
+                            "Eliminar empleado",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information
+                        );
+
+                        CargarEmpleados(
+                            txtBuscar.Text,
+                            cbxDepa.Text,
+                            cbxEstado.Text,
+                            cbxSucursal.Text
+                        );
+                    }
+                    else
+                    {
+                        tran.Rollback();
+
+                        MessageBox.Show(
+                            "No se pudo eliminar el empleado.",
+                            "Aviso",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning
+                        );
+                    }
+                }
+                catch (Exception ex)
+                {
+                    tran.Rollback();
+
+                    MessageBox.Show(
+                        "No se pudo eliminar el empleado.\n\n" + ex.Message,
+                        "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
+                }
+            }
         }
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
@@ -222,6 +381,72 @@ namespace Derick
         private void cbxSucursal_SelectedIndexChanged(object sender, EventArgs e)
         {
             CargarEmpleados(txtBuscar.Text, cbxDepa.Text, cbxEstado.Text, cbxSucursal.Text);
+        }
+
+        private void btnDepa_Click_1(object sender, EventArgs e)
+        {
+            FrmDepartamentos frm = new FrmDepartamentos();
+            frm.ShowDialog();
+        }
+
+        private void dgvEmpleados_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+                return;
+
+            // EDITAR
+            if (dgvEmpleados.Columns[e.ColumnIndex].Name == "clEditar")
+            {
+                string codigo = dgvEmpleados.Rows[e.RowIndex]
+                    .Cells["clCodigo"].Value.ToString();
+
+                FrmInfoEmple frm = new FrmInfoEmple(codigo);
+                frm.ShowDialog();
+
+                CargarEmpleados();
+            }
+
+            // ELIMINAR
+            else if (dgvEmpleados.Columns[e.ColumnIndex].Name == "clEliminar")
+            {
+                string codigo = dgvEmpleados.Rows[e.RowIndex]
+                    .Cells["clCodigo"].Value.ToString();
+
+                string empleado = dgvEmpleados.Rows[e.RowIndex]
+                    .Cells["clEmpleado"].Value.ToString();
+
+                DialogResult respuesta = MessageBox.Show(
+                    "¿Está seguro de eliminar al empleado " + empleado + "?",
+                    "Confirmar eliminación",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning
+                );
+
+                if (respuesta == DialogResult.Yes)
+                {
+                    EliminarEmpleado(codigo);
+                }
+            }
+
+            // VER MÁS
+            else if (dgvEmpleados.Columns[e.ColumnIndex].Name == "clVer")
+            {
+                string codigo = dgvEmpleados.Rows[e.RowIndex]
+                    .Cells["clCodigo"].Value.ToString();
+
+                FrmDetalleEmpleado frm = new FrmDetalleEmpleado(codigo);
+                frm.ShowDialog();
+            }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txtBuscar.Clear();
+            cbxDepa.SelectedIndex = -1;
+            cbxSucursal.SelectedIndex = -1;
+            cbxEstado.SelectedIndex = -1;
+            CargarEmpleados();
+
         }
     }
 }

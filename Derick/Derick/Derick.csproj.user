@@ -43,6 +43,9 @@
     <Compile Update="FrmDepartamentos.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FrmDetalleEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="frmEditar_stock.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +76,12 @@
     <Compile Update="FrmNuevaVenta.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FrmNuevoClienteV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmNuevoDepa.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FrmProductosE.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +107,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FrmVentasN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmVerSucursales.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="frm_secundario1.cs">

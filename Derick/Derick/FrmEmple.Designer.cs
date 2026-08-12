@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEmple));
             pnlEmple = new Panel();
             pnlSucursales = new Panel();
             lblSalirV = new Label();
             pnlBuscarSucursal = new Panel();
-            button1 = new Button();
+            btnDepa = new Button();
+            imlIcons = new ImageList(components);
             lblBuscarSucursal = new Label();
             dgvEmpleados = new DataGridView();
             clCodigo = new DataGridViewTextBoxColumn();
@@ -75,18 +78,17 @@
             pnlEmple.Location = new Point(0, 0);
             pnlEmple.Margin = new Padding(3, 2, 3, 2);
             pnlEmple.Name = "pnlEmple";
-            pnlEmple.Size = new Size(1186, 700);
+            pnlEmple.Size = new Size(1186, 591);
             pnlEmple.TabIndex = 0;
             // 
             // pnlSucursales
             // 
             pnlSucursales.BackColor = Color.FromArgb(244, 246, 249);
-            pnlSucursales.Controls.Add(lblSalirV);
             pnlSucursales.Controls.Add(pnlBuscarSucursal);
             pnlSucursales.Dock = DockStyle.Fill;
             pnlSucursales.Location = new Point(0, 0);
             pnlSucursales.Name = "pnlSucursales";
-            pnlSucursales.Size = new Size(1186, 700);
+            pnlSucursales.Size = new Size(1186, 591);
             pnlSucursales.TabIndex = 10;
             // 
             // lblSalirV
@@ -96,7 +98,7 @@
             lblSalirV.Cursor = Cursors.Hand;
             lblSalirV.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSalirV.ForeColor = Color.Red;
-            lblSalirV.Location = new Point(1138, 9);
+            lblSalirV.Location = new Point(1070, 20);
             lblSalirV.Name = "lblSalirV";
             lblSalirV.Size = new Size(25, 24);
             lblSalirV.TabIndex = 30;
@@ -107,34 +109,47 @@
             // 
             pnlBuscarSucursal.Anchor = AnchorStyles.Left;
             pnlBuscarSucursal.BackColor = Color.White;
-            pnlBuscarSucursal.Controls.Add(button1);
+            pnlBuscarSucursal.Controls.Add(lblSalirV);
+            pnlBuscarSucursal.Controls.Add(btnDepa);
             pnlBuscarSucursal.Controls.Add(lblBuscarSucursal);
             pnlBuscarSucursal.Controls.Add(dgvEmpleados);
             pnlBuscarSucursal.Controls.Add(pictureBox1);
             pnlBuscarSucursal.Controls.Add(pnlBusqueda);
             pnlBuscarSucursal.Controls.Add(pbxBuscarSucursal);
             pnlBuscarSucursal.Font = new Font("Calibri", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            pnlBuscarSucursal.Location = new Point(13, 37);
-            pnlBuscarSucursal.Margin = new Padding(4);
+            pnlBuscarSucursal.Location = new Point(13, -18);
+            pnlBuscarSucursal.Margin = new Padding(4, 4, 4, 4);
             pnlBuscarSucursal.Name = "pnlBuscarSucursal";
-            pnlBuscarSucursal.Size = new Size(1186, 700);
+            pnlBuscarSucursal.Size = new Size(1235, 700);
             pnlBuscarSucursal.TabIndex = 7;
             // 
-            // button1
+            // btnDepa
             // 
-            button1.BackColor = Color.FromArgb(4, 59, 186);
-            button1.Cursor = Cursors.Hand;
-            button1.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            button1.ForeColor = Color.White;
-            button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.ImageIndex = 4;
-            button1.Location = new Point(903, 5);
-            button1.Name = "button1";
-            button1.Size = new Size(145, 39);
-            button1.TabIndex = 30;
-            button1.Text = "Departamentos";
-            button1.TextAlign = ContentAlignment.MiddleRight;
-            button1.UseVisualStyleBackColor = false;
+            btnDepa.BackColor = Color.FromArgb(4, 59, 186);
+            btnDepa.Cursor = Cursors.Hand;
+            btnDepa.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            btnDepa.ForeColor = Color.White;
+            btnDepa.ImageAlign = ContentAlignment.MiddleLeft;
+            btnDepa.ImageIndex = 0;
+            btnDepa.ImageList = imlIcons;
+            btnDepa.Location = new Point(894, 4);
+            btnDepa.Margin = new Padding(3, 4, 3, 4);
+            btnDepa.Name = "btnDepa";
+            btnDepa.Size = new Size(192, 52);
+            btnDepa.TabIndex = 30;
+            btnDepa.Text = "Departamentos";
+            btnDepa.TextAlign = ContentAlignment.MiddleRight;
+            btnDepa.UseVisualStyleBackColor = false;
+            btnDepa.Click += btnDepa_Click_1;
+            // 
+            // imlIcons
+            // 
+            imlIcons.ColorDepth = ColorDepth.Depth32Bit;
+            imlIcons.ImageStream = (ImageListStreamer)resources.GetObject("imlIcons.ImageStream");
+            imlIcons.TransparentColor = Color.Transparent;
+            imlIcons.Images.SetKeyName(0, "1d25cfbc-39f5-4edf-8684-e760e10ab95c.jpg");
+            imlIcons.Images.SetKeyName(1, "Gemini_Generated_Image_c85q6c85q6c85q6c.png");
+            imlIcons.Images.SetKeyName(2, "d53aae87-a2f6-4f2f-ba54-5b80ccce6a7d.jpg");
             // 
             // lblBuscarSucursal
             // 
@@ -156,77 +171,101 @@
             dgvEmpleados.Cursor = Cursors.Hand;
             dgvEmpleados.Location = new Point(7, 94);
             dgvEmpleados.Name = "dgvEmpleados";
-            dgvEmpleados.Size = new Size(1129, 510);
+            dgvEmpleados.RowHeadersWidth = 51;
+            dgvEmpleados.Size = new Size(1064, 510);
             dgvEmpleados.TabIndex = 28;
+            dgvEmpleados.CellContentClick += dgvEmpleados_CellContentClick;
             // 
             // clCodigo
             // 
             clCodigo.HeaderText = "Código";
+            clCodigo.MinimumWidth = 6;
             clCodigo.Name = "clCodigo";
             clCodigo.ReadOnly = true;
+            clCodigo.Width = 125;
             // 
             // clEmpleado
             // 
             clEmpleado.HeaderText = "Empleado";
+            clEmpleado.MinimumWidth = 6;
             clEmpleado.Name = "clEmpleado";
             clEmpleado.ReadOnly = true;
+            clEmpleado.Width = 125;
             // 
             // clCargo
             // 
             clCargo.HeaderText = "Cargo";
+            clCargo.MinimumWidth = 6;
             clCargo.Name = "clCargo";
             clCargo.ReadOnly = true;
+            clCargo.Width = 125;
             // 
             // clDepartamento
             // 
             clDepartamento.HeaderText = "Departamento";
+            clDepartamento.MinimumWidth = 6;
             clDepartamento.Name = "clDepartamento";
             clDepartamento.ReadOnly = true;
+            clDepartamento.Width = 125;
             // 
             // clTelefono
             // 
             clTelefono.HeaderText = "Teléfono";
+            clTelefono.MinimumWidth = 6;
             clTelefono.Name = "clTelefono";
             clTelefono.ReadOnly = true;
+            clTelefono.Width = 125;
             // 
             // clCorreo
             // 
             clCorreo.HeaderText = "Correo";
+            clCorreo.MinimumWidth = 6;
             clCorreo.Name = "clCorreo";
+            clCorreo.Width = 125;
             // 
             // clEstado
             // 
             clEstado.HeaderText = "Estado";
+            clEstado.MinimumWidth = 6;
             clEstado.Name = "clEstado";
             clEstado.ReadOnly = true;
+            clEstado.Width = 125;
             // 
             // clEditar
             // 
             clEditar.HeaderText = "Editar";
+            clEditar.MinimumWidth = 6;
             clEditar.Name = "clEditar";
             clEditar.ReadOnly = true;
             clEditar.Resizable = DataGridViewTriState.True;
             clEditar.SortMode = DataGridViewColumnSortMode.Automatic;
+            clEditar.Width = 125;
             // 
             // clEliminar
             // 
             clEliminar.HeaderText = "Eliminar";
+            clEliminar.MinimumWidth = 6;
             clEliminar.Name = "clEliminar";
             clEliminar.Resizable = DataGridViewTriState.True;
             clEliminar.ToolTipText = "📍";
+            clEliminar.Width = 125;
             // 
             // clVer
             // 
             clVer.HeaderText = "Ver más";
+            clVer.MinimumWidth = 6;
             clVer.Name = "clVer";
             clVer.Resizable = DataGridViewTriState.True;
+            clVer.Width = 125;
             // 
             // ClImagen
             // 
             ClImagen.HeaderText = "Imagen";
+            ClImagen.MinimumWidth = 6;
             ClImagen.Name = "ClImagen";
             ClImagen.Resizable = DataGridViewTriState.True;
             ClImagen.SortMode = DataGridViewColumnSortMode.Automatic;
+            ClImagen.Width = 125;
             // 
             // pictureBox1
             // 
@@ -252,7 +291,7 @@
             pnlBusqueda.Controls.Add(cbxEstado);
             pnlBusqueda.Location = new Point(7, 45);
             pnlBusqueda.Name = "pnlBusqueda";
-            pnlBusqueda.Size = new Size(1129, 43);
+            pnlBusqueda.Size = new Size(1078, 43);
             pnlBusqueda.TabIndex = 6;
             // 
             // label1
@@ -260,7 +299,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Calibri", 12F, FontStyle.Bold);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(487, 13);
+            label1.Location = new Point(370, 10);
             label1.Name = "label1";
             label1.Size = new Size(70, 19);
             label1.TabIndex = 25;
@@ -271,7 +310,7 @@
             cbxSucursal.Font = new Font("Calibri", 11F);
             cbxSucursal.FormattingEnabled = true;
             cbxSucursal.Items.AddRange(new object[] { "Gerencia", "Ventas", "Administración", "Sistemas", "Logística", "Recursos Humanos" });
-            cbxSucursal.Location = new Point(563, 8);
+            cbxSucursal.Location = new Point(441, 8);
             cbxSucursal.Name = "cbxSucursal";
             cbxSucursal.Size = new Size(121, 26);
             cbxSucursal.TabIndex = 24;
@@ -284,10 +323,12 @@
             btnNuevoEmple.Font = new Font("Calibri", 12F, FontStyle.Bold);
             btnNuevoEmple.ForeColor = Color.White;
             btnNuevoEmple.ImageAlign = ContentAlignment.MiddleLeft;
-            btnNuevoEmple.ImageIndex = 5;
-            btnNuevoEmple.Location = new Point(914, 6);
+            btnNuevoEmple.ImageIndex = 2;
+            btnNuevoEmple.ImageList = imlIcons;
+            btnNuevoEmple.Location = new Point(865, -1);
+            btnNuevoEmple.Margin = new Padding(3, 4, 3, 4);
             btnNuevoEmple.Name = "btnNuevoEmple";
-            btnNuevoEmple.Size = new Size(135, 33);
+            btnNuevoEmple.Size = new Size(111, 44);
             btnNuevoEmple.TabIndex = 23;
             btnNuevoEmple.Text = "Nuevo empleado";
             btnNuevoEmple.TextAlign = ContentAlignment.MiddleRight;
@@ -301,23 +342,26 @@
             btnLimpiar.Font = new Font("Calibri", 12F, FontStyle.Bold);
             btnLimpiar.ForeColor = Color.Black;
             btnLimpiar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnLimpiar.ImageIndex = 2;
-            btnLimpiar.Location = new Point(1055, 7);
+            btnLimpiar.ImageIndex = 1;
+            btnLimpiar.ImageList = imlIcons;
+            btnLimpiar.Location = new Point(982, 2);
+            btnLimpiar.Margin = new Padding(3, 4, 3, 4);
             btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(71, 28);
+            btnLimpiar.Size = new Size(96, 37);
             btnLimpiar.TabIndex = 22;
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.TextAlign = ContentAlignment.MiddleRight;
             btnLimpiar.UseVisualStyleBackColor = false;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
             // txtBuscar
             // 
             txtBuscar.Font = new Font("Calibri", 12F);
             txtBuscar.ForeColor = Color.DimGray;
-            txtBuscar.Location = new Point(4, 8);
-            txtBuscar.Margin = new Padding(4);
+            txtBuscar.Location = new Point(4, 6);
+            txtBuscar.Margin = new Padding(4, 4, 4, 4);
             txtBuscar.Name = "txtBuscar";
-            txtBuscar.Size = new Size(230, 27);
+            txtBuscar.Size = new Size(115, 27);
             txtBuscar.TabIndex = 0;
             txtBuscar.Text = "Buscar";
             txtBuscar.TextChanged += txtBuscar_TextChanged;
@@ -327,7 +371,7 @@
             label8.AutoSize = true;
             label8.Font = new Font("Calibri", 12F, FontStyle.Bold);
             label8.ForeColor = Color.Black;
-            label8.Location = new Point(241, 12);
+            label8.Location = new Point(117, 10);
             label8.Name = "label8";
             label8.Size = new Size(113, 19);
             label8.TabIndex = 4;
@@ -338,7 +382,7 @@
             cbxDepa.Font = new Font("Calibri", 11F);
             cbxDepa.FormattingEnabled = true;
             cbxDepa.Items.AddRange(new object[] { "Gerencia", "Ventas", "Administración", "Sistemas", "Logística", "Recursos Humanos" });
-            cbxDepa.Location = new Point(360, 8);
+            cbxDepa.Location = new Point(244, 8);
             cbxDepa.Name = "cbxDepa";
             cbxDepa.Size = new Size(121, 26);
             cbxDepa.TabIndex = 1;
@@ -349,7 +393,7 @@
             label7.AutoSize = true;
             label7.Font = new Font("Calibri", 12F, FontStyle.Bold);
             label7.ForeColor = Color.Black;
-            label7.Location = new Point(691, 13);
+            label7.Location = new Point(567, 10);
             label7.Name = "label7";
             label7.Size = new Size(59, 19);
             label7.TabIndex = 20;
@@ -360,7 +404,8 @@
             cbxEstado.Font = new Font("Calibri", 11F);
             cbxEstado.FormattingEnabled = true;
             cbxEstado.Items.AddRange(new object[] { "Activo", "Inactivo" });
-            cbxEstado.Location = new Point(772, 9);
+            cbxEstado.Location = new Point(704, 7);
+            cbxEstado.Margin = new Padding(3, 4, 3, 4);
             cbxEstado.Name = "cbxEstado";
             cbxEstado.Size = new Size(121, 26);
             cbxEstado.TabIndex = 2;
@@ -380,7 +425,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1186, 700);
+            ClientSize = new Size(1186, 591);
             Controls.Add(pnlEmple);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 2, 3, 2);
@@ -389,7 +434,6 @@
             Load += FrmEmple_Load;
             pnlEmple.ResumeLayout(false);
             pnlSucursales.ResumeLayout(false);
-            pnlSucursales.PerformLayout();
             pnlBuscarSucursal.ResumeLayout(false);
             pnlBuscarSucursal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvEmpleados).EndInit();
@@ -418,7 +462,7 @@
         private DataGridView dgvEmpleados;
         private Label lblBuscarSucursal;
         private Button btnNuevoEmple;
-        private Button button1;
+        private Button btnDepa;
         private DataGridViewTextBoxColumn clCodigo;
         private DataGridViewTextBoxColumn clEmpleado;
         private DataGridViewTextBoxColumn clCargo;
@@ -432,5 +476,6 @@
         private DataGridViewImageColumn ClImagen;
         private Label label1;
         private ComboBox cbxSucursal;
+        private ImageList imlIcons;
     }
 }
