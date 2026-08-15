@@ -43,21 +43,37 @@
             lbl02 = new Label();
             txt_NP = new TextBox();
             lbl01 = new Label();
-            panel1 = new Panel();
             btn_cerrar = new PictureBox();
             lbl00 = new Label();
             pic01 = new PictureBox();
+            pictureBox1 = new PictureBox();
+            label10 = new Label();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            label5 = new Label();
             pnlCont1.SuspendLayout();
-            panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btn_cerrar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pic01).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // pnlCont1
             // 
             pnlCont1.BackColor = Color.FromArgb(244, 246, 249);
+            pnlCont1.Controls.Add(label5);
+            pnlCont1.Controls.Add(label4);
+            pnlCont1.Controls.Add(label3);
+            pnlCont1.Controls.Add(label2);
+            pnlCont1.Controls.Add(label1);
+            pnlCont1.Controls.Add(label10);
+            pnlCont1.Controls.Add(pictureBox1);
+            pnlCont1.Controls.Add(lbl00);
+            pnlCont1.Controls.Add(btn_cerrar);
             pnlCont1.Controls.Add(btnGuardarProv);
             pnlCont1.Controls.Add(cmb_Estado);
+            pnlCont1.Controls.Add(pic01);
             pnlCont1.Controls.Add(lbl06);
             pnlCont1.Controls.Add(txt_DRC);
             pnlCont1.Controls.Add(lbl05);
@@ -69,7 +85,6 @@
             pnlCont1.Controls.Add(lbl02);
             pnlCont1.Controls.Add(txt_NP);
             pnlCont1.Controls.Add(lbl01);
-            pnlCont1.Controls.Add(panel1);
             pnlCont1.Dock = DockStyle.Fill;
             pnlCont1.Location = new Point(0, 0);
             pnlCont1.Margin = new Padding(3, 2, 3, 2);
@@ -79,7 +94,7 @@
             // 
             // btnGuardarProv
             // 
-            btnGuardarProv.BackColor = Color.FromArgb(0, 102, 255);
+            btnGuardarProv.BackColor = Color.FromArgb(4, 59, 186);
             btnGuardarProv.Cursor = Cursors.Hand;
             btnGuardarProv.FlatAppearance.BorderSize = 0;
             btnGuardarProv.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -108,10 +123,10 @@
             // lbl06
             // 
             lbl06.AutoSize = true;
-            lbl06.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl06.Font = new Font("Calibri", 12F, FontStyle.Bold);
             lbl06.Location = new Point(10, 315);
             lbl06.Name = "lbl06";
-            lbl06.Size = new Size(55, 18);
+            lbl06.Size = new Size(55, 19);
             lbl06.TabIndex = 13;
             lbl06.Text = "Estado";
             // 
@@ -128,10 +143,10 @@
             // lbl05
             // 
             lbl05.AutoSize = true;
-            lbl05.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl05.Font = new Font("Calibri", 12F, FontStyle.Bold);
             lbl05.Location = new Point(10, 262);
             lbl05.Name = "lbl05";
-            lbl05.Size = new Size(71, 18);
+            lbl05.Size = new Size(73, 19);
             lbl05.TabIndex = 11;
             lbl05.Text = "Dirección";
             // 
@@ -148,10 +163,10 @@
             // lbl04
             // 
             lbl04.AutoSize = true;
-            lbl04.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl04.Font = new Font("Calibri", 12F, FontStyle.Bold);
             lbl04.Location = new Point(10, 212);
             lbl04.Name = "lbl04";
-            lbl04.Size = new Size(132, 18);
+            lbl04.Size = new Size(136, 19);
             lbl04.TabIndex = 9;
             lbl04.Text = "Correo electrónico";
             // 
@@ -169,10 +184,10 @@
             // lbl03
             // 
             lbl03.AutoSize = true;
-            lbl03.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl03.Font = new Font("Calibri", 12F, FontStyle.Bold);
             lbl03.Location = new Point(10, 158);
             lbl03.Name = "lbl03";
-            lbl03.Size = new Size(66, 18);
+            lbl03.Size = new Size(68, 19);
             lbl03.TabIndex = 7;
             lbl03.Text = "Teléfono";
             // 
@@ -190,10 +205,10 @@
             // lbl02
             // 
             lbl02.AutoSize = true;
-            lbl02.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl02.Font = new Font("Calibri", 12F, FontStyle.Bold);
             lbl02.Location = new Point(8, 109);
             lbl02.Name = "lbl02";
-            lbl02.Size = new Size(69, 18);
+            lbl02.Size = new Size(71, 19);
             lbl02.TabIndex = 5;
             lbl02.Text = "Contacto";
             // 
@@ -211,32 +226,18 @@
             // lbl01
             // 
             lbl01.AutoSize = true;
-            lbl01.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl01.Font = new Font("Calibri", 12F, FontStyle.Bold);
             lbl01.Location = new Point(8, 59);
             lbl01.Name = "lbl01";
-            lbl01.Size = new Size(156, 18);
+            lbl01.Size = new Size(166, 19);
             lbl01.TabIndex = 3;
             lbl01.Text = "Nombre del proveedor";
-            // 
-            // panel1
-            // 
-            panel1.BackColor = Color.FromArgb(9, 22, 50);
-            panel1.BorderStyle = BorderStyle.Fixed3D;
-            panel1.Controls.Add(btn_cerrar);
-            panel1.Controls.Add(lbl00);
-            panel1.Controls.Add(pic01);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(3, 2, 3, 2);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(340, 51);
-            panel1.TabIndex = 0;
             // 
             // btn_cerrar
             // 
             btn_cerrar.Cursor = Cursors.Hand;
             btn_cerrar.Image = (Image)resources.GetObject("btn_cerrar.Image");
-            btn_cerrar.Location = new Point(294, 14);
+            btn_cerrar.Location = new Point(310, 1);
             btn_cerrar.Margin = new Padding(3, 2, 3, 2);
             btn_cerrar.Name = "btn_cerrar";
             btn_cerrar.Size = new Size(27, 23);
@@ -249,8 +250,8 @@
             // 
             lbl00.AutoSize = true;
             lbl00.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl00.ForeColor = Color.White;
-            lbl00.Location = new Point(72, 14);
+            lbl00.ForeColor = Color.FromArgb(4, 59, 186);
+            lbl00.Location = new Point(57, 0);
             lbl00.Name = "lbl00";
             lbl00.Size = new Size(170, 24);
             lbl00.TabIndex = 3;
@@ -259,13 +260,89 @@
             // pic01
             // 
             pic01.Image = (Image)resources.GetObject("pic01.Image");
-            pic01.Location = new Point(6, 3);
+            pic01.Location = new Point(0, 0);
             pic01.Margin = new Padding(3, 2, 3, 2);
             pic01.Name = "pic01";
             pic01.Size = new Size(60, 41);
             pic01.SizeMode = PictureBoxSizeMode.Zoom;
             pic01.TabIndex = 2;
             pic01.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImage = Properties.Resources.detalleazul;
+            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox1.Location = new Point(56, 27);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(204, 14);
+            pictureBox1.TabIndex = 50;
+            pictureBox1.TabStop = false;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label10.ForeColor = Color.Red;
+            label10.Location = new Point(171, 59);
+            label10.Name = "label10";
+            label10.Size = new Size(17, 19);
+            label10.TabIndex = 58;
+            label10.Text = "*";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Red;
+            label1.Location = new Point(75, 109);
+            label1.Name = "label1";
+            label1.Size = new Size(17, 19);
+            label1.TabIndex = 59;
+            label1.Text = "*";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.Red;
+            label2.Location = new Point(75, 158);
+            label2.Name = "label2";
+            label2.Size = new Size(17, 19);
+            label2.TabIndex = 60;
+            label2.Text = "*";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.Red;
+            label3.Location = new Point(140, 209);
+            label3.Name = "label3";
+            label3.Size = new Size(17, 19);
+            label3.TabIndex = 61;
+            label3.Text = "*";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.Red;
+            label4.Location = new Point(69, 262);
+            label4.Name = "label4";
+            label4.Size = new Size(17, 19);
+            label4.TabIndex = 62;
+            label4.Text = "*";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.Red;
+            label5.Location = new Point(61, 315);
+            label5.Name = "label5";
+            label5.Size = new Size(17, 19);
+            label5.TabIndex = 63;
+            label5.Text = "*";
             // 
             // FormAgg_Proveedores
             // 
@@ -279,17 +356,15 @@
             Text = "FormAgg_Proveedores";
             pnlCont1.ResumeLayout(false);
             pnlCont1.PerformLayout();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)btn_cerrar).EndInit();
             ((System.ComponentModel.ISupportInitialize)pic01).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel pnlCont1;
-        private Panel panel1;
         private Label lbl00;
         private PictureBox pic01;
         private PictureBox btn_cerrar;
@@ -306,5 +381,12 @@
         private ComboBox cmb_Estado;
         private Label lbl06;
         private Button btnGuardarProv;
+        private PictureBox pictureBox1;
+        private Label label4;
+        private Label label3;
+        private Label label2;
+        private Label label1;
+        private Label label10;
+        private Label label5;
     }
 }

@@ -43,22 +43,32 @@
             lble_3 = new Label();
             txt_ctg1 = new TextBox();
             lble_2 = new Label();
-            pnl1_ctg = new Panel();
             btn_cls = new PictureBox();
             lble_1 = new Label();
             pic1_e = new PictureBox();
             ctmCategoria = new ContextMenuStrip(components);
             imgCategoria = new ImageList(components);
+            pictureBox1 = new PictureBox();
+            label10 = new Label();
+            label1 = new Label();
+            label2 = new Label();
             pnlagg_ctg.SuspendLayout();
-            pnl1_ctg.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btn_cls).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pic1_e).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // pnlagg_ctg
             // 
             pnlagg_ctg.BackColor = Color.FromArgb(244, 246, 249);
+            pnlagg_ctg.Controls.Add(label2);
+            pnlagg_ctg.Controls.Add(label1);
+            pnlagg_ctg.Controls.Add(label10);
+            pnlagg_ctg.Controls.Add(pictureBox1);
+            pnlagg_ctg.Controls.Add(btn_cls);
             pnlagg_ctg.Controls.Add(btn_grd);
+            pnlagg_ctg.Controls.Add(pic1_e);
+            pnlagg_ctg.Controls.Add(lble_1);
             pnlagg_ctg.Controls.Add(txt1);
             pnlagg_ctg.Controls.Add(lble_5);
             pnlagg_ctg.Controls.Add(lbl_ry1);
@@ -70,7 +80,6 @@
             pnlagg_ctg.Controls.Add(lble_3);
             pnlagg_ctg.Controls.Add(txt_ctg1);
             pnlagg_ctg.Controls.Add(lble_2);
-            pnlagg_ctg.Controls.Add(pnl1_ctg);
             pnlagg_ctg.Dock = DockStyle.Fill;
             pnlagg_ctg.Location = new Point(0, 0);
             pnlagg_ctg.Margin = new Padding(3, 2, 3, 2);
@@ -80,7 +89,7 @@
             // 
             // btn_grd
             // 
-            btn_grd.BackColor = Color.FromArgb(0, 102, 255);
+            btn_grd.BackColor = Color.FromArgb(4, 59, 186);
             btn_grd.Cursor = Cursors.Hand;
             btn_grd.FlatAppearance.BorderSize = 0;
             btn_grd.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -110,10 +119,10 @@
             // lble_5
             // 
             lble_5.AutoSize = true;
-            lble_5.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lble_5.Font = new Font("Calibri", 12F, FontStyle.Bold);
             lble_5.Location = new Point(294, 68);
             lble_5.Name = "lble_5";
-            lble_5.Size = new Size(187, 18);
+            lble_5.Size = new Size(193, 19);
             lble_5.TabIndex = 38;
             lble_5.Text = "Descripción de la categoría";
             // 
@@ -138,10 +147,10 @@
             // lble_4
             // 
             lble_4.AutoSize = true;
-            lble_4.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lble_4.Font = new Font("Calibri", 12F, FontStyle.Bold);
             lble_4.Location = new Point(10, 170);
             lble_4.Name = "lble_4";
-            lble_4.Size = new Size(55, 18);
+            lble_4.Size = new Size(55, 19);
             lble_4.TabIndex = 35;
             lble_4.Text = "Estado";
             // 
@@ -189,10 +198,10 @@
             // lble_3
             // 
             lble_3.AutoSize = true;
-            lble_3.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lble_3.Font = new Font("Calibri", 12F, FontStyle.Bold);
             lble_3.Location = new Point(10, 122);
             lble_3.Name = "lble_3";
-            lble_3.Size = new Size(145, 18);
+            lble_3.Size = new Size(152, 19);
             lble_3.TabIndex = 4;
             lble_3.Text = "Ícono de la categoría";
             // 
@@ -210,32 +219,18 @@
             // lble_2
             // 
             lble_2.AutoSize = true;
-            lble_2.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lble_2.Font = new Font("Calibri", 12F, FontStyle.Bold);
             lble_2.Location = new Point(10, 68);
             lble_2.Name = "lble_2";
-            lble_2.Size = new Size(162, 18);
+            lble_2.Size = new Size(170, 19);
             lble_2.TabIndex = 2;
             lble_2.Text = "Nombre de la categoría";
-            // 
-            // pnl1_ctg
-            // 
-            pnl1_ctg.BackColor = Color.FromArgb(9, 22, 50);
-            pnl1_ctg.BorderStyle = BorderStyle.Fixed3D;
-            pnl1_ctg.Controls.Add(btn_cls);
-            pnl1_ctg.Controls.Add(lble_1);
-            pnl1_ctg.Controls.Add(pic1_e);
-            pnl1_ctg.Dock = DockStyle.Top;
-            pnl1_ctg.Location = new Point(0, 0);
-            pnl1_ctg.Margin = new Padding(3, 2, 3, 2);
-            pnl1_ctg.Name = "pnl1_ctg";
-            pnl1_ctg.Size = new Size(555, 51);
-            pnl1_ctg.TabIndex = 0;
             // 
             // btn_cls
             // 
             btn_cls.Cursor = Cursors.Hand;
             btn_cls.Image = (Image)resources.GetObject("btn_cls.Image");
-            btn_cls.Location = new Point(515, 12);
+            btn_cls.Location = new Point(525, 2);
             btn_cls.Margin = new Padding(3, 2, 3, 2);
             btn_cls.Name = "btn_cls";
             btn_cls.Size = new Size(27, 23);
@@ -248,8 +243,8 @@
             // 
             lble_1.AutoSize = true;
             lble_1.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lble_1.ForeColor = Color.White;
-            lble_1.Location = new Point(68, 14);
+            lble_1.ForeColor = Color.FromArgb(4, 59, 186);
+            lble_1.Location = new Point(60, 0);
             lble_1.Name = "lble_1";
             lble_1.Size = new Size(160, 24);
             lble_1.TabIndex = 2;
@@ -258,7 +253,7 @@
             // pic1_e
             // 
             pic1_e.Image = (Image)resources.GetObject("pic1_e.Image");
-            pic1_e.Location = new Point(3, 2);
+            pic1_e.Location = new Point(0, 0);
             pic1_e.Margin = new Padding(3, 2, 3, 2);
             pic1_e.Name = "pic1_e";
             pic1_e.Size = new Size(60, 41);
@@ -280,6 +275,49 @@
             imgCategoria.ImageSize = new Size(35, 35);
             imgCategoria.TransparentColor = Color.Transparent;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImage = Properties.Resources.detalleazul;
+            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox1.Location = new Point(60, 27);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(204, 14);
+            pictureBox1.TabIndex = 48;
+            pictureBox1.TabStop = false;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label10.ForeColor = Color.Red;
+            label10.Location = new Point(175, 65);
+            label10.Name = "label10";
+            label10.Size = new Size(17, 19);
+            label10.TabIndex = 57;
+            label10.Text = "*";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Red;
+            label1.Location = new Point(155, 120);
+            label1.Name = "label1";
+            label1.Size = new Size(17, 19);
+            label1.TabIndex = 58;
+            label1.Text = "*";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.Red;
+            label2.Location = new Point(60, 170);
+            label2.Name = "label2";
+            label2.Size = new Size(17, 19);
+            label2.TabIndex = 59;
+            label2.Text = "*";
+            // 
             // FrmAgg_Categoria
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -293,17 +331,15 @@
             Load += FrmAgg_Categoria_Load;
             pnlagg_ctg.ResumeLayout(false);
             pnlagg_ctg.PerformLayout();
-            pnl1_ctg.ResumeLayout(false);
-            pnl1_ctg.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)btn_cls).EndInit();
             ((System.ComponentModel.ISupportInitialize)pic1_e).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel pnlagg_ctg;
-        private Panel pnl1_ctg;
         private PictureBox pic1_e;
         private Label lble_1;
         private Label lble_2;
@@ -321,5 +357,9 @@
         private Label lble_5;
         private Button btn_grd;
         private PictureBox btn_cls;
+        private PictureBox pictureBox1;
+        private Label label2;
+        private Label label1;
+        private Label label10;
     }
 }

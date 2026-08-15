@@ -40,6 +40,7 @@
             pnl_icons3 = new Panel();
             lbl_icons1 = new Label();
             pic_icons1 = new PictureBox();
+            lbl_ry = new Label();
             pnl_icons.SuspendLayout();
             pnl_icons2.SuspendLayout();
             pnl_icons4.SuspendLayout();
@@ -62,6 +63,7 @@
             // 
             // pnl_icons2
             // 
+            pnl_icons2.Controls.Add(lbl_ry);
             pnl_icons2.Controls.Add(btn_ccl);
             pnl_icons2.Controls.Add(btn_acpt);
             pnl_icons2.Controls.Add(pnl_icons4);
@@ -79,8 +81,8 @@
             btn_ccl.Cursor = Cursors.Hand;
             btn_ccl.FlatAppearance.BorderColor = Color.FromArgb(0, 102, 255);
             btn_ccl.FlatAppearance.BorderSize = 2;
-            btn_ccl.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn_ccl.ForeColor = Color.FromArgb(0, 102, 255);
+            btn_ccl.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            btn_ccl.ForeColor = Color.FromArgb(4, 59, 186);
             btn_ccl.Image = (Image)resources.GetObject("btn_ccl.Image");
             btn_ccl.ImageAlign = ContentAlignment.MiddleLeft;
             btn_ccl.Location = new Point(125, 191);
@@ -94,9 +96,9 @@
             // 
             // btn_acpt
             // 
-            btn_acpt.BackColor = Color.FromArgb(0, 102, 255);
+            btn_acpt.BackColor = Color.FromArgb(4, 59, 186);
             btn_acpt.Cursor = Cursors.Hand;
-            btn_acpt.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_acpt.Font = new Font("Calibri", 12F, FontStyle.Bold);
             btn_acpt.ForeColor = Color.White;
             btn_acpt.Image = (Image)resources.GetObject("btn_acpt.Image");
             btn_acpt.ImageAlign = ContentAlignment.MiddleLeft;
@@ -126,10 +128,10 @@
             // lbl_icons2
             // 
             lbl_icons2.AutoSize = true;
-            lbl_icons2.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_icons2.Font = new Font("Calibri", 12F, FontStyle.Bold);
             lbl_icons2.Location = new Point(6, 58);
             lbl_icons2.Name = "lbl_icons2";
-            lbl_icons2.Size = new Size(97, 16);
+            lbl_icons2.Size = new Size(105, 19);
             lbl_icons2.TabIndex = 2;
             lbl_icons2.Text = "Agregar ícono";
             // 
@@ -151,7 +153,7 @@
             flp_icons.Location = new Point(125, 4);
             flp_icons.Margin = new Padding(3, 2, 3, 2);
             flp_icons.Name = "flp_icons";
-            flp_icons.Padding = new Padding(4, 4, 4, 4);
+            flp_icons.Padding = new Padding(4);
             flp_icons.Size = new Size(362, 183);
             flp_icons.TabIndex = 0;
             // 
@@ -191,6 +193,14 @@
             pic_icons1.TabIndex = 3;
             pic_icons1.TabStop = false;
             // 
+            // lbl_ry
+            // 
+            lbl_ry.BackColor = Color.FromArgb(4, 59, 186);
+            lbl_ry.Location = new Point(3, 0);
+            lbl_ry.Name = "lbl_ry";
+            lbl_ry.Size = new Size(485, 2);
+            lbl_ry.TabIndex = 4;
+            // 
             // frm_secundario3
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -226,5 +236,6 @@
         private Button btn_acpt;
         private Label lbl_icons2;
         private Button btn_ccl;
+        private Label lbl_ry;
     }
 }

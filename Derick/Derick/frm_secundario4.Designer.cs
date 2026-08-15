@@ -71,8 +71,8 @@
             // 
             // btn_aceptar
             // 
-            btn_aceptar.BackColor = Color.FromArgb(0, 102, 255);
-            btn_aceptar.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_aceptar.BackColor = Color.FromArgb(4, 59, 186);
+            btn_aceptar.Font = new Font("Calibri", 12F, FontStyle.Bold);
             btn_aceptar.ForeColor = Color.White;
             btn_aceptar.Image = (Image)resources.GetObject("btn_aceptar.Image");
             btn_aceptar.ImageAlign = ContentAlignment.MiddleLeft;
@@ -91,8 +91,8 @@
             btn_cerra.Cursor = Cursors.Hand;
             btn_cerra.FlatAppearance.BorderColor = Color.FromArgb(0, 102, 255);
             btn_cerra.FlatAppearance.BorderSize = 2;
-            btn_cerra.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn_cerra.ForeColor = Color.FromArgb(0, 102, 255);
+            btn_cerra.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            btn_cerra.ForeColor = Color.FromArgb(4, 59, 186);
             btn_cerra.Image = (Image)resources.GetObject("btn_cerra.Image");
             btn_cerra.ImageAlign = ContentAlignment.MiddleLeft;
             btn_cerra.Location = new Point(181, 372);
@@ -149,7 +149,7 @@
             btn_bus1.BackColor = Color.FromArgb(0, 176, 80);
             btn_bus1.Cursor = Cursors.Hand;
             btn_bus1.FlatAppearance.BorderColor = Color.FromArgb(0, 176, 80);
-            btn_bus1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_bus1.Font = new Font("Calibri", 12F, FontStyle.Bold);
             btn_bus1.ForeColor = Color.White;
             btn_bus1.Image = (Image)resources.GetObject("btn_bus1.Image");
             btn_bus1.ImageAlign = ContentAlignment.MiddleLeft;
@@ -235,7 +235,7 @@
             // 
             // lbl_ry
             // 
-            lbl_ry.BackColor = Color.FromArgb(0, 102, 255);
+            lbl_ry.BackColor = Color.FromArgb(4, 59, 186);
             lbl_ry.Location = new Point(-6, 64);
             lbl_ry.Name = "lbl_ry";
             lbl_ry.Size = new Size(485, 2);

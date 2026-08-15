@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_secundario2));
             pnl_clr = new Panel();
             pnl1 = new Panel();
+            lbl_ry = new Label();
             btn_elig = new Button();
             pnl_clr1 = new Panel();
             lcl_clr3 = new Label();
@@ -42,6 +43,7 @@
             pnl2 = new Panel();
             lbl_clr1 = new Label();
             pic_ncl = new PictureBox();
+            label10 = new Label();
             pnl_clr.SuspendLayout();
             pnl1.SuspendLayout();
             pnl3.SuspendLayout();
@@ -63,6 +65,8 @@
             // 
             // pnl1
             // 
+            pnl1.Controls.Add(label10);
+            pnl1.Controls.Add(lbl_ry);
             pnl1.Controls.Add(btn_elig);
             pnl1.Controls.Add(pnl_clr1);
             pnl1.Controls.Add(lcl_clr3);
@@ -76,12 +80,20 @@
             pnl1.Size = new Size(376, 192);
             pnl1.TabIndex = 1;
             // 
+            // lbl_ry
+            // 
+            lbl_ry.BackColor = Color.FromArgb(4, 59, 186);
+            lbl_ry.Location = new Point(0, 0);
+            lbl_ry.Name = "lbl_ry";
+            lbl_ry.Size = new Size(377, 2);
+            lbl_ry.TabIndex = 9;
+            // 
             // btn_elig
             // 
             btn_elig.Cursor = Cursors.Hand;
             btn_elig.FlatAppearance.BorderColor = Color.FromArgb(0, 102, 255);
             btn_elig.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn_elig.ForeColor = Color.FromArgb(0, 102, 255);
+            btn_elig.ForeColor = Color.FromArgb(4, 59, 186);
             btn_elig.Image = (Image)resources.GetObject("btn_elig.Image");
             btn_elig.ImageAlign = ContentAlignment.MiddleLeft;
             btn_elig.Location = new Point(108, 84);
@@ -105,20 +117,20 @@
             // lcl_clr3
             // 
             lcl_clr3.AutoSize = true;
-            lcl_clr3.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lcl_clr3.Font = new Font("Calibri", 12F, FontStyle.Bold);
             lcl_clr3.Location = new Point(10, 56);
             lcl_clr3.Name = "lcl_clr3";
-            lcl_clr3.Size = new Size(78, 18);
+            lcl_clr3.Size = new Size(85, 19);
             lcl_clr3.TabIndex = 6;
             lcl_clr3.Text = "Vista privia";
             // 
             // lbl_clr2
             // 
             lbl_clr2.AutoSize = true;
-            lbl_clr2.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_clr2.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_clr2.Location = new Point(10, 8);
             lbl_clr2.Name = "lbl_clr2";
-            lbl_clr2.Size = new Size(123, 18);
+            lbl_clr2.Size = new Size(129, 19);
             lbl_clr2.TabIndex = 4;
             lbl_clr2.Text = "Nombre del color";
             // 
@@ -148,10 +160,10 @@
             // 
             // btn_guardar
             // 
-            btn_guardar.BackColor = Color.FromArgb(0, 102, 255);
+            btn_guardar.BackColor = Color.FromArgb(4, 59, 186);
             btn_guardar.Cursor = Cursors.Hand;
             btn_guardar.FlatAppearance.BorderColor = Color.Black;
-            btn_guardar.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_guardar.Font = new Font("Calibri", 12F, FontStyle.Bold);
             btn_guardar.ForeColor = Color.White;
             btn_guardar.Image = (Image)resources.GetObject("btn_guardar.Image");
             btn_guardar.ImageAlign = ContentAlignment.MiddleLeft;
@@ -169,8 +181,8 @@
             btn_cerrar.BackColor = Color.White;
             btn_cerrar.Cursor = Cursors.Hand;
             btn_cerrar.FlatAppearance.BorderColor = Color.FromArgb(0, 102, 255);
-            btn_cerrar.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn_cerrar.ForeColor = Color.FromArgb(0, 102, 255);
+            btn_cerrar.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            btn_cerrar.ForeColor = Color.FromArgb(4, 59, 186);
             btn_cerrar.Image = (Image)resources.GetObject("btn_cerrar.Image");
             btn_cerrar.ImageAlign = ContentAlignment.MiddleLeft;
             btn_cerrar.Location = new Point(19, 13);
@@ -216,6 +228,17 @@
             pic_ncl.TabIndex = 2;
             pic_ncl.TabStop = false;
             // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label10.ForeColor = Color.Red;
+            label10.Location = new Point(136, 8);
+            label10.Name = "label10";
+            label10.Size = new Size(17, 19);
+            label10.TabIndex = 59;
+            label10.Text = "*";
+            // 
             // frm_secundario2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -251,5 +274,7 @@
         private Button btn_elig;
         private Panel pnl_clr1;
         private Label lcl_clr3;
+        private Label lbl_ry;
+        private Label label10;
     }
 }
