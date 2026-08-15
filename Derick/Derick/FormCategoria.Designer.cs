@@ -295,7 +295,7 @@
             // 
             // btn_bus1
             // 
-            btn_bus1.BackColor = Color.FromArgb(0, 176, 80);
+            btn_bus1.BackColor = Color.FromArgb(13, 154, 64);
             btn_bus1.Cursor = Cursors.Hand;
             btn_bus1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btn_bus1.ForeColor = Color.White;
@@ -325,7 +325,7 @@
             // 
             // lbl_ry
             // 
-            lbl_ry.BackColor = Color.FromArgb(0, 176, 80);
+            lbl_ry.BackColor = Color.FromArgb(13, 154, 64);
             lbl_ry.Location = new Point(68, 41);
             lbl_ry.Margin = new Padding(3, 2, 3, 2);
             lbl_ry.Name = "lbl_ry";
@@ -348,7 +348,7 @@
             // 
             lbl_ctg1.AutoSize = true;
             lbl_ctg1.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_ctg1.ForeColor = Color.FromArgb(0, 176, 80);
+            lbl_ctg1.ForeColor = Color.FromArgb(13, 154, 64);
             lbl_ctg1.ImageAlign = ContentAlignment.MiddleLeft;
             lbl_ctg1.Location = new Point(63, 17);
             lbl_ctg1.Name = "lbl_ctg1";

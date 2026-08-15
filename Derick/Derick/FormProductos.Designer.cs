@@ -89,7 +89,7 @@
             // 
             // button1
             // 
-            button1.BackColor = Color.FromArgb(0, 102, 255);
+            button1.BackColor = Color.FromArgb(4, 59, 186);
             button1.Cursor = Cursors.Hand;
             button1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.White;
@@ -106,7 +106,7 @@
             // 
             // pic_raya1
             // 
-            pic_raya1.BackColor = Color.FromArgb(0, 176, 80);
+            pic_raya1.BackColor = Color.FromArgb(13, 154, 64);
             pic_raya1.Location = new Point(66, 41);
             pic_raya1.Margin = new Padding(3, 2, 3, 2);
             pic_raya1.Name = "pic_raya1";
@@ -133,7 +133,7 @@
             // 
             // btn_buscar
             // 
-            btn_buscar.BackColor = Color.FromArgb(0, 176, 80);
+            btn_buscar.BackColor = Color.FromArgb(13, 154, 64);
             btn_buscar.Cursor = Cursors.Hand;
             btn_buscar.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btn_buscar.ForeColor = Color.White;
@@ -386,7 +386,7 @@
             // 
             lbl_agg1.AutoSize = true;
             lbl_agg1.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_agg1.ForeColor = Color.FromArgb(0, 176, 80);
+            lbl_agg1.ForeColor = Color.FromArgb(13, 154, 64);
             lbl_agg1.ImageAlign = ContentAlignment.MiddleLeft;
             lbl_agg1.Location = new Point(61, 17);
             lbl_agg1.Name = "lbl_agg1";

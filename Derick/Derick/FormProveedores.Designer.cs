@@ -85,7 +85,7 @@
             // 
             // lbl02
             // 
-            lbl02.BackColor = Color.FromArgb(0, 176, 80);
+            lbl02.BackColor = Color.FromArgb(13, 154, 64);
             lbl02.Location = new Point(66, 39);
             lbl02.Margin = new Padding(3, 2, 3, 2);
             lbl02.Name = "lbl02";
@@ -112,7 +112,7 @@
             // 
             // btnBuscar
             // 
-            btnBuscar.BackColor = Color.FromArgb(0, 176, 80);
+            btnBuscar.BackColor = Color.FromArgb(13, 154, 64);
             btnBuscar.Cursor = Cursors.Hand;
             btnBuscar.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnBuscar.ForeColor = Color.White;
@@ -353,7 +353,7 @@
             // 
             lbl01.AutoSize = true;
             lbl01.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl01.ForeColor = Color.FromArgb(0, 176, 80);
+            lbl01.ForeColor = Color.FromArgb(13, 154, 64);
             lbl01.ImageAlign = ContentAlignment.MiddleLeft;
             lbl01.Location = new Point(60, 15);
             lbl01.Name = "lbl01";
