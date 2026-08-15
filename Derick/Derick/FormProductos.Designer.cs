@@ -43,12 +43,6 @@
             btn_limpiar = new Button();
             lbl_agg2 = new Label();
             dvg_agg = new DataGridView();
-            panel9 = new Panel();
-            pictureBox1 = new PictureBox();
-            txt1 = new TextBox();
-            pic_agg1 = new PictureBox();
-            lbl_agg1 = new Label();
-            img_icons = new ImageList(components);
             clCodigo = new DataGridViewTextBoxColumn();
             clImagen = new DataGridViewImageColumn();
             clNombreProducto = new DataGridViewTextBoxColumn();
@@ -61,6 +55,12 @@
             clEditar = new DataGridViewImageColumn();
             clEliminar = new DataGridViewImageColumn();
             clVerTodo = new DataGridViewImageColumn();
+            panel9 = new Panel();
+            pictureBox1 = new PictureBox();
+            txt1 = new TextBox();
+            pic_agg1 = new PictureBox();
+            lbl_agg1 = new Label();
+            img_icons = new ImageList(components);
             pnl_conagg.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pic_raya1).BeginInit();
             pnl_agg2.SuspendLayout();
@@ -259,6 +259,81 @@
             dvg_agg.TabIndex = 15;
             dvg_agg.CellClick += dvg_agg_CellClick;
             // 
+            // clCodigo
+            // 
+            clCodigo.FillWeight = 147.593521F;
+            clCodigo.HeaderText = "Código";
+            clCodigo.Name = "clCodigo";
+            // 
+            // clImagen
+            // 
+            clImagen.FillWeight = 95.67327F;
+            clImagen.HeaderText = "Imagen";
+            clImagen.Name = "clImagen";
+            // 
+            // clNombreProducto
+            // 
+            clNombreProducto.FillWeight = 95.67327F;
+            clNombreProducto.HeaderText = "Nombre del producto";
+            clNombreProducto.Name = "clNombreProducto";
+            // 
+            // clCategoria
+            // 
+            clCategoria.FillWeight = 95.67327F;
+            clCategoria.HeaderText = "Categoría";
+            clCategoria.Name = "clCategoria";
+            // 
+            // clTallas
+            // 
+            clTallas.FillWeight = 95.67327F;
+            clTallas.HeaderText = "Talla(s)";
+            clTallas.Name = "clTallas";
+            // 
+            // clColores
+            // 
+            clColores.FillWeight = 95.67327F;
+            clColores.HeaderText = "Color(es)";
+            clColores.Name = "clColores";
+            // 
+            // clPrecio
+            // 
+            clPrecio.FillWeight = 95.67327F;
+            clPrecio.HeaderText = "Precio";
+            clPrecio.Name = "clPrecio";
+            // 
+            // clStock
+            // 
+            clStock.FillWeight = 95.67327F;
+            clStock.HeaderText = "Stock";
+            clStock.Name = "clStock";
+            // 
+            // clEstado
+            // 
+            clEstado.FillWeight = 95.67327F;
+            clEstado.HeaderText = "Estado";
+            clEstado.Name = "clEstado";
+            // 
+            // clEditar
+            // 
+            clEditar.FillWeight = 95.67327F;
+            clEditar.HeaderText = "Editar";
+            clEditar.MinimumWidth = 55;
+            clEditar.Name = "clEditar";
+            // 
+            // clEliminar
+            // 
+            clEliminar.FillWeight = 95.67327F;
+            clEliminar.HeaderText = "Eliminar";
+            clEliminar.MinimumWidth = 55;
+            clEliminar.Name = "clEliminar";
+            // 
+            // clVerTodo
+            // 
+            clVerTodo.FillWeight = 95.67327F;
+            clVerTodo.HeaderText = "Ver Todo";
+            clVerTodo.MinimumWidth = 55;
+            clVerTodo.Name = "clVerTodo";
+            // 
             // panel9
             // 
             panel9.BackColor = Color.White;
@@ -326,78 +401,6 @@
             img_icons.ImageStream = (ImageListStreamer)resources.GetObject("img_icons.ImageStream");
             img_icons.TransparentColor = Color.Transparent;
             img_icons.Images.SetKeyName(0, "eliminar1.png");
-            // 
-            // clCodigo
-            // 
-            clCodigo.FillWeight = 36.980896F;
-            clCodigo.HeaderText = "Código";
-            clCodigo.Name = "clCodigo";
-            // 
-            // clImagen
-            // 
-            clImagen.FillWeight = 23.9718056F;
-            clImagen.HeaderText = "Imagen";
-            clImagen.Name = "clImagen";
-            // 
-            // clNombreProducto
-            // 
-            clNombreProducto.FillWeight = 23.9718056F;
-            clNombreProducto.HeaderText = "Nombre del producto";
-            clNombreProducto.Name = "clNombreProducto";
-            // 
-            // clCategoria
-            // 
-            clCategoria.FillWeight = 23.9718056F;
-            clCategoria.HeaderText = "Categoría";
-            clCategoria.Name = "clCategoria";
-            // 
-            // clTallas
-            // 
-            clTallas.FillWeight = 23.9718056F;
-            clTallas.HeaderText = "Talla(s)";
-            clTallas.Name = "clTallas";
-            // 
-            // clColores
-            // 
-            clColores.FillWeight = 23.9718056F;
-            clColores.HeaderText = "Color(es)";
-            clColores.Name = "clColores";
-            // 
-            // clPrecio
-            // 
-            clPrecio.FillWeight = 23.9718056F;
-            clPrecio.HeaderText = "Precio";
-            clPrecio.Name = "clPrecio";
-            // 
-            // clStock
-            // 
-            clStock.FillWeight = 23.9718056F;
-            clStock.HeaderText = "Stock";
-            clStock.Name = "clStock";
-            // 
-            // clEstado
-            // 
-            clEstado.FillWeight = 23.9718056F;
-            clEstado.HeaderText = "Estado";
-            clEstado.Name = "clEstado";
-            // 
-            // clEditar
-            // 
-            clEditar.FillWeight = 74.9765F;
-            clEditar.HeaderText = "Editar";
-            clEditar.Name = "clEditar";
-            // 
-            // clEliminar
-            // 
-            clEliminar.FillWeight = 287.130829F;
-            clEliminar.HeaderText = "Eliminar";
-            clEliminar.Name = "clEliminar";
-            // 
-            // clVerTodo
-            // 
-            clVerTodo.FillWeight = 609.136841F;
-            clVerTodo.HeaderText = "Ver Todo";
-            clVerTodo.Name = "clVerTodo";
             // 
             // FormProductos
             // 
