@@ -31,6 +31,9 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProductos));
             pnl_conagg = new Panel();
+            btnPRV = new Button();
+            btnPRM = new Button();
+            btnCTG = new Button();
             button1 = new Button();
             pic_raya1 = new PictureBox();
             pnl_agg2 = new Panel();
@@ -75,6 +78,9 @@
             // pnl_conagg
             // 
             pnl_conagg.BackColor = Color.FromArgb(244, 246, 249);
+            pnl_conagg.Controls.Add(btnPRV);
+            pnl_conagg.Controls.Add(btnPRM);
+            pnl_conagg.Controls.Add(btnCTG);
             pnl_conagg.Controls.Add(button1);
             pnl_conagg.Controls.Add(pic_raya1);
             pnl_conagg.Controls.Add(pnl_agg2);
@@ -87,6 +93,54 @@
             pnl_conagg.Size = new Size(1186, 651);
             pnl_conagg.TabIndex = 1;
             // 
+            // btnPRV
+            // 
+            btnPRV.BackColor = Color.FromArgb(0, 102, 255);
+            btnPRV.Cursor = Cursors.Hand;
+            btnPRV.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnPRV.ForeColor = Color.White;
+            btnPRV.ImageAlign = ContentAlignment.MiddleLeft;
+            btnPRV.Location = new Point(626, 9);
+            btnPRV.Margin = new Padding(3, 2, 3, 2);
+            btnPRV.Name = "btnPRV";
+            btnPRV.Size = new Size(107, 38);
+            btnPRV.TabIndex = 12;
+            btnPRV.Text = "Proveedor";
+            btnPRV.UseVisualStyleBackColor = false;
+            btnPRV.Click += btnPRV_Click;
+            // 
+            // btnPRM
+            // 
+            btnPRM.BackColor = Color.FromArgb(0, 102, 255);
+            btnPRM.Cursor = Cursors.Hand;
+            btnPRM.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnPRM.ForeColor = Color.White;
+            btnPRM.ImageAlign = ContentAlignment.MiddleLeft;
+            btnPRM.Location = new Point(513, 9);
+            btnPRM.Margin = new Padding(3, 2, 3, 2);
+            btnPRM.Name = "btnPRM";
+            btnPRM.Size = new Size(107, 38);
+            btnPRM.TabIndex = 11;
+            btnPRM.Text = "Promoción";
+            btnPRM.UseVisualStyleBackColor = false;
+            btnPRM.Click += btnPRM_Click;
+            // 
+            // btnCTG
+            // 
+            btnCTG.BackColor = Color.FromArgb(0, 102, 255);
+            btnCTG.Cursor = Cursors.Hand;
+            btnCTG.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnCTG.ForeColor = Color.White;
+            btnCTG.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCTG.Location = new Point(400, 9);
+            btnCTG.Margin = new Padding(3, 2, 3, 2);
+            btnCTG.Name = "btnCTG";
+            btnCTG.Size = new Size(107, 38);
+            btnCTG.TabIndex = 10;
+            btnCTG.Text = "Categoría";
+            btnCTG.UseVisualStyleBackColor = false;
+            btnCTG.Click += btnCTG_Click;
+            // 
             // button1
             // 
             button1.BackColor = Color.FromArgb(0, 102, 255);
@@ -95,7 +149,7 @@
             button1.ForeColor = Color.White;
             button1.Image = (Image)resources.GetObject("button1.Image");
             button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(946, 13);
+            button1.Location = new Point(870, 9);
             button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
             button1.Size = new Size(217, 38);
@@ -462,5 +516,8 @@
         private DataGridViewImageColumn clEditar;
         private DataGridViewImageColumn clEliminar;
         private DataGridViewImageColumn clVerTodo;
+        private Button btnPRV;
+        private Button btnPRM;
+        private Button btnCTG;
     }
 }
