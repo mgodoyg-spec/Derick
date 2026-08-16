@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Derick
@@ -11,6 +8,7 @@ namespace Derick
     public partial class FrmDetalleEmpleado : Form
     {
         private string codigoEmpleado;
+
         public FrmDetalleEmpleado(string codigo)
         {
             InitializeComponent();
@@ -19,75 +17,45 @@ namespace Derick
 
         private void FrmDetalleEmpleado_Load(object sender, EventArgs e)
         {
-            CargarEmpleado();
-        }
-        private void CargarEmpleado()
-        {
-            csConectaSQL oConexion = new csConectaSQL();
+            csEmpleado emp = new csEmpleado().BuscarPorCodigo(codigoEmpleado);
 
-            string codigoEsc = codigoEmpleado.Replace("'", "''");
-
-            string query = @"SELECT Nombres, Apellidos, Cedula, FechaNacimiento,
-                            Genero, Telefono, Correo, Direccion, Cargo,
-                            Departamento, FechaIngreso, Salario,
-                            TipoContrato, Estado, ContactoEmergencia,
-                            TelefonoEmergencia
-                     FROM Empleados
-                     WHERE Codigo = '" + codigoEsc + "'";
-
-            DataTable dt = oConexion.RetornaRegistros(query);
-
-            if (dt != null && dt.Rows.Count > 0)
+            if (emp == null)
             {
-                DataRow dr = dt.Rows[0];
+                MessageBox.Show("No se encontró la información del empleado.");
+                Close();
+                return;
+            }
 
-                lblCodigo.Text = codigoEmpleado;
-                lblNombres.Text = dr["Nombres"].ToString();
-                lblApellidos.Text = dr["Apellidos"].ToString();
-                lblCedula.Text = dr["Cedula"].ToString();
+            lblCodigo.Text = emp.Codigo;
+            lblNombres.Text = emp.Nombres;
+            lblApellidos.Text = emp.Apellidos;
+            lblCedula.Text = emp.Cedula;
+            lblFechaNacimiento.Text = emp.FechaNacimiento.ToString("dd/MM/yyyy");
+            lblGenero.Text = emp.Genero;
+            lblTelefono.Text = emp.Telefono;
+            lblCorreo.Text = emp.Correo;
+            lblDireccion.Text = emp.Direccion;
+            lblCargo.Text = emp.Cargo;
+            lblDepartamento.Text = emp.Departamento;
+            lblFechaIngreso.Text = emp.FechaIngreso.ToString("dd/MM/yyyy");
+            lblSalario.Text = emp.Salario.ToString("0.00");
+            lblTipoContrato.Text = emp.TipoContrato;
+            lblEstado.Text = emp.Estado ? "Activo" : "Inactivo";
+            lblEmergencia.Text = emp.ContactoEmergencia;
+            lblTelEmergencia.Text = emp.TelefonoEmergencia;
 
-                if (dr["FechaNacimiento"] != DBNull.Value)
-                    lblFechaNacimiento.Text =
-                        Convert.ToDateTime(dr["FechaNacimiento"]).ToString("dd/MM/yyyy");
-
-                lblGenero.Text = dr["Genero"].ToString();
-                lblTelefono.Text = dr["Telefono"].ToString();
-                lblCorreo.Text = dr["Correo"].ToString();
-                lblDireccion.Text = dr["Direccion"].ToString();
-                lblCargo.Text = dr["Cargo"].ToString();
-                lblDepartamento.Text = dr["Departamento"].ToString();
-
-                if (dr["FechaIngreso"] != DBNull.Value)
-                    lblFechaIngreso.Text =
-                        Convert.ToDateTime(dr["FechaIngreso"]).ToString("dd/MM/yyyy");
-
-                lblSalario.Text = dr["Salario"].ToString();
-                lblTipoContrato.Text = dr["TipoContrato"].ToString();
-
-                if (dr["Estado"] != DBNull.Value)
-                {
-                    lblEstado.Text = Convert.ToBoolean(dr["Estado"])
-                        ? "Activo"
-                        : "Inactivo";
-                }
-
-                lblEmergencia.Text =
-                    dr["ContactoEmergencia"].ToString();
-
-                lblTelEmergencia.Text =
-                    dr["TelefonoEmergencia"].ToString();
+            if (emp.Foto != null && emp.Foto.Length > 0)
+            {
+                using (MemoryStream ms = new MemoryStream(emp.Foto))
+                using (Image temporal = Image.FromStream(ms))
+                    pbxFotoEmpleado.Image = new Bitmap(temporal);
             }
             else
             {
-                MessageBox.Show(
-                    "No se encontró la información del empleado.",
-                    "Aviso",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
-
-                this.Close();
+                pbxFotoEmpleado.Image = Properties.Resources.person_icon_31846;
             }
+
+            pbxFotoEmpleado.SizeMode = PictureBoxSizeMode.Zoom;
         }
 
         private void lblSalirV_Click(object sender, EventArgs e)
