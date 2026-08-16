@@ -57,7 +57,6 @@
             btnGuardar = new Button();
             pnlInfoLaboral = new Panel();
             label18 = new Label();
-            label17 = new Label();
             label16 = new Label();
             label15 = new Label();
             label14 = new Label();
@@ -112,6 +111,7 @@
             txtCodigo = new TextBox();
             lblCodigo = new Label();
             lblInfoPeronal = new Label();
+            label10 = new Label();
             pnlNuevoEmple.SuspendLayout();
             pnlImagen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbxAgregarImagen).BeginInit();
@@ -414,8 +414,8 @@
             // 
             // pnlInfoLaboral
             // 
+            pnlInfoLaboral.Controls.Add(label10);
             pnlInfoLaboral.Controls.Add(label18);
-            pnlInfoLaboral.Controls.Add(label17);
             pnlInfoLaboral.Controls.Add(label16);
             pnlInfoLaboral.Controls.Add(label15);
             pnlInfoLaboral.Controls.Add(label14);
@@ -455,17 +455,6 @@
             label18.Size = new Size(21, 25);
             label18.TabIndex = 51;
             label18.Text = "*";
-            // 
-            // label17
-            // 
-            label17.AutoSize = true;
-            label17.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label17.ForeColor = Color.Red;
-            label17.Location = new Point(3, 414);
-            label17.Name = "label17";
-            label17.Size = new Size(21, 25);
-            label17.TabIndex = 50;
-            label17.Text = "*";
             // 
             // label16
             // 
@@ -1043,6 +1032,17 @@
             lblInfoPeronal.TabIndex = 1;
             lblInfoPeronal.Text = "Información personal";
             // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label10.ForeColor = Color.Red;
+            label10.Location = new Point(3, 405);
+            label10.Name = "label10";
+            label10.Size = new Size(21, 25);
+            label10.TabIndex = 52;
+            label10.Text = "*";
+            // 
             // FrmInfoEmple
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -1131,7 +1131,6 @@
         private Label lblC3;
         private Label label15;
         private Label label18;
-        private Label label17;
         private Label label16;
         private Panel panel1;
         private PictureBox pictureBox2;
@@ -1156,5 +1155,6 @@
         private ComboBox cmbRol;
         private ComboBox cmbDominioCorreo;
         private ImageList imageList1;
+        private Label label10;
     }
 }
