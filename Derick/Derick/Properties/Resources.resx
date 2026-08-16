@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-	<!-- 
+  <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -178,6 +178,9 @@
   <data name="btnUbi1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnUbi1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="1d25cfbc-39f5-4edf-8684-e760e10ab95c1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1d25cfbc-39f5-4edf-8684-e760e10ab95c1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icoTel3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icoTel3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -204,6 +207,9 @@
   </data>
   <data name="pngtree-cartoon-blue-magnifying-glass-illustration-png-image_4505525" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pngtree-cartoon-blue-magnifying-glass-illustration-png-image_45055251.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Productoss" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Productoss.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="sucAct" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sucAct.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -244,6 +250,9 @@
   <data name="icoCiud" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icoCiud.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="DerickRecortado" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DerickRecortado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icoSucursales" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icoSucursales.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -264,9 +273,6 @@
   </data>
   <data name="IconoblancoMenu1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IconoblancoMenu1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="detallemorado" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\detallemorado1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Impresora" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Impresora.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -289,8 +295,8 @@
   <data name="Banner__1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Banner (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DerickRecortado" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DerickRecortado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="detallemorado (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\detallemorado (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="usuarioooo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\usuarioooo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -307,8 +313,8 @@
   <data name="AgregarProductos" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AgregarProductos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icoEnc3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icoEnc3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="detallemorado" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\detallemorado1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="inicio" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\inicio.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -334,8 +340,8 @@
   <data name="Reportes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Reportes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icNom" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icNom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icoEnc3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icoEnc3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icCiud" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icCiud.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -345,6 +351,9 @@
   </data>
   <data name="icoPrinBusqueda3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icoPrinBusqueda3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="c84eb882-2fd7-4ecc-8aff-1b382b7bb919" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\c84eb882-2fd7-4ecc-8aff-1b382b7bb919.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AgregarProductos2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AgregarProductos2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -412,8 +421,8 @@
   <data name="96881f2f-63b8-497f-9aac-1b1b1cd27a87" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\96881f2f-63b8-497f-9aac-1b1b1cd27a87.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Productoss" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Productoss.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icNom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icNom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="download (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\download (2);System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -421,10 +430,7 @@
   <data name="icoCiudad1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icoCiudad1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="detallemorado (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\detallemorado (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="1d25cfbc-39f5-4edf-8684-e760e10ab95c1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1d25cfbc-39f5-4edf-8684-e760e10ab95c1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

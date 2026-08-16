@@ -1,36 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
-using Microsoft.Data.SqlClient;
 
 namespace Derick
 {
     public partial class FrmEmple : Form
     {
+        private bool cargandoFiltros = false;
+
         public FrmEmple()
         {
             InitializeComponent();
         }
 
-        private void btnDepa_Click(object sender, EventArgs e)
-        {
-            FrmDepartamentos frm = new FrmDepartamentos();
-            frm.ShowDialog();
-        }
-        private void btnNuevoEmpleado_Click(object sender, EventArgs e)
-        {
-            FrmInfoEmple frm = new FrmInfoEmple();
-            frm.ShowDialog();
-            CargarEmpleados();
-        }
-
         private void FrmEmple_Load(object sender, EventArgs e)
         {
-            //diseño del datagridview
+            // DISEÑO DEL DATAGRIDVIEW - se conserva como estaba originalmente
             dgvEmpleados.EnableHeadersVisualStyles = false;
             dgvEmpleados.BorderStyle = BorderStyle.None;
             dgvEmpleados.BackgroundColor = Color.White;
@@ -44,14 +30,16 @@ namespace Derick
             dgvEmpleados.AllowUserToResizeRows = false;
             dgvEmpleados.AllowUserToResizeColumns = false;
             dgvEmpleados.RowHeadersVisible = false;
-            //encabezado
+
+            // ENCABEZADO
             dgvEmpleados.ColumnHeadersHeight = 50;
             dgvEmpleados.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dgvEmpleados.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(46, 57, 75);
             dgvEmpleados.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             dgvEmpleados.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
             dgvEmpleados.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            //filas
+
+            // FILAS
             dgvEmpleados.RowTemplate.Height = 45;
             dgvEmpleados.DefaultCellStyle.Font = new Font("Segoe UI", 10);
             dgvEmpleados.DefaultCellStyle.ForeColor = Color.FromArgb(45, 45, 45);
@@ -61,7 +49,8 @@ namespace Derick
             dgvEmpleados.DefaultCellStyle.SelectionForeColor = Color.Black;
             dgvEmpleados.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvEmpleados.DefaultCellStyle.Padding = new Padding(5);
-            //columnas
+
+            // TAMAÑO DE COLUMNAS
             dgvEmpleados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvEmpleados.Columns["clCodigo"].FillWeight = 8;
             dgvEmpleados.Columns["clEmpleado"].FillWeight = 20;
@@ -73,180 +62,130 @@ namespace Derick
             dgvEmpleados.Columns["clEditar"].FillWeight = 8;
             dgvEmpleados.Columns["clEliminar"].FillWeight = 8;
             dgvEmpleados.Columns["clVer"].FillWeight = 8;
-            dgvEmpleados.Columns["clImagen"].FillWeight = 8;
-            DataGridViewImageColumn editar = (DataGridViewImageColumn)dgvEmpleados.Columns["clEditar"];
+            dgvEmpleados.Columns["ClImagen"].FillWeight = 8;
+
+            // ICONOS
+            DataGridViewImageColumn editar =
+                (DataGridViewImageColumn)dgvEmpleados.Columns["clEditar"];
             editar.Image = Properties.Resources.editarrbtn;
             editar.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            DataGridViewImageColumn eliminar = (DataGridViewImageColumn)dgvEmpleados.Columns["clEliminar"];
+
+            DataGridViewImageColumn eliminar =
+                (DataGridViewImageColumn)dgvEmpleados.Columns["clEliminar"];
             eliminar.Image = Properties.Resources.picEliminar;
             eliminar.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            DataGridViewImageColumn ver = (DataGridViewImageColumn)dgvEmpleados.Columns["clVer"];
+
+            DataGridViewImageColumn ver =
+                (DataGridViewImageColumn)dgvEmpleados.Columns["clVer"];
             ver.Image = Properties.Resources.ojo;
             ver.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            DataGridViewImageColumn imagen = (DataGridViewImageColumn)dgvEmpleados.Columns["clImagen"];
+
+            DataGridViewImageColumn imagen =
+                (DataGridViewImageColumn)dgvEmpleados.Columns["ClImagen"];
             imagen.Image = Properties.Resources.person_icon_31846;
             imagen.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            //columnas centradas
-            string[] columnasCentro = { "clCodigo", "clEmpleado", "clCargo", "clDepartamento", "clTelefono", "clCorreo", "clEstado", "clEditar", "clEliminar", "clVer", "clImagen" };
+
+            // CENTRAR COLUMNAS
+            string[] columnasCentro =
+            {
+                "clCodigo",
+                "clEmpleado",
+                "clCargo",
+                "clDepartamento",
+                "clTelefono",
+                "clCorreo",
+                "clEstado",
+                "clEditar",
+                "clEliminar",
+                "clVer",
+                "ClImagen"
+            };
+
             foreach (string columna in columnasCentro)
             {
-                dgvEmpleados.Columns[columna].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvEmpleados.Columns[columna].DefaultCellStyle.Alignment =
+                    DataGridViewContentAlignment.MiddleCenter;
             }
-            // cargar datos
-            CargarComboDepartamento();
-            CargarComboEstado();
-            CargarComboSucursal();
-            CargarEmpleados();
-        }
 
-        private void lblSalirV_Click(object sender, EventArgs e)
-        {
-            DialogResult respuesta = MessageBox.Show(
-          "¿Está seguro de salir?",
-          "Confirmar salida",
-          MessageBoxButtons.YesNo,
-          MessageBoxIcon.Question);
-
-            if (respuesta == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
-        }
-
-        private void btnNuevoEmple_Click(object sender, EventArgs e)
-        {
-            FrmInfoEmple frm = new FrmInfoEmple();
-            frm.ShowDialog();
-            CargarEmpleados();
-        }
-
-        // cargar departamentos en el combo
-        private void CargarComboDepartamento()
-        {
-            csConectaSQL oConexion = new csConectaSQL();
-            string query = "SELECT DISTINCT Departamento FROM Empleados WHERE Departamento IS NOT NULL AND Departamento <> ''";
-            DataTable dt = oConexion.RetornaRegistros(query);
-
-            cbxDepa.DataSource = dt;
-            cbxDepa.DisplayMember = "Departamento";
-            cbxDepa.ValueMember = "Departamento";
+            // CARGAR FILTROS
+            cargandoFiltros = true;
+            CargarCombos();
+            cbxDepa.SelectedIndex = -1;
+            cbxSucursal.SelectedIndex = -1;
+            cbxEstado.SelectedIndex = -1;
             cbxDepa.Text = "";
+            cbxSucursal.Text = "";
+            cbxEstado.Text = "";
+            txtBuscar.Text = "Buscar";
+            txtBuscar.ForeColor = Color.DimGray;
+            cargandoFiltros = false;
+
+            CargarEmpleados();
         }
 
-        private void CargarComboEstado()
+        private void CargarCombos()
         {
+            csEmpleado emp = new csEmpleado();
+
+            cbxDepa.DataSource = emp.ObtenerDepartamentos();
+            cbxDepa.DisplayMember = "Departamento";
+            cbxDepa.SelectedIndex = -1;
+
+            cbxSucursal.DataSource = emp.ObtenerSucursales();
+            cbxSucursal.DisplayMember = "NombreSucursal";
+            cbxSucursal.SelectedIndex = -1;
+
             cbxEstado.Items.Clear();
             cbxEstado.Items.Add("Activo");
             cbxEstado.Items.Add("Inactivo");
-            cbxEstado.Text = "";
+            cbxEstado.SelectedIndex = -1;
         }
 
-        // cargar sucursales en el combo
-        private void CargarComboSucursal()
+        private void AplicarFiltros()
         {
-            csConectaSQL oConexion = new csConectaSQL();
-            string query = "SELECT NombreSucursal FROM Sucursales";
-            DataTable dt = oConexion.RetornaRegistros(query);
+            string buscar = txtBuscar.Text.Trim();
 
-            cbxSucursal.DataSource = dt;
-            cbxSucursal.DisplayMember = "NombreSucursal";
-            cbxSucursal.ValueMember = "NombreSucursal";
-            cbxSucursal.Text = "";
+            if (buscar == "Buscar")
+                buscar = "";
+
+            CargarEmpleados(
+                buscar,
+                cbxDepa.Text,
+                cbxEstado.Text,
+                ""
+            );
         }
 
-        // mostrar empleados en el datagridview
-        private void CargarEmpleados(
-    string filtroBusqueda = "",
-    string departamento = "",
-    string estadoFiltro = "",
-    string sucursal = "")
+        private void CargarEmpleados(string buscar = "", string departamento = "", string estado = "", string sucursal = "")
         {
-            csConectaSQL oConexion = new csConectaSQL();
+            DataTable dt = new csEmpleado().Listar(buscar, departamento, estado, sucursal);
+            if (dt == null) return;
 
-            // Escapar comillas simples
-            string filtroEsc = filtroBusqueda.Replace("'", "''");
-            string deptoEsc = departamento.Replace("'", "''");
-            string sucursalEsc = sucursal.Replace("'", "''");
-
-            int estadoBit = estadoFiltro == "Activo" ? 1 : 0;
-
-            string query = @"
-        SELECT
-            Codigo,
-            Nombres + ' ' + Apellidos AS Empleado,
-            Cargo,
-            Departamento,
-            Telefono,
-            Correo,
-            CASE 
-                WHEN Estado = 1 THEN 'Activo'
-                ELSE 'Inactivo'
-            END AS Estado,
-            RutaFoto,
-            Foto
-        FROM Empleados
-        WHERE Nombres LIKE '%" + filtroEsc + @"%'
-        AND ('" + deptoEsc + @"' = '' 
-             OR Departamento = '" + deptoEsc + @"')
-        AND ('" + estadoFiltro + @"' = '' 
-             OR Estado = " + estadoBit + @")
-        AND ('" + sucursalEsc + @"' = '' 
-             OR IdSucursal = (
-                 SELECT IdSucursal
-                 FROM Sucursales
-                 WHERE NombreSucursal = '" + sucursalEsc + @"'
-             ))";
-
-            DataTable dt = oConexion.RetornaRegistros(query);
-
-            if (dt == null)
-                return;
-
-            // Columna que mostrará la imagen en el DataGridView
             dt.Columns.Add("ImagenEmpleado", typeof(Image));
 
             foreach (DataRow fila in dt.Rows)
             {
-                // 1. PRIMERO: intentar cargar Foto desde SQL
                 if (fila["Foto"] != DBNull.Value)
                 {
-                    byte[] bytesFoto = (byte[])fila["Foto"];
-
-                    using (System.IO.MemoryStream ms =
-                           new System.IO.MemoryStream(bytesFoto))
-                    using (Image imgTemporal = Image.FromStream(ms))
+                    try
                     {
-                        fila["ImagenEmpleado"] =
-                            new Bitmap(imgTemporal);
+                        byte[] bytes = (byte[])fila["Foto"];
+                        using (System.IO.MemoryStream ms = new System.IO.MemoryStream(bytes))
+                        using (Image temporal = Image.FromStream(ms))
+                            fila["ImagenEmpleado"] = new Bitmap(temporal);
+                    }
+                    catch
+                    {
+                        fila["ImagenEmpleado"] = Properties.Resources.person_icon_31846;
                     }
                 }
                 else
                 {
-                    // 2. RESPALDO: empleados antiguos con RutaFoto
-                    string ruta = fila["RutaFoto"] == DBNull.Value
-                        ? ""
-                        : fila["RutaFoto"].ToString();
-
-                    if (!string.IsNullOrWhiteSpace(ruta) &&
-                        System.IO.File.Exists(ruta))
-                    {
-                        using (Image imgTemporal = Image.FromFile(ruta))
-                        {
-                            fila["ImagenEmpleado"] =
-                                new Bitmap(imgTemporal);
-                        }
-                    }
-                    else
-                    {
-                        // 3. Si no existe ninguna imagen
-                        fila["ImagenEmpleado"] =
-                            Properties.Resources.person_icon_31846;
-                    }
+                    fila["ImagenEmpleado"] = Properties.Resources.person_icon_31846;
                 }
             }
 
             dgvEmpleados.AutoGenerateColumns = false;
-
             dgvEmpleados.Columns["clCodigo"].DataPropertyName = "Codigo";
             dgvEmpleados.Columns["clEmpleado"].DataPropertyName = "Empleado";
             dgvEmpleados.Columns["clCargo"].DataPropertyName = "Cargo";
@@ -254,199 +193,186 @@ namespace Derick
             dgvEmpleados.Columns["clTelefono"].DataPropertyName = "Telefono";
             dgvEmpleados.Columns["clCorreo"].DataPropertyName = "Correo";
             dgvEmpleados.Columns["clEstado"].DataPropertyName = "Estado";
-
-            // Imagen enlazada al DataTable
-            dgvEmpleados.Columns["clImagen"].DataPropertyName = "ImagenEmpleado";
-
+            dgvEmpleados.Columns["ClImagen"].DataPropertyName = "ImagenEmpleado";
             dgvEmpleados.DataSource = dt;
         }
-        private void EliminarEmpleado(string codigo)
+        // EVENTOS DE LOS FILTROS Ya NO buscan automáticamente. La búsqueda se hace solamente con el botón Buscar.
+        private void txtBuscar_TextChanged_1(object sender, EventArgs e)
         {
-            using (SqlConnection con = csConexionRemota.ObtenerConexion())
+            if (cargandoFiltros)
+                return;
+
+            string buscar = txtBuscar.Text.Trim();
+
+            if (buscar == "Buscar")
+                buscar = "";
+
+            CargarEmpleados(
+                buscar,
+                "",
+                "",
+                ""
+            );
+        }
+
+        private void cbxDepa_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            // No hacer nada
+        }
+
+        private void cbxSucursal_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            // No hacer nada
+        }
+
+        private void cbxEstado_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            // No hacer nada
+        }
+        private void txtBuscar_Enter(object sender, EventArgs e)
+        {
+            if (txtBuscar.Text == "Buscar")
             {
-                con.Open();
+                txtBuscar.Text = "";
+                txtBuscar.ForeColor = Color.Black;
+            }
+        }
 
-                SqlTransaction tran = con.BeginTransaction();
+        private void txtBuscar_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtBuscar.Text))
+            {
+                txtBuscar.Text = "Buscar";
+                txtBuscar.ForeColor = Color.DimGray;
+            }
+        }
+        private void btnBuscarEmpleado_Click(object sender, EventArgs e)
+        {
+            AplicarFiltros();
+        }
+        private void btnNuevoEmpleado_Click(object sender, EventArgs e)
+        {
+            FrmInfoEmple frm = new FrmInfoEmple();
+            frm.ShowDialog();
 
-                try
-                {
-                    // Buscar el IdEmpleado a partir del código
-                    string queryId = @"
-                SELECT IdEmpleado
-                FROM Empleados
-                WHERE Codigo = @codigo";
+            CargarEmpleados();
+        }
 
-                    SqlCommand cmdId = new SqlCommand(queryId, con, tran);
-                    cmdId.Parameters.AddWithValue("@codigo", codigo);
+        // BOTÓN LIMPIAR
 
-                    object resultado = cmdId.ExecuteScalar();
+        private void btnLimpiar_Click_1(object sender, EventArgs e)
+        {
+            txtBuscar.Text = "Buscar";
+            txtBuscar.ForeColor = Color.DimGray;
 
-                    if (resultado == null)
-                    {
-                        tran.Rollback();
+            cbxDepa.SelectedIndex = -1;
+            cbxSucursal.SelectedIndex = -1;
+            cbxEstado.SelectedIndex = -1;
 
-                        MessageBox.Show(
-                            "No se encontró el empleado.",
-                            "Aviso",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Warning
-                        );
+            cbxDepa.Text = "";
+            cbxSucursal.Text = "";
+            cbxEstado.Text = "";
 
-                        return;
-                    }
+            CargarEmpleados();
+        }
 
-                    int idEmpleado = Convert.ToInt32(resultado);
-
-
-                    // Eliminar usuario relacionado, si tiene uno
-                    string queryUsuario = @"
-                DELETE FROM Usuario
-                WHERE IdEmpleado = @idEmpleado";
-
-                    SqlCommand cmdUsuario = new SqlCommand(queryUsuario, con, tran);
-                    cmdUsuario.Parameters.AddWithValue("@idEmpleado", idEmpleado);
-                    cmdUsuario.ExecuteNonQuery();
-
-
-                    // Eliminar empleado
-                    string queryEmpleado = @"
-                DELETE FROM Empleados
-                WHERE IdEmpleado = @idEmpleado";
-
-                    SqlCommand cmdEmpleado = new SqlCommand(queryEmpleado, con, tran);
-                    cmdEmpleado.Parameters.AddWithValue("@idEmpleado", idEmpleado);
-
-                    int filasAfectadas = cmdEmpleado.ExecuteNonQuery();
+        // Este era el botón verde "Nuevo".
+        // Ahora ese botón es BUSCAR.
+        private void btnNuevoEmple_Click_1(object sender, EventArgs e)
+        {
+            btnBuscarEmpleado_Click(sender, e);
+        }
 
 
-                    if (filasAfectadas > 0)
-                    {
-                        tran.Commit();
+        // Este era el botón Departamentos.
+        // Ahora ese botón es NUEVO EMPLEADO.
+        private void btnDepa_Click_1(object sender, EventArgs e)
+        {
+            btnNuevoEmpleado_Click(sender, e);
+        }
 
-                        MessageBox.Show(
-                            "Empleado eliminado correctamente.",
-                            "Eliminar empleado",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Information
-                        );
+        private void dgvEmpleados_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
 
-                        CargarEmpleados(
-                            txtBuscar.Text,
-                            cbxDepa.Text,
-                            cbxEstado.Text,
-                            cbxSucursal.Text
-                        );
-                    }
-                    else
-                    {
-                        tran.Rollback();
+            string codigo = dgvEmpleados.Rows[e.RowIndex].Cells["clCodigo"].Value?.ToString();
+            if (string.IsNullOrWhiteSpace(codigo)) return;
 
-                        MessageBox.Show(
-                            "No se pudo eliminar el empleado.",
-                            "Aviso",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Warning
-                        );
-                    }
-                }
-                catch (Exception ex)
-                {
-                    tran.Rollback();
+            string columna = dgvEmpleados.Columns[e.ColumnIndex].Name;
 
+            if (columna == "clEditar")
+            {
+                new FrmInfoEmple(codigo).ShowDialog();
+                AplicarFiltros();
+            }
+            else if (columna == "clVer")
+            {
+                new FrmDetalleEmpleado(codigo).ShowDialog();
+            }
+            else if (columna == "clEliminar")
+            {
+                string nombre =
+                    dgvEmpleados.Rows[e.RowIndex]
+                    .Cells["clEmpleado"]
+                    .Value?
+                    .ToString();
+
+                DialogResult respuesta =
                     MessageBox.Show(
-                        "No se pudo eliminar el empleado.\n\n" + ex.Message,
-                        "Error",
+                        "¿Está seguro de eliminar al empleado " + nombre + "?",
+                        "Confirmar eliminación",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning
+                    );
+
+                if (respuesta != DialogResult.Yes)
+                    return;
+
+                csEmpleado emp =
+                    new csEmpleado()
+                    .BuscarPorCodigo(codigo);
+
+                if (emp == null)
+                {
+                    MessageBox.Show(
+                        "No se encontró el empleado.",
+                        "Aviso",
                         MessageBoxButtons.OK,
-                        MessageBoxIcon.Error
+                        MessageBoxIcon.Warning
+                    );
+
+                    return;
+                }
+
+                if (emp.Eliminar())
+                {
+                    MessageBox.Show(
+                        "Empleado eliminado correctamente.",
+                        "Eliminar empleado",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
+                    );
+
+                    AplicarFiltros();
+                }
+                else
+                {
+                    MessageBox.Show(
+                        "No se puede eliminar este empleado porque tiene ventas registradas.",
+                        "Eliminar empleado",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
                     );
                 }
             }
         }
 
-        private void txtBuscar_TextChanged(object sender, EventArgs e)
+     
+        private void lblSalirV_Click_1(object sender, EventArgs e)
         {
-            CargarEmpleados(txtBuscar.Text, cbxDepa.Text, cbxEstado.Text, cbxSucursal.Text);
-        }
-
-        private void cbxDepa_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            CargarEmpleados(txtBuscar.Text, cbxDepa.Text, cbxEstado.Text, cbxSucursal.Text);
-        }
-
-        private void cbxEstado_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            CargarEmpleados(txtBuscar.Text, cbxDepa.Text, cbxEstado.Text, cbxSucursal.Text);
-        }
-
-        private void cbxSucursal_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            CargarEmpleados(txtBuscar.Text, cbxDepa.Text, cbxEstado.Text, cbxSucursal.Text);
-        }
-
-        private void btnDepa_Click_1(object sender, EventArgs e)
-        {
-            FrmDepartamentos frm = new FrmDepartamentos();
-            frm.ShowDialog();
-        }
-
-        private void dgvEmpleados_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex < 0 || e.ColumnIndex < 0)
-                return;
-
-            // EDITAR
-            if (dgvEmpleados.Columns[e.ColumnIndex].Name == "clEditar")
-            {
-                string codigo = dgvEmpleados.Rows[e.RowIndex]
-                    .Cells["clCodigo"].Value.ToString();
-
-                FrmInfoEmple frm = new FrmInfoEmple(codigo);
-                frm.ShowDialog();
-
-                CargarEmpleados();
-            }
-
-            // ELIMINAR
-            else if (dgvEmpleados.Columns[e.ColumnIndex].Name == "clEliminar")
-            {
-                string codigo = dgvEmpleados.Rows[e.RowIndex]
-                    .Cells["clCodigo"].Value.ToString();
-
-                string empleado = dgvEmpleados.Rows[e.RowIndex]
-                    .Cells["clEmpleado"].Value.ToString();
-
-                DialogResult respuesta = MessageBox.Show(
-                    "¿Está seguro de eliminar al empleado " + empleado + "?",
-                    "Confirmar eliminación",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Warning
-                );
-
-                if (respuesta == DialogResult.Yes)
-                {
-                    EliminarEmpleado(codigo);
-                }
-            }
-
-            // VER MÁS
-            else if (dgvEmpleados.Columns[e.ColumnIndex].Name == "clVer")
-            {
-                string codigo = dgvEmpleados.Rows[e.RowIndex]
-                    .Cells["clCodigo"].Value.ToString();
-
-                FrmDetalleEmpleado frm = new FrmDetalleEmpleado(codigo);
-                frm.ShowDialog();
-            }
-        }
-
-        private void btnLimpiar_Click(object sender, EventArgs e)
-        {
-            txtBuscar.Clear();
-            cbxDepa.SelectedIndex = -1;
-            cbxSucursal.SelectedIndex = -1;
-            cbxEstado.SelectedIndex = -1;
-            CargarEmpleados();
-
+            if (MessageBox.Show("¿Está seguro de salir?", "Confirmar salida",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                Application.Exit();
         }
     }
 }
