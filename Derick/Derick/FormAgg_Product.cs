@@ -519,44 +519,76 @@ namespace Derick
             string nombre = txt_nmb.Text.Trim();
             string categoria = cmb_ctg.Text.Trim();
 
-            // CONEXIÓN
             csConectaSQL conexion = new csConectaSQL();
-            string campos = "Codigo, Nombre, Categoria, Talla, Color, Precio, Estado";
-            string datos =
-                $"'{codigo}', " +
-                $"'{nombre}', " +
-                $"'{categoria}', " +
-                $"'{tallas}', " +
-                $"'{colores}', " +
-                $"{precio.ToString(System.Globalization.CultureInfo.InvariantCulture)}, " +
-                "1";
-
-            // GUARDAR PRODUCTO Y OBTENER SU ID
-            int idProducto = conexion.Ins_RetrID(
-                "Productos",
-                campos,
-                datos
-            );
-
-            // COMPROBAR SI SE GUARDÓ
-            if (idProducto == -1)
+            if (idProductoEditar == null)
             {
+                string campos =
+                    "Codigo, Nombre, Categoria, Talla, Color, Precio, Estado";
+
+                string datos =
+                    $"'{codigo}', " +
+                    $"'{nombre}', " +
+                    $"'{categoria}', " +
+                    $"'{tallas}', " +
+                    $"'{colores}', " +
+                    $"{precio.ToString(System.Globalization.CultureInfo.InvariantCulture)}, " +
+                    "1";
+
+                int idProducto = conexion.Ins_RetrID(
+                    "Productos",
+                    campos,
+                    datos
+                );
+                if (idProducto == -1)
+                {
+                    MessageBox.Show(
+                        "No se pudo guardar el producto.",
+                        "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return;
+                }
                 MessageBox.Show(
-                    "No se pudo guardar el producto.",
-                    "Error",
+                    "Producto guardado correctamente.",
+                    "Guardado",
                     MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-
-                return;
+                    MessageBoxIcon.Information);
             }
+            else
+            {
+                string datosActualizar =
+                    $"Codigo = '{codigo}', " +
+                    $"Nombre = '{nombre}', " +
+                    $"Categoria = '{categoria}', " +
+                    $"Talla = '{tallas}', " +
+                    $"Color = '{colores}', " +
+                    $"Precio = {precio.ToString(System.Globalization.CultureInfo.InvariantCulture)}";
 
-            MessageBox.Show(
-                "Producto guardado correctamente.",
-                "Guardado",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+                string condicion = $"IdProductos = {idProductoEditar.Value}";
+                bool actualizado = conexion.actualizarDatos(
+                    "Productos",
+                    datosActualizar,
+                    condicion
+                );
+                if (!actualizado)
+                {
+                    MessageBox.Show(
+                        "No se pudo actualizar el producto.",
+                        "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return;
+                }
+                MessageBox.Show(
+                    "Producto actualizado correctamente.",
+                    "Actualizado",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
+            DialogResult = DialogResult.OK;
+            Close();
         }
 
         private void btn_subir_Click(object sender, EventArgs e)

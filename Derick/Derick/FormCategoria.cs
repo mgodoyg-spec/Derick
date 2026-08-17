@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -201,15 +202,18 @@ namespace Derick
                     ? "Activo"
                     : "Inactivo";
 
-                dgv_catg.Rows.Add(
+                int indice = dgv_catg.Rows.Add(
                     fila["IdCategoria"].ToString(),
-                    null,                               // Ícono
+                    null,
                     fila["Nombre"].ToString(),
                     estado,
                     fila["Descripcion"].ToString(),
-                    null,                               // Editar
-                    null                                // Eliminar
+                    null,
+                    null
                 );
+
+                dgv_catg.Rows[indice].Tag =
+                    Convert.ToInt32(fila["IdCategoria"]);
             }
         }
         private void FiltrarCategorias()
@@ -334,6 +338,65 @@ namespace Derick
             if (frnctg.ShowDialog(this) == DialogResult.OK)
             {
                 CargarCategorias();
+            }
+        }
+
+        private void dgv_catg_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+                return;
+
+            string columna = dgv_catg.Columns[e.ColumnIndex].Name;
+
+            if (columna == "clEditar")
+            {
+                int idCategoria = Convert.ToInt32(dgv_catg.Rows[e.RowIndex].Tag);
+                FrmAgg_Categoria frm = new FrmAgg_Categoria(idCategoria);
+                frm.StartPosition = FormStartPosition.CenterScreen;
+                if (frm.ShowDialog(this) == DialogResult.OK)
+                {
+                    CargarCategorias();
+                }
+            }
+            else if (columna == "clEliminar")
+            {
+                int idCategoria =
+                    Convert.ToInt32(dgv_catg.Rows[e.RowIndex].Tag);
+
+                string nombre =
+                    dgv_catg.Rows[e.RowIndex]
+                    .Cells["clCategoria"]
+                    .Value?.ToString() ?? "";
+
+                DialogResult resultado = MessageBox.Show(
+                    "¿Está seguro de eliminar la categoría \"" +
+                    nombre + "\"?",
+                    "Eliminar categoría",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                );
+
+                if (resultado == DialogResult.Yes)
+                {
+                    csConectaSQL conexion = new csConectaSQL();
+
+                    bool eliminado = conexion.ejecutarComando(
+                        "UPDATE Categorias SET Estado = 0 WHERE IdCategoria = @id",
+                        new SqlParameter("@id", idCategoria)
+                    );
+
+                    if (eliminado)
+                    {
+                        MessageBox.Show(
+                            "Categoría eliminada correctamente.",
+                            "Categoría",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information
+                        );
+
+                        CargarCategorias();
+                    }
+                }
             }
         }
     }

@@ -11,16 +11,101 @@ namespace Derick
     public partial class FormAgg_Promocion : Form
     {
         private List<int> prd_selct = new List<int>();
+        private int? idPromocionEditar = null;
         public FormAgg_Promocion()
         {
             InitializeComponent();
         }
+        public FormAgg_Promocion(int idPromocion) : this()
+        {
+            idPromocionEditar = idPromocion;
+        }
 
         private void FormAgg_Promocion_Load(object sender, EventArgs e)
         {
-
+            if (idPromocionEditar != null)
+            {
+                CPR_editar();
+            }
         }
+        private void CPR_editar()
+        {
+            csConectaSQL conexion = new csConectaSQL();
 
+            DataTable dt = conexion.RetornaRegistros(
+                "SELECT Nombre, Descripcion, TipoDescuento, ValorDescuento, " +
+                "FechaInicio, FechaFin, Estado, AplicaTodos " +
+                "FROM Promociones " +
+                "WHERE IdPromocion = " + idPromocionEditar.Value
+            );
+
+            if (dt == null || dt.Rows.Count == 0)
+                return;
+
+            DataRow fila = dt.Rows[0];
+
+            txt_p1.Text = fila["Nombre"].ToString();
+            txt_Pdsp.Text = fila["Descripcion"].ToString();
+
+            cmb_p1.Text = fila["TipoDescuento"].ToString();
+
+            decimal descuento =
+                Convert.ToDecimal(fila["ValorDescuento"]);
+
+            txt_p2.Text = descuento.ToString("0.##");
+
+            dtp_inicio.Value =
+                Convert.ToDateTime(fila["FechaInicio"]);
+
+            dtp_fin.Value =
+                Convert.ToDateTime(fila["FechaFin"]);
+
+            bool activo =
+                Convert.ToBoolean(fila["Estado"]);
+
+            cmb_p3.Text = activo
+                ? "Activo"
+                : "Inactivo";
+
+            bool aplicaTodos =
+                Convert.ToBoolean(fila["AplicaTodos"]);
+
+            if (aplicaTodos)
+            {
+                rb_tp.Checked = true;
+            }
+            else
+            {
+                rb_ps.Checked = true;
+
+                CPR_editar();
+            }
+        }
+        private void Cargar_PRM()
+        {
+            prd_selct.Clear();
+
+            csConectaSQL conexion = new csConectaSQL();
+
+            DataTable dt = conexion.RetornaRegistros(
+                "SELECT IdProducto " +
+                "FROM PromocionProducto " +
+                "WHERE IdPromocion = " + idPromocionEditar.Value
+            );
+
+            if (dt == null)
+                return;
+
+            foreach (DataRow fila in dt.Rows)
+            {
+                prd_selct.Add(
+                    Convert.ToInt32(fila["IdProducto"])
+                );
+            }
+
+            lblP9.Text =
+                prd_selct.Count + " productos seleccionados";
+        }
         private void txt_p1_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && !char.IsControl(e.KeyChar))
@@ -242,36 +327,78 @@ namespace Derick
 
             csConectaSQL conexion = new csConectaSQL();
 
-            string campos =
-                "Nombre, Descripcion, TipoDescuento, ValorDescuento, " +
-                "FechaInicio, FechaFin, IdSucursal, Estado, AplicaTodos";
+            string datosActualizar =
+                   $"Nombre = '{nombre}', " +
+                   $"Descripcion = '{descripcion}', " +
+                   $"TipoDescuento = '{tipoDescuento}', " +
+                   $"ValorDescuento = {descuento.ToString(System.Globalization.CultureInfo.InvariantCulture)}, " +
+                   $"FechaInicio = '{fechaInicio:yyyy-MM-dd}', " +
+                   $"FechaFin = '{fechaFin:yyyy-MM-dd}', " +
+                   $"Estado = {estado}, " +
+                   $"AplicaTodos = {aplicaTodos}";
 
-            string datos =
-                $"'{nombre}', " +
-                $"'{descripcion}', " +
-                $"'{tipoDescuento}', " +
-                $"{descuento.ToString(System.Globalization.CultureInfo.InvariantCulture)}, " +
-                $"'{fechaInicio:yyyy-MM-dd}', " +
-                $"'{fechaFin:yyyy-MM-dd}', " +
-                $"NULL, " +
-                $"{estado}, " +
-                $"{aplicaTodos}";
-
-            int idPromocion = conexion.Ins_RetrID(
-                "Promociones",
-                campos,
-                datos
-            );
-
-            if (idPromocion == -1)
+            int idPromocion;
+            if (idPromocionEditar == null)
             {
-                MessageBox.Show(
-                    "No se pudo guardar la promoción.",
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                string campos =
+                    "Nombre, Descripcion, TipoDescuento, ValorDescuento, " +
+                    "FechaInicio, FechaFin, IdSucursal, Estado, AplicaTodos";
 
-                return;
+                string datos =
+                    $"'{nombre}', " +
+                    $"'{descripcion}', " +
+                    $"'{tipoDescuento}', " +
+                    $"{descuento.ToString(System.Globalization.CultureInfo.InvariantCulture)}, " +
+                    $"'{fechaInicio:yyyy-MM-dd}', " +
+                    $"'{fechaFin:yyyy-MM-dd}', " +
+                    $"NULL, " +
+                    $"{estado}, " +
+                    $"{aplicaTodos}";
+
+                idPromocion = conexion.Ins_RetrID(
+                    "Promociones",
+                    campos,
+                    datos
+                );
+
+                if (idPromocion == -1)
+                {
+                    MessageBox.Show(
+                        "No se pudo guardar la promoción.",
+                        "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return;
+                }
+            }
+            else
+            {
+                idPromocion = idPromocionEditar.Value;
+
+                bool actualizado = conexion.actualizarDatos(
+                    "Promociones",
+                    datosActualizar,
+                    $"IdPromocion = {idPromocion}"
+                );
+
+                if (!actualizado)
+                {
+                    MessageBox.Show(
+                        "No se pudo actualizar la promoción.",
+                        "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return;
+                }
+                conexion.ejecutarComando(
+                    "DELETE FROM PromocionProducto WHERE IdPromocion = @id",
+                    new Microsoft.Data.SqlClient.SqlParameter(
+                        "@id",
+                        idPromocion
+                    )
+                );
             }
             if (rb_ps.Checked)
             {
@@ -295,9 +422,23 @@ namespace Derick
                     }
                 }
             }
-            MessageBox.Show("Promoción registrada correctamente.","Promoción",
-            MessageBoxButtons.OK,
-            MessageBoxIcon.Information);
+            if (idPromocionEditar == null)
+            {
+                MessageBox.Show(
+                    "Promoción registrada correctamente.",
+                    "Promoción",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show(
+                    "Promoción actualizada correctamente.",
+                    "Promoción",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
+
             DialogResult = DialogResult.OK;
             Close();
         }

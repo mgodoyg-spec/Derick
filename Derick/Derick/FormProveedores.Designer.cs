@@ -32,10 +32,19 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProveedores));
             pnl_prov = new Panel();
             pnl04 = new Panel();
-            btnBuscar = new Button();
+            pnlBusqueda = new Panel();
             cmb02 = new ComboBox();
-            btnLimpiar = new Button();
             cmb01 = new ComboBox();
+            btnBuscar = new Button();
+            txt01 = new TextBox();
+            btnLimpiar = new Button();
+            pictureBox1 = new PictureBox();
+            lbl_agg2 = new Label();
+            label1 = new Label();
+            pictureBox2 = new PictureBox();
+            btn_ctg1 = new Button();
+            pic01 = new PictureBox();
+            lbl01 = new Label();
             dgvProveedor = new DataGridView();
             clId = new DataGridViewTextBoxColumn();
             clNombreProveedor = new DataGridViewTextBoxColumn();
@@ -45,23 +54,14 @@
             clEstado = new DataGridViewTextBoxColumn();
             clEditar = new DataGridViewImageColumn();
             clEliminar = new DataGridViewImageColumn();
-            txt01 = new TextBox();
-            btn_ctg1 = new Button();
-            pic01 = new PictureBox();
-            lbl01 = new Label();
             imgProveedor = new ImageList(components);
-            pictureBox2 = new PictureBox();
-            pnlBusqueda = new Panel();
-            pictureBox1 = new PictureBox();
-            lbl_agg2 = new Label();
-            label1 = new Label();
             pnl_prov.SuspendLayout();
             pnl04.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvProveedor).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pic01).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             pnlBusqueda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pic01).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvProveedor).BeginInit();
             SuspendLayout();
             // 
             // pnl_prov
@@ -90,6 +90,44 @@
             pnl04.Size = new Size(1150, 630);
             pnl04.TabIndex = 35;
             // 
+            // pnlBusqueda
+            // 
+            pnlBusqueda.BackColor = Color.FromArgb(244, 246, 249);
+            pnlBusqueda.Controls.Add(cmb02);
+            pnlBusqueda.Controls.Add(cmb01);
+            pnlBusqueda.Controls.Add(btnBuscar);
+            pnlBusqueda.Controls.Add(txt01);
+            pnlBusqueda.Controls.Add(btnLimpiar);
+            pnlBusqueda.Controls.Add(pictureBox1);
+            pnlBusqueda.Controls.Add(lbl_agg2);
+            pnlBusqueda.Controls.Add(label1);
+            pnlBusqueda.Location = new Point(7, 45);
+            pnlBusqueda.Name = "pnlBusqueda";
+            pnlBusqueda.Size = new Size(1129, 43);
+            pnlBusqueda.TabIndex = 38;
+            // 
+            // cmb02
+            // 
+            cmb02.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmb02.Font = new Font("Calibri", 14.25F);
+            cmb02.FormattingEnabled = true;
+            cmb02.Location = new Point(643, 6);
+            cmb02.Margin = new Padding(3, 2, 3, 2);
+            cmb02.Name = "cmb02";
+            cmb02.Size = new Size(103, 31);
+            cmb02.TabIndex = 14;
+            // 
+            // cmb01
+            // 
+            cmb01.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmb01.Font = new Font("Calibri", 14.25F);
+            cmb01.FormattingEnabled = true;
+            cmb01.Location = new Point(421, 7);
+            cmb01.Margin = new Padding(3, 2, 3, 2);
+            cmb01.Name = "cmb01";
+            cmb01.Size = new Size(121, 31);
+            cmb01.TabIndex = 14;
+            // 
             // btnBuscar
             // 
             btnBuscar.BackColor = Color.FromArgb(13, 154, 64);
@@ -107,16 +145,16 @@
             btnBuscar.UseVisualStyleBackColor = false;
             btnBuscar.Click += btnBuscar_Click;
             // 
-            // cmb02
+            // txt01
             // 
-            cmb02.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmb02.Font = new Font("Calibri", 14.25F);
-            cmb02.FormattingEnabled = true;
-            cmb02.Location = new Point(643, 6);
-            cmb02.Margin = new Padding(3, 2, 3, 2);
-            cmb02.Name = "cmb02";
-            cmb02.Size = new Size(103, 31);
-            cmb02.TabIndex = 14;
+            txt01.Font = new Font("Calibri", 12F);
+            txt01.ForeColor = Color.Gray;
+            txt01.Location = new Point(49, 9);
+            txt01.Margin = new Padding(3, 2, 3, 2);
+            txt01.Name = "txt01";
+            txt01.PlaceholderText = "Buscar producto";
+            txt01.Size = new Size(307, 27);
+            txt01.TabIndex = 7;
             // 
             // btnLimpiar
             // 
@@ -134,16 +172,94 @@
             btnLimpiar.UseVisualStyleBackColor = false;
             btnLimpiar.Click += btnLimpiar_Click;
             // 
-            // cmb01
+            // pictureBox1
             // 
-            cmb01.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmb01.Font = new Font("Calibri", 14.25F);
-            cmb01.FormattingEnabled = true;
-            cmb01.Location = new Point(421, 7);
-            cmb01.Margin = new Padding(3, 2, 3, 2);
-            cmb01.Name = "cmb01";
-            cmb01.Size = new Size(121, 31);
-            cmb01.TabIndex = 14;
+            pictureBox1.BackColor = Color.White;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(3, 6);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(44, 34);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 23;
+            pictureBox1.TabStop = false;
+            // 
+            // lbl_agg2
+            // 
+            lbl_agg2.AutoSize = true;
+            lbl_agg2.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            lbl_agg2.ForeColor = Color.Black;
+            lbl_agg2.ImageAlign = ContentAlignment.MiddleLeft;
+            lbl_agg2.Location = new Point(366, 12);
+            lbl_agg2.Name = "lbl_agg2";
+            lbl_agg2.Size = new Size(59, 19);
+            lbl_agg2.TabIndex = 15;
+            lbl_agg2.Text = "Estado:";
+            lbl_agg2.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            label1.ForeColor = Color.Black;
+            label1.ImageAlign = ContentAlignment.MiddleLeft;
+            label1.Location = new Point(548, 12);
+            label1.Name = "label1";
+            label1.Size = new Size(98, 19);
+            label1.TabIndex = 17;
+            label1.Text = "Ordenar por:";
+            label1.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.BackgroundImage = Properties.Resources.detalleverde;
+            pictureBox2.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox2.Location = new Point(56, 25);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(204, 14);
+            pictureBox2.TabIndex = 37;
+            pictureBox2.TabStop = false;
+            // 
+            // btn_ctg1
+            // 
+            btn_ctg1.BackColor = Color.FromArgb(4, 59, 186);
+            btn_ctg1.Cursor = Cursors.Hand;
+            btn_ctg1.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            btn_ctg1.ForeColor = Color.White;
+            btn_ctg1.Image = (Image)resources.GetObject("btn_ctg1.Image");
+            btn_ctg1.ImageAlign = ContentAlignment.MiddleLeft;
+            btn_ctg1.Location = new Point(913, 3);
+            btn_ctg1.Margin = new Padding(3, 2, 3, 2);
+            btn_ctg1.Name = "btn_ctg1";
+            btn_ctg1.Size = new Size(223, 39);
+            btn_ctg1.TabIndex = 34;
+            btn_ctg1.Text = "Agregar proveedor";
+            btn_ctg1.UseVisualStyleBackColor = false;
+            btn_ctg1.Click += btn_ctg1_Click;
+            // 
+            // pic01
+            // 
+            pic01.Image = (Image)resources.GetObject("pic01.Image");
+            pic01.Location = new Point(7, 0);
+            pic01.Margin = new Padding(3, 2, 3, 2);
+            pic01.Name = "pic01";
+            pic01.Size = new Size(43, 38);
+            pic01.SizeMode = PictureBoxSizeMode.Zoom;
+            pic01.TabIndex = 33;
+            pic01.TabStop = false;
+            // 
+            // lbl01
+            // 
+            lbl01.AutoSize = true;
+            lbl01.Font = new Font("Calibri", 15.75F, FontStyle.Bold);
+            lbl01.ForeColor = Color.FromArgb(13, 154, 64);
+            lbl01.ImageAlign = ContentAlignment.MiddleLeft;
+            lbl01.Location = new Point(56, 0);
+            lbl01.Name = "lbl01";
+            lbl01.Size = new Size(219, 26);
+            lbl01.TabIndex = 32;
+            lbl01.Text = "Gestión de proveedores";
+            lbl01.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // dgvProveedor
             // 
@@ -164,6 +280,7 @@
             dgvProveedor.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvProveedor.Size = new Size(1126, 510);
             dgvProveedor.TabIndex = 15;
+            dgvProveedor.CellClick += dgvProveedor_CellClick;
             // 
             // clId
             // 
@@ -213,128 +330,12 @@
             clEliminar.MinimumWidth = 6;
             clEliminar.Name = "clEliminar";
             // 
-            // txt01
-            // 
-            txt01.Font = new Font("Calibri", 12F);
-            txt01.ForeColor = Color.Gray;
-            txt01.Location = new Point(49, 9);
-            txt01.Margin = new Padding(3, 2, 3, 2);
-            txt01.Name = "txt01";
-            txt01.PlaceholderText = "Buscar producto";
-            txt01.Size = new Size(307, 27);
-            txt01.TabIndex = 7;
-            // 
-            // btn_ctg1
-            // 
-            btn_ctg1.BackColor = Color.FromArgb(4, 59, 186);
-            btn_ctg1.Cursor = Cursors.Hand;
-            btn_ctg1.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            btn_ctg1.ForeColor = Color.White;
-            btn_ctg1.Image = (Image)resources.GetObject("btn_ctg1.Image");
-            btn_ctg1.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_ctg1.Location = new Point(913, 3);
-            btn_ctg1.Margin = new Padding(3, 2, 3, 2);
-            btn_ctg1.Name = "btn_ctg1";
-            btn_ctg1.Size = new Size(223, 39);
-            btn_ctg1.TabIndex = 34;
-            btn_ctg1.Text = "Agregar proveedor";
-            btn_ctg1.UseVisualStyleBackColor = false;
-            btn_ctg1.Click += btn_ctg1_Click;
-            // 
-            // pic01
-            // 
-            pic01.Image = (Image)resources.GetObject("pic01.Image");
-            pic01.Location = new Point(7, 0);
-            pic01.Margin = new Padding(3, 2, 3, 2);
-            pic01.Name = "pic01";
-            pic01.Size = new Size(43, 38);
-            pic01.SizeMode = PictureBoxSizeMode.Zoom;
-            pic01.TabIndex = 33;
-            pic01.TabStop = false;
-            // 
-            // lbl01
-            // 
-            lbl01.AutoSize = true;
-            lbl01.Font = new Font("Calibri", 15.75F, FontStyle.Bold);
-            lbl01.ForeColor = Color.FromArgb(13, 154, 64);
-            lbl01.ImageAlign = ContentAlignment.MiddleLeft;
-            lbl01.Location = new Point(56, 0);
-            lbl01.Name = "lbl01";
-            lbl01.Size = new Size(219, 26);
-            lbl01.TabIndex = 32;
-            lbl01.Text = "Gestión de proveedores";
-            lbl01.TextAlign = ContentAlignment.MiddleLeft;
-            // 
             // imgProveedor
             // 
             imgProveedor.ColorDepth = ColorDepth.Depth32Bit;
             imgProveedor.ImageStream = (ImageListStreamer)resources.GetObject("imgProveedor.ImageStream");
             imgProveedor.TransparentColor = Color.Transparent;
             imgProveedor.Images.SetKeyName(0, "eliminar1.png");
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.BackgroundImage = Properties.Resources.detalleverde;
-            pictureBox2.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox2.Location = new Point(56, 25);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(204, 14);
-            pictureBox2.TabIndex = 37;
-            pictureBox2.TabStop = false;
-            // 
-            // pnlBusqueda
-            // 
-            pnlBusqueda.BackColor = Color.FromArgb(244, 246, 249);
-            pnlBusqueda.Controls.Add(cmb02);
-            pnlBusqueda.Controls.Add(cmb01);
-            pnlBusqueda.Controls.Add(btnBuscar);
-            pnlBusqueda.Controls.Add(txt01);
-            pnlBusqueda.Controls.Add(btnLimpiar);
-            pnlBusqueda.Controls.Add(pictureBox1);
-            pnlBusqueda.Controls.Add(lbl_agg2);
-            pnlBusqueda.Controls.Add(label1);
-            pnlBusqueda.Location = new Point(7, 45);
-            pnlBusqueda.Name = "pnlBusqueda";
-            pnlBusqueda.Size = new Size(1129, 43);
-            pnlBusqueda.TabIndex = 38;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.BackColor = Color.White;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(3, 6);
-            pictureBox1.Margin = new Padding(3, 2, 3, 2);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(44, 34);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 23;
-            pictureBox1.TabStop = false;
-            // 
-            // lbl_agg2
-            // 
-            lbl_agg2.AutoSize = true;
-            lbl_agg2.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            lbl_agg2.ForeColor = Color.Black;
-            lbl_agg2.ImageAlign = ContentAlignment.MiddleLeft;
-            lbl_agg2.Location = new Point(366, 12);
-            lbl_agg2.Name = "lbl_agg2";
-            lbl_agg2.Size = new Size(59, 19);
-            lbl_agg2.TabIndex = 15;
-            lbl_agg2.Text = "Estado:";
-            lbl_agg2.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            label1.ForeColor = Color.Black;
-            label1.ImageAlign = ContentAlignment.MiddleLeft;
-            label1.Location = new Point(548, 12);
-            label1.Name = "label1";
-            label1.Size = new Size(98, 19);
-            label1.TabIndex = 17;
-            label1.Text = "Ordenar por:";
-            label1.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // FormProveedores
             // 
@@ -350,12 +351,12 @@
             pnl_prov.ResumeLayout(false);
             pnl04.ResumeLayout(false);
             pnl04.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvProveedor).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pic01).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             pnlBusqueda.ResumeLayout(false);
             pnlBusqueda.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pic01).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvProveedor).EndInit();
             ResumeLayout(false);
         }
 

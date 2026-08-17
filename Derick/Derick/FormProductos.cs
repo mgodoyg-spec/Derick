@@ -199,7 +199,7 @@ namespace Derick
             else if (columna == "clVerTodo")
             {
                 int idProducto = Convert.ToInt32(dvg_agg.Rows[e.RowIndex].Tag);
-                FrmDetalleProducto frm = new FrmDetalleProducto(idProducto);
+                FrmDetalleTodo1 frm = new FrmDetalleTodo1(idProducto);
                 frm.StartPosition = FormStartPosition.CenterScreen;
                 frm.ShowDialog(this);
             }
@@ -260,17 +260,16 @@ namespace Derick
             string estado = cmb_agg2.Text.Trim();
 
             string sql = @"
-        SELECT
-            Codigo,
-            Nombre,
-            Categoria,
-            Talla,
-            Color,
-            Precio,
-            Estado
-        FROM Productos
-        WHERE 1 = 1
-    ";
+                   SELECT
+                   Codigo,
+                   Nombre,
+                   Categoria,
+                   Talla,
+                   Color,
+                   Precio,
+                   Estado
+                   FROM Productos
+                   WHERE 1 = 1";
 
             if (!string.IsNullOrWhiteSpace(texto))
             {

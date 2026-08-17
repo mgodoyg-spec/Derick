@@ -32,6 +32,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPromociones));
             pnl_prm = new Panel();
             pnl_prm2 = new Panel();
+            pnlBusqueda = new Panel();
+            cmbP2 = new ComboBox();
+            txt_busqPrm = new TextBox();
+            cmbP = new ComboBox();
+            pictureBox1 = new PictureBox();
+            lbl_agg2 = new Label();
+            label1 = new Label();
+            btn_busP = new Button();
+            btn_limpP = new Button();
+            pictureBox2 = new PictureBox();
             dgvPromociones = new DataGridView();
             clId = new DataGridViewTextBoxColumn();
             clNombrePromocion = new DataGridViewTextBoxColumn();
@@ -43,27 +53,17 @@
             clDescripcion = new DataGridViewTextBoxColumn();
             clEditar = new DataGridViewImageColumn();
             clEliminar = new DataGridViewImageColumn();
-            txt_busqPrm = new TextBox();
-            cmbP2 = new ComboBox();
-            btn_limpP = new Button();
-            cmbP = new ComboBox();
-            btn_busP = new Button();
             btn_aggP = new Button();
             pic_prm = new PictureBox();
             lbl_prm1 = new Label();
             img_promociones = new ImageList(components);
-            pictureBox2 = new PictureBox();
-            pnlBusqueda = new Panel();
-            pictureBox1 = new PictureBox();
-            lbl_agg2 = new Label();
-            label1 = new Label();
             pnl_prm.SuspendLayout();
             pnl_prm2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvPromociones).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pic_prm).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             pnlBusqueda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvPromociones).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pic_prm).BeginInit();
             SuspendLayout();
             // 
             // pnl_prm
@@ -92,6 +92,136 @@
             pnl_prm2.Size = new Size(1150, 630);
             pnl_prm2.TabIndex = 36;
             // 
+            // pnlBusqueda
+            // 
+            pnlBusqueda.BackColor = Color.FromArgb(244, 246, 249);
+            pnlBusqueda.Controls.Add(cmbP2);
+            pnlBusqueda.Controls.Add(txt_busqPrm);
+            pnlBusqueda.Controls.Add(cmbP);
+            pnlBusqueda.Controls.Add(pictureBox1);
+            pnlBusqueda.Controls.Add(lbl_agg2);
+            pnlBusqueda.Controls.Add(label1);
+            pnlBusqueda.Controls.Add(btn_busP);
+            pnlBusqueda.Controls.Add(btn_limpP);
+            pnlBusqueda.Location = new Point(7, 45);
+            pnlBusqueda.Name = "pnlBusqueda";
+            pnlBusqueda.Size = new Size(1129, 43);
+            pnlBusqueda.TabIndex = 37;
+            // 
+            // cmbP2
+            // 
+            cmbP2.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbP2.Font = new Font("Calibri", 14.25F);
+            cmbP2.FormattingEnabled = true;
+            cmbP2.Location = new Point(625, 6);
+            cmbP2.Margin = new Padding(3, 2, 3, 2);
+            cmbP2.Name = "cmbP2";
+            cmbP2.Size = new Size(114, 31);
+            cmbP2.TabIndex = 14;
+            // 
+            // txt_busqPrm
+            // 
+            txt_busqPrm.Font = new Font("Calibri", 12F);
+            txt_busqPrm.ForeColor = Color.Gray;
+            txt_busqPrm.Location = new Point(49, 9);
+            txt_busqPrm.Margin = new Padding(3, 2, 3, 2);
+            txt_busqPrm.Name = "txt_busqPrm";
+            txt_busqPrm.PlaceholderText = "Buscar producto";
+            txt_busqPrm.Size = new Size(307, 27);
+            txt_busqPrm.TabIndex = 7;
+            // 
+            // cmbP
+            // 
+            cmbP.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbP.Font = new Font("Calibri", 14.25F);
+            cmbP.FormattingEnabled = true;
+            cmbP.Location = new Point(440, 7);
+            cmbP.Margin = new Padding(3, 2, 3, 2);
+            cmbP.Name = "cmbP";
+            cmbP.Size = new Size(121, 31);
+            cmbP.TabIndex = 14;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.White;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(3, 6);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(44, 34);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 23;
+            pictureBox1.TabStop = false;
+            // 
+            // lbl_agg2
+            // 
+            lbl_agg2.AutoSize = true;
+            lbl_agg2.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            lbl_agg2.ForeColor = Color.Black;
+            lbl_agg2.ImageAlign = ContentAlignment.MiddleLeft;
+            lbl_agg2.Location = new Point(366, 12);
+            lbl_agg2.Name = "lbl_agg2";
+            lbl_agg2.Size = new Size(78, 19);
+            lbl_agg2.TabIndex = 15;
+            lbl_agg2.Text = "Categoría:";
+            lbl_agg2.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            label1.ForeColor = Color.Black;
+            label1.ImageAlign = ContentAlignment.MiddleLeft;
+            label1.Location = new Point(570, 12);
+            label1.Name = "label1";
+            label1.Size = new Size(59, 19);
+            label1.TabIndex = 17;
+            label1.Text = "Estado:";
+            label1.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // btn_busP
+            // 
+            btn_busP.BackColor = Color.FromArgb(13, 154, 64);
+            btn_busP.Cursor = Cursors.Hand;
+            btn_busP.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            btn_busP.ForeColor = Color.White;
+            btn_busP.Image = (Image)resources.GetObject("btn_busP.Image");
+            btn_busP.ImageAlign = ContentAlignment.MiddleLeft;
+            btn_busP.Location = new Point(771, 4);
+            btn_busP.Margin = new Padding(3, 2, 3, 2);
+            btn_busP.Name = "btn_busP";
+            btn_busP.Size = new Size(99, 33);
+            btn_busP.TabIndex = 23;
+            btn_busP.Text = "     Buscar";
+            btn_busP.UseVisualStyleBackColor = false;
+            btn_busP.Click += btn_busP_Click;
+            // 
+            // btn_limpP
+            // 
+            btn_limpP.BackColor = Color.White;
+            btn_limpP.Cursor = Cursors.Hand;
+            btn_limpP.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            btn_limpP.ForeColor = Color.Black;
+            btn_limpP.ImageAlign = ContentAlignment.MiddleLeft;
+            btn_limpP.Location = new Point(889, 7);
+            btn_limpP.Margin = new Padding(3, 2, 3, 2);
+            btn_limpP.Name = "btn_limpP";
+            btn_limpP.Size = new Size(98, 27);
+            btn_limpP.TabIndex = 29;
+            btn_limpP.Text = "Limpiar";
+            btn_limpP.UseVisualStyleBackColor = false;
+            btn_limpP.Click += btn_limpP_Click;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.BackgroundImage = Properties.Resources.detalleverde;
+            pictureBox2.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox2.Location = new Point(56, 25);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(204, 14);
+            pictureBox2.TabIndex = 36;
+            pictureBox2.TabStop = false;
+            // 
             // dgvPromociones
             // 
             dgvPromociones.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -105,6 +235,7 @@
             dgvPromociones.RowHeadersWidth = 51;
             dgvPromociones.Size = new Size(1126, 510);
             dgvPromociones.TabIndex = 31;
+            dgvPromociones.CellClick += dgvPromociones_CellClick;
             // 
             // clId
             // 
@@ -176,72 +307,6 @@
             clEliminar.Name = "clEliminar";
             clEliminar.Width = 125;
             // 
-            // txt_busqPrm
-            // 
-            txt_busqPrm.Font = new Font("Calibri", 12F);
-            txt_busqPrm.ForeColor = Color.Gray;
-            txt_busqPrm.Location = new Point(49, 9);
-            txt_busqPrm.Margin = new Padding(3, 2, 3, 2);
-            txt_busqPrm.Name = "txt_busqPrm";
-            txt_busqPrm.PlaceholderText = "Buscar producto";
-            txt_busqPrm.Size = new Size(307, 27);
-            txt_busqPrm.TabIndex = 7;
-            // 
-            // cmbP2
-            // 
-            cmbP2.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbP2.Font = new Font("Calibri", 14.25F);
-            cmbP2.FormattingEnabled = true;
-            cmbP2.Location = new Point(625, 6);
-            cmbP2.Margin = new Padding(3, 2, 3, 2);
-            cmbP2.Name = "cmbP2";
-            cmbP2.Size = new Size(114, 31);
-            cmbP2.TabIndex = 14;
-            // 
-            // btn_limpP
-            // 
-            btn_limpP.BackColor = Color.White;
-            btn_limpP.Cursor = Cursors.Hand;
-            btn_limpP.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            btn_limpP.ForeColor = Color.Black;
-            btn_limpP.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_limpP.Location = new Point(889, 7);
-            btn_limpP.Margin = new Padding(3, 2, 3, 2);
-            btn_limpP.Name = "btn_limpP";
-            btn_limpP.Size = new Size(98, 27);
-            btn_limpP.TabIndex = 29;
-            btn_limpP.Text = "Limpiar";
-            btn_limpP.UseVisualStyleBackColor = false;
-            btn_limpP.Click += btn_limpP_Click;
-            // 
-            // cmbP
-            // 
-            cmbP.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbP.Font = new Font("Calibri", 14.25F);
-            cmbP.FormattingEnabled = true;
-            cmbP.Location = new Point(440, 7);
-            cmbP.Margin = new Padding(3, 2, 3, 2);
-            cmbP.Name = "cmbP";
-            cmbP.Size = new Size(121, 31);
-            cmbP.TabIndex = 14;
-            // 
-            // btn_busP
-            // 
-            btn_busP.BackColor = Color.FromArgb(13, 154, 64);
-            btn_busP.Cursor = Cursors.Hand;
-            btn_busP.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            btn_busP.ForeColor = Color.White;
-            btn_busP.Image = (Image)resources.GetObject("btn_busP.Image");
-            btn_busP.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_busP.Location = new Point(771, 4);
-            btn_busP.Margin = new Padding(3, 2, 3, 2);
-            btn_busP.Name = "btn_busP";
-            btn_busP.Size = new Size(99, 33);
-            btn_busP.TabIndex = 23;
-            btn_busP.Text = "     Buscar";
-            btn_busP.UseVisualStyleBackColor = false;
-            btn_busP.Click += btn_busP_Click;
-            // 
             // btn_aggP
             // 
             btn_aggP.BackColor = Color.FromArgb(4, 59, 186);
@@ -290,70 +355,6 @@
             img_promociones.TransparentColor = Color.Transparent;
             img_promociones.Images.SetKeyName(0, "eliminar1.png");
             // 
-            // pictureBox2
-            // 
-            pictureBox2.BackgroundImage = Properties.Resources.detalleverde;
-            pictureBox2.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox2.Location = new Point(56, 25);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(204, 14);
-            pictureBox2.TabIndex = 36;
-            pictureBox2.TabStop = false;
-            // 
-            // pnlBusqueda
-            // 
-            pnlBusqueda.BackColor = Color.FromArgb(244, 246, 249);
-            pnlBusqueda.Controls.Add(cmbP2);
-            pnlBusqueda.Controls.Add(txt_busqPrm);
-            pnlBusqueda.Controls.Add(cmbP);
-            pnlBusqueda.Controls.Add(pictureBox1);
-            pnlBusqueda.Controls.Add(lbl_agg2);
-            pnlBusqueda.Controls.Add(label1);
-            pnlBusqueda.Controls.Add(btn_busP);
-            pnlBusqueda.Controls.Add(btn_limpP);
-            pnlBusqueda.Location = new Point(7, 45);
-            pnlBusqueda.Name = "pnlBusqueda";
-            pnlBusqueda.Size = new Size(1129, 43);
-            pnlBusqueda.TabIndex = 37;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.BackColor = Color.White;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(3, 6);
-            pictureBox1.Margin = new Padding(3, 2, 3, 2);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(44, 34);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 23;
-            pictureBox1.TabStop = false;
-            // 
-            // lbl_agg2
-            // 
-            lbl_agg2.AutoSize = true;
-            lbl_agg2.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            lbl_agg2.ForeColor = Color.Black;
-            lbl_agg2.ImageAlign = ContentAlignment.MiddleLeft;
-            lbl_agg2.Location = new Point(366, 12);
-            lbl_agg2.Name = "lbl_agg2";
-            lbl_agg2.Size = new Size(78, 19);
-            lbl_agg2.TabIndex = 15;
-            lbl_agg2.Text = "Categoría:";
-            lbl_agg2.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            label1.ForeColor = Color.Black;
-            label1.ImageAlign = ContentAlignment.MiddleLeft;
-            label1.Location = new Point(570, 12);
-            label1.Name = "label1";
-            label1.Size = new Size(59, 19);
-            label1.TabIndex = 17;
-            label1.Text = "Estado:";
-            label1.TextAlign = ContentAlignment.MiddleLeft;
-            // 
             // FormPromociones
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -368,12 +369,12 @@
             pnl_prm.ResumeLayout(false);
             pnl_prm2.ResumeLayout(false);
             pnl_prm2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvPromociones).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pic_prm).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             pnlBusqueda.ResumeLayout(false);
             pnlBusqueda.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvPromociones).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pic_prm).EndInit();
             ResumeLayout(false);
         }
 
