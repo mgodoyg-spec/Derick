@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -90,7 +91,7 @@ namespace Derick
             string[] columnasCentro =
             {
                 "clId",
-                "clNombrePromocion", 
+                "clNombrePromocion",
                 "clTipo",
                 "clDescuento",
                 "clFechaInicio",
@@ -131,7 +132,7 @@ namespace Derick
                     ? "Activo"
                     : "Inactivo";
 
-                dgvPromociones.Rows.Add(
+                int indice = dgvPromociones.Rows.Add(
                     fila["IdPromocion"].ToString(),
                     fila["Nombre"].ToString(),
                     fila["TipoDescuento"].ToString(),
@@ -140,9 +141,12 @@ namespace Derick
                     Convert.ToDateTime(fila["FechaFin"]).ToString("dd/MM/yyyy"),
                     estado,
                     fila["Descripcion"].ToString(),
-                    null, // Editar
-                    null  // Eliminar
+                    null,
+                    null
                 );
+
+                dgvPromociones.Rows[indice].Tag =
+                    Convert.ToInt32(fila["IdPromocion"]);
             }
         }
         private void FiltrarPromociones()
@@ -276,6 +280,87 @@ namespace Derick
             if (frm.ShowDialog(this) == DialogResult.OK)
             {
                 C_Prm();
+            }
+        }
+
+        private void dgvPromociones_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+                return;
+
+            string columna =
+                dgvPromociones.Columns[e.ColumnIndex].Name;
+
+            // EDITAR
+            if (columna == "clEditar")
+            {
+                int idPromocion =
+                    Convert.ToInt32(
+                        dgvPromociones.Rows[e.RowIndex].Tag
+                    );
+
+                FormAgg_Promocion frm =
+                    new FormAgg_Promocion(idPromocion);
+
+                frm.StartPosition =
+                    FormStartPosition.CenterScreen;
+
+                if (frm.ShowDialog(this) == DialogResult.OK)
+                {
+                    CargarPromociones();
+                }
+            }
+
+            // ELIMINAR / DESACTIVAR
+            else if (columna == "clEliminar")
+            {
+                int idPromocion =
+                    Convert.ToInt32(
+                        dgvPromociones.Rows[e.RowIndex].Tag
+                    );
+
+                string nombre =
+                    dgvPromociones.Rows[e.RowIndex]
+                    .Cells["clNombrePromocion"]
+                    .Value?.ToString() ?? "";
+
+                DialogResult resultado =
+                    MessageBox.Show(
+                        "¿Está seguro de eliminar la promoción \"" +
+                        nombre + "\"?",
+                        "Eliminar promoción",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question
+                    );
+
+                if (resultado == DialogResult.Yes)
+                {
+                    csConectaSQL conexion =
+                        new csConectaSQL();
+
+                    bool eliminado =
+                        conexion.ejecutarComando(
+                            "UPDATE Promociones " +
+                            "SET Estado = 0 " +
+                            "WHERE IdPromocion = @id",
+                            new SqlParameter(
+                                "@id",
+                                idPromocion
+                            )
+                        );
+
+                    if (eliminado)
+                    {
+                        MessageBox.Show(
+                            "Promoción eliminada correctamente.",
+                            "Promoción",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information
+                        );
+
+                        CargarPromociones();
+                    }
+                }
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -78,7 +79,7 @@ namespace Derick
             DataGridViewImageColumn editar = (DataGridViewImageColumn)dgvProveedor.Columns["clEditar"];
             editar.Image = Properties.Resources.editarrbtn;
             editar.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            DataGridViewImageColumn eliminar = (DataGridViewImageColumn)dgvProveedor.Columns["clEliminar"]; 
+            DataGridViewImageColumn eliminar = (DataGridViewImageColumn)dgvProveedor.Columns["clEliminar"];
             eliminar.Image = imgProveedor.Images[0];
             eliminar.ImageLayout = DataGridViewImageCellLayout.Zoom;
             // ==============================
@@ -115,28 +116,29 @@ namespace Derick
                 "SELECT IdProveedor, Nombre, Contacto, Telefono, Correo, Estado " +
                 "FROM Proveedores ORDER BY IdProveedor"
             );
-
             if (dt == null)
                 return;
-
             dgvProveedor.Rows.Clear();
-
             foreach (DataRow fila in dt.Rows)
             {
-                string estado = Convert.ToBoolean(fila["Estado"])
+                string estadoTexto =
+                    Convert.ToBoolean(fila["Estado"])
                     ? "Activo"
                     : "Inactivo";
 
-                dgvProveedor.Rows.Add(
+                int indice = dgvProveedor.Rows.Add(
                     fila["IdProveedor"].ToString(),
                     fila["Nombre"].ToString(),
                     fila["Contacto"].ToString(),
                     fila["Telefono"].ToString(),
                     fila["Correo"].ToString(),
-                    estado,
+                    estadoTexto,
                     null,
                     null
                 );
+
+                dgvProveedor.Rows[indice].Tag =
+                    Convert.ToInt32(fila["IdProveedor"]);
             }
         }
         private void FiltrarProveedores()
@@ -258,6 +260,84 @@ namespace Derick
             if (frm_aggPR.ShowDialog(this) == DialogResult.OK)
             {
                 CargarProveedores();
+            }
+        }
+
+        private void dgvProveedor_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+                return;
+
+            string columna =
+                dgvProveedor.Columns[e.ColumnIndex].Name;
+
+            // ==============================
+            // EDITAR
+            // ==============================
+            if (columna == "clEditar")
+            {
+                int idProveedor =
+                    Convert.ToInt32(
+                        dgvProveedor.Rows[e.RowIndex].Tag
+                    );
+
+                FormAgg_Proveedores frm = new FormAgg_Proveedores(idProveedor);
+                frm.StartPosition = FormStartPosition.CenterScreen;
+
+                if (frm.ShowDialog(this) == DialogResult.OK)
+                {
+                    CargarProveedores();
+                }
+            }
+            else if (columna == "clEliminar")
+            {
+                int idProveedor =
+                    Convert.ToInt32(
+                        dgvProveedor.Rows[e.RowIndex].Tag
+                    );
+
+                string nombre =
+                    dgvProveedor.Rows[e.RowIndex]
+                    .Cells["clNombreProveedor"]
+                    .Value?.ToString() ?? "";
+
+                DialogResult resultado =
+                    MessageBox.Show(
+                        "¿Está seguro de eliminar el proveedor \"" +
+                        nombre + "\"?",
+                        "Eliminar proveedor",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question
+                    );
+
+                if (resultado == DialogResult.Yes)
+                {
+                    csConectaSQL conexion =
+                        new csConectaSQL();
+
+                    bool eliminado =
+                        conexion.ejecutarComando(
+                            "UPDATE Proveedores " +
+                            "SET Estado = 0 " +
+                            "WHERE IdProveedor = @id",
+                            new SqlParameter(
+                                "@id",
+                                idProveedor
+                            )
+                        );
+
+                    if (eliminado)
+                    {
+                        MessageBox.Show(
+                            "Proveedor eliminado correctamente.",
+                            "Proveedor",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information
+                        );
+
+                        CargarProveedores();
+                    }
+                }
             }
         }
     }

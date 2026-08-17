@@ -248,6 +248,7 @@
             dgv_catg.RowHeadersWidth = 51;
             dgv_catg.Size = new Size(1126, 510);
             dgv_catg.TabIndex = 31;
+            dgv_catg.CellClick += dgv_catg_CellClick;
             // 
             // clID
             // 
