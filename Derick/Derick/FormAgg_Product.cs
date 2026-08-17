@@ -17,6 +17,7 @@ namespace Derick
         private List<string> rt = new List<string>();
         private PictureBox? picSelect = null;
         private List<DetalleStock> detallesStock = new List<DetalleStock>();
+        private int? idProductoEditar = null;
         public FormAgg_Product()
         {
             InitializeComponent();
@@ -38,11 +39,19 @@ namespace Derick
                 pic6
             };
         }
+        public FormAgg_Product(int idProducto) : this()
+        {
+            idProductoEditar = idProducto;
+        }
         private void FormAgg_Product_Load(object sender, EventArgs e)
         {
             CTalla();
             CTColor();
             C_CTG();
+            if (idProductoEditar != null)
+            {
+                CP_editar();
+            }
         }
         private void CTalla()
         {
@@ -115,6 +124,70 @@ namespace Derick
             foreach (DataRow fila in dt.Rows)
             {
                 cmb_ctg.Items.Add(fila["Nombre"].ToString());
+            }
+        }
+        private void CP_editar()
+        {
+            if (idProductoEditar == null)
+                return;
+
+            csConectaSQL conexion = new csConectaSQL();
+
+            DataTable dt = conexion.RetornaRegistros(
+                "SELECT Codigo, Nombre, Categoria, Talla, Color, Precio, Estado " +
+                "FROM Productos WHERE IdProductos = " + idProductoEditar.Value
+            );
+
+            if (dt == null || dt.Rows.Count == 0)
+                return;
+
+            DataRow fila = dt.Rows[0];
+
+            txt_cd.Text = fila["Codigo"].ToString();
+            txt_nmb.Text = fila["Nombre"].ToString();
+            cmb_ctg.Text = fila["Categoria"].ToString();
+            txt_prc.Text = Convert.ToDecimal(fila["Precio"]).ToString("0.00");
+
+            // TALLAS
+            string[] tallas = fila["Talla"].ToString()
+                .Split(',', StringSplitOptions.RemoveEmptyEntries);
+
+            foreach (ToolStripItem elemento in cmTallas.Items)
+            {
+                if (elemento is ToolStripMenuItem item)
+                {
+                    foreach (string talla in tallas)
+                    {
+                        if (item.Text.Equals(
+                            talla.Trim(),
+                            StringComparison.OrdinalIgnoreCase))
+                        {
+                            item.Checked = true;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            // COLORES
+            string[] colores = fila["Color"].ToString()
+                .Split(',', StringSplitOptions.RemoveEmptyEntries);
+
+            foreach (ToolStripItem elemento in cmColores.Items)
+            {
+                if (elemento is ToolStripMenuItem item)
+                {
+                    foreach (string color in colores)
+                    {
+                        if (item.Text.Equals(
+                            color.Trim(),
+                            StringComparison.OrdinalIgnoreCase))
+                        {
+                            item.Checked = true;
+                            break;
+                        }
+                    }
+                }
             }
         }
         ////////////////////////////////////////////////////////////

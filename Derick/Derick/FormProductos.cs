@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,6 +11,7 @@ namespace Derick
 {
     public partial class FormProductos : Form
     {
+        
         public FormProductos()
         {
             InitializeComponent();
@@ -135,31 +137,71 @@ namespace Derick
         }
         private void dvg_agg_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0)
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
                 return;
 
             string columna = dvg_agg.Columns[e.ColumnIndex].Name;
 
             if (columna == "clEditar")
             {
-                MessageBox.Show("Editar producto");
+                int idProducto =
+                    Convert.ToInt32(dvg_agg.Rows[e.RowIndex].Tag);
+
+                FormAgg_Product frm = new FormAgg_Product(idProducto);
+
+                frm.StartPosition = FormStartPosition.CenterScreen;
+
+                if (frm.ShowDialog(this) == DialogResult.OK)
+                {
+                    CargarProductos();
+                }
             }
             else if (columna == "clEliminar")
             {
+                int idProducto =
+                    Convert.ToInt32(dvg_agg.Rows[e.RowIndex].Tag);
+
+                string nombreProducto =
+                    dvg_agg.Rows[e.RowIndex]
+                    .Cells["clNombreProducto"]
+                    .Value?.ToString() ?? "";
+
                 DialogResult resultado = MessageBox.Show(
-                    "¿Está seguro de eliminar este producto?",
+                    "¿Está seguro de eliminar el producto \"" +
+                    nombreProducto + "\"?",
                     "Eliminar producto",
                     MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
+                    MessageBoxIcon.Question
+                );
 
                 if (resultado == DialogResult.Yes)
                 {
-                    dvg_agg.Rows.RemoveAt(e.RowIndex);
+                    csConectaSQL conexion = new csConectaSQL();
+
+                    bool eliminado = conexion.ejecutarComando(
+                        "UPDATE Productos SET Estado = 0 WHERE IdProductos = @id",
+                        new SqlParameter("@id", idProducto)
+                    );
+
+                    if (eliminado)
+                    {
+                        MessageBox.Show(
+                            "Producto eliminado correctamente.",
+                            "Producto",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information
+                        );
+
+                        CargarProductos();
+                    }
                 }
             }
             else if (columna == "clVerTodo")
             {
-                MessageBox.Show("Ver información del producto");
+                int idProducto = Convert.ToInt32(dvg_agg.Rows[e.RowIndex].Tag);
+                FrmDetalleProducto frm = new FrmDetalleProducto(idProducto);
+                frm.StartPosition = FormStartPosition.CenterScreen;
+                frm.ShowDialog(this);
             }
         }
         private void CargarProductos()
@@ -167,15 +209,16 @@ namespace Derick
             csConectaSQL conexion = new csConectaSQL();
 
             string sql = @"
-                  SELECT 
-                  Codigo,
-                  Nombre,
-                  Categoria,
-                  Talla,
-                  Color,
-                  Precio,
-                  Estado
-                  FROM Productos";
+          SELECT 
+          IdProductos,
+          Codigo,
+          Nombre,
+          Categoria,
+          Talla,
+          Color,
+          Precio,
+          Estado
+          FROM Productos";
 
             DataTable dt = conexion.RetornaRegistros(sql);
 
@@ -189,10 +232,9 @@ namespace Derick
                 string estado = Convert.ToBoolean(fila["Estado"])
                     ? "Activo"
                     : "Inactivo";
-
                 decimal precio = Convert.ToDecimal(fila["Precio"]);
 
-                dvg_agg.Rows.Add(
+                int indice = dvg_agg.Rows.Add(
                     fila["Codigo"].ToString(),
                     null,
                     fila["Nombre"].ToString(),
@@ -206,6 +248,9 @@ namespace Derick
                     null,
                     null
                 );
+
+                dvg_agg.Rows[indice].Tag =
+                    Convert.ToInt32(fila["IdProductos"]);
             }
         }
         private void FiltrarProductos()
