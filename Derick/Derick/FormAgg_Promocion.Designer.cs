@@ -68,10 +68,17 @@
             lblP3 = new Label();
             txt_p1 = new TextBox();
             lblP2 = new Label();
-            pnl_aggP2 = new Panel();
             btn_salirP = new PictureBox();
             lblP1 = new Label();
             picP1 = new PictureBox();
+            pictureBox1 = new PictureBox();
+            label10 = new Label();
+            label1 = new Label();
+            label2 = new Label();
+            label4 = new Label();
+            label5 = new Label();
+            label6 = new Label();
+            label7 = new Label();
             pnl_aggP1.SuspendLayout();
             pnlP6.SuspendLayout();
             pnlP5.SuspendLayout();
@@ -79,15 +86,26 @@
             pnlP3.SuspendLayout();
             pnlP4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picP2).BeginInit();
-            pnl_aggP2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btn_salirP).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picP1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // pnl_aggP1
             // 
             pnl_aggP1.BackColor = Color.FromArgb(244, 246, 249);
+            pnl_aggP1.Controls.Add(label7);
+            pnl_aggP1.Controls.Add(label6);
+            pnl_aggP1.Controls.Add(label5);
+            pnl_aggP1.Controls.Add(label4);
+            pnl_aggP1.Controls.Add(label2);
+            pnl_aggP1.Controls.Add(label1);
+            pnl_aggP1.Controls.Add(label10);
+            pnl_aggP1.Controls.Add(pictureBox1);
+            pnl_aggP1.Controls.Add(picP1);
+            pnl_aggP1.Controls.Add(btn_salirP);
             pnl_aggP1.Controls.Add(btn_guardar);
+            pnl_aggP1.Controls.Add(lblP1);
             pnl_aggP1.Controls.Add(pnlP6);
             pnl_aggP1.Controls.Add(lbl_p2);
             pnl_aggP1.Controls.Add(pnlP3);
@@ -112,7 +130,6 @@
             pnl_aggP1.Controls.Add(lblP3);
             pnl_aggP1.Controls.Add(txt_p1);
             pnl_aggP1.Controls.Add(lblP2);
-            pnl_aggP1.Controls.Add(pnl_aggP2);
             pnl_aggP1.Dock = DockStyle.Fill;
             pnl_aggP1.Location = new Point(0, 0);
             pnl_aggP1.Margin = new Padding(3, 2, 3, 2);
@@ -122,7 +139,7 @@
             // 
             // btn_guardar
             // 
-            btn_guardar.BackColor = Color.FromArgb(0, 102, 255);
+            btn_guardar.BackColor = Color.FromArgb(4, 59, 186);
             btn_guardar.Cursor = Cursors.Hand;
             btn_guardar.FlatAppearance.BorderSize = 0;
             btn_guardar.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -371,10 +388,10 @@
             // lblP8
             // 
             lblP8.AutoSize = true;
-            lblP8.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblP8.Font = new Font("Calibri", 12F, FontStyle.Bold);
             lblP8.Location = new Point(280, 59);
             lblP8.Name = "lblP8";
-            lblP8.Size = new Size(64, 18);
+            lblP8.Size = new Size(69, 19);
             lblP8.TabIndex = 23;
             lblP8.Text = "Aplicar a";
             // 
@@ -400,10 +417,10 @@
             // lblP7
             // 
             lblP7.AutoSize = true;
-            lblP7.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblP7.Font = new Font("Calibri", 12F, FontStyle.Bold);
             lblP7.Location = new Point(16, 366);
             lblP7.Name = "lblP7";
-            lblP7.Size = new Size(87, 18);
+            lblP7.Size = new Size(88, 19);
             lblP7.TabIndex = 20;
             lblP7.Text = "Descripción";
             // 
@@ -420,10 +437,10 @@
             // lblP6
             // 
             lblP6.AutoSize = true;
-            lblP6.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblP6.Font = new Font("Calibri", 12F, FontStyle.Bold);
             lblP6.Location = new Point(11, 314);
             lblP6.Name = "lblP6";
-            lblP6.Size = new Size(55, 18);
+            lblP6.Size = new Size(55, 19);
             lblP6.TabIndex = 18;
             lblP6.Text = "Estado";
             // 
@@ -439,10 +456,10 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Font = new Font("Calibri", 12F, FontStyle.Bold);
             label3.Location = new Point(11, 262);
             label3.Name = "label3";
-            label3.Size = new Size(88, 18);
+            label3.Size = new Size(91, 19);
             label3.TabIndex = 16;
             label3.Text = "Fecha de fin";
             // 
@@ -458,10 +475,10 @@
             // lblP5
             // 
             lblP5.AutoSize = true;
-            lblP5.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblP5.Font = new Font("Calibri", 12F, FontStyle.Bold);
             lblP5.Location = new Point(11, 211);
             lblP5.Name = "lblP5";
-            lblP5.Size = new Size(107, 18);
+            lblP5.Size = new Size(110, 19);
             lblP5.TabIndex = 14;
             lblP5.Text = "Fecha de inicio";
             // 
@@ -489,10 +506,10 @@
             // lblP4
             // 
             lblP4.AutoSize = true;
-            lblP4.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblP4.Font = new Font("Calibri", 12F, FontStyle.Bold);
             lblP4.Location = new Point(11, 160);
             lblP4.Name = "lblP4";
-            lblP4.Size = new Size(80, 18);
+            lblP4.Size = new Size(81, 19);
             lblP4.TabIndex = 11;
             lblP4.Text = "Descuento";
             // 
@@ -509,10 +526,10 @@
             // lblP3
             // 
             lblP3.AutoSize = true;
-            lblP3.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblP3.Font = new Font("Calibri", 12F, FontStyle.Bold);
             lblP3.Location = new Point(11, 109);
             lblP3.Name = "lblP3";
-            lblP3.Size = new Size(133, 18);
+            lblP3.Size = new Size(139, 19);
             lblP3.TabIndex = 9;
             lblP3.Text = "Tipo de promoción";
             // 
@@ -530,32 +547,18 @@
             // lblP2
             // 
             lblP2.AutoSize = true;
-            lblP2.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblP2.Font = new Font("Calibri", 12F, FontStyle.Bold);
             lblP2.Location = new Point(11, 59);
             lblP2.Name = "lblP2";
-            lblP2.Size = new Size(173, 18);
+            lblP2.Size = new Size(181, 19);
             lblP2.TabIndex = 7;
             lblP2.Text = "Nombre de la promoción";
-            // 
-            // pnl_aggP2
-            // 
-            pnl_aggP2.BackColor = Color.FromArgb(9, 22, 50);
-            pnl_aggP2.BorderStyle = BorderStyle.Fixed3D;
-            pnl_aggP2.Controls.Add(btn_salirP);
-            pnl_aggP2.Controls.Add(lblP1);
-            pnl_aggP2.Controls.Add(picP1);
-            pnl_aggP2.Dock = DockStyle.Top;
-            pnl_aggP2.Location = new Point(0, 0);
-            pnl_aggP2.Margin = new Padding(3, 2, 3, 2);
-            pnl_aggP2.Name = "pnl_aggP2";
-            pnl_aggP2.Size = new Size(564, 51);
-            pnl_aggP2.TabIndex = 0;
             // 
             // btn_salirP
             // 
             btn_salirP.Cursor = Cursors.Hand;
             btn_salirP.Image = (Image)resources.GetObject("btn_salirP.Image");
-            btn_salirP.Location = new Point(524, 12);
+            btn_salirP.Location = new Point(534, 2);
             btn_salirP.Margin = new Padding(3, 2, 3, 2);
             btn_salirP.Name = "btn_salirP";
             btn_salirP.Size = new Size(27, 23);
@@ -568,8 +571,8 @@
             // 
             lblP1.AutoSize = true;
             lblP1.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblP1.ForeColor = Color.White;
-            lblP1.Location = new Point(75, 14);
+            lblP1.ForeColor = Color.FromArgb(4, 59, 186);
+            lblP1.Location = new Point(57, 0);
             lblP1.Name = "lblP1";
             lblP1.Size = new Size(174, 24);
             lblP1.TabIndex = 3;
@@ -578,13 +581,100 @@
             // picP1
             // 
             picP1.Image = (Image)resources.GetObject("picP1.Image");
-            picP1.Location = new Point(10, 2);
+            picP1.Location = new Point(0, 0);
             picP1.Margin = new Padding(3, 2, 3, 2);
             picP1.Name = "picP1";
             picP1.Size = new Size(60, 41);
             picP1.SizeMode = PictureBoxSizeMode.Zoom;
             picP1.TabIndex = 2;
             picP1.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImage = Properties.Resources.detalleazul;
+            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox1.Location = new Point(57, 27);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(204, 14);
+            pictureBox1.TabIndex = 49;
+            pictureBox1.TabStop = false;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label10.ForeColor = Color.Red;
+            label10.Location = new Point(188, 58);
+            label10.Name = "label10";
+            label10.Size = new Size(17, 19);
+            label10.TabIndex = 58;
+            label10.Text = "*";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Red;
+            label1.Location = new Point(145, 109);
+            label1.Name = "label1";
+            label1.Size = new Size(17, 19);
+            label1.TabIndex = 59;
+            label1.Text = "*";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.Red;
+            label2.Location = new Point(86, 159);
+            label2.Name = "label2";
+            label2.Size = new Size(17, 19);
+            label2.TabIndex = 60;
+            label2.Text = "*";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.Red;
+            label4.Location = new Point(116, 211);
+            label4.Name = "label4";
+            label4.Size = new Size(17, 19);
+            label4.TabIndex = 61;
+            label4.Text = "*";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.Red;
+            label5.Location = new Point(96, 259);
+            label5.Name = "label5";
+            label5.Size = new Size(17, 19);
+            label5.TabIndex = 62;
+            label5.Text = "*";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.Red;
+            label6.Location = new Point(63, 313);
+            label6.Name = "label6";
+            label6.Size = new Size(17, 19);
+            label6.TabIndex = 63;
+            label6.Text = "*";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.ForeColor = Color.Red;
+            label7.Location = new Point(346, 58);
+            label7.Name = "label7";
+            label7.Size = new Size(17, 19);
+            label7.TabIndex = 64;
+            label7.Text = "*";
             // 
             // FormAgg_Promocion
             // 
@@ -608,17 +698,15 @@
             pnlP4.ResumeLayout(false);
             pnlP4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picP2).EndInit();
-            pnl_aggP2.ResumeLayout(false);
-            pnl_aggP2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)btn_salirP).EndInit();
             ((System.ComponentModel.ISupportInitialize)picP1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel pnl_aggP1;
-        private Panel pnl_aggP2;
         private PictureBox btn_salirP;
         private Label lblP1;
         private PictureBox picP1;
@@ -660,5 +748,13 @@
         private Label lbl_p7;
         private Label lbl_p5;
         private Button btn_guardar;
+        private PictureBox pictureBox1;
+        private Label label7;
+        private Label label6;
+        private Label label5;
+        private Label label4;
+        private Label label2;
+        private Label label1;
+        private Label label10;
     }
 }
