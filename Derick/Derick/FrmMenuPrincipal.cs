@@ -43,7 +43,7 @@ namespace Derick
             //label de la parte superior
             lblusuario.Text = usuarioActual;
             this.PerformLayout();
-            this.Refresh(); 
+            this.Refresh();
             csNavegacion.AbrirFormulario(pnlMostrarForm, ref formularioActivo, new InicioGerente());
         }
 
@@ -90,36 +90,57 @@ namespace Derick
         private void btninicio_Click(object sender, EventArgs e)
         {
             csBotonActivo.MarcarBotonActivo(pnlIndicador, btninicio);
-            csNavegacion.AbrirFormulario( pnlMostrarForm, ref formularioActivo,new InicioGerente());
+            csNavegacion.AbrirFormulario(pnlMostrarForm, ref formularioActivo, new InicioGerente());
         }
 
         private void btnproductos_Click(object sender, EventArgs e)
         {
             csBotonActivo.MarcarBotonActivo(pnlIndicador, btnproductos);
-            csNavegacion.AbrirFormulario( pnlMostrarForm, ref formularioActivo,new FormProductos());
+            csNavegacion.AbrirFormulario(pnlMostrarForm, ref formularioActivo, new FormProductos());
+            cmsPromProv.Show(btnproductos, new Point(btnproductos.Width, 0)
+    );
         }
 
         private void btnempleados_Click(object sender, EventArgs e)
         {
             csBotonActivo.MarcarBotonActivo(pnlIndicador, btnempleados);
-            csNavegacion.AbrirFormulario( pnlMostrarForm, ref formularioActivo,new FrmEmple());
+            csNavegacion.AbrirFormulario(pnlMostrarForm, ref formularioActivo, new FrmEmple());
         }
 
         private void btnventas_Click(object sender, EventArgs e)
         {
             csBotonActivo.MarcarBotonActivo(pnlIndicador, btnventas);
-            csNavegacion.AbrirFormulario( pnlMostrarForm, ref formularioActivo,new FrmConsultarVenta());
+            csNavegacion.AbrirFormulario(pnlMostrarForm, ref formularioActivo, new FrmConsultarVenta());
         }
 
         private void btnsucursales_Click(object sender, EventArgs e)
         {
             csBotonActivo.MarcarBotonActivo(pnlIndicador, btnsucursales);
-            csNavegacion.AbrirFormulario( pnlMostrarForm, ref formularioActivo,new frmSucursales());
+            csNavegacion.AbrirFormulario(pnlMostrarForm, ref formularioActivo, new frmSucursales());
         }
 
         private void btnreportes_Click(object sender, EventArgs e)
         {
-           
+
+        }
+
+        private void promocionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            csBotonActivo.MarcarBotonActivo(pnlIndicador, btnproductos);
+            csNavegacion.AbrirFormulario(pnlMostrarForm, ref formularioActivo, new FormPromociones());
+        }
+
+        private void proveedoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            csBotonActivo.MarcarBotonActivo(pnlIndicador, btnproductos);
+            csNavegacion.AbrirFormulario(pnlMostrarForm, ref formularioActivo, new FormProveedores());
+        }
+
+        private void categoríasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            csBotonActivo.MarcarBotonActivo(pnlIndicador, btnproductos);
+            csNavegacion.AbrirFormulario(pnlMostrarForm, ref formularioActivo, new FormCategoria());
         }
     }
 }
