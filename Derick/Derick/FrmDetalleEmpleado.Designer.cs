@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDetalleEmpleado));
             lblNombres = new Label();
             label2 = new Label();
             lblCodigo = new Label();
@@ -81,11 +80,11 @@
             label32 = new Label();
             label33 = new Label();
             label34 = new Label();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            pictureBox2 = new PictureBox();
             lblInformacionSuc = new Label();
-            flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            pbxFotoEmpleado = new PictureBox();
+            pictureBox3 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pbxFotoEmpleado).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // lblNombres
@@ -435,7 +434,7 @@
             lblSalirV.Cursor = Cursors.Hand;
             lblSalirV.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSalirV.ForeColor = Color.Red;
-            lblSalirV.Location = new Point(880, 9);
+            lblSalirV.Location = new Point(819, 9);
             lblSalirV.Name = "lblSalirV";
             lblSalirV.Size = new Size(31, 29);
             lblSalirV.TabIndex = 46;
@@ -629,46 +628,50 @@
             label34.TabIndex = 63;
             label34.Text = "*";
             // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.BackColor = Color.White;
-            flowLayoutPanel1.Controls.Add(pictureBox2);
-            flowLayoutPanel1.Controls.Add(lblInformacionSuc);
-            flowLayoutPanel1.Location = new Point(-3, 0);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(870, 116);
-            flowLayoutPanel1.TabIndex = 64;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(3, 3);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(102, 101);
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox2.TabIndex = 43;
-            pictureBox2.TabStop = false;
-            // 
             // lblInformacionSuc
             // 
             lblInformacionSuc.AutoSize = true;
             lblInformacionSuc.BackColor = Color.White;
             lblInformacionSuc.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblInformacionSuc.ForeColor = Color.FromArgb(0, 102, 255);
-            lblInformacionSuc.Location = new Point(111, 0);
+            lblInformacionSuc.Location = new Point(12, 9);
             lblInformacionSuc.Name = "lblInformacionSuc";
             lblInformacionSuc.Size = new Size(256, 33);
             lblInformacionSuc.TabIndex = 44;
             lblInformacionSuc.Text = "Detalle del empleado";
+            // 
+            // pbxFotoEmpleado
+            // 
+            pbxFotoEmpleado.Location = new Point(466, 341);
+            pbxFotoEmpleado.Name = "pbxFotoEmpleado";
+            pbxFotoEmpleado.Size = new Size(273, 277);
+            pbxFotoEmpleado.SizeMode = PictureBoxSizeMode.Zoom;
+            pbxFotoEmpleado.TabIndex = 65;
+            pbxFotoEmpleado.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.BackgroundImage = Properties.Resources.detalleverde;
+            pictureBox3.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox3.Image = Properties.Resources.image;
+            pictureBox3.Location = new Point(12, 46);
+            pictureBox3.Margin = new Padding(3, 4, 3, 4);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(233, 19);
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox3.TabIndex = 66;
+            pictureBox3.TabStop = false;
             // 
             // FrmDetalleEmpleado
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(923, 795);
+            ClientSize = new Size(850, 795);
+            Controls.Add(pictureBox3);
+            Controls.Add(lblInformacionSuc);
+            Controls.Add(pbxFotoEmpleado);
             Controls.Add(lblSalirV);
-            Controls.Add(flowLayoutPanel1);
             Controls.Add(label34);
             Controls.Add(label33);
             Controls.Add(label32);
@@ -725,9 +728,8 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmDetalleEmpleado";
             Load += FrmDetalleEmpleado_Load;
-            flowLayoutPanel1.ResumeLayout(false);
-            flowLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbxFotoEmpleado).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -785,8 +787,8 @@
         private Label label32;
         private Label label33;
         private Label label34;
-        private FlowLayoutPanel flowLayoutPanel1;
-        private PictureBox pictureBox2;
         private Label lblInformacionSuc;
+        private PictureBox pbxFotoEmpleado;
+        private PictureBox pictureBox3;
     }
 }

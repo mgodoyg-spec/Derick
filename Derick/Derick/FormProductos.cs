@@ -103,7 +103,7 @@ namespace Derick
             DataGridViewImageColumn editar = (DataGridViewImageColumn)dvg_agg.Columns["clEditar"];
             editar.Image = Properties.Resources.editarrbtn;
             editar.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            DataGridViewImageColumn eliminar =(DataGridViewImageColumn)dvg_agg.Columns["clEliminar"];
+            DataGridViewImageColumn eliminar = (DataGridViewImageColumn)dvg_agg.Columns["clEliminar"];
             eliminar.Image = Properties.Resources.picEliminar;
             eliminar.ImageLayout = DataGridViewImageCellLayout.Zoom;
             DataGridViewImageColumn ver = (DataGridViewImageColumn)dvg_agg.Columns["clVerTodo"];
@@ -331,6 +331,27 @@ namespace Derick
             frm_agg.StartPosition = FormStartPosition.CenterScreen;
             frm_agg.ShowDialog(this);
             CargarProductos();
+        }
+
+        private void btnCTG_Click(object sender, EventArgs e)
+        {
+            FormCategoria frmctg = new FormCategoria();
+            frmctg.StartPosition = FormStartPosition.CenterScreen;
+            frmctg.ShowDialog(this);
+        }
+
+        private void btnPRM_Click(object sender, EventArgs e)
+        {
+            FormPromociones frmprv = new FormPromociones();
+            frmprv.StartPosition = FormStartPosition.CenterScreen;
+            frmprv.ShowDialog(this);
+        }
+
+        private void btnPRV_Click(object sender, EventArgs e)
+        {
+            FormProveedores frmpr = new FormProveedores();
+            frmpr.StartPosition = FormStartPosition.CenterScreen;
+            frmpr.ShowDialog(this);
         }
     }
 }

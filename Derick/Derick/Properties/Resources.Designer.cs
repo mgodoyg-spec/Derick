@@ -223,6 +223,16 @@ namespace Derick.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap c84eb882_2fd7_4ecc_8aff_1b382b7bb919 {
+            get {
+                object obj = ResourceManager.GetObject("c84eb882-2fd7-4ecc-8aff-1b382b7bb919", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Captura_de_pantalla_2026_07_12_141335 {
             get {
                 object obj = ResourceManager.GetObject("Captura de pantalla 2026-07-12 141335", resourceCulture);
@@ -786,6 +796,16 @@ namespace Derick.Properties {
         internal static System.Drawing.Bitmap icTel {
             get {
                 object obj = ResourceManager.GetObject("icTel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap image {
+            get {
+                object obj = ResourceManager.GetObject("image", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

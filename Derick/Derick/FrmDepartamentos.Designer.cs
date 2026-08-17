@@ -59,7 +59,6 @@
             // 
             // pnlDepa
             // 
-            pnlDepa.Controls.Add(lblSalirV);
             pnlDepa.Controls.Add(pnlDepar);
             pnlDepa.Dock = DockStyle.Fill;
             pnlDepa.Location = new Point(0, 0);
@@ -74,7 +73,7 @@
             lblSalirV.Cursor = Cursors.Hand;
             lblSalirV.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSalirV.ForeColor = Color.Red;
-            lblSalirV.Location = new Point(1138, 9);
+            lblSalirV.Location = new Point(1129, -9);
             lblSalirV.Name = "lblSalirV";
             lblSalirV.Size = new Size(31, 29);
             lblSalirV.TabIndex = 30;
@@ -85,6 +84,7 @@
             // 
             pnlDepar.Anchor = AnchorStyles.Left;
             pnlDepar.BackColor = Color.White;
+            pnlDepar.Controls.Add(lblSalirV);
             pnlDepar.Controls.Add(dgvDepa);
             pnlDepar.Controls.Add(pictureBox1);
             pnlDepar.Controls.Add(btnNuevoDepa);
@@ -92,10 +92,10 @@
             pnlDepar.Controls.Add(pnlBusqueda);
             pnlDepar.Controls.Add(pbxBuscarSucursal);
             pnlDepar.Font = new Font("Calibri", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            pnlDepar.Location = new Point(4, 4);
-            pnlDepar.Margin = new Padding(4);
+            pnlDepar.Location = new Point(5, 14);
+            pnlDepar.Margin = new Padding(5);
             pnlDepar.Name = "pnlDepar";
-            pnlDepar.Size = new Size(1150, 630);
+            pnlDepar.Size = new Size(1150, 585);
             pnlDepar.TabIndex = 7;
             // 
             // dgvDepa
@@ -187,9 +187,9 @@
             btnNuevoDepa.ImageAlign = ContentAlignment.MiddleLeft;
             btnNuevoDepa.ImageIndex = 1;
             btnNuevoDepa.ImageList = imlIcons;
-            btnNuevoDepa.Location = new Point(849, -4);
+            btnNuevoDepa.Location = new Point(888, 3);
             btnNuevoDepa.Name = "btnNuevoDepa";
-            btnNuevoDepa.Size = new Size(262, 48);
+            btnNuevoDepa.Size = new Size(223, 39);
             btnNuevoDepa.TabIndex = 16;
             btnNuevoDepa.Text = "Nuevo Departamento";
             btnNuevoDepa.TextAlign = ContentAlignment.MiddleRight;
@@ -211,7 +211,7 @@
             lblBuscarSucursal.BackColor = Color.White;
             lblBuscarSucursal.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblBuscarSucursal.ForeColor = Color.FromArgb(13, 154, 64);
-            lblBuscarSucursal.Location = new Point(56, 0);
+            lblBuscarSucursal.Location = new Point(56, -11);
             lblBuscarSucursal.Name = "lblBuscarSucursal";
             lblBuscarSucursal.Size = new Size(190, 33);
             lblBuscarSucursal.TabIndex = 27;
@@ -236,9 +236,9 @@
             btnLimpiar.ImageAlign = ContentAlignment.MiddleLeft;
             btnLimpiar.ImageIndex = 0;
             btnLimpiar.ImageList = imlIcons;
-            btnLimpiar.Location = new Point(970, 2);
+            btnLimpiar.Location = new Point(881, 9);
             btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(134, 40);
+            btnLimpiar.Size = new Size(98, 28);
             btnLimpiar.TabIndex = 22;
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.TextAlign = ContentAlignment.MiddleRight;
@@ -249,7 +249,7 @@
             // 
             txtBuscar.Font = new Font("Calibri", 12F);
             txtBuscar.ForeColor = Color.DimGray;
-            txtBuscar.Location = new Point(29, 8);
+            txtBuscar.Location = new Point(4, 7);
             txtBuscar.Margin = new Padding(4);
             txtBuscar.Name = "txtBuscar";
             txtBuscar.Size = new Size(330, 32);
@@ -261,9 +261,11 @@
             // 
             pbxBuscarSucursal.BackgroundImage = (Image)resources.GetObject("pbxBuscarSucursal.BackgroundImage");
             pbxBuscarSucursal.BackgroundImageLayout = ImageLayout.Zoom;
+            pbxBuscarSucursal.Image = Properties.Resources.c84eb882_2fd7_4ecc_8aff_1b382b7bb919;
             pbxBuscarSucursal.Location = new Point(7, 0);
             pbxBuscarSucursal.Name = "pbxBuscarSucursal";
-            pbxBuscarSucursal.Size = new Size(43, 39);
+            pbxBuscarSucursal.Size = new Size(43, 46);
+            pbxBuscarSucursal.SizeMode = PictureBoxSizeMode.Zoom;
             pbxBuscarSucursal.TabIndex = 24;
             pbxBuscarSucursal.TabStop = false;
             // 
@@ -279,7 +281,6 @@
             Text = "FrmDepartamentos";
             Load += FrmDepartamentos_Load;
             pnlDepa.ResumeLayout(false);
-            pnlDepa.PerformLayout();
             pnlDepar.ResumeLayout(false);
             pnlDepar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvDepa).EndInit();
