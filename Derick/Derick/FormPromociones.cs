@@ -307,7 +307,7 @@ namespace Derick
 
                 if (frm.ShowDialog(this) == DialogResult.OK)
                 {
-                    CargarPromociones();
+                    C_Prm();
                 }
             }
 
@@ -358,7 +358,7 @@ namespace Derick
                             MessageBoxIcon.Information
                         );
 
-                        CargarPromociones();
+                        C_Prm();
                     }
                 }
             }
