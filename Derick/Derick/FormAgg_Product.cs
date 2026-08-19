@@ -243,6 +243,7 @@ namespace Derick
             {
                 cmb_ctg.Items.Add(fila["Nombre"].ToString());
             }
+
         }
         private void CP_editar()
         {
@@ -265,6 +266,13 @@ namespace Derick
             txt_nmb.Text = fila["Nombre"].ToString();
             cmb_ctg.Text = fila["Categoria"].ToString();
             txt_prc.Text = Convert.ToDecimal(fila["Precio"]).ToString("0.00");
+
+            // CARGAR ESTADO
+            bool activo = Convert.ToBoolean(fila["Estado"]);
+
+            cmb_est.Text = activo
+                ? "Activado"
+                : "Desactivado";
 
             // TALLAS
             string[] tallas = fila["Talla"].ToString()
@@ -506,7 +514,7 @@ namespace Derick
         }
         private void btn_guardar_Click(object sender, EventArgs e)
         {
-        
+
             // VALIDAR CÓDIGO
             if (string.IsNullOrWhiteSpace(txt_cd.Text))
             {
@@ -519,6 +527,7 @@ namespace Derick
                 txt_cd.Focus();
                 return;
             }
+
             // VALIDAR NOMBRE
             if (string.IsNullOrWhiteSpace(txt_nmb.Text))
             {
@@ -543,6 +552,7 @@ namespace Derick
                 txt_nmb.Focus();
                 return;
             }
+
             // VALIDAR PRECIO
             decimal precio;
 
@@ -569,6 +579,7 @@ namespace Derick
                 txt_prc.Focus();
                 return;
             }
+
             // VALIDAR CATEGORÍA
             if (string.IsNullOrWhiteSpace(cmb_ctg.Text))
             {
@@ -581,6 +592,7 @@ namespace Derick
                 cmb_ctg.Focus();
                 return;
             }
+
             // OBTENER TALLAS
             List<string> tallasSeleccionadas = new List<string>();
 
@@ -602,6 +614,7 @@ namespace Derick
 
                 return;
             }
+
             // OBTENER COLORES
             List<string> coloresSeleccionados = new List<string>();
 
@@ -623,18 +636,58 @@ namespace Derick
 
                 return;
             }
-            // CONVERTIR LISTAS A TEXTO
-            string tallas =
-                string.Join(", ", tallasSeleccionadas);
 
-            string colores =
-                string.Join(", ", coloresSeleccionados);
-            // OBTENER DATOS DEL FORMULARIO
+            // CONVERTIR LISTAS A TEXTO
+            string tallas = string.Join(", ", tallasSeleccionadas);
+            string colores = string.Join(", ", coloresSeleccionados);
+
+            // OBTENER DATOS
             string codigo = txt_cd.Text.Trim();
             string nombre = txt_nmb.Text.Trim();
             string categoria = cmb_ctg.Text.Trim();
+            string estadoTexto = cmb_est.Text.Trim();
+
+            // VALIDAR ESTADO
+            if (string.IsNullOrWhiteSpace(estadoTexto))
+            {
+                MessageBox.Show(
+                    "Seleccione el estado del producto.",
+                    "Estado obligatorio",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                cmb_est.Focus();
+                return;
+            }
+
+            int estado;
+
+            if (estadoTexto.Equals(
+                "Activado",
+                StringComparison.OrdinalIgnoreCase))
+            {
+                estado = 1;
+            }
+            else if (estadoTexto.Equals(
+                "Desactivado",
+                StringComparison.OrdinalIgnoreCase))
+            {
+                estado = 0;
+            }
+            else
+            {
+                MessageBox.Show(
+                    "Seleccione un estado válido.",
+                    "Estado inválido",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                cmb_est.Focus();
+                return;
+            }
 
             csConectaSQL conexion = new csConectaSQL();
+
             // PRODUCTO NUEVO
             if (idProductoEditar == null)
             {
@@ -648,7 +701,7 @@ namespace Derick
                     $"'{tallas}', " +
                     $"'{colores}', " +
                     $"{precio.ToString(System.Globalization.CultureInfo.InvariantCulture)}, " +
-                    "1";
+                    $"{estado}";
 
                 int idProducto = conexion.Ins_RetrID(
                     "Productos",
@@ -666,7 +719,8 @@ namespace Derick
 
                     return;
                 }
-                // GUARDAR IMÁGENES DEL PRODUCTO
+
+                // GUARDAR IMÁGENES
                 if (rt.Count > 0)
                 {
                     bool imagenesGuardadas =
@@ -688,26 +742,32 @@ namespace Derick
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
             }
+
             // EDITAR PRODUCTO
             else
             {
-                string datosActualizar =
-                    $"Codigo = '{codigo}', " +
-                    $"Nombre = '{nombre}', " +
-                    $"Categoria = '{categoria}', " +
-                    $"Talla = '{tallas}', " +
-                    $"Color = '{colores}', " +
-                    $"Precio = {precio.ToString(System.Globalization.CultureInfo.InvariantCulture)}";
+                bool actualizado = conexion.ejecutarComando(
+                    @"UPDATE Productos
+              SET Codigo = @Codigo,
+                  Nombre = @Nombre,
+                  Categoria = @Categoria,
+                  Talla = @Talla,
+                  Color = @Color,
+                  Precio = @Precio,
+                  Estado = @Estado
+              WHERE IdProductos = @IdProducto",
 
-                string condicion =
-                    $"IdProductos = {idProductoEditar.Value}";
-
-                bool actualizado =
-                    conexion.actualizarDatos(
-                        "Productos",
-                        datosActualizar,
-                        condicion
-                    );
+                    new SqlParameter("@Codigo", codigo),
+                    new SqlParameter("@Nombre", nombre),
+                    new SqlParameter("@Categoria", categoria),
+                    new SqlParameter("@Talla", tallas),
+                    new SqlParameter("@Color", colores),
+                    new SqlParameter("@Precio", precio),
+                    new SqlParameter("@Estado", estado),
+                    new SqlParameter(
+                        "@IdProducto",
+                        idProductoEditar.Value)
+                );
 
                 if (!actualizado)
                 {
@@ -719,24 +779,25 @@ namespace Derick
 
                     return;
                 }
-                // ACTUALIZAR IMÁGENES
-                // SOLO SI SE SELECCIONARON NUEVAS
+
+                // REEMPLAZAR IMÁGENES SOLAMENTE
+                // SI EL USUARIO SELECCIONÓ NUEVAS
                 if (rt.Count > 0)
                 {
                     bool eliminadas =
                         conexion.ejecutarComando(
-                            "DELETE FROM ProductoImagenes " +
-                            "WHERE IdProductos = @id",
+                            @"DELETE FROM ProductoImagenes
+                      WHERE IdProductos = @id",
+
                             new SqlParameter(
                                 "@id",
-                                idProductoEditar.Value
-                            )
+                                idProductoEditar.Value)
                         );
 
                     if (!eliminadas)
                     {
                         MessageBox.Show(
-                            "El producto se actualizó, pero no se pudieron reemplazar las imágenes anteriores.",
+                            "El producto se actualizó, pero no se pudieron reemplazar las imágenes.",
                             "Advertencia",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Warning);
@@ -746,8 +807,7 @@ namespace Derick
 
                     bool imagenesGuardadas =
                         GuardarImagenesProducto(
-                            idProductoEditar.Value
-                        );
+                            idProductoEditar.Value);
 
                     if (!imagenesGuardadas)
                     {
