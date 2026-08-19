@@ -221,10 +221,9 @@ namespace Derick
                 return Error("Ingrese apellidos válidos, solo con letras y espacios.", txtApellidos);
 
             string cedula = txtCedula.Text.Trim();
+
             if (!Regex.IsMatch(cedula, @"^\d{10}$"))
                 return Error("La cédula debe contener exactamente 10 números.", txtCedula);
-            if (!CedulaValida(cedula))
-                return Error("La cédula ingresada no es válida.", txtCedula);
 
             int edad = CalcularEdad(dtpFechaNacimiento.Value);
             if (edad < 18 || edad > 65)
@@ -289,26 +288,6 @@ namespace Derick
                 return Error("Seleccione el rol.", cmbRol);
 
             return true;
-        }
-
-        private bool CedulaValida(string cedula)
-        {
-            if ((cedula[2] - '0') >= 6) return false;
-
-            int suma = 0;
-            for (int i = 0; i < 9; i++)
-            {
-                int numero = cedula[i] - '0';
-                if (i % 2 == 0)
-                {
-                    numero *= 2;
-                    if (numero > 9) numero -= 9;
-                }
-                suma += numero;
-            }
-
-            int verificador = (10 - (suma % 10)) % 10;
-            return verificador == (cedula[9] - '0');
         }
 
         private int CalcularEdad(DateTime fecha)
