@@ -142,7 +142,7 @@ namespace Derick
             editar.Image = Properties.Resources.editarrbtn;
             editar.ImageLayout = DataGridViewImageCellLayout.Zoom;
             DataGridViewImageColumn eliminar = (DataGridViewImageColumn)dgv_catg.Columns["clEliminar"];
-            eliminar.Image = img_ctg.Images[0];
+            eliminar.Image = Properties.Resources.picEliminar;
             eliminar.ImageLayout = DataGridViewImageCellLayout.Zoom;
 
 
@@ -187,7 +187,7 @@ namespace Derick
             csConectaSQL conexion = new csConectaSQL();
 
             DataTable dt = conexion.RetornaRegistros(
-                "SELECT IdCategoria, Nombre, Descripcion, Estado " +
+                "SELECT IdCategoria, Nombre, Descripcion, Estado, Imagen " +
                 "FROM Categorias ORDER BY IdCategoria"
             );
 
@@ -202,9 +202,25 @@ namespace Derick
                     ? "Activo"
                     : "Inactivo";
 
+                Image icono = null;
+
+                // CONVERTIR LOS BYTES DE SQL A IMAGEN
+                if (fila["Imagen"] != DBNull.Value)
+                {
+                    byte[] bytes = (byte[])fila["Imagen"];
+
+                    using (MemoryStream ms = new MemoryStream(bytes))
+                    {
+                        using (Image temporal = Image.FromStream(ms))
+                        {
+                            icono = new Bitmap(temporal);
+                        }
+                    }
+                }
+
                 int indice = dgv_catg.Rows.Add(
                     fila["IdCategoria"].ToString(),
-                    null,
+                    icono, // AQUÍ APARECE EL ÍCONO
                     fila["Nombre"].ToString(),
                     estado,
                     fila["Descripcion"].ToString(),
@@ -333,9 +349,10 @@ namespace Derick
 
         private void btn_ctg1_Click(object sender, EventArgs e)
         {
-            FrmAgg_Categoria frnctg = new FrmAgg_Categoria();
-            frnctg.StartPosition = FormStartPosition.CenterScreen;
-            if (frnctg.ShowDialog(this) == DialogResult.OK)
+            FrmAgg_Categoria frmctg = new FrmAgg_Categoria();
+            frmctg.StartPosition = FormStartPosition.CenterScreen;
+
+            if (frmctg.ShowDialog(this) == DialogResult.OK)
             {
                 CargarCategorias();
             }
@@ -381,8 +398,8 @@ namespace Derick
                     csConectaSQL conexion = new csConectaSQL();
 
                     bool eliminado = conexion.ejecutarComando(
-                        "UPDATE Categorias SET Estado = 0 WHERE IdCategoria = @id",
-                        new SqlParameter("@id", idCategoria)
+                         "DELETE FROM Categorias WHERE IdCategoria = @id",
+                          new SqlParameter("@id", idCategoria)
                     );
 
                     if (eliminado)

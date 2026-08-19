@@ -78,7 +78,7 @@ namespace Derick
             {
                 rb_ps.Checked = true;
 
-                CPR_editar();
+                Cargar_PRM();
             }
         }
         private void Cargar_PRM()

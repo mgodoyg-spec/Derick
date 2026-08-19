@@ -102,6 +102,10 @@ namespace Derick
             dvg_agg.Columns["clEliminar"].FillWeight = 8;
             dvg_agg.Columns["clVerTodo"].FillWeight = 8;
 
+            DataGridViewImageColumn imagenProducto = (DataGridViewImageColumn)dvg_agg.Columns["clImagen"];
+            imagenProducto.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            imagenProducto.DefaultCellStyle.Padding = new Padding(8);
+
             DataGridViewImageColumn editar = (DataGridViewImageColumn)dvg_agg.Columns["clEditar"];
             editar.Image = Properties.Resources.editarrbtn;
             editar.ImageLayout = DataGridViewImageCellLayout.Zoom;
@@ -145,15 +149,51 @@ namespace Derick
             if (columna == "clEditar")
             {
                 int idProducto =
-                    Convert.ToInt32(dvg_agg.Rows[e.RowIndex].Tag);
+                    Convert.ToInt32(
+                        dvg_agg.Rows[e.RowIndex].Tag
+                    );
 
-                FormAgg_Product frm = new FormAgg_Product(idProducto);
+                FormAgg_Product frm =
+                    new FormAgg_Product(idProducto);
 
-                frm.StartPosition = FormStartPosition.CenterScreen;
+                frm.StartPosition =
+                    FormStartPosition.CenterScreen;
 
-                if (frm.ShowDialog(this) == DialogResult.OK)
+                DialogResult resultado =
+                    frm.ShowDialog(this);
+
+                // COMPROBAR QUÉ TIENE SQL DESPUÉS DE EDITAR
+                csConectaSQL conexion = new csConectaSQL();
+
+                DataTable dt = conexion.RetornaRegistros(
+                    "SELECT Estado " +
+                    "FROM Productos " +
+                    "WHERE IdProductos = " + idProducto
+                );
+
+                if (dt != null && dt.Rows.Count > 0)
                 {
-                    CargarProductos();
+                    bool activo =
+                        Convert.ToBoolean(
+                            dt.Rows[0]["Estado"]
+                        );
+
+                    string estadoTexto =
+                        activo
+                        ? "Activado"
+                        : "Desactivado";
+
+                    // ACTUALIZAR DIRECTAMENTE LA CELDA
+                    dvg_agg.Rows[e.RowIndex]
+                        .Cells["clEstado"].Value =
+                        estadoTexto;
+
+                    dvg_agg.InvalidateCell(
+                        dvg_agg.Columns["clEstado"].Index,
+                        e.RowIndex
+                    );
+
+                    dvg_agg.Refresh();
                 }
             }
             else if (columna == "clEliminar")
@@ -209,16 +249,25 @@ namespace Derick
             csConectaSQL conexion = new csConectaSQL();
 
             string sql = @"
-          SELECT 
-          IdProductos,
-          Codigo,
-          Nombre,
-          Categoria,
-          Talla,
-          Color,
-          Precio,
-          Estado
-          FROM Productos";
+                  SELECT
+                  P.IdProductos,
+                  P.Codigo,
+                  P.Nombre,
+                  P.Categoria,
+                  P.Talla,
+                  P.Color,
+                  P.Precio,
+                  P.Estado,
+                  PI.Imagen
+                  FROM Productos P
+                  OUTER APPLY
+                  (
+                  SELECT TOP 1 Imagen
+                  FROM ProductoImagenes
+                  WHERE IdProductos = P.IdProductos
+                  AND EsPrincipal = 1
+                  ORDER BY IdImagen
+                  ) PI";
 
             DataTable dt = conexion.RetornaRegistros(sql);
 
@@ -229,28 +278,33 @@ namespace Derick
 
             foreach (DataRow fila in dt.Rows)
             {
-                string estado = Convert.ToBoolean(fila["Estado"])
-                    ? "Activo"
-                    : "Inactivo";
+                string estado = Convert.ToBoolean(fila["Estado"]) ? "Activado" : "Desactivado";
                 decimal precio = Convert.ToDecimal(fila["Precio"]);
-
+                Image imagenProducto = null;
+                if (fila["Imagen"] != DBNull.Value)
+                {
+                    byte[] bytes = (byte[])fila["Imagen"];
+                    using (MemoryStream ms = new MemoryStream(bytes))
+                    {
+                        using (Image temp = Image.FromStream(ms))
+                        {
+                            imagenProducto = new Bitmap(temp);
+                        }
+                    }
+                }
                 int indice = dvg_agg.Rows.Add(
                     fila["Codigo"].ToString(),
-                    null,
+                    imagenProducto,
                     fila["Nombre"].ToString(),
                     fila["Categoria"].ToString(),
                     fila["Talla"].ToString(),
                     fila["Color"].ToString(),
-                    "$" + precio.ToString("0.00"),
-                    "0",
+                    "$" + precio.ToString("0.00"),"0",
                     estado,
                     null,
                     null,
-                    null
-                );
-
-                dvg_agg.Rows[indice].Tag =
-                    Convert.ToInt32(fila["IdProductos"]);
+                    null);
+                dvg_agg.Rows[indice].Tag = Convert.ToInt32(fila["IdProductos"]);
             }
         }
         private void FiltrarProductos()
@@ -260,40 +314,53 @@ namespace Derick
             string estado = cmb_agg2.Text.Trim();
 
             string sql = @"
-                   SELECT
-                   Codigo,
-                   Nombre,
-                   Categoria,
-                   Talla,
-                   Color,
-                   Precio,
-                   Estado
-                   FROM Productos
-                   WHERE 1 = 1";
+        SELECT
+            IdProductos,
+            Codigo,
+            Nombre,
+            Categoria,
+            Talla,
+            Color,
+            Precio,
+            Estado
+        FROM Productos
+        WHERE 1 = 1
+    ";
 
+            // BUSCAR POR CÓDIGO O NOMBRE
             if (!string.IsNullOrWhiteSpace(texto))
             {
-                sql += $" AND (Codigo LIKE '%{texto}%' OR Nombre LIKE '%{texto}%')";
+                sql += $" AND (Codigo LIKE '%{texto}%' " +
+                       $"OR Nombre LIKE '%{texto}%')";
             }
 
-            if (categoria != "Todas" && !string.IsNullOrWhiteSpace(categoria))
+            // FILTRAR POR CATEGORÍA
+            if (categoria != "Todas" &&
+                !string.IsNullOrWhiteSpace(categoria))
             {
                 sql += $" AND Categoria = '{categoria}'";
             }
 
-            if (estado != "Todos" && !string.IsNullOrWhiteSpace(estado))
+            // FILTRAR POR ESTADO
+            if (estado != "Todos" &&
+                !string.IsNullOrWhiteSpace(estado))
             {
                 if (estado == "Activo")
+                {
                     sql += " AND Estado = 1";
-                else if (estado == "Inactivo")
+                }
+                else if (estado == "Desactivado")
+                {
                     sql += " AND Estado = 0";
+                }
             }
 
             sql += " ORDER BY Codigo";
 
             csConectaSQL conexion = new csConectaSQL();
 
-            DataTable dt = conexion.RetornaRegistros(sql);
+            DataTable dt =
+                conexion.RetornaRegistros(sql);
 
             if (dt == null)
                 return;
@@ -305,11 +372,12 @@ namespace Derick
                 string estadoTexto =
                     Convert.ToBoolean(fila["Estado"])
                     ? "Activo"
-                    : "Inactivo";
+                    : "Desactivado";
 
-                decimal precio = Convert.ToDecimal(fila["Precio"]);
+                decimal precio =
+                    Convert.ToDecimal(fila["Precio"]);
 
-                dvg_agg.Rows.Add(
+                int indice = dvg_agg.Rows.Add(
                     fila["Codigo"].ToString(),
                     null,
                     fila["Nombre"].ToString(),
@@ -323,8 +391,14 @@ namespace Derick
                     null,
                     null
                 );
+
+                dvg_agg.Rows[indice].Tag =
+                    Convert.ToInt32(
+                        fila["IdProductos"]
+                    );
             }
         }
+        
         private void CargarCategoriasFiltro()
         {
             cmb_agg1.Items.Clear();
@@ -354,7 +428,7 @@ namespace Derick
 
             cmb_agg2.Items.Add("Todos");
             cmb_agg2.Items.Add("Activo");
-            cmb_agg2.Items.Add("Inactivo");
+            cmb_agg2.Items.Add("Desactivado");
 
             cmb_agg2.SelectedIndex = 0;
         }
