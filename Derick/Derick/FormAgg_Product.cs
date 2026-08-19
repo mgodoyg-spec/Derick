@@ -669,7 +669,7 @@ namespace Derick
                 estado = 1;
             }
             else if (estadoTexto.Equals(
-                "Desactivado",
+                "Inactivo",
                 StringComparison.OrdinalIgnoreCase))
             {
                 estado = 0;

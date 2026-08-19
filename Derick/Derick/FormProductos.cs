@@ -180,8 +180,8 @@ namespace Derick
 
                     string estadoTexto =
                         activo
-                        ? "Activado"
-                        : "Desactivado";
+                        ? "Activo"
+                        : "Inactivo";
 
                     // ACTUALIZAR DIRECTAMENTE LA CELDA
                     dvg_agg.Rows[e.RowIndex]
