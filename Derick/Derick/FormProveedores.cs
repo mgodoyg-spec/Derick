@@ -80,7 +80,7 @@ namespace Derick
             editar.Image = Properties.Resources.editarrbtn;
             editar.ImageLayout = DataGridViewImageCellLayout.Zoom;
             DataGridViewImageColumn eliminar = (DataGridViewImageColumn)dgvProveedor.Columns["clEliminar"];
-            eliminar.Image = imgProveedor.Images[0];
+            eliminar.Image = Properties.Resources.picEliminar;
             eliminar.ImageLayout = DataGridViewImageCellLayout.Zoom;
             // ==============================
             // CENTRAR COLUMNAS
@@ -309,7 +309,6 @@ namespace Derick
                         MessageBoxButtons.YesNo,
                         MessageBoxIcon.Question
                     );
-
                 if (resultado == DialogResult.Yes)
                 {
                     csConectaSQL conexion =
@@ -317,15 +316,13 @@ namespace Derick
 
                     bool eliminado =
                         conexion.ejecutarComando(
-                            "UPDATE Proveedores " +
-                            "SET Estado = 0 " +
+                            "DELETE FROM Proveedores " +
                             "WHERE IdProveedor = @id",
                             new SqlParameter(
                                 "@id",
                                 idProveedor
                             )
                         );
-
                     if (eliminado)
                     {
                         MessageBox.Show(
@@ -339,6 +336,7 @@ namespace Derick
                     }
                 }
             }
+        
         }
     }
 }

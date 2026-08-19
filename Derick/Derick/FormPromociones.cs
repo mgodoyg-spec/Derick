@@ -83,7 +83,7 @@ namespace Derick
             editar.Image = Properties.Resources.editarrbtn;
             editar.ImageLayout = DataGridViewImageCellLayout.Zoom;
             DataGridViewImageColumn eliminar = (DataGridViewImageColumn)dgvPromociones.Columns["clEliminar"];
-            eliminar.Image = img_promociones.Images[0];
+            eliminar.Image = Properties.Resources.picEliminar;
             eliminar.ImageLayout = DataGridViewImageCellLayout.Zoom;
             // ==============================
             // CENTRAR COLUMNAS
@@ -313,7 +313,6 @@ namespace Derick
                 }
             }
 
-            // ELIMINAR / DESACTIVAR
             else if (columna == "clEliminar")
             {
                 int idPromocion =
@@ -337,13 +336,33 @@ namespace Derick
 
                 if (resultado == DialogResult.Yes)
                 {
-                    csConectaSQL conexion =
-                        new csConectaSQL();
+                    csConectaSQL conexion = new csConectaSQL();
+                    // 1. ELIMINAR PRODUCTOS DE LA PROMOCIÓN
+                    bool relacionesEliminadas =
+                        conexion.ejecutarComando(
+                            "DELETE FROM PromocionProducto " +
+                            "WHERE IdPromocion = @id",
+                            new SqlParameter(
+                                "@id",
+                                idPromocion
+                            )
+                        );
 
+                    if (!relacionesEliminadas)
+                    {
+                        MessageBox.Show(
+                            "No se pudieron eliminar los productos asociados a la promoción.",
+                            "Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error
+                        );
+
+                        return;
+                    }
+                    // 2. ELIMINAR PROMOCIÓN
                     bool eliminado =
                         conexion.ejecutarComando(
-                            "UPDATE Promociones " +
-                            "SET Estado = 0 " +
+                            "DELETE FROM Promociones " +
                             "WHERE IdPromocion = @id",
                             new SqlParameter(
                                 "@id",
@@ -363,7 +382,7 @@ namespace Derick
                         C_Prm();
                     }
                 }
-            }
+            }    
         }
     }
 }

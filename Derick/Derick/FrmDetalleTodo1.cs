@@ -68,6 +68,7 @@ namespace Derick
                 "SELECT TOP 5 Imagen " +
                 "FROM ProductoImagenes " +
                 "WHERE IdProductos = " + idproducto + " " +
+                "AND Imagen IS NOT NULL " +
                 "ORDER BY EsPrincipal DESC, IdImagen"
             );
 
@@ -76,41 +77,49 @@ namespace Derick
 
             PictureBox[] imagenes =
             {
-        pic_img1,
-        pic_img2,
-        pic_img3,
-        pic_img4,
-        pic_img5
-    };
+                pic_img1,
+                pic_img2,
+                pic_img3,
+                pic_img4,
+                pic_img5
+            };
 
-            foreach (PictureBox pic in imagenes)
+            PictureBox[] iconosMas =
             {
-                if (pic.Image != null)
-                {
-                    pic.Image.Dispose();
-                    pic.Image = null;
-                }
+                pic2,
+                pic3,
+                pic4,
+                pic5,
+                pic6
+            };
+
+            // Primero dejamos todos los "+" visibles
+            for (int i = 0; i < imagenes.Length; i++)
+            {
+                imagenes[i].Image = null;
+                iconosMas[i].Visible = true;
             }
 
+            // Cargar las imágenes
             for (int i = 0; i < dt.Rows.Count && i < imagenes.Length; i++)
             {
                 if (dt.Rows[i]["Imagen"] == DBNull.Value)
                     continue;
 
-                byte[] bytes =
-                    (byte[])dt.Rows[i]["Imagen"];
+                byte[] bytes = (byte[])dt.Rows[i]["Imagen"];
 
                 using (MemoryStream ms = new MemoryStream(bytes))
                 {
                     using (Image temporal = Image.FromStream(ms))
                     {
-                        imagenes[i].Image =
-                            new Bitmap(temporal);
+                        imagenes[i].Image = new Bitmap(temporal);
                     }
                 }
 
-                imagenes[i].SizeMode =
-                    PictureBoxSizeMode.Zoom;
+                imagenes[i].SizeMode = PictureBoxSizeMode.Zoom;
+
+                // OCULTAR EL "+" DE ESTA POSICIÓN
+                iconosMas[i].Visible = false;
             }
         }
         private void btn_guardar_Click(object sender, EventArgs e)

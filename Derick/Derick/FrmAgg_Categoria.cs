@@ -5,6 +5,8 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
+using Microsoft.Data.SqlClient;
 
 namespace Derick
 {
@@ -16,6 +18,14 @@ namespace Derick
         public FrmAgg_Categoria()
         {
             InitializeComponent();
+        }
+        private byte[] ImagenABytes(Image imagen)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                imagen.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                return ms.ToArray();
+            }
         }
         public FrmAgg_Categoria(int idCategoria) : this()
         {
@@ -55,7 +65,7 @@ namespace Derick
             csConectaSQL conexion = new csConectaSQL();
 
             DataTable dt = conexion.RetornaRegistros(
-                "SELECT Nombre, Descripcion, Estado " +
+                "SELECT Nombre, Descripcion, Estado, Imagen " +
                 "FROM Categorias " +
                 "WHERE IdCategoria = " + idCategoriaEditar.Value
             );
@@ -69,8 +79,23 @@ namespace Derick
             txt1.Text = fila["Descripcion"].ToString();
 
             bool activo = Convert.ToBoolean(fila["Estado"]);
-
             cmb_ctg.Text = activo ? "Activo" : "Inactivo";
+
+            // CARGAR ÍCONO EXISTENTE
+            if (fila["Imagen"] != DBNull.Value)
+            {
+                byte[] bytes = (byte[])fila["Imagen"];
+
+                using (MemoryStream ms = new MemoryStream(bytes))
+                {
+                    using (Image temporal = Image.FromStream(ms))
+                    {
+                        iconoCategoria = new Bitmap(temporal);
+                    }
+                }
+
+                lbl_icono.Text = "Ícono cargado";
+            }
         }
 
         private void btn_abajo_Click(object sender, EventArgs e)
@@ -138,20 +163,43 @@ namespace Derick
                 estado = 0;
             }
             csConectaSQL conexion = new csConectaSQL();
+
             if (idCategoriaEditar == null)
             {
-                string campos =
-                    "Nombre, Descripcion, Estado";
+                string sql = @"
+        INSERT INTO Categorias
+        (
+            Nombre,
+            Descripcion,
+            Estado,
+            Imagen
+        )
+        VALUES
+        (
+            @Nombre,
+            @Descripcion,
+            @Estado,
+            @Imagen
+        )";
 
-                string datos =
-                    $"'{nombre}', " +
-                    $"'{descripcion}', " +
-                    $"{estado}";
+                SqlParameter parametroImagen =
+                    new SqlParameter("@Imagen", SqlDbType.VarBinary, -1);
 
-                bool guardado = conexion.insertDatos(
-                    "Categorias",
-                    campos,
-                    datos
+                if (iconoCategoria != null)
+                {
+                    parametroImagen.Value = ImagenABytes(iconoCategoria);
+                }
+                else
+                {
+                    parametroImagen.Value = DBNull.Value;
+                }
+
+                bool guardado = conexion.ejecutarComando(
+                    sql,
+                    new SqlParameter("@Nombre", nombre),
+                    new SqlParameter("@Descripcion", descripcion),
+                    new SqlParameter("@Estado", estado),
+                    parametroImagen
                 );
 
                 if (!guardado)
@@ -175,18 +223,34 @@ namespace Derick
             }
             else
             {
-                string datos =
-                    $"Nombre = '{nombre}', " +
-                    $"Descripcion = '{descripcion}', " +
-                    $"Estado = {estado}";
+                string sql = @"
+                    UPDATE Categorias
+                    SET
+                    Nombre = @Nombre,
+                    Descripcion = @Descripcion,
+                    Estado = @Estado,
+                    Imagen = @Imagen
+                    WHERE IdCategoria = @IdCategoria";
 
-                string condicion =
-                    $"IdCategoria = {idCategoriaEditar.Value}";
+                SqlParameter parametroImagen =
+                    new SqlParameter("@Imagen", SqlDbType.VarBinary, -1);
 
-                bool actualizado = conexion.actualizarDatos(
-                    "Categorias",
-                    datos,
-                    condicion
+                if (iconoCategoria != null)
+                {
+                    parametroImagen.Value = ImagenABytes(iconoCategoria);
+                }
+                else
+                {
+                    parametroImagen.Value = DBNull.Value;
+                }
+
+                bool actualizado = conexion.ejecutarComando(
+                    sql,
+                    new SqlParameter("@Nombre", nombre),
+                    new SqlParameter("@Descripcion", descripcion),
+                    new SqlParameter("@Estado", estado),
+                    parametroImagen,
+                    new SqlParameter("@IdCategoria", idCategoriaEditar.Value)
                 );
 
                 if (!actualizado)

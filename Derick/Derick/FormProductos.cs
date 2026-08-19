@@ -102,6 +102,10 @@ namespace Derick
             dvg_agg.Columns["clEliminar"].FillWeight = 8;
             dvg_agg.Columns["clVerTodo"].FillWeight = 8;
 
+            DataGridViewImageColumn imagenProducto = (DataGridViewImageColumn)dvg_agg.Columns["clImagen"];
+            imagenProducto.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            imagenProducto.DefaultCellStyle.Padding = new Padding(8);
+
             DataGridViewImageColumn editar = (DataGridViewImageColumn)dvg_agg.Columns["clEditar"];
             editar.Image = Properties.Resources.editarrbtn;
             editar.ImageLayout = DataGridViewImageCellLayout.Zoom;
@@ -221,11 +225,14 @@ namespace Derick
                  PI.Imagen
                  FROM Productos P
                  OUTER APPLY
-                 (SELECT TOP 1 Imagen
+                 (
+                 SELECT TOP 1 Imagen
                  FROM ProductoImagenes
                  WHERE IdProductos = P.IdProductos
                  AND EsPrincipal = 1
-                 ORDER BY IdImagen) PI";
+                 ORDER BY IdImagen
+                 ) PI
+                 WHERE P.Estado = 1";
 
             DataTable dt = conexion.RetornaRegistros(sql);
 

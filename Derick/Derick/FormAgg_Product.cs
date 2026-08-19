@@ -53,6 +53,7 @@ namespace Derick
             if (idProductoEditar != null)
             {
                 CP_editar();
+                CargarImagenesEditar();
             }
         }
         private void CTalla()
@@ -177,6 +178,56 @@ namespace Derick
             }
 
             return true;
+        }
+        private void CargarImagenesEditar()
+        {
+            if (idProductoEditar == null)
+                return;
+
+            csConectaSQL conexion = new csConectaSQL();
+
+            DataTable dt = conexion.RetornaRegistros(
+                "SELECT TOP 5 Imagen " +
+                "FROM ProductoImagenes " +
+                "WHERE IdProductos = " + idProductoEditar.Value + " " +
+                "AND Imagen IS NOT NULL " +
+                "ORDER BY EsPrincipal DESC, IdImagen"
+            );
+
+            if (dt == null)
+                return;
+
+            // Limpiar los PictureBox primero
+            for (int i = 0; i < piclist.Count; i++)
+            {
+                if (piclist[i].Image != null)
+                {
+                    piclist[i].Image.Dispose();
+                    piclist[i].Image = null;
+                }
+
+                piclist1[i].Visible = true;
+            }
+
+            // Cargar imágenes guardadas en SQL
+            for (int i = 0; i < dt.Rows.Count && i < piclist.Count; i++)
+            {
+                if (dt.Rows[i]["Imagen"] == DBNull.Value)
+                    continue;
+
+                byte[] bytes = (byte[])dt.Rows[i]["Imagen"];
+
+                using (MemoryStream ms = new MemoryStream(bytes))
+                {
+                    using (Image temporal = Image.FromStream(ms))
+                    {
+                        piclist[i].Image = new Bitmap(temporal);
+                    }
+                }
+
+                piclist[i].SizeMode = PictureBoxSizeMode.Zoom;
+                piclist1[i].Visible = false;
+            }
         }
         private void C_CTG()
         {
