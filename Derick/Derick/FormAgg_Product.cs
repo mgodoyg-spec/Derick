@@ -271,8 +271,8 @@ namespace Derick
             bool activo = Convert.ToBoolean(fila["Estado"]);
 
             cmb_est.Text = activo
-                ? "Activado"
-                : "Desactivado";
+                ? "Activo"
+                : "Inactivo";
 
             // TALLAS
             string[] tallas = fila["Talla"].ToString()
@@ -663,7 +663,7 @@ namespace Derick
             int estado;
 
             if (estadoTexto.Equals(
-                "Activado",
+                "Activo",
                 StringComparison.OrdinalIgnoreCase))
             {
                 estado = 1;
