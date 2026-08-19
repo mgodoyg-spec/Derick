@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_secundario1));
             pnl_sc1 = new Panel();
             pnl_cd1 = new Panel();
+            lbl_ry = new Label();
             pnl_cd2 = new Panel();
             btnguardar = new Button();
             btncerrar = new Button();
@@ -39,6 +40,7 @@
             pnl_enc1 = new Panel();
             lbl_sc = new Label();
             pic_ntll = new PictureBox();
+            label10 = new Label();
             pnl_sc1.SuspendLayout();
             pnl_cd1.SuspendLayout();
             pnl_cd2.SuspendLayout();
@@ -60,6 +62,8 @@
             // 
             // pnl_cd1
             // 
+            pnl_cd1.Controls.Add(label10);
+            pnl_cd1.Controls.Add(lbl_ry);
             pnl_cd1.Controls.Add(pnl_cd2);
             pnl_cd1.Controls.Add(lbl2);
             pnl_cd1.Controls.Add(txt_cd);
@@ -69,6 +73,14 @@
             pnl_cd1.Name = "pnl_cd1";
             pnl_cd1.Size = new Size(392, 162);
             pnl_cd1.TabIndex = 4;
+            // 
+            // lbl_ry
+            // 
+            lbl_ry.BackColor = Color.FromArgb(4, 59, 186);
+            lbl_ry.Location = new Point(0, 0);
+            lbl_ry.Name = "lbl_ry";
+            lbl_ry.Size = new Size(394, 2);
+            lbl_ry.TabIndex = 5;
             // 
             // pnl_cd2
             // 
@@ -85,10 +97,10 @@
             // 
             // btnguardar
             // 
-            btnguardar.BackColor = Color.FromArgb(0, 102, 255);
+            btnguardar.BackColor = Color.FromArgb(4, 59, 186);
             btnguardar.Cursor = Cursors.Hand;
             btnguardar.FlatAppearance.BorderColor = Color.Black;
-            btnguardar.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnguardar.Font = new Font("Calibri", 12F, FontStyle.Bold);
             btnguardar.ForeColor = Color.White;
             btnguardar.Image = (Image)resources.GetObject("btnguardar.Image");
             btnguardar.ImageAlign = ContentAlignment.MiddleLeft;
@@ -106,8 +118,8 @@
             btncerrar.BackColor = Color.White;
             btncerrar.Cursor = Cursors.Hand;
             btncerrar.FlatAppearance.BorderColor = Color.FromArgb(0, 102, 255);
-            btncerrar.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btncerrar.ForeColor = Color.FromArgb(0, 102, 255);
+            btncerrar.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            btncerrar.ForeColor = Color.FromArgb(4, 59, 186);
             btncerrar.Image = (Image)resources.GetObject("btncerrar.Image");
             btncerrar.ImageAlign = ContentAlignment.MiddleLeft;
             btncerrar.Location = new Point(18, 16);
@@ -122,17 +134,17 @@
             // lbl2
             // 
             lbl2.AutoSize = true;
-            lbl2.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl2.Font = new Font("Calibri", 12F, FontStyle.Bold);
             lbl2.Location = new Point(10, 18);
             lbl2.Name = "lbl2";
-            lbl2.Size = new Size(127, 18);
+            lbl2.Size = new Size(136, 19);
             lbl2.TabIndex = 2;
             lbl2.Text = "Nombre de la talla";
             // 
             // txt_cd
             // 
             txt_cd.CharacterCasing = CharacterCasing.Upper;
-            txt_cd.Location = new Point(10, 37);
+            txt_cd.Location = new Point(10, 43);
             txt_cd.Margin = new Padding(3, 2, 3, 2);
             txt_cd.MaxLength = 10;
             txt_cd.Name = "txt_cd";
@@ -174,6 +186,17 @@
             pic_ntll.TabIndex = 1;
             pic_ntll.TabStop = false;
             // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label10.ForeColor = Color.Red;
+            label10.Location = new Point(141, 18);
+            label10.Name = "label10";
+            label10.Size = new Size(17, 19);
+            label10.TabIndex = 59;
+            label10.Text = "*";
+            // 
             // frm_secundario1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -209,5 +232,7 @@
         private Panel pnl_cd2;
         private Button btncerrar;
         private Button btnguardar;
+        private Label lbl_ry;
+        private Label label10;
     }
 }

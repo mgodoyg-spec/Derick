@@ -31,16 +31,20 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProveedores));
             pnl_prov = new Panel();
-            lbl02 = new PictureBox();
             pnl04 = new Panel();
-            btnBuscar = new Button();
-            pnl03 = new Panel();
+            pnlBusqueda = new Panel();
             cmb02 = new ComboBox();
-            btnLimpiar = new Button();
-            lbl04 = new Label();
-            pnl02 = new Panel();
             cmb01 = new ComboBox();
-            lbl03 = new Label();
+            btnBuscar = new Button();
+            txt01 = new TextBox();
+            btnLimpiar = new Button();
+            pictureBox1 = new PictureBox();
+            lbl_agg2 = new Label();
+            label1 = new Label();
+            pictureBox2 = new PictureBox();
+            btn_ctg1 = new Button();
+            pic01 = new PictureBox();
+            lbl01 = new Label();
             dgvProveedor = new DataGridView();
             clId = new DataGridViewTextBoxColumn();
             clNombreProveedor = new DataGridViewTextBoxColumn();
@@ -50,32 +54,20 @@
             clEstado = new DataGridViewTextBoxColumn();
             clEditar = new DataGridViewImageColumn();
             clEliminar = new DataGridViewImageColumn();
-            pnl01 = new Panel();
-            pic02 = new PictureBox();
-            txt01 = new TextBox();
-            btn_ctg1 = new Button();
-            pic01 = new PictureBox();
-            lbl01 = new Label();
             imgProveedor = new ImageList(components);
             pnl_prov.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)lbl02).BeginInit();
             pnl04.SuspendLayout();
-            pnl03.SuspendLayout();
-            pnl02.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvProveedor).BeginInit();
-            pnl01.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pic02).BeginInit();
+            pnlBusqueda.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pic01).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvProveedor).BeginInit();
             SuspendLayout();
             // 
             // pnl_prov
             // 
             pnl_prov.BackColor = Color.FromArgb(244, 246, 249);
-            pnl_prov.Controls.Add(lbl02);
             pnl_prov.Controls.Add(pnl04);
-            pnl_prov.Controls.Add(btn_ctg1);
-            pnl_prov.Controls.Add(pic01);
-            pnl_prov.Controls.Add(lbl01);
             pnl_prov.Dock = DockStyle.Fill;
             pnl_prov.Location = new Point(0, 0);
             pnl_prov.Margin = new Padding(3, 2, 3, 2);
@@ -83,137 +75,191 @@
             pnl_prov.Size = new Size(1186, 651);
             pnl_prov.TabIndex = 0;
             // 
-            // lbl02
-            // 
-            lbl02.BackColor = Color.FromArgb(0, 176, 80);
-            lbl02.Location = new Point(66, 39);
-            lbl02.Margin = new Padding(3, 2, 3, 2);
-            lbl02.Name = "lbl02";
-            lbl02.Size = new Size(244, 3);
-            lbl02.TabIndex = 23;
-            lbl02.TabStop = false;
-            // 
             // pnl04
             // 
             pnl04.BackColor = Color.White;
-            pnl04.Controls.Add(btnBuscar);
-            pnl04.Controls.Add(pnl03);
-            pnl04.Controls.Add(btnLimpiar);
-            pnl04.Controls.Add(lbl04);
-            pnl04.Controls.Add(pnl02);
-            pnl04.Controls.Add(lbl03);
+            pnl04.Controls.Add(pnlBusqueda);
+            pnl04.Controls.Add(pictureBox2);
+            pnl04.Controls.Add(btn_ctg1);
+            pnl04.Controls.Add(pic01);
+            pnl04.Controls.Add(lbl01);
             pnl04.Controls.Add(dgvProveedor);
-            pnl04.Controls.Add(pnl01);
-            pnl04.Location = new Point(10, 55);
+            pnl04.Location = new Point(13, 13);
             pnl04.Margin = new Padding(3, 2, 3, 2);
             pnl04.Name = "pnl04";
-            pnl04.Size = new Size(1164, 585);
+            pnl04.Size = new Size(1150, 630);
             pnl04.TabIndex = 35;
             // 
-            // btnBuscar
+            // pnlBusqueda
             // 
-            btnBuscar.BackColor = Color.FromArgb(0, 176, 80);
-            btnBuscar.Cursor = Cursors.Hand;
-            btnBuscar.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnBuscar.ForeColor = Color.White;
-            btnBuscar.Image = (Image)resources.GetObject("btnBuscar.Image");
-            btnBuscar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnBuscar.Location = new Point(889, 12);
-            btnBuscar.Margin = new Padding(3, 2, 3, 2);
-            btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(128, 37);
-            btnBuscar.TabIndex = 8;
-            btnBuscar.Text = "Buscar";
-            btnBuscar.UseVisualStyleBackColor = false;
-            btnBuscar.Click += btnBuscar_Click;
-            // 
-            // pnl03
-            // 
-            pnl03.BackColor = Color.White;
-            pnl03.BorderStyle = BorderStyle.FixedSingle;
-            pnl03.Controls.Add(cmb02);
-            pnl03.Location = new Point(619, 15);
-            pnl03.Margin = new Padding(3, 2, 3, 2);
-            pnl03.Name = "pnl03";
-            pnl03.Padding = new Padding(9, 8, 9, 8);
-            pnl03.Size = new Size(138, 34);
-            pnl03.TabIndex = 16;
+            pnlBusqueda.BackColor = Color.FromArgb(244, 246, 249);
+            pnlBusqueda.Controls.Add(cmb02);
+            pnlBusqueda.Controls.Add(cmb01);
+            pnlBusqueda.Controls.Add(btnBuscar);
+            pnlBusqueda.Controls.Add(txt01);
+            pnlBusqueda.Controls.Add(btnLimpiar);
+            pnlBusqueda.Controls.Add(pictureBox1);
+            pnlBusqueda.Controls.Add(lbl_agg2);
+            pnlBusqueda.Controls.Add(label1);
+            pnlBusqueda.Location = new Point(7, 45);
+            pnlBusqueda.Name = "pnlBusqueda";
+            pnlBusqueda.Size = new Size(1129, 43);
+            pnlBusqueda.TabIndex = 38;
             // 
             // cmb02
             // 
             cmb02.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmb02.FlatStyle = FlatStyle.Flat;
+            cmb02.Font = new Font("Calibri", 14.25F);
             cmb02.FormattingEnabled = true;
-            cmb02.Location = new Point(11, 7);
+            cmb02.Location = new Point(643, 6);
             cmb02.Margin = new Padding(3, 2, 3, 2);
             cmb02.Name = "cmb02";
-            cmb02.Size = new Size(113, 23);
+            cmb02.Size = new Size(103, 31);
             cmb02.TabIndex = 14;
+            // 
+            // cmb01
+            // 
+            cmb01.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmb01.Font = new Font("Calibri", 14.25F);
+            cmb01.FormattingEnabled = true;
+            cmb01.Location = new Point(421, 7);
+            cmb01.Margin = new Padding(3, 2, 3, 2);
+            cmb01.Name = "cmb01";
+            cmb01.Size = new Size(121, 31);
+            cmb01.TabIndex = 14;
+            // 
+            // btnBuscar
+            // 
+            btnBuscar.BackColor = Color.FromArgb(13, 154, 64);
+            btnBuscar.Cursor = Cursors.Hand;
+            btnBuscar.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            btnBuscar.ForeColor = Color.White;
+            btnBuscar.Image = (Image)resources.GetObject("btnBuscar.Image");
+            btnBuscar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnBuscar.Location = new Point(771, 4);
+            btnBuscar.Margin = new Padding(3, 2, 3, 2);
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.Size = new Size(99, 33);
+            btnBuscar.TabIndex = 8;
+            btnBuscar.Text = "     Buscar";
+            btnBuscar.UseVisualStyleBackColor = false;
+            btnBuscar.Click += btnBuscar_Click;
+            // 
+            // txt01
+            // 
+            txt01.Font = new Font("Calibri", 12F);
+            txt01.ForeColor = Color.Gray;
+            txt01.Location = new Point(49, 9);
+            txt01.Margin = new Padding(3, 2, 3, 2);
+            txt01.Name = "txt01";
+            txt01.PlaceholderText = "Buscar producto";
+            txt01.Size = new Size(307, 27);
+            txt01.TabIndex = 7;
             // 
             // btnLimpiar
             // 
             btnLimpiar.BackColor = Color.White;
             btnLimpiar.Cursor = Cursors.Hand;
-            btnLimpiar.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnLimpiar.Font = new Font("Calibri", 12F, FontStyle.Bold);
             btnLimpiar.ForeColor = Color.Black;
             btnLimpiar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnLimpiar.Location = new Point(1025, 15);
+            btnLimpiar.Location = new Point(889, 7);
             btnLimpiar.Margin = new Padding(3, 2, 3, 2);
             btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(128, 37);
+            btnLimpiar.Size = new Size(98, 27);
             btnLimpiar.TabIndex = 21;
             btnLimpiar.Text = "   Limpiar";
             btnLimpiar.UseVisualStyleBackColor = false;
             btnLimpiar.Click += btnLimpiar_Click;
             // 
-            // lbl04
+            // pictureBox1
             // 
-            lbl04.AutoSize = true;
-            lbl04.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl04.ForeColor = Color.Black;
-            lbl04.ImageAlign = ContentAlignment.MiddleLeft;
-            lbl04.Location = new Point(509, 23);
-            lbl04.Name = "lbl04";
-            lbl04.Size = new Size(104, 18);
-            lbl04.TabIndex = 17;
-            lbl04.Text = "Ordenar por:";
-            lbl04.TextAlign = ContentAlignment.MiddleLeft;
+            pictureBox1.BackColor = Color.White;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(3, 6);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(44, 34);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 23;
+            pictureBox1.TabStop = false;
             // 
-            // pnl02
+            // lbl_agg2
             // 
-            pnl02.BackColor = Color.White;
-            pnl02.BorderStyle = BorderStyle.FixedSingle;
-            pnl02.Controls.Add(cmb01);
-            pnl02.Location = new Point(362, 15);
-            pnl02.Margin = new Padding(3, 2, 3, 2);
-            pnl02.Name = "pnl02";
-            pnl02.Padding = new Padding(9, 8, 9, 8);
-            pnl02.Size = new Size(141, 34);
-            pnl02.TabIndex = 15;
+            lbl_agg2.AutoSize = true;
+            lbl_agg2.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            lbl_agg2.ForeColor = Color.Black;
+            lbl_agg2.ImageAlign = ContentAlignment.MiddleLeft;
+            lbl_agg2.Location = new Point(366, 12);
+            lbl_agg2.Name = "lbl_agg2";
+            lbl_agg2.Size = new Size(59, 19);
+            lbl_agg2.TabIndex = 15;
+            lbl_agg2.Text = "Estado:";
+            lbl_agg2.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // cmb01
+            // label1
             // 
-            cmb01.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmb01.FlatStyle = FlatStyle.Flat;
-            cmb01.FormattingEnabled = true;
-            cmb01.Location = new Point(11, 7);
-            cmb01.Margin = new Padding(3, 2, 3, 2);
-            cmb01.Name = "cmb01";
-            cmb01.Size = new Size(116, 23);
-            cmb01.TabIndex = 14;
+            label1.AutoSize = true;
+            label1.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            label1.ForeColor = Color.Black;
+            label1.ImageAlign = ContentAlignment.MiddleLeft;
+            label1.Location = new Point(548, 12);
+            label1.Name = "label1";
+            label1.Size = new Size(98, 19);
+            label1.TabIndex = 17;
+            label1.Text = "Ordenar por:";
+            label1.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // lbl03
+            // pictureBox2
             // 
-            lbl03.AutoSize = true;
-            lbl03.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl03.ForeColor = Color.Black;
-            lbl03.ImageAlign = ContentAlignment.MiddleLeft;
-            lbl03.Location = new Point(290, 23);
-            lbl03.Name = "lbl03";
-            lbl03.Size = new Size(66, 18);
-            lbl03.TabIndex = 15;
-            lbl03.Text = "Estado:";
-            lbl03.TextAlign = ContentAlignment.MiddleLeft;
+            pictureBox2.BackgroundImage = Properties.Resources.detalleverde;
+            pictureBox2.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox2.Location = new Point(56, 25);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(204, 14);
+            pictureBox2.TabIndex = 37;
+            pictureBox2.TabStop = false;
+            // 
+            // btn_ctg1
+            // 
+            btn_ctg1.BackColor = Color.FromArgb(4, 59, 186);
+            btn_ctg1.Cursor = Cursors.Hand;
+            btn_ctg1.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            btn_ctg1.ForeColor = Color.White;
+            btn_ctg1.Image = (Image)resources.GetObject("btn_ctg1.Image");
+            btn_ctg1.ImageAlign = ContentAlignment.MiddleLeft;
+            btn_ctg1.Location = new Point(913, 3);
+            btn_ctg1.Margin = new Padding(3, 2, 3, 2);
+            btn_ctg1.Name = "btn_ctg1";
+            btn_ctg1.Size = new Size(223, 39);
+            btn_ctg1.TabIndex = 34;
+            btn_ctg1.Text = "Agregar proveedor";
+            btn_ctg1.UseVisualStyleBackColor = false;
+            btn_ctg1.Click += btn_ctg1_Click;
+            // 
+            // pic01
+            // 
+            pic01.Image = (Image)resources.GetObject("pic01.Image");
+            pic01.Location = new Point(7, 0);
+            pic01.Margin = new Padding(3, 2, 3, 2);
+            pic01.Name = "pic01";
+            pic01.Size = new Size(43, 38);
+            pic01.SizeMode = PictureBoxSizeMode.Zoom;
+            pic01.TabIndex = 33;
+            pic01.TabStop = false;
+            // 
+            // lbl01
+            // 
+            lbl01.AutoSize = true;
+            lbl01.Font = new Font("Calibri", 15.75F, FontStyle.Bold);
+            lbl01.ForeColor = Color.FromArgb(13, 154, 64);
+            lbl01.ImageAlign = ContentAlignment.MiddleLeft;
+            lbl01.Location = new Point(56, 0);
+            lbl01.Name = "lbl01";
+            lbl01.Size = new Size(219, 26);
+            lbl01.TabIndex = 32;
+            lbl01.Text = "Gestión de proveedores";
+            lbl01.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // dgvProveedor
             // 
@@ -221,20 +267,20 @@
             dgvProveedor.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvProveedor.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvProveedor.BackgroundColor = Color.White;
-            dgvProveedor.BorderStyle = BorderStyle.None;
             dgvProveedor.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvProveedor.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dgvProveedor.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvProveedor.Columns.AddRange(new DataGridViewColumn[] { clId, clNombreProveedor, clContacto, clTelefono, clCorreo, clEstado, clEditar, clEliminar });
-            dgvProveedor.Location = new Point(10, 81);
+            dgvProveedor.Location = new Point(7, 94);
             dgvProveedor.Margin = new Padding(3, 2, 3, 2);
             dgvProveedor.MultiSelect = false;
             dgvProveedor.Name = "dgvProveedor";
             dgvProveedor.RowHeadersVisible = false;
             dgvProveedor.RowHeadersWidth = 51;
             dgvProveedor.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvProveedor.Size = new Size(1143, 489);
+            dgvProveedor.Size = new Size(1126, 510);
             dgvProveedor.TabIndex = 15;
+            dgvProveedor.CellClick += dgvProveedor_CellClick;
             // 
             // clId
             // 
@@ -284,84 +330,6 @@
             clEliminar.MinimumWidth = 6;
             clEliminar.Name = "clEliminar";
             // 
-            // pnl01
-            // 
-            pnl01.BackColor = Color.White;
-            pnl01.BorderStyle = BorderStyle.FixedSingle;
-            pnl01.Controls.Add(pic02);
-            pnl01.Controls.Add(txt01);
-            pnl01.Location = new Point(10, 15);
-            pnl01.Margin = new Padding(3, 2, 3, 2);
-            pnl01.Name = "pnl01";
-            pnl01.Padding = new Padding(9, 8, 9, 8);
-            pnl01.Size = new Size(259, 34);
-            pnl01.TabIndex = 9;
-            // 
-            // pic02
-            // 
-            pic02.BackColor = Color.White;
-            pic02.Image = (Image)resources.GetObject("pic02.Image");
-            pic02.Location = new Point(-2, -1);
-            pic02.Margin = new Padding(3, 2, 3, 2);
-            pic02.Name = "pic02";
-            pic02.Size = new Size(44, 34);
-            pic02.SizeMode = PictureBoxSizeMode.Zoom;
-            pic02.TabIndex = 23;
-            pic02.TabStop = false;
-            // 
-            // txt01
-            // 
-            txt01.BorderStyle = BorderStyle.None;
-            txt01.Font = new Font("Segoe UI", 10.8F);
-            txt01.ForeColor = Color.Gray;
-            txt01.Location = new Point(48, 5);
-            txt01.Margin = new Padding(3, 2, 3, 2);
-            txt01.Name = "txt01";
-            txt01.PlaceholderText = "          Buscar producto";
-            txt01.Size = new Size(197, 20);
-            txt01.TabIndex = 7;
-            // 
-            // btn_ctg1
-            // 
-            btn_ctg1.BackColor = Color.FromArgb(0, 102, 255);
-            btn_ctg1.Cursor = Cursors.Hand;
-            btn_ctg1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn_ctg1.ForeColor = Color.White;
-            btn_ctg1.Image = (Image)resources.GetObject("btn_ctg1.Image");
-            btn_ctg1.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_ctg1.Location = new Point(957, 7);
-            btn_ctg1.Margin = new Padding(3, 2, 3, 2);
-            btn_ctg1.Name = "btn_ctg1";
-            btn_ctg1.Size = new Size(217, 38);
-            btn_ctg1.TabIndex = 34;
-            btn_ctg1.Text = "Agregar proveedor";
-            btn_ctg1.UseVisualStyleBackColor = false;
-            btn_ctg1.Click += btn_ctg1_Click;
-            // 
-            // pic01
-            // 
-            pic01.Image = (Image)resources.GetObject("pic01.Image");
-            pic01.Location = new Point(8, 7);
-            pic01.Margin = new Padding(3, 2, 3, 2);
-            pic01.Name = "pic01";
-            pic01.Size = new Size(52, 38);
-            pic01.SizeMode = PictureBoxSizeMode.Zoom;
-            pic01.TabIndex = 33;
-            pic01.TabStop = false;
-            // 
-            // lbl01
-            // 
-            lbl01.AutoSize = true;
-            lbl01.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl01.ForeColor = Color.FromArgb(0, 176, 80);
-            lbl01.ImageAlign = ContentAlignment.MiddleLeft;
-            lbl01.Location = new Point(60, 15);
-            lbl01.Name = "lbl01";
-            lbl01.Size = new Size(235, 24);
-            lbl01.TabIndex = 32;
-            lbl01.Text = "Gestión de proveedores";
-            lbl01.TextAlign = ContentAlignment.MiddleLeft;
-            // 
             // imgProveedor
             // 
             imgProveedor.ColorDepth = ColorDepth.Depth32Bit;
@@ -381,17 +349,14 @@
             Text = "FormProveedores";
             Load += FormProveedores_Load;
             pnl_prov.ResumeLayout(false);
-            pnl_prov.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)lbl02).EndInit();
             pnl04.ResumeLayout(false);
             pnl04.PerformLayout();
-            pnl03.ResumeLayout(false);
-            pnl02.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvProveedor).EndInit();
-            pnl01.ResumeLayout(false);
-            pnl01.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pic02).EndInit();
+            pnlBusqueda.ResumeLayout(false);
+            pnlBusqueda.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pic01).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvProveedor).EndInit();
             ResumeLayout(false);
         }
 
@@ -404,17 +369,10 @@
         private Panel pnl04;
         private Button btnLimpiar;
         private Button btnBuscar;
-        private Panel pnl03;
         private ComboBox cmb02;
-        private Label lbl04;
-        private Panel pnl02;
         private ComboBox cmb01;
-        private Label lbl03;
         private DataGridView dgvProveedor;
-        private Panel pnl01;
-        private PictureBox pic02;
         private TextBox txt01;
-        private PictureBox lbl02;
         private ImageList imgProveedor;
         private DataGridViewTextBoxColumn clId;
         private DataGridViewTextBoxColumn clNombreProveedor;
@@ -424,5 +382,10 @@
         private DataGridViewTextBoxColumn clEstado;
         private DataGridViewImageColumn clEditar;
         private DataGridViewImageColumn clEliminar;
+        private PictureBox pictureBox2;
+        private Panel pnlBusqueda;
+        private PictureBox pictureBox1;
+        private Label lbl_agg2;
+        private Label label1;
     }
 }

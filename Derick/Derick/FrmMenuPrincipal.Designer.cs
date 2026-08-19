@@ -50,12 +50,17 @@ namespace Derick
             btnventas = new Button();
             btnsucursales = new Button();
             btnempleados = new Button();
+            cmsPromProv = new ContextMenuStrip(components);
+            promocionesToolStripMenuItem = new ToolStripMenuItem();
+            proveedoresToolStripMenuItem = new ToolStripMenuItem();
+            categoríasToolStripMenuItem = new ToolStripMenuItem();
             cmsMenuPerfil.SuspendLayout();
             pnlMostrar.SuspendLayout();
             pnlcontenido.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             pnlPerfil.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbusuario).BeginInit();
+            cmsPromProv.SuspendLayout();
             SuspendLayout();
             // 
             // imlBotones
@@ -327,6 +332,33 @@ namespace Derick
             btnempleados.UseVisualStyleBackColor = false;
             btnempleados.Click += btnempleados_Click;
             // 
+            // cmsPromProv
+            // 
+            cmsPromProv.Items.AddRange(new ToolStripItem[] { promocionesToolStripMenuItem, proveedoresToolStripMenuItem, categoríasToolStripMenuItem });
+            cmsPromProv.Name = "contextMenuStrip1";
+            cmsPromProv.Size = new Size(181, 92);
+            // 
+            // promocionesToolStripMenuItem
+            // 
+            promocionesToolStripMenuItem.Name = "promocionesToolStripMenuItem";
+            promocionesToolStripMenuItem.Size = new Size(180, 22);
+            promocionesToolStripMenuItem.Text = "Promociones";
+            promocionesToolStripMenuItem.Click += promocionesToolStripMenuItem_Click;
+            // 
+            // proveedoresToolStripMenuItem
+            // 
+            proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
+            proveedoresToolStripMenuItem.Size = new Size(180, 22);
+            proveedoresToolStripMenuItem.Text = "Proveedores";
+            proveedoresToolStripMenuItem.Click += proveedoresToolStripMenuItem_Click;
+            // 
+            // categoríasToolStripMenuItem
+            // 
+            categoríasToolStripMenuItem.Name = "categoríasToolStripMenuItem";
+            categoríasToolStripMenuItem.Size = new Size(180, 22);
+            categoríasToolStripMenuItem.Text = "Categorías";
+            categoríasToolStripMenuItem.Click += categoríasToolStripMenuItem_Click;
+            // 
             // FrmMenuPrincipal
             // 
             AutoScaleMode = AutoScaleMode.None;
@@ -350,6 +382,7 @@ namespace Derick
             pnlPerfil.ResumeLayout(false);
             pnlPerfil.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pbusuario).EndInit();
+            cmsPromProv.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -374,5 +407,9 @@ namespace Derick
         private Button btnventas;
         private Button btnsucursales;
         private Button btnempleados;
+        private ContextMenuStrip cmsPromProv;
+        private ToolStripMenuItem promocionesToolStripMenuItem;
+        private ToolStripMenuItem proveedoresToolStripMenuItem;
+        private ToolStripMenuItem categoríasToolStripMenuItem;
     }
 }

@@ -69,8 +69,8 @@
             // 
             // btn_aceptar
             // 
-            btn_aceptar.BackColor = Color.FromArgb(0, 102, 255);
-            btn_aceptar.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_aceptar.BackColor = Color.FromArgb(4, 59, 186);
+            btn_aceptar.Font = new Font("Calibri", 12F, FontStyle.Bold);
             btn_aceptar.ForeColor = Color.White;
             btn_aceptar.Image = (Image)resources.GetObject("btn_aceptar.Image");
             btn_aceptar.ImageAlign = ContentAlignment.MiddleLeft;
@@ -89,8 +89,8 @@
             btn_cerra.Cursor = Cursors.Hand;
             btn_cerra.FlatAppearance.BorderColor = Color.FromArgb(0, 102, 255);
             btn_cerra.FlatAppearance.BorderSize = 2;
-            btn_cerra.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn_cerra.ForeColor = Color.FromArgb(0, 102, 255);
+            btn_cerra.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            btn_cerra.ForeColor = Color.FromArgb(4, 59, 186);
             btn_cerra.Image = (Image)resources.GetObject("btn_cerra.Image");
             btn_cerra.ImageAlign = ContentAlignment.MiddleLeft;
             btn_cerra.Location = new Point(190, 375);
@@ -130,7 +130,7 @@
             lbl_total.AutoSize = true;
             lbl_total.BackColor = Color.White;
             lbl_total.Font = new Font("Arial", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_total.ForeColor = Color.FromArgb(0, 102, 255);
+            lbl_total.ForeColor = Color.FromArgb(4, 59, 186);
             lbl_total.Location = new Point(14, 34);
             lbl_total.Name = "lbl_total";
             lbl_total.Size = new Size(21, 22);
@@ -183,7 +183,7 @@
             // 
             // lbl_ry
             // 
-            lbl_ry.BackColor = Color.FromArgb(0, 102, 255);
+            lbl_ry.BackColor = Color.FromArgb(4, 59, 186);
             lbl_ry.Location = new Point(0, 68);
             lbl_ry.Name = "lbl_ry";
             lbl_ry.Size = new Size(458, 2);

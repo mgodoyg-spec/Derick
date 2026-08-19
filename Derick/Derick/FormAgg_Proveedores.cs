@@ -10,11 +10,49 @@ namespace Derick
 {
     public partial class FormAgg_Proveedores : Form
     {
+        private int? idProveedorEditar = null;
         public FormAgg_Proveedores()
         {
             InitializeComponent();
         }
+        public FormAgg_Proveedores(int idProveedor) : this()
+        {
+            idProveedorEditar = idProveedor;
+        }
+        private void FormAgg_Proveedores_Load(object sender, EventArgs e)
+        {
+            if (idProveedorEditar != null)
+            {
+                CPRV_editar();
+            }
+        }
+        private void CPRV_editar()
+        {
+            csConectaSQL conexion = new csConectaSQL();
 
+            DataTable dt = conexion.RetornaRegistros(
+                "SELECT Nombre, Contacto, Telefono, Correo, Direccion, Estado " +
+                "FROM Proveedores " +
+                "WHERE IdProveedor = " + idProveedorEditar.Value
+            );
+
+            if (dt == null || dt.Rows.Count == 0)
+                return;
+
+            DataRow fila = dt.Rows[0];
+
+            txt_NP.Text = fila["Nombre"].ToString();
+            txt_CNC.Text = fila["Contacto"].ToString();
+            txt_TL.Text = fila["Telefono"].ToString();
+            txt_CE.Text = fila["Correo"].ToString();
+            txt_DRC.Text = fila["Direccion"].ToString();
+
+            bool activo = Convert.ToBoolean(fila["Estado"]);
+
+            cmb_Estado.Text = activo
+                ? "Activo"
+                : "Inactivo";
+        }
         private void txt_NP_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && e.KeyChar != '.' &&
@@ -53,9 +91,6 @@ namespace Derick
         }
         private void btnGuardarProv_Click(object sender, EventArgs e)
         {
-            // ==========================================
-            // 1. NOMBRE DEL PROVEEDOR
-            // ==========================================
             if (string.IsNullOrWhiteSpace(txt_NP.Text))
             {
                 MessageBox.Show(
@@ -67,9 +102,6 @@ namespace Derick
                 txt_NP.Focus();
                 return;
             }
-            // ==========================================
-            // 2. CONTACTO
-            // ==========================================
             if (string.IsNullOrWhiteSpace(txt_CNC.Text))
             {
                 MessageBox.Show(
@@ -81,9 +113,6 @@ namespace Derick
                 txt_CNC.Focus();
                 return;
             }
-            // ==========================================
-            // 3. TELÉFONO
-            // ==========================================
             if (string.IsNullOrWhiteSpace(txt_TL.Text))
             {
                 MessageBox.Show(
@@ -106,10 +135,6 @@ namespace Derick
                 txt_TL.Focus();
                 return;
             }
-            // ==========================================
-            // 4. CORREO ELECTRÓNICO
-            // ==========================================
-
             if (string.IsNullOrWhiteSpace(txt_CE.Text))
             {
                 MessageBox.Show(
@@ -132,9 +157,6 @@ namespace Derick
                 txt_CE.Focus();
                 return;
             }
-            // ==========================================
-            // 5. DIRECCIÓN
-            // ==========================================
             if (txt_DRC.Text.Length > 200)
             {
                 MessageBox.Show(
@@ -146,9 +168,6 @@ namespace Derick
                 txt_DRC.Focus();
                 return;
             }
-            // ==========================================
-            // 6. ESTADO
-            // ==========================================
             if (cmb_Estado.SelectedIndex == -1)
             {
                 MessageBox.Show(
@@ -160,9 +179,6 @@ namespace Derick
                 cmb_Estado.Focus();
                 return;
             }
-            // ==========================================
-            // TODO CORRECTO
-            // ==========================================
             string nombre = txt_NP.Text.Trim();
             string contacto = txt_CNC.Text.Trim();
             string telefono = txt_TL.Text.Trim();
@@ -176,38 +192,74 @@ namespace Derick
 
             csConectaSQL conexion = new csConectaSQL();
 
-            string campos =
-                "Nombre, Contacto, Telefono, Correo, Direccion, Estado";
-
-            string datos =
-                $"'{nombre}', " +
-                $"'{contacto}', " +
-                $"'{telefono}', " +
-                $"'{correo}', " +
-                $"'{direccion}', " +
-                $"{estado}";
-
-            bool guardado = conexion.insertDatos(
-                "Proveedores",
-                campos,
-                datos
-            );
-            if (!guardado)
+            if (idProveedorEditar == null)
             {
-                MessageBox.Show(
-                    "No se pudo guardar el proveedor.",
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                string campos =
+                    "Nombre, Contacto, Telefono, Correo, Direccion, Estado";
 
-                return;
+                string datos =
+                    $"'{nombre}', " +
+                    $"'{contacto}', " +
+                    $"'{telefono}', " +
+                    $"'{correo}', " +
+                    $"'{direccion}', " +
+                    $"{estado}";
+
+                bool guardado = conexion.insertDatos(
+                    "Proveedores",
+                    campos,
+                    datos
+                );
+
+                if (!guardado)
+                {
+                    MessageBox.Show(
+                        "No se pudo guardar el proveedor.",
+                        "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return;
+                }
+                MessageBox.Show(
+                    "Proveedor registrado correctamente.",
+                    "Proveedor",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
             }
-            MessageBox.Show(
-                "Proveedor registrado correctamente.",
-                "Proveedor",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information
-            );
+            else
+            {
+                string datosActualizar =
+                    $"Nombre = '{nombre}', " +
+                    $"Contacto = '{contacto}', " +
+                    $"Telefono = '{telefono}', " +
+                    $"Correo = '{correo}', " +
+                    $"Direccion = '{direccion}', " +
+                    $"Estado = {estado}";
+                string condicion = $"IdProveedor = {idProveedorEditar.Value}";
+                bool actualizado = conexion.actualizarDatos(
+                    "Proveedores",
+                    datosActualizar,
+                    condicion
+                );
+                if (!actualizado)
+                {
+                    MessageBox.Show(
+                        "No se pudo actualizar el proveedor.",
+                        "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return;
+                }
+                MessageBox.Show(
+                    "Proveedor actualizado correctamente.",
+                    "Proveedor",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+            }
             DialogResult = DialogResult.OK;
             Close();
         }
@@ -215,5 +267,6 @@ namespace Derick
         {
             this.Close();
         }
+
     }
 }
