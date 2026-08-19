@@ -31,6 +31,19 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAgg_Product));
             pnlcont1 = new Panel();
+            label10 = new Label();
+            label8 = new Label();
+            label7 = new Label();
+            label6 = new Label();
+            label5 = new Label();
+            label4 = new Label();
+            label3 = new Label();
+            label2 = new Label();
+            label1 = new Label();
+            pictureBox1 = new PictureBox();
+            pic1_e = new PictureBox();
+            lbl1 = new Label();
+            pic2_e = new PictureBox();
             btn_abr = new Button();
             pic6 = new PictureBox();
             pic5 = new PictureBox();
@@ -73,22 +86,12 @@
             lbl3 = new Label();
             txt_cd = new TextBox();
             lbl2 = new Label();
-            pic2_e = new PictureBox();
-            lbl1 = new Label();
-            pic1_e = new PictureBox();
             cmTallas = new ContextMenuStrip(components);
             cmColores = new ContextMenuStrip(components);
-            pictureBox1 = new PictureBox();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            label6 = new Label();
-            label7 = new Label();
-            label8 = new Label();
-            label10 = new Label();
             pnlcont1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pic1_e).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pic2_e).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pic6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pic5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pic4).BeginInit();
@@ -101,9 +104,6 @@
             ((System.ComponentModel.ISupportInitialize)pic_img1).BeginInit();
             pnl_cont1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pic1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pic2_e).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pic1_e).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // pnlcont1
@@ -165,6 +165,150 @@
             pnlcont1.Name = "pnlcont1";
             pnlcont1.Size = new Size(620, 552);
             pnlcont1.TabIndex = 0;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label10.ForeColor = Color.Red;
+            label10.Location = new Point(462, 64);
+            label10.Name = "label10";
+            label10.Size = new Size(17, 19);
+            label10.TabIndex = 56;
+            label10.Text = "*";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.Red;
+            label8.Location = new Point(62, 361);
+            label8.Name = "label8";
+            label8.Size = new Size(17, 19);
+            label8.TabIndex = 55;
+            label8.Text = "*";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.ForeColor = Color.Red;
+            label7.Location = new Point(186, 314);
+            label7.Name = "label7";
+            label7.Size = new Size(17, 19);
+            label7.TabIndex = 54;
+            label7.Text = "*";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.Red;
+            label6.Location = new Point(121, 314);
+            label6.Name = "label6";
+            label6.Size = new Size(17, 19);
+            label6.TabIndex = 53;
+            label6.Text = "*";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.Red;
+            label5.Location = new Point(76, 262);
+            label5.Name = "label5";
+            label5.Size = new Size(17, 19);
+            label5.TabIndex = 52;
+            label5.Text = "*";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.Red;
+            label4.Location = new Point(62, 211);
+            label4.Name = "label4";
+            label4.Size = new Size(17, 19);
+            label4.TabIndex = 51;
+            label4.Text = "*";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.Red;
+            label3.Location = new Point(81, 162);
+            label3.Name = "label3";
+            label3.Size = new Size(17, 19);
+            label3.TabIndex = 50;
+            label3.Text = "*";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.Red;
+            label2.Location = new Point(166, 112);
+            label2.Name = "label2";
+            label2.Size = new Size(17, 19);
+            label2.TabIndex = 49;
+            label2.Text = "*";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Red;
+            label1.Location = new Point(157, 64);
+            label1.Name = "label1";
+            label1.Size = new Size(17, 19);
+            label1.TabIndex = 48;
+            label1.Text = "*";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImage = Properties.Resources.detalleazul;
+            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox1.Location = new Point(43, 28);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(204, 14);
+            pictureBox1.TabIndex = 47;
+            pictureBox1.TabStop = false;
+            // 
+            // pic1_e
+            // 
+            pic1_e.Image = (Image)resources.GetObject("pic1_e.Image");
+            pic1_e.Location = new Point(0, 0);
+            pic1_e.Margin = new Padding(3, 2, 3, 2);
+            pic1_e.Name = "pic1_e";
+            pic1_e.Size = new Size(42, 42);
+            pic1_e.SizeMode = PictureBoxSizeMode.Zoom;
+            pic1_e.TabIndex = 0;
+            pic1_e.TabStop = false;
+            // 
+            // lbl1
+            // 
+            lbl1.AutoSize = true;
+            lbl1.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl1.ForeColor = Color.FromArgb(4, 59, 186);
+            lbl1.Location = new Point(42, 3);
+            lbl1.Name = "lbl1";
+            lbl1.Size = new Size(167, 24);
+            lbl1.TabIndex = 1;
+            lbl1.Text = "Agregar productos";
+            // 
+            // pic2_e
+            // 
+            pic2_e.Cursor = Cursors.Hand;
+            pic2_e.Image = (Image)resources.GetObject("pic2_e.Image");
+            pic2_e.Location = new Point(590, 4);
+            pic2_e.Margin = new Padding(3, 2, 3, 2);
+            pic2_e.Name = "pic2_e";
+            pic2_e.Size = new Size(27, 23);
+            pic2_e.SizeMode = PictureBoxSizeMode.Zoom;
+            pic2_e.TabIndex = 1;
+            pic2_e.TabStop = false;
+            pic2_e.Click += pic2_e_Click;
             // 
             // btn_abr
             // 
@@ -551,7 +695,7 @@
             // cmb_est
             // 
             cmb_est.FormattingEnabled = true;
-            cmb_est.Items.AddRange(new object[] { "Activado", "Desactivado" });
+            cmb_est.Items.AddRange(new object[] { "Activo", "Inactivo" });
             cmb_est.Location = new Point(10, 382);
             cmb_est.Margin = new Padding(3, 2, 3, 2);
             cmb_est.Name = "cmb_est";
@@ -671,41 +815,6 @@
             lbl2.TabIndex = 1;
             lbl2.Text = "Código del producto";
             // 
-            // pic2_e
-            // 
-            pic2_e.Cursor = Cursors.Hand;
-            pic2_e.Image = (Image)resources.GetObject("pic2_e.Image");
-            pic2_e.Location = new Point(590, 4);
-            pic2_e.Margin = new Padding(3, 2, 3, 2);
-            pic2_e.Name = "pic2_e";
-            pic2_e.Size = new Size(27, 23);
-            pic2_e.SizeMode = PictureBoxSizeMode.Zoom;
-            pic2_e.TabIndex = 1;
-            pic2_e.TabStop = false;
-            pic2_e.Click += pic2_e_Click;
-            // 
-            // lbl1
-            // 
-            lbl1.AutoSize = true;
-            lbl1.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl1.ForeColor = Color.FromArgb(4, 59, 186);
-            lbl1.Location = new Point(42, 3);
-            lbl1.Name = "lbl1";
-            lbl1.Size = new Size(167, 24);
-            lbl1.TabIndex = 1;
-            lbl1.Text = "Agregar productos";
-            // 
-            // pic1_e
-            // 
-            pic1_e.Image = (Image)resources.GetObject("pic1_e.Image");
-            pic1_e.Location = new Point(0, 0);
-            pic1_e.Margin = new Padding(3, 2, 3, 2);
-            pic1_e.Name = "pic1_e";
-            pic1_e.Size = new Size(42, 42);
-            pic1_e.SizeMode = PictureBoxSizeMode.Zoom;
-            pic1_e.TabIndex = 0;
-            pic1_e.TabStop = false;
-            // 
             // cmTallas
             // 
             cmTallas.AutoClose = false;
@@ -722,115 +831,6 @@
             cmColores.Size = new Size(61, 4);
             cmColores.Closed += cmColores_Closed;
             // 
-            // pictureBox1
-            // 
-            pictureBox1.BackgroundImage = Properties.Resources.detalleazul;
-            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox1.Location = new Point(43, 28);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(204, 14);
-            pictureBox1.TabIndex = 47;
-            pictureBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.Red;
-            label1.Location = new Point(157, 64);
-            label1.Name = "label1";
-            label1.Size = new Size(17, 19);
-            label1.TabIndex = 48;
-            label1.Text = "*";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.Red;
-            label2.Location = new Point(166, 112);
-            label2.Name = "label2";
-            label2.Size = new Size(17, 19);
-            label2.TabIndex = 49;
-            label2.Text = "*";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.Red;
-            label3.Location = new Point(81, 162);
-            label3.Name = "label3";
-            label3.Size = new Size(17, 19);
-            label3.TabIndex = 50;
-            label3.Text = "*";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.ForeColor = Color.Red;
-            label4.Location = new Point(62, 211);
-            label4.Name = "label4";
-            label4.Size = new Size(17, 19);
-            label4.TabIndex = 51;
-            label4.Text = "*";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.ForeColor = Color.Red;
-            label5.Location = new Point(76, 262);
-            label5.Name = "label5";
-            label5.Size = new Size(17, 19);
-            label5.TabIndex = 52;
-            label5.Text = "*";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.ForeColor = Color.Red;
-            label6.Location = new Point(121, 314);
-            label6.Name = "label6";
-            label6.Size = new Size(17, 19);
-            label6.TabIndex = 53;
-            label6.Text = "*";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.ForeColor = Color.Red;
-            label7.Location = new Point(186, 314);
-            label7.Name = "label7";
-            label7.Size = new Size(17, 19);
-            label7.TabIndex = 54;
-            label7.Text = "*";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.ForeColor = Color.Red;
-            label8.Location = new Point(62, 361);
-            label8.Name = "label8";
-            label8.Size = new Size(17, 19);
-            label8.TabIndex = 55;
-            label8.Text = "*";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.ForeColor = Color.Red;
-            label10.Location = new Point(462, 64);
-            label10.Name = "label10";
-            label10.Size = new Size(17, 19);
-            label10.TabIndex = 56;
-            label10.Text = "*";
-            // 
             // FormAgg_Product
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -844,6 +844,9 @@
             Load += FormAgg_Product_Load;
             pnlcont1.ResumeLayout(false);
             pnlcont1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pic1_e).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pic2_e).EndInit();
             ((System.ComponentModel.ISupportInitialize)pic6).EndInit();
             ((System.ComponentModel.ISupportInitialize)pic5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pic4).EndInit();
@@ -857,9 +860,6 @@
             pnl_cont1.ResumeLayout(false);
             pnl_cont1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pic1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pic2_e).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pic1_e).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 

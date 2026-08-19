@@ -180,8 +180,8 @@ namespace Derick
 
                     string estadoTexto =
                         activo
-                        ? "Activado"
-                        : "Desactivado";
+                        ? "Activo"
+                        : "Inactivo";
 
                     // ACTUALIZAR DIRECTAMENTE LA CELDA
                     dvg_agg.Rows[e.RowIndex]
@@ -278,7 +278,7 @@ namespace Derick
 
             foreach (DataRow fila in dt.Rows)
             {
-                string estado = Convert.ToBoolean(fila["Estado"]) ? "Activado" : "Desactivado";
+                string estado = Convert.ToBoolean(fila["Estado"]) ? "Activo" : "Inactivo";
                 decimal precio = Convert.ToDecimal(fila["Precio"]);
                 Image imagenProducto = null;
                 if (fila["Imagen"] != DBNull.Value)
@@ -349,7 +349,7 @@ namespace Derick
                 {
                     sql += " AND Estado = 1";
                 }
-                else if (estado == "Desactivado")
+                else if (estado == "Inactivo")
                 {
                     sql += " AND Estado = 0";
                 }
@@ -428,7 +428,7 @@ namespace Derick
 
             cmb_agg2.Items.Add("Todos");
             cmb_agg2.Items.Add("Activo");
-            cmb_agg2.Items.Add("Desactivado");
+            cmb_agg2.Items.Add("Inactivo");
 
             cmb_agg2.SelectedIndex = 0;
         }
