@@ -27,6 +27,14 @@ namespace Derick
         private void frmVerSucursal_Load(object sender, EventArgs e)
         {
             CargarDatos();
+            if (sucursal.Estado == "Inactiva")
+            {
+                btnDesactivar.Text = "Reactivar sucursal";
+            }
+            else
+            {
+                btnDesactivar.Text = "Desactivar sucursal";
+            }
         }
 
         private void CargarDatos()
@@ -39,7 +47,7 @@ namespace Derick
             lblCiudad.Text = sucursal.Ciudad;
             lblDireccion.Text = sucursal.Direccion;
             lblTel.Text = sucursal.Telefono;
-            lblCorreo.Text = sucursal.Correo;
+            lblCorreo.Text = string.IsNullOrWhiteSpace(sucursal.Correo) ? "No registrado" : sucursal.Correo;
             lblEncargado.Text = sucursal.EncargadoSucursal;
             lblEstado.Text = sucursal.Estado;
 
@@ -68,6 +76,40 @@ namespace Derick
             else
             {
                 pbxImagenSucursal.Image = null;
+            }
+        }
+
+        private void btnDesactivar_Click(object sender, EventArgs e)
+        {
+            if (sucursal.Estado == "Inactiva")
+            {
+                if (sucursal.CambiarEstado("Activa"))
+                {
+                    MessageBox.Show(
+                        "Sucursal reactivada correctamente.");
+
+                    this.Close();
+                }
+            }
+            else
+            {
+                DialogResult respuesta =
+                    MessageBox.Show(
+                        "¿Está seguro de desactivar esta sucursal?",
+                        "Confirmar",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning);
+
+                if (respuesta == DialogResult.Yes)
+                {
+                    if (sucursal.CambiarEstado("Inactiva"))
+                    {
+                        MessageBox.Show(
+                            "Sucursal desactivada correctamente.");
+
+                        this.Close();
+                    }
+                }
             }
         }
     }

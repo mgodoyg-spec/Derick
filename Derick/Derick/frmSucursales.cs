@@ -447,21 +447,5 @@ namespace Derick
                 cbxCiudad.Text,
                 cbxEstado.Text);
         }
-        private void txtBuscar_Enter(object sender, EventArgs e)
-        {
-            if (txtBuscar.Text == "Buscar")
-            {
-                txtBuscar.Text = "";
-                txtBuscar.ForeColor = Color.Black;
-            }
-        }
-        private void txtBuscar_Leave(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtBuscar.Text))
-            {
-                txtBuscar.Text = "Buscar";
-                txtBuscar.ForeColor = Color.Gray;
-            }
-        }
     }
 }

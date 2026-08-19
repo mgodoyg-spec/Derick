@@ -199,12 +199,10 @@
             txtBuscar.Location = new Point(29, 8);
             txtBuscar.Margin = new Padding(4);
             txtBuscar.Name = "txtBuscar";
+            txtBuscar.PlaceholderText = "Buscar";
             txtBuscar.Size = new Size(330, 27);
             txtBuscar.TabIndex = 0;
-            txtBuscar.Text = "Buscar";
             txtBuscar.TextChanged += txtBuscar_TextChanged;
-            txtBuscar.Enter += txtBuscar_Enter;
-            txtBuscar.Leave += txtBuscar_Leave;
             // 
             // label8
             // 
@@ -219,6 +217,7 @@
             // 
             // cbxCiudad
             // 
+            cbxCiudad.DropDownStyle = ComboBoxStyle.DropDownList;
             cbxCiudad.Font = new Font("Calibri", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbxCiudad.FormattingEnabled = true;
             cbxCiudad.Location = new Point(432, 6);
@@ -258,6 +257,7 @@
             // 
             // cbxEstado
             // 
+            cbxEstado.DropDownStyle = ComboBoxStyle.DropDownList;
             cbxEstado.Font = new Font("Calibri", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbxEstado.FormattingEnabled = true;
             cbxEstado.Location = new Point(635, 4);
