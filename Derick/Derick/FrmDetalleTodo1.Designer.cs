@@ -52,14 +52,48 @@
             lbl4 = new Label();
             lbl3 = new Label();
             lbl2 = new Label();
+            pic6 = new PictureBox();
+            pic5 = new PictureBox();
+            pic4 = new PictureBox();
+            pic3 = new PictureBox();
+            pic2 = new PictureBox();
+            pic_img5 = new PictureBox();
+            pic_img4 = new PictureBox();
+            pic_img3 = new PictureBox();
+            pic_img2 = new PictureBox();
+            pic_img1 = new PictureBox();
+            label9 = new Label();
+            label1 = new Label();
             pnlcont1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pic1_e).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pic6).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pic5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pic4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pic3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pic2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pic_img5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pic_img4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pic_img3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pic_img2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pic_img1).BeginInit();
             SuspendLayout();
             // 
             // pnlcont1
             // 
             pnlcont1.BackColor = Color.FromArgb(244, 246, 249);
+            pnlcont1.Controls.Add(label1);
+            pnlcont1.Controls.Add(pic6);
+            pnlcont1.Controls.Add(pic5);
+            pnlcont1.Controls.Add(pic4);
+            pnlcont1.Controls.Add(pic3);
+            pnlcont1.Controls.Add(pic2);
+            pnlcont1.Controls.Add(pic_img5);
+            pnlcont1.Controls.Add(pic_img4);
+            pnlcont1.Controls.Add(pic_img3);
+            pnlcont1.Controls.Add(pic_img2);
+            pnlcont1.Controls.Add(pic_img1);
+            pnlcont1.Controls.Add(label9);
             pnlcont1.Controls.Add(lblDescripcion);
             pnlcont1.Controls.Add(lblStock);
             pnlcont1.Controls.Add(lblPrecio);
@@ -86,7 +120,7 @@
             pnlcont1.Location = new Point(0, 0);
             pnlcont1.Margin = new Padding(3, 2, 3, 2);
             pnlcont1.Name = "pnlcont1";
-            pnlcont1.Size = new Size(316, 642);
+            pnlcont1.Size = new Size(592, 642);
             pnlcont1.TabIndex = 1;
             // 
             // lblDescripcion
@@ -309,11 +343,149 @@
             lbl2.TabIndex = 1;
             lbl2.Text = "Código del producto";
             // 
+            // pic6
+            // 
+            pic6.BackColor = Color.White;
+            pic6.Image = (Image)resources.GetObject("pic6.Image");
+            pic6.Location = new Point(441, 244);
+            pic6.Margin = new Padding(3, 2, 3, 2);
+            pic6.Name = "pic6";
+            pic6.Size = new Size(61, 48);
+            pic6.SizeMode = PictureBoxSizeMode.Zoom;
+            pic6.TabIndex = 75;
+            pic6.TabStop = false;
+            // 
+            // pic5
+            // 
+            pic5.BackColor = Color.White;
+            pic5.Image = (Image)resources.GetObject("pic5.Image");
+            pic5.Location = new Point(317, 358);
+            pic5.Margin = new Padding(3, 2, 3, 2);
+            pic5.Name = "pic5";
+            pic5.Size = new Size(61, 48);
+            pic5.SizeMode = PictureBoxSizeMode.Zoom;
+            pic5.TabIndex = 74;
+            pic5.TabStop = false;
+            // 
+            // pic4
+            // 
+            pic4.BackColor = Color.White;
+            pic4.Image = (Image)resources.GetObject("pic4.Image");
+            pic4.Location = new Point(317, 244);
+            pic4.Margin = new Padding(3, 2, 3, 2);
+            pic4.Name = "pic4";
+            pic4.Size = new Size(61, 48);
+            pic4.SizeMode = PictureBoxSizeMode.Zoom;
+            pic4.TabIndex = 73;
+            pic4.TabStop = false;
+            // 
+            // pic3
+            // 
+            pic3.BackColor = Color.White;
+            pic3.Image = (Image)resources.GetObject("pic3.Image");
+            pic3.Location = new Point(441, 132);
+            pic3.Margin = new Padding(3, 2, 3, 2);
+            pic3.Name = "pic3";
+            pic3.Size = new Size(61, 48);
+            pic3.SizeMode = PictureBoxSizeMode.Zoom;
+            pic3.TabIndex = 72;
+            pic3.TabStop = false;
+            // 
+            // pic2
+            // 
+            pic2.BackColor = Color.White;
+            pic2.Image = (Image)resources.GetObject("pic2.Image");
+            pic2.Location = new Point(317, 131);
+            pic2.Margin = new Padding(3, 2, 3, 2);
+            pic2.Name = "pic2";
+            pic2.Size = new Size(61, 48);
+            pic2.SizeMode = PictureBoxSizeMode.Zoom;
+            pic2.TabIndex = 71;
+            pic2.TabStop = false;
+            // 
+            // pic_img5
+            // 
+            pic_img5.BackColor = Color.White;
+            pic_img5.BorderStyle = BorderStyle.FixedSingle;
+            pic_img5.Location = new Point(422, 221);
+            pic_img5.Margin = new Padding(3, 2, 3, 2);
+            pic_img5.Name = "pic_img5";
+            pic_img5.Size = new Size(99, 89);
+            pic_img5.SizeMode = PictureBoxSizeMode.Zoom;
+            pic_img5.TabIndex = 70;
+            pic_img5.TabStop = false;
+            // 
+            // pic_img4
+            // 
+            pic_img4.BackColor = Color.White;
+            pic_img4.BorderStyle = BorderStyle.FixedSingle;
+            pic_img4.Location = new Point(299, 333);
+            pic_img4.Margin = new Padding(3, 2, 3, 2);
+            pic_img4.Name = "pic_img4";
+            pic_img4.Size = new Size(99, 89);
+            pic_img4.SizeMode = PictureBoxSizeMode.Zoom;
+            pic_img4.TabIndex = 69;
+            pic_img4.TabStop = false;
+            // 
+            // pic_img3
+            // 
+            pic_img3.BackColor = Color.White;
+            pic_img3.BorderStyle = BorderStyle.FixedSingle;
+            pic_img3.Location = new Point(299, 221);
+            pic_img3.Margin = new Padding(3, 2, 3, 2);
+            pic_img3.Name = "pic_img3";
+            pic_img3.Size = new Size(99, 89);
+            pic_img3.SizeMode = PictureBoxSizeMode.Zoom;
+            pic_img3.TabIndex = 68;
+            pic_img3.TabStop = false;
+            // 
+            // pic_img2
+            // 
+            pic_img2.BackColor = Color.White;
+            pic_img2.BorderStyle = BorderStyle.FixedSingle;
+            pic_img2.Location = new Point(422, 112);
+            pic_img2.Margin = new Padding(3, 2, 3, 2);
+            pic_img2.Name = "pic_img2";
+            pic_img2.Size = new Size(99, 89);
+            pic_img2.SizeMode = PictureBoxSizeMode.Zoom;
+            pic_img2.TabIndex = 67;
+            pic_img2.TabStop = false;
+            // 
+            // pic_img1
+            // 
+            pic_img1.BackColor = Color.White;
+            pic_img1.BorderStyle = BorderStyle.FixedSingle;
+            pic_img1.Location = new Point(299, 112);
+            pic_img1.Margin = new Padding(3, 2, 3, 2);
+            pic_img1.Name = "pic_img1";
+            pic_img1.Size = new Size(99, 89);
+            pic_img1.SizeMode = PictureBoxSizeMode.Zoom;
+            pic_img1.TabIndex = 66;
+            pic_img1.TabStop = false;
+            // 
+            // label9
+            // 
+            label9.BackColor = Color.Gray;
+            label9.Location = new Point(280, 67);
+            label9.Name = "label9";
+            label9.Size = new Size(1, 467);
+            label9.TabIndex = 65;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(299, 64);
+            label1.Name = "label1";
+            label1.Size = new Size(166, 19);
+            label1.TabIndex = 76;
+            label1.Text = "Imágenes del producto";
+            // 
             // FrmDetalleTodo1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(316, 642);
+            ClientSize = new Size(592, 642);
             Controls.Add(pnlcont1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "FrmDetalleTodo1";
@@ -323,6 +495,16 @@
             pnlcont1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pic1_e).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pic6).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pic5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pic4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pic3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pic2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pic_img5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pic_img4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pic_img3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pic_img2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pic_img1).EndInit();
             ResumeLayout(false);
         }
 
@@ -351,5 +533,17 @@
         private Label lblTalla;
         private Label lblCategoria;
         private Label lblNombreP;
+        private PictureBox pic6;
+        private PictureBox pic5;
+        private PictureBox pic4;
+        private PictureBox pic3;
+        private PictureBox pic2;
+        private PictureBox pic_img5;
+        private PictureBox pic_img4;
+        private PictureBox pic_img3;
+        private PictureBox pic_img2;
+        private PictureBox pic_img1;
+        private Label label9;
+        private Label label1;
     }
 }

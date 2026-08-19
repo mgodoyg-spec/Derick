@@ -224,18 +224,20 @@ namespace Derick
                 else
                     descuentoTexto = "$" + descuento.ToString("0.00");
 
-                dgvPromociones.Rows.Add(
-                    fila["IdPromocion"].ToString(),
-                    fila["Nombre"].ToString(),
-                    tipoDescuento,
-                    descuentoTexto,
-                    Convert.ToDateTime(fila["FechaInicio"]).ToString("dd/MM/yyyy"),
-                    Convert.ToDateTime(fila["FechaFin"]).ToString("dd/MM/yyyy"),
-                    estadoTexto,
-                    fila["Descripcion"].ToString(),
-                    null,
-                    null
+                int indice = dgvPromociones.Rows.Add(
+                fila["IdPromocion"].ToString(),
+                fila["Nombre"].ToString(),
+                tipoDescuento,
+                descuentoTexto,
+                Convert.ToDateTime(fila["FechaInicio"]).ToString("dd/MM/yyyy"),
+                Convert.ToDateTime(fila["FechaFin"]).ToString("dd/MM/yyyy"),
+                estadoTexto,
+                fila["Descripcion"].ToString(),
+                null,
+                null
                 );
+                dgvPromociones.Rows[indice].Tag =
+                    Convert.ToInt32(fila["IdPromocion"]);
             }
         }
         private void CargarTiposPromocion()
@@ -307,7 +309,7 @@ namespace Derick
 
                 if (frm.ShowDialog(this) == DialogResult.OK)
                 {
-                    CargarPromociones();
+                    C_Prm();
                 }
             }
 
@@ -358,7 +360,7 @@ namespace Derick
                             MessageBoxIcon.Information
                         );
 
-                        CargarPromociones();
+                        C_Prm();
                     }
                 }
             }

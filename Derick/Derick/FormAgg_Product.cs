@@ -1,10 +1,12 @@
-﻿using Microsoft.IdentityModel.Protocols.OpenIdConnect;
+﻿using Microsoft.Data.SqlClient;
+using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
@@ -110,6 +112,71 @@ namespace Derick
                 picSelect = pic;
                 picSelect.BorderStyle = BorderStyle.Fixed3D;
             }
+        }
+        private bool GuardarImagenesProducto(int idProducto)
+        {
+            csConectaSQL conexion = new csConectaSQL();
+
+            for (int i = 0; i < rt.Count; i++)
+            {
+                string ruta = rt[i];
+
+                if (!File.Exists(ruta))
+                    continue;
+
+                byte[] imagenBytes = File.ReadAllBytes(ruta);
+
+                string nombreArchivo = Path.GetFileName(ruta);
+
+                bool esPrincipal = (i == 0);
+
+                string sql = @"
+            INSERT INTO ProductoImagenes
+            (
+                IdProductos,
+                RutaImagen,
+                Imagen,
+                EsPrincipal
+            )
+            VALUES
+            (
+                @IdProducto,
+                @RutaImagen,
+                @Imagen,
+                @EsPrincipal
+            )";
+
+                SqlParameter parametroImagen =
+                    new SqlParameter("@Imagen", SqlDbType.VarBinary, -1);
+
+                parametroImagen.Value = imagenBytes;
+
+                bool guardado = conexion.ejecutarComando(
+                    sql,
+
+                    new SqlParameter(
+                        "@IdProducto",
+                        idProducto
+                    ),
+
+                    new SqlParameter(
+                        "@RutaImagen",
+                        nombreArchivo
+                    ),
+
+                    parametroImagen,
+
+                    new SqlParameter(
+                        "@EsPrincipal",
+                        esPrincipal
+                    )
+                );
+
+                if (!guardado)
+                    return false;
+            }
+
+            return true;
         }
         private void C_CTG()
         {
@@ -388,6 +455,7 @@ namespace Derick
         }
         private void btn_guardar_Click(object sender, EventArgs e)
         {
+        
             // VALIDAR CÓDIGO
             if (string.IsNullOrWhiteSpace(txt_cd.Text))
             {
@@ -400,7 +468,6 @@ namespace Derick
                 txt_cd.Focus();
                 return;
             }
-
             // VALIDAR NOMBRE
             if (string.IsNullOrWhiteSpace(txt_nmb.Text))
             {
@@ -425,7 +492,6 @@ namespace Derick
                 txt_nmb.Focus();
                 return;
             }
-
             // VALIDAR PRECIO
             decimal precio;
 
@@ -452,7 +518,6 @@ namespace Derick
                 txt_prc.Focus();
                 return;
             }
-
             // VALIDAR CATEGORÍA
             if (string.IsNullOrWhiteSpace(cmb_ctg.Text))
             {
@@ -465,8 +530,7 @@ namespace Derick
                 cmb_ctg.Focus();
                 return;
             }
-
-            // OBTENER TALLAS SELECCIONADAS
+            // OBTENER TALLAS
             List<string> tallasSeleccionadas = new List<string>();
 
             foreach (ToolStripItem elemento in cmTallas.Items)
@@ -487,8 +551,7 @@ namespace Derick
 
                 return;
             }
-
-            // OBTENER COLORES SELECCIONADOS
+            // OBTENER COLORES
             List<string> coloresSeleccionados = new List<string>();
 
             foreach (ToolStripItem elemento in cmColores.Items)
@@ -509,17 +572,19 @@ namespace Derick
 
                 return;
             }
+            // CONVERTIR LISTAS A TEXTO
+            string tallas =
+                string.Join(", ", tallasSeleccionadas);
 
-            // CONVERTIR TALLAS Y COLORES A TEXTO
-            string tallas = string.Join(", ", tallasSeleccionadas);
-            string colores = string.Join(", ", coloresSeleccionados);
-
+            string colores =
+                string.Join(", ", coloresSeleccionados);
             // OBTENER DATOS DEL FORMULARIO
             string codigo = txt_cd.Text.Trim();
             string nombre = txt_nmb.Text.Trim();
             string categoria = cmb_ctg.Text.Trim();
 
             csConectaSQL conexion = new csConectaSQL();
+            // PRODUCTO NUEVO
             if (idProductoEditar == null)
             {
                 string campos =
@@ -539,6 +604,7 @@ namespace Derick
                     campos,
                     datos
                 );
+
                 if (idProducto == -1)
                 {
                     MessageBox.Show(
@@ -549,12 +615,29 @@ namespace Derick
 
                     return;
                 }
+                // GUARDAR IMÁGENES DEL PRODUCTO
+                if (rt.Count > 0)
+                {
+                    bool imagenesGuardadas =
+                        GuardarImagenesProducto(idProducto);
+
+                    if (!imagenesGuardadas)
+                    {
+                        MessageBox.Show(
+                            "El producto se guardó, pero hubo un problema al guardar las imágenes.",
+                            "Advertencia",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning);
+                    }
+                }
+
                 MessageBox.Show(
                     "Producto guardado correctamente.",
                     "Guardado",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
             }
+            // EDITAR PRODUCTO
             else
             {
                 string datosActualizar =
@@ -565,12 +648,16 @@ namespace Derick
                     $"Color = '{colores}', " +
                     $"Precio = {precio.ToString(System.Globalization.CultureInfo.InvariantCulture)}";
 
-                string condicion = $"IdProductos = {idProductoEditar.Value}";
-                bool actualizado = conexion.actualizarDatos(
-                    "Productos",
-                    datosActualizar,
-                    condicion
-                );
+                string condicion =
+                    $"IdProductos = {idProductoEditar.Value}";
+
+                bool actualizado =
+                    conexion.actualizarDatos(
+                        "Productos",
+                        datosActualizar,
+                        condicion
+                    );
+
                 if (!actualizado)
                 {
                     MessageBox.Show(
@@ -581,12 +668,53 @@ namespace Derick
 
                     return;
                 }
+                // ACTUALIZAR IMÁGENES
+                // SOLO SI SE SELECCIONARON NUEVAS
+                if (rt.Count > 0)
+                {
+                    bool eliminadas =
+                        conexion.ejecutarComando(
+                            "DELETE FROM ProductoImagenes " +
+                            "WHERE IdProductos = @id",
+                            new SqlParameter(
+                                "@id",
+                                idProductoEditar.Value
+                            )
+                        );
+
+                    if (!eliminadas)
+                    {
+                        MessageBox.Show(
+                            "El producto se actualizó, pero no se pudieron reemplazar las imágenes anteriores.",
+                            "Advertencia",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning);
+
+                        return;
+                    }
+
+                    bool imagenesGuardadas =
+                        GuardarImagenesProducto(
+                            idProductoEditar.Value
+                        );
+
+                    if (!imagenesGuardadas)
+                    {
+                        MessageBox.Show(
+                            "El producto se actualizó, pero hubo un problema al guardar las nuevas imágenes.",
+                            "Advertencia",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning);
+                    }
+                }
+
                 MessageBox.Show(
                     "Producto actualizado correctamente.",
                     "Actualizado",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
             }
+
             DialogResult = DialogResult.OK;
             Close();
         }
