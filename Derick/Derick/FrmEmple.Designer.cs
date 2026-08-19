@@ -32,10 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEmple));
             pnlEmple = new Panel();
             pnlSucursales = new Panel();
-            pnlBuscarSucursal = new Panel();
+            pnlBuscarEmple = new Panel();
             lblSalirV = new Label();
-            btnDepa = new Button();
-            imlIcons = new ImageList(components);
             lblBuscarSucursal = new Label();
             dgvEmpleados = new DataGridView();
             clCodigo = new DataGridViewTextBoxColumn();
@@ -52,8 +50,9 @@
             pictureBox1 = new PictureBox();
             pnlBusqueda = new Panel();
             label1 = new Label();
+            btnDepa = new Button();
+            imlIcons = new ImageList(components);
             cbxSucursal = new ComboBox();
-            btnNuevoEmple = new Button();
             btnLimpiar = new Button();
             txtBuscar = new TextBox();
             label8 = new Label();
@@ -63,7 +62,7 @@
             pbxBuscarSucursal = new PictureBox();
             pnlEmple.SuspendLayout();
             pnlSucursales.SuspendLayout();
-            pnlBuscarSucursal.SuspendLayout();
+            pnlBuscarEmple.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvEmpleados).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             pnlBusqueda.SuspendLayout();
@@ -84,30 +83,29 @@
             // pnlSucursales
             // 
             pnlSucursales.BackColor = Color.FromArgb(244, 246, 249);
-            pnlSucursales.Controls.Add(pnlBuscarSucursal);
+            pnlSucursales.Controls.Add(pnlBuscarEmple);
             pnlSucursales.Dock = DockStyle.Fill;
             pnlSucursales.Location = new Point(0, 0);
             pnlSucursales.Name = "pnlSucursales";
             pnlSucursales.Size = new Size(1186, 591);
             pnlSucursales.TabIndex = 10;
             // 
-            // pnlBuscarSucursal
+            // pnlBuscarEmple
             // 
-            pnlBuscarSucursal.Anchor = AnchorStyles.Left;
-            pnlBuscarSucursal.BackColor = Color.White;
-            pnlBuscarSucursal.Controls.Add(lblSalirV);
-            pnlBuscarSucursal.Controls.Add(btnDepa);
-            pnlBuscarSucursal.Controls.Add(lblBuscarSucursal);
-            pnlBuscarSucursal.Controls.Add(dgvEmpleados);
-            pnlBuscarSucursal.Controls.Add(pictureBox1);
-            pnlBuscarSucursal.Controls.Add(pnlBusqueda);
-            pnlBuscarSucursal.Controls.Add(pbxBuscarSucursal);
-            pnlBuscarSucursal.Font = new Font("Calibri", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            pnlBuscarSucursal.Location = new Point(13, -18);
-            pnlBuscarSucursal.Margin = new Padding(4);
-            pnlBuscarSucursal.Name = "pnlBuscarSucursal";
-            pnlBuscarSucursal.Size = new Size(1235, 700);
-            pnlBuscarSucursal.TabIndex = 7;
+            pnlBuscarEmple.Anchor = AnchorStyles.Left;
+            pnlBuscarEmple.BackColor = Color.White;
+            pnlBuscarEmple.Controls.Add(lblSalirV);
+            pnlBuscarEmple.Controls.Add(lblBuscarSucursal);
+            pnlBuscarEmple.Controls.Add(dgvEmpleados);
+            pnlBuscarEmple.Controls.Add(pictureBox1);
+            pnlBuscarEmple.Controls.Add(pnlBusqueda);
+            pnlBuscarEmple.Controls.Add(pbxBuscarSucursal);
+            pnlBuscarEmple.Font = new Font("Calibri", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            pnlBuscarEmple.Location = new Point(13, -18);
+            pnlBuscarEmple.Margin = new Padding(4);
+            pnlBuscarEmple.Name = "pnlBuscarEmple";
+            pnlBuscarEmple.Size = new Size(1150, 630);
+            pnlBuscarEmple.TabIndex = 7;
             // 
             // lblSalirV
             // 
@@ -116,40 +114,12 @@
             lblSalirV.Cursor = Cursors.Hand;
             lblSalirV.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSalirV.ForeColor = Color.Red;
-            lblSalirV.Location = new Point(1070, 18);
+            lblSalirV.Location = new Point(1122, 2);
             lblSalirV.Name = "lblSalirV";
             lblSalirV.Size = new Size(25, 24);
             lblSalirV.TabIndex = 30;
             lblSalirV.Text = "X";
             lblSalirV.Click += lblSalirV_Click_1;
-            // 
-            // btnDepa
-            // 
-            btnDepa.BackColor = Color.FromArgb(4, 59, 186);
-            btnDepa.Cursor = Cursors.Hand;
-            btnDepa.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            btnDepa.ForeColor = Color.White;
-            btnDepa.ImageAlign = ContentAlignment.MiddleLeft;
-            btnDepa.ImageIndex = 0;
-            btnDepa.ImageList = imlIcons;
-            btnDepa.Location = new Point(829, 0);
-            btnDepa.Margin = new Padding(3, 4, 3, 4);
-            btnDepa.Name = "btnDepa";
-            btnDepa.Size = new Size(164, 52);
-            btnDepa.TabIndex = 30;
-            btnDepa.Text = "Departamentos";
-            btnDepa.TextAlign = ContentAlignment.MiddleRight;
-            btnDepa.UseVisualStyleBackColor = false;
-            btnDepa.Click += btnDepa_Click_1;
-            // 
-            // imlIcons
-            // 
-            imlIcons.ColorDepth = ColorDepth.Depth32Bit;
-            imlIcons.ImageStream = (ImageListStreamer)resources.GetObject("imlIcons.ImageStream");
-            imlIcons.TransparentColor = Color.Transparent;
-            imlIcons.Images.SetKeyName(0, "1d25cfbc-39f5-4edf-8684-e760e10ab95c.jpg");
-            imlIcons.Images.SetKeyName(1, "Gemini_Generated_Image_c85q6c85q6c85q6c.png");
-            imlIcons.Images.SetKeyName(2, "d53aae87-a2f6-4f2f-ba54-5b80ccce6a7d.jpg");
             // 
             // lblBuscarSucursal
             // 
@@ -172,7 +142,7 @@
             dgvEmpleados.Location = new Point(7, 94);
             dgvEmpleados.Name = "dgvEmpleados";
             dgvEmpleados.RowHeadersWidth = 51;
-            dgvEmpleados.Size = new Size(1142, 510);
+            dgvEmpleados.Size = new Size(1126, 510);
             dgvEmpleados.TabIndex = 28;
             dgvEmpleados.CellContentClick += dgvEmpleados_CellContentClick_1;
             // 
@@ -281,8 +251,8 @@
             // 
             pnlBusqueda.BackColor = Color.FromArgb(244, 246, 249);
             pnlBusqueda.Controls.Add(label1);
+            pnlBusqueda.Controls.Add(btnDepa);
             pnlBusqueda.Controls.Add(cbxSucursal);
-            pnlBusqueda.Controls.Add(btnNuevoEmple);
             pnlBusqueda.Controls.Add(btnLimpiar);
             pnlBusqueda.Controls.Add(txtBuscar);
             pnlBusqueda.Controls.Add(label8);
@@ -305,6 +275,35 @@
             label1.TabIndex = 25;
             label1.Text = "Sucursal:";
             // 
+            // btnDepa
+            // 
+            btnDepa.BackColor = Color.FromArgb(4, 59, 186);
+            btnDepa.Cursor = Cursors.Hand;
+            btnDepa.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            btnDepa.ForeColor = Color.White;
+            btnDepa.ImageAlign = ContentAlignment.MiddleLeft;
+            btnDepa.ImageIndex = 3;
+            btnDepa.ImageList = imlIcons;
+            btnDepa.Location = new Point(955, 2);
+            btnDepa.Margin = new Padding(3, 4, 3, 4);
+            btnDepa.Name = "btnDepa";
+            btnDepa.Size = new Size(184, 37);
+            btnDepa.TabIndex = 30;
+            btnDepa.Text = "Nuevo empleado";
+            btnDepa.TextAlign = ContentAlignment.MiddleRight;
+            btnDepa.UseVisualStyleBackColor = false;
+            btnDepa.Click += btnDepa_Click_1;
+            // 
+            // imlIcons
+            // 
+            imlIcons.ColorDepth = ColorDepth.Depth32Bit;
+            imlIcons.ImageStream = (ImageListStreamer)resources.GetObject("imlIcons.ImageStream");
+            imlIcons.TransparentColor = Color.Transparent;
+            imlIcons.Images.SetKeyName(0, "1d25cfbc-39f5-4edf-8684-e760e10ab95c.jpg");
+            imlIcons.Images.SetKeyName(1, "Gemini_Generated_Image_c85q6c85q6c85q6c.png");
+            imlIcons.Images.SetKeyName(2, "d53aae87-a2f6-4f2f-ba54-5b80ccce6a7d.jpg");
+            imlIcons.Images.SetKeyName(3, "346edda6-e1bd-4214-9122-16ade146b553.jpg");
+            // 
             // cbxSucursal
             // 
             cbxSucursal.Font = new Font("Calibri", 11F);
@@ -316,25 +315,6 @@
             cbxSucursal.TabIndex = 24;
             cbxSucursal.SelectedIndexChanged += cbxSucursal_SelectedIndexChanged_1;
             // 
-            // btnNuevoEmple
-            // 
-            btnNuevoEmple.BackColor = Color.FromArgb(13, 154, 64);
-            btnNuevoEmple.Cursor = Cursors.Hand;
-            btnNuevoEmple.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            btnNuevoEmple.ForeColor = Color.White;
-            btnNuevoEmple.ImageAlign = ContentAlignment.MiddleLeft;
-            btnNuevoEmple.ImageIndex = 2;
-            btnNuevoEmple.ImageList = imlIcons;
-            btnNuevoEmple.Location = new Point(822, 2);
-            btnNuevoEmple.Margin = new Padding(3, 4, 3, 4);
-            btnNuevoEmple.Name = "btnNuevoEmple";
-            btnNuevoEmple.Size = new Size(164, 44);
-            btnNuevoEmple.TabIndex = 23;
-            btnNuevoEmple.Text = "Nuevo empleado";
-            btnNuevoEmple.TextAlign = ContentAlignment.MiddleRight;
-            btnNuevoEmple.UseVisualStyleBackColor = false;
-            btnNuevoEmple.Click += btnNuevoEmple_Click_1;
-            // 
             // btnLimpiar
             // 
             btnLimpiar.BackColor = Color.White;
@@ -344,10 +324,10 @@
             btnLimpiar.ImageAlign = ContentAlignment.MiddleLeft;
             btnLimpiar.ImageIndex = 1;
             btnLimpiar.ImageList = imlIcons;
-            btnLimpiar.Location = new Point(992, 2);
+            btnLimpiar.Location = new Point(839, 9);
             btnLimpiar.Margin = new Padding(3, 4, 3, 4);
             btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(96, 37);
+            btnLimpiar.Size = new Size(98, 28);
             btnLimpiar.TabIndex = 22;
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.TextAlign = ContentAlignment.MiddleRight;
@@ -364,6 +344,7 @@
             txtBuscar.Size = new Size(179, 27);
             txtBuscar.TabIndex = 0;
             txtBuscar.Text = "Buscar";
+            txtBuscar.Click += txtBuscar_Click;
             txtBuscar.TextChanged += txtBuscar_TextChanged_1;
             // 
             // label8
@@ -434,8 +415,8 @@
             Load += FrmEmple_Load;
             pnlEmple.ResumeLayout(false);
             pnlSucursales.ResumeLayout(false);
-            pnlBuscarSucursal.ResumeLayout(false);
-            pnlBuscarSucursal.PerformLayout();
+            pnlBuscarEmple.ResumeLayout(false);
+            pnlBuscarEmple.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvEmpleados).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             pnlBusqueda.ResumeLayout(false);
@@ -449,7 +430,7 @@
         private Panel pnlEmple;
         private Panel pnlSucursales;
         private Label lblSalirV;
-        private Panel pnlBuscarSucursal;
+        private Panel pnlBuscarEmple;
         private PictureBox pictureBox1;
         private Panel pnlBusqueda;
         private Button btnLimpiar;
@@ -461,7 +442,6 @@
         private PictureBox pbxBuscarSucursal;
         private DataGridView dgvEmpleados;
         private Label lblBuscarSucursal;
-        private Button btnNuevoEmple;
         private Button btnDepa;
         private DataGridViewTextBoxColumn clCodigo;
         private DataGridViewTextBoxColumn clEmpleado;

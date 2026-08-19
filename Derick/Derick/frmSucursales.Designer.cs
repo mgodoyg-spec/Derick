@@ -31,8 +31,8 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSucursales));
             pnlSucursales = new Panel();
-            lblSalirV = new Label();
             pnlBuscarSucursal = new Panel();
+            lblSalirV = new Label();
             pictureBox1 = new PictureBox();
             btnRegistrarSucursal = new Button();
             imlIcons = new ImageList(components);
@@ -42,7 +42,6 @@
             txtBuscar = new TextBox();
             label8 = new Label();
             cbxCiudad = new ComboBox();
-            btnBuscar = new Button();
             label7 = new Label();
             cbxEstado = new ComboBox();
             pbxBuscarSucursal = new PictureBox();
@@ -68,7 +67,6 @@
             // 
             // pnlSucursales
             // 
-            pnlSucursales.Controls.Add(lblSalirV);
             pnlSucursales.Controls.Add(pnlBuscarSucursal);
             pnlSucursales.Dock = DockStyle.Fill;
             pnlSucursales.Location = new Point(0, 0);
@@ -76,26 +74,12 @@
             pnlSucursales.Size = new Size(1186, 651);
             pnlSucursales.TabIndex = 9;
             // 
-            // lblSalirV
-            // 
-            lblSalirV.AutoSize = true;
-            lblSalirV.BackColor = Color.Transparent;
-            lblSalirV.Cursor = Cursors.Hand;
-            lblSalirV.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblSalirV.ForeColor = Color.Red;
-            lblSalirV.Location = new Point(1149, 0);
-            lblSalirV.Name = "lblSalirV";
-            lblSalirV.Size = new Size(25, 24);
-            lblSalirV.TabIndex = 30;
-            lblSalirV.Text = "X";
-            lblSalirV.Click += lblSalirV_Click_1;
-            // 
             // pnlBuscarSucursal
             // 
             pnlBuscarSucursal.Anchor = AnchorStyles.Left;
             pnlBuscarSucursal.BackColor = Color.White;
+            pnlBuscarSucursal.Controls.Add(lblSalirV);
             pnlBuscarSucursal.Controls.Add(pictureBox1);
-            pnlBuscarSucursal.Controls.Add(btnRegistrarSucursal);
             pnlBuscarSucursal.Controls.Add(lblBuscarSucursal);
             pnlBuscarSucursal.Controls.Add(pnlBusqueda);
             pnlBuscarSucursal.Controls.Add(pbxBuscarSucursal);
@@ -106,6 +90,20 @@
             pnlBuscarSucursal.Name = "pnlBuscarSucursal";
             pnlBuscarSucursal.Size = new Size(1150, 630);
             pnlBuscarSucursal.TabIndex = 7;
+            // 
+            // lblSalirV
+            // 
+            lblSalirV.AutoSize = true;
+            lblSalirV.BackColor = Color.Transparent;
+            lblSalirV.Cursor = Cursors.Hand;
+            lblSalirV.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSalirV.ForeColor = Color.Red;
+            lblSalirV.Location = new Point(1122, 3);
+            lblSalirV.Name = "lblSalirV";
+            lblSalirV.Size = new Size(25, 24);
+            lblSalirV.TabIndex = 30;
+            lblSalirV.Text = "X";
+            lblSalirV.Click += lblSalirV_Click_1;
             // 
             // pictureBox1
             // 
@@ -126,9 +124,9 @@
             btnRegistrarSucursal.ImageAlign = ContentAlignment.MiddleLeft;
             btnRegistrarSucursal.ImageIndex = 4;
             btnRegistrarSucursal.ImageList = imlIcons;
-            btnRegistrarSucursal.Location = new Point(913, 3);
+            btnRegistrarSucursal.Location = new Point(903, 3);
             btnRegistrarSucursal.Name = "btnRegistrarSucursal";
-            btnRegistrarSucursal.Size = new Size(223, 39);
+            btnRegistrarSucursal.Size = new Size(223, 37);
             btnRegistrarSucursal.TabIndex = 16;
             btnRegistrarSucursal.Text = "Registrar nueva sucursal";
             btnRegistrarSucursal.TextAlign = ContentAlignment.MiddleRight;
@@ -164,9 +162,9 @@
             pnlBusqueda.BackColor = Color.FromArgb(244, 246, 249);
             pnlBusqueda.Controls.Add(btnLimpiar);
             pnlBusqueda.Controls.Add(txtBuscar);
+            pnlBusqueda.Controls.Add(btnRegistrarSucursal);
             pnlBusqueda.Controls.Add(label8);
             pnlBusqueda.Controls.Add(cbxCiudad);
-            pnlBusqueda.Controls.Add(btnBuscar);
             pnlBusqueda.Controls.Add(label7);
             pnlBusqueda.Controls.Add(cbxEstado);
             pnlBusqueda.Location = new Point(7, 45);
@@ -183,7 +181,7 @@
             btnLimpiar.ImageAlign = ContentAlignment.MiddleLeft;
             btnLimpiar.ImageIndex = 2;
             btnLimpiar.ImageList = imlIcons;
-            btnLimpiar.Location = new Point(889, 7);
+            btnLimpiar.Location = new Point(778, 5);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(98, 28);
             btnLimpiar.TabIndex = 22;
@@ -225,24 +223,6 @@
             cbxCiudad.Size = new Size(121, 31);
             cbxCiudad.TabIndex = 1;
             cbxCiudad.SelectedIndexChanged += cbxCiudad_SelectedIndexChanged;
-            // 
-            // btnBuscar
-            // 
-            btnBuscar.BackColor = Color.FromArgb(13, 154, 64);
-            btnBuscar.Cursor = Cursors.Hand;
-            btnBuscar.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            btnBuscar.ForeColor = Color.White;
-            btnBuscar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnBuscar.ImageIndex = 5;
-            btnBuscar.ImageList = imlIcons;
-            btnBuscar.Location = new Point(771, 4);
-            btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(99, 33);
-            btnBuscar.TabIndex = 21;
-            btnBuscar.Text = "Buscar";
-            btnBuscar.TextAlign = ContentAlignment.MiddleRight;
-            btnBuscar.UseVisualStyleBackColor = false;
-            btnBuscar.Click += btnBuscar_Click;
             // 
             // label7
             // 
@@ -369,7 +349,6 @@
             Text = "frmSucursales";
             Load += frmSucursales_Load;
             pnlSucursales.ResumeLayout(false);
-            pnlSucursales.PerformLayout();
             pnlBuscarSucursal.ResumeLayout(false);
             pnlBuscarSucursal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -388,7 +367,6 @@
         private TextBox txtBuscar;
         private Label label8;
         private ComboBox cbxCiudad;
-        private Button btnBuscar;
         private Label label7;
         private ComboBox cbxEstado;
         private Panel pnlBuscarSucursal;

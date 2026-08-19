@@ -152,7 +152,7 @@ namespace Derick
                 buscar,
                 cbxDepa.Text,
                 cbxEstado.Text,
-                ""
+                cbxSucursal.Text
             );
         }
 
@@ -202,32 +202,42 @@ namespace Derick
             if (cargandoFiltros)
                 return;
 
-            string buscar = txtBuscar.Text.Trim();
+            string buscar = txtBuscar.Text;
 
             if (buscar == "Buscar")
                 buscar = "";
 
             CargarEmpleados(
                 buscar,
-                "",
-                "",
-                ""
+                cbxDepa.Text,
+                cbxEstado.Text,
+                cbxSucursal.Text
             );
         }
 
         private void cbxDepa_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            // No hacer nada
+            if (cargandoFiltros)
+                return;
+
+            AplicarFiltros();
         }
 
         private void cbxSucursal_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            // No hacer nada
+            if (cargandoFiltros)
+                return;
+
+            AplicarFiltros();
         }
 
         private void cbxEstado_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            // No hacer nada
+
+            if (cargandoFiltros)
+                return;
+
+            AplicarFiltros();
         }
         private void txtBuscar_Enter(object sender, EventArgs e)
         {
@@ -367,12 +377,21 @@ namespace Derick
             }
         }
 
-     
+
         private void lblSalirV_Click_1(object sender, EventArgs e)
         {
             if (MessageBox.Show("¿Está seguro de salir?", "Confirmar salida",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 Application.Exit();
+        }
+
+        private void txtBuscar_Click(object sender, EventArgs e)
+        {
+            if (txtBuscar.Text == "Buscar")
+            {
+                txtBuscar.Text = "";
+                txtBuscar.ForeColor = Color.Black;
+            }
         }
     }
 }

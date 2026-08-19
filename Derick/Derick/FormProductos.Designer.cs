@@ -59,6 +59,7 @@
             clEliminar = new DataGridViewImageColumn();
             clVerTodo = new DataGridViewImageColumn();
             img_icons = new ImageList(components);
+            lblSalirV = new Label();
             pnl_conagg.SuspendLayout();
             pnl_agg2.SuspendLayout();
             pnlBusqueda.SuspendLayout();
@@ -82,6 +83,7 @@
             // pnl_agg2
             // 
             pnl_agg2.BackColor = Color.White;
+            pnl_agg2.Controls.Add(lblSalirV);
             pnl_agg2.Controls.Add(pnlBusqueda);
             pnl_agg2.Controls.Add(pictureBox2);
             pnl_agg2.Controls.Add(button1);
@@ -232,7 +234,7 @@
             button1.ForeColor = Color.White;
             button1.Image = (Image)resources.GetObject("button1.Image");
             button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(913, 3);
+            button1.Location = new Point(859, 6);
             button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
             button1.Size = new Size(223, 39);
@@ -378,6 +380,20 @@
             img_icons.TransparentColor = Color.Transparent;
             img_icons.Images.SetKeyName(0, "eliminar1.png");
             // 
+            // lblSalirV
+            // 
+            lblSalirV.AutoSize = true;
+            lblSalirV.BackColor = Color.Transparent;
+            lblSalirV.Cursor = Cursors.Hand;
+            lblSalirV.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSalirV.ForeColor = Color.Red;
+            lblSalirV.Location = new Point(1122, 6);
+            lblSalirV.Name = "lblSalirV";
+            lblSalirV.Size = new Size(25, 24);
+            lblSalirV.TabIndex = 31;
+            lblSalirV.Text = "X";
+            lblSalirV.Click += lblSalirV_Click;
+            // 
             // FormProductos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -433,5 +449,6 @@
         private DataGridViewImageColumn clVerTodo;
         private PictureBox pictureBox2;
         private Panel pnlBusqueda;
+        private Label lblSalirV;
     }
 }

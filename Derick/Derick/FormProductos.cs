@@ -11,7 +11,7 @@ namespace Derick
 {
     public partial class FormProductos : Form
     {
-        
+
         public FormProductos()
         {
             InitializeComponent();
@@ -299,7 +299,7 @@ namespace Derick
                     fila["Categoria"].ToString(),
                     fila["Talla"].ToString(),
                     fila["Color"].ToString(),
-                    "$" + precio.ToString("0.00"),"0",
+                    "$" + precio.ToString("0.00"), "0",
                     estado,
                     null,
                     null,
@@ -398,7 +398,7 @@ namespace Derick
                     );
             }
         }
-        
+
         private void CargarCategoriasFiltro()
         {
             cmb_agg1.Items.Clear();
@@ -470,6 +470,20 @@ namespace Derick
             FormProveedores frmpr = new FormProveedores();
             frmpr.StartPosition = FormStartPosition.CenterScreen;
             frmpr.ShowDialog(this);
+        }
+
+        private void lblSalirV_Click(object sender, EventArgs e)
+        {
+            DialogResult respuesta =
+               MessageBox.Show(
+               "¿Está seguro de salir?",
+               "Confirmar salida",
+               MessageBoxButtons.YesNo,
+               MessageBoxIcon.Question);
+            if (respuesta == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
     }
 }

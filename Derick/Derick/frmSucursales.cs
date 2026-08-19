@@ -276,11 +276,6 @@ namespace Derick
             CargarComboCiudad();
 
         }
-        //buscar sucursal
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            AplicarFiltros();
-        }
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
             if (cargandoFiltros)
