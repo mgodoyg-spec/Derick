@@ -97,11 +97,11 @@
             // lblNombreSucursal
             // 
             lblNombreSucursal.AutoSize = true;
-            lblNombreSucursal.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblNombreSucursal.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblNombreSucursal.ForeColor = Color.Black;
-            lblNombreSucursal.Location = new Point(43, 59);
+            lblNombreSucursal.Location = new Point(43, 54);
             lblNombreSucursal.Name = "lblNombreSucursal";
-            lblNombreSucursal.Size = new Size(191, 23);
+            lblNombreSucursal.Size = new Size(210, 26);
             lblNombreSucursal.TabIndex = 1;
             lblNombreSucursal.Text = "Nombre de la sucursal:";
             // 
@@ -140,6 +140,7 @@
             // 
             // cbxCiudad
             // 
+            cbxCiudad.DropDownStyle = ComboBoxStyle.DropDownList;
             cbxCiudad.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbxCiudad.FormattingEnabled = true;
             cbxCiudad.Items.AddRange(new object[] { "Quito", "Guayaquil", "Cuenca", "Santo Domingo", "Machala", "Durán", "Manta", "Portoviejo", "Loja", "Ambato", "Esmeraldas", "Riobamba", "Quevedo", "Milagro", "Ibarra", "La Libertad", "Babahoyo", "Latacunga", "Tulcán", "Nueva Loja", "Puyo", "Tena", "Macas", "Guaranda", "Azogues", "Zamora", "Puerto Francisco de Orellana" });
@@ -219,7 +220,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Red;
-            label1.Location = new Point(236, 62);
+            label1.Location = new Point(241, 61);
             label1.Name = "label1";
             label1.Size = new Size(17, 19);
             label1.TabIndex = 31;
@@ -287,6 +288,7 @@
             // 
             // cbxEncargadoSucursal
             // 
+            cbxEncargadoSucursal.DropDownStyle = ComboBoxStyle.DropDownList;
             cbxEncargadoSucursal.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbxEncargadoSucursal.FormattingEnabled = true;
             cbxEncargadoSucursal.Location = new Point(264, 250);
@@ -309,6 +311,7 @@
             // 
             txtCorreoSucursal.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtCorreoSucursal.Location = new Point(13, 250);
+            txtCorreoSucursal.MaxLength = 100;
             txtCorreoSucursal.Name = "txtCorreoSucursal";
             txtCorreoSucursal.Size = new Size(225, 27);
             txtCorreoSucursal.TabIndex = 10;
@@ -332,6 +335,7 @@
             txtTelefonoSucursal.Name = "txtTelefonoSucursal";
             txtTelefonoSucursal.Size = new Size(205, 27);
             txtTelefonoSucursal.TabIndex = 8;
+            txtTelefonoSucursal.KeyPress += txtTelefonoSucursal_KeyPress;
             // 
             // lbltelefono
             // 
@@ -348,6 +352,7 @@
             // 
             txtDireccionSucursal.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtDireccionSucursal.Location = new Point(8, 173);
+            txtDireccionSucursal.MaxLength = 150;
             txtDireccionSucursal.Name = "txtDireccionSucursal";
             txtDireccionSucursal.Size = new Size(230, 27);
             txtDireccionSucursal.TabIndex = 6;
@@ -378,6 +383,7 @@
             // 
             txtNombreSucursal.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtNombreSucursal.Location = new Point(7, 93);
+            txtNombreSucursal.MaxLength = 50;
             txtNombreSucursal.Name = "txtNombreSucursal";
             txtNombreSucursal.Size = new Size(231, 27);
             txtNombreSucursal.TabIndex = 2;
@@ -389,7 +395,7 @@
             lblSalirV.Cursor = Cursors.Hand;
             lblSalirV.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSalirV.ForeColor = Color.Red;
-            lblSalirV.Location = new Point(539, 0);
+            lblSalirV.Location = new Point(542, 0);
             lblSalirV.Name = "lblSalirV";
             lblSalirV.Size = new Size(25, 24);
             lblSalirV.TabIndex = 29;
@@ -472,6 +478,7 @@
             // 
             // cbxEstadoSucursal
             // 
+            cbxEstadoSucursal.DropDownStyle = ComboBoxStyle.DropDownList;
             cbxEstadoSucursal.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbxEstadoSucursal.FormattingEnabled = true;
             cbxEstadoSucursal.Items.AddRange(new object[] { "Activa", "Inactiva", "Remodelación" });

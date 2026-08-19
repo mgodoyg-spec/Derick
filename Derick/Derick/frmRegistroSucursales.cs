@@ -250,7 +250,7 @@ namespace Derick
                 @Estado,
                 @Imagen
             )";
-                SqlParameter parametroImagen =new SqlParameter("@Imagen",SqlDbType.VarBinary,-1);
+                SqlParameter parametroImagen = new SqlParameter("@Imagen", SqlDbType.VarBinary, -1);
 
                 if (imagenSucursal != null &&
                     imagenSucursal.Length > 0)
@@ -381,6 +381,14 @@ namespace Derick
                 {
                     return new Bitmap(imagenTemporal);
                 }
+            }
+        }
+
+        private void txtTelefonoSucursal_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) &&!char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }

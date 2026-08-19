@@ -51,6 +51,7 @@
             lblNombre = new Label();
             lblCodigo = new Label();
             pictureBox1 = new PictureBox();
+            btnDesactivar = new Button();
             ((System.ComponentModel.ISupportInitialize)pbxImagenSucursal).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -61,12 +62,12 @@
             lblSalirV.AutoSize = true;
             lblSalirV.BackColor = Color.Transparent;
             lblSalirV.Cursor = Cursors.Hand;
-            lblSalirV.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSalirV.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSalirV.ForeColor = Color.Red;
-            lblSalirV.Location = new Point(578, 0);
+            lblSalirV.Location = new Point(574, 0);
             lblSalirV.Margin = new Padding(4, 0, 4, 0);
             lblSalirV.Name = "lblSalirV";
-            lblSalirV.Size = new Size(25, 24);
+            lblSalirV.Size = new Size(27, 25);
             lblSalirV.TabIndex = 30;
             lblSalirV.Text = "X";
             lblSalirV.Click += lblSalirV_Click;
@@ -77,7 +78,7 @@
             lblTitulo.BackColor = Color.Transparent;
             lblTitulo.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitulo.ForeColor = Color.FromArgb(13, 154, 64);
-            lblTitulo.Location = new Point(0, 9);
+            lblTitulo.Location = new Point(0, 7);
             lblTitulo.Margin = new Padding(4, 0, 4, 0);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(238, 26);
@@ -192,6 +193,7 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(btnDesactivar);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(lblEstado);
             panel1.Controls.Add(lblEncargado);
@@ -307,11 +309,23 @@
             // 
             pictureBox1.BackgroundImage = Properties.Resources.detalleverde;
             pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox1.Location = new Point(12, 36);
+            pictureBox1.Location = new Point(13, 36);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(225, 14);
             pictureBox1.TabIndex = 67;
             pictureBox1.TabStop = false;
+            // 
+            // btnDesactivar
+            // 
+            btnDesactivar.BackColor = Color.Silver;
+            btnDesactivar.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDesactivar.Location = new Point(352, 536);
+            btnDesactivar.Name = "btnDesactivar";
+            btnDesactivar.Size = new Size(206, 34);
+            btnDesactivar.TabIndex = 67;
+            btnDesactivar.Text = "Desactivar sucursal";
+            btnDesactivar.UseVisualStyleBackColor = false;
+            btnDesactivar.Click += btnDesactivar_Click;
             // 
             // frmVerSucursales
             // 
@@ -363,5 +377,6 @@
         private Label lblTel;
         private Label label2;
         private PictureBox pictureBox1;
+        private Button btnDesactivar;
     }
 }

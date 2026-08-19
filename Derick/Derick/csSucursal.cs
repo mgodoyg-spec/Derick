@@ -221,5 +221,27 @@ namespace Derick
                     Codigo)
             );
         }
+        //desactivar sucursal
+        public bool CambiarEstado(string nuevoEstado)
+        {
+            csConectaSQL oConexion = new csConectaSQL();
+
+            string sql = @"
+                         UPDATE Sucursales
+                         SET Estado = @Estado
+                         WHERE Codigo = @Codigo";
+
+            return oConexion.ejecutarComando(
+                sql,
+
+                new SqlParameter(
+                    "@Estado",
+                    nuevoEstado),
+
+                new SqlParameter(
+                    "@Codigo",
+                    Codigo)
+            );
+        }
     }
 }
