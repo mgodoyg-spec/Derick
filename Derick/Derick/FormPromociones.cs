@@ -382,7 +382,21 @@ namespace Derick
                         C_Prm();
                     }
                 }
-            }    
+            }
+        }
+
+        private void lblSalirV_Click(object sender, EventArgs e)
+        {
+            DialogResult respuesta =
+             MessageBox.Show(
+             "¿Está seguro de salir?",
+             "Confirmar salida",
+             MessageBoxButtons.YesNo,
+             MessageBoxIcon.Question);
+            if (respuesta == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
     }
 }

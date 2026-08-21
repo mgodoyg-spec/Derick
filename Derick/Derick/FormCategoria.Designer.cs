@@ -54,6 +54,7 @@
             pic_ctg1 = new PictureBox();
             lbl_ctg1 = new Label();
             img_ctg = new ImageList(components);
+            lblSalirV = new Label();
             pnl_ctg1.SuspendLayout();
             pnl_cont1.SuspendLayout();
             pnlBusqueda.SuspendLayout();
@@ -77,6 +78,7 @@
             // pnl_cont1
             // 
             pnl_cont1.BackColor = Color.White;
+            pnl_cont1.Controls.Add(lblSalirV);
             pnl_cont1.Controls.Add(pnlBusqueda);
             pnl_cont1.Controls.Add(pictureBox2);
             pnl_cont1.Controls.Add(btn_ctg1);
@@ -227,7 +229,7 @@
             btn_ctg1.ForeColor = Color.White;
             btn_ctg1.Image = (Image)resources.GetObject("btn_ctg1.Image");
             btn_ctg1.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_ctg1.Location = new Point(913, 3);
+            btn_ctg1.Location = new Point(884, 2);
             btn_ctg1.Margin = new Padding(3, 2, 3, 2);
             btn_ctg1.Name = "btn_ctg1";
             btn_ctg1.Size = new Size(223, 39);
@@ -332,6 +334,20 @@
             img_ctg.TransparentColor = Color.Transparent;
             img_ctg.Images.SetKeyName(0, "eliminar1.png");
             // 
+            // lblSalirV
+            // 
+            lblSalirV.AutoSize = true;
+            lblSalirV.BackColor = Color.Transparent;
+            lblSalirV.Cursor = Cursors.Hand;
+            lblSalirV.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSalirV.ForeColor = Color.Red;
+            lblSalirV.Location = new Point(1122, 2);
+            lblSalirV.Name = "lblSalirV";
+            lblSalirV.Size = new Size(25, 24);
+            lblSalirV.TabIndex = 34;
+            lblSalirV.Text = "X";
+            lblSalirV.Click += lblSalirV_Click;
+            // 
             // FormCategoria
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -386,5 +402,6 @@
         private PictureBox pictureBox1;
         private Label lbl_agg2;
         private Label label1;
+        private Label lblSalirV;
     }
 }

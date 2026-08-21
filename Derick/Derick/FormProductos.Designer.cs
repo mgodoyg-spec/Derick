@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProductos));
             pnl_conagg = new Panel();
             pnl_agg2 = new Panel();
+            lblSalirV = new Label();
             pnlBusqueda = new Panel();
             cmb_agg2 = new ComboBox();
             cmb_agg1 = new ComboBox();
@@ -59,7 +60,6 @@
             clEliminar = new DataGridViewImageColumn();
             clVerTodo = new DataGridViewImageColumn();
             img_icons = new ImageList(components);
-            lblSalirV = new Label();
             pnl_conagg.SuspendLayout();
             pnl_agg2.SuspendLayout();
             pnlBusqueda.SuspendLayout();
@@ -95,6 +95,20 @@
             pnl_agg2.Name = "pnl_agg2";
             pnl_agg2.Size = new Size(1150, 630);
             pnl_agg2.TabIndex = 6;
+            // 
+            // lblSalirV
+            // 
+            lblSalirV.AutoSize = true;
+            lblSalirV.BackColor = Color.Transparent;
+            lblSalirV.Cursor = Cursors.Hand;
+            lblSalirV.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSalirV.ForeColor = Color.Red;
+            lblSalirV.Location = new Point(1122, 6);
+            lblSalirV.Name = "lblSalirV";
+            lblSalirV.Size = new Size(25, 24);
+            lblSalirV.TabIndex = 31;
+            lblSalirV.Text = "X";
+            lblSalirV.Click += lblSalirV_Click;
             // 
             // pnlBusqueda
             // 
@@ -234,7 +248,7 @@
             button1.ForeColor = Color.White;
             button1.Image = (Image)resources.GetObject("button1.Image");
             button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(859, 6);
+            button1.Location = new Point(893, 6);
             button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
             button1.Size = new Size(223, 39);
@@ -379,20 +393,6 @@
             img_icons.ImageStream = (ImageListStreamer)resources.GetObject("img_icons.ImageStream");
             img_icons.TransparentColor = Color.Transparent;
             img_icons.Images.SetKeyName(0, "eliminar1.png");
-            // 
-            // lblSalirV
-            // 
-            lblSalirV.AutoSize = true;
-            lblSalirV.BackColor = Color.Transparent;
-            lblSalirV.Cursor = Cursors.Hand;
-            lblSalirV.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblSalirV.ForeColor = Color.Red;
-            lblSalirV.Location = new Point(1122, 6);
-            lblSalirV.Name = "lblSalirV";
-            lblSalirV.Size = new Size(25, 24);
-            lblSalirV.TabIndex = 31;
-            lblSalirV.Text = "X";
-            lblSalirV.Click += lblSalirV_Click;
             // 
             // FormProductos
             // 

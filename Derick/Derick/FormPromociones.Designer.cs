@@ -57,6 +57,7 @@
             pic_prm = new PictureBox();
             lbl_prm1 = new Label();
             img_promociones = new ImageList(components);
+            lblSalirV = new Label();
             pnl_prm.SuspendLayout();
             pnl_prm2.SuspendLayout();
             pnlBusqueda.SuspendLayout();
@@ -80,6 +81,7 @@
             // pnl_prm2
             // 
             pnl_prm2.BackColor = Color.White;
+            pnl_prm2.Controls.Add(lblSalirV);
             pnl_prm2.Controls.Add(pnlBusqueda);
             pnl_prm2.Controls.Add(pictureBox2);
             pnl_prm2.Controls.Add(dgvPromociones);
@@ -315,7 +317,7 @@
             btn_aggP.ForeColor = Color.White;
             btn_aggP.Image = (Image)resources.GetObject("btn_aggP.Image");
             btn_aggP.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_aggP.Location = new Point(913, 3);
+            btn_aggP.Location = new Point(893, 2);
             btn_aggP.Margin = new Padding(3, 2, 3, 2);
             btn_aggP.Name = "btn_aggP";
             btn_aggP.Size = new Size(223, 39);
@@ -354,6 +356,20 @@
             img_promociones.ImageStream = (ImageListStreamer)resources.GetObject("img_promociones.ImageStream");
             img_promociones.TransparentColor = Color.Transparent;
             img_promociones.Images.SetKeyName(0, "eliminar1.png");
+            // 
+            // lblSalirV
+            // 
+            lblSalirV.AutoSize = true;
+            lblSalirV.BackColor = Color.Transparent;
+            lblSalirV.Cursor = Cursors.Hand;
+            lblSalirV.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSalirV.ForeColor = Color.Red;
+            lblSalirV.Location = new Point(1122, 2);
+            lblSalirV.Name = "lblSalirV";
+            lblSalirV.Size = new Size(25, 24);
+            lblSalirV.TabIndex = 38;
+            lblSalirV.Text = "X";
+            lblSalirV.Click += lblSalirV_Click;
             // 
             // FormPromociones
             // 
@@ -407,5 +423,6 @@
         private PictureBox pictureBox1;
         private Label lbl_agg2;
         private Label label1;
+        private Label lblSalirV;
     }
 }

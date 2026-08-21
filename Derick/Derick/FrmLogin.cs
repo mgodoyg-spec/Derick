@@ -95,11 +95,5 @@ namespace Derick
                 Application.Exit();
             }
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            FrmMenuPrincipal menu = new FrmMenuPrincipal();
-            menu.Show();
-        }
     }
 }
