@@ -11,6 +11,8 @@ namespace Derick
     public partial class FrmMenuPrincipal : Form
     {
         public string usuarioActual;
+        public int idUsuarioActual;
+        public int idEmpleadoActual;
         private Form? formularioActivo;
         public FrmMenuPrincipal()
         {
@@ -141,6 +143,15 @@ namespace Derick
         {
             csBotonActivo.MarcarBotonActivo(pnlIndicador, btnproductos);
             csNavegacion.AbrirFormulario(pnlMostrarForm, ref formularioActivo, new FormCategoria());
+        }
+
+        private void miPerfilToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmMiPerfil frm = new FrmMiPerfil();
+            frm.idUsuarioActual = idUsuarioActual;
+            frm.idEmpleadoActual = idEmpleadoActual;
+            frm.usuarioActual = usuarioActual;
+            frm.Show();
         }
     }
 }
