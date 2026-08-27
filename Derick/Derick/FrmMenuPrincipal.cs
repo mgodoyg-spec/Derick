@@ -123,7 +123,8 @@ namespace Derick
 
         private void btnreportes_Click(object sender, EventArgs e)
         {
-
+            csBotonActivo.MarcarBotonActivo(pnlIndicador, btnreportes);
+            csNavegacion.AbrirFormulario(pnlMostrarForm, ref formularioActivo, new frmReportes());
         }
 
         private void promocionesToolStripMenuItem_Click(object sender, EventArgs e)

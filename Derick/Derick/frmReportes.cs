@@ -5,7 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-
+using Microsoft.Reporting.WinForms;
 namespace Derick
 {
     public partial class frmReportes : Form
@@ -13,27 +13,66 @@ namespace Derick
         public frmReportes()
         {
             InitializeComponent();
+            reportViewer1.Dock = DockStyle.Fill;
+            panel2.Controls.Add(reportViewer1);
         }
 
-        private void btnImprimir_Click_1(object sender, EventArgs e)
+        private void lblSalirV_Click(object sender, EventArgs e)
         {
-            printDialog1.Document = printDocument1;
-
-            if (printDialog1.ShowDialog() == DialogResult.OK)
+            DialogResult respuesta =
+                MessageBox.Show(
+                "¿Está seguro de salir?",
+                "Confirmar salida",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+            if (respuesta == DialogResult.Yes)
             {
-                printDocument1.Print();
+                Application.Exit();
             }
         }
-
-        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        private void CargarSucursales()
         {
-            Font fuente = new Font("Arial", 12);
-
-            e.Graphics.DrawString("REPORTE DE VENTAS", fuente, Brushes.Black, 100, 50);
-            e.Graphics.DrawString("Fecha: " + DateTime.Now.ToString("dd/MM/yyyy"), fuente, Brushes.Black, 100, 80);
-
-            // Aquí luego irán los datos de la base de datos.
+            csConectaSQL oconSQL = new csConectaSQL();
+            string cadena =
+                "select IdSucursal, NombreSucursal " +
+                "from Sucursales " +
+                "where Estado = 'Activa' " +
+                "order by NombreSucursal";
+            DataTable dt = oconSQL.RetornaRegistros(cadena);
+            cmbSucursal.DataSource = dt;
+            cmbSucursal.DisplayMember = "NombreSucursal";
+            cmbSucursal.ValueMember = "IdSucursal";
+        }
+        private void btnGenerarR_Click(object sender, EventArgs e)
+        {
+            csConectaSQL oconSQL = new csConectaSQL();
+            DataTable dt = new DataTable();
+            ReportDataSource dataset = new ReportDataSource();
+            reportViewer1.LocalReport.DataSources.Clear();
+            reportViewer1.LocalReport.ReportEmbeddedResource =
+                "Derick.rptProductosMasVendidos.rdlc";
+            string fechaInicio = dtpFechaInicio.Value.ToString("yyyyMMdd");
+            string fechaFin = dtpFechaFin.Value.AddDays(1).ToString("yyyyMMdd");
+            int idSucursal = Convert.ToInt32(cmbSucursal.SelectedValue);
+            string cadena =
+                "select P.Codigo as CodProducto, P.Nombre as NomProducto, " +
+                "sum(D.Cantidad) as Cantidad " +
+                "from DetalleVenta D inner join Productos P on D.IdProducto = P.IdProductos " +
+                "inner join Ventas V on D.IdVenta = V.IdVentas " +
+                "where V.Fecha >= '" + fechaInicio + "' " +
+                "and V.Fecha < '" + fechaFin + "' " +
+                "and V.IdSucursal = " + idSucursal + " " +
+                "group by P.Codigo, P.Nombre " +
+                "order by Cantidad desc";
+            dt = oconSQL.RetornaRegistros(cadena);
+            dataset = new ReportDataSource("dsProductosMasVendidos", dt);
+            reportViewer1.LocalReport.DataSources.Add(dataset);
+            reportViewer1.RefreshReport();
         }
 
+        private void frmReportes_Load(object sender, EventArgs e)
+        {
+            CargarSucursales();
+        }
     }
 }
