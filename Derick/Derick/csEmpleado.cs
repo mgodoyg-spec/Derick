@@ -32,32 +32,73 @@ namespace Derick
 
         private csConectaSQL conexion = new csConectaSQL();
 
-        public DataTable Listar(string buscar = "", string departamento = "", string estado = "", string sucursal = "")
+        public DataTable Listar(string buscar = "",string departamento = "",string estado = "",string sucursal = "")
         {
-            string b = (buscar ?? "").Trim().Replace("'", "''");
-            string d = (departamento ?? "").Replace("'", "''");
-            string e = (estado ?? "").Replace("'", "''");
-            string s = (sucursal ?? "").Replace("'", "''");
-            int estadoBit = estado == "Activo" ? 1 : 0;
+            buscar = buscar.Replace("'", "''");
+            departamento = departamento.Replace("'", "''");
+            sucursal = sucursal.Replace("'", "''");
 
             string query = @"
-                SELECT Codigo, ISNULL(Nombres,'') + ' ' + ISNULL(Apellidos,'') AS Empleado,
-                       Cargo, Departamento, Telefono, Correo,
-                       CASE WHEN Estado=1 THEN 'Activo' ELSE 'Inactivo' END AS Estado, Foto
-                FROM Empleados
-                WHERE (ISNULL(Codigo,'') LIKE '%" + b + @"%' OR ISNULL(Nombres,'') LIKE '%" + b + @"%'
-                    OR ISNULL(Apellidos,'') LIKE '%" + b + @"%'
-                    OR ISNULL(Nombres,'') + ' ' + ISNULL(Apellidos,'') LIKE '%" + b + @"%'
-                    OR ISNULL(Cargo,'') LIKE '%" + b + @"%' OR ISNULL(Departamento,'') LIKE '%" + b + @"%'
-                    OR ISNULL(Telefono,'') LIKE '%" + b + @"%' OR ISNULL(Correo,'') LIKE '%" + b + @"%')
-                AND ('" + d + @"'='' OR Departamento='" + d + @"')
-                AND ('" + e + @"'='' OR Estado=" + estadoBit + @")
-                AND ('" + s + @"'='' OR IdSucursal IN
-                    (SELECT IdSucursal FROM Sucursales WHERE NombreSucursal='" + s + @"'))
-                ORDER BY IdEmpleado";
+        SELECT
+            Codigo,
+            Nombres + ' ' + Apellidos AS Empleado,
+            Cargo,
+            Departamento,
+            Telefono,
+            Correo,
+            CASE
+                WHEN Estado = 1 THEN 'Activo'
+                ELSE 'Inactivo'
+            END AS Estado,
+            Foto
+        FROM Empleados
+        WHERE 1 = 1";
+
+            if (buscar != "")
+            {
+                query += @"
+        AND (
+            Codigo LIKE '%" + buscar + @"%'
+            OR Nombres LIKE '%" + buscar + @"%'
+            OR Apellidos LIKE '%" + buscar + @"%'
+            OR Cargo LIKE '%" + buscar + @"%'
+            OR Departamento LIKE '%" + buscar + @"%'
+            OR Telefono LIKE '%" + buscar + @"%'
+            OR Correo LIKE '%" + buscar + @"%'
+        )";
+            }
+
+            if (departamento != "")
+            {
+                query += " AND Departamento = '" + departamento + "'";
+            }
+
+            if (estado == "Activo")
+            {
+                query += " AND Estado = 1";
+            }
+
+            if (estado == "Inactivo")
+            {
+                query += " AND Estado = 0";
+            }
+
+            if (sucursal != "")
+            {
+                query += @"
+            AND IdSucursal IN
+            (
+                SELECT IdSucursal
+                FROM Sucursales
+                WHERE NombreSucursal = '" + sucursal + @"'
+            )";
+            }
+
+            query += " ORDER BY IdEmpleado";
 
             return conexion.RetornaRegistros(query);
         }
+        
 
         public DataTable ObtenerDepartamentos()
         {
@@ -94,46 +135,156 @@ namespace Derick
 
         public csEmpleado BuscarPorCodigo(string codigo)
         {
-            string c = (codigo ?? "").Replace("'", "''");
+            string codigoEsc = codigo.Replace("'", "''");
 
-            DataTable dt = conexion.RetornaRegistros(@"
-                SELECT e.IdEmpleado,e.Codigo,e.Nombres,e.Apellidos,e.Cedula,e.FechaNacimiento,
-                       e.Genero,e.Telefono,e.Correo,e.Direccion,e.Cargo,e.Departamento,e.FechaIngreso,
-                       e.Salario,e.TipoContrato,e.Estado,e.ContactoEmergencia,e.TelefonoEmergencia,e.Foto,
-                       u.Usuario,u.Contrasena,r.NombreRol AS Rol
-                FROM Empleados e
-                LEFT JOIN Usuario u ON u.IdEmpleado=e.IdEmpleado
-                LEFT JOIN Rol r ON r.IdRol=u.IdRol
-                WHERE e.Codigo='" + c + "'");
+            string query = @"
+        SELECT
+            e.IdEmpleado,
+            e.Codigo,
+            e.Nombres,
+            e.Apellidos,
+            e.Cedula,
+            e.FechaNacimiento,
+            e.Genero,
+            e.Telefono,
+            e.Correo,
+            e.Direccion,
+            e.Cargo,
+            e.Departamento,
+            e.FechaIngreso,
+            e.Salario,
+            e.TipoContrato,
+            e.Estado,
+            e.ContactoEmergencia,
+            e.TelefonoEmergencia,
+            e.Foto,
+            u.Usuario,
+            u.Contrasena,
+            r.NombreRol AS Rol
 
-            if (dt == null || dt.Rows.Count == 0) return null;
-            DataRow f = dt.Rows[0];
+        FROM Empleados e
 
-            return new csEmpleado
+        LEFT JOIN Usuario u
+            ON u.IdEmpleado = e.IdEmpleado
+
+        LEFT JOIN Rol r
+            ON r.IdRol = u.IdRol
+
+        WHERE e.Codigo = '" + codigoEsc + "'";
+
+            DataTable dt = conexion.RetornaRegistros(query);
+
+            // Si no encontró al empleado
+            if (dt == null || dt.Rows.Count == 0)
             {
-                IdEmpleado = Convert.ToInt32(f["IdEmpleado"]),
-                Codigo = f["Codigo"].ToString(),
-                Nombres = f["Nombres"].ToString(),
-                Apellidos = f["Apellidos"].ToString(),
-                Cedula = f["Cedula"].ToString(),
-                FechaNacimiento = f["FechaNacimiento"] == DBNull.Value ? DateTime.Today : Convert.ToDateTime(f["FechaNacimiento"]),
-                Genero = f["Genero"].ToString(),
-                Telefono = f["Telefono"].ToString(),
-                Correo = f["Correo"].ToString(),
-                Direccion = f["Direccion"].ToString(),
-                Cargo = f["Cargo"].ToString(),
-                Departamento = f["Departamento"].ToString(),
-                FechaIngreso = f["FechaIngreso"] == DBNull.Value ? DateTime.Today : Convert.ToDateTime(f["FechaIngreso"]),
-                Salario = f["Salario"] == DBNull.Value ? 0 : Convert.ToDecimal(f["Salario"]),
-                TipoContrato = f["TipoContrato"].ToString(),
-                Estado = f["Estado"] != DBNull.Value && Convert.ToBoolean(f["Estado"]),
-                ContactoEmergencia = f["ContactoEmergencia"].ToString(),
-                TelefonoEmergencia = f["TelefonoEmergencia"].ToString(),
-                Foto = f["Foto"] == DBNull.Value ? null : (byte[])f["Foto"],
-                Usuario = f["Usuario"] == DBNull.Value ? "" : f["Usuario"].ToString(),
-                Contrasena = f["Contrasena"] == DBNull.Value ? "" : f["Contrasena"].ToString(),
-                Rol = f["Rol"] == DBNull.Value ? "" : f["Rol"].ToString()
-            };
+                return null;
+            }
+
+            // Tomamos la primera fila encontrada
+            DataRow fila = dt.Rows[0];
+
+            // Creamos un empleado
+            csEmpleado empleado = new csEmpleado();
+
+            empleado.IdEmpleado =
+                Convert.ToInt32(fila["IdEmpleado"]);
+
+            empleado.Codigo =
+                fila["Codigo"].ToString();
+
+            empleado.Nombres =
+                fila["Nombres"].ToString();
+
+            empleado.Apellidos =
+                fila["Apellidos"].ToString();
+
+            empleado.Cedula =
+                fila["Cedula"].ToString();
+
+            empleado.Genero =
+                fila["Genero"].ToString();
+
+            empleado.Telefono =
+                fila["Telefono"].ToString();
+
+            empleado.Correo =
+                fila["Correo"].ToString();
+
+            empleado.Direccion =
+                fila["Direccion"].ToString();
+
+            empleado.Cargo =
+                fila["Cargo"].ToString();
+
+            empleado.Departamento =
+                fila["Departamento"].ToString();
+
+            empleado.TipoContrato =
+                fila["TipoContrato"].ToString();
+
+            empleado.ContactoEmergencia =
+                fila["ContactoEmergencia"].ToString();
+
+            empleado.TelefonoEmergencia =
+                fila["TelefonoEmergencia"].ToString();
+
+            // Fecha de nacimiento
+            if (fila["FechaNacimiento"] != DBNull.Value)
+            {
+                empleado.FechaNacimiento =
+                    Convert.ToDateTime(fila["FechaNacimiento"]);
+            }
+
+            // Fecha de ingreso
+            if (fila["FechaIngreso"] != DBNull.Value)
+            {
+                empleado.FechaIngreso =
+                    Convert.ToDateTime(fila["FechaIngreso"]);
+            }
+
+            // Salario
+            if (fila["Salario"] != DBNull.Value)
+            {
+                empleado.Salario =
+                    Convert.ToDecimal(fila["Salario"]);
+            }
+
+            // Estado
+            if (fila["Estado"] != DBNull.Value)
+            {
+                empleado.Estado =
+                    Convert.ToBoolean(fila["Estado"]);
+            }
+
+            // Foto
+            if (fila["Foto"] != DBNull.Value)
+            {
+                empleado.Foto =
+                    (byte[])fila["Foto"];
+            }
+
+            // Usuario
+            if (fila["Usuario"] != DBNull.Value)
+            {
+                empleado.Usuario =
+                    fila["Usuario"].ToString();
+            }
+
+            // Contraseña
+            if (fila["Contrasena"] != DBNull.Value)
+            {
+                empleado.Contrasena =
+                    fila["Contrasena"].ToString();
+            }
+
+            // Rol
+            if (fila["Rol"] != DBNull.Value)
+            {
+                empleado.Rol =
+                    fila["Rol"].ToString();
+            }
+
+            return empleado;
         }
 
         public bool CedulaExiste()
@@ -162,27 +313,73 @@ namespace Derick
         public bool Registrar()
         {
             string sql = @"
-                INSERT INTO Empleados
-                (Codigo,Nombres,Apellidos,Cedula,FechaNacimiento,Genero,Telefono,Correo,Direccion,Cargo,
-                 Departamento,FechaIngreso,Salario,TipoContrato,Estado,ContactoEmergencia,TelefonoEmergencia,Foto)
-                VALUES
-                (@Codigo,@Nombres,@Apellidos,@Cedula,@FechaNacimiento,@Genero,@Telefono,@Correo,@Direccion,@Cargo,
-                 @Departamento,@FechaIngreso,@Salario,@TipoContrato,@Estado,@ContactoEmergencia,@TelefonoEmergencia,@Foto)";
+        INSERT INTO Empleados
+        (Codigo, Nombres, Apellidos, Cedula, FechaNacimiento, Genero,
+         Telefono, Correo, Direccion, Cargo, Departamento, FechaIngreso,
+         Salario, TipoContrato, Estado, ContactoEmergencia,
+         TelefonoEmergencia, Foto)
 
-            return conexion.ejecutarComando(sql, ParametrosEmpleado());
+        VALUES
+        (@Codigo, @Nombres, @Apellidos, @Cedula, @FechaNacimiento, @Genero,
+         @Telefono, @Correo, @Direccion, @Cargo, @Departamento, @FechaIngreso,
+         @Salario, @TipoContrato, @Estado, @ContactoEmergencia,
+         @TelefonoEmergencia, @Foto)";
+
+            return conexion.ejecutarComando(sql,
+                new SqlParameter("@Codigo", Codigo),
+                new SqlParameter("@Nombres", Nombres),
+                new SqlParameter("@Apellidos", Apellidos),
+                new SqlParameter("@Cedula", Cedula),
+                new SqlParameter("@FechaNacimiento", FechaNacimiento),
+                new SqlParameter("@Genero", Genero),
+                new SqlParameter("@Telefono", Telefono),
+                new SqlParameter("@Correo", Correo),
+                new SqlParameter("@Direccion", Direccion),
+                new SqlParameter("@Cargo", Cargo),
+                new SqlParameter("@Departamento", Departamento),
+                new SqlParameter("@FechaIngreso", FechaIngreso),
+                new SqlParameter("@Salario", Salario),
+                new SqlParameter("@TipoContrato", TipoContrato),
+                new SqlParameter("@Estado", Estado ? 1 : 0),
+                new SqlParameter("@ContactoEmergencia", ContactoEmergencia),
+                new SqlParameter("@TelefonoEmergencia", TelefonoEmergencia),
+                new SqlParameter("@Foto", Foto == null ? (object)DBNull.Value : Foto)
+            );
         }
 
         public bool Editar()
         {
             string sql = @"
-                UPDATE Empleados SET Nombres=@Nombres,Apellidos=@Apellidos,Cedula=@Cedula,
-                    FechaNacimiento=@FechaNacimiento,Genero=@Genero,Telefono=@Telefono,Correo=@Correo,
-                    Direccion=@Direccion,Cargo=@Cargo,Departamento=@Departamento,FechaIngreso=@FechaIngreso,
-                    Salario=@Salario,TipoContrato=@TipoContrato,Estado=@Estado,
-                    ContactoEmergencia=@ContactoEmergencia,TelefonoEmergencia=@TelefonoEmergencia,Foto=@Foto
-                WHERE Codigo=@Codigo";
+        UPDATE Empleados SET
+            Nombres=@Nombres, Apellidos=@Apellidos, Cedula=@Cedula,
+            FechaNacimiento=@FechaNacimiento, Genero=@Genero,
+            Telefono=@Telefono, Correo=@Correo, Direccion=@Direccion,
+            Cargo=@Cargo, Departamento=@Departamento, FechaIngreso=@FechaIngreso,
+            Salario=@Salario, TipoContrato=@TipoContrato, Estado=@Estado,
+            ContactoEmergencia=@ContactoEmergencia,
+            TelefonoEmergencia=@TelefonoEmergencia, Foto=@Foto
+        WHERE Codigo=@Codigo";
 
-            return conexion.ejecutarComando(sql, ParametrosEmpleado());
+            return conexion.ejecutarComando(sql,
+                new SqlParameter("@Codigo", Codigo),
+                new SqlParameter("@Nombres", Nombres),
+                new SqlParameter("@Apellidos", Apellidos),
+                new SqlParameter("@Cedula", Cedula),
+                new SqlParameter("@FechaNacimiento", FechaNacimiento),
+                new SqlParameter("@Genero", Genero),
+                new SqlParameter("@Telefono", Telefono),
+                new SqlParameter("@Correo", Correo),
+                new SqlParameter("@Direccion", Direccion),
+                new SqlParameter("@Cargo", Cargo),
+                new SqlParameter("@Departamento", Departamento),
+                new SqlParameter("@FechaIngreso", FechaIngreso),
+                new SqlParameter("@Salario", Salario),
+                new SqlParameter("@TipoContrato", TipoContrato),
+                new SqlParameter("@Estado", Estado ? 1 : 0),
+                new SqlParameter("@ContactoEmergencia", ContactoEmergencia),
+                new SqlParameter("@TelefonoEmergencia", TelefonoEmergencia),
+                new SqlParameter("@Foto", Foto == null ? (object)DBNull.Value : Foto)
+            );
         }
 
         public bool GuardarAcceso()
@@ -240,26 +437,23 @@ namespace Derick
                 new SqlParameter("@Codigo", Codigo)
             );
         }
-        private SqlParameter[] ParametrosEmpleado()
+        public bool CodigoExiste()
         {
-            SqlParameter salario = new SqlParameter("@Salario", SqlDbType.Decimal)
-            { Precision = 12, Scale = 2, Value = Salario };
+            string query =
+                "SELECT COUNT(*) FROM Empleados WHERE Codigo='" + Codigo + "'";
 
-            SqlParameter foto = new SqlParameter("@Foto", SqlDbType.VarBinary, -1)
-            { Value = Foto == null ? (object)DBNull.Value : Foto };
+            DataTable dt = conexion.RetornaRegistros(query);
 
-            return new SqlParameter[]
+            int cantidad = Convert.ToInt32(dt.Rows[0][0]);
+
+            if (cantidad > 0)
             {
-                new SqlParameter("@Codigo",Codigo), new SqlParameter("@Nombres",Nombres),
-                new SqlParameter("@Apellidos",Apellidos), new SqlParameter("@Cedula",Cedula),
-                new SqlParameter("@FechaNacimiento",FechaNacimiento.Date), new SqlParameter("@Genero",Genero),
-                new SqlParameter("@Telefono",Telefono), new SqlParameter("@Correo",Correo),
-                new SqlParameter("@Direccion",Direccion), new SqlParameter("@Cargo",Cargo),
-                new SqlParameter("@Departamento",Departamento), new SqlParameter("@FechaIngreso",FechaIngreso.Date),
-                salario, new SqlParameter("@TipoContrato",TipoContrato), new SqlParameter("@Estado",Estado ? 1 : 0),
-                new SqlParameter("@ContactoEmergencia",ContactoEmergencia),
-                new SqlParameter("@TelefonoEmergencia",TelefonoEmergencia), foto
-            };
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
