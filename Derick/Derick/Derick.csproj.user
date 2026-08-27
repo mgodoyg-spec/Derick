@@ -13,6 +13,9 @@
     <Compile Update="FormCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FormInventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FormProductos.cs">
       <SubType>Form</SubType>
     </Compile>
