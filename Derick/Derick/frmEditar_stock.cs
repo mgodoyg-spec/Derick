@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Derick
@@ -12,17 +13,25 @@ namespace Derick
     {
         private List<string> tallas;
         private List<string> colores;
+        private List<DetalleStock> stockExistente = new List<DetalleStock>();
         public int S_total { get; private set; }
-        public List<DetalleStock> DetallesStock { get; private set; } = new List<DetalleStock>();
+        public List<DetalleStock> DetallesStock
+        {
+            get;
+            private set;
+        } = new List<DetalleStock>();
         public frmEditar_stock()
         {
             InitializeComponent();
         }
-        public frmEditar_stock(List<string> tallasSeleccionadas, List<string> coloresSeleccionados)
+        public frmEditar_stock(List<string> tallasSeleccionadas,List<string> coloresSeleccionados,
+            List<DetalleStock> stockGuardado)
         {
             InitializeComponent();
+
             tallas = tallasSeleccionadas;
             colores = coloresSeleccionados;
+            stockExistente = stockGuardado ?? new List<DetalleStock>();
         }
 
         private void frmEditar_stock_Load(object sender, EventArgs e)
@@ -123,13 +132,26 @@ namespace Derick
             {
                 foreach (string color in colores)
                 {
+                    int cantidad = 0;
+
+                    DetalleStock encontrado = stockExistente.FirstOrDefault(x => x.Talla.Equals(talla,
+                                    StringComparison.OrdinalIgnoreCase)&&x.Color.Equals(color,
+                                    StringComparison.OrdinalIgnoreCase));
+
+                    if (encontrado != null)
+                    {
+                        cantidad = encontrado.stock;
+                    }
+
                     dgv_stock.Rows.Add(
                         talla,
                         color,
-                        0
+                        cantidad
                     );
                 }
             }
+
+            CalcularStockTotal();
         }
         private void CalcularStockTotal()
         {

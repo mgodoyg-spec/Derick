@@ -249,38 +249,161 @@ namespace Derick
             csConectaSQL conexion = new csConectaSQL();
 
             string sql = @"
-                  SELECT
-                  P.IdProductos,
-                  P.Codigo,
-                  P.Nombre,
-                  P.Categoria,
-                  P.Talla,
-                  P.Color,
-                  P.Precio,
-                  P.Estado,
-                  PI.Imagen
-                  FROM Productos P
-                  OUTER APPLY
-                  (
-                  SELECT TOP 1 Imagen
-                  FROM ProductoImagenes
-                  WHERE IdProductos = P.IdProductos
-                  AND EsPrincipal = 1
-                  ORDER BY IdImagen
-                  ) PI";
+        SELECT
+            P.IdProductos,
+            P.Codigo,
+            P.Nombre,
+            P.Categoria,
+            P.Talla,
+            P.Color,
+            P.Precio,
+            P.Estado,
+
+            ISNULL(
+                (
+                    SELECT SUM(I.Stock)
+                    FROM Inventario I
+                    WHERE I.IdProducto = P.IdProductos
+                ), 0
+            ) AS StockTotal,
+
+            PI.Imagen
+
+        FROM Productos P
+
+        OUTER APPLY
+        (
+            SELECT TOP 1 Imagen
+            FROM ProductoImagenes
+            WHERE IdProductos = P.IdProductos
+            AND EsPrincipal = 1
+            ORDER BY IdImagen
+        ) PI
+
+        ORDER BY P.Codigo";
 
             DataTable dt = conexion.RetornaRegistros(sql);
 
             if (dt == null)
+            {
                 return;
-
+            }
             dvg_agg.Rows.Clear();
-
             foreach (DataRow fila in dt.Rows)
             {
-                string estado = Convert.ToBoolean(fila["Estado"]) ? "Activo" : "Inactivo";
+                string estado = Convert.ToBoolean(fila["Estado"])? "Activo": "Inactivo";
                 decimal precio = Convert.ToDecimal(fila["Precio"]);
+                int stockTotal = Convert.ToInt32(fila["StockTotal"]);
                 Image imagenProducto = null;
+                if (fila["Imagen"] != DBNull.Value)
+                {
+                    byte[] bytes = (byte[])fila["Imagen"];
+                    using (MemoryStream ms = new MemoryStream(bytes))
+                    {
+                        using (Image temp =  Image.FromStream(ms))
+                        {
+                            imagenProducto = new Bitmap(temp);
+                        }
+                    }
+                }
+
+                int indice = dvg_agg.Rows.Add(
+                    fila["Codigo"].ToString(),
+                    imagenProducto,
+                    fila["Nombre"].ToString(),
+                    fila["Categoria"].ToString(),
+                    fila["Talla"].ToString(),
+                    fila["Color"].ToString(),
+                    "$" + precio.ToString("0.00"),
+                    stockTotal,
+                    estado,
+                    null,
+                    null,
+                    null
+                );
+
+                dvg_agg.Rows[indice].Tag = Convert.ToInt32(fila["IdProductos"]);
+            }
+        }
+        private void FiltrarProductos()
+        {
+            string texto = txt1.Text.Trim();
+            string categoria = cmb_agg1.Text.Trim();
+            string estado = cmb_agg2.Text.Trim();
+
+            string sql = @"
+        SELECT
+            P.IdProductos,
+            P.Codigo,
+            P.Nombre,
+            P.Categoria,
+            P.Talla,
+            P.Color,
+            P.Precio,
+            P.Estado,
+
+            ISNULL(
+                (
+                    SELECT SUM(I.Stock)
+                    FROM Inventario I
+                    WHERE I.IdProducto = P.IdProductos
+                ), 0
+            ) AS StockTotal,
+
+            PI.Imagen
+
+        FROM Productos P
+
+        OUTER APPLY
+        (
+            SELECT TOP 1 Imagen
+            FROM ProductoImagenes
+            WHERE IdProductos = P.IdProductos
+            AND EsPrincipal = 1
+            ORDER BY IdImagen
+        ) PI
+
+        WHERE 1 = 1
+    ";
+
+            // BUSCAR POR CÓDIGO O NOMBRE
+            if (!string.IsNullOrWhiteSpace(texto))
+            {
+                sql += $" AND (P.Codigo LIKE '%{texto}%' " + $"OR P.Nombre LIKE '%{texto}%')";
+            }
+
+            // FILTRAR POR CATEGORÍA
+            if (categoria != "Todas" && !string.IsNullOrWhiteSpace(categoria))
+            {
+                sql += $" AND P.Categoria = '{categoria}'";
+            }
+            // FILTRAR POR ESTADO
+            if (estado != "Todos" && !string.IsNullOrWhiteSpace(estado))
+            {
+                if (estado == "Activo")
+                {
+                    sql += " AND P.Estado = 1";
+                }
+                else if (estado == "Inactivo")
+                {
+                    sql += " AND P.Estado = 0";
+                }
+            }
+            sql += " ORDER BY P.Codigo";
+            csConectaSQL conexion = new csConectaSQL();
+            DataTable dt = conexion.RetornaRegistros(sql);
+            if (dt == null)
+            {
+                return;
+            }
+            dvg_agg.Rows.Clear();
+            foreach (DataRow fila in dt.Rows)
+            {
+                string estadoTexto = Convert.ToBoolean(fila["Estado"]) ? "Activo": "Inactivo";
+                decimal precio = Convert.ToDecimal(fila["Precio"]);
+                int stockTotal = Convert.ToInt32(fila["StockTotal"]);
+                Image imagenProducto = null;
+
                 if (fila["Imagen"] != DBNull.Value)
                 {
                     byte[] bytes = (byte[])fila["Imagen"];
@@ -293,109 +416,19 @@ namespace Derick
                     }
                 }
                 int indice = dvg_agg.Rows.Add(
-                    fila["Codigo"].ToString(),
-                    imagenProducto,
-                    fila["Nombre"].ToString(),
-                    fila["Categoria"].ToString(),
-                    fila["Talla"].ToString(),
-                    fila["Color"].ToString(),
-                    "$" + precio.ToString("0.00"), "0",
-                    estado,
-                    null,
-                    null,
-                    null);
+                        fila["Codigo"].ToString(),
+                        imagenProducto,
+                        fila["Nombre"].ToString(),
+                        fila["Categoria"].ToString(),
+                        fila["Talla"].ToString(),
+                        fila["Color"].ToString(),
+                        "$" + precio.ToString("0.00"),
+                        stockTotal,
+                        estadoTexto,
+                        null,
+                        null,
+                        null);
                 dvg_agg.Rows[indice].Tag = Convert.ToInt32(fila["IdProductos"]);
-            }
-        }
-        private void FiltrarProductos()
-        {
-            string texto = txt1.Text.Trim();
-            string categoria = cmb_agg1.Text.Trim();
-            string estado = cmb_agg2.Text.Trim();
-
-            string sql = @"
-        SELECT
-            IdProductos,
-            Codigo,
-            Nombre,
-            Categoria,
-            Talla,
-            Color,
-            Precio,
-            Estado
-        FROM Productos
-        WHERE 1 = 1
-    ";
-
-            // BUSCAR POR CÓDIGO O NOMBRE
-            if (!string.IsNullOrWhiteSpace(texto))
-            {
-                sql += $" AND (Codigo LIKE '%{texto}%' " +
-                       $"OR Nombre LIKE '%{texto}%')";
-            }
-
-            // FILTRAR POR CATEGORÍA
-            if (categoria != "Todas" &&
-                !string.IsNullOrWhiteSpace(categoria))
-            {
-                sql += $" AND Categoria = '{categoria}'";
-            }
-
-            // FILTRAR POR ESTADO
-            if (estado != "Todos" &&
-                !string.IsNullOrWhiteSpace(estado))
-            {
-                if (estado == "Activo")
-                {
-                    sql += " AND Estado = 1";
-                }
-                else if (estado == "Inactivo")
-                {
-                    sql += " AND Estado = 0";
-                }
-            }
-
-            sql += " ORDER BY Codigo";
-
-            csConectaSQL conexion = new csConectaSQL();
-
-            DataTable dt =
-                conexion.RetornaRegistros(sql);
-
-            if (dt == null)
-                return;
-
-            dvg_agg.Rows.Clear();
-
-            foreach (DataRow fila in dt.Rows)
-            {
-                string estadoTexto =
-                    Convert.ToBoolean(fila["Estado"])
-                    ? "Activo"
-                    : "Desactivado";
-
-                decimal precio =
-                    Convert.ToDecimal(fila["Precio"]);
-
-                int indice = dvg_agg.Rows.Add(
-                    fila["Codigo"].ToString(),
-                    null,
-                    fila["Nombre"].ToString(),
-                    fila["Categoria"].ToString(),
-                    fila["Talla"].ToString(),
-                    fila["Color"].ToString(),
-                    "$" + precio.ToString("0.00"),
-                    "0",
-                    estadoTexto,
-                    null,
-                    null,
-                    null
-                );
-
-                dvg_agg.Rows[indice].Tag =
-                    Convert.ToInt32(
-                        fila["IdProductos"]
-                    );
             }
         }
 
@@ -419,7 +452,6 @@ namespace Derick
                     );
                 }
             }
-
             cmb_agg1.SelectedIndex = 0;
         }
         private void CargarEstadosFiltro()

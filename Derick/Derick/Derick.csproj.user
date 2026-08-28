@@ -28,6 +28,9 @@
     <Compile Update="FormsDeRespaldo.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FormTransferir_Productos.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FrmAgg_Categoria.cs">
       <SubType>Form</SubType>
     </Compile>

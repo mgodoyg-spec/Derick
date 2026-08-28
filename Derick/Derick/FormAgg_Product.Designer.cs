@@ -31,6 +31,9 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAgg_Product));
             pnlcont1 = new Panel();
+            label11 = new Label();
+            cmb_sucursal = new ComboBox();
+            label12 = new Label();
             label10 = new Label();
             label8 = new Label();
             label7 = new Label();
@@ -109,6 +112,9 @@
             // pnlcont1
             // 
             pnlcont1.BackColor = Color.FromArgb(244, 246, 249);
+            pnlcont1.Controls.Add(label11);
+            pnlcont1.Controls.Add(cmb_sucursal);
+            pnlcont1.Controls.Add(label12);
             pnlcont1.Controls.Add(label10);
             pnlcont1.Controls.Add(label8);
             pnlcont1.Controls.Add(label7);
@@ -163,8 +169,39 @@
             pnlcont1.Location = new Point(0, 0);
             pnlcont1.Margin = new Padding(3, 2, 3, 2);
             pnlcont1.Name = "pnlcont1";
-            pnlcont1.Size = new Size(620, 552);
+            pnlcont1.Size = new Size(620, 663);
             pnlcont1.TabIndex = 0;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label11.ForeColor = Color.Red;
+            label11.Location = new Point(76, 428);
+            label11.Name = "label11";
+            label11.Size = new Size(17, 19);
+            label11.TabIndex = 59;
+            label11.Text = "*";
+            // 
+            // cmb_sucursal
+            // 
+            cmb_sucursal.FormattingEnabled = true;
+            cmb_sucursal.Location = new Point(10, 449);
+            cmb_sucursal.Margin = new Padding(3, 2, 3, 2);
+            cmb_sucursal.Name = "cmb_sucursal";
+            cmb_sucursal.Size = new Size(252, 23);
+            cmb_sucursal.TabIndex = 58;
+            cmb_sucursal.SelectedIndexChanged += cmb_sucursal_SelectedIndexChanged;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            label12.Location = new Point(10, 431);
+            label12.Name = "label12";
+            label12.Size = new Size(66, 19);
+            label12.TabIndex = 57;
+            label12.Text = "Sucursal";
             // 
             // label10
             // 
@@ -381,7 +418,7 @@
             btn_guardar.ForeColor = Color.White;
             btn_guardar.Image = (Image)resources.GetObject("btn_guardar.Image");
             btn_guardar.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_guardar.Location = new Point(424, 504);
+            btn_guardar.Location = new Point(415, 606);
             btn_guardar.Margin = new Padding(3, 2, 3, 2);
             btn_guardar.Name = "btn_guardar";
             btn_guardar.Size = new Size(193, 46);
@@ -668,12 +705,12 @@
             label9.BackColor = Color.Gray;
             label9.Location = new Point(282, 64);
             label9.Name = "label9";
-            label9.Size = new Size(1, 467);
+            label9.Size = new Size(1, 577);
             label9.TabIndex = 17;
             // 
             // txt_dsp
             // 
-            txt_dsp.Location = new Point(10, 442);
+            txt_dsp.Location = new Point(10, 519);
             txt_dsp.Margin = new Padding(3, 2, 3, 2);
             txt_dsp.MaxLength = 250;
             txt_dsp.Multiline = true;
@@ -686,7 +723,7 @@
             // 
             lbl10.AutoSize = true;
             lbl10.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            lbl10.Location = new Point(10, 415);
+            lbl10.Location = new Point(10, 492);
             lbl10.Name = "lbl10";
             lbl10.Size = new Size(88, 19);
             lbl10.TabIndex = 15;
@@ -835,7 +872,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(620, 552);
+            ClientSize = new Size(620, 663);
             Controls.Add(pnlcont1);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 2, 3, 2);
@@ -925,5 +962,8 @@
         private Label label4;
         private Label label3;
         private Label label2;
+        private Label label11;
+        private ComboBox cmb_sucursal;
+        private Label label12;
     }
 }

@@ -105,6 +105,7 @@
             lblSalirV.Size = new Size(25, 24);
             lblSalirV.TabIndex = 31;
             lblSalirV.Text = "X";
+            lblSalirV.Click += lblSalirV_Click;
             // 
             // pnlBusqueda
             // 
@@ -212,6 +213,7 @@
             btnBuscar.TabIndex = 8;
             btnBuscar.Text = "     Buscar";
             btnBuscar.UseVisualStyleBackColor = false;
+            btnBuscar.Click += btnBuscar_Click;
             // 
             // btnLimpiar
             // 
@@ -227,6 +229,7 @@
             btnLimpiar.TabIndex = 21;
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.UseVisualStyleBackColor = false;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
             // lbl3
             // 
@@ -266,7 +269,7 @@
             // 
             // btn_transferir
             // 
-            btn_transferir.BackColor = Color.FromArgb(13, 154, 64);
+            btn_transferir.BackColor = Color.FromArgb(4, 59, 186);
             btn_transferir.Cursor = Cursors.Hand;
             btn_transferir.Font = new Font("Calibri", 12F, FontStyle.Bold);
             btn_transferir.ForeColor = Color.White;
@@ -279,6 +282,7 @@
             btn_transferir.TabIndex = 9;
             btn_transferir.Text = "Transferir producto";
             btn_transferir.UseVisualStyleBackColor = false;
+            btn_transferir.Click += btn_transferir_Click;
             // 
             // pic_agg1
             // 

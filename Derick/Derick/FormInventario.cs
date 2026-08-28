@@ -126,6 +126,16 @@ namespace Derick
             //Cargar los datos de los comboBox
             Cargar_Categorias();
             Cargar_Sucursal();
+            /////////////////////////////////////////////////
+            dvgInventario.AutoGenerateColumns = false;
+            dvgInventario.Columns["clCodigo"].DataPropertyName = "Codigo";
+            dvgInventario.Columns["clNombreProducto"].DataPropertyName = "Nombre";
+            dvgInventario.Columns["clCategoria"].DataPropertyName = "Categoria";
+            dvgInventario.Columns["clTallas"].DataPropertyName = "Talla";
+            dvgInventario.Columns["clColores"].DataPropertyName = "Color";
+            dvgInventario.Columns["clPrecio"].DataPropertyName = "Precio";
+            dvgInventario.Columns["clStock"].DataPropertyName = "Stock";
+            dvgInventario.Columns["clEstado"].DataPropertyName = "Estado";
         }
 
         private void Cargar_Sucursal()
@@ -144,55 +154,97 @@ namespace Derick
 
         private void Cargar_Inventario()
         {
-            if (cmb_sucursal.SelectedIndex == -1 || cmb_categoria.SelectedIndex == null)
+            if (cmb_sucursal.SelectedIndex == -1)
             {
+                dvgInventario.DataSource = null;
                 return;
             }
-
-            string buscar = txt_buscar.Text.Trim();
-            string estado = cmb_estado.Text;
             int idSucursal = Convert.ToInt32(cmb_sucursal.SelectedValue);
-            int idCategoria = Convert.ToInt32(cmb_categoria.SelectedValue);
+            string buscar = txt_buscar.Text.Trim();
+            string categoria = cmb_categoria.Text.Trim();
+            string estado = cmb_estado.Text.Trim();
 
-            string query = @"select p.Codigo, p.Nombre, p.Categoria, .Talla,
-                           i.Color, p.Precio, i.Stock, p.Estado from Inventario i
-                           inner join Productos p on i.IdProducto = p.IdProducto
-                           where i.IdSucursal = " + idSucursal + @"
-                           and( p.Codigo LIKE '%" + buscar + @"%' or p.Nombre LIKE '%" + buscar + @"%')";
-            // FILTRO DE ESTADO
-            if (estado != "Todos" && estado != "")
+            string query = @"select
+                    P.Codigo,
+                    P.Nombre,
+                    P.Categoria,
+                    I.Talla,
+                    I.Color,
+                    P.Precio,
+                    I.Stock,
+                    P.Estado
+                from Inventario I inner join Productos P
+                    on I.IdProducto = P.IdProductos
+                where I.IdSucursal = " + idSucursal;
+
+            // BUSCAR POR CÓDIGO O NOMBRE
+            if (buscar != "")
             {
-                query += " AND p.Estado = '" + estado + "'";
-            }
-            // FILTRO DE CATEGORÍA
-            if (idCategoria != 0)
-            {
-                query += " AND p.IdCategoria = " + idCategoria;
+                buscar = buscar.Replace("'", "''");
+                query += @"and (
+                        P.Codigo LIKE '%" + buscar + @"%'
+                        OR
+                        P.Nombre LIKE '%" + buscar + @"%'";
             }
 
-            dvgInventario.DataSource = conect.RetornaRegistros(query);
+            // FILTRAR POR CATEGORIA
+            if (categoria != "Todas" && categoria != "")
+            {
+                categoria = categoria.Replace("'", "''");
+                query += @"and P.Categoria = '" + categoria + "'";
+            }
+
+            // FILTRAR ACTIVO
+            if (estado == "Activo")
+            {
+                query += " and P.Estado = 1";
+            }
+
+            // FILTRAR INACTIVO
+            if (estado == "Inactivo")
+            {
+                query += " and P.Estado = 0";
+            }
+            query += @"order by
+                    P.Nombre,
+                    I.Talla,
+                    I.Color";
+            DataTable dt = conect.RetornaRegistros(query);
+
+            // CAMBIAR 1 Y 0 A ACTIVO / INACTIVO
+            foreach (DataRow fila in dt.Rows)
+            {
+                bool estadoProducto = Convert.ToBoolean(fila["Estado"]);
+                if (estadoProducto == true)
+                {
+                    fila["Estado"] = "Activo";
+                }
+                if (estadoProducto == false)
+                {
+                    fila["Estado"] = "Inactivo";
+                }
+            }
+            dvgInventario.DataSource = dt;
         }
 
         private void Cargar_Categorias()
         {
-            string query = "select IdCategoria, NombreCategoria from Categorias " +
-                           "where Estado = 'activo' order by NombreCategoria";
+            string query = @"select Nombre from Categorias where Estado = 1 order by Nombre";
             DataTable dt = conect.RetornaRegistros(query);
 
+            // AGREGAR "TODAS"
             DataRow fila = dt.NewRow();
-            fila["IdCategoria"] = 0;
-            fila["NombreCategoria"] = "Todas";
+            fila["Nombre"] = "Todas";
             dt.Rows.InsertAt(fila, 0);
-
             cmb_categoria.DataSource = dt;
-            cmb_categoria.DisplayMember = "NombreCategoria";
-            cmb_categoria.ValueMember = "IdCategoria";
+            cmb_categoria.DisplayMember = "Nombre";
+            cmb_categoria.ValueMember = "Nombre";
             cmb_categoria.SelectedIndex = 0;
         }
 
         private void cmb_sucursal_SelectedIndexChanged(object sender, EventArgs e)
         {
-                Cargar_Inventario();
+            Cargar_Inventario();
         }
 
         private void cmb_categoria_SelectedIndexChanged(object sender, EventArgs e)
@@ -207,6 +259,57 @@ namespace Derick
         private void txt_buscar_TextChanged(object sender, EventArgs e)
         {
             Cargar_Inventario();
+        }
+
+        private void btn_transferir_Click(object sender, EventArgs e)
+        {
+            FormInventario frmTransferir = new FormInventario();
+            frmTransferir.StartPosition = FormStartPosition.CenterScreen;
+            frmTransferir.ShowDialog(this);
+            // ACTUALIZAR INVENTARIO
+            // CUANDO SE CIERRE TRANSFERENCIA
+            Cargar_Inventario();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if (cmb_sucursal.SelectedIndex == -1)
+            {
+                MessageBox.Show(
+                    "Seleccione una sucursal.",
+                    "Inventario",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
+            Cargar_Inventario();
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txt_buscar.Clear();
+            cmb_categoria.SelectedIndex = 0;
+            cmb_estado.SelectedIndex = 0;
+            if (cmb_sucursal.SelectedIndex != -1)
+            {
+                Cargar_Inventario();
+            }
+            txt_buscar.Focus();
+        }
+
+        private void lblSalirV_Click(object sender, EventArgs e)
+        {
+            DialogResult respuesta =
+               MessageBox.Show(
+               "¿Está seguro de salir?",
+               "Confirmar salida",
+               MessageBoxButtons.YesNo,
+               MessageBoxIcon.Question);
+            if (respuesta == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
     }
 }
