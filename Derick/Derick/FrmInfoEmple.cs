@@ -2,8 +2,6 @@
 using System.Drawing;
 using System.Globalization;
 using System.IO;
-using System.Linq;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace Derick
@@ -214,78 +212,176 @@ namespace Derick
             salario = 0;
             correoCompleto = "";
 
-            if (string.IsNullOrWhiteSpace(txtNombre.Text) || !Regex.IsMatch(txtNombre.Text.Trim(), @"^[\p{L}\s]+$"))
-                return Error("Ingrese nombres válidos, solo con letras y espacios.", txtNombre);
-
-            if (string.IsNullOrWhiteSpace(txtApellidos.Text) || !Regex.IsMatch(txtApellidos.Text.Trim(), @"^[\p{L}\s]+$"))
-                return Error("Ingrese apellidos válidos, solo con letras y espacios.", txtApellidos);
-
-            string cedula = txtCedula.Text.Trim();
-
-            if (!Regex.IsMatch(cedula, @"^\d{10}$"))
-                return Error("La cédula debe contener exactamente 10 números.", txtCedula);
-
-            int edad = CalcularEdad(dtpFechaNacimiento.Value);
-            if (edad < 18 || edad > 65)
-                return Error("El empleado debe tener entre 18 y 65 años.", dtpFechaNacimiento);
-
-            if (string.IsNullOrWhiteSpace(cmbGenero.Text))
-                return Error("Seleccione el género.", cmbGenero);
-
-            if (!Regex.IsMatch(txtTelefono.Text.Trim(), @"^\d{10}$"))
-                return Error("El teléfono debe contener exactamente 10 números.", txtTelefono);
-
-            string correo = txtCorreo.Text.Trim();
-            if (correo.Length < 3 || !Regex.IsMatch(correo, @"^[A-Za-z0-9][A-Za-z0-9._-]*[A-Za-z0-9]$") || !correo.Any(char.IsLetter))
-                return Error("Ingrese correctamente la parte inicial del correo.", txtCorreo);
-            if (cmbDominioCorreo.SelectedIndex == -1)
-                return Error("Seleccione el dominio del correo.", cmbDominioCorreo);
-            correoCompleto = correo + cmbDominioCorreo.Text;
-
-            string direccion = txtDirreccion.Text.Trim();
-            if (direccion.Length < 5 || !direccion.Any(char.IsLetter))
-                return Error("Ingrese una dirección válida.", txtDirreccion);
-
-            if (string.IsNullOrWhiteSpace(cmbCargo.Text))
-                return Error("Seleccione el cargo.", cmbCargo);
-            if (string.IsNullOrWhiteSpace(cmbDepartamento.Text))
-                return Error("Seleccione el departamento.", cmbDepartamento);
-            if (dtpFechaIngreso.Value.Date > DateTime.Today)
+            // Nombres
+            if (txtNombre.Text.Trim() == "")
             {
-                return Error(
-                    "La fecha de ingreso no puede ser futura.",
-                    dtpFechaIngreso
-                );
+                MessageBox.Show("Ingrese los nombres.");
+                txtNombre.Focus();
+                return false;
             }
 
-            string salarioTexto = txtSalario.Text.Trim();
-            if (!Regex.IsMatch(salarioTexto, @"^\d+([.,]\d{1,2})?$"))
-                return Error("El salario acepta máximo 2 decimales.", txtSalario);
-            if (!ObtenerSalario(out salario) || salario < 100)
-                return Error("El salario debe ser mínimo 100.00.", txtSalario);
+            // Apellidos
+            if (txtApellidos.Text.Trim() == "")
+            {
+                MessageBox.Show("Ingrese los apellidos.");
+                txtApellidos.Focus();
+                return false;
+            }
 
-            if (string.IsNullOrWhiteSpace(cmbTipoContrato.Text))
-                return Error("Seleccione el tipo de contrato.", cmbTipoContrato);
-            if (string.IsNullOrWhiteSpace(cmbEstado.Text))
-                return Error("Seleccione el estado.", cmbEstado);
+            // Cédula
+            if (txtCedula.Text.Trim().Length != 10)
+            {
+                MessageBox.Show("La cédula debe tener 10 números.");
+                txtCedula.Focus();
+                return false;
+            }
 
-            if (string.IsNullOrWhiteSpace(txtEmerNombre.Text) || !Regex.IsMatch(txtEmerNombre.Text.Trim(), @"^[\p{L}\s]+$"))
-                return Error("Ingrese correctamente el nombre de emergencia.", txtEmerNombre);
+            // Edad
+            int edad = CalcularEdad(dtpFechaNacimiento.Value);
 
-            if (!Regex.IsMatch(txtTeleEmergencia.Text.Trim(), @"^\d{10}$"))
-                return Error("El teléfono de emergencia debe tener 10 números.", txtTeleEmergencia);
+            if (edad < 18 || edad > 65)
+            {
+                MessageBox.Show("El empleado debe tener entre 18 y 65 años.");
+                return false;
+            }
 
-            if (string.IsNullOrWhiteSpace(txtUsuario.Text))
-                return Error("Ingrese el usuario.", txtUsuario);
-            if (!Regex.IsMatch(txtUsuario.Text.Trim(), @"^[A-Za-z0-9._-]{4,20}$"))
-                return Error("El usuario debe tener entre 4 y 20 caracteres.", txtUsuario);
+            // Género
+            if (cmbGenero.Text == "")
+            {
+                MessageBox.Show("Seleccione el género.");
+                return false;
+            }
 
-            if (string.IsNullOrWhiteSpace(txtContrasena.Text) || txtContrasena.Text.Length < 6 ||
-                !txtContrasena.Text.Any(char.IsLetter) || !txtContrasena.Text.Any(char.IsDigit))
-                return Error("La contraseña debe tener mínimo 6 caracteres, una letra y un número.", txtContrasena);
+            // Teléfono
+            if (txtTelefono.Text.Trim().Length != 10)
+            {
+                MessageBox.Show("El teléfono debe tener 10 números.");
+                txtTelefono.Focus();
+                return false;
+            }
 
-            if (string.IsNullOrWhiteSpace(cmbRol.Text))
-                return Error("Seleccione el rol.", cmbRol);
+            // Correo
+            if (txtCorreo.Text.Trim() == "")
+            {
+                MessageBox.Show("Ingrese el correo.");
+                txtCorreo.Focus();
+                return false;
+            }
+
+            if (cmbDominioCorreo.Text == "")
+            {
+                MessageBox.Show("Seleccione el dominio del correo.");
+                return false;
+            }
+
+            correoCompleto =
+                txtCorreo.Text.Trim() + cmbDominioCorreo.Text;
+
+            // Dirección
+            if (txtDirreccion.Text.Trim() == "")
+            {
+                MessageBox.Show("Ingrese la dirección.");
+                txtDirreccion.Focus();
+                return false;
+            }
+
+            // Cargo
+            if (cmbCargo.Text == "")
+            {
+                MessageBox.Show("Seleccione el cargo.");
+                return false;
+            }
+
+            // Departamento
+            if (cmbDepartamento.Text == "")
+            {
+                MessageBox.Show("Seleccione el departamento.");
+                return false;
+            }
+
+            // Fecha ingreso
+            if (dtpFechaIngreso.Value.Date > DateTime.Today)
+            {
+                MessageBox.Show("La fecha de ingreso no puede ser futura.");
+                return false;
+            }
+
+            // Salario
+            string textoSalario =
+                txtSalario.Text.Trim().Replace(",", ".");
+
+            if (!decimal.TryParse(
+                textoSalario,
+                NumberStyles.Any,
+                CultureInfo.InvariantCulture,
+                out salario))
+            {
+                MessageBox.Show("Ingrese un salario válido.");
+                txtSalario.Focus();
+                return false;
+            }
+
+            if (salario < 100)
+            {
+                MessageBox.Show("El salario debe ser mínimo 100.");
+                txtSalario.Focus();
+                return false;
+            }
+
+            // Tipo contrato
+            if (cmbTipoContrato.Text == "")
+            {
+                MessageBox.Show("Seleccione el tipo de contrato.");
+                return false;
+            }
+
+            // Estado
+            if (cmbEstado.Text == "")
+            {
+                MessageBox.Show("Seleccione el estado.");
+                return false;
+            }
+
+            // Contacto emergencia
+            if (txtEmerNombre.Text.Trim() == "")
+            {
+                MessageBox.Show("Ingrese el contacto de emergencia.");
+                return false;
+            }
+
+            // Teléfono emergencia
+            if (txtTeleEmergencia.Text.Trim().Length != 10)
+            {
+                MessageBox.Show("El teléfono de emergencia debe tener 10 números.");
+                return false;
+            }
+
+            // Usuario
+            if (txtUsuario.Text.Trim() == "")
+            {
+                MessageBox.Show("Ingrese el usuario.");
+                return false;
+            }
+
+            if (txtUsuario.Text.Trim().Length < 4)
+            {
+                MessageBox.Show("El usuario debe tener mínimo 4 caracteres.");
+                return false;
+            }
+
+            // Contraseña
+            if (txtContrasena.Text.Length < 6)
+            {
+                MessageBox.Show("La contraseña debe tener mínimo 6 caracteres.");
+                return false;
+            }
+
+            // Rol
+            if (cmbRol.Text == "")
+            {
+                MessageBox.Show("Seleccione el rol.");
+                return false;
+            }
 
             return true;
         }
@@ -297,20 +393,7 @@ namespace Derick
             return edad;
         }
 
-        private bool ObtenerSalario(out decimal salario)
-        {
-            string texto = txtSalario.Text.Trim().Replace(",", ".");
-            return decimal.TryParse(texto, NumberStyles.Number,
-                CultureInfo.InvariantCulture, out salario);
-        }
-
-        private bool Error(string mensaje, Control control)
-        {
-            MessageBox.Show(mensaje, "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            control.Focus();
-            return false;
-        }
-
+       
         private void btnAgregarImagen_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
@@ -372,7 +455,16 @@ namespace Derick
         {
             if (!ValidarFormulario(out decimal salario, out string correoCompleto)) return;
 
-            csEmpleado emp = empleadoEditado ?? new csEmpleado();
+            csEmpleado emp;
+
+            if (editar == true)
+            {
+                emp = empleadoEditado;
+            }
+            else
+            {
+                emp = new csEmpleado();
+            }
             emp.Codigo = txtCodigo.Text.Trim();
             emp.Nombres = txtNombre.Text.Trim();
             emp.Apellidos = txtApellidos.Text.Trim();
@@ -406,8 +498,16 @@ namespace Derick
                 MessageBox.Show("Ese usuario ya está siendo utilizado.");
                 return;
             }
+            bool correcto;
 
-            bool correcto = editar ? emp.Editar() : emp.Registrar();
+            if (editar == true)
+            {
+                correcto = emp.Editar();
+            }
+            else
+            {
+                correcto = emp.Registrar();
+            }
             if (!correcto)
             {
                 MessageBox.Show("No se pudo guardar el empleado.");
@@ -419,8 +519,14 @@ namespace Derick
                 MessageBox.Show("El empleado se guardó, pero no se pudo guardar el acceso.");
                 return;
             }
-
-            MessageBox.Show(editar ? "Empleado actualizado correctamente." : "Empleado registrado correctamente.");
+            if (editar == true)
+            {
+                MessageBox.Show("Empleado actualizado correctamente.");
+            }
+            else
+            {
+                MessageBox.Show("Empleado registrado correctamente.");
+            }
             Close();
         }
 
