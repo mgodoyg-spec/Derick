@@ -127,7 +127,6 @@ namespace Derick
         private void CargarStock()
         {
             dgv_stock.Rows.Clear();
-
             foreach (string talla in tallas)
             {
                 foreach (string color in colores)
@@ -135,22 +134,16 @@ namespace Derick
                     int cantidad = 0;
 
                     DetalleStock encontrado = stockExistente.FirstOrDefault(x => x.Talla.Equals(talla,
-                                    StringComparison.OrdinalIgnoreCase)&&x.Color.Equals(color,
-                                    StringComparison.OrdinalIgnoreCase));
+                           StringComparison.OrdinalIgnoreCase)&&x.Color.Equals(color,
+                           StringComparison.OrdinalIgnoreCase));
 
                     if (encontrado != null)
                     {
                         cantidad = encontrado.stock;
                     }
-
-                    dgv_stock.Rows.Add(
-                        talla,
-                        color,
-                        cantidad
-                    );
+                    dgv_stock.Rows.Add(talla, color, cantidad);
                 }
             }
-
             CalcularStockTotal();
         }
         private void CalcularStockTotal()
@@ -159,10 +152,10 @@ namespace Derick
             foreach (DataGridViewRow fila in dgv_stock.Rows)
             {
                 if (fila.IsNewRow)
+                {
                     continue;
-                if (int.TryParse(
-                    fila.Cells["clStock"].Value?.ToString(),
-                    out int stock))
+                }
+                if (int.TryParse(fila.Cells["clStock"].Value?.ToString(),out int stock))
                 {
                     total += stock;
                 }
@@ -181,7 +174,9 @@ namespace Derick
             foreach (DataGridViewRow fila in dgv_stock.Rows)
             {
                 if (fila.IsNewRow)
+                {
                     continue;
+                }
                 string talla = fila.Cells["clTalla"].Value?.ToString() ?? "";
                 string color = fila.Cells["clColor"].Value?.ToString() ?? "";
                 string valor =fila.Cells["clStock"].Value?.ToString() ?? "";

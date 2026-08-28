@@ -39,7 +39,6 @@
             cmb_categoria = new ComboBox();
             txt_buscar = new TextBox();
             pic1 = new PictureBox();
-            btnBuscar = new Button();
             btnLimpiar = new Button();
             lbl3 = new Label();
             lbl4 = new Label();
@@ -116,7 +115,6 @@
             pnlBusqueda.Controls.Add(cmb_categoria);
             pnlBusqueda.Controls.Add(txt_buscar);
             pnlBusqueda.Controls.Add(pic1);
-            pnlBusqueda.Controls.Add(btnBuscar);
             pnlBusqueda.Controls.Add(btnLimpiar);
             pnlBusqueda.Controls.Add(lbl3);
             pnlBusqueda.Controls.Add(lbl4);
@@ -198,23 +196,6 @@
             pic1.TabIndex = 23;
             pic1.TabStop = false;
             // 
-            // btnBuscar
-            // 
-            btnBuscar.BackColor = Color.FromArgb(13, 154, 64);
-            btnBuscar.Cursor = Cursors.Hand;
-            btnBuscar.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            btnBuscar.ForeColor = Color.White;
-            btnBuscar.Image = (Image)resources.GetObject("btnBuscar.Image");
-            btnBuscar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnBuscar.Location = new Point(906, 4);
-            btnBuscar.Margin = new Padding(3, 2, 3, 2);
-            btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(99, 33);
-            btnBuscar.TabIndex = 8;
-            btnBuscar.Text = "     Buscar";
-            btnBuscar.UseVisualStyleBackColor = false;
-            btnBuscar.Click += btnBuscar_Click;
-            // 
             // btnLimpiar
             // 
             btnLimpiar.BackColor = Color.White;
@@ -222,7 +203,7 @@
             btnLimpiar.Font = new Font("Calibri", 12F, FontStyle.Bold);
             btnLimpiar.ForeColor = Color.Black;
             btnLimpiar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnLimpiar.Location = new Point(1011, 6);
+            btnLimpiar.Location = new Point(980, 6);
             btnLimpiar.Margin = new Padding(3, 2, 3, 2);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(98, 30);
@@ -327,6 +308,7 @@
             dvgInventario.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dvgInventario.Size = new Size(1129, 527);
             dvgInventario.TabIndex = 15;
+            dvgInventario.CellFormatting += dvgInventario_CellFormatting;
             // 
             // clCodigo
             // 
@@ -423,7 +405,6 @@
         private ComboBox cmb_categoria;
         private TextBox txt_buscar;
         private PictureBox pic1;
-        private Button btnBuscar;
         private Button btnLimpiar;
         private Label lbl3;
         private Label lbl4;

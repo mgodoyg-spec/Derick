@@ -32,14 +32,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPromociones));
             pnl_prm = new Panel();
             pnl_prm2 = new Panel();
+            lblSalirV = new Label();
             pnlBusqueda = new Panel();
             cmbP2 = new ComboBox();
             txt_busqPrm = new TextBox();
             cmbP = new ComboBox();
             pictureBox1 = new PictureBox();
+            btn_aggP = new Button();
             lbl_agg2 = new Label();
             label1 = new Label();
-            btn_busP = new Button();
             btn_limpP = new Button();
             pictureBox2 = new PictureBox();
             dgvPromociones = new DataGridView();
@@ -53,11 +54,9 @@
             clDescripcion = new DataGridViewTextBoxColumn();
             clEditar = new DataGridViewImageColumn();
             clEliminar = new DataGridViewImageColumn();
-            btn_aggP = new Button();
             pic_prm = new PictureBox();
             lbl_prm1 = new Label();
             img_promociones = new ImageList(components);
-            lblSalirV = new Label();
             pnl_prm.SuspendLayout();
             pnl_prm2.SuspendLayout();
             pnlBusqueda.SuspendLayout();
@@ -85,7 +84,6 @@
             pnl_prm2.Controls.Add(pnlBusqueda);
             pnl_prm2.Controls.Add(pictureBox2);
             pnl_prm2.Controls.Add(dgvPromociones);
-            pnl_prm2.Controls.Add(btn_aggP);
             pnl_prm2.Controls.Add(pic_prm);
             pnl_prm2.Controls.Add(lbl_prm1);
             pnl_prm2.Location = new Point(13, 13);
@@ -94,6 +92,20 @@
             pnl_prm2.Size = new Size(1150, 630);
             pnl_prm2.TabIndex = 36;
             // 
+            // lblSalirV
+            // 
+            lblSalirV.AutoSize = true;
+            lblSalirV.BackColor = Color.Transparent;
+            lblSalirV.Cursor = Cursors.Hand;
+            lblSalirV.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSalirV.ForeColor = Color.Red;
+            lblSalirV.Location = new Point(1122, 2);
+            lblSalirV.Name = "lblSalirV";
+            lblSalirV.Size = new Size(25, 24);
+            lblSalirV.TabIndex = 38;
+            lblSalirV.Text = "X";
+            lblSalirV.Click += lblSalirV_Click;
+            // 
             // pnlBusqueda
             // 
             pnlBusqueda.BackColor = Color.FromArgb(244, 246, 249);
@@ -101,9 +113,9 @@
             pnlBusqueda.Controls.Add(txt_busqPrm);
             pnlBusqueda.Controls.Add(cmbP);
             pnlBusqueda.Controls.Add(pictureBox1);
+            pnlBusqueda.Controls.Add(btn_aggP);
             pnlBusqueda.Controls.Add(lbl_agg2);
             pnlBusqueda.Controls.Add(label1);
-            pnlBusqueda.Controls.Add(btn_busP);
             pnlBusqueda.Controls.Add(btn_limpP);
             pnlBusqueda.Location = new Point(7, 45);
             pnlBusqueda.Name = "pnlBusqueda";
@@ -120,6 +132,7 @@
             cmbP2.Name = "cmbP2";
             cmbP2.Size = new Size(114, 31);
             cmbP2.TabIndex = 14;
+            cmbP2.SelectedIndexChanged += cmbP2_SelectedIndexChanged;
             // 
             // txt_busqPrm
             // 
@@ -131,6 +144,7 @@
             txt_busqPrm.PlaceholderText = "Buscar producto";
             txt_busqPrm.Size = new Size(307, 27);
             txt_busqPrm.TabIndex = 7;
+            txt_busqPrm.TextChanged += txt_busqPrm_TextChanged;
             // 
             // cmbP
             // 
@@ -142,6 +156,7 @@
             cmbP.Name = "cmbP";
             cmbP.Size = new Size(121, 31);
             cmbP.TabIndex = 14;
+            cmbP.SelectedIndexChanged += cmbP_SelectedIndexChanged;
             // 
             // pictureBox1
             // 
@@ -154,6 +169,23 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 23;
             pictureBox1.TabStop = false;
+            // 
+            // btn_aggP
+            // 
+            btn_aggP.BackColor = Color.FromArgb(4, 59, 186);
+            btn_aggP.Cursor = Cursors.Hand;
+            btn_aggP.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            btn_aggP.ForeColor = Color.White;
+            btn_aggP.Image = (Image)resources.GetObject("btn_aggP.Image");
+            btn_aggP.ImageAlign = ContentAlignment.MiddleLeft;
+            btn_aggP.Location = new Point(873, 2);
+            btn_aggP.Margin = new Padding(3, 2, 3, 2);
+            btn_aggP.Name = "btn_aggP";
+            btn_aggP.Size = new Size(223, 39);
+            btn_aggP.TabIndex = 35;
+            btn_aggP.Text = "      Agregar promoción";
+            btn_aggP.UseVisualStyleBackColor = false;
+            btn_aggP.Click += btn_aggP_Click;
             // 
             // lbl_agg2
             // 
@@ -181,23 +213,6 @@
             label1.Text = "Estado:";
             label1.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // btn_busP
-            // 
-            btn_busP.BackColor = Color.FromArgb(13, 154, 64);
-            btn_busP.Cursor = Cursors.Hand;
-            btn_busP.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            btn_busP.ForeColor = Color.White;
-            btn_busP.Image = (Image)resources.GetObject("btn_busP.Image");
-            btn_busP.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_busP.Location = new Point(771, 4);
-            btn_busP.Margin = new Padding(3, 2, 3, 2);
-            btn_busP.Name = "btn_busP";
-            btn_busP.Size = new Size(99, 33);
-            btn_busP.TabIndex = 23;
-            btn_busP.Text = "     Buscar";
-            btn_busP.UseVisualStyleBackColor = false;
-            btn_busP.Click += btn_busP_Click;
-            // 
             // btn_limpP
             // 
             btn_limpP.BackColor = Color.White;
@@ -205,7 +220,7 @@
             btn_limpP.Font = new Font("Calibri", 12F, FontStyle.Bold);
             btn_limpP.ForeColor = Color.Black;
             btn_limpP.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_limpP.Location = new Point(889, 7);
+            btn_limpP.Location = new Point(757, 8);
             btn_limpP.Margin = new Padding(3, 2, 3, 2);
             btn_limpP.Name = "btn_limpP";
             btn_limpP.Size = new Size(98, 27);
@@ -309,23 +324,6 @@
             clEliminar.Name = "clEliminar";
             clEliminar.Width = 125;
             // 
-            // btn_aggP
-            // 
-            btn_aggP.BackColor = Color.FromArgb(4, 59, 186);
-            btn_aggP.Cursor = Cursors.Hand;
-            btn_aggP.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            btn_aggP.ForeColor = Color.White;
-            btn_aggP.Image = (Image)resources.GetObject("btn_aggP.Image");
-            btn_aggP.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_aggP.Location = new Point(893, 2);
-            btn_aggP.Margin = new Padding(3, 2, 3, 2);
-            btn_aggP.Name = "btn_aggP";
-            btn_aggP.Size = new Size(223, 39);
-            btn_aggP.TabIndex = 35;
-            btn_aggP.Text = "      Agregar promoción";
-            btn_aggP.UseVisualStyleBackColor = false;
-            btn_aggP.Click += btn_aggP_Click;
-            // 
             // pic_prm
             // 
             pic_prm.Image = (Image)resources.GetObject("pic_prm.Image");
@@ -356,20 +354,6 @@
             img_promociones.ImageStream = (ImageListStreamer)resources.GetObject("img_promociones.ImageStream");
             img_promociones.TransparentColor = Color.Transparent;
             img_promociones.Images.SetKeyName(0, "eliminar1.png");
-            // 
-            // lblSalirV
-            // 
-            lblSalirV.AutoSize = true;
-            lblSalirV.BackColor = Color.Transparent;
-            lblSalirV.Cursor = Cursors.Hand;
-            lblSalirV.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblSalirV.ForeColor = Color.Red;
-            lblSalirV.Location = new Point(1122, 2);
-            lblSalirV.Name = "lblSalirV";
-            lblSalirV.Size = new Size(25, 24);
-            lblSalirV.TabIndex = 38;
-            lblSalirV.Text = "X";
-            lblSalirV.Click += lblSalirV_Click;
             // 
             // FormPromociones
             // 
@@ -404,7 +388,6 @@
         private DataGridView dgvPromociones;
         private Button btn_limpP;
         private TextBox txt_busqPrm;
-        private Button btn_busP;
         private ComboBox cmbP;
         private ComboBox cmbP2;
         private ImageList img_promociones;

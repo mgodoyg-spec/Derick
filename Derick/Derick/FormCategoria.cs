@@ -24,7 +24,7 @@ namespace Derick
             CargarEstadosFiltro();
             CargarCategorias();
 
-            // CONFIGURACIÓN GENERAL
+            // Configuración general del data
             dgv_catg.EnableHeadersVisualStyles = false;
             dgv_catg.BorderStyle = BorderStyle.None;
             dgv_catg.BackgroundColor = Color.White;
@@ -38,7 +38,7 @@ namespace Derick
             dgv_catg.AllowUserToResizeRows = false;
             dgv_catg.AllowUserToResizeColumns = false;
             dgv_catg.RowHeadersVisible = false;
-            // ENCABEZADOS
+            // encabezado
             dgv_catg.ColumnHeadersHeight = 50;
             dgv_catg.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dgv_catg.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(46, 57, 75);
@@ -46,7 +46,7 @@ namespace Derick
             dgv_catg.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
             dgv_catg.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
-            // FILAS
+            // filas
             dgv_catg.RowTemplate.Height = 55;
             dgv_catg.DefaultCellStyle.Font = new Font("Segoe UI", 10);
             dgv_catg.DefaultCellStyle.ForeColor = Color.FromArgb(45, 45, 45);
@@ -54,11 +54,11 @@ namespace Derick
             dgv_catg.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(248, 249, 251);
             dgv_catg.DefaultCellStyle.Padding = new Padding(5);
 
-            // COLOR DE SELECCIÓN
+            // color de seleeción
             dgv_catg.DefaultCellStyle.SelectionBackColor = Color.FromArgb(225, 235, 250);
             dgv_catg.DefaultCellStyle.SelectionForeColor = Color.Black;
 
-            // TAMAÑO DE LAS COLUMNAS
+            // tamaño de las columnas
             dgv_catg.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv_catg.Columns["clId"].FillWeight = 10;
             dgv_catg.Columns["clIcono"].FillWeight = 12;
@@ -68,7 +68,7 @@ namespace Derick
             dgv_catg.Columns["clEditar"].FillWeight = 7;
             dgv_catg.Columns["clEliminar"].FillWeight = 7;
 
-            // COLUMNA ICONO
+            // columna de los iconos
             DataGridViewImageColumn icono = (DataGridViewImageColumn)dgv_catg.Columns["clIcono"];
             icono.ImageLayout = DataGridViewImageCellLayout.Zoom;
             DataGridViewImageColumn editar = (DataGridViewImageColumn)dgv_catg.Columns["clEditar"];
@@ -78,7 +78,7 @@ namespace Derick
             eliminar.Image = Properties.Resources.picEliminar;
             eliminar.ImageLayout = DataGridViewImageCellLayout.Zoom;
 
-            // ALINEACIÓN
+            // alineación
             string[] columnasCentro =
             {
                    "clId",
@@ -95,7 +95,7 @@ namespace Derick
             // Descripción alineada a la izquierda
             dgv_catg.Columns["clDescripcion"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
 
-            // DATA VACÍO AL INICIAR
+            // el data vacio cuando se inicia
             dgv_catg.Rows.Clear();
             CargarCategorias();
         }
@@ -103,8 +103,8 @@ namespace Derick
         {
             csConectaSQL conexion = new csConectaSQL();
             DataTable dt = conexion.RetornaRegistros(
-                "SELECT IdCategoria, Nombre, Descripcion, Estado, Imagen " +
-                "FROM Categorias ORDER BY IdCategoria"
+                "select IdCategoria, Nombre, Descripcion, Estado, Imagen " +
+                "from Categorias order by IdCategoria"
             );
             if (dt == null)
             {
@@ -113,9 +113,7 @@ namespace Derick
             dgv_catg.Rows.Clear();
             foreach (DataRow fila in dt.Rows)
             {
-                string estado = Convert.ToBoolean(fila["Estado"])
-                    ? "Activo"
-                    : "Inactivo";
+                string estado = Convert.ToBoolean(fila["Estado"]) ? "Activo": "Inactivo";
                 Image icono = null;
 
                 // CONVERTIR LOS BYTES DE SQL A IMAGEN
@@ -150,103 +148,111 @@ namespace Derick
             string texto = txt_busqctg.Text.Trim();
             string categoria = cmb_ctg1.Text.Trim();
             string estado = cmb_ctg2.Text.Trim();
-            string sql = @"
-            SELECT
-            IdCategoria,
-            Nombre,
-            Descripcion,
-            Estado
-            FROM Categorias
-            WHERE 1 = 1 ";
 
-            // Buscar por nombre o descripción
-            if (!string.IsNullOrWhiteSpace(texto))
+            string sql = @"select IdCategoria, Nombre, Descripcion, Estado, Imagen fromCategorias where 1 = 1";
+
+            // BUSCAR POR NOMBRE O DESCRIPCION
+            if (texto != "")
             {
-                sql += $" AND (Nombre LIKE '%{texto}%' " +
-                       $"OR Descripcion LIKE '%{texto}%')";
+                texto = texto.Replace("'", "''");
+                sql += @" and (Nombre like'%" + texto + @"%'
+                    or Descripcion like '%" + texto + @"%')";
             }
 
-            // Filtrar por categoría
-            if (categoria != "Todas" &&
-                !string.IsNullOrWhiteSpace(categoria))
+            // FILTRAR POR CATEGORIA
+            if (categoria != "Todas" && categoria != "")
             {
-                sql += $" AND Nombre = '{categoria}'";
+                categoria = categoria.Replace("'", "''");
+                sql += " and Nombre = '" + categoria + "'";
             }
 
-            // Filtrar por estado
-            if (estado != "Todos" &&
-                !string.IsNullOrWhiteSpace(estado))
+            // FILTRAR POR ESTADO
+            if (estado == "Activo")
             {
-                if (estado == "Activo")
-                    sql += " AND Estado = 1";
-                else if (estado == "Inactivo")
-                    sql += " AND Estado = 0";
+                sql += " and Estado = 1";
             }
-
-            sql += " ORDER BY IdCategoria";
+            if (estado == "Inactivo")
+            {
+                sql += " and Estado = 0";
+            }
+            sql += " order by IdCategoria";
 
             csConectaSQL conexion = new csConectaSQL();
-
             DataTable dt = conexion.RetornaRegistros(sql);
-
             if (dt == null)
+            {
                 return;
+            }
 
             dgv_catg.Rows.Clear();
 
             foreach (DataRow fila in dt.Rows)
             {
-                string estadoTexto =
-                    Convert.ToBoolean(fila["Estado"])
-                    ? "Activo"
-                    : "Inactivo";
+                string estadoTexto = "";
+                bool estadoCategoria = Convert.ToBoolean(fila["Estado"]);
 
-                dgv_catg.Rows.Add(
+                if (estadoCategoria == true)
+                {
+                    estadoTexto = "Activo";
+                }
+
+                if (estadoCategoria == false)
+                {
+                    estadoTexto = "Inactivo";
+                }
+
+                Image icono = null;
+
+                if (fila["Imagen"] != DBNull.Value)
+                {
+                    byte[] bytes = (byte[])fila["Imagen"];
+                    using (MemoryStream ms = new MemoryStream(bytes))
+                    {
+                        using (Image temporal = Image.FromStream(ms))
+                        {
+                            icono = new Bitmap(temporal);
+                        }
+                    }
+                }
+
+                int indice = dgv_catg.Rows.Add(
                     fila["IdCategoria"].ToString(),
-                    null, // Ícono
+                    icono,
                     fila["Nombre"].ToString(),
                     estadoTexto,
                     fila["Descripcion"].ToString(),
-                    null, // Editar
-                    null  // Eliminar
+                    null,
+                    null
                 );
+                dgv_catg.Rows[indice].Tag = Convert.ToInt32(fila["IdCategoria"]);
             }
         }
         private void CargarCategoriasFiltro()
         {
             cmb_ctg1.Items.Clear();
-
             cmb_ctg1.Items.Add("Todas");
 
             csConectaSQL conexion = new csConectaSQL();
-
-            DataTable dt = conexion.RetornaRegistros(
-                "SELECT Nombre FROM Categorias ORDER BY Nombre"
-            );
+            DataTable dt = conexion.RetornaRegistros("select Nombre from Categorias order by Nombre");
 
             if (dt != null)
             {
                 foreach (DataRow fila in dt.Rows)
                 {
-                    cmb_ctg1.Items.Add(
-                        fila["Nombre"].ToString()
-                    );
+                    cmb_ctg1.Items.Add(fila["Nombre"].ToString());
                 }
             }
-
             cmb_ctg1.SelectedIndex = 0;
         }
         private void CargarEstadosFiltro()
         {
             cmb_ctg2.Items.Clear();
-
             cmb_ctg2.Items.Add("Todos");
             cmb_ctg2.Items.Add("Activo");
             cmb_ctg2.Items.Add("Inactivo");
-
             cmb_ctg2.SelectedIndex = 0;
         }
-        private void btn_bus1_Click(object sender, EventArgs e)
+        private void txt_busqctg_TextChanged(object sender, EventArgs e)
         {
             FiltrarCategorias();
         }
@@ -263,7 +269,6 @@ namespace Derick
         {
             FrmAgg_Categoria frmctg = new FrmAgg_Categoria();
             frmctg.StartPosition = FormStartPosition.CenterScreen;
-
             if (frmctg.ShowDialog(this) == DialogResult.OK)
             {
                 CargarCategorias();
@@ -273,8 +278,9 @@ namespace Derick
         private void dgv_catg_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0 || e.ColumnIndex < 0)
+            {
                 return;
-
+            }
             string columna = dgv_catg.Columns[e.ColumnIndex].Name;
 
             if (columna == "clEditar")
@@ -289,14 +295,8 @@ namespace Derick
             }
             else if (columna == "clEliminar")
             {
-                int idCategoria =
-                    Convert.ToInt32(dgv_catg.Rows[e.RowIndex].Tag);
-
-                string nombre =
-                    dgv_catg.Rows[e.RowIndex]
-                    .Cells["clCategoria"]
-                    .Value?.ToString() ?? "";
-
+                int idCategoria = Convert.ToInt32(dgv_catg.Rows[e.RowIndex].Tag);
+                string nombre = dgv_catg.Rows[e.RowIndex].Cells["clCategoria"].Value?.ToString() ?? "";
                 DialogResult resultado = MessageBox.Show(
                     "¿Está seguro de eliminar la categoría \"" +
                     nombre + "\"?",
@@ -308,12 +308,10 @@ namespace Derick
                 if (resultado == DialogResult.Yes)
                 {
                     csConectaSQL conexion = new csConectaSQL();
-
                     bool eliminado = conexion.ejecutarComando(
-                         "DELETE FROM Categorias WHERE IdCategoria = @id",
+                         "delete from Categorias where IdCategoria = @id",
                           new SqlParameter("@id", idCategoria)
                     );
-
                     if (eliminado)
                     {
                         MessageBox.Show(
@@ -328,7 +326,6 @@ namespace Derick
                 }
             }
         }
-
         private void lblSalirV_Click(object sender, EventArgs e)
         {
             DialogResult respuesta =

@@ -162,49 +162,27 @@ namespace Derick
                 DialogResult resultado =
                     frm.ShowDialog(this);
 
-                // COMPROBAR QUÉ TIENE SQL DESPUÉS DE EDITAR
+                // comprueba que tiene sql para editar
                 csConectaSQL conexion = new csConectaSQL();
 
-                DataTable dt = conexion.RetornaRegistros(
-                    "SELECT Estado " +
-                    "FROM Productos " +
-                    "WHERE IdProductos = " + idProducto
-                );
+                DataTable dt = conexion.RetornaRegistros("select Estado " +
+                    "from Productos " + "where IdProductos = " + idProducto);
 
                 if (dt != null && dt.Rows.Count > 0)
                 {
-                    bool activo =
-                        Convert.ToBoolean(
-                            dt.Rows[0]["Estado"]
-                        );
-
-                    string estadoTexto =
-                        activo
-                        ? "Activo"
-                        : "Inactivo";
+                    bool activo = Convert.ToBoolean(dt.Rows[0]["Estado"]);
+                    string estadoTexto = activo ? "Activo" : "Inactivo";
 
                     // ACTUALIZAR DIRECTAMENTE LA CELDA
-                    dvg_agg.Rows[e.RowIndex]
-                        .Cells["clEstado"].Value =
-                        estadoTexto;
-
-                    dvg_agg.InvalidateCell(
-                        dvg_agg.Columns["clEstado"].Index,
-                        e.RowIndex
-                    );
-
+                    dvg_agg.Rows[e.RowIndex].Cells["clEstado"].Value = estadoTexto;
+                    dvg_agg.InvalidateCell(dvg_agg.Columns["clEstado"].Index,e.RowIndex);
                     dvg_agg.Refresh();
                 }
             }
             else if (columna == "clEliminar")
             {
-                int idProducto =
-                    Convert.ToInt32(dvg_agg.Rows[e.RowIndex].Tag);
-
-                string nombreProducto =
-                    dvg_agg.Rows[e.RowIndex]
-                    .Cells["clNombreProducto"]
-                    .Value?.ToString() ?? "";
+                int idProducto = Convert.ToInt32(dvg_agg.Rows[e.RowIndex].Tag);
+                string nombreProducto = dvg_agg.Rows[e.RowIndex].Cells["clNombreProducto"].Value?.ToString() ?? "";
 
                 DialogResult resultado = MessageBox.Show(
                     "¿Está seguro de eliminar el producto \"" +
@@ -219,7 +197,7 @@ namespace Derick
                     csConectaSQL conexion = new csConectaSQL();
 
                     bool eliminado = conexion.ejecutarComando(
-                        "UPDATE Productos SET Estado = 0 WHERE IdProductos = @id",
+                        "update Productos set Estado = 0 where IdProductos = @id",
                         new SqlParameter("@id", idProducto)
                     );
 
@@ -248,39 +226,13 @@ namespace Derick
         {
             csConectaSQL conexion = new csConectaSQL();
 
-            string sql = @"
-        SELECT
-            P.IdProductos,
-            P.Codigo,
-            P.Nombre,
-            P.Categoria,
-            P.Talla,
-            P.Color,
-            P.Precio,
-            P.Estado,
-
-            ISNULL(
-                (
-                    SELECT SUM(I.Stock)
-                    FROM Inventario I
-                    WHERE I.IdProducto = P.IdProductos
-                ), 0
-            ) AS StockTotal,
-
-            PI.Imagen
-
-        FROM Productos P
-
-        OUTER APPLY
-        (
-            SELECT TOP 1 Imagen
-            FROM ProductoImagenes
-            WHERE IdProductos = P.IdProductos
-            AND EsPrincipal = 1
-            ORDER BY IdImagen
-        ) PI
-
-        ORDER BY P.Codigo";
+            string sql = @"select P.IdProductos, P.Codigo, P.Nombre, P.Categoria,
+                P.Talla, P.Color, P.Precio, P.Estado, insull((
+                select sum(I.Stock) from Inventario I
+                where I.IdProducto = P.IdProductos), 0) as StockTotal,
+                PI.Imagen from Productos P outer apply(
+                select top 1 Imagen from ProductoImagenes where IdProductos = P.IdProductos
+                and EsPrincipal = 1 order by IdImagen) pi order by P.Codigo";
 
             DataTable dt = conexion.RetornaRegistros(sql);
 
@@ -291,7 +243,7 @@ namespace Derick
             dvg_agg.Rows.Clear();
             foreach (DataRow fila in dt.Rows)
             {
-                string estado = Convert.ToBoolean(fila["Estado"])? "Activo": "Inactivo";
+                string estado = Convert.ToBoolean(fila["Estado"]) ? "Activo" : "Inactivo";
                 decimal precio = Convert.ToDecimal(fila["Precio"]);
                 int stockTotal = Convert.ToInt32(fila["StockTotal"]);
                 Image imagenProducto = null;
@@ -300,7 +252,7 @@ namespace Derick
                     byte[] bytes = (byte[])fila["Imagen"];
                     using (MemoryStream ms = new MemoryStream(bytes))
                     {
-                        using (Image temp =  Image.FromStream(ms))
+                        using (Image temp = Image.FromStream(ms))
                         {
                             imagenProducto = new Bitmap(temp);
                         }
@@ -331,40 +283,12 @@ namespace Derick
             string categoria = cmb_agg1.Text.Trim();
             string estado = cmb_agg2.Text.Trim();
 
-            string sql = @"
-        SELECT
-            P.IdProductos,
-            P.Codigo,
-            P.Nombre,
-            P.Categoria,
-            P.Talla,
-            P.Color,
-            P.Precio,
-            P.Estado,
-
-            ISNULL(
-                (
-                    SELECT SUM(I.Stock)
-                    FROM Inventario I
-                    WHERE I.IdProducto = P.IdProductos
-                ), 0
-            ) AS StockTotal,
-
-            PI.Imagen
-
-        FROM Productos P
-
-        OUTER APPLY
-        (
-            SELECT TOP 1 Imagen
-            FROM ProductoImagenes
-            WHERE IdProductos = P.IdProductos
-            AND EsPrincipal = 1
-            ORDER BY IdImagen
-        ) PI
-
-        WHERE 1 = 1
-    ";
+            string sql = @"select P.IdProductos, P.Codigo, P.Nombre, P.Categoria,
+                P.Talla, P.Color, P.Precio, P.Estado, insull(
+                (select sum(I.Stock) from Inventario I where I.IdProducto = P.IdProductos), 0
+                ) as StockTotal, PI.Imagen from Productos P outer apply (
+                select top 1 Imagen from ProductoImagenes where IdProductos = P.IdProductos
+                and EsPrincipal = 1 order by IdImagen) pi where 1 = 1";
 
             // BUSCAR POR CÓDIGO O NOMBRE
             if (!string.IsNullOrWhiteSpace(texto))
@@ -399,7 +323,7 @@ namespace Derick
             dvg_agg.Rows.Clear();
             foreach (DataRow fila in dt.Rows)
             {
-                string estadoTexto = Convert.ToBoolean(fila["Estado"]) ? "Activo": "Inactivo";
+                string estadoTexto = Convert.ToBoolean(fila["Estado"]) ? "Activo" : "Inactivo";
                 decimal precio = Convert.ToDecimal(fila["Precio"]);
                 int stockTotal = Convert.ToInt32(fila["StockTotal"]);
                 Image imagenProducto = null;
@@ -431,7 +355,6 @@ namespace Derick
                 dvg_agg.Rows[indice].Tag = Convert.ToInt32(fila["IdProductos"]);
             }
         }
-
         private void CargarCategoriasFiltro()
         {
             cmb_agg1.Items.Clear();
@@ -457,14 +380,22 @@ namespace Derick
         private void CargarEstadosFiltro()
         {
             cmb_agg2.Items.Clear();
-
             cmb_agg2.Items.Add("Todos");
             cmb_agg2.Items.Add("Activo");
             cmb_agg2.Items.Add("Inactivo");
-
             cmb_agg2.SelectedIndex = 0;
         }
-        private void btn_buscar_Click(object sender, EventArgs e)
+        private void txt1_TextChanged(object sender, EventArgs e)
+        {
+            FiltrarProductos();
+        }
+
+        private void cmb_agg1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FiltrarProductos();
+        }
+
+        private void cmb_agg2_SelectedIndexChanged(object sender, EventArgs e)
         {
             FiltrarProductos();
         }
@@ -483,27 +414,6 @@ namespace Derick
             CargarProductos();
         }
 
-        private void btnCTG_Click(object sender, EventArgs e)
-        {
-            FormCategoria frmctg = new FormCategoria();
-            frmctg.StartPosition = FormStartPosition.CenterScreen;
-            frmctg.ShowDialog(this);
-        }
-
-        private void btnPRM_Click(object sender, EventArgs e)
-        {
-            FormPromociones frmprv = new FormPromociones();
-            frmprv.StartPosition = FormStartPosition.CenterScreen;
-            frmprv.ShowDialog(this);
-        }
-
-        private void btnPRV_Click(object sender, EventArgs e)
-        {
-            FormProveedores frmpr = new FormProveedores();
-            frmpr.StartPosition = FormStartPosition.CenterScreen;
-            frmpr.ShowDialog(this);
-        }
-
         private void lblSalirV_Click(object sender, EventArgs e)
         {
             DialogResult respuesta =
@@ -516,6 +426,13 @@ namespace Derick
             {
                 Application.Exit();
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FormInventario formInventario = new FormInventario();
+            formInventario.StartPosition = FormStartPosition.CenterScreen;
+            formInventario.ShowDialog(this);
         }
     }
 }

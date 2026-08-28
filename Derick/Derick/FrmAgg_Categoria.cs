@@ -44,8 +44,7 @@ namespace Derick
             frm_secundario3 frm = new frm_secundario3();
             frm.StartPosition = FormStartPosition.Manual;
             int x = this.Right + 10;
-            int y = this.Top +
-                    (this.Height - frm.Height) / 2;
+            int y = this.Top + (this.Height - frm.Height) / 2;
             frm.Location = new Point(x, y);
             if (frm.ShowDialog(this) == DialogResult.OK)
             {
@@ -63,29 +62,23 @@ namespace Derick
         private void CC_editar()
         {
             csConectaSQL conexion = new csConectaSQL();
-
-            DataTable dt = conexion.RetornaRegistros(
-                "SELECT Nombre, Descripcion, Estado, Imagen " +
-                "FROM Categorias " +
-                "WHERE IdCategoria = " + idCategoriaEditar.Value
-            );
+            DataTable dt = conexion.RetornaRegistros("select Nombre, Descripcion, Estado, Imagen " +
+                "from Categorias " + "where IdCategoria = " + idCategoriaEditar.Value);
 
             if (dt == null || dt.Rows.Count == 0)
+            {
                 return;
+            }
 
             DataRow fila = dt.Rows[0];
-
             txt_ctg1.Text = fila["Nombre"].ToString();
             txt1.Text = fila["Descripcion"].ToString();
-
             bool activo = Convert.ToBoolean(fila["Estado"]);
             cmb_ctg.Text = activo ? "Activo" : "Inactivo";
-
-            // CARGAR ÍCONO EXISTENTE
+            // carga icono que exista
             if (fila["Imagen"] != DBNull.Value)
             {
                 byte[] bytes = (byte[])fila["Imagen"];
-
                 using (MemoryStream ms = new MemoryStream(bytes))
                 {
                     using (Image temporal = Image.FromStream(ms))
@@ -93,7 +86,6 @@ namespace Derick
                         iconoCategoria = new Bitmap(temporal);
                     }
                 }
-
                 lbl_icono.Text = "Ícono cargado";
             }
         }
@@ -128,7 +120,6 @@ namespace Derick
             string nombre = txt_ctg1.Text.Trim();
             string descripcion = txt1.Text.Trim();
             string estadoTexto = cmb_ctg.Text.Trim();
-
             if (string.IsNullOrWhiteSpace(nombre))
             {
                 MessageBox.Show(
@@ -136,7 +127,6 @@ namespace Derick
                     "Campo obligatorio",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
-
                 txt_ctg1.Focus();
                 return;
             }
@@ -147,14 +137,11 @@ namespace Derick
                     "Campo obligatorio",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
-
                 cmb_ctg.Focus();
                 return;
             }
             int estado;
-            if (estadoTexto.Equals(
-                "Activo",
-                StringComparison.OrdinalIgnoreCase))
+            if (estadoTexto.Equals("Activo",StringComparison.OrdinalIgnoreCase))
             {
                 estado = 1;
             }
@@ -162,29 +149,14 @@ namespace Derick
             {
                 estado = 0;
             }
-            csConectaSQL conexion = new csConectaSQL();
 
+            csConectaSQL conexion = new csConectaSQL();
             if (idCategoriaEditar == null)
             {
-                string sql = @"
-        INSERT INTO Categorias
-        (
-            Nombre,
-            Descripcion,
-            Estado,
-            Imagen
-        )
-        VALUES
-        (
-            @Nombre,
-            @Descripcion,
-            @Estado,
-            @Imagen
-        )";
+                string sql = @"insert to Categorias(Nombre, Descripcion, Estado, Imagen)
+                       values(@Nombre,¿ @Descripcion,¿ @Estado,¿ @Imagen¿)";
 
-                SqlParameter parametroImagen =
-                    new SqlParameter("@Imagen", SqlDbType.VarBinary, -1);
-
+                SqlParameter parametroImagen = new SqlParameter("@Imagen", SqlDbType.VarBinary, -1);
                 if (iconoCategoria != null)
                 {
                     parametroImagen.Value = ImagenABytes(iconoCategoria);
@@ -193,9 +165,7 @@ namespace Derick
                 {
                     parametroImagen.Value = DBNull.Value;
                 }
-
-                bool guardado = conexion.ejecutarComando(
-                    sql,
+                bool guardado = conexion.ejecutarComando(sql,
                     new SqlParameter("@Nombre", nombre),
                     new SqlParameter("@Descripcion", descripcion),
                     new SqlParameter("@Estado", estado),
@@ -214,7 +184,6 @@ namespace Derick
                 }
 
                 CategoriaCreada = nombre;
-
                 MessageBox.Show(
                     "Categoría guardada correctamente.",
                     "Guardado",
@@ -223,18 +192,10 @@ namespace Derick
             }
             else
             {
-                string sql = @"
-                    UPDATE Categorias
-                    SET
-                    Nombre = @Nombre,
-                    Descripcion = @Descripcion,
-                    Estado = @Estado,
-                    Imagen = @Imagen
-                    WHERE IdCategoria = @IdCategoria";
+                string sql = @"update Categorias set Nombre = @Nombre, Descripcion = @Descripcion,
+                    Estado = @Estado, Imagen = @Imagen where IdCategoria = @IdCategoria";
 
-                SqlParameter parametroImagen =
-                    new SqlParameter("@Imagen", SqlDbType.VarBinary, -1);
-
+                SqlParameter parametroImagen = new SqlParameter("@Imagen", SqlDbType.VarBinary, -1);
                 if (iconoCategoria != null)
                 {
                     parametroImagen.Value = ImagenABytes(iconoCategoria);
@@ -244,15 +205,13 @@ namespace Derick
                     parametroImagen.Value = DBNull.Value;
                 }
 
-                bool actualizado = conexion.ejecutarComando(
-                    sql,
+                bool actualizado = conexion.ejecutarComando(sql,
                     new SqlParameter("@Nombre", nombre),
                     new SqlParameter("@Descripcion", descripcion),
                     new SqlParameter("@Estado", estado),
                     parametroImagen,
                     new SqlParameter("@IdCategoria", idCategoriaEditar.Value)
                 );
-
                 if (!actualizado)
                 {
                     MessageBox.Show(
@@ -260,7 +219,6 @@ namespace Derick
                         "Error",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
-
                     return;
                 }
 
@@ -270,7 +228,6 @@ namespace Derick
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
             }
-
             DialogResult = DialogResult.OK;
             Close();
         }

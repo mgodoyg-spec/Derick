@@ -32,10 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProveedores));
             pnl_prov = new Panel();
             pnl04 = new Panel();
+            lblSalirV = new Label();
             pnlBusqueda = new Panel();
             cmb02 = new ComboBox();
             cmb01 = new ComboBox();
-            btnBuscar = new Button();
             txt01 = new TextBox();
             btnLimpiar = new Button();
             pictureBox1 = new PictureBox();
@@ -55,7 +55,6 @@
             clEditar = new DataGridViewImageColumn();
             clEliminar = new DataGridViewImageColumn();
             imgProveedor = new ImageList(components);
-            lblSalirV = new Label();
             pnl_prov.SuspendLayout();
             pnl04.SuspendLayout();
             pnlBusqueda.SuspendLayout();
@@ -82,7 +81,6 @@
             pnl04.Controls.Add(lblSalirV);
             pnl04.Controls.Add(pnlBusqueda);
             pnl04.Controls.Add(pictureBox2);
-            pnl04.Controls.Add(btn_ctg1);
             pnl04.Controls.Add(pic01);
             pnl04.Controls.Add(lbl01);
             pnl04.Controls.Add(dgvProveedor);
@@ -92,13 +90,27 @@
             pnl04.Size = new Size(1150, 630);
             pnl04.TabIndex = 35;
             // 
+            // lblSalirV
+            // 
+            lblSalirV.AutoSize = true;
+            lblSalirV.BackColor = Color.Transparent;
+            lblSalirV.Cursor = Cursors.Hand;
+            lblSalirV.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSalirV.ForeColor = Color.Red;
+            lblSalirV.Location = new Point(1111, 8);
+            lblSalirV.Name = "lblSalirV";
+            lblSalirV.Size = new Size(25, 24);
+            lblSalirV.TabIndex = 36;
+            lblSalirV.Text = "X";
+            lblSalirV.Click += lblSalirV_Click;
+            // 
             // pnlBusqueda
             // 
             pnlBusqueda.BackColor = Color.FromArgb(244, 246, 249);
             pnlBusqueda.Controls.Add(cmb02);
             pnlBusqueda.Controls.Add(cmb01);
-            pnlBusqueda.Controls.Add(btnBuscar);
             pnlBusqueda.Controls.Add(txt01);
+            pnlBusqueda.Controls.Add(btn_ctg1);
             pnlBusqueda.Controls.Add(btnLimpiar);
             pnlBusqueda.Controls.Add(pictureBox1);
             pnlBusqueda.Controls.Add(lbl_agg2);
@@ -118,6 +130,7 @@
             cmb02.Name = "cmb02";
             cmb02.Size = new Size(103, 31);
             cmb02.TabIndex = 14;
+            cmb02.SelectedIndexChanged += cmb02_SelectedIndexChanged;
             // 
             // cmb01
             // 
@@ -129,23 +142,7 @@
             cmb01.Name = "cmb01";
             cmb01.Size = new Size(121, 31);
             cmb01.TabIndex = 14;
-            // 
-            // btnBuscar
-            // 
-            btnBuscar.BackColor = Color.FromArgb(13, 154, 64);
-            btnBuscar.Cursor = Cursors.Hand;
-            btnBuscar.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            btnBuscar.ForeColor = Color.White;
-            btnBuscar.Image = (Image)resources.GetObject("btnBuscar.Image");
-            btnBuscar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnBuscar.Location = new Point(771, 4);
-            btnBuscar.Margin = new Padding(3, 2, 3, 2);
-            btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(99, 33);
-            btnBuscar.TabIndex = 8;
-            btnBuscar.Text = "     Buscar";
-            btnBuscar.UseVisualStyleBackColor = false;
-            btnBuscar.Click += btnBuscar_Click;
+            cmb01.SelectedIndexChanged += cmb01_SelectedIndexChanged;
             // 
             // txt01
             // 
@@ -157,6 +154,7 @@
             txt01.PlaceholderText = "Buscar producto";
             txt01.Size = new Size(307, 27);
             txt01.TabIndex = 7;
+            txt01.TextChanged += txt01_TextChanged;
             // 
             // btnLimpiar
             // 
@@ -165,7 +163,7 @@
             btnLimpiar.Font = new Font("Calibri", 12F, FontStyle.Bold);
             btnLimpiar.ForeColor = Color.Black;
             btnLimpiar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnLimpiar.Location = new Point(889, 7);
+            btnLimpiar.Location = new Point(766, 9);
             btnLimpiar.Margin = new Padding(3, 2, 3, 2);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(98, 27);
@@ -230,7 +228,7 @@
             btn_ctg1.ForeColor = Color.White;
             btn_ctg1.Image = (Image)resources.GetObject("btn_ctg1.Image");
             btn_ctg1.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_ctg1.Location = new Point(875, 2);
+            btn_ctg1.Location = new Point(881, 2);
             btn_ctg1.Margin = new Padding(3, 2, 3, 2);
             btn_ctg1.Name = "btn_ctg1";
             btn_ctg1.Size = new Size(223, 39);
@@ -339,20 +337,6 @@
             imgProveedor.TransparentColor = Color.Transparent;
             imgProveedor.Images.SetKeyName(0, "eliminar1.png");
             // 
-            // lblSalirV
-            // 
-            lblSalirV.AutoSize = true;
-            lblSalirV.BackColor = Color.Transparent;
-            lblSalirV.Cursor = Cursors.Hand;
-            lblSalirV.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblSalirV.ForeColor = Color.Red;
-            lblSalirV.Location = new Point(1111, 8);
-            lblSalirV.Name = "lblSalirV";
-            lblSalirV.Size = new Size(25, 24);
-            lblSalirV.TabIndex = 36;
-            lblSalirV.Text = "X";
-            lblSalirV.Click += lblSalirV_Click;
-            // 
             // FormProveedores
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -384,7 +368,6 @@
         private Label lbl01;
         private Panel pnl04;
         private Button btnLimpiar;
-        private Button btnBuscar;
         private ComboBox cmb02;
         private ComboBox cmb01;
         private DataGridView dgvProveedor;

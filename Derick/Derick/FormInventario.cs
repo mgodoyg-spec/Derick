@@ -143,7 +143,7 @@ namespace Derick
             csConectaSQL conect = new csConectaSQL();
 
             string query = @"select IdSucursal, NombreSucursal from Sucursales
-                           where Estado = 'activo' order by NombreSucursal";
+                           where Estado = 'activa' order by NombreSucursal";
 
             DataTable dt = conect.RetornaRegistros(query);
             cmb_sucursal.DataSource = dt;
@@ -159,71 +159,42 @@ namespace Derick
                 dvgInventario.DataSource = null;
                 return;
             }
-            int idSucursal = Convert.ToInt32(cmb_sucursal.SelectedValue);
+            int idSucursal = Convert.ToInt32(((DataRowView)cmb_sucursal.SelectedItem)["IdSucursal"]);
             string buscar = txt_buscar.Text.Trim();
             string categoria = cmb_categoria.Text.Trim();
             string estado = cmb_estado.Text.Trim();
 
-            string query = @"select
-                    P.Codigo,
-                    P.Nombre,
-                    P.Categoria,
-                    I.Talla,
-                    I.Color,
-                    P.Precio,
-                    I.Stock,
-                    P.Estado
-                from Inventario I inner join Productos P
-                    on I.IdProducto = P.IdProductos
-                where I.IdSucursal = " + idSucursal;
+            string query = @"select P.Codigo, P.Nombre, P.Categoria, I.Talla, I.Color,
+                    P.Precio, I.Stock, P.Estado from Inventario I inner join Productos P
+                    on I.IdProducto = P.IdProductos where I.IdSucursal = " + idSucursal;
 
-            // BUSCAR POR CÓDIGO O NOMBRE
+            // buscar por código o nombre
             if (buscar != "")
             {
                 buscar = buscar.Replace("'", "''");
-                query += @"and (
-                        P.Codigo LIKE '%" + buscar + @"%'
-                        OR
-                        P.Nombre LIKE '%" + buscar + @"%'";
+                query += @"and (P.Codigo LIKE '%" + buscar + @"%' or P.Nombre LIKE '%" + buscar + @"%'";
             }
 
-            // FILTRAR POR CATEGORIA
+            // filtrar por categoria
             if (categoria != "Todas" && categoria != "")
             {
                 categoria = categoria.Replace("'", "''");
                 query += @"and P.Categoria = '" + categoria + "'";
             }
 
-            // FILTRAR ACTIVO
+            // filtrar estado activo
             if (estado == "Activo")
             {
                 query += " and P.Estado = 1";
             }
 
-            // FILTRAR INACTIVO
+            // filtrar estado inactivo
             if (estado == "Inactivo")
             {
                 query += " and P.Estado = 0";
             }
-            query += @"order by
-                    P.Nombre,
-                    I.Talla,
-                    I.Color";
+            query += @"order by P.Nombre, I.Talla, I.Color";
             DataTable dt = conect.RetornaRegistros(query);
-
-            // CAMBIAR 1 Y 0 A ACTIVO / INACTIVO
-            foreach (DataRow fila in dt.Rows)
-            {
-                bool estadoProducto = Convert.ToBoolean(fila["Estado"]);
-                if (estadoProducto == true)
-                {
-                    fila["Estado"] = "Activo";
-                }
-                if (estadoProducto == false)
-                {
-                    fila["Estado"] = "Inactivo";
-                }
-            }
             dvgInventario.DataSource = dt;
         }
 
@@ -232,7 +203,7 @@ namespace Derick
             string query = @"select Nombre from Categorias where Estado = 1 order by Nombre";
             DataTable dt = conect.RetornaRegistros(query);
 
-            // AGREGAR "TODAS"
+            // agregar estado todas
             DataRow fila = dt.NewRow();
             fila["Nombre"] = "Todas";
             dt.Rows.InsertAt(fila, 0);
@@ -240,6 +211,25 @@ namespace Derick
             cmb_categoria.DisplayMember = "Nombre";
             cmb_categoria.ValueMember = "Nombre";
             cmb_categoria.SelectedIndex = 0;
+        }
+        private void dvgInventario_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dvgInventario.Columns[e.ColumnIndex].Name == "clEstado")
+            {
+                if (e.Value != null)
+                {
+                    bool estado = Convert.ToBoolean(e.Value);
+                    if (estado == true)
+                    {
+                        e.Value = "Activo";
+                    }
+                    if (estado == false)
+                    {
+                        e.Value = "Inactivo";
+                    }
+                    e.FormattingApplied = true;
+                }
+            }
         }
 
         private void cmb_sucursal_SelectedIndexChanged(object sender, EventArgs e)
@@ -263,26 +253,10 @@ namespace Derick
 
         private void btn_transferir_Click(object sender, EventArgs e)
         {
-            FormInventario frmTransferir = new FormInventario();
+            FormTransferir_Productos frmTransferir = new FormTransferir_Productos();
             frmTransferir.StartPosition = FormStartPosition.CenterScreen;
             frmTransferir.ShowDialog(this);
-            // ACTUALIZAR INVENTARIO
-            // CUANDO SE CIERRE TRANSFERENCIA
-            Cargar_Inventario();
-        }
-
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            if (cmb_sucursal.SelectedIndex == -1)
-            {
-                MessageBox.Show(
-                    "Seleccione una sucursal.",
-                    "Inventario",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                return;
-            }
+            // actualiza el inventario cuando se cierra transferencia
             Cargar_Inventario();
         }
 
