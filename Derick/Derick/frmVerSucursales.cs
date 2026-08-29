@@ -14,10 +14,7 @@ namespace Derick
         public frmVerSucursales(csSucursal sucursal)
         {
             InitializeComponent();
-
             this.sucursal = sucursal;
-
-            CargarDatos();
         }
 
         private void lblSalirV_Click(object sender, EventArgs e)
@@ -56,22 +53,17 @@ namespace Derick
 
         private void CargarImagen()
         {
-            if (sucursal.Imagen != null &&
-                 sucursal.Imagen.Length > 0)
+            if (sucursal.Imagen != null && sucursal.Imagen.Length > 0)
             {
-                using (MemoryStream ms =
-                    new MemoryStream(sucursal.Imagen))
+                using (MemoryStream ms =new MemoryStream(sucursal.Imagen))
                 {
                     using (Image imagenTemporal =
                         Image.FromStream(ms))
                     {
-                        pbxImagenSucursal.Image =
-                            new Bitmap(imagenTemporal);
+                        pbxImagenSucursal.Image =new Bitmap(imagenTemporal);
                     }
                 }
-
-                pbxImagenSucursal.SizeMode =
-                    PictureBoxSizeMode.Zoom;
+                pbxImagenSucursal.SizeMode =PictureBoxSizeMode.Zoom;
             }
             else
             {
@@ -85,18 +77,13 @@ namespace Derick
             {
                 if (sucursal.CambiarEstado("Activa"))
                 {
-                    MessageBox.Show(
-                        "Sucursal reactivada correctamente.");
-
+                    MessageBox.Show("Sucursal reactivada correctamente.");
                     this.Close();
                 }
             }
             else
             {
-                DialogResult respuesta =
-                    MessageBox.Show(
-                        "¿Está seguro de desactivar esta sucursal?",
-                        "Confirmar",
+                DialogResult respuesta =MessageBox.Show("¿Está seguro de desactivar esta sucursal?", "Confirmar",
                         MessageBoxButtons.YesNo,
                         MessageBoxIcon.Warning);
 
@@ -104,12 +91,34 @@ namespace Derick
                 {
                     if (sucursal.CambiarEstado("Inactiva"))
                     {
-                        MessageBox.Show(
-                            "Sucursal desactivada correctamente.");
-
+                        MessageBox.Show("Sucursal desactivada correctamente.");
                         this.Close();
                     }
                 }
+            }
+        }
+
+        private void btnEliminarSucursal_Click(object sender, EventArgs e)
+        {
+            DialogResult respuesta = MessageBox.Show(
+                 "¿Está seguro de eliminar esta sucursal?\n\n" +
+                  "Esta acción no se puede deshacer.",
+                  "Eliminar sucursal",
+                   MessageBoxButtons.YesNo,
+                   MessageBoxIcon.Warning);
+
+            if (respuesta == DialogResult.No)
+                return;
+
+            if (sucursal.Eliminar())
+            {
+                MessageBox.Show(
+                    "Sucursal eliminada correctamente.",
+                    "Sucursal eliminada",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+
+                this.Close();
             }
         }
     }

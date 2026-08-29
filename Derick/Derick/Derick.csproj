@@ -9,11 +9,30 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="Guna.UI2.WinForms" Version="2.0.4.8" />
-	  <PackageReference Include="Microsoft.Data.SqlClient" Version="7.0.2" />
+	  <None Remove="rptProductosMasVendidos.rdlc" />
+	  <None Remove="rptVentasPorCategoria.rdlc" />
+	  <None Remove="rptVentasPorEmpleado.rdlc" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <EmbeddedResource Include="rptProductosMasVendidos.rdlc" />
+	  <EmbeddedResource Include="rptVentasPorCategoria.rdlc" />
+	  <EmbeddedResource Include="rptVentasPorEmpleado.rdlc" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Guna.UI2.WinForms" Version="2.0.4.8" />
+	  <PackageReference Include="Microsoft.Data.SqlClient" Version="7.0.2" />
+	  <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.4191.47" />
+	  <PackageReference Include="ReportViewerCore.WinForms.X" Version="16.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Update="dsReportes.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>dsReportes.xsd</DependentUpon>
+		</Compile>
 		<Compile Update="Properties\Resources.Designer.cs">
 			<DesignTime>True</DesignTime>
 			<AutoGen>True</AutoGen>
@@ -26,6 +45,13 @@
 			<Generator>ResXFileCodeGenerator</Generator>
 			<LastGenOutput>Resources.Designer.cs</LastGenOutput>
 		</EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="dsReportes.xsd">
+	    <Generator>MSDataSetGenerator</Generator>
+	    <LastGenOutput>dsReportes.Designer.cs</LastGenOutput>
+	  </None>
 	</ItemGroup>
 
 </Project>

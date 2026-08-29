@@ -40,6 +40,8 @@
             label1 = new Label();
             label3 = new Label();
             panel1 = new Panel();
+            btnEliminarSucursal = new Button();
+            btnDesactivar = new Button();
             label2 = new Label();
             lblEstado = new Label();
             lblEncargado = new Label();
@@ -51,7 +53,6 @@
             lblNombre = new Label();
             lblCodigo = new Label();
             pictureBox1 = new PictureBox();
-            btnDesactivar = new Button();
             ((System.ComponentModel.ISupportInitialize)pbxImagenSucursal).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -64,7 +65,7 @@
             lblSalirV.Cursor = Cursors.Hand;
             lblSalirV.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSalirV.ForeColor = Color.Red;
-            lblSalirV.Location = new Point(574, 0);
+            lblSalirV.Location = new Point(673, -2);
             lblSalirV.Margin = new Padding(4, 0, 4, 0);
             lblSalirV.Name = "lblSalirV";
             lblSalirV.Size = new Size(27, 25);
@@ -76,12 +77,12 @@
             // 
             lblTitulo.AutoSize = true;
             lblTitulo.BackColor = Color.Transparent;
-            lblTitulo.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitulo.Font = new Font("Calibri", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitulo.ForeColor = Color.FromArgb(13, 154, 64);
-            lblTitulo.Location = new Point(0, 7);
+            lblTitulo.Location = new Point(-2, -2);
             lblTitulo.Margin = new Padding(4, 0, 4, 0);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(238, 26);
+            lblTitulo.Size = new Size(277, 29);
             lblTitulo.TabIndex = 31;
             lblTitulo.Text = "Información de la sucursal";
             // 
@@ -159,7 +160,7 @@
             // 
             // pbxImagenSucursal
             // 
-            pbxImagenSucursal.Location = new Point(107, 40);
+            pbxImagenSucursal.Location = new Point(169, 49);
             pbxImagenSucursal.Margin = new Padding(4, 5, 4, 5);
             pbxImagenSucursal.Name = "pbxImagenSucursal";
             pbxImagenSucursal.Size = new Size(346, 247);
@@ -171,7 +172,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(384, 12);
+            label1.Location = new Point(434, 12);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(69, 23);
@@ -193,6 +194,7 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(btnEliminarSucursal);
             panel1.Controls.Add(btnDesactivar);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(lblEstado);
@@ -213,18 +215,43 @@
             panel1.Controls.Add(lbltelefono);
             panel1.Controls.Add(lblTCorreo);
             panel1.Controls.Add(lblTDireccion);
-            panel1.Location = new Point(13, 58);
+            panel1.Location = new Point(13, 41);
             panel1.Margin = new Padding(4, 5, 4, 5);
             panel1.Name = "panel1";
-            panel1.Size = new Size(574, 577);
+            panel1.Size = new Size(674, 594);
             panel1.TabIndex = 57;
+            // 
+            // btnEliminarSucursal
+            // 
+            btnEliminarSucursal.BackColor = Color.Red;
+            btnEliminarSucursal.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEliminarSucursal.ForeColor = Color.White;
+            btnEliminarSucursal.Location = new Point(465, 553);
+            btnEliminarSucursal.Name = "btnEliminarSucursal";
+            btnEliminarSucursal.Size = new Size(206, 34);
+            btnEliminarSucursal.TabIndex = 68;
+            btnEliminarSucursal.Text = "Eliminar sucursal";
+            btnEliminarSucursal.UseVisualStyleBackColor = false;
+            btnEliminarSucursal.Click += btnEliminarSucursal_Click;
+            // 
+            // btnDesactivar
+            // 
+            btnDesactivar.BackColor = Color.Silver;
+            btnDesactivar.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDesactivar.Location = new Point(465, 513);
+            btnDesactivar.Name = "btnDesactivar";
+            btnDesactivar.Size = new Size(206, 34);
+            btnDesactivar.TabIndex = 67;
+            btnDesactivar.Text = "Desactivar sucursal";
+            btnDesactivar.UseVisualStyleBackColor = false;
+            btnDesactivar.Click += btnDesactivar_Click;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(293, 325);
+            label2.Location = new Point(434, 325);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(68, 23);
@@ -234,7 +261,7 @@
             // lblEstado
             // 
             lblEstado.AutoSize = true;
-            lblEstado.Location = new Point(368, 325);
+            lblEstado.Location = new Point(509, 325);
             lblEstado.Name = "lblEstado";
             lblEstado.Size = new Size(14, 23);
             lblEstado.TabIndex = 65;
@@ -300,7 +327,7 @@
             // lblCodigo
             // 
             lblCodigo.AutoSize = true;
-            lblCodigo.Location = new Point(453, 12);
+            lblCodigo.Location = new Point(503, 12);
             lblCodigo.Name = "lblCodigo";
             lblCodigo.Size = new Size(0, 23);
             lblCodigo.TabIndex = 57;
@@ -309,30 +336,18 @@
             // 
             pictureBox1.BackgroundImage = Properties.Resources.detalleverde;
             pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox1.Location = new Point(13, 36);
+            pictureBox1.Location = new Point(-2, 23);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(225, 14);
+            pictureBox1.Size = new Size(276, 10);
             pictureBox1.TabIndex = 67;
             pictureBox1.TabStop = false;
-            // 
-            // btnDesactivar
-            // 
-            btnDesactivar.BackColor = Color.Silver;
-            btnDesactivar.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnDesactivar.Location = new Point(352, 536);
-            btnDesactivar.Name = "btnDesactivar";
-            btnDesactivar.Size = new Size(206, 34);
-            btnDesactivar.TabIndex = 67;
-            btnDesactivar.Text = "Desactivar sucursal";
-            btnDesactivar.UseVisualStyleBackColor = false;
-            btnDesactivar.Click += btnDesactivar_Click;
             // 
             // frmVerSucursales
             // 
             AutoScaleDimensions = new SizeF(10F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(244, 246, 249);
-            ClientSize = new Size(600, 640);
+            ClientSize = new Size(700, 640);
             Controls.Add(pictureBox1);
             Controls.Add(panel1);
             Controls.Add(lblTitulo);
@@ -378,5 +393,6 @@
         private Label label2;
         private PictureBox pictureBox1;
         private Button btnDesactivar;
+        private Button btnEliminarSucursal;
     }
 }

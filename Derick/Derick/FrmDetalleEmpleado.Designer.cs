@@ -83,6 +83,9 @@
             lblInformacionSuc = new Label();
             pbxFotoEmpleado = new PictureBox();
             pictureBox3 = new PictureBox();
+            label1 = new Label();
+            label35 = new Label();
+            lblSucursal = new Label();
             ((System.ComponentModel.ISupportInitialize)pbxFotoEmpleado).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
@@ -261,7 +264,7 @@
             // 
             label17.AutoSize = true;
             label17.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label17.Location = new Point(401, 166);
+            label17.Location = new Point(401, 206);
             label17.Name = "label17";
             label17.Size = new Size(231, 25);
             label17.TabIndex = 22;
@@ -271,7 +274,7 @@
             // 
             label18.AutoSize = true;
             label18.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label18.Location = new Point(401, 209);
+            label18.Location = new Point(401, 249);
             label18.Name = "label18";
             label18.Size = new Size(229, 25);
             label18.TabIndex = 23;
@@ -412,7 +415,7 @@
             lblEmergencia.AutoSize = true;
             lblEmergencia.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblEmergencia.ForeColor = Color.DimGray;
-            lblEmergencia.Location = new Point(672, 169);
+            lblEmergencia.Location = new Point(672, 210);
             lblEmergencia.Name = "lblEmergencia";
             lblEmergencia.Size = new Size(0, 22);
             lblEmergencia.TabIndex = 37;
@@ -422,7 +425,7 @@
             lblTelEmergencia.AutoSize = true;
             lblTelEmergencia.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblTelEmergencia.ForeColor = Color.DimGray;
-            lblTelEmergencia.Location = new Point(672, 212);
+            lblTelEmergencia.Location = new Point(672, 249);
             lblTelEmergencia.Name = "lblTelEmergencia";
             lblTelEmergencia.Size = new Size(0, 22);
             lblTelEmergencia.TabIndex = 38;
@@ -457,7 +460,7 @@
             label19.AutoSize = true;
             label19.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label19.ForeColor = Color.Red;
-            label19.Location = new Point(374, 163);
+            label19.Location = new Point(374, 207);
             label19.Name = "label19";
             label19.Size = new Size(21, 25);
             label19.TabIndex = 48;
@@ -468,7 +471,7 @@
             label20.AutoSize = true;
             label20.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label20.ForeColor = Color.Red;
-            label20.Location = new Point(374, 212);
+            label20.Location = new Point(374, 249);
             label20.Name = "label20";
             label20.Size = new Size(21, 25);
             label20.TabIndex = 49;
@@ -662,12 +665,45 @@
             pictureBox3.TabIndex = 66;
             pictureBox3.TabStop = false;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Red;
+            label1.Location = new Point(374, 163);
+            label1.Name = "label1";
+            label1.Size = new Size(21, 25);
+            label1.TabIndex = 67;
+            label1.Text = "*";
+            // 
+            // label35
+            // 
+            label35.AutoSize = true;
+            label35.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label35.Location = new Point(401, 163);
+            label35.Name = "label35";
+            label35.Size = new Size(95, 25);
+            label35.TabIndex = 68;
+            label35.Text = "Sucursal:";
+            // 
+            // lblSucursal
+            // 
+            lblSucursal.AutoSize = true;
+            lblSucursal.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblSucursal.Location = new Point(672, 164);
+            lblSucursal.Name = "lblSucursal";
+            lblSucursal.Size = new Size(0, 25);
+            lblSucursal.TabIndex = 69;
+            // 
             // FrmDetalleEmpleado
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(850, 795);
+            Controls.Add(lblSucursal);
+            Controls.Add(label35);
+            Controls.Add(label1);
             Controls.Add(pictureBox3);
             Controls.Add(lblInformacionSuc);
             Controls.Add(pbxFotoEmpleado);
@@ -790,5 +826,8 @@
         private Label lblInformacionSuc;
         private PictureBox pbxFotoEmpleado;
         private PictureBox pictureBox3;
+        private Label label1;
+        private Label label35;
+        private Label lblSucursal;
     }
 }

@@ -23,7 +23,6 @@ namespace Derick
             CargarEstadosFiltro();
             CargarSucursales();
 
-            /////////////////////////////////////////////////////////
 
             dvg_agg.EnableHeadersVisualStyles = false;
 

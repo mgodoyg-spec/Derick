@@ -31,22 +31,20 @@
             lblCiudadSucursal = new Label();
             lblNombreSucursal = new Label();
             lbEstadoSucursal = new Label();
-            pbxUbiMapa = new PictureBox();
             pnlUbicacion = new Panel();
+            webMapa = new Microsoft.Web.WebView2.WinForms.WebView2();
+            lblDireccion = new Label();
+            lblDir = new Label();
             lblEstado = new Label();
             lblCiudad = new Label();
             lblSucursal = new Label();
-            lblLongitud = new Label();
-            lblLatitud = new Label();
-            button1 = new Button();
+            btnAbrirGMaps = new Button();
             lblSalirV = new Label();
             picUbi = new PictureBox();
             lblUbi = new Label();
             pictureBox1 = new PictureBox();
-            lblDir = new Label();
-            lblDireccion = new Label();
-            ((System.ComponentModel.ISupportInitialize)pbxUbiMapa).BeginInit();
             pnlUbicacion.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)webMapa).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picUbi).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -54,139 +52,140 @@
             // lblCiudadSucursal
             // 
             lblCiudadSucursal.AutoSize = true;
-            lblCiudadSucursal.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            lblCiudadSucursal.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblCiudadSucursal.ForeColor = Color.Black;
-            lblCiudadSucursal.Location = new Point(108, 33);
+            lblCiudadSucursal.Location = new Point(577, 32);
             lblCiudadSucursal.Name = "lblCiudadSucursal";
-            lblCiudadSucursal.Size = new Size(60, 19);
+            lblCiudadSucursal.Size = new Size(69, 23);
             lblCiudadSucursal.TabIndex = 26;
             lblCiudadSucursal.Text = "Ciudad:";
             // 
             // lblNombreSucursal
             // 
             lblNombreSucursal.AutoSize = true;
-            lblNombreSucursal.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            lblNombreSucursal.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblNombreSucursal.ForeColor = Color.Black;
             lblNombreSucursal.Location = new Point(3, 8);
             lblNombreSucursal.Name = "lblNombreSucursal";
-            lblNombreSucursal.Size = new Size(165, 19);
+            lblNombreSucursal.Size = new Size(191, 23);
             lblNombreSucursal.TabIndex = 25;
             lblNombreSucursal.Text = "Nombre de la sucursal:";
             // 
             // lbEstadoSucursal
             // 
             lbEstadoSucursal.AutoSize = true;
-            lbEstadoSucursal.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            lbEstadoSucursal.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbEstadoSucursal.ForeColor = Color.Black;
-            lbEstadoSucursal.Location = new Point(378, 8);
+            lbEstadoSucursal.Location = new Point(577, 9);
             lbEstadoSucursal.Name = "lbEstadoSucursal";
-            lbEstadoSucursal.Size = new Size(155, 19);
+            lbEstadoSucursal.Size = new Size(179, 23);
             lbEstadoSucursal.TabIndex = 32;
             lbEstadoSucursal.Text = "Estado de la sucursal:";
-            // 
-            // pbxUbiMapa
-            // 
-            pbxUbiMapa.BackgroundImage = Properties.Resources.mapa;
-            pbxUbiMapa.BackgroundImageLayout = ImageLayout.Zoom;
-            pbxUbiMapa.Location = new Point(76, 55);
-            pbxUbiMapa.Name = "pbxUbiMapa";
-            pbxUbiMapa.Size = new Size(642, 253);
-            pbxUbiMapa.TabIndex = 25;
-            pbxUbiMapa.TabStop = false;
             // 
             // pnlUbicacion
             // 
             pnlUbicacion.BackColor = Color.White;
+            pnlUbicacion.Controls.Add(webMapa);
             pnlUbicacion.Controls.Add(lblDireccion);
             pnlUbicacion.Controls.Add(lblDir);
             pnlUbicacion.Controls.Add(lblEstado);
             pnlUbicacion.Controls.Add(lblCiudad);
             pnlUbicacion.Controls.Add(lblSucursal);
-            pnlUbicacion.Controls.Add(lblLongitud);
-            pnlUbicacion.Controls.Add(lblLatitud);
-            pnlUbicacion.Controls.Add(button1);
+            pnlUbicacion.Controls.Add(btnAbrirGMaps);
             pnlUbicacion.Controls.Add(lbEstadoSucursal);
-            pnlUbicacion.Controls.Add(pbxUbiMapa);
             pnlUbicacion.Controls.Add(lblCiudadSucursal);
             pnlUbicacion.Controls.Add(lblNombreSucursal);
-            pnlUbicacion.Location = new Point(12, 51);
+            pnlUbicacion.Location = new Point(12, 55);
             pnlUbicacion.Name = "pnlUbicacion";
-            pnlUbicacion.Size = new Size(786, 369);
+            pnlUbicacion.Size = new Size(886, 466);
             pnlUbicacion.TabIndex = 26;
+            // 
+            // webMapa
+            // 
+            webMapa.AllowExternalDrop = true;
+            webMapa.CreationProperties = null;
+            webMapa.DefaultBackgroundColor = Color.White;
+            webMapa.Location = new Point(22, 58);
+            webMapa.Name = "webMapa";
+            webMapa.Size = new Size(841, 357);
+            webMapa.TabIndex = 40;
+            webMapa.ZoomFactor = 1D;
+            // 
+            // lblDireccion
+            // 
+            lblDireccion.AutoSize = true;
+            lblDireccion.Font = new Font("Calibri", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblDireccion.Location = new Point(99, 32);
+            lblDireccion.Name = "lblDireccion";
+            lblDireccion.Size = new Size(14, 23);
+            lblDireccion.TabIndex = 39;
+            lblDireccion.Text = "l";
+            // 
+            // lblDir
+            // 
+            lblDir.AutoSize = true;
+            lblDir.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDir.ForeColor = Color.Black;
+            lblDir.Location = new Point(3, 31);
+            lblDir.Name = "lblDir";
+            lblDir.Size = new Size(90, 23);
+            lblDir.TabIndex = 38;
+            lblDir.Text = "Dirección:";
             // 
             // lblEstado
             // 
             lblEstado.AutoSize = true;
-            lblEstado.Font = new Font("Calibri", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblEstado.Location = new Point(539, 11);
+            lblEstado.Font = new Font("Calibri", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblEstado.Location = new Point(762, 8);
             lblEstado.Name = "lblEstado";
-            lblEstado.Size = new Size(11, 15);
+            lblEstado.Size = new Size(14, 23);
             lblEstado.TabIndex = 37;
             lblEstado.Text = "l";
             // 
             // lblCiudad
             // 
             lblCiudad.AutoSize = true;
-            lblCiudad.Font = new Font("Calibri", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblCiudad.Location = new Point(174, 37);
+            lblCiudad.Font = new Font("Calibri", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblCiudad.Location = new Point(652, 32);
             lblCiudad.Name = "lblCiudad";
-            lblCiudad.Size = new Size(11, 15);
+            lblCiudad.Size = new Size(14, 23);
             lblCiudad.TabIndex = 36;
             lblCiudad.Text = "l";
             // 
             // lblSucursal
             // 
             lblSucursal.AutoSize = true;
-            lblSucursal.Font = new Font("Calibri", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblSucursal.Location = new Point(174, 8);
+            lblSucursal.Font = new Font("Calibri", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblSucursal.Location = new Point(200, 4);
             lblSucursal.Name = "lblSucursal";
-            lblSucursal.Size = new Size(11, 15);
+            lblSucursal.Size = new Size(14, 23);
             lblSucursal.TabIndex = 35;
             lblSucursal.Text = "l";
             // 
-            // lblLongitud
+            // btnAbrirGMaps
             // 
-            lblLongitud.AutoSize = true;
-            lblLongitud.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblLongitud.Location = new Point(22, 334);
-            lblLongitud.Name = "lblLongitud";
-            lblLongitud.Size = new Size(84, 23);
-            lblLongitud.TabIndex = 34;
-            lblLongitud.Text = "Longitud:";
-            // 
-            // lblLatitud
-            // 
-            lblLatitud.AutoSize = true;
-            lblLatitud.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblLatitud.Location = new Point(22, 311);
-            lblLatitud.Name = "lblLatitud";
-            lblLatitud.Size = new Size(70, 23);
-            lblLatitud.TabIndex = 33;
-            lblLatitud.Text = "Latitud:";
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.FromArgb(112, 34, 246);
-            button1.Cursor = Cursors.Hand;
-            button1.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(546, 314);
-            button1.Name = "button1";
-            button1.Size = new Size(217, 42);
-            button1.TabIndex = 27;
-            button1.Text = "Abrir en Google Maps";
-            button1.UseVisualStyleBackColor = false;
+            btnAbrirGMaps.BackColor = Color.FromArgb(112, 34, 246);
+            btnAbrirGMaps.Cursor = Cursors.Hand;
+            btnAbrirGMaps.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAbrirGMaps.ForeColor = Color.White;
+            btnAbrirGMaps.Location = new Point(356, 421);
+            btnAbrirGMaps.Name = "btnAbrirGMaps";
+            btnAbrirGMaps.Size = new Size(217, 42);
+            btnAbrirGMaps.TabIndex = 27;
+            btnAbrirGMaps.Text = "Abrir en Google Maps";
+            btnAbrirGMaps.UseVisualStyleBackColor = false;
+            btnAbrirGMaps.Click += btnAbrirGMaps_Click;
             // 
             // lblSalirV
             // 
             lblSalirV.AutoSize = true;
             lblSalirV.BackColor = Color.Transparent;
             lblSalirV.Cursor = Cursors.Hand;
-            lblSalirV.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSalirV.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSalirV.ForeColor = Color.Red;
-            lblSalirV.Location = new Point(783, -1);
+            lblSalirV.Location = new Point(884, 0);
             lblSalirV.Name = "lblSalirV";
-            lblSalirV.Size = new Size(25, 24);
+            lblSalirV.Size = new Size(27, 25);
             lblSalirV.TabIndex = 30;
             lblSalirV.Text = "X";
             lblSalirV.Click += lblSalirV_Click;
@@ -195,20 +194,20 @@
             // 
             picUbi.BackgroundImage = Properties.Resources.pasador_de_ubicacion;
             picUbi.BackgroundImageLayout = ImageLayout.Zoom;
-            picUbi.Location = new Point(1, 12);
+            picUbi.Location = new Point(1, -1);
             picUbi.Name = "picUbi";
-            picUbi.Size = new Size(39, 36);
+            picUbi.Size = new Size(39, 40);
             picUbi.TabIndex = 28;
             picUbi.TabStop = false;
             // 
             // lblUbi
             // 
             lblUbi.AutoSize = true;
-            lblUbi.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblUbi.Font = new Font("Calibri", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblUbi.ForeColor = Color.FromArgb(112, 34, 246);
-            lblUbi.Location = new Point(46, 9);
+            lblUbi.Location = new Point(46, -1);
             lblUbi.Name = "lblUbi";
-            lblUbi.Size = new Size(198, 26);
+            lblUbi.Size = new Size(230, 29);
             lblUbi.TabIndex = 26;
             lblUbi.Text = "Ubicación de sucursal";
             // 
@@ -216,39 +215,18 @@
             // 
             pictureBox1.BackgroundImage = Properties.Resources.detallemorado__2_;
             pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox1.Location = new Point(46, 31);
+            pictureBox1.Location = new Point(46, 28);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(211, 14);
+            pictureBox1.Size = new Size(230, 11);
             pictureBox1.TabIndex = 35;
             pictureBox1.TabStop = false;
-            // 
-            // lblDir
-            // 
-            lblDir.AutoSize = true;
-            lblDir.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            lblDir.ForeColor = Color.Black;
-            lblDir.Location = new Point(378, 33);
-            lblDir.Name = "lblDir";
-            lblDir.Size = new Size(77, 19);
-            lblDir.TabIndex = 38;
-            lblDir.Text = "Dirección:";
-            // 
-            // lblDireccion
-            // 
-            lblDireccion.AutoSize = true;
-            lblDireccion.Font = new Font("Calibri", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblDireccion.Location = new Point(461, 36);
-            lblDireccion.Name = "lblDireccion";
-            lblDireccion.Size = new Size(11, 15);
-            lblDireccion.TabIndex = 39;
-            lblDireccion.Text = "l";
             // 
             // frmUbicacionSucursales
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(244, 246, 249);
-            ClientSize = new Size(810, 433);
+            ClientSize = new Size(910, 533);
             Controls.Add(pictureBox1);
             Controls.Add(pnlUbicacion);
             Controls.Add(lblSalirV);
@@ -259,9 +237,9 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Ubicación Sucursal";
             Load += frmUbicacionSucursales_Load;
-            ((System.ComponentModel.ISupportInitialize)pbxUbiMapa).EndInit();
             pnlUbicacion.ResumeLayout(false);
             pnlUbicacion.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)webMapa).EndInit();
             ((System.ComponentModel.ISupportInitialize)picUbi).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
@@ -272,13 +250,10 @@
         private Label lblCiudadSucursal;
         private Label lblNombreSucursal;
         private Label lbEstadoSucursal;
-        private PictureBox pbxUbiMapa;
         private Panel pnlUbicacion;
-        private Button button1;
+        private Button btnAbrirGMaps;
         private Label lblUbi;
         private PictureBox picUbi;
-        private Label lblLongitud;
-        private Label lblLatitud;
         private Label lblSalirV;
         private PictureBox pictureBox1;
         private Label lblEstado;
@@ -286,5 +261,6 @@
         private Label lblSucursal;
         private Label lblDireccion;
         private Label lblDir;
+        private Microsoft.Web.WebView2.WinForms.WebView2 webMapa;
     }
 }
