@@ -28,7 +28,6 @@ namespace Derick
                 }
             }
         }
-
         private void btn_guardar_Click(object sender, EventArgs e)
         {
             string nombre = txt_clr.Text.Trim();
@@ -59,11 +58,7 @@ namespace Derick
                 return;
             }
             string codigoHex = ColorTranslator.ToHtml(clrSelect);
-            bool guardado = conexion.insertDatos(
-                "Colores",
-                "Nombre, CodigoHex",
-                $"'{nombre}', '{codigoHex}'"
-            );
+            bool guardado = conexion.insertDatos("Colores","Nombre, CodigoHex",$"'{nombre}', '{codigoHex}'");
             if (!guardado)
             {
                 MessageBox.Show(

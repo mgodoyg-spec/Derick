@@ -43,11 +43,8 @@ namespace Derick
             }
 
             csConectaSQL conexion = new csConectaSQL();
-
             // Verificar si la talla ya existe
-            DataTable dt = conexion.RetornaRegistros(
-                $"SELECT IdTalla FROM Tallas WHERE Nombre = '{talla}'"
-            );
+            DataTable dt = conexion.RetornaRegistros($"select IdTalla from Tallas where Nombre = '{talla}'");
             if (dt != null && dt.Rows.Count > 0)
             {
                 MessageBox.Show(
@@ -59,11 +56,7 @@ namespace Derick
                 return;
             }
             // Guardar la nueva talla
-            bool guardado = conexion.insertDatos(
-                "Tallas",
-                "Nombre",
-                $"'{talla}'"
-            );
+            bool guardado = conexion.insertDatos("Tallas", "Nombre", $"'{talla}'");
             if (!guardado)
             {
                 MessageBox.Show(

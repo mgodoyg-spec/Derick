@@ -31,18 +31,15 @@ namespace Derick
         private void CargarProducto()
         {
             csConectaSQL conexion = new csConectaSQL();
-
-            DataTable dt = conexion.RetornaRegistros(
-                "SELECT Codigo, Nombre, Categoria, Talla, Color, Precio, Estado " +
-                "FROM Productos " +
-                "WHERE IdProductos = " + idproducto
-            );
+            DataTable dt = conexion.RetornaRegistros("select Codigo, Nombre, Categoria, Talla," +
+                " Color, Precio, Estado " + "from Productos " + "where IdProductos = " + idproducto);
 
             if (dt == null || dt.Rows.Count == 0)
+            {
                 return;
+            }
 
             DataRow fila = dt.Rows[0];
-
             lblCodigo.Text = fila["Codigo"].ToString();
             lblNombreP.Text = fila["Nombre"].ToString();
             lblCategoria.Text = fila["Categoria"].ToString();
@@ -51,30 +48,23 @@ namespace Derick
 
             decimal precio = Convert.ToDecimal(fila["Precio"]);
             lblPrecio.Text = "$" + precio.ToString("0.00");
-
             bool activo = Convert.ToBoolean(fila["Estado"]);
             lblEstado.Text = activo ? "Activo" : "Inactivo";
-
             lblStock.Text = "0";
-
-            // Temporalmente
             lblDescripcion.Text = "Sin descripción";
         }
         private void CargarImagenesProducto()
         {
             csConectaSQL conexion = new csConectaSQL();
 
-            DataTable dt = conexion.RetornaRegistros(
-                "SELECT TOP 5 Imagen " +
-                "FROM ProductoImagenes " +
-                "WHERE IdProductos = " + idproducto + " " +
-                "AND Imagen IS NOT NULL " +
-                "ORDER BY EsPrincipal DESC, IdImagen"
-            );
+            DataTable dt = conexion.RetornaRegistros("select top 5 Imagen " + "from ProductoImagenes " +
+                "where IdProductos = " + idproducto + " " + "and Imagen IS NOT NULL " +
+                "order by EsPrincipal desc, IdImagen");
 
             if (dt == null)
+            {
                 return;
-
+            }
             PictureBox[] imagenes =
             {
                 pic_img1,
@@ -83,7 +73,6 @@ namespace Derick
                 pic_img4,
                 pic_img5
             };
-
             PictureBox[] iconosMas =
             {
                 pic2,
@@ -93,7 +82,7 @@ namespace Derick
                 pic6
             };
 
-            // Primero dejamos todos los "+" visibles
+            // Primero dejamos todos los + visibles
             for (int i = 0; i < imagenes.Length; i++)
             {
                 imagenes[i].Image = null;
@@ -104,10 +93,11 @@ namespace Derick
             for (int i = 0; i < dt.Rows.Count && i < imagenes.Length; i++)
             {
                 if (dt.Rows[i]["Imagen"] == DBNull.Value)
+                {
                     continue;
+                }
 
                 byte[] bytes = (byte[])dt.Rows[i]["Imagen"];
-
                 using (MemoryStream ms = new MemoryStream(bytes))
                 {
                     using (Image temporal = Image.FromStream(ms))
@@ -117,8 +107,7 @@ namespace Derick
                 }
 
                 imagenes[i].SizeMode = PictureBoxSizeMode.Zoom;
-
-                // OCULTAR EL "+" DE ESTA POSICIÓN
+                // ocultar el + de esta posición
                 iconosMas[i].Visible = false;
             }
         }

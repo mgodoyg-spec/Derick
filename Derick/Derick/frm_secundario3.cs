@@ -31,10 +31,7 @@ namespace Derick
             flp_icons.Controls.Clear();
             foreach (var icono in iconsG)
             {
-                AgregarIconoAlFlow(
-                    icono.Nombre,
-                    icono.Imagen
-                );
+                AgregarIconoAlFlow(icono.Nombre,icono.Imagen);
             }
         }
         private void AgregarIconoAlFlow(string nombre, Image imagen)
@@ -95,11 +92,8 @@ namespace Derick
                     {
                         imagen = new Bitmap(temporal);
                     }
-                    string nombre = Interaction.InputBox(
-                        "Ingrese el nombre del ícono:",
-                        "Nombre del ícono",
-                        ""
-                    ).Trim();
+                    string nombre = Interaction.InputBox("Ingrese el nombre del ícono:",
+                        "Nombre del ícono","").Trim();
                     if (string.IsNullOrWhiteSpace(nombre))
                     {
                         MessageBox.Show(

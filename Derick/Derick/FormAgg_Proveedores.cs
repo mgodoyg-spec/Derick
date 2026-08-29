@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Microsoft.Data.SqlClient;
 
 namespace Derick
 {
@@ -21,6 +22,7 @@ namespace Derick
         }
         private void FormAgg_Proveedores_Load(object sender, EventArgs e)
         {
+            CargarEstados();
             if (idProveedorEditar != null)
             {
                 CPRV_editar();
@@ -28,30 +30,42 @@ namespace Derick
         }
         private void CPRV_editar()
         {
-            csConectaSQL conexion = new csConectaSQL();
-
-            DataTable dt = conexion.RetornaRegistros(
-                "SELECT Nombre, Contacto, Telefono, Correo, Direccion, Estado " +
-                "FROM Proveedores " +
-                "WHERE IdProveedor = " + idProveedorEditar.Value
-            );
-
-            if (dt == null || dt.Rows.Count == 0)
+            if (idProveedorEditar == null)
+            {
                 return;
+            }
+
+            csConectaSQL conexion = new csConectaSQL();
+            DataTable dt = conexion.RetornaRegistros( "select Nombre, Contacto, Telefono, Correo," +
+                    "Direccion, Estado " + "from Proveedores " + "where IdProveedor = " + idProveedorEditar.Value);
+            if (dt == null || dt.Rows.Count == 0)
+            {
+                return;
+            }
 
             DataRow fila = dt.Rows[0];
-
             txt_NP.Text = fila["Nombre"].ToString();
             txt_CNC.Text = fila["Contacto"].ToString();
             txt_TL.Text = fila["Telefono"].ToString();
-            txt_CE.Text = fila["Correo"].ToString();
+            txt_CE.Text =  fila["Correo"].ToString();
             txt_DRC.Text = fila["Direccion"].ToString();
-
             bool activo = Convert.ToBoolean(fila["Estado"]);
 
-            cmb_Estado.Text = activo
-                ? "Activo"
-                : "Inactivo";
+            if (activo == true)
+            {
+                cmb_Estado.Text = "Activo";
+            }
+            if (activo == false)
+            {
+                cmb_Estado.Text = "Inactivo";
+            }
+        }
+        private void CargarEstados()
+        {
+            cmb_Estado.Items.Clear();
+            cmb_Estado.Items.Add("Activo");
+            cmb_Estado.Items.Add("Inactivo");
+            cmb_Estado.SelectedIndex = -1;
         }
         private void txt_NP_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -184,19 +198,37 @@ namespace Derick
             string telefono = txt_TL.Text.Trim();
             string correo = txt_CE.Text.Trim();
             string direccion = txt_DRC.Text.Trim();
-            int estado = cmb_Estado.Text.Equals(
-                "Activo",
-                StringComparison.OrdinalIgnoreCase)
-                ? 1
-                : 0;
+            string estadoTexto = cmb_Estado.Text.Trim();
+
+            // valida el estado
+            if (estadoTexto == "")
+            {
+                MessageBox.Show(
+                    "Seleccione el estado del proveedor.",
+                    "Estado obligatorio",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+
+                cmb_Estado.Focus();
+                return;
+            }
+
+            int estado = 0;
+            if (estadoTexto == "Activo")
+            {
+                estado = 1;
+            }
+            if (estadoTexto == "Inactivo")
+            {
+                estado = 0;
+            }
 
             csConectaSQL conexion = new csConectaSQL();
-
+            // un nuevo proveedor
             if (idProveedorEditar == null)
             {
-                string campos =
-                    "Nombre, Contacto, Telefono, Correo, Direccion, Estado";
-
+                string campos = "Nombre, Contacto, Telefono, Correo, Direccion, Estado";
                 string datos =
                     $"'{nombre}', " +
                     $"'{contacto}', " +
@@ -204,12 +236,7 @@ namespace Derick
                     $"'{correo}', " +
                     $"'{direccion}', " +
                     $"{estado}";
-
-                bool guardado = conexion.insertDatos(
-                    "Proveedores",
-                    campos,
-                    datos
-                );
+                bool guardado = conexion.insertDatos("Proveedores",campos,datos);
 
                 if (!guardado)
                 {
@@ -217,8 +244,8 @@ namespace Derick
                         "No se pudo guardar el proveedor.",
                         "Error",
                         MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-
+                        MessageBoxIcon.Error
+                    );
                     return;
                 }
                 MessageBox.Show(
@@ -228,29 +255,28 @@ namespace Derick
                     MessageBoxIcon.Information
                 );
             }
-            else
+            // editar proveedor
+            if (idProveedorEditar != null)
             {
-                string datosActualizar =
-                    $"Nombre = '{nombre}', " +
-                    $"Contacto = '{contacto}', " +
-                    $"Telefono = '{telefono}', " +
-                    $"Correo = '{correo}', " +
-                    $"Direccion = '{direccion}', " +
-                    $"Estado = {estado}";
-                string condicion = $"IdProveedor = {idProveedorEditar.Value}";
-                bool actualizado = conexion.actualizarDatos(
-                    "Proveedores",
-                    datosActualizar,
-                    condicion
-                );
+                bool actualizado = conexion.ejecutarComando(@"update Proveedores set Nombre = @Nombre,
+                     Contacto = @Contacto, Telefono = @Telefono, Correo = @Correo, Direccion = @Direccion,
+                     Estado = @Estado where IdProveedor = @IdProveedor",
+                        new SqlParameter("@Nombre",nombre),
+                        new SqlParameter("@Contacto",contacto),
+                        new SqlParameter("@Telefono",telefono),
+                        new SqlParameter("@Correo",correo),
+                        new SqlParameter("@Direccion",direccion),
+                        new SqlParameter("@Estado",estado),
+                        new SqlParameter("@IdProveedor",idProveedorEditar.Value));
+
                 if (!actualizado)
                 {
                     MessageBox.Show(
                         "No se pudo actualizar el proveedor.",
                         "Error",
                         MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-
+                        MessageBoxIcon.Error
+                    );
                     return;
                 }
                 MessageBox.Show(

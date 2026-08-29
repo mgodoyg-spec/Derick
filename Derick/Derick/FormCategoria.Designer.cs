@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCategoria));
             pnl_ctg1 = new Panel();
             pnl_cont1 = new Panel();
+            lblSalirV = new Label();
             pnlBusqueda = new Panel();
             cmb_ctg1 = new ComboBox();
             cmb_ctg2 = new ComboBox();
@@ -39,7 +40,6 @@
             pictureBox1 = new PictureBox();
             lbl_agg2 = new Label();
             label1 = new Label();
-            btn_bus1 = new Button();
             btn_limp1 = new Button();
             pictureBox2 = new PictureBox();
             btn_ctg1 = new Button();
@@ -54,7 +54,6 @@
             pic_ctg1 = new PictureBox();
             lbl_ctg1 = new Label();
             img_ctg = new ImageList(components);
-            lblSalirV = new Label();
             pnl_ctg1.SuspendLayout();
             pnl_cont1.SuspendLayout();
             pnlBusqueda.SuspendLayout();
@@ -81,7 +80,6 @@
             pnl_cont1.Controls.Add(lblSalirV);
             pnl_cont1.Controls.Add(pnlBusqueda);
             pnl_cont1.Controls.Add(pictureBox2);
-            pnl_cont1.Controls.Add(btn_ctg1);
             pnl_cont1.Controls.Add(dgv_catg);
             pnl_cont1.Controls.Add(pic_ctg1);
             pnl_cont1.Controls.Add(lbl_ctg1);
@@ -91,16 +89,30 @@
             pnl_cont1.Size = new Size(1150, 630);
             pnl_cont1.TabIndex = 11;
             // 
+            // lblSalirV
+            // 
+            lblSalirV.AutoSize = true;
+            lblSalirV.BackColor = Color.Transparent;
+            lblSalirV.Cursor = Cursors.Hand;
+            lblSalirV.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSalirV.ForeColor = Color.Red;
+            lblSalirV.Location = new Point(1122, 2);
+            lblSalirV.Name = "lblSalirV";
+            lblSalirV.Size = new Size(25, 24);
+            lblSalirV.TabIndex = 34;
+            lblSalirV.Text = "X";
+            lblSalirV.Click += lblSalirV_Click;
+            // 
             // pnlBusqueda
             // 
             pnlBusqueda.BackColor = Color.FromArgb(244, 246, 249);
             pnlBusqueda.Controls.Add(cmb_ctg1);
             pnlBusqueda.Controls.Add(cmb_ctg2);
             pnlBusqueda.Controls.Add(txt_busqctg);
+            pnlBusqueda.Controls.Add(btn_ctg1);
             pnlBusqueda.Controls.Add(pictureBox1);
             pnlBusqueda.Controls.Add(lbl_agg2);
             pnlBusqueda.Controls.Add(label1);
-            pnlBusqueda.Controls.Add(btn_bus1);
             pnlBusqueda.Controls.Add(btn_limp1);
             pnlBusqueda.Location = new Point(7, 45);
             pnlBusqueda.Name = "pnlBusqueda";
@@ -139,6 +151,7 @@
             txt_busqctg.PlaceholderText = "Buscar producto";
             txt_busqctg.Size = new Size(307, 27);
             txt_busqctg.TabIndex = 7;
+            txt_busqctg.TextChanged += txt_busqctg_TextChanged;
             // 
             // pictureBox1
             // 
@@ -178,23 +191,6 @@
             label1.Text = "Estado:";
             label1.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // btn_bus1
-            // 
-            btn_bus1.BackColor = Color.FromArgb(13, 154, 64);
-            btn_bus1.Cursor = Cursors.Hand;
-            btn_bus1.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            btn_bus1.ForeColor = Color.White;
-            btn_bus1.Image = (Image)resources.GetObject("btn_bus1.Image");
-            btn_bus1.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_bus1.Location = new Point(771, 4);
-            btn_bus1.Margin = new Padding(3, 2, 3, 2);
-            btn_bus1.Name = "btn_bus1";
-            btn_bus1.Size = new Size(99, 33);
-            btn_bus1.TabIndex = 23;
-            btn_bus1.Text = "     Buscar";
-            btn_bus1.UseVisualStyleBackColor = false;
-            btn_bus1.Click += btn_bus1_Click;
-            // 
             // btn_limp1
             // 
             btn_limp1.BackColor = Color.White;
@@ -202,7 +198,7 @@
             btn_limp1.Font = new Font("Calibri", 12F, FontStyle.Bold);
             btn_limp1.ForeColor = Color.Black;
             btn_limp1.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_limp1.Location = new Point(889, 7);
+            btn_limp1.Location = new Point(752, 9);
             btn_limp1.Margin = new Padding(3, 2, 3, 2);
             btn_limp1.Name = "btn_limp1";
             btn_limp1.Size = new Size(98, 28);
@@ -229,7 +225,7 @@
             btn_ctg1.ForeColor = Color.White;
             btn_ctg1.Image = (Image)resources.GetObject("btn_ctg1.Image");
             btn_ctg1.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_ctg1.Location = new Point(884, 2);
+            btn_ctg1.Location = new Point(869, 2);
             btn_ctg1.Margin = new Padding(3, 2, 3, 2);
             btn_ctg1.Name = "btn_ctg1";
             btn_ctg1.Size = new Size(223, 39);
@@ -334,20 +330,6 @@
             img_ctg.TransparentColor = Color.Transparent;
             img_ctg.Images.SetKeyName(0, "eliminar1.png");
             // 
-            // lblSalirV
-            // 
-            lblSalirV.AutoSize = true;
-            lblSalirV.BackColor = Color.Transparent;
-            lblSalirV.Cursor = Cursors.Hand;
-            lblSalirV.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblSalirV.ForeColor = Color.Red;
-            lblSalirV.Location = new Point(1122, 2);
-            lblSalirV.Name = "lblSalirV";
-            lblSalirV.Size = new Size(25, 24);
-            lblSalirV.TabIndex = 34;
-            lblSalirV.Text = "X";
-            lblSalirV.Click += lblSalirV_Click;
-            // 
             // FormCategoria
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -384,7 +366,6 @@
         private Panel pnl_cont1;
         private Button btn_limp1;
         private TextBox txt_busqctg;
-        private Button btn_bus1;
         private ComboBox cmb_ctg1;
         private ComboBox cmb_ctg2;
         private Button btn_ctg1;

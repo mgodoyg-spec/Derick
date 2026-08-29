@@ -37,13 +37,12 @@
             cmb_agg2 = new ComboBox();
             cmb_agg1 = new ComboBox();
             txt1 = new TextBox();
+            button1 = new Button();
             pictureBox1 = new PictureBox();
-            btn_buscar = new Button();
             btn_limpiar = new Button();
             lbl_agg2 = new Label();
             lbl_agg3 = new Label();
             pictureBox2 = new PictureBox();
-            button1 = new Button();
             pic_agg1 = new PictureBox();
             lbl_agg1 = new Label();
             dvg_agg = new DataGridView();
@@ -60,6 +59,7 @@
             clEliminar = new DataGridViewImageColumn();
             clVerTodo = new DataGridViewImageColumn();
             img_icons = new ImageList(components);
+            button2 = new Button();
             pnl_conagg.SuspendLayout();
             pnl_agg2.SuspendLayout();
             pnlBusqueda.SuspendLayout();
@@ -83,10 +83,10 @@
             // pnl_agg2
             // 
             pnl_agg2.BackColor = Color.White;
+            pnl_agg2.Controls.Add(button2);
             pnl_agg2.Controls.Add(lblSalirV);
             pnl_agg2.Controls.Add(pnlBusqueda);
             pnl_agg2.Controls.Add(pictureBox2);
-            pnl_agg2.Controls.Add(button1);
             pnl_agg2.Controls.Add(pic_agg1);
             pnl_agg2.Controls.Add(lbl_agg1);
             pnl_agg2.Controls.Add(dvg_agg);
@@ -116,8 +116,8 @@
             pnlBusqueda.Controls.Add(cmb_agg2);
             pnlBusqueda.Controls.Add(cmb_agg1);
             pnlBusqueda.Controls.Add(txt1);
+            pnlBusqueda.Controls.Add(button1);
             pnlBusqueda.Controls.Add(pictureBox1);
-            pnlBusqueda.Controls.Add(btn_buscar);
             pnlBusqueda.Controls.Add(btn_limpiar);
             pnlBusqueda.Controls.Add(lbl_agg2);
             pnlBusqueda.Controls.Add(lbl_agg3);
@@ -136,6 +136,7 @@
             cmb_agg2.Name = "cmb_agg2";
             cmb_agg2.Size = new Size(121, 31);
             cmb_agg2.TabIndex = 14;
+            cmb_agg2.SelectedIndexChanged += cmb_agg2_SelectedIndexChanged;
             // 
             // cmb_agg1
             // 
@@ -147,6 +148,7 @@
             cmb_agg1.Name = "cmb_agg1";
             cmb_agg1.Size = new Size(121, 31);
             cmb_agg1.TabIndex = 14;
+            cmb_agg1.SelectedIndexChanged += cmb_agg1_SelectedIndexChanged;
             // 
             // txt1
             // 
@@ -158,6 +160,24 @@
             txt1.PlaceholderText = " Buscar producto";
             txt1.Size = new Size(307, 27);
             txt1.TabIndex = 7;
+            txt1.TextChanged += txt1_TextChanged;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.FromArgb(4, 59, 186);
+            button1.Cursor = Cursors.Hand;
+            button1.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            button1.ForeColor = Color.White;
+            button1.Image = (Image)resources.GetObject("button1.Image");
+            button1.ImageAlign = ContentAlignment.MiddleLeft;
+            button1.Location = new Point(881, 2);
+            button1.Margin = new Padding(3, 2, 3, 2);
+            button1.Name = "button1";
+            button1.Size = new Size(223, 39);
+            button1.TabIndex = 9;
+            button1.Text = "Agregar producto";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // pictureBox1
             // 
@@ -171,23 +191,6 @@
             pictureBox1.TabIndex = 23;
             pictureBox1.TabStop = false;
             // 
-            // btn_buscar
-            // 
-            btn_buscar.BackColor = Color.FromArgb(13, 154, 64);
-            btn_buscar.Cursor = Cursors.Hand;
-            btn_buscar.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            btn_buscar.ForeColor = Color.White;
-            btn_buscar.Image = (Image)resources.GetObject("btn_buscar.Image");
-            btn_buscar.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_buscar.Location = new Point(771, 4);
-            btn_buscar.Margin = new Padding(3, 2, 3, 2);
-            btn_buscar.Name = "btn_buscar";
-            btn_buscar.Size = new Size(99, 33);
-            btn_buscar.TabIndex = 8;
-            btn_buscar.Text = "     Buscar";
-            btn_buscar.UseVisualStyleBackColor = false;
-            btn_buscar.Click += btn_buscar_Click;
-            // 
             // btn_limpiar
             // 
             btn_limpiar.BackColor = Color.White;
@@ -195,7 +198,7 @@
             btn_limpiar.Font = new Font("Calibri", 12F, FontStyle.Bold);
             btn_limpiar.ForeColor = Color.Black;
             btn_limpiar.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_limpiar.Location = new Point(889, 7);
+            btn_limpiar.Location = new Point(766, 7);
             btn_limpiar.Margin = new Padding(3, 2, 3, 2);
             btn_limpiar.Name = "btn_limpiar";
             btn_limpiar.Size = new Size(98, 28);
@@ -239,23 +242,6 @@
             pictureBox2.Size = new Size(204, 14);
             pictureBox2.TabIndex = 26;
             pictureBox2.TabStop = false;
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.FromArgb(4, 59, 186);
-            button1.Cursor = Cursors.Hand;
-            button1.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            button1.ForeColor = Color.White;
-            button1.Image = (Image)resources.GetObject("button1.Image");
-            button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(893, 6);
-            button1.Margin = new Padding(3, 2, 3, 2);
-            button1.Name = "button1";
-            button1.Size = new Size(223, 39);
-            button1.TabIndex = 9;
-            button1.Text = "Agregar producto";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
             // 
             // pic_agg1
             // 
@@ -394,6 +380,16 @@
             img_icons.TransparentColor = Color.Transparent;
             img_icons.Images.SetKeyName(0, "eliminar1.png");
             // 
+            // button2
+            // 
+            button2.Location = new Point(579, 16);
+            button2.Name = "button2";
+            button2.Size = new Size(75, 23);
+            button2.TabIndex = 32;
+            button2.Text = "button2";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // FormProductos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -428,7 +424,6 @@
         private PictureBox pic_agg1;
         private Label lbl_agg1;
         private Label lbl_agg2;
-        private Button btn_buscar;
         private ComboBox cmb_agg2;
         private Label lbl_agg3;
         private Button btn_limpiar;
@@ -450,5 +445,6 @@
         private PictureBox pictureBox2;
         private Panel pnlBusqueda;
         private Label lblSalirV;
+        private Button button2;
     }
 }

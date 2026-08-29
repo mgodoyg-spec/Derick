@@ -27,9 +27,7 @@ namespace Derick
         private void Edt()
         {
             dgvPromociones.EnableHeadersVisualStyles = false;
-            // ==============================
-            // CONFIGURACIÓN GENERAL
-            // ==============================
+            // configuracion general del data
             dgvPromociones.BorderStyle = BorderStyle.None;
             dgvPromociones.BackgroundColor = Color.White;
             dgvPromociones.GridColor = Color.FromArgb(235, 235, 235);
@@ -42,32 +40,24 @@ namespace Derick
             dgvPromociones.AllowUserToResizeRows = false;
             dgvPromociones.AllowUserToResizeColumns = false;
             dgvPromociones.RowHeadersVisible = false;
-            // ==============================
-            // ENCABEZADOS
-            // ==============================
+            // encabezado
             dgvPromociones.ColumnHeadersHeight = 50;
             dgvPromociones.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dgvPromociones.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(46, 57, 75);
             dgvPromociones.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             dgvPromociones.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
             dgvPromociones.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            // ==============================
-            // FILAS
-            // ==============================
+            // filas
             dgvPromociones.RowTemplate.Height = 55;
             dgvPromociones.DefaultCellStyle.Font = new Font("Segoe UI", 10);
             dgvPromociones.DefaultCellStyle.ForeColor = Color.FromArgb(45, 45, 45);
             dgvPromociones.DefaultCellStyle.BackColor = Color.White;
             dgvPromociones.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(248, 249, 251);
             dgvPromociones.DefaultCellStyle.Padding = new Padding(5);
-            // ==============================
-            // SELECCIÓN
-            // ==============================
+            // seleeción de celdas
             dgvPromociones.DefaultCellStyle.SelectionBackColor = Color.FromArgb(225, 235, 250);
             dgvPromociones.DefaultCellStyle.SelectionForeColor = Color.Black;
-            // ==============================
-            // TAMAÑO DE COLUMNAS
-            // ==============================
+            // tamaño de las columnas
             dgvPromociones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvPromociones.Columns["clId"].FillWeight = 6;
             dgvPromociones.Columns["clNombrePromocion"].FillWeight = 16;
@@ -85,9 +75,7 @@ namespace Derick
             DataGridViewImageColumn eliminar = (DataGridViewImageColumn)dgvPromociones.Columns["clEliminar"];
             eliminar.Image = Properties.Resources.picEliminar;
             eliminar.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            // ==============================
-            // CENTRAR COLUMNAS
-            // ==============================
+            // centrar columnas
             string[] columnasCentro =
             {
                 "clId",
@@ -106,9 +94,7 @@ namespace Derick
             }
             // Descripción a la izquierda
             dgvPromociones.Columns["clDescripcion"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            // ==============================
-            // EMPEZAR VACÍO
-            // ==============================
+            // carga el data y lo deja vacio
             dgvPromociones.Rows.Clear();
         }
         private void C_Prm()
@@ -116,22 +102,19 @@ namespace Derick
             csConectaSQL conexion = new csConectaSQL();
 
             DataTable dt = conexion.RetornaRegistros(
-                "SELECT IdPromocion, Nombre, TipoDescuento, ValorDescuento, " +
+                "select IdPromocion, Nombre, TipoDescuento, ValorDescuento, " +
                 "FechaInicio, FechaFin, Estado, Descripcion " +
-                "FROM Promociones ORDER BY IdPromocion"
-            );
+                "from Promociones order by IdPromocion");
 
             if (dt == null)
+            {
                 return;
+            }
 
             dgvPromociones.Rows.Clear();
-
             foreach (DataRow fila in dt.Rows)
             {
-                string estado = Convert.ToBoolean(fila["Estado"])
-                    ? "Activo"
-                    : "Inactivo";
-
+                string estado = Convert.ToBoolean(fila["Estado"]) ? "Activo" : "Inactivo";
                 int indice = dgvPromociones.Rows.Add(
                     fila["IdPromocion"].ToString(),
                     fila["Nombre"].ToString(),
@@ -144,9 +127,7 @@ namespace Derick
                     null,
                     null
                 );
-
-                dgvPromociones.Rows[indice].Tag =
-                    Convert.ToInt32(fila["IdPromocion"]);
+                dgvPromociones.Rows[indice].Tag = Convert.ToInt32(fila["IdPromocion"]);
             }
         }
         private void FiltrarPromociones()
@@ -155,130 +136,131 @@ namespace Derick
             string tipo = cmbP.Text.Trim();
             string estado = cmbP2.Text.Trim();
 
-            string sql = @"
-        SELECT
-            IdPromocion,
-            Nombre,
-            TipoDescuento,
-            ValorDescuento,
-            FechaInicio,
-            FechaFin,
-            Estado,
-            Descripcion
-        FROM Promociones
-        WHERE 1 = 1
-    ";
+            string sql = @"select IdPromocion, Nombre, TipoDescuento, ValorDescuento, FechaInicio,
+                FechaFin, Estado, Descripcion from Promociones where 1 = 1";
 
-            // Buscar por nombre o descripción
-            if (!string.IsNullOrWhiteSpace(texto))
+            // busca por código o nombre del producto
+            if (texto != "")
             {
-                sql += $" AND (Nombre LIKE '%{texto}%' " +
-                       $"OR Descripcion LIKE '%{texto}%')";
+                texto = texto.Replace("'", "''");
+                sql += @"and (Nombre like'%" + texto + @"%' or
+                 Descripcion like '%" + texto + @"%')";
             }
 
-            // Filtrar por tipo
-            if (tipo != "Todos" &&
-                !string.IsNullOrWhiteSpace(tipo))
+            // filtra por el tipo
+            if (tipo != "Todos" && tipo != "")
             {
-                sql += $" AND TipoDescuento = '{tipo}'";
+                tipo = tipo.Replace("'", "''");
+                sql += @"and TipoDescuento = '" + tipo + "'";
             }
 
-            // Filtrar por estado
-            if (estado != "Todos" &&
-                !string.IsNullOrWhiteSpace(estado))
+            // filtra por el estado
+            if (estado == "Activo")
             {
-                if (estado == "Activo")
-                    sql += " AND Estado = 1";
-                else if (estado == "Inactivo")
-                    sql += " AND Estado = 0";
+                sql += " and Estado = 1";
             }
-
-            sql += " ORDER BY IdPromocion";
+            if (estado == "Inactivo")
+            {
+                sql += " and Estado = 0";
+            }
+            sql += " order by IdPromocion";
 
             csConectaSQL conexion = new csConectaSQL();
-
             DataTable dt = conexion.RetornaRegistros(sql);
-
             if (dt == null)
+            {
                 return;
-
+            }
             dgvPromociones.Rows.Clear();
 
             foreach (DataRow fila in dt.Rows)
             {
-                string estadoTexto =
-                    Convert.ToBoolean(fila["Estado"])
-                    ? "Activo"
-                    : "Inactivo";
+                string estadoTexto = "";
+                bool estadoPromocion = Convert.ToBoolean(fila["Estado"]);
 
-                decimal descuento =
-                    Convert.ToDecimal(fila["ValorDescuento"]);
+                if (estadoPromocion == true)
+                {
+                    estadoTexto = "Activo";
+                }
 
-                string tipoDescuento =
-                    fila["TipoDescuento"].ToString();
+                if (estadoPromocion == false)
+                {
+                    estadoTexto = "Inactivo";
+                }
 
-                string descuentoTexto;
-
+                decimal descuento = Convert.ToDecimal(fila["ValorDescuento"]);
+                string tipoDescuento = fila["TipoDescuento"].ToString();
+                string descuentoTexto = "";
                 if (tipoDescuento == "Descuento porcentual")
+                {
                     descuentoTexto = descuento.ToString("0.##") + "%";
-                else
-                    descuentoTexto = "$" + descuento.ToString("0.00");
+                }
 
-                int indice = dgvPromociones.Rows.Add(
-                fila["IdPromocion"].ToString(),
-                fila["Nombre"].ToString(),
-                tipoDescuento,
-                descuentoTexto,
-                Convert.ToDateTime(fila["FechaInicio"]).ToString("dd/MM/yyyy"),
-                Convert.ToDateTime(fila["FechaFin"]).ToString("dd/MM/yyyy"),
-                estadoTexto,
-                fila["Descripcion"].ToString(),
-                null,
-                null
-                );
-                dgvPromociones.Rows[indice].Tag =
-                    Convert.ToInt32(fila["IdPromocion"]);
+                if (tipoDescuento == "Descuento fijo")
+                {
+                    descuentoTexto = "$" + descuento.ToString("0.00");
+                }
+                int indice =
+                    dgvPromociones.Rows.Add(
+                        fila["IdPromocion"].ToString(),
+                        fila["Nombre"].ToString(),
+                        tipoDescuento,
+                        descuentoTexto,
+                        Convert.ToDateTime(
+                            fila["FechaInicio"])
+                            .ToString("dd/MM/yyyy"),
+                        Convert.ToDateTime(
+                            fila["FechaFin"])
+                            .ToString("dd/MM/yyyy"),
+                        estadoTexto,
+                        fila["Descripcion"].ToString(),
+                        null,
+                        null
+                    );
+                dgvPromociones.Rows[indice].Tag = Convert.ToInt32(fila["IdPromocion"]);
             }
         }
         private void CargarTiposPromocion()
         {
             cmbP.Items.Clear();
-
             cmbP.Items.Add("Todos");
             cmbP.Items.Add("Descuento porcentual");
             cmbP.Items.Add("Descuento fijo");
-
             cmbP.SelectedIndex = 0;
         }
         private void CargarEstadosPromocion()
         {
             cmbP2.Items.Clear();
-
             cmbP2.Items.Add("Todos");
             cmbP2.Items.Add("Activo");
             cmbP2.Items.Add("Inactivo");
 
             cmbP2.SelectedIndex = 0;
         }
-        private void btn_busP_Click(object sender, EventArgs e)
+        private void txt_busqPrm_TextChanged(object sender, EventArgs e)
+        {
+            FiltrarPromociones();
+        }
+        private void cmbP_SelectedIndexChanged(object sender, EventArgs e)
         {
             FiltrarPromociones();
         }
 
+        private void cmbP2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FiltrarPromociones();
+        }
         private void btn_limpP_Click(object sender, EventArgs e)
         {
             txt_busqPrm.Clear();
-
             cmbP.SelectedIndex = 0;
             cmbP2.SelectedIndex = 0;
-
             C_Prm();
         }
         private void btn_aggP_Click(object sender, EventArgs e)
         {
             FormAgg_Promocion frm = new FormAgg_Promocion();
             frm.StartPosition = FormStartPosition.CenterScreen;
-
             if (frm.ShowDialog(this) == DialogResult.OK)
             {
                 C_Prm();
@@ -288,43 +270,27 @@ namespace Derick
         private void dgvPromociones_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0 || e.ColumnIndex < 0)
+            {
                 return;
+            }
+            string columna = dgvPromociones.Columns[e.ColumnIndex].Name;
 
-            string columna =
-                dgvPromociones.Columns[e.ColumnIndex].Name;
-
-            // EDITAR
+            // editar
             if (columna == "clEditar")
             {
-                int idPromocion =
-                    Convert.ToInt32(
-                        dgvPromociones.Rows[e.RowIndex].Tag
-                    );
-
-                FormAgg_Promocion frm =
-                    new FormAgg_Promocion(idPromocion);
-
-                frm.StartPosition =
-                    FormStartPosition.CenterScreen;
-
+                int idPromocion = Convert.ToInt32(dgvPromociones.Rows[e.RowIndex].Tag);
+                FormAgg_Promocion frm = new FormAgg_Promocion(idPromocion);
+                frm.StartPosition = FormStartPosition.CenterScreen;
                 if (frm.ShowDialog(this) == DialogResult.OK)
                 {
                     C_Prm();
                 }
             }
-
+            //eliminar
             else if (columna == "clEliminar")
             {
-                int idPromocion =
-                    Convert.ToInt32(
-                        dgvPromociones.Rows[e.RowIndex].Tag
-                    );
-
-                string nombre =
-                    dgvPromociones.Rows[e.RowIndex]
-                    .Cells["clNombrePromocion"]
-                    .Value?.ToString() ?? "";
-
+                int idPromocion = Convert.ToInt32(dgvPromociones.Rows[e.RowIndex].Tag);
+                string nombre = dgvPromociones.Rows[e.RowIndex].Cells["clNombrePromocion"].Value?.ToString() ?? "";
                 DialogResult resultado =
                     MessageBox.Show(
                         "¿Está seguro de eliminar la promoción \"" +
@@ -337,16 +303,10 @@ namespace Derick
                 if (resultado == DialogResult.Yes)
                 {
                     csConectaSQL conexion = new csConectaSQL();
-                    // 1. ELIMINAR PRODUCTOS DE LA PROMOCIÓN
-                    bool relacionesEliminadas =
-                        conexion.ejecutarComando(
-                            "DELETE FROM PromocionProducto " +
-                            "WHERE IdPromocion = @id",
-                            new SqlParameter(
-                                "@id",
-                                idPromocion
-                            )
-                        );
+                    // eliminar productos de la promoción
+                    bool relacionesEliminadas = conexion.ejecutarComando("delete from PromocionProducto " +
+                         "where IdPromocion = @id",
+                            new SqlParameter("@id", idPromocion));
 
                     if (!relacionesEliminadas)
                     {
@@ -359,16 +319,10 @@ namespace Derick
 
                         return;
                     }
-                    // 2. ELIMINAR PROMOCIÓN
-                    bool eliminado =
-                        conexion.ejecutarComando(
-                            "DELETE FROM Promociones " +
-                            "WHERE IdPromocion = @id",
-                            new SqlParameter(
-                                "@id",
-                                idPromocion
-                            )
-                        );
+                    // eliminar promoción
+                    bool eliminado = conexion.ejecutarComando("delete from Promociones " +
+                            "whereIdPromocion = @id",
+                            new SqlParameter("@id",idPromocion));
 
                     if (eliminado)
                     {
