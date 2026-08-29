@@ -141,7 +141,7 @@ namespace Derick
                 return;
             }
             int estado;
-            if (estadoTexto.Equals("Activo",StringComparison.OrdinalIgnoreCase))
+            if (estadoTexto.Equals("Activo", StringComparison.OrdinalIgnoreCase))
             {
                 estado = 1;
             }
@@ -153,8 +153,8 @@ namespace Derick
             csConectaSQL conexion = new csConectaSQL();
             if (idCategoriaEditar == null)
             {
-                string sql = @"insert to Categorias(Nombre, Descripcion, Estado, Imagen)
-                       values(@Nombre,¿ @Descripcion,¿ @Estado,¿ @Imagen¿)";
+                string sql = @"insert into Categorias(Nombre, Descripcion, Estado, Imagen)
+                       values(@Nombre, @Descripcion, @Estado, @Imagen)";
 
                 SqlParameter parametroImagen = new SqlParameter("@Imagen", SqlDbType.VarBinary, -1);
                 if (iconoCategoria != null)
