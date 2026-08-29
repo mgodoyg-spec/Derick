@@ -198,7 +198,7 @@
             cbTipoR.AutoCompleteSource = AutoCompleteSource.ListItems;
             cbTipoR.Font = new Font("Calibri", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbTipoR.FormattingEnabled = true;
-            cbTipoR.Items.AddRange(new object[] { "Facturas anuladas", "Facturas emitidas", "Ingresos diarios", "Ingresos mensuales", "Inventario actual", "Productos con stock bajo", "Productos más vendidos", "Productos menos vendidos", "Resumen general", "Ventas por cliente", "Ventas por empleado", "Ventas por fechas", "Ventas por producto", "Ventas por sucursal" });
+            cbTipoR.Items.AddRange(new object[] { "Productos más vendidos", "Ventas por categoría" });
             cbTipoR.Location = new Point(15, 31);
             cbTipoR.Name = "cbTipoR";
             cbTipoR.Size = new Size(193, 26);
