@@ -733,6 +733,16 @@ namespace Derick.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icoPromocion {
+            get {
+                object obj = ResourceManager.GetObject("icoPromocion", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icoSuc {
             get {
                 object obj = ResourceManager.GetObject("icoSuc", resourceCulture);

@@ -34,6 +34,7 @@
             pnlActividadReciente = new Panel();
             btnVerTodo = new Button();
             lblActividadRe = new Label();
+            lblSalir = new Label();
             pnlAccesoRapido = new Panel();
             lblAceesosRa = new Label();
             pnlVerEmpleados = new Panel();
@@ -86,7 +87,6 @@
             lblHora = new Label();
             label3 = new Label();
             lblFecha = new Label();
-            lblSalir = new Label();
             lblResumen = new Label();
             lblBienvenido = new Label();
             timerReloj = new System.Windows.Forms.Timer(components);
@@ -122,6 +122,7 @@
             // 
             pnlMostrarForm.BackColor = Color.FromArgb(244, 246, 249);
             pnlMostrarForm.Controls.Add(pnlActividadReciente);
+            pnlMostrarForm.Controls.Add(lblSalir);
             pnlMostrarForm.Controls.Add(pnlAccesoRapido);
             pnlMostrarForm.Controls.Add(pnlVentas);
             pnlMostrarForm.Controls.Add(pnlEmpleados);
@@ -166,6 +167,20 @@
             lblActividadRe.Size = new Size(175, 26);
             lblActividadRe.TabIndex = 13;
             lblActividadRe.Text = "Actividad Reciente";
+            // 
+            // lblSalir
+            // 
+            lblSalir.AutoSize = true;
+            lblSalir.BackColor = Color.White;
+            lblSalir.Cursor = Cursors.Hand;
+            lblSalir.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSalir.ForeColor = Color.Red;
+            lblSalir.Location = new Point(1161, 0);
+            lblSalir.Name = "lblSalir";
+            lblSalir.Size = new Size(25, 24);
+            lblSalir.TabIndex = 15;
+            lblSalir.Text = "X";
+            lblSalir.Click += lblSalir_Click;
             // 
             // pnlAccesoRapido
             // 
@@ -649,7 +664,6 @@
             // 
             panel1.BackColor = Color.White;
             panel1.Controls.Add(pnlFechaHora);
-            panel1.Controls.Add(lblSalir);
             panel1.Controls.Add(lblResumen);
             panel1.Controls.Add(lblBienvenido);
             panel1.Location = new Point(16, 12);
@@ -708,20 +722,6 @@
             lblFecha.TabIndex = 16;
             lblFecha.Text = "label1";
             // 
-            // lblSalir
-            // 
-            lblSalir.AutoSize = true;
-            lblSalir.BackColor = Color.White;
-            lblSalir.Cursor = Cursors.Hand;
-            lblSalir.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblSalir.ForeColor = Color.Red;
-            lblSalir.Location = new Point(1100, 0);
-            lblSalir.Name = "lblSalir";
-            lblSalir.Size = new Size(25, 24);
-            lblSalir.TabIndex = 15;
-            lblSalir.Text = "X";
-            lblSalir.Click += lblSalir_Click;
-            // 
             // lblResumen
             // 
             lblResumen.AutoSize = true;
@@ -764,6 +764,7 @@
             Text = "InicioGerente";
             Load += InicioGerente_Load;
             pnlMostrarForm.ResumeLayout(false);
+            pnlMostrarForm.PerformLayout();
             pnlActividadReciente.ResumeLayout(false);
             pnlActividadReciente.PerformLayout();
             pnlAccesoRapido.ResumeLayout(false);

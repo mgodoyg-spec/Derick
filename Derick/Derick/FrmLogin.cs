@@ -37,11 +37,22 @@ namespace Derick
                     }
                     else if (idRol == 2)
                     {
-                        FrmMenuEmpleados frmMenu = new FrmMenuEmpleados();
-                        frmMenu.usuarioActual = usuario;
-                        frmMenu.idEmpleadoActual = idEmpleado;
-                        frmMenu.Show();
-                        this.Hide();
+                        DataTable dtEmpleado = oConexion.RetornaRegistros("SELECT IdSucursal FROM Empleados " +
+                         "WHERE IdEmpleado = " + idEmpleado);
+
+                        if (dtEmpleado.Rows.Count > 0)
+                        {
+                            string idSucursal =
+                                dtEmpleado.Rows[0]["IdSucursal"].ToString();
+
+                            FrmMenuEmpleados frmMenu =
+                                new FrmMenuEmpleados(usuario, idSucursal);
+
+                            frmMenu.idEmpleadoActual = idEmpleado;
+
+                            frmMenu.Show();
+                            this.Hide();
+                        }
                     }
                 }
                 else
