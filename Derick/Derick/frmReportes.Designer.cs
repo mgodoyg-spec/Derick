@@ -40,7 +40,7 @@
             cmbSucursal = new ComboBox();
             dtpFechaFin = new DateTimePicker();
             lblSucursal = new Label();
-            cbTipoR = new ComboBox();
+            cmbTipoReporte = new ComboBox();
             dtpFechaInicio = new DateTimePicker();
             lblFechaFin = new Label();
             lblFechaIn = new Label();
@@ -102,7 +102,7 @@
             panel1.Controls.Add(cmbSucursal);
             panel1.Controls.Add(dtpFechaFin);
             panel1.Controls.Add(lblSucursal);
-            panel1.Controls.Add(cbTipoR);
+            panel1.Controls.Add(cmbTipoReporte);
             panel1.Controls.Add(dtpFechaInicio);
             panel1.Controls.Add(lblFechaFin);
             panel1.Controls.Add(lblFechaIn);
@@ -192,18 +192,18 @@
             lblSucursal.TabIndex = 13;
             lblSucursal.Text = "Sucursal";
             // 
-            // cbTipoR
+            // cmbTipoReporte
             // 
-            cbTipoR.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            cbTipoR.AutoCompleteSource = AutoCompleteSource.ListItems;
-            cbTipoR.Font = new Font("Calibri", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cbTipoR.FormattingEnabled = true;
-            cbTipoR.Items.AddRange(new object[] { "Productos más vendidos", "Ventas por categoría" });
-            cbTipoR.Location = new Point(15, 31);
-            cbTipoR.Name = "cbTipoR";
-            cbTipoR.Size = new Size(193, 26);
-            cbTipoR.Sorted = true;
-            cbTipoR.TabIndex = 12;
+            cmbTipoReporte.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cmbTipoReporte.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cmbTipoReporte.Font = new Font("Calibri", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cmbTipoReporte.FormattingEnabled = true;
+            cmbTipoReporte.Items.AddRange(new object[] { "Productos más vendidos", "Ventas por categoría", "Ventas por empleado" });
+            cmbTipoReporte.Location = new Point(15, 31);
+            cmbTipoReporte.Name = "cmbTipoReporte";
+            cmbTipoReporte.Size = new Size(193, 26);
+            cmbTipoReporte.Sorted = true;
+            cmbTipoReporte.TabIndex = 12;
             // 
             // dtpFechaInicio
             // 
@@ -342,7 +342,7 @@
         private Button btnVerTodoVentas;
         private Panel pnlReportes;
         private Label lblResumenReportes;
-        private ComboBox cbTipoR;
+        private ComboBox cmbTipoReporte;
         private Label lblTipoR;
         private ComboBox cmbSucursal;
         private Label lblFechaIn;
