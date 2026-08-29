@@ -121,16 +121,22 @@ namespace Derick
             MAX(
                 TRY_CONVERT(
                     INT,
-                    SUBSTRING(Codigo, 3, 20)
+                    SUBSTRING(Codigo, 2, 20)
                 )
             ), 0
         )
         FROM Empleados
-        WHERE Codigo LIKE 'SC%'");
+        WHERE Codigo LIKE 'E%'");
 
-            int ultimo = Convert.ToInt32(dt.Rows[0][0]);
+            // 1. Extraemos el número que nos devolvió SQL
+            int maxCodigo = Convert.ToInt32(dt.Rows[0][0]);
 
-            return "SC" + (ultimo + 1).ToString("D3");
+            // 2. Le sumamos 1 para el nuevo empleado
+            int nuevoCodigo = maxCodigo + 1;
+
+            // 3. Armamos el texto final y se lo devolvemos al programa (¡Aquí está el return!)
+            // El "D3" es un truco para que siempre rellene con ceros hasta tener 3 cifras (Ej: E001, E014)
+            return "E" + nuevoCodigo.ToString("D3");
         }
 
         public csEmpleado BuscarPorCodigo(string codigo)
