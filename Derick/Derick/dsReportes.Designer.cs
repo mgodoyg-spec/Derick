@@ -725,6 +725,12 @@ namespace Derick {
             
             private global::System.Data.DataColumn columnTotal;
             
+            private global::System.Data.DataColumn columnSubtotal;
+            
+            private global::System.Data.DataColumn columnDescuento;
+            
+            private global::System.Data.DataColumn columnIdCategoria;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             public dtVentasPorCategoriaDataTable() {
@@ -786,6 +792,30 @@ namespace Derick {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public global::System.Data.DataColumn SubtotalColumn {
+                get {
+                    return this.columnSubtotal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public global::System.Data.DataColumn DescuentoColumn {
+                get {
+                    return this.columnDescuento;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public global::System.Data.DataColumn IdCategoriaColumn {
+                get {
+                    return this.columnIdCategoria;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -821,12 +851,15 @@ namespace Derick {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public dtVentasPorCategoriaRow AdddtVentasPorCategoriaRow(string Categoria, string Cantidad, string Total) {
+            public dtVentasPorCategoriaRow AdddtVentasPorCategoriaRow(string Categoria, string Cantidad, string Total, string Subtotal, string Descuento, string IdCategoria) {
                 dtVentasPorCategoriaRow rowdtVentasPorCategoriaRow = ((dtVentasPorCategoriaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Categoria,
                         Cantidad,
-                        Total};
+                        Total,
+                        Subtotal,
+                        Descuento,
+                        IdCategoria};
                 rowdtVentasPorCategoriaRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdtVentasPorCategoriaRow);
                 return rowdtVentasPorCategoriaRow;
@@ -852,6 +885,9 @@ namespace Derick {
                 this.columnCategoria = base.Columns["Categoria"];
                 this.columnCantidad = base.Columns["Cantidad"];
                 this.columnTotal = base.Columns["Total"];
+                this.columnSubtotal = base.Columns["Subtotal"];
+                this.columnDescuento = base.Columns["Descuento"];
+                this.columnIdCategoria = base.Columns["IdCategoria"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -863,6 +899,12 @@ namespace Derick {
                 base.Columns.Add(this.columnCantidad);
                 this.columnTotal = new global::System.Data.DataColumn("Total", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotal);
+                this.columnSubtotal = new global::System.Data.DataColumn("Subtotal", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSubtotal);
+                this.columnDescuento = new global::System.Data.DataColumn("Descuento", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDescuento);
+                this.columnIdCategoria = new global::System.Data.DataColumn("IdCategoria", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIdCategoria);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1853,6 +1895,55 @@ namespace Derick {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public string Subtotal {
+                get {
+                    try {
+                        return ((string)(this[this.tabledtVentasPorCategoria.SubtotalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Subtotal\' de la tabla \'dtVentasPorCategoria\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledtVentasPorCategoria.SubtotalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public string Descuento {
+                get {
+                    try {
+                        return ((string)(this[this.tabledtVentasPorCategoria.DescuentoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Descuento\' de la tabla \'dtVentasPorCategoria\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledtVentasPorCategoria.DescuentoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public string IdCategoria {
+                get {
+                    try {
+                        return ((string)(this[this.tabledtVentasPorCategoria.IdCategoriaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'IdCategoria\' de la tabla \'dtVentasPorCategoria\' es DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tabledtVentasPorCategoria.IdCategoriaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             public bool IsCategoriaNull() {
                 return this.IsNull(this.tabledtVentasPorCategoria.CategoriaColumn);
             }
@@ -1885,6 +1976,42 @@ namespace Derick {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             public void SetTotalNull() {
                 this[this.tabledtVentasPorCategoria.TotalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public bool IsSubtotalNull() {
+                return this.IsNull(this.tabledtVentasPorCategoria.SubtotalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public void SetSubtotalNull() {
+                this[this.tabledtVentasPorCategoria.SubtotalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public bool IsDescuentoNull() {
+                return this.IsNull(this.tabledtVentasPorCategoria.DescuentoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public void SetDescuentoNull() {
+                this[this.tabledtVentasPorCategoria.DescuentoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public bool IsIdCategoriaNull() {
+                return this.IsNull(this.tabledtVentasPorCategoria.IdCategoriaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public void SetIdCategoriaNull() {
+                this[this.tabledtVentasPorCategoria.IdCategoriaColumn] = global::System.Convert.DBNull;
             }
         }
         

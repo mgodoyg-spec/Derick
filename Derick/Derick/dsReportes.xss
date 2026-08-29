@@ -7,7 +7,7 @@
 <DiagramLayout xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ex:showrelationlabel="False" ViewPortX="0" ViewPortY="0" xmlns:ex="urn:schemas-microsoft-com:xml-msdatasource-layout-extended" xmlns="urn:schemas-microsoft-com:xml-msdatasource-layout">
   <Shapes>
     <Shape ID="DesignTable:dtProductosMasVendidos" ZOrder="4" X="14" Y="36" Height="162" Width="215" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="24" SplitterPosition="158" />
-    <Shape ID="DesignTable:dtVentasPorCategoria" ZOrder="3" X="238" Y="38" Height="68" Width="193" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="24" SplitterPosition="82" />
+    <Shape ID="DesignTable:dtVentasPorCategoria" ZOrder="3" X="238" Y="38" Height="144" Width="193" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="24" SplitterPosition="140" />
     <Shape ID="DesignTable:dtVentasPorEmpleado" ZOrder="2" X="441" Y="37" Height="87" Width="195" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="101" />
     <Shape ID="DesignTable:dtVentasPorSucursal" ZOrder="1" X="340" Y="228" Height="87" Width="186" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
   </Shapes>

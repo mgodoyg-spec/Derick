@@ -89,18 +89,19 @@ namespace Derick
                 reportViewer1.LocalReport.ReportEmbeddedResource =
                     "Derick.rptVentasPorCategoria.rdlc";
 
-                cadena =
-                    "select C.Nombre as Categoria, " +
-                    "sum(D.Cantidad) as Cantidad, " +
-                    "sum(D.Subtotal) as Total " +
-                    "from Ventas V inner join DetalleVenta D on V.IdVentas = D.IdVenta " +
-                    "inner join Productos P on D.IdProducto = P.IdProductos " +
-                    "inner join Categorias C on P.IdCategoria = C.IdCategoria " +
-                    "where V.Fecha >= '" + fechaInicio + "' " +
-                    "and V.Fecha < '" + fechaFin + "' " +
-                    "and V.IdSucursal = " + idSucursal + " " +
-                    "group by C.Nombre " +
-                    "order by Total desc";
+                cadena = "select C.IdCategoria, C.Nombre as Categoria, " +
+                "sum(D.Cantidad) as Cantidad, " +
+                "sum(D.PrecioUnitario * D.Cantidad) as Subtotal, " +
+                "sum(D.Descuento) as Descuento, " +
+                "sum(D.Subtotal) as Total " +
+                "from Ventas V inner join DetalleVenta D on V.IdVentas = D.IdVenta " +
+                "inner join Productos P on D.IdProducto = P.IdProductos " +
+                "inner join Categorias C on P.IdCategoria = C.IdCategoria " +
+                "where V.Fecha >= '" + fechaInicio + "' " +
+                "and V.Fecha < '" + fechaFin + "' " +
+                "and V.IdSucursal = " + idSucursal + " " +
+                "group by C.IdCategoria, C.Nombre " +
+                "order by Total desc";
 
                 dt = oconSQL.RetornaRegistros(cadena);
 
