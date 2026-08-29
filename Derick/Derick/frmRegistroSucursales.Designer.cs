@@ -393,11 +393,11 @@
             lblSalirV.AutoSize = true;
             lblSalirV.BackColor = Color.Transparent;
             lblSalirV.Cursor = Cursors.Hand;
-            lblSalirV.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSalirV.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSalirV.ForeColor = Color.Red;
             lblSalirV.Location = new Point(542, 0);
             lblSalirV.Name = "lblSalirV";
-            lblSalirV.Size = new Size(25, 24);
+            lblSalirV.Size = new Size(27, 25);
             lblSalirV.TabIndex = 29;
             lblSalirV.Text = "X";
             lblSalirV.Click += lblSalirV_Click;
