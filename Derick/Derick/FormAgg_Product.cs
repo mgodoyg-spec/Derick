@@ -243,7 +243,7 @@ namespace Derick
 
             csConectaSQL conexion = new csConectaSQL();
 
-            DataTable dt = conexion.RetornaRegistros("select Codigo, Nombre, Categoria, Precio " +
+            DataTable dt = conexion.RetornaRegistros("select Codigo, Nombre, Categoria, Precio, Descripcion " +
                 "from Productos where IdProductos = " + idProductoEditar.Value);
 
             if (dt == null || dt.Rows.Count == 0)
@@ -257,6 +257,7 @@ namespace Derick
             txt_nmb.Text = fila["Nombre"].ToString();
             cmb_ctg.Text = fila["Categoria"].ToString();
             txt_prc.Text = Convert.ToDecimal(fila["Precio"]).ToString("0.00");
+            txt_dsp.Text = fila["Descripcion"].ToString();
 
             // carga el estado de la variante seleccionada
             DataTable dtEstado = conexion.RetornaRegistros(@"select Estado from Inventario
@@ -882,6 +883,7 @@ namespace Derick
             string codigo = txt_cd.Text.Trim();
             string nombre = txt_nmb.Text.Trim();
             string categoria = cmb_ctg.Text.Trim();
+            string descripcion = txt_dsp.Text.Trim();
             string estadoTexto = cmb_est.Text.Trim();
 
             int idSucursal = idSucursalSeleccionada;
@@ -983,14 +985,15 @@ namespace Derick
 
                 if (!productoExistente)
                 {
-                    string campos = "Codigo, Nombre, Categoria, Precio, Estado";
+                    string campos = "Codigo, Nombre, Categoria, Precio, Estado, Descripcion";
 
                     string datos =
                         $"'{codigo.Replace("'", "''")}', " +
                         $"'{nombre.Replace("'", "''")}', " +
                         $"'{categoria.Replace("'", "''")}', " +
                         $"{precio.ToString(System.Globalization.CultureInfo.InvariantCulture)}, " +
-                        $"{estado}";
+                        $"{estado}, " +
+                        $"'{descripcion.Replace("'", "''")}'";
 
                     idProducto = conexion.Ins_RetrID("Productos", campos, datos);
 
@@ -1062,12 +1065,13 @@ namespace Derick
 
                 // actualiza datos generales
                 bool actualizado = conexion.ejecutarComando(@"update Productos
-                    set Codigo = @Codigo, Nombre = @Nombre, Categoria = @Categoria, Precio = @Precio
-                    where IdProductos = @IdProducto",
+                    set Codigo = @Codigo, Nombre = @Nombre, Categoria = @Categoria,
+                    Precio = @Precio, Descripcion = @Descripcion where IdProductos = @IdProducto",
                     new SqlParameter("@Codigo", codigo),
                     new SqlParameter("@Nombre", nombre),
                     new SqlParameter("@Categoria", categoria),
                     new SqlParameter("@Precio", precio),
+                    new SqlParameter("@Descripcion", descripcion),
                     new SqlParameter("@IdProducto", idProductoEditar.Value));
 
                 if (!actualizado)
