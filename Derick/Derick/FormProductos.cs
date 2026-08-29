@@ -227,7 +227,7 @@ namespace Derick
             csConectaSQL conexion = new csConectaSQL();
 
             string sql = @"select P.IdProductos, P.Codigo, P.Nombre, P.Categoria,
-                P.Talla, P.Color, P.Precio, P.Estado, insull((
+                P.Talla, P.Color, P.Precio, P.Estado, ISNULL((
                 select sum(I.Stock) from Inventario I
                 where I.IdProducto = P.IdProductos), 0) as StockTotal,
                 PI.Imagen from Productos P outer apply(
@@ -284,7 +284,7 @@ namespace Derick
             string estado = cmb_agg2.Text.Trim();
 
             string sql = @"select P.IdProductos, P.Codigo, P.Nombre, P.Categoria,
-                P.Talla, P.Color, P.Precio, P.Estado, insull(
+                P.Talla, P.Color, P.Precio, P.Estado, ISNULL(
                 (select sum(I.Stock) from Inventario I where I.IdProducto = P.IdProductos), 0
                 ) as StockTotal, PI.Imagen from Productos P outer apply (
                 select top 1 Imagen from ProductoImagenes where IdProductos = P.IdProductos
