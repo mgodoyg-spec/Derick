@@ -22,7 +22,6 @@ namespace Derick
             CargarCategoriasFiltro();
             CargarEstadosFiltro();
 
-            /////////////////////////////////////////////////////////
 
             dvg_agg.EnableHeadersVisualStyles = false;
 
