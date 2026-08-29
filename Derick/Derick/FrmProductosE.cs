@@ -12,10 +12,16 @@ namespace Derick
     public partial class FrmProductosE : Form
     {
         csConectaSQL conect = new csConectaSQL();
+        private int idEmpleadoActual;
 
         public FrmProductosE()
         {
             InitializeComponent();
+        }
+        public FrmProductosE(int idEmpleado)
+        {
+            InitializeComponent();
+            idEmpleadoActual = idEmpleado;
         }
 
         private void FrmProductosE_Load(object sender, EventArgs e)
@@ -131,26 +137,32 @@ namespace Derick
             {
                 dvg_agg.Columns[columna].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             }
-
-            dvg_agg.Rows.Clear();
+            CargarProductos();
         }
 
         private void CargarSucursales()
         {
-            string query = @"select IdSucursal, NombreSucursal from Sucursales
-                where Estado = 'Activa' order by NombreSucursal";
+            string query = @"select S.IdSucursal, S.NombreSucursal from Empleados E inner join Sucursales S
+                  on E.IdSucursal = S.IdSucursal where E.IdEmpleado = " + idEmpleadoActual + @"
+                  and S.Estado = 'Activa'";
 
             DataTable dt = conect.RetornaRegistros(query);
-
-            if (dt == null)
+            if (dt == null || dt.Rows.Count == 0)
             {
+                MessageBox.Show(
+                    "El empleado no tiene una sucursal asignada.",
+                    "Sucursal no encontrada",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
                 return;
             }
 
             cmb_sucursal.DataSource = dt;
             cmb_sucursal.DisplayMember = "NombreSucursal";
             cmb_sucursal.ValueMember = "IdSucursal";
-            cmb_sucursal.SelectedIndex = -1;
+            cmb_sucursal.SelectedIndex = 0;
+            cmb_sucursal.Enabled = false;
         }
 
         private void CargarProductos()

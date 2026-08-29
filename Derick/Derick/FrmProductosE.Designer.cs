@@ -148,6 +148,7 @@
             // cmb_sucursal
             // 
             cmb_sucursal.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmb_sucursal.Enabled = false;
             cmb_sucursal.Font = new Font("Calibri", 14.25F);
             cmb_sucursal.FormattingEnabled = true;
             cmb_sucursal.Location = new Point(436, 6);

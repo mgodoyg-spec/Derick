@@ -39,6 +39,7 @@ namespace Derick
                     {
                         FrmMenuEmpleados frmMenu = new FrmMenuEmpleados();
                         frmMenu.usuarioActual = usuario;
+                        frmMenu.idEmpleadoActual = idEmpleado;
                         frmMenu.Show();
                         this.Hide();
                     }
