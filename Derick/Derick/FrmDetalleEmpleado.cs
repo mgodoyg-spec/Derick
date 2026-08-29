@@ -41,6 +41,7 @@ namespace Derick
             lblSalario.Text = emp.Salario.ToString("0.00");
             lblTipoContrato.Text = emp.TipoContrato;
             lblEstado.Text = emp.Estado ? "Activo" : "Inactivo";
+            lblSucursal.Text = emp.NombreSucursal;
             lblEmergencia.Text = emp.ContactoEmergencia;
             lblTelEmergencia.Text = emp.TelefonoEmergencia;
 

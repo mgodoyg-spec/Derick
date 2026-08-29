@@ -22,6 +22,8 @@ namespace Derick
         public decimal Salario { get; set; }
         public string TipoContrato { get; set; }
         public bool Estado { get; set; }
+        public int IdSucursal { get; set; }
+        public string NombreSucursal { get; set; }
         public string ContactoEmergencia { get; set; }
         public string TelefonoEmergencia { get; set; }
         public byte[] Foto { get; set; }
@@ -50,7 +52,8 @@ namespace Derick
                 WHEN Estado = 1 THEN 'Activo'
                 ELSE 'Inactivo'
             END AS Estado,
-            Foto
+            Foto,
+            IdSucursal
         FROM Empleados
         WHERE 1 = 1";
 
@@ -110,10 +113,9 @@ namespace Derick
         public DataTable ObtenerSucursales()
         {
             return conexion.RetornaRegistros(
-                "SELECT DISTINCT NombreSucursal FROM Sucursales " +
+                "SELECT IdSucursal, NombreSucursal FROM Sucursales " +
                 "WHERE NombreSucursal IS NOT NULL AND NombreSucursal<>'' ORDER BY NombreSucursal");
         }
-
         public string GenerarCodigo()
         {
             DataTable dt = conexion.RetornaRegistros(@"
@@ -121,16 +123,22 @@ namespace Derick
             MAX(
                 TRY_CONVERT(
                     INT,
-                    SUBSTRING(Codigo, 3, 20)
+                    SUBSTRING(Codigo, 2, 20)
                 )
             ), 0
         )
         FROM Empleados
-        WHERE Codigo LIKE 'SC%'");
+        WHERE Codigo LIKE 'E%'");
 
-            int ultimo = Convert.ToInt32(dt.Rows[0][0]);
+            // 1. Extraemos el número que nos devolvió SQL
+            int maxCodigo = Convert.ToInt32(dt.Rows[0][0]);
 
-            return "SC" + (ultimo + 1).ToString("D3");
+            // 2. Le sumamos 1 para el nuevo empleado
+            int nuevoCodigo = maxCodigo + 1;
+
+            // 3. Armamos el texto final y se lo devolvemos al programa (¡Aquí está el return!)
+            // El "D3" es un truco para que siempre rellene con ceros hasta tener 3 cifras (Ej: E001, E014)
+            return "E" + nuevoCodigo.ToString("D3");
         }
 
         public csEmpleado BuscarPorCodigo(string codigo)
@@ -138,39 +146,38 @@ namespace Derick
             string codigoEsc = codigo.Replace("'", "''");
 
             string query = @"
-        SELECT
-            e.IdEmpleado,
-            e.Codigo,
-            e.Nombres,
-            e.Apellidos,
-            e.Cedula,
-            e.FechaNacimiento,
-            e.Genero,
-            e.Telefono,
-            e.Correo,
-            e.Direccion,
-            e.Cargo,
-            e.Departamento,
-            e.FechaIngreso,
-            e.Salario,
-            e.TipoContrato,
-            e.Estado,
-            e.ContactoEmergencia,
-            e.TelefonoEmergencia,
-            e.Foto,
-            u.Usuario,
-            u.Contrasena,
-            r.NombreRol AS Rol
+SELECT
+    e.IdEmpleado,
+    e.Codigo,
+    e.Nombres,
+    e.Apellidos,
+    e.Cedula,
+    e.IdSucursal,
+    s.NombreSucursal,  -- Aquí pedimos el texto
+    e.FechaNacimiento,
+    e.Genero,
+    e.Telefono,
+    e.Correo,
+    e.Direccion,
+    e.Cargo,
+    e.Departamento,
+    e.FechaIngreso,
+    e.Salario,
+    e.TipoContrato,
+    e.Estado,
+    e.ContactoEmergencia,
+    e.TelefonoEmergencia,
+    e.Foto,
+    u.Usuario,
+    u.Contrasena,
+    r.NombreRol AS Rol
 
-        FROM Empleados e
+FROM Empleados e
+LEFT JOIN Usuario u ON u.IdEmpleado = e.IdEmpleado
+LEFT JOIN Rol r ON r.IdRol = u.IdRol
+LEFT JOIN Sucursales s ON s.IdSucursal = e.IdSucursal -- ¡ESTA ES LA LÍNEA QUE FALTABA!
 
-        LEFT JOIN Usuario u
-            ON u.IdEmpleado = e.IdEmpleado
-
-        LEFT JOIN Rol r
-            ON r.IdRol = u.IdRol
-
-        WHERE e.Codigo = '" + codigoEsc + "'";
+WHERE e.Codigo = '" + codigoEsc + "'";
 
             DataTable dt = conexion.RetornaRegistros(query);
 
@@ -200,6 +207,10 @@ namespace Derick
 
             empleado.Cedula =
                 fila["Cedula"].ToString();
+
+            empleado.IdSucursal =
+    Convert.ToInt32(fila["IdSucursal"]);
+            empleado.NombreSucursal = fila["NombreSucursal"].ToString();
 
             empleado.Genero =
                 fila["Genero"].ToString();
@@ -313,17 +324,16 @@ namespace Derick
         public bool Registrar()
         {
             string sql = @"
-        INSERT INTO Empleados
-        (Codigo, Nombres, Apellidos, Cedula, FechaNacimiento, Genero,
-         Telefono, Correo, Direccion, Cargo, Departamento, FechaIngreso,
-         Salario, TipoContrato, Estado, ContactoEmergencia,
-         TelefonoEmergencia, Foto)
-
-        VALUES
-        (@Codigo, @Nombres, @Apellidos, @Cedula, @FechaNacimiento, @Genero,
-         @Telefono, @Correo, @Direccion, @Cargo, @Departamento, @FechaIngreso,
-         @Salario, @TipoContrato, @Estado, @ContactoEmergencia,
-         @TelefonoEmergencia, @Foto)";
+        INSERT INTO Empleados 
+        (Codigo, Nombres, Apellidos, Cedula, FechaNacimiento, Genero, 
+         Telefono, Correo, Direccion, Cargo, Departamento, FechaIngreso, 
+         Salario, TipoContrato, Estado, ContactoEmergencia, 
+         TelefonoEmergencia, Foto, IdSucursal) 
+        VALUES 
+        (@Codigo, @Nombres, @Apellidos, @Cedula, @FechaNacimiento, @Genero, 
+         @Telefono, @Correo, @Direccion, @Cargo, @Departamento, @FechaIngreso, 
+         @Salario, @TipoContrato, @Estado, @ContactoEmergencia, 
+         @TelefonoEmergencia, @Foto, @IdSucursal)";
 
             return conexion.ejecutarComando(sql,
                 new SqlParameter("@Codigo", Codigo),
@@ -343,21 +353,23 @@ namespace Derick
                 new SqlParameter("@Estado", Estado ? 1 : 0),
                 new SqlParameter("@ContactoEmergencia", ContactoEmergencia),
                 new SqlParameter("@TelefonoEmergencia", TelefonoEmergencia),
-                new SqlParameter("@Foto", Foto == null ? (object)DBNull.Value : Foto)
+                new SqlParameter("@Foto", Foto == null ? (object)DBNull.Value : Foto),
+                new SqlParameter("@IdSucursal", IdSucursal)
             );
         }
 
         public bool Editar()
         {
             string sql = @"
-        UPDATE Empleados SET
-            Nombres=@Nombres, Apellidos=@Apellidos, Cedula=@Cedula,
-            FechaNacimiento=@FechaNacimiento, Genero=@Genero,
-            Telefono=@Telefono, Correo=@Correo, Direccion=@Direccion,
-            Cargo=@Cargo, Departamento=@Departamento, FechaIngreso=@FechaIngreso,
-            Salario=@Salario, TipoContrato=@TipoContrato, Estado=@Estado,
-            ContactoEmergencia=@ContactoEmergencia,
-            TelefonoEmergencia=@TelefonoEmergencia, Foto=@Foto
+        UPDATE Empleados SET 
+        Nombres=@Nombres, Apellidos=@Apellidos, Cedula=@Cedula, 
+        FechaNacimiento=@FechaNacimiento, Genero=@Genero, 
+        Telefono=@Telefono, Correo=@Correo, Direccion=@Direccion, 
+        Cargo=@Cargo, Departamento=@Departamento, FechaIngreso=@FechaIngreso, 
+        Salario=@Salario, TipoContrato=@TipoContrato, Estado=@Estado, 
+        ContactoEmergencia=@ContactoEmergencia, 
+        TelefonoEmergencia=@TelefonoEmergencia, Foto=@Foto, 
+        IdSucursal=@IdSucursal 
         WHERE Codigo=@Codigo";
 
             return conexion.ejecutarComando(sql,
@@ -378,7 +390,8 @@ namespace Derick
                 new SqlParameter("@Estado", Estado ? 1 : 0),
                 new SqlParameter("@ContactoEmergencia", ContactoEmergencia),
                 new SqlParameter("@TelefonoEmergencia", TelefonoEmergencia),
-                new SqlParameter("@Foto", Foto == null ? (object)DBNull.Value : Foto)
+                new SqlParameter("@Foto", Foto == null ? (object)DBNull.Value : Foto),
+                new SqlParameter("@IdSucursal", IdSucursal) // <-- Tu nuevo parámetro
             );
         }
 

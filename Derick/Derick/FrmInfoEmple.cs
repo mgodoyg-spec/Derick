@@ -42,6 +42,17 @@ namespace Derick
                 cmbDominioCorreo.Items.Add("@hotmail.com");
                 cmbDominioCorreo.Items.Add("@outlook.com");
             }
+            // Conectar el ComboBox a tu base de datos
+            cmbSucursal.DataSource = new csEmpleado().ObtenerSucursales();
+
+            // Mostrar los nombres largos (Ej: "Derick Guayaquil")
+            cmbSucursal.DisplayMember = "NombreSucursal";
+
+            // Ocultar el ID para SQL (Ej: 4)
+            cmbSucursal.ValueMember = "IdSucursal";
+
+            // Dejarlo en blanco al abrir la pantalla
+            cmbSucursal.SelectedIndex = -1;
 
             if (!editar)
             {
@@ -53,6 +64,7 @@ namespace Derick
             {
                 CargarDatosEditar();
             }
+            
         }
 
         private void CargarDatosEditar()
@@ -68,6 +80,7 @@ namespace Derick
             txtNombre.Text = empleadoEditado.Nombres;
             txtApellidos.Text = empleadoEditado.Apellidos;
             txtCedula.Text = empleadoEditado.Cedula;
+            cmbSucursal.SelectedValue = empleadoEditado.IdSucursal;
 
             // Si el empleado antiguo tiene una fecha fuera del rango permitido,
             // no dejamos que el formulario se caiga.
@@ -486,6 +499,7 @@ namespace Derick
             emp.Usuario = txtUsuario.Text.Trim();
             emp.Contrasena = txtContrasena.Text;
             emp.Rol = cmbRol.Text.Trim();
+            emp.IdSucursal = Convert.ToInt32(cmbSucursal.SelectedValue);
 
             if (emp.CedulaExiste())
             {
