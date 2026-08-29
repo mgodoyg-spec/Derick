@@ -37,10 +37,10 @@ namespace Derick
             lblHora.Text = DateTime.Now.ToString("HH:mm:ss");
             CargarResumen();
         }
-      
+
         // cargar los conteos del resumen de sucursales y empleados
         private void CargarResumen()
-        { 
+        {
             csConectaSQL oConexion = new csConectaSQL();
 
             DataTable dtSucursales = oConexion.RetornaRegistros("SELECT COUNT(*) AS Total FROM Sucursales");

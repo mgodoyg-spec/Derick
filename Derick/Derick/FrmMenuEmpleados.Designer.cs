@@ -36,25 +36,24 @@
             cerrarSesiónToolStripMenuItem = new ToolStripMenuItem();
             pnlMostrar = new Panel();
             pnlMostrarForm = new Panel();
-            pnlcontenido = new Panel();
-            pnlIndicador = new Panel();
+            pnlContenido = new Panel();
+            label1 = new Label();
+            pictureBox1 = new PictureBox();
             pnlPerfil = new Panel();
             lblFlecha = new Label();
             lblusuario = new Label();
-            pbusuario = new PictureBox();
+            pictureBox3 = new PictureBox();
+            pnlIndicador = new Panel();
             btnreportes = new Button();
-            btnventas = new Button();
-            lblTitulo = new Label();
-            lblSalir = new Label();
-            btnproductos = new Button();
-            pictureBox2 = new PictureBox();
             btninicio = new Button();
+            btnproductos = new Button();
+            btnventas = new Button();
             cmsMenuPerfil.SuspendLayout();
             pnlMostrar.SuspendLayout();
-            pnlcontenido.SuspendLayout();
+            pnlContenido.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             pnlPerfil.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pbusuario).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // imlBotones
@@ -75,28 +74,29 @@
             cmsMenuPerfil.ImageScalingSize = new Size(20, 20);
             cmsMenuPerfil.Items.AddRange(new ToolStripItem[] { miPerfilToolStripMenuItem, cerrarSesiónToolStripMenuItem });
             cmsMenuPerfil.Name = "contextMenuStrip1";
-            cmsMenuPerfil.Size = new Size(148, 56);
+            cmsMenuPerfil.Size = new Size(185, 78);
             cmsMenuPerfil.Closed += cmsMenuPerfil_Closed;
             // 
             // miPerfilToolStripMenuItem
             // 
             miPerfilToolStripMenuItem.Image = Properties.Resources.person_icon_31846;
             miPerfilToolStripMenuItem.Name = "miPerfilToolStripMenuItem";
-            miPerfilToolStripMenuItem.Size = new Size(147, 26);
+            miPerfilToolStripMenuItem.Size = new Size(184, 26);
             miPerfilToolStripMenuItem.Text = "Mi Perfil";
+            miPerfilToolStripMenuItem.Click += miPerfilToolStripMenuItem_Click;
             // 
             // cerrarSesiónToolStripMenuItem
             // 
             cerrarSesiónToolStripMenuItem.Image = Properties.Resources.CerrarSesionn;
             cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
-            cerrarSesiónToolStripMenuItem.Size = new Size(147, 26);
+            cerrarSesiónToolStripMenuItem.Size = new Size(184, 26);
             cerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión";
             cerrarSesiónToolStripMenuItem.Click += cerrarSesiónToolStripMenuItem_Click;
             // 
             // pnlMostrar
             // 
             pnlMostrar.Controls.Add(pnlMostrarForm);
-            pnlMostrar.Controls.Add(pnlcontenido);
+            pnlMostrar.Controls.Add(pnlContenido);
             pnlMostrar.Dock = DockStyle.Fill;
             pnlMostrar.Location = new Point(0, 0);
             pnlMostrar.Name = "pnlMostrar";
@@ -105,43 +105,57 @@
             // 
             // pnlMostrarForm
             // 
-            pnlMostrarForm.Location = new Point(0, 49);
+            pnlMostrarForm.BackColor = Color.White;
+            pnlMostrarForm.Dock = DockStyle.Fill;
+            pnlMostrarForm.Location = new Point(170, 0);
             pnlMostrarForm.Name = "pnlMostrarForm";
-            pnlMostrarForm.Size = new Size(1200, 651);
-            pnlMostrarForm.TabIndex = 3;
+            pnlMostrarForm.Size = new Size(1030, 700);
+            pnlMostrarForm.TabIndex = 22;
             // 
-            // pnlcontenido
+            // pnlContenido
             // 
-            pnlcontenido.BackColor = Color.Black;
-            pnlcontenido.Controls.Add(pnlIndicador);
-            pnlcontenido.Controls.Add(pnlPerfil);
-            pnlcontenido.Controls.Add(btnreportes);
-            pnlcontenido.Controls.Add(btnventas);
-            pnlcontenido.Controls.Add(lblTitulo);
-            pnlcontenido.Controls.Add(lblSalir);
-            pnlcontenido.Controls.Add(btnproductos);
-            pnlcontenido.Controls.Add(pictureBox2);
-            pnlcontenido.Controls.Add(btninicio);
-            pnlcontenido.Dock = DockStyle.Top;
-            pnlcontenido.Location = new Point(0, 0);
-            pnlcontenido.Name = "pnlcontenido";
-            pnlcontenido.Size = new Size(1200, 49);
-            pnlcontenido.TabIndex = 2;
+            pnlContenido.BackColor = Color.Black;
+            pnlContenido.Controls.Add(label1);
+            pnlContenido.Controls.Add(pictureBox1);
+            pnlContenido.Controls.Add(pnlPerfil);
+            pnlContenido.Controls.Add(pnlIndicador);
+            pnlContenido.Controls.Add(btnreportes);
+            pnlContenido.Controls.Add(btninicio);
+            pnlContenido.Controls.Add(btnproductos);
+            pnlContenido.Controls.Add(btnventas);
+            pnlContenido.Dock = DockStyle.Left;
+            pnlContenido.Location = new Point(0, 0);
+            pnlContenido.Name = "pnlContenido";
+            pnlContenido.Size = new Size(170, 700);
+            pnlContenido.TabIndex = 21;
             // 
-            // pnlIndicador
+            // label1
             // 
-            pnlIndicador.BackColor = Color.Blue;
-            pnlIndicador.Location = new Point(189, 45);
-            pnlIndicador.Name = "pnlIndicador";
-            pnlIndicador.Size = new Size(91, 3);
-            pnlIndicador.TabIndex = 18;
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(57, 18);
+            label1.Name = "label1";
+            label1.Size = new Size(96, 25);
+            label1.TabIndex = 2;
+            label1.Text = "DERICK";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.DerickRecortado;
+            pictureBox1.Location = new Point(12, 0);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(39, 43);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 1;
+            pictureBox1.TabStop = false;
             // 
             // pnlPerfil
             // 
             pnlPerfil.Controls.Add(lblFlecha);
             pnlPerfil.Controls.Add(lblusuario);
-            pnlPerfil.Controls.Add(pbusuario);
-            pnlPerfil.Location = new Point(971, 0);
+            pnlPerfil.Controls.Add(pictureBox3);
+            pnlPerfil.Location = new Point(0, 593);
             pnlPerfil.Name = "pnlPerfil";
             pnlPerfil.Size = new Size(172, 49);
             pnlPerfil.TabIndex = 17;
@@ -158,6 +172,7 @@
             lblFlecha.Size = new Size(17, 13);
             lblFlecha.TabIndex = 2;
             lblFlecha.Text = "▼";
+            lblFlecha.Click += pnlPerfil_Click;
             // 
             // lblusuario
             // 
@@ -165,24 +180,32 @@
             lblusuario.Cursor = Cursors.Hand;
             lblusuario.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblusuario.ForeColor = Color.White;
-            lblusuario.Location = new Point(57, 14);
+            lblusuario.Location = new Point(45, 15);
             lblusuario.Name = "lblusuario";
             lblusuario.Size = new Size(57, 20);
             lblusuario.TabIndex = 1;
             lblusuario.Text = "admin";
             lblusuario.Click += pnlPerfil_Click;
             // 
-            // pbusuario
+            // pictureBox3
             // 
-            pbusuario.Cursor = Cursors.Hand;
-            pbusuario.Image = Properties.Resources.UsuarioNegro;
-            pbusuario.Location = new Point(5, 3);
-            pbusuario.Name = "pbusuario";
-            pbusuario.Size = new Size(46, 44);
-            pbusuario.SizeMode = PictureBoxSizeMode.StretchImage;
-            pbusuario.TabIndex = 0;
-            pbusuario.TabStop = false;
-            pbusuario.Click += pnlPerfil_Click;
+            pictureBox3.Cursor = Cursors.Hand;
+            pictureBox3.Image = Properties.Resources.UsuarioNegro;
+            pictureBox3.Location = new Point(3, 8);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(40, 38);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 0;
+            pictureBox3.TabStop = false;
+            pictureBox3.Click += pnlPerfil_Click;
+            // 
+            // pnlIndicador
+            // 
+            pnlIndicador.BackColor = Color.Blue;
+            pnlIndicador.Location = new Point(12, 106);
+            pnlIndicador.Name = "pnlIndicador";
+            pnlIndicador.Size = new Size(91, 3);
+            pnlIndicador.TabIndex = 18;
             // 
             // btnreportes
             // 
@@ -195,7 +218,7 @@
             btnreportes.ImageAlign = ContentAlignment.MiddleLeft;
             btnreportes.ImageIndex = 5;
             btnreportes.ImageList = imlBotones;
-            btnreportes.Location = new Point(517, 5);
+            btnreportes.Location = new Point(12, 201);
             btnreportes.Name = "btnreportes";
             btnreportes.Size = new Size(113, 37);
             btnreportes.TabIndex = 16;
@@ -203,80 +226,6 @@
             btnreportes.TextAlign = ContentAlignment.MiddleRight;
             btnreportes.UseVisualStyleBackColor = false;
             btnreportes.Click += btnreportes_Click;
-            // 
-            // btnventas
-            // 
-            btnventas.BackColor = Color.Black;
-            btnventas.Cursor = Cursors.Hand;
-            btnventas.FlatAppearance.BorderSize = 0;
-            btnventas.FlatStyle = FlatStyle.Flat;
-            btnventas.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnventas.ForeColor = Color.White;
-            btnventas.ImageAlign = ContentAlignment.MiddleLeft;
-            btnventas.ImageIndex = 4;
-            btnventas.ImageList = imlBotones;
-            btnventas.Location = new Point(415, 5);
-            btnventas.Name = "btnventas";
-            btnventas.Size = new Size(96, 37);
-            btnventas.TabIndex = 15;
-            btnventas.Text = "Ventas";
-            btnventas.TextAlign = ContentAlignment.MiddleRight;
-            btnventas.UseVisualStyleBackColor = false;
-            btnventas.Click += btnventas_Click;
-            // 
-            // lblTitulo
-            // 
-            lblTitulo.AutoSize = true;
-            lblTitulo.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitulo.ForeColor = Color.White;
-            lblTitulo.Location = new Point(71, 11);
-            lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(96, 25);
-            lblTitulo.TabIndex = 2;
-            lblTitulo.Text = "DERICK";
-            // 
-            // lblSalir
-            // 
-            lblSalir.AutoSize = true;
-            lblSalir.Cursor = Cursors.Hand;
-            lblSalir.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblSalir.ForeColor = Color.Red;
-            lblSalir.Location = new Point(1172, 10);
-            lblSalir.Name = "lblSalir";
-            lblSalir.Size = new Size(25, 24);
-            lblSalir.TabIndex = 7;
-            lblSalir.Text = "X";
-            lblSalir.Click += lblSalir_Click;
-            // 
-            // btnproductos
-            // 
-            btnproductos.BackColor = Color.Black;
-            btnproductos.Cursor = Cursors.Hand;
-            btnproductos.FlatAppearance.BorderSize = 0;
-            btnproductos.FlatStyle = FlatStyle.Flat;
-            btnproductos.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnproductos.ForeColor = Color.White;
-            btnproductos.ImageAlign = ContentAlignment.MiddleLeft;
-            btnproductos.ImageIndex = 1;
-            btnproductos.ImageList = imlBotones;
-            btnproductos.Location = new Point(286, 6);
-            btnproductos.Name = "btnproductos";
-            btnproductos.Size = new Size(123, 37);
-            btnproductos.TabIndex = 12;
-            btnproductos.Text = "Productos";
-            btnproductos.TextAlign = ContentAlignment.MiddleRight;
-            btnproductos.UseVisualStyleBackColor = false;
-            btnproductos.Click += btnproductos_Click;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.Image = Properties.Resources.DerickRecortado;
-            pictureBox2.Location = new Point(26, 2);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(39, 43);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 1;
-            pictureBox2.TabStop = false;
             // 
             // btninicio
             // 
@@ -289,7 +238,7 @@
             btninicio.ImageAlign = ContentAlignment.MiddleLeft;
             btninicio.ImageIndex = 0;
             btninicio.ImageList = imlBotones;
-            btninicio.Location = new Point(189, 5);
+            btninicio.Location = new Point(12, 63);
             btninicio.Name = "btninicio";
             btninicio.Size = new Size(91, 37);
             btninicio.TabIndex = 11;
@@ -297,6 +246,46 @@
             btninicio.TextAlign = ContentAlignment.MiddleRight;
             btninicio.UseVisualStyleBackColor = false;
             btninicio.Click += btninicio_Click;
+            // 
+            // btnproductos
+            // 
+            btnproductos.BackColor = Color.Black;
+            btnproductos.Cursor = Cursors.Hand;
+            btnproductos.FlatAppearance.BorderSize = 0;
+            btnproductos.FlatStyle = FlatStyle.Flat;
+            btnproductos.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnproductos.ForeColor = Color.White;
+            btnproductos.ImageAlign = ContentAlignment.MiddleLeft;
+            btnproductos.ImageIndex = 1;
+            btnproductos.ImageList = imlBotones;
+            btnproductos.Location = new Point(12, 115);
+            btnproductos.Name = "btnproductos";
+            btnproductos.Size = new Size(123, 37);
+            btnproductos.TabIndex = 12;
+            btnproductos.Text = "Productos";
+            btnproductos.TextAlign = ContentAlignment.MiddleRight;
+            btnproductos.UseVisualStyleBackColor = false;
+            btnproductos.Click += btnproductos_Click;
+            // 
+            // btnventas
+            // 
+            btnventas.BackColor = Color.Black;
+            btnventas.Cursor = Cursors.Hand;
+            btnventas.FlatAppearance.BorderSize = 0;
+            btnventas.FlatStyle = FlatStyle.Flat;
+            btnventas.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnventas.ForeColor = Color.White;
+            btnventas.ImageAlign = ContentAlignment.MiddleLeft;
+            btnventas.ImageIndex = 4;
+            btnventas.ImageList = imlBotones;
+            btnventas.Location = new Point(12, 158);
+            btnventas.Name = "btnventas";
+            btnventas.Size = new Size(96, 37);
+            btnventas.TabIndex = 15;
+            btnventas.Text = "Ventas";
+            btnventas.TextAlign = ContentAlignment.MiddleRight;
+            btnventas.UseVisualStyleBackColor = false;
+            btnventas.Click += btnventas_Click;
             // 
             // FrmMenuEmpleados
             // 
@@ -314,12 +303,12 @@
             Load += FrmMenuEmpleados_Load;
             cmsMenuPerfil.ResumeLayout(false);
             pnlMostrar.ResumeLayout(false);
-            pnlcontenido.ResumeLayout(false);
-            pnlcontenido.PerformLayout();
+            pnlContenido.ResumeLayout(false);
+            pnlContenido.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             pnlPerfil.ResumeLayout(false);
             pnlPerfil.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pbusuario).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
         }
 
@@ -329,19 +318,18 @@
         private ToolStripMenuItem miPerfilToolStripMenuItem;
         private ToolStripMenuItem cerrarSesiónToolStripMenuItem;
         private Panel pnlMostrar;
-        private Panel pnlcontenido;
-        private Panel pnlIndicador;
+        private Panel pnlMostrarForm;
+        private Panel pnlContenido;
+        private Label label1;
+        private PictureBox pictureBox1;
         private Panel pnlPerfil;
         private Label lblFlecha;
         private Label lblusuario;
-        private PictureBox pbusuario;
+        private PictureBox pictureBox3;
+        private Panel pnlIndicador;
         private Button btnreportes;
-        private Button btnventas;
-        private Label lblTitulo;
-        private Label lblSalir;
-        private Button btnproductos;
-        private PictureBox pictureBox2;
         private Button btninicio;
-        private Panel pnlMostrarForm;
+        private Button btnproductos;
+        private Button btnventas;
     }
 }
