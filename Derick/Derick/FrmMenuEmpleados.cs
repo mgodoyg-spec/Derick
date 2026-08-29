@@ -11,6 +11,7 @@ namespace Derick
     public partial class FrmMenuEmpleados : Form
     {
         public string usuarioActual;
+        public int idEmpleadoActual;
         private Form? formularioActivo;
         public FrmMenuEmpleados()
         {
@@ -79,7 +80,7 @@ namespace Derick
         private void btnproductos_Click(object sender, EventArgs e)
         {
             csBotonActivo.MarcarBotonActivo(pnlIndicador, btnproductos);
-            csNavegacion.AbrirFormulario(pnlMostrarForm, ref formularioActivo, new FrmProductosE());
+            csNavegacion.AbrirFormulario(pnlMostrarForm, ref formularioActivo, new FrmProductosE(idEmpleadoActual));
         }
 
         private void btnventas_Click(object sender, EventArgs e)
