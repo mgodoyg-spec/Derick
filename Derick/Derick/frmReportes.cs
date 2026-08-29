@@ -63,16 +63,22 @@ namespace Derick
                 reportViewer1.LocalReport.ReportEmbeddedResource =
                     "Derick.rptProductosMasVendidos.rdlc";
 
-                cadena =
-                    "select P.Codigo as CodProducto, P.Nombre as NomProducto, " +
-                    "sum(D.Cantidad) as Cantidad " +
-                    "from DetalleVenta D inner join Productos P on D.IdProducto = P.IdProductos " +
-                    "inner join Ventas V on D.IdVenta = V.IdVentas " +
-                    "where V.Fecha >= '" + fechaInicio + "' " +
-                    "and V.Fecha < '" + fechaFin + "' " +
-                    "and V.IdSucursal = " + idSucursal + " " +
-                    "group by P.Codigo, P.Nombre " +
-                    "order by Cantidad desc";
+                cadena = "select P.Codigo as CodProducto, " +
+                "P.Nombre as NomProducto, " +
+                "C.Nombre as Categoria, " +
+                "sum(D.Cantidad) as Cantidad, " +
+                "D.PrecioUnitario as PrecioUnitario, " +
+                "sum(D.Descuento) as Descuento, " +
+                "sum(D.Subtotal) as TotalVendido " +
+                "from DetalleVenta D " +
+                "inner join Productos P on D.IdProducto = P.IdProductos " +
+                "inner join Ventas V on D.IdVenta = V.IdVentas " +
+                "inner join Categorias C on P.IdCategoria = C.IdCategoria " +
+                "where V.Fecha >= '" + fechaInicio + "' " +
+                "and V.Fecha < '" + fechaFin + "' " +
+                "and V.IdSucursal = " + idSucursal + " " +
+                "group by P.Codigo, P.Nombre, C.Nombre, D.PrecioUnitario " +
+                "order by Cantidad desc";
 
                 dt = oconSQL.RetornaRegistros(cadena);
 
@@ -121,6 +127,27 @@ namespace Derick
                 dt = oconSQL.RetornaRegistros(cadena);
 
                 dataset = new ReportDataSource("dsVentasPorEmpleado", dt);
+            }
+            else if (cmbTipoReporte.Text == "Ventas por sucursal")
+            {
+                reportViewer1.LocalReport.ReportEmbeddedResource =
+                    "Derick.rptVentasPorSucursal.rdlc";
+
+                cadena =
+                    "select S.IdSucursal, S.NombreSucursal as Sucursal, " +
+                    "sum(D.Cantidad) as CantidadVendida, " +
+                    "sum(D.Subtotal) as Total " +
+                    "from Ventas V inner join Sucursales S on V.IdSucursal = S.IdSucursal " +
+                    "inner join DetalleVenta D on V.IdVentas = D.IdVenta " +
+                    "where V.Fecha >= '" + fechaInicio + "' " +
+                    "and V.Fecha < '" + fechaFin + "' " +
+                    "and V.IdSucursal = " + idSucursal + " " +
+                    "group by S.IdSucursal, S.NombreSucursal " +
+                    "order by Total desc";
+
+                dt = oconSQL.RetornaRegistros(cadena);
+
+                dataset = new ReportDataSource("dtVentasPorSucursal", dt);
             }
 
             reportViewer1.LocalReport.DataSources.Add(dataset);

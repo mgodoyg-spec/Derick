@@ -12,12 +12,14 @@
 	  <None Remove="rptProductosMasVendidos.rdlc" />
 	  <None Remove="rptVentasPorCategoria.rdlc" />
 	  <None Remove="rptVentasPorEmpleado.rdlc" />
+	  <None Remove="rptVentasPorSucursal.rdlc" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <EmbeddedResource Include="rptProductosMasVendidos.rdlc" />
 	  <EmbeddedResource Include="rptVentasPorCategoria.rdlc" />
 	  <EmbeddedResource Include="rptVentasPorEmpleado.rdlc" />
+	  <EmbeddedResource Include="rptVentasPorSucursal.rdlc" />
 	</ItemGroup>
 
 	<ItemGroup>

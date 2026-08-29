@@ -198,7 +198,7 @@
             cmbTipoReporte.AutoCompleteSource = AutoCompleteSource.ListItems;
             cmbTipoReporte.Font = new Font("Calibri", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cmbTipoReporte.FormattingEnabled = true;
-            cmbTipoReporte.Items.AddRange(new object[] { "Productos más vendidos", "Ventas por categoría", "Ventas por empleado" });
+            cmbTipoReporte.Items.AddRange(new object[] { "Productos más vendidos", "Ventas por categoría", "Ventas por empleado", "Ventas por sucursal" });
             cmbTipoReporte.Location = new Point(15, 31);
             cmbTipoReporte.Name = "cmbTipoReporte";
             cmbTipoReporte.Size = new Size(193, 26);
