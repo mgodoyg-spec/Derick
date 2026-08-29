@@ -56,6 +56,10 @@
             btnCancelar = new Button();
             btnGuardar = new Button();
             pnlInfoLaboral = new Panel();
+            cmbSucursal = new ComboBox();
+            label23 = new Label();
+            lblSucursal = new Label();
+            label10 = new Label();
             label18 = new Label();
             label16 = new Label();
             label15 = new Label();
@@ -111,7 +115,6 @@
             txtCodigo = new TextBox();
             lblCodigo = new Label();
             lblInfoPeronal = new Label();
-            label10 = new Label();
             pnlNuevoEmple.SuspendLayout();
             pnlImagen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbxAgregarImagen).BeginInit();
@@ -414,6 +417,9 @@
             // 
             // pnlInfoLaboral
             // 
+            pnlInfoLaboral.Controls.Add(cmbSucursal);
+            pnlInfoLaboral.Controls.Add(label23);
+            pnlInfoLaboral.Controls.Add(lblSucursal);
             pnlInfoLaboral.Controls.Add(label10);
             pnlInfoLaboral.Controls.Add(label18);
             pnlInfoLaboral.Controls.Add(label16);
@@ -445,12 +451,55 @@
             pnlInfoLaboral.Size = new Size(459, 579);
             pnlInfoLaboral.TabIndex = 12;
             // 
+            // cmbSucursal
+            // 
+            cmbSucursal.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbSucursal.FormattingEnabled = true;
+            cmbSucursal.Items.AddRange(new object[] { "Activo", "Inactivo" });
+            cmbSucursal.Location = new Point(211, 363);
+            cmbSucursal.Name = "cmbSucursal";
+            cmbSucursal.Size = new Size(239, 28);
+            cmbSucursal.TabIndex = 55;
+            // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label23.ForeColor = Color.Red;
+            label23.Location = new Point(3, 362);
+            label23.Name = "label23";
+            label23.Size = new Size(21, 25);
+            label23.TabIndex = 54;
+            label23.Text = "*";
+            // 
+            // lblSucursal
+            // 
+            lblSucursal.AutoSize = true;
+            lblSucursal.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblSucursal.ForeColor = Color.DimGray;
+            lblSucursal.Location = new Point(30, 362);
+            lblSucursal.Name = "lblSucursal";
+            lblSucursal.Size = new Size(85, 22);
+            lblSucursal.TabIndex = 53;
+            lblSucursal.Text = "Sucursal:";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label10.ForeColor = Color.Red;
+            label10.Location = new Point(3, 446);
+            label10.Name = "label10";
+            label10.Size = new Size(21, 25);
+            label10.TabIndex = 52;
+            label10.Text = "*";
+            // 
             // label18
             // 
             label18.AutoSize = true;
             label18.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label18.ForeColor = Color.Red;
-            label18.Location = new Point(3, 457);
+            label18.Location = new Point(3, 498);
             label18.Name = "label18";
             label18.Size = new Size(21, 25);
             label18.TabIndex = 51;
@@ -524,7 +573,7 @@
             // 
             // txtTeleEmergencia
             // 
-            txtTeleEmergencia.Location = new Point(227, 449);
+            txtTeleEmergencia.Location = new Point(217, 501);
             txtTeleEmergencia.MaxLength = 10;
             txtTeleEmergencia.Name = "txtTeleEmergencia";
             txtTeleEmergencia.Size = new Size(223, 27);
@@ -532,7 +581,7 @@
             // 
             // txtEmerNombre
             // 
-            txtEmerNombre.Location = new Point(227, 399);
+            txtEmerNombre.Location = new Point(211, 448);
             txtEmerNombre.MaxLength = 50;
             txtEmerNombre.Name = "txtEmerNombre";
             txtEmerNombre.Size = new Size(223, 27);
@@ -599,7 +648,7 @@
             lblTelEmergencia.AutoSize = true;
             lblTelEmergencia.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblTelEmergencia.ForeColor = Color.DimGray;
-            lblTelEmergencia.Location = new Point(30, 453);
+            lblTelEmergencia.Location = new Point(27, 501);
             lblTelEmergencia.Name = "lblTelEmergencia";
             lblTelEmergencia.Size = new Size(184, 22);
             lblTelEmergencia.TabIndex = 11;
@@ -610,7 +659,7 @@
             lblEmergencia.AutoSize = true;
             lblEmergencia.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblEmergencia.ForeColor = Color.DimGray;
-            lblEmergencia.Location = new Point(27, 404);
+            lblEmergencia.Location = new Point(30, 448);
             lblEmergencia.Name = "lblEmergencia";
             lblEmergencia.Size = new Size(187, 22);
             lblEmergencia.TabIndex = 10;
@@ -620,7 +669,7 @@
             // 
             lblInfoAdicional.AutoSize = true;
             lblInfoAdicional.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblInfoAdicional.Location = new Point(30, 352);
+            lblInfoAdicional.Location = new Point(27, 406);
             lblInfoAdicional.Name = "lblInfoAdicional";
             lblInfoAdicional.Size = new Size(219, 25);
             lblInfoAdicional.TabIndex = 9;
@@ -1032,17 +1081,6 @@
             lblInfoPeronal.TabIndex = 1;
             lblInfoPeronal.Text = "Información personal";
             // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.ForeColor = Color.Red;
-            label10.Location = new Point(3, 405);
-            label10.Name = "label10";
-            label10.Size = new Size(21, 25);
-            label10.TabIndex = 52;
-            label10.Text = "*";
-            // 
             // FrmInfoEmple
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -1156,5 +1194,8 @@
         private ComboBox cmbDominioCorreo;
         private ImageList imageList1;
         private Label label10;
+        private ComboBox cmbSucursal;
+        private Label label23;
+        private Label lblSucursal;
     }
 }
