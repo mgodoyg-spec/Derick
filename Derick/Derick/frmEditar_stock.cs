@@ -171,15 +171,18 @@ namespace Derick
         {
             int total = 0;
             DetallesStock.Clear();
+
             foreach (DataGridViewRow fila in dgv_stock.Rows)
             {
                 if (fila.IsNewRow)
                 {
                     continue;
                 }
+
                 string talla = fila.Cells["clTalla"].Value?.ToString() ?? "";
                 string color = fila.Cells["clColor"].Value?.ToString() ?? "";
-                string valor =fila.Cells["clStock"].Value?.ToString() ?? "";
+                string valor = fila.Cells["clStock"].Value?.ToString() ?? "";
+
                 if (!int.TryParse(valor, out int stock))
                 {
                     MessageBox.Show(
@@ -188,8 +191,10 @@ namespace Derick
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Warning
                     );
+
                     return;
                 }
+
                 if (stock < 0)
                 {
                     MessageBox.Show(
@@ -198,15 +203,33 @@ namespace Derick
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Warning
                     );
+
                     return;
                 }
-                DetalleStock detalle = new DetalleStock();
-                detalle.Talla = talla;
-                detalle.Color = color;
-                detalle.stock = stock;
-                DetallesStock.Add(detalle);
-                total += stock;
+
+                // solo guarda las combinaciones que tengan stock
+                if (stock > 0)
+                {
+                    DetalleStock detalle = new DetalleStock();
+                    detalle.Talla = talla;
+                    detalle.Color = color;
+                    detalle.stock = stock;
+                    DetallesStock.Add(detalle);
+                    total += stock;
+                }
             }
+
+            if (DetallesStock.Count == 0)
+            {
+                MessageBox.Show(
+                    "Debe ingresar stock en al menos una combinación.",
+                    "Stock obligatorio",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
+
             S_total = total;
             DialogResult = DialogResult.OK;
             Close();

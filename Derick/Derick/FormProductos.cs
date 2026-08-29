@@ -11,7 +11,7 @@ namespace Derick
 {
     public partial class FormProductos : Form
     {
-
+        csConectaSQL conect = new csConectaSQL();
         public FormProductos()
         {
             InitializeComponent();
@@ -21,6 +21,7 @@ namespace Derick
         {
             CargarCategoriasFiltro();
             CargarEstadosFiltro();
+            CargarSucursales();
 
 
             dvg_agg.EnableHeadersVisualStyles = false;
@@ -71,7 +72,7 @@ namespace Derick
             dvg_agg.AlternatingRowsDefaultCellStyle.BackColor =
                 Color.FromArgb(248, 249, 251);
 
-            // Selección
+            // selección
             dvg_agg.DefaultCellStyle.SelectionBackColor =
             Color.FromArgb(225, 235, 250);
 
@@ -108,250 +109,149 @@ namespace Derick
             DataGridViewImageColumn editar = (DataGridViewImageColumn)dvg_agg.Columns["clEditar"];
             editar.Image = Properties.Resources.editarrbtn;
             editar.ImageLayout = DataGridViewImageCellLayout.Zoom;
+
             DataGridViewImageColumn eliminar = (DataGridViewImageColumn)dvg_agg.Columns["clEliminar"];
             eliminar.Image = Properties.Resources.picEliminar;
             eliminar.ImageLayout = DataGridViewImageCellLayout.Zoom;
+
             DataGridViewImageColumn ver = (DataGridViewImageColumn)dvg_agg.Columns["clVerTodo"];
             ver.Image = Properties.Resources.ojo;
             ver.ImageLayout = DataGridViewImageCellLayout.Zoom;
 
             string[] columnasCentro =
             {
-                "clCodigo",
-                "clImagen",
-                "clNombreProducto",
-                "clCategoria",
-                "clTallas",
-                "clColores",
-                "clPrecio",
-                "clStock",
-                "clEstado",
-                "clEditar",
-                "clEliminar",
-                "clVerTodo"
+                  "clCodigo",
+                  "clImagen",
+                  "clNombreProducto",
+                  "clCategoria",
+                  "clTallas",
+                  "clColores",
+                  "clPrecio",
+                  "clStock",
+                  "clEstado",
+                  "clEditar",
+                  "clEliminar",
+                  "clVerTodo"
             };
 
             foreach (string columna in columnasCentro)
             {
-                dvg_agg.Columns[columna].DefaultCellStyle.Alignment =
-                    DataGridViewContentAlignment.MiddleCenter;
+                dvg_agg.Columns[columna].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             }
-            CargarProductos();
+
+            dvg_agg.Rows.Clear();
         }
-        private void dvg_agg_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void CargarSucursales()
         {
-            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+            string query = @"select IdSucursal, NombreSucursal from Sucursales
+                where Estado = 'Activa' order by NombreSucursal";
+
+            DataTable dt = conect.RetornaRegistros(query);
+
+            if (dt == null)
+            {
                 return;
-
-            string columna = dvg_agg.Columns[e.ColumnIndex].Name;
-
-            if (columna == "clEditar")
-            {
-                int idProducto =
-                    Convert.ToInt32(
-                        dvg_agg.Rows[e.RowIndex].Tag
-                    );
-
-                FormAgg_Product frm =
-                    new FormAgg_Product(idProducto);
-
-                frm.StartPosition =
-                    FormStartPosition.CenterScreen;
-
-                DialogResult resultado =
-                    frm.ShowDialog(this);
-
-                // comprueba que tiene sql para editar
-                csConectaSQL conexion = new csConectaSQL();
-
-                DataTable dt = conexion.RetornaRegistros("select Estado " +
-                    "from Productos " + "where IdProductos = " + idProducto);
-
-                if (dt != null && dt.Rows.Count > 0)
-                {
-                    bool activo = Convert.ToBoolean(dt.Rows[0]["Estado"]);
-                    string estadoTexto = activo ? "Activo" : "Inactivo";
-
-                    // ACTUALIZAR DIRECTAMENTE LA CELDA
-                    dvg_agg.Rows[e.RowIndex].Cells["clEstado"].Value = estadoTexto;
-                    dvg_agg.InvalidateCell(dvg_agg.Columns["clEstado"].Index,e.RowIndex);
-                    dvg_agg.Refresh();
-                }
             }
-            else if (columna == "clEliminar")
-            {
-                int idProducto = Convert.ToInt32(dvg_agg.Rows[e.RowIndex].Tag);
-                string nombreProducto = dvg_agg.Rows[e.RowIndex].Cells["clNombreProducto"].Value?.ToString() ?? "";
 
-                DialogResult resultado = MessageBox.Show(
-                    "¿Está seguro de eliminar el producto \"" +
-                    nombreProducto + "\"?",
-                    "Eliminar producto",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question
-                );
-
-                if (resultado == DialogResult.Yes)
-                {
-                    csConectaSQL conexion = new csConectaSQL();
-
-                    bool eliminado = conexion.ejecutarComando(
-                        "update Productos set Estado = 0 where IdProductos = @id",
-                        new SqlParameter("@id", idProducto)
-                    );
-
-                    if (eliminado)
-                    {
-                        MessageBox.Show(
-                            "Producto eliminado correctamente.",
-                            "Producto",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Information
-                        );
-
-                        CargarProductos();
-                    }
-                }
-            }
-            else if (columna == "clVerTodo")
-            {
-                int idProducto = Convert.ToInt32(dvg_agg.Rows[e.RowIndex].Tag);
-                FrmDetalleTodo1 frm = new FrmDetalleTodo1(idProducto);
-                frm.StartPosition = FormStartPosition.CenterScreen;
-                frm.ShowDialog(this);
-            }
+            cmb_sucursal.DataSource = dt;
+            cmb_sucursal.DisplayMember = "NombreSucursal";
+            cmb_sucursal.ValueMember = "IdSucursal";
+            cmb_sucursal.SelectedIndex = -1;
         }
+
         private void CargarProductos()
         {
+            dvg_agg.Rows.Clear();
+            if (cmb_sucursal.SelectedIndex == -1)
+            {
+                return;
+            }
+
+            DataRowView filaSucursal = (DataRowView)cmb_sucursal.SelectedItem;
+            int idSucursal = Convert.ToInt32(filaSucursal["IdSucursal"]);
             csConectaSQL conexion = new csConectaSQL();
 
-            string sql = @"select P.IdProductos, P.Codigo, P.Nombre, P.Categoria,
-                P.Talla, P.Color, P.Precio, P.Estado, ISNULL((
-                select sum(I.Stock) from Inventario I
-                where I.IdProducto = P.IdProductos), 0) as StockTotal,
-                PI.Imagen from Productos P outer apply(
-                select top 1 Imagen from ProductoImagenes where IdProductos = P.IdProductos
-                and EsPrincipal = 1 order by IdImagen) pi order by P.Codigo";
+            string consulta = @"select P.IdProductos, P.Codigo, P.Nombre, P.Categoria,
+                   I.Talla, I.Color, P.Precio, I.Stock, I.Estado, (select top 1 Imagen from ProductoImagenes
+                   where IdProductos = P.IdProductos order by EsPrincipal desc, IdImagen) as Imagen
+                   from Inventario I inner join Productos P on I.IdProducto = P.IdProductos
+                   where I.IdSucursal = " + idSucursal;
 
-            DataTable dt = conexion.RetornaRegistros(sql);
+            // filtro de busqueda
+            if (!string.IsNullOrWhiteSpace(txt1.Text))
+            {
+                string buscar = txt1.Text.Trim().Replace("'", "''");
+
+                consulta += @" and (P.Codigo like '%" + buscar + @"%' or P.Nombre like '%" + buscar + @"%')";
+            }
+
+            // filtro de categoria
+            if (cmb_agg1.SelectedIndex > 0)
+            {
+                string categoria = cmb_agg1.Text.Trim().Replace("'", "''");
+
+                consulta += " and P.Categoria = '" + categoria + "'";
+            }
+
+            // filtro de estado
+            if (cmb_agg2.Text == "Activo")
+            {
+                consulta += " and I.Estado = 1";
+            }
+
+            if (cmb_agg2.Text == "Inactivo")
+            {
+                consulta += " and I.Estado = 0";
+            }
+
+            consulta += " order by P.Nombre, I.Talla, I.Color";
+            DataTable dt = conexion.RetornaRegistros(consulta);
 
             if (dt == null)
             {
                 return;
             }
-            dvg_agg.Rows.Clear();
+
             foreach (DataRow fila in dt.Rows)
             {
-                string estado = Convert.ToBoolean(fila["Estado"]) ? "Activo" : "Inactivo";
-                decimal precio = Convert.ToDecimal(fila["Precio"]);
-                int stockTotal = Convert.ToInt32(fila["StockTotal"]);
-                Image imagenProducto = null;
-                if (fila["Imagen"] != DBNull.Value)
+                int posicion = dvg_agg.Rows.Add();
+
+                DataGridViewRow row = dvg_agg.Rows[posicion];
+
+                row.Tag = Convert.ToInt32(fila["IdProductos"]);
+
+                row.Cells["clCodigo"].Value = fila["Codigo"].ToString();
+                row.Cells["clNombreProducto"].Value = fila["Nombre"].ToString();
+                row.Cells["clCategoria"].Value = fila["Categoria"].ToString();
+                row.Cells["clTallas"].Value = fila["Talla"].ToString();
+                row.Cells["clColores"].Value = fila["Color"].ToString();
+                row.Cells["clPrecio"].Value = Convert.ToDecimal(fila["Precio"]).ToString("0.00");
+                row.Cells["clStock"].Value = Convert.ToInt32(fila["Stock"]);
+
+                bool estado = Convert.ToBoolean(fila["Estado"]);
+
+                if (estado)
                 {
-                    byte[] bytes = (byte[])fila["Imagen"];
-                    using (MemoryStream ms = new MemoryStream(bytes))
-                    {
-                        using (Image temp = Image.FromStream(ms))
-                        {
-                            imagenProducto = new Bitmap(temp);
-                        }
-                    }
+                    row.Cells["clEstado"].Value = "Activo";
                 }
 
-                int indice = dvg_agg.Rows.Add(
-                    fila["Codigo"].ToString(),
-                    imagenProducto,
-                    fila["Nombre"].ToString(),
-                    fila["Categoria"].ToString(),
-                    fila["Talla"].ToString(),
-                    fila["Color"].ToString(),
-                    "$" + precio.ToString("0.00"),
-                    stockTotal,
-                    estado,
-                    null,
-                    null,
-                    null
-                );
-
-                dvg_agg.Rows[indice].Tag = Convert.ToInt32(fila["IdProductos"]);
-            }
-        }
-        private void FiltrarProductos()
-        {
-            string texto = txt1.Text.Trim();
-            string categoria = cmb_agg1.Text.Trim();
-            string estado = cmb_agg2.Text.Trim();
-
-            string sql = @"select P.IdProductos, P.Codigo, P.Nombre, P.Categoria,
-                P.Talla, P.Color, P.Precio, P.Estado, ISNULL(
-                (select sum(I.Stock) from Inventario I where I.IdProducto = P.IdProductos), 0
-                ) as StockTotal, PI.Imagen from Productos P outer apply (
-                select top 1 Imagen from ProductoImagenes where IdProductos = P.IdProductos
-                and EsPrincipal = 1 order by IdImagen) pi where 1 = 1";
-
-            // BUSCAR POR CÓDIGO O NOMBRE
-            if (!string.IsNullOrWhiteSpace(texto))
-            {
-                sql += $" AND (P.Codigo LIKE '%{texto}%' " + $"OR P.Nombre LIKE '%{texto}%')";
-            }
-
-            // FILTRAR POR CATEGORÍA
-            if (categoria != "Todas" && !string.IsNullOrWhiteSpace(categoria))
-            {
-                sql += $" AND P.Categoria = '{categoria}'";
-            }
-            // FILTRAR POR ESTADO
-            if (estado != "Todos" && !string.IsNullOrWhiteSpace(estado))
-            {
-                if (estado == "Activo")
+                if (!estado)
                 {
-                    sql += " AND P.Estado = 1";
+                    row.Cells["clEstado"].Value = "Inactivo";
                 }
-                else if (estado == "Inactivo")
-                {
-                    sql += " AND P.Estado = 0";
-                }
-            }
-            sql += " ORDER BY P.Codigo";
-            csConectaSQL conexion = new csConectaSQL();
-            DataTable dt = conexion.RetornaRegistros(sql);
-            if (dt == null)
-            {
-                return;
-            }
-            dvg_agg.Rows.Clear();
-            foreach (DataRow fila in dt.Rows)
-            {
-                string estadoTexto = Convert.ToBoolean(fila["Estado"]) ? "Activo" : "Inactivo";
-                decimal precio = Convert.ToDecimal(fila["Precio"]);
-                int stockTotal = Convert.ToInt32(fila["StockTotal"]);
-                Image imagenProducto = null;
 
                 if (fila["Imagen"] != DBNull.Value)
                 {
-                    byte[] bytes = (byte[])fila["Imagen"];
-                    using (MemoryStream ms = new MemoryStream(bytes))
+                    byte[] imagenBytes = (byte[])fila["Imagen"];
+
+                    using (MemoryStream ms = new MemoryStream(imagenBytes))
                     {
-                        using (Image temp = Image.FromStream(ms))
+                        using (Image imagenTemporal = Image.FromStream(ms))
                         {
-                            imagenProducto = new Bitmap(temp);
+                            row.Cells["clImagen"].Value = new Bitmap(imagenTemporal);
                         }
                     }
                 }
-                int indice = dvg_agg.Rows.Add(
-                        fila["Codigo"].ToString(),
-                        imagenProducto,
-                        fila["Nombre"].ToString(),
-                        fila["Categoria"].ToString(),
-                        fila["Talla"].ToString(),
-                        fila["Color"].ToString(),
-                        "$" + precio.ToString("0.00"),
-                        stockTotal,
-                        estadoTexto,
-                        null,
-                        null,
-                        null);
-                dvg_agg.Rows[indice].Tag = Convert.ToInt32(fila["IdProductos"]);
             }
         }
         private void CargarCategoriasFiltro()
@@ -360,18 +260,12 @@ namespace Derick
             cmb_agg1.Items.Add("Todas");
 
             csConectaSQL conexion = new csConectaSQL();
-
-            DataTable dt = conexion.RetornaRegistros(
-                "SELECT Nombre FROM Categorias ORDER BY Nombre"
-            );
-
+            DataTable dt = conexion.RetornaRegistros("select Nombre from Categorias order by Nombre");
             if (dt != null)
             {
                 foreach (DataRow fila in dt.Rows)
                 {
-                    cmb_agg1.Items.Add(
-                        fila["Nombre"].ToString()
-                    );
+                    cmb_agg1.Items.Add(fila["Nombre"].ToString());
                 }
             }
             cmb_agg1.SelectedIndex = 0;
@@ -384,35 +278,247 @@ namespace Derick
             cmb_agg2.Items.Add("Inactivo");
             cmb_agg2.SelectedIndex = 0;
         }
+        private void dvg_agg_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+            {
+                return;
+            }
+
+            string columna = dvg_agg.Columns[e.ColumnIndex].Name;
+
+            if (columna == "clEditar")
+            {
+                // valida que se haya seleccionado una sucursal
+                if (cmb_sucursal.SelectedIndex == -1)
+                {
+                    MessageBox.Show(
+                        "Seleccione primero una sucursal.",
+                        "Sucursal obligatoria",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+
+                    cmb_sucursal.Focus();
+                    return;
+                }
+
+                // obtiene el producto seleccionado
+                int idProducto = Convert.ToInt32(dvg_agg.Rows[e.RowIndex].Tag);
+
+                // obtiene talla y color de la fila seleccionada
+                string talla = dvg_agg.Rows[e.RowIndex].Cells["clTallas"].Value?.ToString() ?? "";
+                string color = dvg_agg.Rows[e.RowIndex].Cells["clColores"].Value?.ToString() ?? "";
+
+                // obtiene los datos de la sucursal seleccionada
+                DataRowView filaSucursal = (DataRowView)cmb_sucursal.SelectedItem;
+
+                int idSucursal = Convert.ToInt32(filaSucursal["IdSucursal"]);
+                string nombreSucursal = filaSucursal["NombreSucursal"].ToString();
+
+                // abre editar producto enviando producto, sucursal, talla y color
+                FormAgg_Product frm = new FormAgg_Product(idProducto, idSucursal, nombreSucursal, talla, color);
+                frm.StartPosition = FormStartPosition.CenterScreen;
+
+                if (frm.ShowDialog(this) == DialogResult.OK)
+                {
+                    CargarProductos();
+                }
+            }
+
+            if (columna == "clEliminar")
+            {
+                // valida que se haya seleccionado una sucursal
+                if (cmb_sucursal.SelectedIndex == -1)
+                {
+                    MessageBox.Show(
+                        "Seleccione primero una sucursal.",
+                        "Sucursal obligatoria",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+
+                    cmb_sucursal.Focus();
+                    return;
+                }
+
+                // obtiene el producto seleccionado
+                int idProducto = Convert.ToInt32(dvg_agg.Rows[e.RowIndex].Tag);
+                string nombreProducto = dvg_agg.Rows[e.RowIndex].Cells["clNombreProducto"].Value?.ToString() ?? "";
+
+                // obtiene talla y color de la fila seleccionada
+                string talla = dvg_agg.Rows[e.RowIndex].Cells["clTallas"].Value?.ToString() ?? "";
+                string color = dvg_agg.Rows[e.RowIndex].Cells["clColores"].Value?.ToString() ?? "";
+
+                // obtiene la sucursal seleccionada
+                DataRowView filaSucursal = (DataRowView)cmb_sucursal.SelectedItem;
+                int idSucursal = Convert.ToInt32(filaSucursal["IdSucursal"]);
+                string nombreSucursal = filaSucursal["NombreSucursal"].ToString();
+
+                DialogResult resultado = MessageBox.Show(
+                    "¿Está seguro de eliminar \"" +
+                    nombreProducto + "\" talla \"" +
+                    talla + "\" color \"" +
+                    color + "\" de la sucursal \"" +
+                    nombreSucursal + "\"?",
+                    "Eliminar producto",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                );
+
+                if (resultado == DialogResult.Yes)
+                {
+                    csConectaSQL conexion = new csConectaSQL();
+
+                    // elimina solamente la talla y color seleccionados
+                    bool eliminado = conexion.ejecutarComando(@"delete from Inventario
+                        where IdProducto = @IdProducto and IdSucursal = @IdSucursal
+                        and Talla = @Talla and Color = @Color",
+                        new SqlParameter("@IdProducto", idProducto),
+                        new SqlParameter("@IdSucursal", idSucursal),
+                        new SqlParameter("@Talla", talla),
+                        new SqlParameter("@Color", color)
+                    );
+
+                    if (eliminado)
+                    {
+                        MessageBox.Show(
+                            "Producto eliminado correctamente de la sucursal.",
+                            "Producto",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information
+                        );
+
+                        CargarProductos();
+                    }
+
+                    if (!eliminado)
+                    {
+                        MessageBox.Show(
+                            "No se pudo eliminar el producto de la sucursal.",
+                            "Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error
+                        );
+                    }
+                }
+            }
+
+            if (columna == "clVerTodo")
+            {
+                // valida que se haya seleccionado una sucursal
+                if (cmb_sucursal.SelectedIndex == -1)
+                {
+                    MessageBox.Show(
+                        "Seleccione primero una sucursal.",
+                        "Sucursal obligatoria",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+
+                    cmb_sucursal.Focus();
+                    return;
+                }
+
+                // obtiene el producto seleccionado
+                int idProducto = Convert.ToInt32(dvg_agg.Rows[e.RowIndex].Tag);
+
+                // obtiene la sucursal seleccionada
+                DataRowView filaSucursal = (DataRowView)cmb_sucursal.SelectedItem;
+                int idSucursal = Convert.ToInt32(filaSucursal["IdSucursal"]);
+
+                // obtiene la talla y color de la fila seleccionada
+                string talla = dvg_agg.Rows[e.RowIndex].Cells["clTallas"].Value?.ToString() ?? "";
+                string color = dvg_agg.Rows[e.RowIndex].Cells["clColores"].Value?.ToString() ?? "";
+
+                // abre los detalles del producto
+                FrmDetalleTodo1 frm = new FrmDetalleTodo1(idProducto, idSucursal, talla, color);
+                frm.StartPosition = FormStartPosition.CenterScreen;
+                frm.ShowDialog(this);
+            }
+        }
+
         private void txt1_TextChanged(object sender, EventArgs e)
         {
-            FiltrarProductos();
+            CargarProductos();
+        }
+        private void cmb_sucursal_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CargarProductos();
         }
 
         private void cmb_agg1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            FiltrarProductos();
+            CargarProductos();
         }
 
         private void cmb_agg2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            FiltrarProductos();
+            CargarProductos();
         }
         private void btn_limpiar_Click(object sender, EventArgs e)
         {
             txt1.Clear();
             cmb_agg1.SelectedIndex = 0;
             cmb_agg2.SelectedIndex = 0;
-            CargarProductos();
+            if (cmb_sucursal.SelectedIndex != -1)
+            {
+                CargarProductos();
+            }
+            txt1.Focus();
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            FormAgg_Product frm_agg = new FormAgg_Product();
-            frm_agg.StartPosition = FormStartPosition.CenterScreen;
-            frm_agg.ShowDialog(this);
-            CargarProductos();
-        }
+            // valida que se haya seleccionado una sucursal
+            if (cmb_sucursal.SelectedIndex == -1)
+            {
+                MessageBox.Show(
+                    "Seleccione primero una sucursal.",
+                    "Sucursal obligatoria",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                cmb_sucursal.Focus();
+                return;
+            }
 
+            // obtiene los datos de la sucursal seleccionada
+            DataRowView filaSucursal = (DataRowView)cmb_sucursal.SelectedItem;
+            int idSucursal = Convert.ToInt32(filaSucursal["IdSucursal"]);
+            string nombreSucursal = filaSucursal["NombreSucursal"].ToString();
+
+            // abre agregar producto enviando la sucursal
+            FormAgg_Product frm_agg = new FormAgg_Product(idSucursal, nombreSucursal);
+            frm_agg.StartPosition = FormStartPosition.CenterScreen;
+            if (frm_agg.ShowDialog(this) == DialogResult.OK)
+            {
+                CargarProductos();
+            }
+        }
+        private void btn_transferir_Click(object sender, EventArgs e)
+        {
+            // valida que se haya seleccionado una sucursal
+            if (cmb_sucursal.SelectedIndex == -1)
+            {
+                MessageBox.Show(
+                    "Seleccione primero una sucursal.",
+                    "Sucursal obligatoria",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                cmb_sucursal.Focus();
+                return;
+            }
+
+            // obtiene la sucursal seleccionada
+            DataRowView filaSucursal = (DataRowView)cmb_sucursal.SelectedItem;
+            int idSucursal = Convert.ToInt32(filaSucursal["IdSucursal"]);
+
+            // abre el formulario de transferencia
+            FormTransferir_Productos frmTransferir = new FormTransferir_Productos(idSucursal);
+            frmTransferir.StartPosition = FormStartPosition.CenterScreen;
+
+            if (frmTransferir.ShowDialog(this) == DialogResult.OK)
+            {
+                CargarProductos();
+            }
+        }
         private void lblSalirV_Click(object sender, EventArgs e)
         {
             DialogResult respuesta =
@@ -425,13 +531,6 @@ namespace Derick
             {
                 Application.Exit();
             }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            FormInventario formInventario = new FormInventario();
-            formInventario.StartPosition = FormStartPosition.CenterScreen;
-            formInventario.ShowDialog(this);
         }
     }
 }

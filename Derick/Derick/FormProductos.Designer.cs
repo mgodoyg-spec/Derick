@@ -32,16 +32,19 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProductos));
             pnl_conagg = new Panel();
             pnl_agg2 = new Panel();
+            btn_transferir = new Button();
             lblSalirV = new Label();
             pnlBusqueda = new Panel();
+            cmb_sucursal = new ComboBox();
+            lbl2 = new Label();
             cmb_agg2 = new ComboBox();
             cmb_agg1 = new ComboBox();
             txt1 = new TextBox();
-            button1 = new Button();
             pictureBox1 = new PictureBox();
             btn_limpiar = new Button();
             lbl_agg2 = new Label();
             lbl_agg3 = new Label();
+            button1 = new Button();
             pictureBox2 = new PictureBox();
             pic_agg1 = new PictureBox();
             lbl_agg1 = new Label();
@@ -59,7 +62,6 @@
             clEliminar = new DataGridViewImageColumn();
             clVerTodo = new DataGridViewImageColumn();
             img_icons = new ImageList(components);
-            button2 = new Button();
             pnl_conagg.SuspendLayout();
             pnl_agg2.SuspendLayout();
             pnlBusqueda.SuspendLayout();
@@ -83,9 +85,10 @@
             // pnl_agg2
             // 
             pnl_agg2.BackColor = Color.White;
-            pnl_agg2.Controls.Add(button2);
+            pnl_agg2.Controls.Add(btn_transferir);
             pnl_agg2.Controls.Add(lblSalirV);
             pnl_agg2.Controls.Add(pnlBusqueda);
+            pnl_agg2.Controls.Add(button1);
             pnl_agg2.Controls.Add(pictureBox2);
             pnl_agg2.Controls.Add(pic_agg1);
             pnl_agg2.Controls.Add(lbl_agg1);
@@ -95,6 +98,23 @@
             pnl_agg2.Name = "pnl_agg2";
             pnl_agg2.Size = new Size(1150, 630);
             pnl_agg2.TabIndex = 6;
+            // 
+            // btn_transferir
+            // 
+            btn_transferir.BackColor = Color.FromArgb(4, 59, 186);
+            btn_transferir.Cursor = Cursors.Hand;
+            btn_transferir.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            btn_transferir.ForeColor = Color.White;
+            btn_transferir.Image = (Image)resources.GetObject("btn_transferir.Image");
+            btn_transferir.ImageAlign = ContentAlignment.MiddleLeft;
+            btn_transferir.Location = new Point(657, 2);
+            btn_transferir.Margin = new Padding(3, 2, 3, 2);
+            btn_transferir.Name = "btn_transferir";
+            btn_transferir.Size = new Size(223, 39);
+            btn_transferir.TabIndex = 33;
+            btn_transferir.Text = "Transferir producto";
+            btn_transferir.UseVisualStyleBackColor = false;
+            btn_transferir.Click += btn_transferir_Click;
             // 
             // lblSalirV
             // 
@@ -113,10 +133,11 @@
             // pnlBusqueda
             // 
             pnlBusqueda.BackColor = Color.FromArgb(244, 246, 249);
+            pnlBusqueda.Controls.Add(cmb_sucursal);
+            pnlBusqueda.Controls.Add(lbl2);
             pnlBusqueda.Controls.Add(cmb_agg2);
             pnlBusqueda.Controls.Add(cmb_agg1);
             pnlBusqueda.Controls.Add(txt1);
-            pnlBusqueda.Controls.Add(button1);
             pnlBusqueda.Controls.Add(pictureBox1);
             pnlBusqueda.Controls.Add(btn_limpiar);
             pnlBusqueda.Controls.Add(lbl_agg2);
@@ -126,12 +147,37 @@
             pnlBusqueda.Size = new Size(1129, 43);
             pnlBusqueda.TabIndex = 27;
             // 
+            // cmb_sucursal
+            // 
+            cmb_sucursal.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmb_sucursal.Font = new Font("Calibri", 14.25F);
+            cmb_sucursal.FormattingEnabled = true;
+            cmb_sucursal.Location = new Point(436, 6);
+            cmb_sucursal.Margin = new Padding(3, 2, 3, 2);
+            cmb_sucursal.Name = "cmb_sucursal";
+            cmb_sucursal.Size = new Size(168, 31);
+            cmb_sucursal.TabIndex = 33;
+            cmb_sucursal.SelectedIndexChanged += cmb_sucursal_SelectedIndexChanged;
+            // 
+            // lbl2
+            // 
+            lbl2.AutoSize = true;
+            lbl2.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            lbl2.ForeColor = Color.Black;
+            lbl2.ImageAlign = ContentAlignment.MiddleLeft;
+            lbl2.Location = new Point(371, 12);
+            lbl2.Name = "lbl2";
+            lbl2.Size = new Size(70, 19);
+            lbl2.TabIndex = 34;
+            lbl2.Text = "Sucursal:";
+            lbl2.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // cmb_agg2
             // 
             cmb_agg2.DropDownStyle = ComboBoxStyle.DropDownList;
             cmb_agg2.Font = new Font("Calibri", 14.25F);
             cmb_agg2.FormattingEnabled = true;
-            cmb_agg2.Location = new Point(625, 6);
+            cmb_agg2.Location = new Point(869, 5);
             cmb_agg2.Margin = new Padding(3, 2, 3, 2);
             cmb_agg2.Name = "cmb_agg2";
             cmb_agg2.Size = new Size(121, 31);
@@ -143,7 +189,7 @@
             cmb_agg1.DropDownStyle = ComboBoxStyle.DropDownList;
             cmb_agg1.Font = new Font("Calibri", 14.25F);
             cmb_agg1.FormattingEnabled = true;
-            cmb_agg1.Location = new Point(440, 7);
+            cmb_agg1.Location = new Point(684, 6);
             cmb_agg1.Margin = new Padding(3, 2, 3, 2);
             cmb_agg1.Name = "cmb_agg1";
             cmb_agg1.Size = new Size(121, 31);
@@ -161,23 +207,6 @@
             txt1.Size = new Size(307, 27);
             txt1.TabIndex = 7;
             txt1.TextChanged += txt1_TextChanged;
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.FromArgb(4, 59, 186);
-            button1.Cursor = Cursors.Hand;
-            button1.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            button1.ForeColor = Color.White;
-            button1.Image = (Image)resources.GetObject("button1.Image");
-            button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(881, 2);
-            button1.Margin = new Padding(3, 2, 3, 2);
-            button1.Name = "button1";
-            button1.Size = new Size(223, 39);
-            button1.TabIndex = 9;
-            button1.Text = "Agregar producto";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
             // 
             // pictureBox1
             // 
@@ -198,7 +227,7 @@
             btn_limpiar.Font = new Font("Calibri", 12F, FontStyle.Bold);
             btn_limpiar.ForeColor = Color.Black;
             btn_limpiar.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_limpiar.Location = new Point(766, 7);
+            btn_limpiar.Location = new Point(1011, 6);
             btn_limpiar.Margin = new Padding(3, 2, 3, 2);
             btn_limpiar.Name = "btn_limpiar";
             btn_limpiar.Size = new Size(98, 28);
@@ -213,7 +242,7 @@
             lbl_agg2.Font = new Font("Calibri", 12F, FontStyle.Bold);
             lbl_agg2.ForeColor = Color.Black;
             lbl_agg2.ImageAlign = ContentAlignment.MiddleLeft;
-            lbl_agg2.Location = new Point(366, 12);
+            lbl_agg2.Location = new Point(610, 11);
             lbl_agg2.Name = "lbl_agg2";
             lbl_agg2.Size = new Size(78, 19);
             lbl_agg2.TabIndex = 15;
@@ -226,12 +255,29 @@
             lbl_agg3.Font = new Font("Calibri", 12F, FontStyle.Bold);
             lbl_agg3.ForeColor = Color.Black;
             lbl_agg3.ImageAlign = ContentAlignment.MiddleLeft;
-            lbl_agg3.Location = new Point(570, 12);
+            lbl_agg3.Location = new Point(814, 11);
             lbl_agg3.Name = "lbl_agg3";
             lbl_agg3.Size = new Size(59, 19);
             lbl_agg3.TabIndex = 17;
             lbl_agg3.Text = "Estado:";
             lbl_agg3.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.FromArgb(4, 59, 186);
+            button1.Cursor = Cursors.Hand;
+            button1.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            button1.ForeColor = Color.White;
+            button1.Image = (Image)resources.GetObject("button1.Image");
+            button1.ImageAlign = ContentAlignment.MiddleLeft;
+            button1.Location = new Point(893, 2);
+            button1.Margin = new Padding(3, 2, 3, 2);
+            button1.Name = "button1";
+            button1.Size = new Size(223, 39);
+            button1.TabIndex = 9;
+            button1.Text = "Agregar producto";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // pictureBox2
             // 
@@ -380,16 +426,6 @@
             img_icons.TransparentColor = Color.Transparent;
             img_icons.Images.SetKeyName(0, "eliminar1.png");
             // 
-            // button2
-            // 
-            button2.Location = new Point(579, 16);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 32;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
-            // 
             // FormProductos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -445,6 +481,8 @@
         private PictureBox pictureBox2;
         private Panel pnlBusqueda;
         private Label lblSalirV;
-        private Button button2;
+        private ComboBox cmb_sucursal;
+        private Label lbl2;
+        private Button btn_transferir;
     }
 }

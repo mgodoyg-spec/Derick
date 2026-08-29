@@ -172,7 +172,7 @@ namespace Derick
             if (buscar != "")
             {
                 buscar = buscar.Replace("'", "''");
-                query += @"and (P.Codigo LIKE '%" + buscar + @"%' or P.Nombre LIKE '%" + buscar + @"%'";
+                query += @"and (P.Codigo LIKE '%" + buscar + @"%' or P.Nombre LIKE '%" + buscar + @"%')";
             }
 
             // filtrar por categoria
@@ -195,6 +195,10 @@ namespace Derick
             }
             query += @"order by P.Nombre, I.Talla, I.Color";
             DataTable dt = conect.RetornaRegistros(query);
+            if (dt == null)
+            {
+                return;
+            }
             dvgInventario.DataSource = dt;
         }
 

@@ -12,14 +12,23 @@ namespace Derick
     public partial class FrmDetalleTodo1 : Form
     {
         private int idproducto;
+        private int idSucursal;
+        private string talla;
+        private string color;
+
         public FrmDetalleTodo1()
         {
             InitializeComponent();
         }
-        public FrmDetalleTodo1(int idproducto)
+
+        public FrmDetalleTodo1(int idproducto, int idSucursal, string talla, string color)
         {
             InitializeComponent();
+
             this.idproducto = idproducto;
+            this.idSucursal = idSucursal;
+            this.talla = talla;
+            this.color = color;
 
             CargarProducto();
             CargarImagenesProducto();
@@ -31,8 +40,15 @@ namespace Derick
         private void CargarProducto()
         {
             csConectaSQL conexion = new csConectaSQL();
-            DataTable dt = conexion.RetornaRegistros("select Codigo, Nombre, Categoria, Talla," +
-                " Color, Precio, Estado " + "from Productos " + "where IdProductos = " + idproducto);
+
+            string sql = @"select P.Codigo, P.Nombre, P.Categoria, P.Precio, P.Estado,
+                I.Talla, I.Color, I.Stock from Productos P inner join Inventario I
+                on P.IdProductos = I.IdProducto where P.IdProductos = " + idproducto + @"
+                and I.IdSucursal = " + idSucursal + @"
+                and I.Talla = '" + talla.Replace("'", "''") + @"'
+                and I.Color = '" + color.Replace("'", "''") + "'";
+
+            DataTable dt = conexion.RetornaRegistros(sql);
 
             if (dt == null || dt.Rows.Count == 0)
             {
@@ -40,6 +56,7 @@ namespace Derick
             }
 
             DataRow fila = dt.Rows[0];
+
             lblCodigo.Text = fila["Codigo"].ToString();
             lblNombreP.Text = fila["Nombre"].ToString();
             lblCategoria.Text = fila["Categoria"].ToString();
@@ -48,11 +65,23 @@ namespace Derick
 
             decimal precio = Convert.ToDecimal(fila["Precio"]);
             lblPrecio.Text = "$" + precio.ToString("0.00");
+
             bool activo = Convert.ToBoolean(fila["Estado"]);
-            lblEstado.Text = activo ? "Activo" : "Inactivo";
-            lblStock.Text = "0";
+
+            if (activo)
+            {
+                lblEstado.Text = "Activo";
+            }
+
+            if (!activo)
+            {
+                lblEstado.Text = "Inactivo";
+            }
+
+            lblStock.Text = fila["Stock"].ToString();
             lblDescripcion.Text = "Sin descripción";
         }
+
         private void CargarImagenesProducto()
         {
             csConectaSQL conexion = new csConectaSQL();
@@ -65,6 +94,7 @@ namespace Derick
             {
                 return;
             }
+
             PictureBox[] imagenes =
             {
                 pic_img1,
@@ -73,6 +103,7 @@ namespace Derick
                 pic_img4,
                 pic_img5
             };
+
             PictureBox[] iconosMas =
             {
                 pic2,
@@ -82,14 +113,14 @@ namespace Derick
                 pic6
             };
 
-            // Primero dejamos todos los + visibles
+            // primero dejamos todos los + visibles
             for (int i = 0; i < imagenes.Length; i++)
             {
                 imagenes[i].Image = null;
                 iconosMas[i].Visible = true;
             }
 
-            // Cargar las imágenes
+            // carga las imágenes
             for (int i = 0; i < dt.Rows.Count && i < imagenes.Length; i++)
             {
                 if (dt.Rows[i]["Imagen"] == DBNull.Value)
@@ -98,6 +129,7 @@ namespace Derick
                 }
 
                 byte[] bytes = (byte[])dt.Rows[i]["Imagen"];
+
                 using (MemoryStream ms = new MemoryStream(bytes))
                 {
                     using (Image temporal = Image.FromStream(ms))
@@ -107,10 +139,12 @@ namespace Derick
                 }
 
                 imagenes[i].SizeMode = PictureBoxSizeMode.Zoom;
-                // ocultar el + de esta posición
+
+                // oculta el + de esta posición
                 iconosMas[i].Visible = false;
             }
         }
+
         private void btn_guardar_Click(object sender, EventArgs e)
         {
             this.Close();
