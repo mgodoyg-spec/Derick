@@ -58,7 +58,7 @@ namespace Derick
                 else
                 {
                     MessageBox.Show(
-                        "Usuario o contraseña incorrectos.",
+                        "Usuario o contraseÃ±a incorrectos.",
                         "Error de acceso",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Warning);
@@ -67,7 +67,7 @@ namespace Derick
             catch (Exception ex)
             {
                 MessageBox.Show(
-                    "Error de conexión: " + ex.Message,
+                    "Error de conexiÃ³n: " + ex.Message,
                     "Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
@@ -91,7 +91,7 @@ namespace Derick
         private void lblSalir_Click(object sender, EventArgs e)
         {
             DialogResult respuesta = MessageBox.Show(
-                "¿Está seguro de salir?",
+                "Â¿EstÃ¡ seguro de salir?",
                 "Confirmar salida",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);

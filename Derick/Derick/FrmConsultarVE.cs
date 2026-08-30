@@ -4,117 +4,102 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Text;
 using System.Windows.Forms;
-using System.Drawing.Printing;
 
 namespace Derick
 {
-    public partial class FrmConsultarVenta : Form
+    public partial class FrmConsultarVE : Form
     {
-        public FrmConsultarVenta()
+        public int idEmpleadoSesion;
+        public int idSucursalSesion;
+        public string nombreVendedorSesion;
+        public string nombreSucursalSesion;
+
+        private csConectaSQL conexion = new csConectaSQL();
+        private int idVentaImprimir;
+        public FrmConsultarVE()
         {
             InitializeComponent();
         }
 
-        private void lblSalirCV_Click(object sender, EventArgs e)
-        {
-            DialogResult respuesta = MessageBox.Show(
-           "¿Está seguro de salir?",
-           "Confirmar salida",
-           MessageBoxButtons.YesNo,
-           MessageBoxIcon.Question);
-
-            if (respuesta == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            FrmVentasN frm = new FrmVentasN();
-            frm.ShowDialog();
-        }
-
-        private csConectaSQL conexion = new csConectaSQL();
-        private int idVentaImprimir;
-        private void FrmConsultarVenta_Load(object sender, EventArgs e)
+        private void FrmConsultarVE_Load(object sender, EventArgs e)
         {
             //diseño del datagridview
-            dgvCVF.EnableHeadersVisualStyles = false;
-            dgvCVF.BorderStyle = BorderStyle.None;
-            dgvCVF.BackgroundColor = Color.White;
-            dgvCVF.GridColor = Color.FromArgb(235, 235, 235);
-            dgvCVF.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dgvCVF.ReadOnly = true;
-            dgvCVF.MultiSelect = false;
-            dgvCVF.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvCVF.AllowUserToAddRows = false;
-            dgvCVF.AllowUserToDeleteRows = false;
-            dgvCVF.AllowUserToResizeRows = false;
-            dgvCVF.AllowUserToResizeColumns = false;
-            dgvCVF.RowHeadersVisible = false;
+            dgvCVFE.EnableHeadersVisualStyles = false;
+            dgvCVFE.BorderStyle = BorderStyle.None;
+            dgvCVFE.BackgroundColor = Color.White;
+            dgvCVFE.GridColor = Color.FromArgb(235, 235, 235);
+            dgvCVFE.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvCVFE.ReadOnly = true;
+            dgvCVFE.MultiSelect = false;
+            dgvCVFE.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvCVFE.AllowUserToAddRows = false;
+            dgvCVFE.AllowUserToDeleteRows = false;
+            dgvCVFE.AllowUserToResizeRows = false;
+            dgvCVFE.AllowUserToResizeColumns = false;
+            dgvCVFE.RowHeadersVisible = false;
 
             //encabezado
-            dgvCVF.ColumnHeadersHeight = 50;
-            dgvCVF.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dgvCVF.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(46, 57, 75);
-            dgvCVF.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            dgvCVF.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-            dgvCVF.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvCVFE.ColumnHeadersHeight = 50;
+            dgvCVFE.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvCVFE.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(46, 57, 75);
+            dgvCVFE.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvCVFE.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            dgvCVFE.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             //filas
-            dgvCVF.RowTemplate.Height = 45;
-            dgvCVF.DefaultCellStyle.Font = new Font("Segoe UI", 10);
-            dgvCVF.DefaultCellStyle.ForeColor = Color.FromArgb(45, 45, 45);
-            dgvCVF.DefaultCellStyle.BackColor = Color.White;
-            dgvCVF.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(248, 249, 251);
-            dgvCVF.DefaultCellStyle.SelectionBackColor = Color.FromArgb(225, 235, 250);
-            dgvCVF.DefaultCellStyle.SelectionForeColor = Color.Black;
-            dgvCVF.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvCVF.DefaultCellStyle.Padding = new Padding(5);
+            dgvCVFE.RowTemplate.Height = 45;
+            dgvCVFE.DefaultCellStyle.Font = new Font("Segoe UI", 10);
+            dgvCVFE.DefaultCellStyle.ForeColor = Color.FromArgb(45, 45, 45);
+            dgvCVFE.DefaultCellStyle.BackColor = Color.White;
+            dgvCVFE.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(248, 249, 251);
+            dgvCVFE.DefaultCellStyle.SelectionBackColor = Color.FromArgb(225, 235, 250);
+            dgvCVFE.DefaultCellStyle.SelectionForeColor = Color.Black;
+            dgvCVFE.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvCVFE.DefaultCellStyle.Padding = new Padding(5);
 
             //columnas
-            dgvCVF.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvCVFE.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            dgvCVF.Columns["colCodigo"].FillWeight = 10;
-            dgvCVF.Columns["colFecha"].FillWeight = 12;
-            dgvCVF.Columns["colHora"].FillWeight = 10;
-            dgvCVF.Columns["colVendedor"].FillWeight = 16;
-            dgvCVF.Columns["colSucursal"].FillWeight = 14;
-            dgvCVF.Columns["colCliente"].FillWeight = 16;
-            dgvCVF.Columns["colSubtotal"].FillWeight = 12;
-            dgvCVF.Columns["colDescuento"].FillWeight = 12;
-            dgvCVF.Columns["colTotal"].FillWeight = 12;
-            dgvCVF.Columns["colEstado"].FillWeight = 10;
-            dgvCVF.Columns["colEditar"].FillWeight = 8;
-            dgvCVF.Columns["colEliminar"].FillWeight = 8;
+            dgvCVFE.Columns["colCodigo"].FillWeight = 10;
+            dgvCVFE.Columns["colFecha"].FillWeight = 12;
+            dgvCVFE.Columns["colHora"].FillWeight = 10;
+            dgvCVFE.Columns["colVendedor"].FillWeight = 16;
+            dgvCVFE.Columns["colSucursal"].FillWeight = 14;
+            dgvCVFE.Columns["colCliente"].FillWeight = 16;
+            dgvCVFE.Columns["colSubtotal"].FillWeight = 12;
+            dgvCVFE.Columns["colDescuento"].FillWeight = 12;
+            dgvCVFE.Columns["colTotal"].FillWeight = 12;
+            dgvCVFE.Columns["colEstado"].FillWeight = 10;
+            dgvCVFE.Columns["colEditar"].FillWeight = 8;
+            dgvCVFE.Columns["colEliminar"].FillWeight = 8;
 
-            DataGridViewImageColumn VerDetalle = (DataGridViewImageColumn)dgvCVF.Columns["colEditar"];
-            VerDetalle.Image = Properties.Resources.ojo; 
+            DataGridViewImageColumn VerDetalle = (DataGridViewImageColumn)dgvCVFE.Columns["colEditar"];
+            VerDetalle.Image = Properties.Resources.ojo;
             VerDetalle.ImageLayout = DataGridViewImageCellLayout.Zoom;
 
-            DataGridViewImageColumn eliminar = (DataGridViewImageColumn)dgvCVF.Columns["colEliminar"];
+            DataGridViewImageColumn eliminar = (DataGridViewImageColumn)dgvCVFE.Columns["colEliminar"];
             eliminar.Image = Properties.Resources.picEliminar;
             eliminar.ImageLayout = DataGridViewImageCellLayout.Zoom;
 
-            dtpCVDesde.MinDate = new DateTime(2026, 1, 1); // fecha razonable de inicio
-            dtpCVFechaHasta.MaxDate = DateTime.Today;            // siempre "hoy", se recalcula cada vez que se abre el form
-            dtpCVFechaHasta.MinDate = dtpCVDesde.MinDate;
-            dtpCVDesde.MaxDate = DateTime.Today;
+            dtpCVDesdeE.MinDate = new DateTime(2026, 1, 1); // fecha razonable de inicio
+            dtpCVFechaHastaE.MaxDate = DateTime.Today;            // siempre "hoy", se recalcula cada vez que se abre el form
+            dtpCVFechaHastaE.MinDate = dtpCVDesdeE.MinDate;
+            dtpCVDesdeE.MaxDate = DateTime.Today;
 
-            dtpCVDesde.Value = DateTime.Today;
-            dtpCVFechaHasta.Value = DateTime.Today;
+            dtpCVDesdeE.Value = DateTime.Today;
+            dtpCVFechaHastaE.Value = DateTime.Today;
 
-            dtpCVDesde.MaxDate = DateTime.Today;
-            dtpCVFechaHasta.MaxDate = DateTime.Today;
+            dtpCVDesdeE.MaxDate = DateTime.Today;
+            dtpCVFechaHastaE.MaxDate = DateTime.Today;
 
-            cbCVEstado.Items.Clear();
-            cbCVEstado.Items.Add("Todos");
-            cbCVEstado.Items.Add("Activo");
-            cbCVEstado.Items.Add("Anulado");
-            cbCVEstado.SelectedIndex = 0;
+            cbCVEstadoE.Items.Clear();
+            cbCVEstadoE.Items.Add("Todos");
+            cbCVEstadoE.Items.Add("Activo");
+            cbCVEstadoE.Items.Add("Anulado");
+            cbCVEstadoE.SelectedIndex = 0;
 
             Buscar();
 
@@ -134,18 +119,25 @@ namespace Derick
     "colEditar",
     "colEliminar"
 };
+            dtpCVDesdeE.Value = DateTime.Today;
+            dtpCVFechaHastaE.Value = DateTime.Today;
 
-            foreach (string columna in columnasCentro)
-            {
-                dgvCVF.Columns[columna].DefaultCellStyle.Alignment =
-                    DataGridViewContentAlignment.MiddleCenter;
-            }
+            dtpCVDesdeE.MaxDate = DateTime.Today;
+            dtpCVFechaHastaE.MaxDate = DateTime.Today;
+
+            cbCVEstadoE.Items.Clear();
+            cbCVEstadoE.Items.Add("Todos");
+            cbCVEstadoE.Items.Add("Activo");
+            cbCVEstadoE.Items.Add("Anulado");
+            cbCVEstadoE.SelectedIndex = 0;
+
+            Buscar();
         }
 
         private void Buscar()
         {
-            DateTime fechaDesde = dtpCVDesde.Value.Date;
-            DateTime fechaHasta = dtpCVFechaHasta.Value.Date;
+            DateTime fechaDesde = dtpCVDesdeE.Value.Date;
+            DateTime fechaHasta = dtpCVFechaHastaE.Value.Date;
 
             if (fechaDesde > fechaHasta)
             {
@@ -154,20 +146,21 @@ namespace Derick
             }
 
             string consulta = @"
-    SELECT V.IdVentas, V.Codigo, V.Fecha, V.Hora,
-           E.Nombres + ' ' + E.Apellidos AS Vendedor,
-           S.NombreSucursal AS Sucursal,
-           C.Nombres + ' ' + C.Apellidos AS Cliente,
-           V.Subtotal, V.Descuento, V.Total, V.Estado
-    FROM Ventas V
-    INNER JOIN Empleados E ON V.IdEmpleado = E.IdEmpleado
-    INNER JOIN Sucursales S ON V.IdSucursal = S.IdSucursal
-    INNER JOIN Clientes C ON V.IdCliente = C.IdCliente
-    WHERE V.Fecha BETWEEN '" + fechaDesde.ToString("yyyy-MM-dd") + "' AND '" + fechaHasta.ToString("yyyy-MM-dd") + "'";
+                SELECT V.IdVentas, V.Codigo, V.Fecha, V.Hora,
+                       E.Nombres + ' ' + E.Apellidos AS Vendedor,
+                       S.NombreSucursal AS Sucursal,
+                       C.Nombres + ' ' + C.Apellidos AS Cliente,
+                       V.Subtotal, V.Descuento, V.Total, V.Estado
+                FROM Ventas V
+                INNER JOIN Empleados E ON V.IdEmpleado = E.IdEmpleado
+                INNER JOIN Sucursales S ON V.IdSucursal = S.IdSucursal
+                INNER JOIN Clientes C ON V.IdCliente = C.IdCliente
+                WHERE V.Fecha BETWEEN '" + fechaDesde.ToString("yyyy-MM-dd") + "' AND '" + fechaHasta.ToString("yyyy-MM-dd") + @"'
+                AND V.IdSucursal = " + idSucursalSesion;
 
-            if (cbCVEstado.SelectedItem != null)
+            if (cbCVEstadoE.SelectedItem != null)
             {
-                string estado = cbCVEstado.SelectedItem.ToString();
+                string estado = cbCVEstadoE.SelectedItem.ToString();
 
                 if (estado == "Activo")
                 {
@@ -184,14 +177,14 @@ namespace Derick
 
             DataTable dt = conexion.RetornaRegistros(consulta);
 
-            dgvCVF.Rows.Clear();
+            dgvCVFE.Rows.Clear();
 
             if (dt == null) return;
 
             foreach (DataRow fila in dt.Rows)
             {
-                int posicion = dgvCVF.Rows.Add();
-                DataGridViewRow row = dgvCVF.Rows[posicion];
+                int posicion = dgvCVFE.Rows.Add();
+                DataGridViewRow row = dgvCVFE.Rows[posicion];
 
                 row.Tag = Convert.ToInt32(fila["IdVentas"]);
                 row.Cells["colCodigo"].Value = fila["Codigo"].ToString();
@@ -208,6 +201,7 @@ namespace Derick
                 row.Cells["colEstado"].Value = estado ? "Activo" : "Anulado";
             }
         }
+
         private void btnCVBuscar_Click(object sender, EventArgs e)
         {
             Buscar();
@@ -215,24 +209,22 @@ namespace Derick
 
         private void btnCVLimpiar_Click(object sender, EventArgs e)
         {
-            dtpCVDesde.Value = DateTime.Today;
-            dtpCVFechaHasta.Value = DateTime.Today;
-            cbCVEstado.SelectedIndex = 0;
+            dtpCVDesdeE.Value = DateTime.Today;
+            dtpCVFechaHastaE.Value = DateTime.Today;
+            cbCVEstadoE.SelectedIndex = 0;
             Buscar();
         }
+
         private void dgvCVF_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0 || e.ColumnIndex < 0)
-            {
-                return;
-            }
+            if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
 
-            string columna = dgvCVF.Columns[e.ColumnIndex].Name;
-            int idVenta = Convert.ToInt32(dgvCVF.Rows[e.RowIndex].Tag);
+            string columna = dgvCVFE.Columns[e.ColumnIndex].Name;
+            int idVenta = Convert.ToInt32(dgvCVFE.Rows[e.RowIndex].Tag);
 
             if (columna == "colEliminar")
             {
-                string estadoActual = dgvCVF.Rows[e.RowIndex].Cells["colEstado"].Value.ToString();
+                string estadoActual = dgvCVFE.Rows[e.RowIndex].Cells["colEstado"].Value.ToString();
 
                 if (estadoActual == "Anulado")
                 {
@@ -241,7 +233,7 @@ namespace Derick
                 }
 
                 DialogResult resultado = MessageBox.Show(
-                    "¿Anular esta venta? Se devolverá el stock de los productos al inventario.",
+                    "¿Anular esta venta?",
                     "Anular venta",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Warning);
@@ -267,6 +259,7 @@ namespace Derick
                 VerDetalleVenta(idVenta);
             }
         }
+
         private bool AnularVenta(int idVenta)
         {
             string sqlAnular = "UPDATE Ventas SET Estado = 0 WHERE IdVentas = @IdVenta";
@@ -275,13 +268,14 @@ namespace Derick
                 new SqlParameter("@IdVenta", idVenta)
             );
         }
+
         private void VerDetalleVenta(int idVenta)
         {
             string consulta = @"
-        SELECT P.Nombre, D.Cantidad, D.PrecioUnitario, D.Subtotal
-        FROM DetalleVenta D
-        INNER JOIN Productos P ON D.IdProducto = P.IdProductos
-        WHERE D.IdVenta = " + idVenta;
+                SELECT P.Nombre, D.Cantidad, D.PrecioUnitario, D.Subtotal
+                FROM DetalleVenta D
+                INNER JOIN Productos P ON D.IdProducto = P.IdProductos
+                WHERE D.IdVenta = " + idVenta;
 
             DataTable dt = conexion.RetornaRegistros(consulta);
 
@@ -300,15 +294,16 @@ namespace Derick
 
             MessageBox.Show(detalle, "Detalle de venta");
         }
+
         private void btnCVImprimir_Click(object sender, EventArgs e)
         {
-            if (dgvCVF.SelectedRows.Count == 0)
+            if (dgvCVFE.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Seleccione una venta para imprimir.");
                 return;
             }
 
-            idVentaImprimir = Convert.ToInt32(dgvCVF.SelectedRows[0].Tag);
+            idVentaImprimir = Convert.ToInt32(dgvCVFE.SelectedRows[0].Tag);
 
             PrintDocument documento = new PrintDocument();
             documento.PrintPage += Documento_PrintPage;
@@ -329,17 +324,16 @@ namespace Derick
 
             int y = 40;
 
-            // Datos de la venta (encabezado)
             string consultaVenta = @"
-        SELECT V.Codigo, V.Fecha, V.Hora,
-               E.Nombres + ' ' + E.Apellidos AS Vendedor,
-               S.NombreSucursal, C.Nombres + ' ' + C.Apellidos AS Cliente,
-               V.Subtotal, V.Descuento, V.IVA, V.Total, V.MetodoPago
-        FROM Ventas V
-        INNER JOIN Empleados E ON V.IdEmpleado = E.IdEmpleado
-        INNER JOIN Sucursales S ON V.IdSucursal = S.IdSucursal
-        INNER JOIN Clientes C ON V.IdCliente = C.IdCliente
-        WHERE V.IdVentas = " + idVentaImprimir;
+                SELECT V.Codigo, V.Fecha, V.Hora,
+                       E.Nombres + ' ' + E.Apellidos AS Vendedor,
+                       S.NombreSucursal, C.Nombres + ' ' + C.Apellidos AS Cliente,
+                       V.Subtotal, V.Descuento, V.IVA, V.Total, V.MetodoPago
+                FROM Ventas V
+                INNER JOIN Empleados E ON V.IdEmpleado = E.IdEmpleado
+                INNER JOIN Sucursales S ON V.IdSucursal = S.IdSucursal
+                INNER JOIN Clientes C ON V.IdCliente = C.IdCliente
+                WHERE V.IdVentas = " + idVentaImprimir;
 
             DataTable dtVenta = conexion.RetornaRegistros(consultaVenta);
 
@@ -363,7 +357,6 @@ namespace Derick
             g.DrawString("Método de pago: " + venta["MetodoPago"], fuenteNormal, Brushes.Black, 40, y);
             y += 40;
 
-            // Encabezado de la tabla de productos
             g.DrawString("Producto", fuenteNegrita, Brushes.Black, 40, y);
             g.DrawString("Cant.", fuenteNegrita, Brushes.Black, 280, y);
             g.DrawString("Precio", fuenteNegrita, Brushes.Black, 350, y);
@@ -373,10 +366,10 @@ namespace Derick
             y += 10;
 
             string consultaDetalle = @"
-        SELECT P.Nombre, D.Cantidad, D.PrecioUnitario, D.Subtotal
-        FROM DetalleVenta D
-        INNER JOIN Productos P ON D.IdProducto = P.IdProductos
-        WHERE D.IdVenta = " + idVentaImprimir;
+                SELECT P.Nombre, D.Cantidad, D.PrecioUnitario, D.Subtotal
+                FROM DetalleVenta D
+                INNER JOIN Productos P ON D.IdProducto = P.IdProductos
+                WHERE D.IdVenta = " + idVentaImprimir;
 
             DataTable dtDetalle = conexion.RetornaRegistros(consultaDetalle);
 
@@ -403,6 +396,20 @@ namespace Derick
             g.DrawString("IVA: $" + Convert.ToDecimal(venta["IVA"]).ToString("0.00"), fuenteNormal, Brushes.Black, 350, y);
             y += 20;
             g.DrawString("Total: $" + Convert.ToDecimal(venta["Total"]).ToString("0.00"), fuenteNegrita, Brushes.Black, 350, y);
+        }
+
+        private void btnCE_Click(object sender, EventArgs e)
+        {
+            FrmVentasE frmVenta = new FrmVentasE();
+            frmVenta.idEmpleadoSesion = idEmpleadoSesion;
+            frmVenta.idSucursalSesion = idSucursalSesion;
+            frmVenta.nombreVendedorSesion = nombreVendedorSesion;
+            frmVenta.nombreSucursalSesion = nombreSucursalSesion;
+
+            if (frmVenta.ShowDialog() == DialogResult.OK)
+            {
+                Buscar();
+            }
         }
     }
 }

@@ -99,6 +99,8 @@
             lblNVR = new Label();
             lblVN = new Label();
             picNVR = new PictureBox();
+            lblIVA = new Label();
+            lblNVIVA = new Label();
             pnlNV.SuspendLayout();
             pnlNVRV.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudNVD).BeginInit();
@@ -135,6 +137,8 @@
             // 
             pnlNVRV.BackColor = Color.White;
             pnlNVRV.BorderStyle = BorderStyle.FixedSingle;
+            pnlNVRV.Controls.Add(lblNVIVA);
+            pnlNVRV.Controls.Add(lblIVA);
             pnlNVRV.Controls.Add(cbNVMP);
             pnlNVRV.Controls.Add(lblNVMP);
             pnlNVRV.Controls.Add(lblNVTotalPagar);
@@ -155,7 +159,7 @@
             // cbNVMP
             // 
             cbNVMP.FormattingEnabled = true;
-            cbNVMP.Location = new Point(149, 112);
+            cbNVMP.Location = new Point(149, 102);
             cbNVMP.Margin = new Padding(3, 2, 3, 2);
             cbNVMP.Name = "cbNVMP";
             cbNVMP.Size = new Size(142, 23);
@@ -165,7 +169,7 @@
             // 
             lblNVMP.AutoSize = true;
             lblNVMP.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblNVMP.Location = new Point(17, 112);
+            lblNVMP.Location = new Point(17, 105);
             lblNVMP.Name = "lblNVMP";
             lblNVMP.Size = new Size(116, 18);
             lblNVMP.TabIndex = 43;
@@ -176,7 +180,7 @@
             // 
             lblNVTotalPagar.AutoSize = true;
             lblNVTotalPagar.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblNVTotalPagar.Location = new Point(242, 142);
+            lblNVTotalPagar.Location = new Point(242, 150);
             lblNVTotalPagar.Name = "lblNVTotalPagar";
             lblNVTotalPagar.Size = new Size(49, 18);
             lblNVTotalPagar.TabIndex = 42;
@@ -186,7 +190,7 @@
             // 
             lblNVTotal.AutoSize = true;
             lblNVTotal.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblNVTotal.Location = new Point(17, 142);
+            lblNVTotal.Location = new Point(197, 128);
             lblNVTotal.Name = "lblNVTotal";
             lblNVTotal.Size = new Size(94, 18);
             lblNVTotal.TabIndex = 40;
@@ -195,7 +199,7 @@
             // nudNVD
             // 
             nudNVD.DecimalPlaces = 2;
-            nudNVD.Location = new Point(160, 83);
+            nudNVD.Location = new Point(160, 74);
             nudNVD.Margin = new Padding(3, 2, 3, 2);
             nudNVD.Name = "nudNVD";
             nudNVD.Size = new Size(131, 23);
@@ -217,7 +221,7 @@
             lblR9.AutoSize = true;
             lblR9.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblR9.ForeColor = Color.Red;
-            lblR9.Location = new Point(127, 115);
+            lblR9.Location = new Point(127, 103);
             lblR9.Name = "lblR9";
             lblR9.Size = new Size(16, 20);
             lblR9.TabIndex = 37;
@@ -227,7 +231,7 @@
             // 
             lblNVDescuento.AutoSize = true;
             lblNVDescuento.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblNVDescuento.Location = new Point(17, 83);
+            lblNVDescuento.Location = new Point(17, 77);
             lblNVDescuento.Name = "lblNVDescuento";
             lblNVDescuento.Size = new Size(80, 18);
             lblNVDescuento.TabIndex = 36;
@@ -919,6 +923,26 @@
             picNVR.TabIndex = 2;
             picNVR.TabStop = false;
             // 
+            // lblIVA
+            // 
+            lblIVA.AutoSize = true;
+            lblIVA.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblIVA.Location = new Point(17, 128);
+            lblIVA.Name = "lblIVA";
+            lblIVA.Size = new Size(29, 18);
+            lblIVA.TabIndex = 45;
+            lblIVA.Text = "IVA";
+            // 
+            // lblNVIVA
+            // 
+            lblNVIVA.AutoSize = true;
+            lblNVIVA.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblNVIVA.Location = new Point(17, 150);
+            lblNVIVA.Name = "lblNVIVA";
+            lblNVIVA.Size = new Size(49, 18);
+            lblNVIVA.TabIndex = 46;
+            lblNVIVA.Text = "$0.00";
+            // 
             // FrmVentasN
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1033,5 +1057,7 @@
         private Label lblNVColor;
         private Label lblNVTalla;
         private ComboBox cbNVTalla;
+        private Label lblNVIVA;
+        private Label lblIVA;
     }
 }
