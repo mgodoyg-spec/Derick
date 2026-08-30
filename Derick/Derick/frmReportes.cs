@@ -6,7 +6,9 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using Microsoft.Reporting.WinForms;
+using System.Drawing.Printing;
 using System.Linq;
+
 namespace Derick
 {
     public partial class frmReportes : Form
@@ -16,6 +18,12 @@ namespace Derick
             InitializeComponent();
             reportViewer1.Dock = DockStyle.Fill;
             panel2.Controls.Add(reportViewer1);
+            PageSettings pagina = new PageSettings();
+            pagina.Landscape = true;
+            pagina.PaperSize = new PaperSize("A4", 1169, 827);
+            pagina.Margins = new Margins(20, 20, 20, 20);
+
+            reportViewer1.SetPageSettings(pagina);
         }
 
         private void lblSalirV_Click(object sender, EventArgs e)
@@ -26,28 +34,36 @@ namespace Derick
                 "Confirmar salida",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
+
             if (respuesta == DialogResult.Yes)
             {
                 Application.Exit();
             }
         }
+
         private void CargarSucursales()
         {
             csConectaSQL oconSQL = new csConectaSQL();
+
             string cadena =
                 "select IdSucursal, NombreSucursal " +
                 "from Sucursales " +
                 "where Estado = 'Activa' " +
                 "order by NombreSucursal";
+
             DataTable dt = oconSQL.RetornaRegistros(cadena);
+
             DataRow fila = dt.NewRow();
             fila["IdSucursal"] = 0;
             fila["NombreSucursal"] = "Todas las sucursales";
+
             dt.Rows.InsertAt(fila, 0);
+
             cmbSucursal.DataSource = dt;
             cmbSucursal.DisplayMember = "NombreSucursal";
             cmbSucursal.ValueMember = "IdSucursal";
         }
+
         private void btnGenerarR_Click(object sender, EventArgs e)
         {
             csConectaSQL oconSQL = new csConectaSQL();
@@ -56,9 +72,14 @@ namespace Derick
 
             reportViewer1.LocalReport.DataSources.Clear();
 
-            string fechaInicio = dtpFechaInicio.Value.ToString("yyyyMMdd");
-            string fechaFin = dtpFechaFin.Value.AddDays(1).ToString("yyyyMMdd");
-            int idSucursal = Convert.ToInt32(cmbSucursal.SelectedValue);
+            string fechaInicio =
+                dtpFechaInicio.Value.ToString("yyyyMMdd");
+
+            string fechaFin =
+                dtpFechaFin.Value.AddDays(1).ToString("yyyyMMdd");
+
+            int idSucursal =
+                Convert.ToInt32(cmbSucursal.SelectedValue);
 
             string cadena = "";
 
@@ -66,6 +87,7 @@ namespace Derick
             {
                 reportViewer1.LocalReport.ReportEmbeddedResource =
                     "Derick.rptProductosMasVendidos.rdlc";
+
                 cadena =
                     "select P.Codigo as CodProducto, " +
                     "P.Nombre as NomProducto, " +
@@ -83,7 +105,9 @@ namespace Derick
 
                 if (cmbSucursal.Text != "Todas las sucursales")
                 {
-                    cadena += "and V.IdSucursal = " + cmbSucursal.SelectedValue + " ";
+                    cadena +=
+                        "and V.IdSucursal = " +
+                        cmbSucursal.SelectedValue + " ";
                 }
 
                 cadena +=
@@ -92,7 +116,10 @@ namespace Derick
 
                 dt = oconSQL.RetornaRegistros(cadena);
 
-                dataset = new ReportDataSource("dsProductosMasVendidos", dt);
+                dataset = new ReportDataSource(
+                    "dsProductosMasVendidos",
+                    dt
+                );
             }
             else if (cmbTipoReporte.Text == "Ventas por categoría")
             {
@@ -100,12 +127,14 @@ namespace Derick
                     "Derick.rptVentasPorCategoria.rdlc";
 
                 cadena =
-                    "select C.IdCategoria, C.Nombre as Categoria, " +
+                    "select C.IdCategoria, " +
+                    "C.Nombre as Categoria, " +
                     "sum(D.Cantidad) as Cantidad, " +
                     "sum(D.PrecioUnitario * D.Cantidad) as Subtotal, " +
                     "sum(D.Descuento) as Descuento, " +
                     "sum(D.Subtotal) as Total " +
-                    "from Ventas V inner join DetalleVenta D on V.IdVentas = D.IdVenta " +
+                    "from Ventas V " +
+                    "inner join DetalleVenta D on V.IdVentas = D.IdVenta " +
                     "inner join Productos P on D.IdProducto = P.IdProductos " +
                     "inner join Categorias C on P.IdCategoria = C.IdCategoria " +
                     "where V.Fecha >= '" + fechaInicio + "' " +
@@ -113,7 +142,9 @@ namespace Derick
 
                 if (cmbSucursal.Text != "Todas las sucursales")
                 {
-                    cadena += "and V.IdSucursal = " + cmbSucursal.SelectedValue + " ";
+                    cadena +=
+                        "and V.IdSucursal = " +
+                        cmbSucursal.SelectedValue + " ";
                 }
 
                 cadena +=
@@ -122,7 +153,10 @@ namespace Derick
 
                 dt = oconSQL.RetornaRegistros(cadena);
 
-                dataset = new ReportDataSource("dsVentasPorCategoria", dt);
+                dataset = new ReportDataSource(
+                    "dsVentasPorCategoria",
+                    dt
+                );
             }
             else if (cmbTipoReporte.Text == "Ventas por empleado")
             {
@@ -136,7 +170,8 @@ namespace Derick
                     "sum(D.Cantidad) as CantidadVendida, " +
                     "count(distinct V.IdVentas) as VentasRealizadas, " +
                     "sum(D.Subtotal) as Total " +
-                    "from Ventas V inner join Empleados E on V.IdEmpleado = E.IdEmpleado " +
+                    "from Ventas V " +
+                    "inner join Empleados E on V.IdEmpleado = E.IdEmpleado " +
                     "inner join DetalleVenta D on V.IdVentas = D.IdVenta " +
                     "inner join Sucursales S on V.IdSucursal = S.IdSucursal " +
                     "where V.Fecha >= '" + fechaInicio + "' " +
@@ -144,7 +179,9 @@ namespace Derick
 
                 if (cmbSucursal.Text != "Todas las sucursales")
                 {
-                    cadena += "and V.IdSucursal = " + cmbSucursal.SelectedValue + " ";
+                    cadena +=
+                        "and V.IdSucursal = " +
+                        cmbSucursal.SelectedValue + " ";
                 }
 
                 cadena +=
@@ -153,20 +190,25 @@ namespace Derick
 
                 dt = oconSQL.RetornaRegistros(cadena);
 
-                dataset = new ReportDataSource("dsVentasPorEmpleado", dt);
+                dataset = new ReportDataSource(
+                    "dsVentasPorEmpleado",
+                    dt
+                );
             }
             else if (cmbTipoReporte.Text == "Ventas por sucursal")
             {
                 reportViewer1.LocalReport.ReportEmbeddedResource =
-                "Derick.rptVentasPorSucursal.rdlc";
+                    "Derick.rptVentasPorSucursal.rdlc";
 
-                cadena = "select S.Codigo, " +
+                cadena =
+                    "select S.Codigo, " +
                     "S.NombreSucursal as Sucursal, " +
                     "S.Ciudad, " +
                     "sum(D.Cantidad) as CantidadVendida, " +
                     "count(distinct V.IdVentas) as VentasRealizadas, " +
                     "sum(D.Subtotal) as Total " +
-                    "from Ventas V inner join Sucursales S on V.IdSucursal = S.IdSucursal " +
+                    "from Ventas V " +
+                    "inner join Sucursales S on V.IdSucursal = S.IdSucursal " +
                     "inner join DetalleVenta D on V.IdVentas = D.IdVenta " +
                     "where V.Fecha >= '" + fechaInicio + "' " +
                     "and V.Fecha < '" + fechaFin + "' " +
@@ -175,7 +217,10 @@ namespace Derick
 
                 dt = oconSQL.RetornaRegistros(cadena);
 
-                dataset = new ReportDataSource("dtVentasPorSucursal", dt);
+                dataset = new ReportDataSource(
+                    "dtVentasPorSucursal",
+                    dt
+                );
             }
             else if (cmbTipoReporte.Text == "Detalle de ventas")
             {
@@ -188,12 +233,13 @@ namespace Derick
                     "C.Nombres + ' ' + C.Apellidos as Cliente, " +
                     "E.Nombres + ' ' + E.Apellidos as Empleado, " +
                     "S.NombreSucursal as Sucursal, " +
-                    "V.MetodoPago, " +
+                    "V.MetodoPago as MetodoPgo, " +
                     "sum(D.PrecioUnitario * D.Cantidad) as Subtotal, " +
                     "V.Descuento, " +
                     "V.IVA, " +
                     "V.Total " +
-                    "from Ventas V inner join Clientes C on V.IdCliente = C.IdCliente " +
+                    "from Ventas V " +
+                    "inner join Clientes C on V.IdCliente = C.IdCliente " +
                     "inner join Empleados E on V.IdEmpleado = E.IdEmpleado " +
                     "inner join Sucursales S on V.IdSucursal = S.IdSucursal " +
                     "inner join DetalleVenta D on V.IdVentas = D.IdVenta " +
@@ -202,7 +248,9 @@ namespace Derick
 
                 if (cmbSucursal.Text != "Todas las sucursales")
                 {
-                    cadena += "and V.IdSucursal = " + cmbSucursal.SelectedValue + " ";
+                    cadena +=
+                        "and V.IdSucursal = " +
+                        cmbSucursal.SelectedValue + " ";
                 }
 
                 cadena +=
@@ -213,7 +261,10 @@ namespace Derick
 
                 dt = oconSQL.RetornaRegistros(cadena);
 
-                dataset = new ReportDataSource("dsDetalleVentas", dt);
+                dataset = new ReportDataSource(
+                    "dsDetalleVentas",
+                    dt
+                );
             }
 
             reportViewer1.LocalReport.DataSources.Add(dataset);
@@ -225,9 +276,12 @@ namespace Derick
             CargarSucursales();
         }
 
-        private void cmbTipoReporte_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbTipoReporte_SelectedIndexChanged(
+            object sender,
+            EventArgs e)
         {
-            if (cmbTipoReporte.Text == "Ventas por empleado" || cmbTipoReporte.Text == "Ventas por sucursal")
+            if (cmbTipoReporte.Text == "Ventas por empleado" ||
+                cmbTipoReporte.Text == "Ventas por sucursal")
             {
                 cmbSucursal.SelectedIndex = -1;
                 cmbSucursal.Enabled = false;
@@ -237,7 +291,9 @@ namespace Derick
                 cmbSucursal.Enabled = true;
 
                 if (cmbSucursal.Items.Count > 0)
+                {
                     cmbSucursal.SelectedIndex = 0;
+                }
             }
         }
 
@@ -249,7 +305,9 @@ namespace Derick
             dtpFechaFin.Value = DateTime.Now;
 
             if (cmbSucursal.Items.Count > 0)
+            {
                 cmbSucursal.SelectedIndex = 0;
+            }
 
             reportViewer1.Clear();
         }
