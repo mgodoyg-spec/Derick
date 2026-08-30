@@ -3,16 +3,20 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq; 
 using System.Text;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Derick
 {
     public partial class InicioGerente : Form
     {
-        public InicioGerente()
+        FrmMenuPrincipal menu;
+        public InicioGerente(FrmMenuPrincipal menuPrincipal)
         {
             InitializeComponent();
+            menu = menuPrincipal;
         }
 
         private void lblSalir_Click(object sender, EventArgs e)
@@ -56,6 +60,22 @@ namespace Derick
            .ToString("dd MMM yyyy")
            .ToUpper();
             lblHora.Text = DateTime.Now.ToString("HH:mm:ss");
+        }
+
+        private void btnAgregarProducto_Click(object sender, EventArgs e)
+        {
+            FormAgg_Product frm = new FormAgg_Product();
+            frm.ShowDialog();
+        }
+
+        private void btnVerSucursales_Click(object sender, EventArgs e)
+        {
+            menu.AbrirFormulario(new frmSucursales());
+        }
+
+        private void btnVerEmpleados_Click(object sender, EventArgs e)
+        {
+            menu.AbrirFormulario(new FrmEmple());
         }
     }
 }

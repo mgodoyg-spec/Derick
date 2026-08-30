@@ -877,6 +877,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormAgg_Product";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormAgg_Product";
             Load += FormAgg_Product_Load;
             pnlcont1.ResumeLayout(false);
