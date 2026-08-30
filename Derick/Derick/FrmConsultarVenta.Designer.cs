@@ -33,17 +33,6 @@
             pnlCVF = new Panel();
             btnCVImprimir = new Button();
             dgvCVF = new DataGridView();
-            colCodigo = new DataGridViewTextBoxColumn();
-            colFecha = new DataGridViewTextBoxColumn();
-            colHora = new DataGridViewTextBoxColumn();
-            colVendedor = new DataGridViewTextBoxColumn();
-            colSucursal = new DataGridViewTextBoxColumn();
-            colSubtotal = new DataGridViewTextBoxColumn();
-            colDescuento = new DataGridViewTextBoxColumn();
-            colTotal = new DataGridViewTextBoxColumn();
-            colEstado = new DataGridViewTextBoxColumn();
-            colEditar = new DataGridViewImageColumn();
-            colEliminar = new DataGridViewImageColumn();
             lblCVR = new Label();
             pic_agg1 = new PictureBox();
             lblCV = new Label();
@@ -62,6 +51,18 @@
             pnlCVR = new Panel();
             button1 = new Button();
             lblSalirCV = new Label();
+            colCodigo = new DataGridViewTextBoxColumn();
+            colFecha = new DataGridViewTextBoxColumn();
+            colHora = new DataGridViewTextBoxColumn();
+            colVendedor = new DataGridViewTextBoxColumn();
+            colSucursal = new DataGridViewTextBoxColumn();
+            colCliente = new DataGridViewTextBoxColumn();
+            colSubtotal = new DataGridViewTextBoxColumn();
+            colDescuento = new DataGridViewTextBoxColumn();
+            colTotal = new DataGridViewTextBoxColumn();
+            colEstado = new DataGridViewTextBoxColumn();
+            colEditar = new DataGridViewImageColumn();
+            colEliminar = new DataGridViewImageColumn();
             pnlCV.SuspendLayout();
             pnlCVF.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCVF).BeginInit();
@@ -122,7 +123,7 @@
             dgvCVF.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvCVF.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dgvCVF.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCVF.Columns.AddRange(new DataGridViewColumn[] { colCodigo, colFecha, colHora, colVendedor, colSucursal, colSubtotal, colDescuento, colTotal, colEstado, colEditar, colEliminar });
+            dgvCVF.Columns.AddRange(new DataGridViewColumn[] { colCodigo, colFecha, colHora, colVendedor, colSucursal, colCliente, colSubtotal, colDescuento, colTotal, colEstado, colEditar, colEliminar });
             dgvCVF.Location = new Point(17, 47);
             dgvCVF.Margin = new Padding(3, 2, 3, 2);
             dgvCVF.MultiSelect = false;
@@ -134,87 +135,6 @@
             dgvCVF.Size = new Size(1082, 391);
             dgvCVF.TabIndex = 15;
             dgvCVF.CellClick += dgvCVF_CellClick;
-            // 
-            // colCodigo
-            // 
-            colCodigo.HeaderText = "Código";
-            colCodigo.MinimumWidth = 6;
-            colCodigo.Name = "colCodigo";
-            colCodigo.ReadOnly = true;
-            // 
-            // colFecha
-            // 
-            colFecha.HeaderText = "Fecha";
-            colFecha.MinimumWidth = 6;
-            colFecha.Name = "colFecha";
-            colFecha.ReadOnly = true;
-            // 
-            // colHora
-            // 
-            colHora.HeaderText = "Hora";
-            colHora.MinimumWidth = 6;
-            colHora.Name = "colHora";
-            colHora.ReadOnly = true;
-            // 
-            // colVendedor
-            // 
-            colVendedor.HeaderText = "Vendedor";
-            colVendedor.MinimumWidth = 6;
-            colVendedor.Name = "colVendedor";
-            colVendedor.ReadOnly = true;
-            // 
-            // colSucursal
-            // 
-            colSucursal.HeaderText = "Sucursal";
-            colSucursal.MinimumWidth = 6;
-            colSucursal.Name = "colSucursal";
-            colSucursal.ReadOnly = true;
-            // 
-            // colSubtotal
-            // 
-            colSubtotal.HeaderText = "Subtotal";
-            colSubtotal.MinimumWidth = 6;
-            colSubtotal.Name = "colSubtotal";
-            colSubtotal.ReadOnly = true;
-            // 
-            // colDescuento
-            // 
-            colDescuento.HeaderText = "Descuento";
-            colDescuento.MinimumWidth = 6;
-            colDescuento.Name = "colDescuento";
-            colDescuento.ReadOnly = true;
-            // 
-            // colTotal
-            // 
-            colTotal.HeaderText = "Total";
-            colTotal.MinimumWidth = 6;
-            colTotal.Name = "colTotal";
-            colTotal.ReadOnly = true;
-            // 
-            // colEstado
-            // 
-            colEstado.HeaderText = "Estado";
-            colEstado.MinimumWidth = 6;
-            colEstado.Name = "colEstado";
-            colEstado.ReadOnly = true;
-            // 
-            // colEditar
-            // 
-            colEditar.HeaderText = "Ver más";
-            colEditar.MinimumWidth = 6;
-            colEditar.Name = "colEditar";
-            colEditar.ReadOnly = true;
-            colEditar.Resizable = DataGridViewTriState.True;
-            colEditar.SortMode = DataGridViewColumnSortMode.Automatic;
-            // 
-            // colEliminar
-            // 
-            colEliminar.HeaderText = "Anular";
-            colEliminar.MinimumWidth = 6;
-            colEliminar.Name = "colEliminar";
-            colEliminar.ReadOnly = true;
-            colEliminar.Resizable = DataGridViewTriState.True;
-            colEliminar.SortMode = DataGridViewColumnSortMode.Automatic;
             // 
             // lblCVR
             // 
@@ -434,6 +354,93 @@
             lblSalirCV.Text = "X";
             lblSalirCV.Click += lblSalirCV_Click;
             // 
+            // colCodigo
+            // 
+            colCodigo.HeaderText = "Código";
+            colCodigo.MinimumWidth = 6;
+            colCodigo.Name = "colCodigo";
+            colCodigo.ReadOnly = true;
+            // 
+            // colFecha
+            // 
+            colFecha.HeaderText = "Fecha";
+            colFecha.MinimumWidth = 6;
+            colFecha.Name = "colFecha";
+            colFecha.ReadOnly = true;
+            // 
+            // colHora
+            // 
+            colHora.HeaderText = "Hora";
+            colHora.MinimumWidth = 6;
+            colHora.Name = "colHora";
+            colHora.ReadOnly = true;
+            // 
+            // colVendedor
+            // 
+            colVendedor.HeaderText = "Vendedor";
+            colVendedor.MinimumWidth = 6;
+            colVendedor.Name = "colVendedor";
+            colVendedor.ReadOnly = true;
+            // 
+            // colSucursal
+            // 
+            colSucursal.HeaderText = "Sucursal";
+            colSucursal.MinimumWidth = 6;
+            colSucursal.Name = "colSucursal";
+            colSucursal.ReadOnly = true;
+            // 
+            // colCliente
+            // 
+            colCliente.HeaderText = "Cliente";
+            colCliente.Name = "colCliente";
+            colCliente.ReadOnly = true;
+            // 
+            // colSubtotal
+            // 
+            colSubtotal.HeaderText = "Subtotal";
+            colSubtotal.MinimumWidth = 6;
+            colSubtotal.Name = "colSubtotal";
+            colSubtotal.ReadOnly = true;
+            // 
+            // colDescuento
+            // 
+            colDescuento.HeaderText = "Descuento";
+            colDescuento.MinimumWidth = 6;
+            colDescuento.Name = "colDescuento";
+            colDescuento.ReadOnly = true;
+            // 
+            // colTotal
+            // 
+            colTotal.HeaderText = "Total";
+            colTotal.MinimumWidth = 6;
+            colTotal.Name = "colTotal";
+            colTotal.ReadOnly = true;
+            // 
+            // colEstado
+            // 
+            colEstado.HeaderText = "Estado";
+            colEstado.MinimumWidth = 6;
+            colEstado.Name = "colEstado";
+            colEstado.ReadOnly = true;
+            // 
+            // colEditar
+            // 
+            colEditar.HeaderText = "Ver más";
+            colEditar.MinimumWidth = 6;
+            colEditar.Name = "colEditar";
+            colEditar.ReadOnly = true;
+            colEditar.Resizable = DataGridViewTriState.True;
+            colEditar.SortMode = DataGridViewColumnSortMode.Automatic;
+            // 
+            // colEliminar
+            // 
+            colEliminar.HeaderText = "Anular";
+            colEliminar.MinimumWidth = 6;
+            colEliminar.Name = "colEliminar";
+            colEliminar.ReadOnly = true;
+            colEliminar.Resizable = DataGridViewTriState.True;
+            colEliminar.SortMode = DataGridViewColumnSortMode.Automatic;
+            // 
             // FrmConsultarVenta
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -519,6 +526,7 @@
         private DataGridViewTextBoxColumn colHora;
         private DataGridViewTextBoxColumn colVendedor;
         private DataGridViewTextBoxColumn colSucursal;
+        private DataGridViewTextBoxColumn colCliente;
         private DataGridViewTextBoxColumn colSubtotal;
         private DataGridViewTextBoxColumn colDescuento;
         private DataGridViewTextBoxColumn colTotal;

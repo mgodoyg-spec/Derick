@@ -40,6 +40,9 @@
     <Compile Update="frmBuscarSucursal.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FrmConsultarVE.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FrmConsultarVenta.cs">
       <SubType>Form</SubType>
     </Compile>

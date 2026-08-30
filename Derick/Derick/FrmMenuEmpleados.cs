@@ -11,6 +11,9 @@ namespace Derick
     public partial class FrmMenuEmpleados : Form
     {
         public string usuarioActual;
+        public int idUsuarioActual;
+        public int idEmpleadoActual;
+        public int idSucursalActual;
         private Form? formularioActivo;
         public FrmMenuEmpleados()
         {
@@ -85,7 +88,28 @@ namespace Derick
         private void btnventas_Click(object sender, EventArgs e)
         {
             csBotonActivo.MarcarBotonActivo(pnlIndicador, btnventas);
-            csNavegacion.AbrirFormulario(pnlMostrarForm, ref formularioActivo, new FrmVentasE());
+
+            FrmConsultarVE frmConsulta = new FrmConsultarVE();
+            frmConsulta.idEmpleadoSesion = idEmpleadoActual;
+            frmConsulta.idSucursalSesion = idSucursalActual;
+
+            csConectaSQL conexion = new csConectaSQL();
+
+            string consultaEmpleado = "SELECT Nombres + ' ' + Apellidos AS NombreCompleto FROM Empleados WHERE IdEmpleado = " + idEmpleadoActual;
+            DataTable dtEmpleado = conexion.RetornaRegistros(consultaEmpleado);
+            if (dtEmpleado != null && dtEmpleado.Rows.Count > 0)
+            {
+                frmConsulta.nombreVendedorSesion = dtEmpleado.Rows[0]["NombreCompleto"].ToString();
+            }
+
+            string consultaSucursal = "SELECT NombreSucursal FROM Sucursales WHERE IdSucursal = " + idSucursalActual;
+            DataTable dtSucursal = conexion.RetornaRegistros(consultaSucursal);
+            if (dtSucursal != null && dtSucursal.Rows.Count > 0)
+            {
+                frmConsulta.nombreSucursalSesion = dtSucursal.Rows[0]["NombreSucursal"].ToString();
+            }
+
+            csNavegacion.AbrirFormulario(pnlMostrarForm, ref formularioActivo, frmConsulta);
         }
 
         private void btnreportes_Click(object sender, EventArgs e)
