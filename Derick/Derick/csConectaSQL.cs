@@ -222,5 +222,16 @@ namespace Derick
                 return -1;
             }
         }
+        public bool RegistrarActividad(string descripcion)
+        {
+            string sql =
+                "insert into ActividadReciente (Descripcion) " +
+                "values (@Descripcion)";
+
+            SqlParameter parametro =
+                new SqlParameter("@Descripcion", descripcion);
+
+            return ejecutarComando(sql, parametro);
+        }
     }
 }

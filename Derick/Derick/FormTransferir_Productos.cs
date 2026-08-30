@@ -18,10 +18,12 @@ namespace Derick
         {
             InitializeComponent();
         }
+
         public FormTransferir_Productos(int idSucursal) : this()
         {
             idSucursalOrigenSeleccionada = idSucursal;
         }
+
         private void FormTransferir_Productos_Load(object sender, EventArgs e)
         {
             Cargar_Sucurcales();
@@ -39,6 +41,7 @@ namespace Derick
 
             Cargar_Productos();
         }
+
         private void Cargar_Sucurcales()
         {
             csConectaSQL conect = new csConectaSQL();
@@ -74,12 +77,13 @@ namespace Derick
                 cmb_productos.DataSource = null;
                 return;
             }
+
             int idSucursal = Convert.ToInt32(((DataRowView)cmb_sucursalOrigen.SelectedItem)["IdSucursal"]);
             csConectaSQL conect = new csConectaSQL();
 
             string query = @"select distinct P.IdProductos, P.Nombre from Inventario I
                            inner join Productos P on I.IdProducto = P.IdProductos
-                           where I.IdSucursal = " + idSucursal + @"  and I.Stock > 0
+                           where I.IdSucursal = " + idSucursal + @" and I.Stock > 0
                            and P.Estado = 1 order by P.Nombre";
 
             DataTable dt = conect.RetornaRegistros(query);
@@ -114,14 +118,17 @@ namespace Derick
 
             DataRowView filaSucursal = (DataRowView)cmb_sucursalOrigen.SelectedItem;
             DataRowView filaProducto = (DataRowView)cmb_productos.SelectedItem;
+
             int idSucursal = Convert.ToInt32(filaSucursal["IdSucursal"]);
             int idProducto = Convert.ToInt32(filaProducto["IdProductos"]);
 
             csConectaSQL conect = new csConectaSQL();
-           string query = @"select distinct Talla from Inventario where IdSucursal = " + idSucursal + @"
+
+            string query = @"select distinct Talla from Inventario where IdSucursal = " + idSucursal + @"
                 and IdProducto = " + idProducto + @" and Stock > 0 order by Talla";
 
             DataTable dt = conect.RetornaRegistros(query);
+
             if (dt == null)
             {
                 return;
@@ -162,24 +169,28 @@ namespace Derick
             }
 
             string talla = cmb_tallas.Text.Trim();
-            if (talla == "")
 
+            if (talla == "")
             {
                 return;
             }
 
             DataRowView filaSucursal = (DataRowView)cmb_sucursalOrigen.SelectedItem;
             DataRowView filaProducto = (DataRowView)cmb_productos.SelectedItem;
+
             int idSucursal = Convert.ToInt32(filaSucursal["IdSucursal"]);
             int idProducto = Convert.ToInt32(filaProducto["IdProductos"]);
+
             talla = talla.Replace("'", "''");
 
             csConectaSQL conect = new csConectaSQL();
+
             string query = @"select distinct Color from Inventario where IdSucursal = " + idSucursal + @"
                 and IdProducto = " + idProducto + @" and Talla = '" + talla + @"'
                 and Stock > 0 order by Color";
 
             DataTable dt = conect.RetornaRegistros(query);
+
             if (dt == null)
             {
                 return;
@@ -263,6 +274,7 @@ namespace Derick
                 nud_cantidad.Enabled = false;
             }
         }
+
         private void cmb_sucursalOrigen_SelectedIndexChanged(object sender, EventArgs e)
         {
             cmb_productos.DataSource = null;
@@ -270,6 +282,7 @@ namespace Derick
             cmb_colores.DataSource = null;
             Cargar_Productos();
         }
+
         private void cmb_productos_SelectedIndexChanged(object sender, EventArgs e)
         {
             cmb_tallas.DataSource = null;
@@ -281,9 +294,9 @@ namespace Derick
                 Cargar_Tallas();
             }
         }
+
         private void cmb_tallas_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             cmb_colores.DataSource = null;
             lbl_texto.Text = "";
 
@@ -424,6 +437,7 @@ namespace Derick
                     and Color = '" + color.Replace("'", "''") + "'";
 
             DataTable dtStock = conexion.RetornaRegistros(consultaStock);
+
             // validar que se pudo consultar el inventario
             if (dtStock == null)
             {
@@ -472,6 +486,7 @@ namespace Derick
                     and Color = '" + color.Replace("'", "''") + "'";
 
             DataTable dtDestino = conexion.RetornaRegistros(consultaDestino);
+
             if (dtDestino == null)
             {
                 MessageBox.Show(
@@ -489,27 +504,31 @@ namespace Derick
             // si ya existe la misma talla y color, sumar el stock
             if (dtDestino.Rows.Count > 0)
             {
-                resultadoDestino = conexion.ejecutarComando(@"update Inventario set Stock = Stock + @Cantidad
-                        where IdSucursal = @IdSucursal and IdProducto = @IdProducto and Talla = @Talla
-                        and Color = @Color",
-                        new SqlParameter("@Cantidad", cantidad),
-                        new SqlParameter("@IdSucursal", idDestino),
-                        new SqlParameter("@IdProducto", idProducto),
-                        new SqlParameter("@Talla", talla),
-                        new SqlParameter("@Color", color));
+                resultadoDestino = conexion.ejecutarComando(
+                    @"update Inventario set Stock = Stock + @Cantidad
+                    where IdSucursal = @IdSucursal and IdProducto = @IdProducto and Talla = @Talla
+                    and Color = @Color",
+                    new SqlParameter("@Cantidad", cantidad),
+                    new SqlParameter("@IdSucursal", idDestino),
+                    new SqlParameter("@IdProducto", idProducto),
+                    new SqlParameter("@Talla", talla),
+                    new SqlParameter("@Color", color)
+                );
             }
 
             // si no existe la talla y color en destino, crear el registro
             if (dtDestino.Rows.Count == 0)
             {
-                resultadoDestino = conexion.ejecutarComando(@"insert into Inventario
-                        (IdProducto, IdSucursal, Talla, Color, Stock) values
-                        (@IdProducto, @IdSucursal, @Talla, @Color, @Stock)",
-                        new SqlParameter("@IdProducto", idProducto),
-                        new SqlParameter("@IdSucursal", idDestino),
-                        new SqlParameter("@Talla", talla),
-                        new SqlParameter("@Color", color),
-                        new SqlParameter("@Stock", cantidad));
+                resultadoDestino = conexion.ejecutarComando(
+                    @"insert into Inventario
+                    (IdProducto, IdSucursal, Talla, Color, Stock) values
+                    (@IdProducto, @IdSucursal, @Talla, @Color, @Stock)",
+                    new SqlParameter("@IdProducto", idProducto),
+                    new SqlParameter("@IdSucursal", idDestino),
+                    new SqlParameter("@Talla", talla),
+                    new SqlParameter("@Color", color),
+                    new SqlParameter("@Stock", cantidad)
+                );
             }
 
             // validar que se haya agregado el stock al destino
@@ -530,26 +549,30 @@ namespace Derick
             // si se transfiere todo el stock eliminar la talla y color del origen
             if (cantidad == stockActual)
             {
-                restado = conexion.ejecutarComando(@"delete from Inventario
-                        where IdSucursal = @IdSucursal and IdProducto = @IdProducto and Talla = @Talla
-                        and Color = @Color",
-                        new SqlParameter("@IdSucursal", idOrigen),
-                        new SqlParameter("@IdProducto", idProducto),
-                        new SqlParameter("@Talla", talla),
-                        new SqlParameter("@Color", color));
+                restado = conexion.ejecutarComando(
+                    @"delete from Inventario
+                    where IdSucursal = @IdSucursal and IdProducto = @IdProducto and Talla = @Talla
+                    and Color = @Color",
+                    new SqlParameter("@IdSucursal", idOrigen),
+                    new SqlParameter("@IdProducto", idProducto),
+                    new SqlParameter("@Talla", talla),
+                    new SqlParameter("@Color", color)
+                );
             }
 
             // si queda stock solamente restar la cantidad
             if (cantidad < stockActual)
             {
-                restado = conexion.ejecutarComando(@"update Inventario set Stock = Stock - @Cantidad
-                        where IdSucursal = @IdSucursal and IdProducto = @IdProducto and Talla = @Talla
-                        and Color = @Color",
-                        new SqlParameter("@Cantidad", cantidad),
-                        new SqlParameter("@IdSucursal", idOrigen),
-                        new SqlParameter("@IdProducto", idProducto),
-                        new SqlParameter("@Talla", talla),
-                        new SqlParameter("@Color", color));
+                restado = conexion.ejecutarComando(
+                    @"update Inventario set Stock = Stock - @Cantidad
+                    where IdSucursal = @IdSucursal and IdProducto = @IdProducto and Talla = @Talla
+                    and Color = @Color",
+                    new SqlParameter("@Cantidad", cantidad),
+                    new SqlParameter("@IdSucursal", idOrigen),
+                    new SqlParameter("@IdProducto", idProducto),
+                    new SqlParameter("@Talla", talla),
+                    new SqlParameter("@Color", color)
+                );
             }
 
             // validar que se haya quitado el stock del origen
@@ -565,6 +588,15 @@ namespace Derick
                 return;
             }
 
+            // registrar actividad
+            string nombreProducto = filaProducto["Nombre"].ToString();
+            string nombreSucursalDestino = filaDestino["NombreSucursal"].ToString();
+
+            conexion.RegistrarActividad(
+                "Se transfirió " + cantidad + " " + nombreProducto +
+                " a la sucursal " + nombreSucursalDestino
+            );
+
             // mostrar mensaje de transferencia correcta
             MessageBox.Show(
                 "Producto transferido correctamente.",
@@ -579,6 +611,7 @@ namespace Derick
             // cerrar formulario de transferencia
             Close();
         }
+
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             DialogResult respuesta =
@@ -587,6 +620,7 @@ namespace Derick
                "Confirmar salida",
                MessageBoxButtons.YesNo,
                MessageBoxIcon.Question);
+
             if (respuesta == DialogResult.Yes)
             {
                 this.Close();

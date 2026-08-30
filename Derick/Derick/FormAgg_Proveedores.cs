@@ -12,14 +12,17 @@ namespace Derick
     public partial class FormAgg_Proveedores : Form
     {
         private int? idProveedorEditar = null;
+
         public FormAgg_Proveedores()
         {
             InitializeComponent();
         }
+
         public FormAgg_Proveedores(int idProveedor) : this()
         {
             idProveedorEditar = idProveedor;
         }
+
         private void FormAgg_Proveedores_Load(object sender, EventArgs e)
         {
             CargarEstados();
@@ -28,6 +31,7 @@ namespace Derick
                 CPRV_editar();
             }
         }
+
         private void CPRV_editar()
         {
             if (idProveedorEditar == null)
@@ -36,8 +40,9 @@ namespace Derick
             }
 
             csConectaSQL conexion = new csConectaSQL();
-            DataTable dt = conexion.RetornaRegistros( "select Nombre, Contacto, Telefono, Correo," +
+            DataTable dt = conexion.RetornaRegistros("select Nombre, Contacto, Telefono, Correo," +
                     "Direccion, Estado " + "from Proveedores " + "where IdProveedor = " + idProveedorEditar.Value);
+
             if (dt == null || dt.Rows.Count == 0)
             {
                 return;
@@ -47,7 +52,7 @@ namespace Derick
             txt_NP.Text = fila["Nombre"].ToString();
             txt_CNC.Text = fila["Contacto"].ToString();
             txt_TL.Text = fila["Telefono"].ToString();
-            txt_CE.Text =  fila["Correo"].ToString();
+            txt_CE.Text = fila["Correo"].ToString();
             txt_DRC.Text = fila["Direccion"].ToString();
             bool activo = Convert.ToBoolean(fila["Estado"]);
 
@@ -55,11 +60,13 @@ namespace Derick
             {
                 cmb_Estado.Text = "Activo";
             }
+
             if (activo == false)
             {
                 cmb_Estado.Text = "Inactivo";
             }
         }
+
         private void CargarEstados()
         {
             cmb_Estado.Items.Clear();
@@ -67,6 +74,7 @@ namespace Derick
             cmb_Estado.Items.Add("Inactivo");
             cmb_Estado.SelectedIndex = -1;
         }
+
         private void txt_NP_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && e.KeyChar != '.' &&
@@ -91,6 +99,7 @@ namespace Derick
                 e.Handled = true;
             }
         }
+
         private bool CorreoValido(string correo)
         {
             try
@@ -103,6 +112,7 @@ namespace Derick
                 return false;
             }
         }
+
         private void btnGuardarProv_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txt_NP.Text))
@@ -116,6 +126,7 @@ namespace Derick
                 txt_NP.Focus();
                 return;
             }
+
             if (string.IsNullOrWhiteSpace(txt_CNC.Text))
             {
                 MessageBox.Show(
@@ -127,6 +138,7 @@ namespace Derick
                 txt_CNC.Focus();
                 return;
             }
+
             if (string.IsNullOrWhiteSpace(txt_TL.Text))
             {
                 MessageBox.Show(
@@ -138,6 +150,7 @@ namespace Derick
                 txt_TL.Focus();
                 return;
             }
+
             if (txt_TL.Text.Length < 7)
             {
                 MessageBox.Show(
@@ -149,6 +162,7 @@ namespace Derick
                 txt_TL.Focus();
                 return;
             }
+
             if (string.IsNullOrWhiteSpace(txt_CE.Text))
             {
                 MessageBox.Show(
@@ -160,6 +174,7 @@ namespace Derick
                 txt_CE.Focus();
                 return;
             }
+
             if (!CorreoValido(txt_CE.Text.Trim()))
             {
                 MessageBox.Show(
@@ -171,6 +186,7 @@ namespace Derick
                 txt_CE.Focus();
                 return;
             }
+
             if (txt_DRC.Text.Length > 200)
             {
                 MessageBox.Show(
@@ -182,6 +198,7 @@ namespace Derick
                 txt_DRC.Focus();
                 return;
             }
+
             if (cmb_Estado.SelectedIndex == -1)
             {
                 MessageBox.Show(
@@ -193,6 +210,7 @@ namespace Derick
                 cmb_Estado.Focus();
                 return;
             }
+
             string nombre = txt_NP.Text.Trim();
             string contacto = txt_CNC.Text.Trim();
             string telefono = txt_TL.Text.Trim();
@@ -200,7 +218,6 @@ namespace Derick
             string direccion = txt_DRC.Text.Trim();
             string estadoTexto = cmb_Estado.Text.Trim();
 
-            // valida el estado
             if (estadoTexto == "")
             {
                 MessageBox.Show(
@@ -209,26 +226,28 @@ namespace Derick
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning
                 );
-
                 cmb_Estado.Focus();
                 return;
             }
 
             int estado = 0;
+
             if (estadoTexto == "Activo")
             {
                 estado = 1;
             }
+
             if (estadoTexto == "Inactivo")
             {
                 estado = 0;
             }
 
             csConectaSQL conexion = new csConectaSQL();
-            // un nuevo proveedor
+
             if (idProveedorEditar == null)
             {
                 string campos = "Nombre, Contacto, Telefono, Correo, Direccion, Estado";
+
                 string datos =
                     $"'{nombre}', " +
                     $"'{contacto}', " +
@@ -236,7 +255,8 @@ namespace Derick
                     $"'{correo}', " +
                     $"'{direccion}', " +
                     $"{estado}";
-                bool guardado = conexion.insertDatos("Proveedores",campos,datos);
+
+                bool guardado = conexion.insertDatos("Proveedores", campos, datos);
 
                 if (!guardado)
                 {
@@ -248,6 +268,11 @@ namespace Derick
                     );
                     return;
                 }
+
+                conexion.RegistrarActividad(
+                    "Se registró el proveedor " + nombre
+                );
+
                 MessageBox.Show(
                     "Proveedor registrado correctamente.",
                     "Proveedor",
@@ -255,19 +280,19 @@ namespace Derick
                     MessageBoxIcon.Information
                 );
             }
-            // editar proveedor
+
             if (idProveedorEditar != null)
             {
                 bool actualizado = conexion.ejecutarComando(@"update Proveedores set Nombre = @Nombre,
                      Contacto = @Contacto, Telefono = @Telefono, Correo = @Correo, Direccion = @Direccion,
                      Estado = @Estado where IdProveedor = @IdProveedor",
-                        new SqlParameter("@Nombre",nombre),
-                        new SqlParameter("@Contacto",contacto),
-                        new SqlParameter("@Telefono",telefono),
-                        new SqlParameter("@Correo",correo),
-                        new SqlParameter("@Direccion",direccion),
-                        new SqlParameter("@Estado",estado),
-                        new SqlParameter("@IdProveedor",idProveedorEditar.Value));
+                        new SqlParameter("@Nombre", nombre),
+                        new SqlParameter("@Contacto", contacto),
+                        new SqlParameter("@Telefono", telefono),
+                        new SqlParameter("@Correo", correo),
+                        new SqlParameter("@Direccion", direccion),
+                        new SqlParameter("@Estado", estado),
+                        new SqlParameter("@IdProveedor", idProveedorEditar.Value));
 
                 if (!actualizado)
                 {
@@ -279,6 +304,11 @@ namespace Derick
                     );
                     return;
                 }
+
+                conexion.RegistrarActividad(
+                    "Se editó el proveedor " + nombre
+                );
+
                 MessageBox.Show(
                     "Proveedor actualizado correctamente.",
                     "Proveedor",
@@ -286,13 +316,14 @@ namespace Derick
                     MessageBoxIcon.Information
                 );
             }
+
             DialogResult = DialogResult.OK;
             Close();
         }
+
         private void btn_cerrar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
     }
 }

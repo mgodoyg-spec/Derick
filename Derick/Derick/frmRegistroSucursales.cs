@@ -12,18 +12,20 @@ namespace Derick
         private bool editar = false;
         private csSucursal sucursalEditada;
         private byte[] imagenSucursal = null;
+
         public frmRegistroSucursales()
         {
             InitializeComponent();
             editar = false;
         }
+
         public frmRegistroSucursales(csSucursal sucursal)
         {
             InitializeComponent();
-
             editar = true;
             sucursalEditada = sucursal;
         }
+
         private void frmRegistroSucursales_Load(object sender, EventArgs e)
         {
             CargarEncargados();
@@ -40,12 +42,11 @@ namespace Derick
                 CargarDatosEditar();
             }
         }
+
         private void CargarEncargados()
         {
             csConectaSQL oConexion = new csConectaSQL();
-
             string sql = "select Nombres + ' ' + Apellidos as Encargado from Empleados";
-
             DataTable datos = oConexion.RetornaRegistros(sql);
 
             cbxEncargadoSucursal.DataSource = datos;
@@ -53,6 +54,7 @@ namespace Derick
             cbxEncargadoSucursal.ValueMember = "Encargado";
             cbxEncargadoSucursal.Text = "";
         }
+
         private void CargarDatosEditar()
         {
             txtNombreSucursal.Text = sucursalEditada.NombreSucursal;
@@ -83,14 +85,12 @@ namespace Derick
         private void btnAgregarImagen_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
-
             ofd.Filter = "Imágenes|*.jpg;*.jpeg;*.png;*.bmp";
 
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 imagenSucursal = File.ReadAllBytes(ofd.FileName);
-
-                pbxImagenSucursal.Image =BytesAImagen(imagenSucursal);
+                pbxImagenSucursal.Image = BytesAImagen(imagenSucursal);
                 pbxImagenSucursal.SizeMode = PictureBoxSizeMode.Zoom;
                 pbxAgregarImagen.Visible = false;
                 lblSeleccionarImag.Visible = false;
@@ -99,9 +99,11 @@ namespace Derick
 
         private void btnQuitarImagen_Click(object sender, EventArgs e)
         {
-            DialogResult respuesta = MessageBox.Show("¿Está seguro de eliminar la imagen?","Eliminar imagen",
-            MessageBoxButtons.YesNo,
-            MessageBoxIcon.Question);
+            DialogResult respuesta = MessageBox.Show(
+                "¿Está seguro de eliminar la imagen?",
+                "Eliminar imagen",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
 
             if (respuesta == DialogResult.Yes)
             {
@@ -112,7 +114,6 @@ namespace Derick
 
                 pbxImagenSucursal.Image = null;
                 imagenSucursal = null;
-
                 pbxAgregarImagen.Visible = true;
                 lblSeleccionarImag.Visible = true;
             }
@@ -121,11 +122,8 @@ namespace Derick
         private string GenerarCodigo()
         {
             csConectaSQL oConexion = new csConectaSQL();
-
             string sql = "select max(IdSucursal) from Sucursales";
-
             DataTable datos = oConexion.RetornaRegistros(sql);
-
             string codigo = "SUC001";
 
             if (datos != null && datos.Rows.Count > 0 && datos.Rows[0][0] != DBNull.Value)
@@ -146,11 +144,15 @@ namespace Derick
                 string.IsNullOrWhiteSpace(cbxEncargadoSucursal.Text) ||
                 string.IsNullOrWhiteSpace(cbxEstadoSucursal.Text))
             {
-                MessageBox.Show("Complete todos los campos obligatorios", "Aviso",
+                MessageBox.Show(
+                    "Complete todos los campos obligatorios",
+                    "Aviso",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
+
                 return false;
             }
+
             return true;
         }
 
@@ -174,8 +176,8 @@ namespace Derick
             try
             {
                 csConectaSQL oConexion = new csConectaSQL();
-
                 string codigo = GenerarCodigo();
+                string nombre = txtNombreSucursal.Text.Trim();
 
                 string sql =
                     "insert into Sucursales " +
@@ -194,7 +196,7 @@ namespace Derick
                 bool resultado = oConexion.ejecutarComando(
                     sql,
                     new SqlParameter("@Codigo", codigo),
-                    new SqlParameter("@Nombre", txtNombreSucursal.Text.Trim()),
+                    new SqlParameter("@Nombre", nombre),
                     new SqlParameter("@Ciudad", cbxCiudad.Text.Trim()),
                     new SqlParameter("@Direccion", txtDireccionSucursal.Text.Trim()),
                     new SqlParameter("@Telefono", txtTelefonoSucursal.Text.Trim()),
@@ -206,6 +208,10 @@ namespace Derick
 
                 if (resultado)
                 {
+                    oConexion.RegistrarActividad(
+                        "Se registró la sucursal " + nombre
+                    );
+
                     MessageBox.Show(
                         "Sucursal registrada correctamente",
                         "Éxito",
@@ -236,7 +242,15 @@ namespace Derick
 
                 if (sucursalEditada.Editar())
                 {
-                    MessageBox.Show("Sucursal actualizada correctamente","Éxito",
+                    csConectaSQL oConexion = new csConectaSQL();
+
+                    oConexion.RegistrarActividad(
+                        "Se editó la sucursal " + sucursalEditada.NombreSucursal
+                    );
+
+                    MessageBox.Show(
+                        "Sucursal actualizada correctamente",
+                        "Éxito",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
 
@@ -248,10 +262,12 @@ namespace Derick
                 MessageBox.Show("Error al actualizar: " + ex.Message);
             }
         }
+
         private void lblSalirV_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
         private Image BytesAImagen(byte[] bytes)
         {
             using (MemoryStream ms = new MemoryStream(bytes))
@@ -265,7 +281,7 @@ namespace Derick
 
         private void txtTelefonoSucursal_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) &&!char.IsDigit(e.KeyChar))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
             }
