@@ -10,16 +10,24 @@
 
 	<ItemGroup>
 	  <None Remove="rptDetalleVentas.rdlc" />
+	  <None Remove="rptDetalleVentasE.rdlc" />
 	  <None Remove="rptProductosMasVendidos.rdlc" />
+	  <None Remove="rptProductosMasVendidosE.rdlc" />
+	  <None Remove="rptStockBajoE.rdlc" />
 	  <None Remove="rptVentasPorCategoria.rdlc" />
+	  <None Remove="rptVentasPorCategoriaE.rdlc" />
 	  <None Remove="rptVentasPorEmpleado.rdlc" />
 	  <None Remove="rptVentasPorSucursal.rdlc" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <EmbeddedResource Include="rptDetalleVentas.rdlc" />
+	  <EmbeddedResource Include="rptDetalleVentasE.rdlc" />
 	  <EmbeddedResource Include="rptProductosMasVendidos.rdlc" />
+	  <EmbeddedResource Include="rptProductosMasVendidosE.rdlc" />
+	  <EmbeddedResource Include="rptStockBajoE.rdlc" />
 	  <EmbeddedResource Include="rptVentasPorCategoria.rdlc" />
+	  <EmbeddedResource Include="rptVentasPorCategoriaE.rdlc" />
 	  <EmbeddedResource Include="rptVentasPorEmpleado.rdlc" />
 	  <EmbeddedResource Include="rptVentasPorSucursal.rdlc" />
 	</ItemGroup>
