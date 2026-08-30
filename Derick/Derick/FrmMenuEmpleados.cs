@@ -24,6 +24,7 @@ namespace Derick
 
             this.usuarioActual = usuarioActual;
             this.codigoSucursalActual = codigoSucursal;
+            this.idSucursalActual = Convert.ToInt32(codigoSucursal);
         }
 
         private void FrmMenuEmpleados_Load(object sender, EventArgs e)
