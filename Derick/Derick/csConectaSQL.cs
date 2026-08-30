@@ -192,5 +192,36 @@ namespace Derick
                 return -1;
             }
         }
+        public int EjecutarConRetorno(string sql, params SqlParameter[] parametros)
+        {
+            try
+            {
+                if (abrirConexion())
+                {
+                    sql += "; SELECT CAST(SCOPE_IDENTITY() AS INT);";
+
+                    SqlCommand cmd = new SqlCommand(sql, oCon);
+
+                    if (parametros != null)
+                    {
+                        cmd.Parameters.AddRange(parametros);
+                    }
+
+                    int id = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    cerrarConexion();
+
+                    return id;
+                }
+
+                return -1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                cerrarConexion();
+                return -1;
+            }
+        }
     }
 }

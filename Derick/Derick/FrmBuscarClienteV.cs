@@ -15,6 +15,14 @@ namespace Derick
             InitializeComponent();
         }
 
+        private csCliente cliente = new csCliente();
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public int IdClienteSeleccionado { get; set; }
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public string NombreClienteSeleccionado { get; set; } = "";
+
+
         private void FrmBuscarClienteV_Load(object sender, EventArgs e)
         {
             //diseño del datagridview
@@ -56,7 +64,6 @@ namespace Derick
 
             dgvNVBC.Columns["colNombre"].FillWeight = 25;
             dgvNVBC.Columns["colTel"].FillWeight = 18;
-            dgvNVBC.Columns["colAcciones"].FillWeight = 15;
             dgvNVBC.Columns["colEditar"].FillWeight = 10;
             dgvNVBC.Columns["colEliminar"].FillWeight = 10;
 
@@ -73,7 +80,6 @@ namespace Derick
             {
     "colNombre",
     "colTel",
-    "colAcciones",
     "colEditar",
     "colEliminar"
 };
@@ -83,12 +89,56 @@ namespace Derick
                 dgvNVBC.Columns[columna].DefaultCellStyle.Alignment =
                     DataGridViewContentAlignment.MiddleCenter;
             }
+
+            CargarClientes();
+        }
+
+        private void CargarClientes(string filtro = "")
+        {
+            dgvNVBC.Rows.Clear();
+            DataTable dt = cliente.Listar(filtro);
+
+            if (dt == null) return;
+
+            foreach (DataRow fila in dt.Rows)
+            {
+                int posicion = dgvNVBC.Rows.Add();
+                DataGridViewRow row = dgvNVBC.Rows[posicion];
+
+                row.Tag = Convert.ToInt32(fila["IdCliente"]);
+                row.Cells["colNombre"].Value = fila["NombreCompleto"].ToString();
+                row.Cells["colTel"].Value = fila["Telefono"].ToString();
+            }
+        }
+
+        private void txtNVBuscarCliente_TextChanged(object sender, EventArgs e)
+        {
+            CargarClientes(txtNVBuscarCliente.Text.Trim());
+        }
+
+        private void picNVBC_Click(object sender, EventArgs e)
+        {
+            CargarClientes(txtNVBuscarCliente.Text.Trim());
         }
 
         private void btnNVBC_Click(object sender, EventArgs e)
         {
-            FrmNuevoClienteV ventana = new FrmNuevoClienteV();
-            ventana.ShowDialog();
+            FrmNuevoClienteV nuevo = new FrmNuevoClienteV();
+            if (nuevo.ShowDialog() == DialogResult.OK)
+            {
+                CargarClientes();
+            }
+        }
+
+        private void dgvNVBC_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            IdClienteSeleccionado = Convert.ToInt32(dgvNVBC.Rows[e.RowIndex].Tag);
+            NombreClienteSeleccionado = dgvNVBC.Rows[e.RowIndex].Cells["colNombre"].Value.ToString();
+
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
     }
 }
