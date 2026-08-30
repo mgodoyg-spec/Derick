@@ -233,5 +233,6 @@ namespace Derick
 
             return ejecutarComando(sql, parametro);
         }
+        
     }
 }
