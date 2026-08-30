@@ -81,14 +81,14 @@ namespace Derick
             cmsMenuPerfil.ImageScalingSize = new Size(20, 20);
             cmsMenuPerfil.Items.AddRange(new ToolStripItem[] { miPerfilToolStripMenuItem, cerrarSesiónToolStripMenuItem });
             cmsMenuPerfil.Name = "contextMenuStrip1";
-            cmsMenuPerfil.Size = new Size(185, 78);
+            cmsMenuPerfil.Size = new Size(148, 56);
             cmsMenuPerfil.Closed += cmsMenuPerfil_Closed;
             // 
             // miPerfilToolStripMenuItem
             // 
             miPerfilToolStripMenuItem.Image = Properties.Resources.person_icon_31846;
             miPerfilToolStripMenuItem.Name = "miPerfilToolStripMenuItem";
-            miPerfilToolStripMenuItem.Size = new Size(184, 26);
+            miPerfilToolStripMenuItem.Size = new Size(147, 26);
             miPerfilToolStripMenuItem.Text = "Mi Perfil";
             miPerfilToolStripMenuItem.Click += miPerfilToolStripMenuItem_Click;
             // 
@@ -96,7 +96,7 @@ namespace Derick
             // 
             cerrarSesiónToolStripMenuItem.Image = Properties.Resources.CerrarSesionn;
             cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
-            cerrarSesiónToolStripMenuItem.Size = new Size(184, 26);
+            cerrarSesiónToolStripMenuItem.Size = new Size(147, 26);
             cerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión";
             cerrarSesiónToolStripMenuItem.Click += cerrarSesiónToolStripMenuItem_Click;
             // 
@@ -115,7 +115,7 @@ namespace Derick
             // 
             pnlMostrarForm.Location = new Point(173, 0);
             pnlMostrarForm.Name = "pnlMostrarForm";
-            pnlMostrarForm.Size = new Size(1186, 700);
+            pnlMostrarForm.Size = new Size(1197, 700);
             pnlMostrarForm.TabIndex = 21;
             // 
             // pnlcontenido

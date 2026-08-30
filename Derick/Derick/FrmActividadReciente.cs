@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace Derick
 {
-    public partial class FormsDeRespaldo : Form
+    public partial class FrmActividadReciente : Form
     {
-        public FormsDeRespaldo()
+        public FrmActividadReciente()
         {
             InitializeComponent();
         }

@@ -37,28 +37,28 @@ namespace Derick
                     }
                     else if (idRol == 2)
                     {
-                        string consultaSucursal = "SELECT IdSucursal FROM Empleados WHERE IdEmpleado = " + idEmpleado;
-                        DataTable dtSucursal = oConexion.RetornaRegistros(consultaSucursal);
+                        DataTable dtEmpleado = oConexion.RetornaRegistros("SELECT IdSucursal FROM Empleados " +
+                         "WHERE IdEmpleado = " + idEmpleado);
 
-                        int idSucursalEmpleado = 0;
-                        if (dtSucursal != null && dtSucursal.Rows.Count > 0)
+                        if (dtEmpleado.Rows.Count > 0)
                         {
-                            idSucursalEmpleado = Convert.ToInt32(dtSucursal.Rows[0]["IdSucursal"]);
-                        }
+                            string idSucursal =
+                                dtEmpleado.Rows[0]["IdSucursal"].ToString();
 
-                        FrmMenuEmpleados frmMenu = new FrmMenuEmpleados();
-                        frmMenu.usuarioActual = usuario;
-                        frmMenu.idUsuarioActual = idUsuario;
-                        frmMenu.idEmpleadoActual = idEmpleado;
-                        frmMenu.idSucursalActual = idSucursalEmpleado;
-                        frmMenu.Show();
-                        this.Hide();
+                            FrmMenuEmpleados frmMenu =
+                                new FrmMenuEmpleados(usuario, idSucursal);
+
+                            frmMenu.idEmpleadoActual = idEmpleado;
+
+                            frmMenu.Show();
+                            this.Hide();
+                        }
                     }
                 }
                 else
                 {
                     MessageBox.Show(
-                        "Usuario o contraseña incorrectos.",
+                        "Usuario o contraseÃ±a incorrectos.",
                         "Error de acceso",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Warning);
@@ -67,7 +67,7 @@ namespace Derick
             catch (Exception ex)
             {
                 MessageBox.Show(
-                    "Error de conexión: " + ex.Message,
+                    "Error de conexiÃ³n: " + ex.Message,
                     "Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
@@ -91,7 +91,7 @@ namespace Derick
         private void lblSalir_Click(object sender, EventArgs e)
         {
             DialogResult respuesta = MessageBox.Show(
-                "¿Está seguro de salir?",
+                "Â¿EstÃ¡ seguro de salir?",
                 "Confirmar salida",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);

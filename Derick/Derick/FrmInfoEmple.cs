@@ -64,7 +64,7 @@ namespace Derick
             {
                 CargarDatosEditar();
             }
-            
+
         }
 
         private void CargarDatosEditar()
@@ -406,7 +406,7 @@ namespace Derick
             return edad;
         }
 
-       
+
         private void btnAgregarImagen_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
@@ -466,7 +466,10 @@ namespace Derick
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (!ValidarFormulario(out decimal salario, out string correoCompleto)) return;
+            if (!ValidarFormulario(out decimal salario, out string correoCompleto))
+            {
+                return;
+            }
 
             csEmpleado emp;
 
@@ -478,6 +481,7 @@ namespace Derick
             {
                 emp = new csEmpleado();
             }
+
             emp.Codigo = txtCodigo.Text.Trim();
             emp.Nombres = txtNombre.Text.Trim();
             emp.Apellidos = txtApellidos.Text.Trim();
@@ -503,15 +507,28 @@ namespace Derick
 
             if (emp.CedulaExiste())
             {
-                MessageBox.Show("Ya existe un empleado con esa cédula.");
+                MessageBox.Show(
+                    "Ya existe un empleado con esa cédula.",
+                    "Cédula existente",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                txtCedula.Focus();
                 return;
             }
 
             if (emp.UsuarioExiste())
             {
-                MessageBox.Show("Ese usuario ya está siendo utilizado.");
+                MessageBox.Show(
+                    "Ese usuario ya está siendo utilizado.",
+                    "Usuario existente",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                txtUsuario.Focus();
                 return;
             }
+
             bool correcto;
 
             if (editar == true)
@@ -522,25 +539,59 @@ namespace Derick
             {
                 correcto = emp.Registrar();
             }
+
             if (!correcto)
             {
-                MessageBox.Show("No se pudo guardar el empleado.");
+                MessageBox.Show(
+                    "No se pudo guardar el empleado.",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
                 return;
             }
 
             if (!emp.GuardarAcceso())
             {
-                MessageBox.Show("El empleado se guardó, pero no se pudo guardar el acceso.");
+                MessageBox.Show(
+                    "El empleado se guardó, pero no se pudo guardar el acceso.",
+                    "Advertencia",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
                 return;
             }
+
+            csConectaSQL conexion = new csConectaSQL();
+
+            string nombreCompleto =
+                emp.Nombres + " " + emp.Apellidos;
+
             if (editar == true)
             {
-                MessageBox.Show("Empleado actualizado correctamente.");
+                conexion.RegistrarActividad(
+                    "Se editó el empleado " + nombreCompleto
+                );
+
+                MessageBox.Show(
+                    "Empleado actualizado correctamente.",
+                    "Actualizado",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("Empleado registrado correctamente.");
+                conexion.RegistrarActividad(
+                    "Se registró el empleado " + nombreCompleto
+                );
+
+                MessageBox.Show(
+                    "Empleado registrado correctamente.",
+                    "Guardado",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
             }
+
             Close();
         }
 

@@ -47,13 +47,13 @@ namespace Derick
                 pic6
             };
         }
-        public FormAgg_Product(int idSucursal,string nombreSucursal): this()
+        public FormAgg_Product(int idSucursal, string nombreSucursal) : this()
         {
             idSucursalSeleccionada = idSucursal;
             nombreSucursalSeleccionada = nombreSucursal;
         }
         public FormAgg_Product(int idProducto, int idSucursal, string nombreSucursal, string talla, string color)
-            :this(idSucursal, nombreSucursal)
+            : this(idSucursal, nombreSucursal)
         {
             idProductoEditar = idProducto;
             tallaEditar = talla;
@@ -82,7 +82,7 @@ namespace Derick
         {
             cmTallas.Items.Clear();
             csConectaSQL conexion = new csConectaSQL();
-            DataTable dt = conexion.RetornaRegistros( "select Nombre from Tallas order by IdTalla");
+            DataTable dt = conexion.RetornaRegistros("select Nombre from Tallas order by IdTalla");
             if (dt != null)
             {
                 foreach (DataRow fila in dt.Rows)
@@ -155,11 +155,11 @@ namespace Derick
                 SqlParameter parametroImagen = new SqlParameter("@Imagen", SqlDbType.VarBinary, -1);
 
                 parametroImagen.Value = imagenBytes;
-                bool guardado = conexion.ejecutarComando( sql,
+                bool guardado = conexion.ejecutarComando(sql,
                     new SqlParameter("@IdProducto", idProducto),
                     new SqlParameter("@RutaImagen", nombreArchivo),
                     parametroImagen,
-                    new SqlParameter("@EsPrincipal",esPrincipal));
+                    new SqlParameter("@EsPrincipal", esPrincipal));
 
                 if (!guardado)
                 {
@@ -243,7 +243,7 @@ namespace Derick
 
             csConectaSQL conexion = new csConectaSQL();
 
-            DataTable dt = conexion.RetornaRegistros("select Codigo, Nombre, Categoria, Precio " +
+            DataTable dt = conexion.RetornaRegistros("select Codigo, Nombre, Categoria, Precio, Descripcion " +
                 "from Productos where IdProductos = " + idProductoEditar.Value);
 
             if (dt == null || dt.Rows.Count == 0)
@@ -257,6 +257,7 @@ namespace Derick
             txt_nmb.Text = fila["Nombre"].ToString();
             cmb_ctg.Text = fila["Categoria"].ToString();
             txt_prc.Text = Convert.ToDecimal(fila["Precio"]).ToString("0.00");
+            txt_dsp.Text = fila["Descripcion"].ToString();
 
             // carga el estado de la variante seleccionada
             DataTable dtEstado = conexion.RetornaRegistros(@"select Estado from Inventario
@@ -882,6 +883,7 @@ namespace Derick
             string codigo = txt_cd.Text.Trim();
             string nombre = txt_nmb.Text.Trim();
             string categoria = cmb_ctg.Text.Trim();
+            string descripcion = txt_dsp.Text.Trim();
             string estadoTexto = cmb_est.Text.Trim();
 
             int idSucursal = idSucursalSeleccionada;
@@ -917,7 +919,8 @@ namespace Derick
                 int idProducto = 0;
                 bool productoExistente = false;
 
-                string consultaCodigo = @"select IdProductos, Codigo, Nombre from Productos where Codigo = '" +
+                string consultaCodigo =
+                    @"select IdProductos, Codigo, Nombre from Productos where Codigo = '" +
                     codigo.Replace("'", "''") + "'";
 
                 DataTable dtCodigo = conexion.RetornaRegistros(consultaCodigo);
@@ -945,8 +948,10 @@ namespace Derick
 
                 if (productoExistente)
                 {
-                    string consultaSucursal = @"select IdInventario from Inventario
-                          where IdProducto = " + idProducto + @" and IdSucursal = " + idSucursal;
+                    string consultaSucursal =
+                        @"select IdInventario from Inventario
+                  where IdProducto = " + idProducto +
+                          @" and IdSucursal = " + idSucursal;
 
                     DataTable dtSucursal = conexion.RetornaRegistros(consultaSucursal);
 
@@ -974,6 +979,12 @@ namespace Derick
                         return;
                     }
 
+                    // REGISTRA LA ACTIVIDAD
+                    conexion.RegistrarActividad(
+                        "Se agregó el producto " + nombre +
+                        " a la sucursal " + nombreSucursalSeleccionada
+                    );
+
                     MessageBox.Show(
                         "Producto agregado correctamente a la sucursal.",
                         "Guardado",
@@ -983,16 +994,22 @@ namespace Derick
 
                 if (!productoExistente)
                 {
-                    string campos = "Codigo, Nombre, Categoria, Precio, Estado";
+                    string campos =
+                        "Codigo, Nombre, Categoria, Precio, Estado, Descripcion";
 
                     string datos =
                         $"'{codigo.Replace("'", "''")}', " +
                         $"'{nombre.Replace("'", "''")}', " +
-                        $"'{categoria.Replace("'", "''")}', " +
+                        $"{categoria.Replace("'", "''")}', " +
                         $"{precio.ToString(System.Globalization.CultureInfo.InvariantCulture)}, " +
-                        $"{estado}";
+                        $"{estado}, " +
+                        $"'{descripcion.Replace("'", "''")}'";
 
-                    idProducto = conexion.Ins_RetrID("Productos", campos, datos);
+                    idProducto = conexion.Ins_RetrID(
+                        "Productos",
+                        campos,
+                        datos
+                    );
 
                     if (idProducto == -1)
                     {
@@ -1005,7 +1022,8 @@ namespace Derick
                         return;
                     }
 
-                    bool stockGuardado = Guardar_stock(idProducto, idSucursal, estado);
+                    bool stockGuardado =
+                        Guardar_stock(idProducto, idSucursal, estado);
 
                     if (!stockGuardado)
                     {
@@ -1020,7 +1038,8 @@ namespace Derick
 
                     if (rt.Count > 0)
                     {
-                        bool imagenesGuardadas = GuardarImagenesProducto(idProducto);
+                        bool imagenesGuardadas =
+                            GuardarImagenesProducto(idProducto);
 
                         if (!imagenesGuardadas)
                         {
@@ -1031,6 +1050,11 @@ namespace Derick
                                 MessageBoxIcon.Warning);
                         }
                     }
+
+                    // REGISTRA LA ACTIVIDAD
+                    conexion.RegistrarActividad(
+                        "Se agregó el producto " + nombre
+                    );
 
                     MessageBox.Show(
                         "Producto guardado correctamente.",
@@ -1043,10 +1067,13 @@ namespace Derick
             // edita el producto
             if (idProductoEditar != null)
             {
-                string consultaCodigo = @"select IdProductos from Productos where Codigo = '" +
-                    codigo.Replace("'", "''") + "' and IdProductos <> " + idProductoEditar.Value;
+                string consultaCodigo =
+                    @"select IdProductos from Productos where Codigo = '" +
+                    codigo.Replace("'", "''") +
+                    "' and IdProductos <> " + idProductoEditar.Value;
 
-                DataTable dtCodigo = conexion.RetornaRegistros(consultaCodigo);
+                DataTable dtCodigo =
+                    conexion.RetornaRegistros(consultaCodigo);
 
                 if (dtCodigo != null && dtCodigo.Rows.Count > 0)
                 {
@@ -1061,14 +1088,22 @@ namespace Derick
                 }
 
                 // actualiza datos generales
-                bool actualizado = conexion.ejecutarComando(@"update Productos
-                    set Codigo = @Codigo, Nombre = @Nombre, Categoria = @Categoria, Precio = @Precio
-                    where IdProductos = @IdProducto",
+                bool actualizado = conexion.ejecutarComando(
+                    @"update Productos
+              set Codigo = @Codigo,
+                  Nombre = @Nombre,
+                  Categoria = @Categoria,
+                  Precio = @Precio,
+                  Descripcion = @Descripcion
+              where IdProductos = @IdProducto",
+
                     new SqlParameter("@Codigo", codigo),
                     new SqlParameter("@Nombre", nombre),
                     new SqlParameter("@Categoria", categoria),
                     new SqlParameter("@Precio", precio),
-                    new SqlParameter("@IdProducto", idProductoEditar.Value));
+                    new SqlParameter("@Descripcion", descripcion),
+                    new SqlParameter("@IdProducto", idProductoEditar.Value)
+                );
 
                 if (!actualizado)
                 {
@@ -1084,10 +1119,12 @@ namespace Derick
                 // si modificó talla, color o stock
                 if (stockModificado)
                 {
-                    bool varianteActualizada = Actualizar_stock_variante(
-                        idProductoEditar.Value,
-                        idSucursal,
-                        estado);
+                    bool varianteActualizada =
+                        Actualizar_stock_variante(
+                            idProductoEditar.Value,
+                            idSucursal,
+                            estado
+                        );
 
                     if (!varianteActualizada)
                     {
@@ -1097,14 +1134,20 @@ namespace Derick
                 else
                 {
                     // actualiza únicamente el estado de esta variante
-                    bool estadoActualizado = conexion.ejecutarComando(@"update Inventario
-                        set Estado = @Estado where IdProducto = @IdProducto
-                        and IdSucursal = @IdSucursal and Talla = @Talla and Color = @Color",
+                    bool estadoActualizado = conexion.ejecutarComando(
+                        @"update Inventario
+                  set Estado = @Estado
+                  where IdProducto = @IdProducto
+                  and IdSucursal = @IdSucursal
+                  and Talla = @Talla
+                  and Color = @Color",
+
                         new SqlParameter("@Estado", estado),
                         new SqlParameter("@IdProducto", idProductoEditar.Value),
                         new SqlParameter("@IdSucursal", idSucursal),
                         new SqlParameter("@Talla", tallaEditar),
-                        new SqlParameter("@Color", colorEditar));
+                        new SqlParameter("@Color", colorEditar)
+                    );
 
                     if (!estadoActualizado)
                     {
@@ -1121,9 +1164,15 @@ namespace Derick
                 // reemplaza imágenes solo si seleccionó nuevas
                 if (rt.Count > 0)
                 {
-                    bool eliminadas = conexion.ejecutarComando(@"delete from ProductoImagenes
-                        where IdProductos = @id",
-                        new SqlParameter("@id", idProductoEditar.Value));
+                    bool eliminadas = conexion.ejecutarComando(
+                        @"delete from ProductoImagenes
+                  where IdProductos = @id",
+
+                        new SqlParameter(
+                            "@id",
+                            idProductoEditar.Value
+                        )
+                    );
 
                     if (!eliminadas)
                     {
@@ -1136,7 +1185,8 @@ namespace Derick
                         return;
                     }
 
-                    bool imagenesGuardadas = GuardarImagenesProducto(idProductoEditar.Value);
+                    bool imagenesGuardadas =
+                        GuardarImagenesProducto(idProductoEditar.Value);
 
                     if (!imagenesGuardadas)
                     {
@@ -1148,6 +1198,11 @@ namespace Derick
                     }
                 }
 
+                // REGISTRA LA ACTIVIDAD
+                conexion.RegistrarActividad(
+                    "Se editó el producto " + nombre
+                );
+
                 MessageBox.Show(
                     "Producto actualizado correctamente.",
                     "Actualizado",
@@ -1157,6 +1212,7 @@ namespace Derick
 
             DialogResult = DialogResult.OK;
             Close();
+
         }
 
         private void btn_subir_Click(object sender, EventArgs e)
@@ -1176,16 +1232,31 @@ namespace Derick
                             "Error",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Warning);
+
                         return;
                     }
+
                     foreach (PictureBox pic in piclist)
                     {
-                        pic.Image = null;
+                        if (pic.Image != null)
+                        {
+                            pic.Image.Dispose();
+                            pic.Image = null;
+                        }
                     }
+
+                    foreach (PictureBox pic in piclist1)
+                    {
+                        pic.Visible = true;
+                    }
+
                     rt.Clear();
+                    picSelect = null;
+
                     for (int i = 0; i < opn.FileNames.Length; i++)
                     {
                         string ruta = opn.FileNames[i];
+
                         piclist[i].Image = Image.FromFile(ruta);
                         piclist[i].SizeMode = PictureBoxSizeMode.Zoom;
                         piclist1[i].Visible = false;
@@ -1193,7 +1264,6 @@ namespace Derick
                     }
                 }
             }
-
         }
 
         private void btn_quitar_Click(object sender, EventArgs e)
@@ -1355,8 +1425,7 @@ namespace Derick
             }
 
             frmEditar_stock frm = new frmEditar_stock(tallas, colores, stockActual);
-            frm.StartPosition = FormStartPosition.Manual;
-            frm.Location = new Point(this.Right + 10, this.Top);
+            frm.StartPosition = FormStartPosition.CenterScreen;
 
             if (frm.ShowDialog(this) == DialogResult.OK)
             {
@@ -1371,7 +1440,7 @@ namespace Derick
         {
             FrmAgg_Categoria frmAgg_Categoria = new FrmAgg_Categoria();
             frmAgg_Categoria.StartPosition = FormStartPosition.Manual;
-            frmAgg_Categoria.Location = new Point( this.Left - 10, this.Top
+            frmAgg_Categoria.Location = new Point(this.Left - 10, this.Top
             );
             if (frmAgg_Categoria.ShowDialog(this) == DialogResult.OK)
             {

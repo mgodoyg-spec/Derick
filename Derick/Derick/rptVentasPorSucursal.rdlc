@@ -2,26 +2,26 @@
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <Body>
     <ReportItems>
-      <Tablix Name="Tablix1">
+      <Tablix Name="Tablix2">
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.1344cm</Width>
+              <Width>2.15604cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.11458cm</Width>
+              <Width>4.14986cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.81479cm</Width>
+              <Width>4.43555cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.88213cm</Width>
+              <Width>2.95023cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.22413cm</Width>
+              <Width>2.5cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.96257cm</Width>
+              <Width>1.85631cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -60,36 +60,6 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Empleado">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!Empleado.Value</Value>
-                              <Style />
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Empleado</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
                     <Textbox Name="Sucursal">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
@@ -105,6 +75,36 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Sucursal</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Ciudad">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Ciudad.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Ciudad</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -224,16 +224,14 @@
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
           <TablixMembers>
-            <TablixMember>
-              <Group Name="Detalles" />
-            </TablixMember>
+            <TablixMember />
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>dsVentasPorEmpleado</DataSetName>
-        <Top>0.14111cm</Top>
-        <Left>0.87761cm</Left>
+        <DataSetName>dtVentasPorSucursal</DataSetName>
+        <Top>0.17639cm</Top>
+        <Left>0.37359cm</Left>
         <Height>0.6cm</Height>
-        <Width>18.13261cm</Width>
+        <Width>18.04799cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -241,13 +239,13 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>0.38542in</Height>
+    <Height>0.34375in</Height>
     <Style />
   </Body>
-  <Width>7.78717in</Width>
+  <Width>7.72151in</Width>
   <Page>
     <PageHeader>
-      <Height>5.34739cm</Height>
+      <Height>5.39423cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -255,8 +253,8 @@
           <Source>Embedded</Source>
           <Value>ChatGPTImage26ago202611_29_54pm</Value>
           <Sizing>Fit</Sizing>
-          <Top>0.3175cm</Top>
-          <Left>2.02671cm</Left>
+          <Top>0.28575cm</Top>
+          <Left>1.62263cm</Left>
           <Height>3.99838cm</Height>
           <Width>4.04cm</Width>
           <Style>
@@ -284,8 +282,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox9</rd:DefaultName>
-          <Top>0.61689cm</Top>
-          <Left>8.24124cm</Left>
+          <Top>0.58514cm</Top>
+          <Left>7.83716cm</Left>
           <Height>1.73771cm</Height>
           <Width>5.28672cm</Width>
           <ZIndex>1</ZIndex>
@@ -306,7 +304,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Listado de Ventas por Empleados</Value>
+                  <Value>Listado de Ventas por Sucursal</Value>
                   <Style>
                     <FontFamily>Montserrat ExtraBold</FontFamily>
                     <FontSize>14pt</FontSize>
@@ -318,8 +316,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>2.53098cm</Top>
-          <Left>6.43171cm</Left>
+          <Top>2.49923cm</Top>
+          <Left>6.02763cm</Left>
           <Height>0.81167cm</Height>
           <Width>9.85541cm</Width>
           <ZIndex>2</ZIndex>
@@ -334,10 +332,10 @@
           </Style>
         </Textbox>
         <Line Name="Line1">
-          <Top>5.26819cm</Top>
-          <Left>0.34925cm</Left>
+          <Top>5.29161cm</Top>
+          <Left>0.3175cm</Left>
           <Height>0cm</Height>
-          <Width>19.03329cm</Width>
+          <Width>18.50095cm</Width>
           <ZIndex>3</ZIndex>
           <Style>
             <Border>
@@ -367,8 +365,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox3</rd:DefaultName>
-          <Top>4.34859cm</Top>
-          <Left>0.85597cm</Left>
+          <Top>4.33308cm</Top>
+          <Left>0.37359cm</Left>
           <Height>0.75917cm</Height>
           <Width>2.15604cm</Width>
           <ZIndex>4</ZIndex>
@@ -390,7 +388,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Nombre</Value>
+                  <Value>Sucursal</Value>
                   <Style>
                     <FontFamily>Calibri</FontFamily>
                     <FontSize>12pt</FontSize>
@@ -404,10 +402,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox3</rd:DefaultName>
-          <Top>4.33554cm</Top>
-          <Left>3.01201cm</Left>
+          <Top>4.32003cm</Top>
+          <Left>2.52963cm</Left>
           <Height>0.75917cm</Height>
-          <Width>4.11458cm</Width>
+          <Width>4.14986cm</Width>
           <ZIndex>5</ZIndex>
           <Style>
             <Border>
@@ -427,7 +425,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Sucursal</Value>
+                  <Value>Ciudad</Value>
                   <Style>
                     <FontFamily>Calibri</FontFamily>
                     <FontSize>12pt</FontSize>
@@ -441,10 +439,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox3</rd:DefaultName>
-          <Top>4.33369cm</Top>
-          <Left>7.12659cm</Left>
+          <Top>4.31818cm</Top>
+          <Left>6.75004cm</Left>
           <Height>0.75917cm</Height>
-          <Width>4.81479cm</Width>
+          <Width>4.365cm</Width>
           <ZIndex>6</ZIndex>
           <Style>
             <Border>
@@ -478,10 +476,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox3</rd:DefaultName>
-          <Top>4.33369cm</Top>
-          <Left>11.97667cm</Left>
+          <Top>4.31818cm</Top>
+          <Left>11.11504cm</Left>
           <Height>0.75917cm</Height>
-          <Width>2.69035cm</Width>
+          <Width>2.92849cm</Width>
           <ZIndex>7</ZIndex>
           <Style>
             <Border>
@@ -515,8 +513,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox3</rd:DefaultName>
-          <Top>4.34859cm</Top>
-          <Left>14.66702cm</Left>
+          <Top>4.33308cm</Top>
+          <Left>14.18464cm</Left>
           <Height>0.74321cm</Height>
           <Width>2.38063cm</Width>
           <ZIndex>8</ZIndex>
@@ -552,8 +550,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox3</rd:DefaultName>
-          <Top>4.33264cm</Top>
-          <Left>17.04765cm</Left>
+          <Top>4.31712cm</Top>
+          <Left>16.56527cm</Left>
           <Height>0.75917cm</Height>
           <Width>1.85631cm</Width>
           <ZIndex>9</ZIndex>
@@ -576,7 +574,7 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>1.34938cm</Height>
+      <Height>1.42875cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -597,8 +595,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox9</rd:DefaultName>
-          <Top>0.35348cm</Top>
-          <Left>1.03283cm</Left>
+          <Top>0.37107cm</Top>
+          <Left>0.37359cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <Style>
@@ -628,10 +626,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>ExecutionTime</rd:DefaultName>
-          <Top>0.35348cm</Top>
-          <Left>3.67394cm</Left>
+          <Top>0.37107cm</Top>
+          <Left>2.94414cm</Left>
           <Height>0.6cm</Height>
-          <Width>5.14583cm</Width>
+          <Width>3.66887cm</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>
@@ -661,8 +659,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox3</rd:DefaultName>
-          <Top>0.39939cm</Top>
-          <Left>8.74055cm</Left>
+          <Top>0.37107cm</Top>
+          <Left>7.31856cm</Left>
           <Height>0.6cm</Height>
           <Width>2.93758cm</Width>
           <ZIndex>2</ZIndex>
@@ -695,8 +693,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox3</rd:DefaultName>
-          <Top>0.35348cm</Top>
-          <Left>14.86262cm</Left>
+          <Top>0.37107cm</Top>
+          <Left>14.24507cm</Left>
           <Height>0.64591cm</Height>
           <Width>2.56716cm</Width>
           <ZIndex>3</ZIndex>
@@ -727,8 +725,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>PageNumber</rd:DefaultName>
-          <Top>0.35348cm</Top>
-          <Left>17.49328cm</Left>
+          <Top>0.37107cm</Top>
+          <Left>16.87573cm</Left>
           <Height>0.64591cm</Height>
           <Width>0.56754cm</Width>
           <ZIndex>4</ZIndex>
@@ -760,8 +758,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox3</rd:DefaultName>
-          <Top>0.35348cm</Top>
-          <Left>18.09257cm</Left>
+          <Top>0.37107cm</Top>
+          <Left>17.47502cm</Left>
           <Height>0.64591cm</Height>
           <Width>0.34466cm</Width>
           <ZIndex>5</ZIndex>
@@ -792,8 +790,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>TotalPages</rd:DefaultName>
-          <Top>0.35348cm</Top>
-          <Left>18.48529cm</Left>
+          <Top>0.37107cm</Top>
+          <Left>17.86774cm</Left>
           <Height>0.64591cm</Height>
           <Width>0.41867cm</Width>
           <ZIndex>6</ZIndex>
@@ -808,10 +806,10 @@
           </Style>
         </Textbox>
         <Line Name="Line2">
-          <Top>0.09428cm</Top>
-          <Left>0.34925cm</Left>
+          <Top>0.12603cm</Top>
+          <Left>0.3175cm</Left>
           <Height>0cm</Height>
-          <Width>19.03329cm</Width>
+          <Width>18.50095cm</Width>
           <ZIndex>7</ZIndex>
           <Style>
             <Border>
@@ -843,11 +841,11 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>e5e2afad-1f9d-4329-a1c7-716fc452e0e0</rd:DataSourceID>
+      <rd:DataSourceID>d5519dbc-1587-47d7-ae15-bf4fa6a1fe8f</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="dsVentasPorEmpleado">
+    <DataSet Name="dtVentasPorSucursal">
       <Query>
         <DataSourceName>dsReportes</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
@@ -857,31 +855,31 @@
           <DataField>Codigo</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Empleado">
-          <DataField>Empleado</DataField>
+        <Field Name="Sucursal">
+          <DataField>Sucursal</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Ciudad">
+          <DataField>Ciudad</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="CantidadVendida">
           <DataField>CantidadVendida</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Total">
-          <DataField>Total</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Sucursal">
-          <DataField>Sucursal</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="VentasRealizadas">
           <DataField>VentasRealizadas</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Total">
+          <DataField>Total</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>dsReportes</rd:DataSetName>
         <rd:SchemaPath>C:\Derick.Respaldo\Derick\Derick\Derick\dsReportes.xsd</rd:SchemaPath>
-        <rd:TableName>dtVentasPorEmpleado</rd:TableName>
+        <rd:TableName>dtVentasPorSucursal</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
         <rd:TableAdapterName />
@@ -1552,5 +1550,5 @@ QgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQ
     </EmbeddedImage>
   </EmbeddedImages>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
-  <rd:ReportID>365d0639-d47b-41e6-9e40-9c29e7943a72</rd:ReportID>
+  <rd:ReportID>b0ca03a6-9580-4c84-88b0-5644e3ee0d45</rd:ReportID>
 </Report>

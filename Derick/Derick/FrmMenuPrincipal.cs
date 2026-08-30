@@ -46,7 +46,7 @@ namespace Derick
             lblusuario.Text = usuarioActual;
             this.PerformLayout();
             this.Refresh();
-            csNavegacion.AbrirFormulario(pnlMostrarForm, ref formularioActivo, new InicioGerente());
+            csNavegacion.AbrirFormulario(pnlMostrarForm, ref formularioActivo, new InicioGerente(this));
         }
 
         private void lblSalir_Click(object sender, EventArgs e)
@@ -89,18 +89,21 @@ namespace Derick
                 this.Close(); // cierra el menú principal
             }
         }
+        public void AbrirFormulario(Form formulario)
+        {
+            csNavegacion.AbrirFormulario( pnlMostrarForm,ref formularioActivo, formulario);
+        }
         private void btninicio_Click(object sender, EventArgs e)
         {
             csBotonActivo.MarcarBotonActivo(pnlIndicador, btninicio);
-            csNavegacion.AbrirFormulario(pnlMostrarForm, ref formularioActivo, new InicioGerente());
+            csNavegacion.AbrirFormulario(pnlMostrarForm, ref formularioActivo, new InicioGerente(this));
         }
 
         private void btnproductos_Click(object sender, EventArgs e)
         {
             csBotonActivo.MarcarBotonActivo(pnlIndicador, btnproductos);
             csNavegacion.AbrirFormulario(pnlMostrarForm, ref formularioActivo, new FormProductos());
-            cmsPromProv.Show(btnproductos, new Point(btnproductos.Width, 0)
-    );
+            cmsPromProv.Show(btnproductos, new Point(btnproductos.Width, 0));
         }
 
         private void btnempleados_Click(object sender, EventArgs e)

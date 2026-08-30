@@ -214,6 +214,7 @@
             btnVerEmpleados.TabIndex = 0;
             btnVerEmpleados.Text = "Ir ahora ->";
             btnVerEmpleados.UseVisualStyleBackColor = false;
+            btnVerEmpleados.Click += btnVerEmpleados_Click;
             // 
             // lblVerEmpleados
             // 
@@ -258,6 +259,7 @@
             btnAgregarProducto.TabIndex = 0;
             btnAgregarProducto.Text = "Ir ahora ->";
             btnAgregarProducto.UseVisualStyleBackColor = false;
+            btnAgregarProducto.Click += btnAgregarProducto_Click;
             // 
             // lblAgregarProductos
             // 
@@ -302,6 +304,7 @@
             btnVerSucursales.TabIndex = 0;
             btnVerSucursales.Text = "Ir ahora ->";
             btnVerSucursales.UseVisualStyleBackColor = false;
+            btnVerSucursales.Click += btnVerSucursales_Click;
             // 
             // lblVerSucursales
             // 
@@ -715,7 +718,7 @@
             lblSalir.Cursor = Cursors.Hand;
             lblSalir.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSalir.ForeColor = Color.Red;
-            lblSalir.Location = new Point(1100, 0);
+            lblSalir.Location = new Point(1103, 0);
             lblSalir.Name = "lblSalir";
             lblSalir.Size = new Size(25, 24);
             lblSalir.TabIndex = 15;

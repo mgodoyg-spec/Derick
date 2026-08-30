@@ -10,16 +10,16 @@ namespace Derick
 {
     public partial class FrmMenuEmpleados : Form
     {
+        private string codigoSucursalActual;
         public string usuarioActual;
-        public int idUsuarioActual;
         public int idEmpleadoActual;
-        public int idSucursalActual;
         private Form? formularioActivo;
-        public FrmMenuEmpleados()
+        public FrmMenuEmpleados(string usuarioActual, string codigoSucursal)
         {
             InitializeComponent();
-            pnlMostrar.PerformLayout();
-            this.AutoScaleMode = AutoScaleMode.None;
+
+            this.usuarioActual = usuarioActual;
+            this.codigoSucursalActual = codigoSucursal;
         }
 
         private void lblSalir_Click(object sender, EventArgs e)
@@ -40,9 +40,11 @@ namespace Derick
         {
             //label de la parte superior
             lblusuario.Text = usuarioActual;
+
             this.PerformLayout();
             this.Refresh();
-            csNavegacion.AbrirFormulario(pnlMostrarForm, ref formularioActivo, new FrmInicioE());
+
+            csNavegacion.AbrirFormulario(pnlMostrarForm, ref formularioActivo, new FrmInicioE(codigoSucursalActual));
         }
 
         private void pnlPerfil_Click(object sender, EventArgs e)
@@ -76,13 +78,13 @@ namespace Derick
         private void btninicio_Click(object sender, EventArgs e)
         {
             csBotonActivo.MarcarBotonActivo(pnlIndicador, btninicio);
-            csNavegacion.AbrirFormulario(pnlMostrarForm, ref formularioActivo, new FrmInicioE());
+            csNavegacion.AbrirFormulario(pnlMostrarForm, ref formularioActivo, new FrmInicioE(codigoSucursalActual));
         }
 
         private void btnproductos_Click(object sender, EventArgs e)
         {
             csBotonActivo.MarcarBotonActivo(pnlIndicador, btnproductos);
-            csNavegacion.AbrirFormulario(pnlMostrarForm, ref formularioActivo, new FrmProductosE());
+            csNavegacion.AbrirFormulario(pnlMostrarForm, ref formularioActivo, new FrmProductosE(idEmpleadoActual));
         }
 
         private void btnventas_Click(object sender, EventArgs e)
@@ -116,6 +118,11 @@ namespace Derick
         {
             csBotonActivo.MarcarBotonActivo(pnlIndicador, btnreportes);
             csNavegacion.AbrirFormulario(pnlMostrarForm, ref formularioActivo, new frmReportesE());
+        }
+
+        private void miPerfilToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

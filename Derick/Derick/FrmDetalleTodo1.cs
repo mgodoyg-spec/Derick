@@ -41,12 +41,12 @@ namespace Derick
         {
             csConectaSQL conexion = new csConectaSQL();
 
-            string sql = @"select P.Codigo, P.Nombre, P.Categoria, P.Precio, P.Estado,
-                I.Talla, I.Color, I.Stock from Productos P inner join Inventario I
-                on P.IdProductos = I.IdProducto where P.IdProductos = " + idproducto + @"
-                and I.IdSucursal = " + idSucursal + @"
-                and I.Talla = '" + talla.Replace("'", "''") + @"'
-                and I.Color = '" + color.Replace("'", "''") + "'";
+            string sql = @"select P.Codigo, P.Nombre, P.Categoria, P.Precio, P.Descripcion,
+                   I.Estado, I.Talla, I.Color, I.Stock from Productos P inner join Inventario I
+                   on P.IdProductos = I.IdProducto where P.IdProductos = " + idproducto + @"
+                   and I.IdSucursal = " + idSucursal + @"
+                   and I.Talla = '" + talla.Replace("'", "''") + @"'
+                   and I.Color = '" + color.Replace("'", "''") + "'";
 
             DataTable dt = conexion.RetornaRegistros(sql);
 
@@ -79,7 +79,14 @@ namespace Derick
             }
 
             lblStock.Text = fila["Stock"].ToString();
-            lblDescripcion.Text = "Sin descripción";
+            if (fila["Descripcion"] != DBNull.Value && !string.IsNullOrWhiteSpace(fila["Descripcion"].ToString()))
+            {
+                lblDescripcion.Text = fila["Descripcion"].ToString();
+            }
+            else
+            {
+                lblDescripcion.Text = "Sin descripción";
+            }
         }
 
         private void CargarImagenesProducto()
