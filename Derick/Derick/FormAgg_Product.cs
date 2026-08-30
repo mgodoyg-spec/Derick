@@ -1359,8 +1359,7 @@ namespace Derick
             }
 
             frmEditar_stock frm = new frmEditar_stock(tallas, colores, stockActual);
-            frm.StartPosition = FormStartPosition.Manual;
-            frm.Location = new Point(this.Right + 10, this.Top);
+            frm.StartPosition = FormStartPosition.CenterScreen;
 
             if (frm.ShowDialog(this) == DialogResult.OK)
             {
