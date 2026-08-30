@@ -17,6 +17,7 @@ namespace Derick
         private static extern IntPtr SendMessage(IntPtr hWnd, int msg, int wParam, string lParam);
 
         private const int EM_SETCUEBANNER = 0x1501;
+
         public FrmNuevoClienteV()
         {
             InitializeComponent();
@@ -60,6 +61,7 @@ namespace Derick
                 txtTE.Focus();
                 return;
             }
+
             if (txtCI.Text.Trim().Length != 10)
             {
                 MessageBox.Show("La cédula debe tener exactamente 10 dígitos.");
@@ -93,6 +95,15 @@ namespace Derick
 
             if (guardado)
             {
+                csConectaSQL conexion = new csConectaSQL();
+
+                string nombreCompleto =
+                    cliente.Nombres + " " + cliente.Apellidos;
+
+                conexion.RegistrarActividad(
+                    "Se registró el cliente " + nombreCompleto
+                );
+
                 MessageBox.Show("Cliente registrado correctamente.");
                 this.DialogResult = DialogResult.OK;
                 this.Close();
@@ -108,10 +119,13 @@ namespace Derick
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
+
         // Solo letras y espacios (Nombres, Apellidos)
         private void SoloLetras_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && e.KeyChar != ' ')
+            if (!char.IsControl(e.KeyChar) &&
+                !char.IsLetter(e.KeyChar) &&
+                e.KeyChar != ' ')
             {
                 e.Handled = true;
             }
@@ -120,11 +134,11 @@ namespace Derick
         // Solo números (Cédula, Teléfono)
         private void SoloNumeros_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            if (!char.IsControl(e.KeyChar) &&
+                !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
             }
         }
     }
 }
-

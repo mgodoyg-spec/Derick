@@ -155,6 +155,7 @@
             btnVerTodo.TabIndex = 14;
             btnVerTodo.Text = "Ver todo";
             btnVerTodo.UseVisualStyleBackColor = true;
+            btnVerTodo.Click += btnVerTodo_Click;
             // 
             // lblActividadRe
             // 
@@ -360,6 +361,7 @@
             btnAgregarVenta.TabIndex = 0;
             btnAgregarVenta.Text = "Ir ahora ->";
             btnAgregarVenta.UseVisualStyleBackColor = false;
+            btnAgregarVenta.Click += btnAgregarVenta_Click;
             // 
             // lblNuevaVenta
             // 

@@ -14,6 +14,7 @@ namespace Derick
         public string usuarioActual;
         public int idEmpleadoActual;
         private Form? formularioActivo;
+        private int idSucursalActual;
         public FrmMenuEmpleados(string usuarioActual, string codigoSucursal)
         {
             InitializeComponent();

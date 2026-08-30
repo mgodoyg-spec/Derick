@@ -23,8 +23,11 @@ namespace Derick
 
         private void lblSalir_Click(object sender, EventArgs e)
         {
-            DialogResult respuesta = MessageBox.Show("¿Está seguro de salir?", "Confirmar salida",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult respuesta = MessageBox.Show(
+                "¿Está seguro de salir?",
+                "Confirmar salida",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
 
             if (respuesta == DialogResult.Yes)
                 Application.Exit();
@@ -34,6 +37,7 @@ namespace Derick
         {
             lblFecha.Text = DateTime.Now.ToString("dd MMM yyyy").ToUpper();
             lblHora.Text = DateTime.Now.ToString("HH:mm:ss");
+
             CargarResumen();
             CargarActividadReciente();
         }
@@ -42,21 +46,39 @@ namespace Derick
         {
             csConectaSQL oConexion = new csConectaSQL();
 
-            DataTable dtSucursales = oConexion.RetornaRegistros("select count(*) as Total from Sucursales");
+            //Sucursales
+            DataTable dtSucursales = oConexion.RetornaRegistros(
+                "select count(*) as Total from Sucursales");
+
             label2.Text = dtSucursales.Rows[0]["Total"].ToString();
 
-            DataTable dtEmpleados = oConexion.RetornaRegistros("select count(*) as Total from Empleados where Estado = 1");
+            //Empleados activos
+            DataTable dtEmpleados = oConexion.RetornaRegistros(
+                "select count(*) as Total from Empleados where Estado = 1");
+
             label5.Text = dtEmpleados.Rows[0]["Total"].ToString();
 
-            DataTable dtProductos = oConexion.RetornaRegistros("select count(*) as Total from Productos where Estado = 1");
+            //Productos activos
+            DataTable dtProductos = oConexion.RetornaRegistros(
+                "select count(*) as Total from Productos where Estado = 1");
+
             NumProductos.Text = dtProductos.Rows[0]["Total"].ToString();
+
+            //Ventas realizadas hoy
+            DataTable dtVentas = oConexion.RetornaRegistros(
+                "select count(*) as Total from Ventas " +
+                "where cast(Fecha as date) = cast(getdate() as date)");
+
+            label8.Text = dtVentas.Rows[0]["Total"].ToString();
         }
 
         private void CargarActividadReciente()
         {
             csConectaSQL conexion = new csConectaSQL();
+
             DataTable dt = conexion.RetornaRegistros(
-                "select top 5 Descripcion, Fecha from ActividadReciente order by Fecha desc");
+                "select top 5 Descripcion, Fecha " +
+                "from ActividadReciente order by Fecha desc");
 
             if (pnlActividadDinamica == null)
             {
@@ -67,6 +89,7 @@ namespace Derick
                 pnlActividadDinamica.WrapContents = false;
                 pnlActividadDinamica.AutoScroll = false;
                 pnlActividadDinamica.BackColor = Color.White;
+
                 this.Controls.Add(pnlActividadDinamica);
                 pnlActividadDinamica.BringToFront();
             }
@@ -81,6 +104,7 @@ namespace Derick
                 lblVacio.ForeColor = Color.Gray;
                 lblVacio.AutoSize = true;
                 lblVacio.Margin = new Padding(10, 15, 0, 0);
+
                 pnlActividadDinamica.Controls.Add(lblVacio);
                 return;
             }
@@ -98,20 +122,31 @@ namespace Derick
 
                 Label lblDescripcion = new Label();
                 lblDescripcion.Text = descripcion;
-                lblDescripcion.Font = new Font("Segoe UI", 9, FontStyle.Bold);
-                lblDescripcion.ForeColor = Color.FromArgb(45, 45, 45);
+                lblDescripcion.Font = new Font(
+                    "Segoe UI",
+                    9,
+                    FontStyle.Bold);
+
+                lblDescripcion.ForeColor =
+                    Color.FromArgb(45, 45, 45);
+
                 lblDescripcion.Location = new Point(12, 7);
                 lblDescripcion.AutoSize = true;
 
                 Label lblFechaActividad = new Label();
-                lblFechaActividad.Text = ObtenerTiempoTranscurrido(fecha);
-                lblFechaActividad.Font = new Font("Segoe UI", 8);
+                lblFechaActividad.Text =
+                    ObtenerTiempoTranscurrido(fecha);
+
+                lblFechaActividad.Font =
+                    new Font("Segoe UI", 8);
+
                 lblFechaActividad.ForeColor = Color.Gray;
                 lblFechaActividad.Location = new Point(12, 26);
                 lblFechaActividad.AutoSize = true;
 
                 pnlActividad.Controls.Add(lblDescripcion);
                 pnlActividad.Controls.Add(lblFechaActividad);
+
                 pnlActividadDinamica.Controls.Add(pnlActividad);
             }
         }
@@ -126,19 +161,28 @@ namespace Derick
             if (diferencia.TotalMinutes < 60)
             {
                 int minutos = (int)diferencia.TotalMinutes;
-                return minutos == 1 ? "Hace 1 minuto" : "Hace " + minutos + " minutos";
+
+                return minutos == 1
+                    ? "Hace 1 minuto"
+                    : "Hace " + minutos + " minutos";
             }
 
             if (diferencia.TotalHours < 24)
             {
                 int horas = (int)diferencia.TotalHours;
-                return horas == 1 ? "Hace 1 hora" : "Hace " + horas + " horas";
+
+                return horas == 1
+                    ? "Hace 1 hora"
+                    : "Hace " + horas + " horas";
             }
 
             if (diferencia.TotalDays < 7)
             {
                 int dias = (int)diferencia.TotalDays;
-                return dias == 1 ? "Hace 1 día" : "Hace " + dias + " días";
+
+                return dias == 1
+                    ? "Hace 1 día"
+                    : "Hace " + dias + " días";
             }
 
             return fecha.ToString("dd/MM/yyyy HH:mm");
@@ -146,8 +190,11 @@ namespace Derick
 
         private void timerReloj_Tick(object sender, EventArgs e)
         {
-            lblFecha.Text = DateTime.Now.ToString("dd MMM yyyy").ToUpper();
-            lblHora.Text = DateTime.Now.ToString("HH:mm:ss");
+            lblFecha.Text =
+                DateTime.Now.ToString("dd MMM yyyy").ToUpper();
+
+            lblHora.Text =
+                DateTime.Now.ToString("HH:mm:ss");
         }
 
         private void btnAgregarProducto_Click(object sender, EventArgs e)
@@ -169,6 +216,17 @@ namespace Derick
         private void btnVerEmpleados_Click(object sender, EventArgs e)
         {
             menu.AbrirFormulario(new FrmEmple());
+        }
+
+        private void btnAgregarVenta_Click(object sender, EventArgs e)
+        {
+            menu.AbrirFormulario(new FrmVentasN());
+        }
+
+        private void btnVerTodo_Click(object sender, EventArgs e)
+        {
+            FrmActividadReciente frm = new FrmActividadReciente();
+            frm.ShowDialog();
         }
     }
 }
