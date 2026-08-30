@@ -21,6 +21,7 @@ namespace Derick
 
             this.usuarioActual = usuarioActual;
             this.codigoSucursalActual = codigoSucursal;
+            this.idSucursalActual = Convert.ToInt32(codigoSucursal);
         }
 
         private void lblSalir_Click(object sender, EventArgs e)

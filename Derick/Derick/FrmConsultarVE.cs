@@ -271,28 +271,44 @@ namespace Derick
 
         private void VerDetalleVenta(int idVenta)
         {
-            string consulta = @"
-                SELECT P.Nombre, D.Cantidad, D.PrecioUnitario, D.Subtotal
-                FROM DetalleVenta D
-                INNER JOIN Productos P ON D.IdProducto = P.IdProductos
-                WHERE D.IdVenta = " + idVenta;
+            string consultaProductos = @"
+        SELECT P.Nombre, D.Cantidad, D.PrecioUnitario, D.Subtotal
+        FROM DetalleVenta D
+        INNER JOIN Productos P ON D.IdProducto = P.IdProductos
+        WHERE D.IdVenta = " + idVenta;
 
-            DataTable dt = conexion.RetornaRegistros(consulta);
+            DataTable dtProductos = conexion.RetornaRegistros(consultaProductos);
 
-            if (dt == null || dt.Rows.Count == 0)
+            string consultaVenta = "SELECT IVA FROM Ventas WHERE IdVentas = " + idVenta;
+            DataTable dtVenta = conexion.RetornaRegistros(consultaVenta);
+
+            if (dtProductos == null || dtProductos.Rows.Count == 0)
             {
                 MessageBox.Show("No se encontraron productos para esta venta.");
                 return;
             }
 
-            string detalle = "Productos de la venta:\n\n";
-            foreach (DataRow fila in dt.Rows)
+            string detalle = "PRODUCTOS:\n";
+            detalle += "----------------------------------------\n";
+
+            foreach (DataRow fila in dtProductos.Rows)
             {
-                detalle += fila["Nombre"] + " x" + fila["Cantidad"] +
-                           " - $" + Convert.ToDecimal(fila["Subtotal"]).ToString("0.00") + "\n";
+                string nombre = fila["Nombre"].ToString();
+                int cantidad = Convert.ToInt32(fila["Cantidad"]);
+                decimal subtotalLinea = Convert.ToDecimal(fila["Subtotal"]);
+
+                detalle += nombre + "\n";
+                detalle += "   Cantidad: " + cantidad + "    Subtotal: $" + subtotalLinea.ToString("0.00") + "\n\n";
             }
 
-            MessageBox.Show(detalle, "Detalle de venta");
+            if (dtVenta != null && dtVenta.Rows.Count > 0)
+            {
+                decimal iva = Convert.ToDecimal(dtVenta.Rows[0]["IVA"]);
+                detalle += "----------------------------------------\n";
+                detalle += "IVA (15%): $" + iva.ToString("0.00");
+            }
+
+            MessageBox.Show(detalle, "Detalle de venta - Productos e IVA");
         }
 
         private void btnCVImprimir_Click(object sender, EventArgs e)
