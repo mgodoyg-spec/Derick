@@ -136,8 +136,6 @@ namespace Derick
             // 2. Le sumamos 1 para el nuevo empleado
             int nuevoCodigo = maxCodigo + 1;
 
-            // 3. Armamos el texto final y se lo devolvemos al programa (¡Aquí está el return!)
-            // El "D3" es un truco para que siempre rellene con ceros hasta tener 3 cifras (Ej: E001, E014)
             return "E" + nuevoCodigo.ToString("D3");
         }
 
@@ -391,7 +389,7 @@ WHERE e.Codigo = '" + codigoEsc + "'";
                 new SqlParameter("@ContactoEmergencia", ContactoEmergencia),
                 new SqlParameter("@TelefonoEmergencia", TelefonoEmergencia),
                 new SqlParameter("@Foto", Foto == null ? (object)DBNull.Value : Foto),
-                new SqlParameter("@IdSucursal", IdSucursal) // <-- Tu nuevo parámetro
+                new SqlParameter("@IdSucursal", IdSucursal) 
             );
         }
 
