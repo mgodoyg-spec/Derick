@@ -358,39 +358,56 @@ namespace Derick
 
             foreach (DetalleStock detalle in detallesStock)
             {
-                // solo guarda combinaciones que tengan stock
-                if (detalle.stock > 0)
+                if (detalle.stock <= 0)
                 {
-                    string talla = detalle.Talla.Replace("'", "''");
-                    string color = detalle.Color.Replace("'", "''");
+                    continue;
+                }
 
-                    string consulta = @"select IdInventario from Inventario where IdProducto = " + idProducto + @" and IdSucursal = " + idSucursal +
-                                      @" and Talla = '" + talla + @"' and Color = '" + color + "'";
+                string consulta = @"select IdInventario, Stock from Inventario
+                            where IdProducto = " + idProducto + @" and IdSucursal = " + idSucursal + @"
+                            and Talla = '" + detalle.Talla.Replace("'", "''") + @"' and Color = '" + detalle.Color.Replace("'", "''") + "'";
 
-                    DataTable dt = conexion.RetornaRegistros(consulta);
+                DataTable dt = conexion.RetornaRegistros(consulta);
 
-                    if (dt != null && dt.Rows.Count > 0)
+                // la variante ya existe
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    int idInventario = Convert.ToInt32(dt.Rows[0]["IdInventario"]);
+                    int stockActual = Convert.ToInt32(dt.Rows[0]["Stock"]);
+                    int nuevoStock = stockActual + detalle.stock;
+
+                    bool actualizado = conexion.ejecutarComando(@"update Inventario set Stock = @Stock,
+                                       Estado = @Estado where IdInventario = @IdInventario",
+                        new SqlParameter("@Stock", nuevoStock),
+                        new SqlParameter("@Estado", estado),
+                        new SqlParameter("@IdInventario", idInventario)
+                    );
+
+                    if (!actualizado)
                     {
-                        continue;
+                        return false;
                     }
 
-                    string sql = @"insert into Inventario(IdProducto, IdSucursal, Talla,
-                                 Color, Stock, Estado) values (@IdProducto, @IdSucursal, @Talla,
-                                 @Color, @Stock, @Estado)";
+                    guardar_algo = true;
+                }
+                else
+                {
+                    // la variante no existe, se crea una nueva entrada en la tabla Inventario
+                    string sql = @"insert into Inventario(IdProducto, IdSucursal, Talla, Color, Stock, Estado)
+                           values(@IdProducto, @IdSucursal, @Talla, @Color, @Stock, @Estado)";
 
-                    bool resultado = conexion.ejecutarComando(sql,
+                    bool insertado = conexion.ejecutarComando(sql,
                         new SqlParameter("@IdProducto", idProducto),
                         new SqlParameter("@IdSucursal", idSucursal),
                         new SqlParameter("@Talla", detalle.Talla),
                         new SqlParameter("@Color", detalle.Color),
                         new SqlParameter("@Stock", detalle.stock),
-                        new SqlParameter("@Estado", estado));
-
-                    if (!resultado)
+                        new SqlParameter("@Estado", estado)
+                    );
+                    if (!insertado)
                     {
                         return false;
                     }
-
                     guardar_algo = true;
                 }
             }
@@ -972,22 +989,21 @@ namespace Derick
                     if (!stockGuardado)
                     {
                         MessageBox.Show(
-                            "Las variantes seleccionadas ya existen en esta sucursal.",
-                            "Variante existente",
+                            "No se pudo guardar el stock.",
+                            "Error",
                             MessageBoxButtons.OK,
-                            MessageBoxIcon.Warning);
+                            MessageBoxIcon.Error);
 
                         return;
                     }
 
-                    // REGISTRA LA ACTIVIDAD
                     conexion.RegistrarActividad(
-                        "Se agregó una nueva variante del producto " + nombre +
-                        " a la sucursal " + nombreSucursalSeleccionada
+                        "Se agregó stock al producto " + nombre +
+                        " en la sucursal " + nombreSucursalSeleccionada
                     );
 
                     MessageBox.Show(
-                        "La nueva variante del producto se agregó correctamente.",
+                        "El stock del producto se actualizó correctamente.",
                         "Guardado",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
@@ -1004,7 +1020,7 @@ namespace Derick
                     string datos =
                         $"'{codigo.Replace("'", "''")}', " +
                         $"'{nombre.Replace("'", "''")}', " +
-                        $"{categoria.Replace("'", "''")}', " +
+                        $"'{categoria.Replace("'", "''")}', " +
                         $"{precio.ToString(System.Globalization.CultureInfo.InvariantCulture)}, " +
                         $"{estado}, " +
                         $"'{descripcion.Replace("'", "''")}'";
