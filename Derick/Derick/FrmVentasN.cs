@@ -1,18 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Derick
 {
     public partial class FrmVentasN : Form
     {
+        private csConectaSQL conexion = new csConectaSQL();
+        private csVenta venta = new csVenta();
+        private int idClienteSeleccionado;
+        private DataTable variantesEncontradas;
+
         public FrmVentasN()
         {
             InitializeComponent();
+            comboBox3.SelectedIndexChanged += comboBox3_SelectedIndexChanged;
         }
 
         private void btnNVAgregar_Click(object sender, EventArgs e)
@@ -27,7 +31,7 @@ namespace Derick
 
         private void FrmVentasN_Load_1(object sender, EventArgs e)
         {
-            //diseño del datagridview
+            // Diseño del DataGridView
             dgvNVPA.EnableHeadersVisualStyles = false;
             dgvNVPA.BorderStyle = BorderStyle.None;
             dgvNVPA.BackgroundColor = Color.White;
@@ -42,7 +46,7 @@ namespace Derick
             dgvNVPA.AllowUserToResizeColumns = false;
             dgvNVPA.RowHeadersVisible = false;
 
-            //encabezado
+            // Encabezado
             dgvNVPA.ColumnHeadersHeight = 50;
             dgvNVPA.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dgvNVPA.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(46, 57, 75);
@@ -50,7 +54,7 @@ namespace Derick
             dgvNVPA.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
             dgvNVPA.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
-            //filas
+            // Filas
             dgvNVPA.RowTemplate.Height = 45;
             dgvNVPA.DefaultCellStyle.Font = new Font("Segoe UI", 10);
             dgvNVPA.DefaultCellStyle.ForeColor = Color.FromArgb(45, 45, 45);
@@ -61,9 +65,8 @@ namespace Derick
             dgvNVPA.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvNVPA.DefaultCellStyle.Padding = new Padding(5);
 
-            //columnas
+            // Columnas
             dgvNVPA.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
             dgvNVPA.Columns["colCodigo"].FillWeight = 10;
             dgvNVPA.Columns["colProducto"].FillWeight = 20;
             dgvNVPA.Columns["colTalla"].FillWeight = 10;
@@ -74,60 +77,51 @@ namespace Derick
             dgvNVPA.Columns["colEditar"].FillWeight = 8;
             dgvNVPA.Columns["colEliminar"].FillWeight = 8;
 
-            DataGridViewImageColumn Editar =
-                (DataGridViewImageColumn)dgvNVPA.Columns["colEditar"];
+            DataGridViewImageColumn editar = (DataGridViewImageColumn)dgvNVPA.Columns["colEditar"];
+            editar.Image = Properties.Resources.editarrbtn;
+            editar.ImageLayout = DataGridViewImageCellLayout.Zoom;
 
-            Editar.Image = Properties.Resources.editarrbtn;
-            Editar.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            DataGridViewImageColumn eliminar = (DataGridViewImageColumn)dgvNVPA.Columns["colEliminar"];
+            eliminar.Image = Properties.Resources.picEliminar;
+            eliminar.ImageLayout = DataGridViewImageCellLayout.Zoom;
 
-            DataGridViewImageColumn Eliminar =
-                (DataGridViewImageColumn)dgvNVPA.Columns["colEliminar"];
-
-            Eliminar.Image = Properties.Resources.picEliminar;
-            Eliminar.ImageLayout = DataGridViewImageCellLayout.Zoom;
-
-            string[] columnasCentro =
-            {
-                "colCodigo",
-                "colProducto",
-                "colTalla",
-                "colColor",
-                "colCantidad",
-                "colPrecio",
-                "colSubtotal",
-                "colEditar",
-                "colEliminar"
-            };
+            string[] columnasCentro = { "colCodigo", "colProducto", "colTalla", "colColor", "colCantidad", "colPrecio", "colSubtotal", "colEditar", "colEliminar" };
 
             foreach (string columna in columnasCentro)
-            {
-                dgvNVPA.Columns[columna].DefaultCellStyle.Alignment =
-                    DataGridViewContentAlignment.MiddleCenter;
-            }
+                dgvNVPA.Columns[columna].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             dtpNV.Value = DateTime.Now;
             dtpNV.Enabled = false;
-
             dateTimePicker2.Value = DateTime.Now;
             dateTimePicker2.Enabled = false;
 
-            CargarVendedores();
             CargarSucursales();
 
+            cbNVVendedor.DataSource = null;
+            cbNVVendedor.SelectedIndex = -1;
+
+            cbNVMP.Items.Clear();
             cbNVMP.Items.Add("Efectivo");
             cbNVMP.Items.Add("Tarjeta");
             cbNVMP.Items.Add("Transferencia");
             cbNVMP.SelectedIndex = 0;
         }
 
-        private csConectaSQL conexion = new csConectaSQL();
-        private int idClienteSeleccionado;
-        private DataTable variantesEncontradas;
-
-        private void CargarVendedores()
+        private void CargarSucursales()
         {
-            DataTable tabla = conexion.RetornaRegistros(
-                "SELECT IdEmpleado, Nombres + ' ' + Apellidos AS Nombre FROM Empleados WHERE Estado = 1");
+            string consulta = "select IdSucursal, NombreSucursal from Sucursales where NombreSucursal is not null order by NombreSucursal";
+            DataTable tabla = conexion.RetornaRegistros(consulta);
+
+            comboBox3.DataSource = tabla;
+            comboBox3.DisplayMember = "NombreSucursal";
+            comboBox3.ValueMember = "IdSucursal";
+            comboBox3.SelectedIndex = -1;
+        }
+
+        private void CargarVendedores(int idSucursal)
+        {
+            string consulta = "select IdEmpleado, Nombres + ' ' + Apellidos as Nombre from Empleados where Estado = 1 and IdSucursal = " + idSucursal + " order by Nombres, Apellidos";
+            DataTable tabla = conexion.RetornaRegistros(consulta);
 
             cbNVVendedor.DataSource = tabla;
             cbNVVendedor.DisplayMember = "Nombre";
@@ -135,15 +129,26 @@ namespace Derick
             cbNVVendedor.SelectedIndex = -1;
         }
 
-        private void CargarSucursales()
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DataTable tabla = conexion.RetornaRegistros(
-                "SELECT IdSucursal, NombreSucursal FROM Sucursales WHERE NombreSucursal IS NOT NULL");
+            if (comboBox3.SelectedIndex == -1 || comboBox3.SelectedItem == null)
+            {
+                cbNVVendedor.DataSource = null;
+                cbNVVendedor.SelectedIndex = -1;
+                return;
+            }
 
-            comboBox3.DataSource = tabla;
-            comboBox3.DisplayMember = "NombreSucursal";
-            comboBox3.ValueMember = "IdSucursal";
-            comboBox3.SelectedIndex = -1;
+            DataRowView filaSucursal = comboBox3.SelectedItem as DataRowView;
+            if (filaSucursal == null) return;
+
+            int idSucursal = Convert.ToInt32(filaSucursal["IdSucursal"]);
+            CargarVendedores(idSucursal);
+
+            txtNVBuscarProducto.Clear();
+            cbNVTalla.Items.Clear();
+            cbNVColor.Items.Clear();
+            nudNVCantidad.Value = 0;
+            variantesEncontradas = null;
         }
 
         private void picNVB_Click_1(object sender, EventArgs e)
@@ -173,13 +178,11 @@ namespace Derick
 
             string tallaElegida = cbNVTalla.SelectedItem.ToString();
             string colorElegido = cbNVColor.SelectedItem.ToString();
-
             DataRow filaElegida = null;
 
             foreach (DataRow fila in variantesEncontradas.Rows)
             {
-                if (fila["Talla"].ToString() == tallaElegida &&
-                    fila["Color"].ToString() == colorElegido)
+                if (fila["Talla"].ToString() == tallaElegida && fila["Color"].ToString() == colorElegido)
                 {
                     filaElegida = fila;
                     break;
@@ -210,58 +213,42 @@ namespace Derick
             decimal precio = Convert.ToDecimal(filaElegida["Precio"]);
             int idProducto = Convert.ToInt32(filaElegida["IdProductos"]);
 
-            DataRowView filaSucursalActual =
-                (DataRowView)comboBox3.SelectedItem;
-
-            int idSucursalActual =
-                Convert.ToInt32(filaSucursalActual["IdSucursal"]);
+            DataRowView filaSucursalActual = (DataRowView)comboBox3.SelectedItem;
+            int idSucursalActual = Convert.ToInt32(filaSucursalActual["IdSucursal"]);
 
             string consultaPromo = @"
-                SELECT TOP 1 TipoDescuento, ValorDescuento
-                FROM Promociones P
-                WHERE P.Estado = 1
-                AND CAST(GETDATE() AS DATE) BETWEEN P.FechaInicio AND P.FechaFin
-                AND (P.IdSucursal IS NULL OR P.IdSucursal = " + idSucursalActual + @")
-                AND (
-                    P.AplicaTodos = 1
-                    OR EXISTS (
-                        SELECT 1 FROM PromocionProducto PP
-                        WHERE PP.IdPromocion = P.IdPromocion
-                        AND PP.IdProducto = " + idProducto + @"
-                    )
-                )
-                ORDER BY P.ValorDescuento DESC";
+                select top 1 TipoDescuento, ValorDescuento
+                from Promociones P
+                where P.Estado = 1
+                and cast(getdate() as date) between P.FechaInicio and P.FechaFin
+                and (P.IdSucursal is null or P.IdSucursal = " + idSucursalActual + @")
+                and (P.AplicaTodos = 1 or exists (
+                    select 1 from PromocionProducto PP
+                    where PP.IdPromocion = P.IdPromocion
+                    and PP.IdProducto = " + idProducto + @"))
+                order by P.ValorDescuento desc";
 
             DataTable dtPromo = conexion.RetornaRegistros(consultaPromo);
-
             decimal precioOriginal = precio;
             bool tienePromocion = false;
 
             if (dtPromo != null && dtPromo.Rows.Count > 0)
             {
-                string tipoDescuento =
-                    dtPromo.Rows[0]["TipoDescuento"].ToString();
-
-                decimal valorDescuento =
-                    Convert.ToDecimal(dtPromo.Rows[0]["ValorDescuento"]);
+                string tipoDescuento = dtPromo.Rows[0]["TipoDescuento"].ToString();
+                decimal valorDescuento = Convert.ToDecimal(dtPromo.Rows[0]["ValorDescuento"]);
 
                 if (tipoDescuento.ToLower().Contains("porcentual"))
-                {
                     precio = precio - (precio * valorDescuento / 100);
-                }
                 else
                 {
                     precio = precio - valorDescuento;
-
-                    if (precio < 0)
-                        precio = 0;
+                    if (precio < 0) precio = 0;
                 }
 
                 tienePromocion = true;
             }
 
             decimal subtotalLinea = precio * cantidad;
-
             int posicion = dgvNVPA.Rows.Add();
             DataGridViewRow row = dgvNVPA.Rows[posicion];
 
@@ -275,13 +262,7 @@ namespace Derick
             row.Cells["colSubtotal"].Value = subtotalLinea.ToString("0.00");
 
             if (tienePromocion)
-            {
-                MessageBox.Show(
-                    "¡Este producto tiene una promoción aplicada! Precio original: $" +
-                    precioOriginal.ToString("0.00") +
-                    " → Precio con descuento: $" +
-                    precio.ToString("0.00"));
-            }
+                MessageBox.Show("¡Este producto tiene una promoción aplicada! Precio original: $" + precioOriginal.ToString("0.00") + " → Precio con descuento: $" + precio.ToString("0.00"));
 
             ActualizarTotales();
 
@@ -297,21 +278,11 @@ namespace Derick
             decimal subtotalGeneral = 0;
 
             foreach (DataGridViewRow fila in dgvNVPA.Rows)
-            {
-                if (fila.Cells["colSubtotal"].Value != null)
-                {
-                    subtotalGeneral +=
-                        Convert.ToDecimal(fila.Cells["colSubtotal"].Value);
-                }
-            }
+                if (fila.Cells["colSubtotal"].Value != null) subtotalGeneral += Convert.ToDecimal(fila.Cells["colSubtotal"].Value);
 
             decimal descuento = nudNVD.Value;
             decimal baseImponible = subtotalGeneral - descuento;
-
-            if (baseImponible < 0)
-            {
-                baseImponible = 0;
-            }
+            if (baseImponible < 0) baseImponible = 0;
 
             decimal iva = baseImponible * 0.15m;
             decimal total = baseImponible + iva;
@@ -328,18 +299,20 @@ namespace Derick
 
         private void btnNVLimpiar_Click(object sender, EventArgs e)
         {
-            cbNVVendedor.SelectedIndex = -1;
             comboBox3.SelectedIndex = -1;
-
-            txtNVCliente.Text = "";
+            cbNVVendedor.DataSource = null;
+            cbNVVendedor.SelectedIndex = -1;
+            txtNVCliente.Clear();
             idClienteSeleccionado = 0;
-
             txtNVBuscarProducto.Clear();
+            cbNVTalla.Items.Clear();
+            cbNVColor.Items.Clear();
             nudNVCantidad.Value = 0;
             nudNVD.Value = 0;
+            dgvNVPA.Rows.Clear();
+            variantesEncontradas = null;
 
             ActualizarTotales();
-
             txtNVBuscarProducto.Focus();
         }
 
@@ -347,16 +320,8 @@ namespace Derick
         {
             if (dgvNVPA.Rows.Count > 0)
             {
-                DialogResult respuesta = MessageBox.Show(
-                    "Hay productos agregados a esta venta. ¿Está seguro de cancelar?",
-                    "Cancelar venta",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Warning);
-
-                if (respuesta == DialogResult.No)
-                {
-                    return;
-                }
+                DialogResult respuesta = MessageBox.Show("Hay productos agregados a esta venta. ¿Está seguro de cancelar?", "Cancelar venta", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (respuesta == DialogResult.No) return;
             }
 
             this.Close();
@@ -364,20 +329,13 @@ namespace Derick
 
         private void dgvNVPA_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0 || e.ColumnIndex < 0)
-            {
-                return;
-            }
+            if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
 
             string columna = dgvNVPA.Columns[e.ColumnIndex].Name;
 
             if (columna == "colEliminar")
             {
-                DialogResult resultado = MessageBox.Show(
-                    "¿Eliminar este producto de la venta?",
-                    "Eliminar",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
+                DialogResult resultado = MessageBox.Show("¿Eliminar este producto de la venta?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (resultado == DialogResult.Yes)
                 {
@@ -388,39 +346,20 @@ namespace Derick
 
             if (columna == "colEditar")
             {
-                int cantidadActual =
-                    Convert.ToInt32(
-                        dgvNVPA.Rows[e.RowIndex]
-                        .Cells["colCantidad"].Value);
+                int cantidadActual = Convert.ToInt32(dgvNVPA.Rows[e.RowIndex].Cells["colCantidad"].Value);
+                string input = Microsoft.VisualBasic.Interaction.InputBox("Nueva cantidad:", "Editar producto", cantidadActual.ToString());
 
-                string input = Microsoft.VisualBasic.Interaction.InputBox(
-                    "Nueva cantidad:",
-                    "Editar producto",
-                    cantidadActual.ToString());
-
-                if (int.TryParse(input, out int nuevaCantidad) &&
-                    nuevaCantidad > 0)
+                if (int.TryParse(input, out int nuevaCantidad) && nuevaCantidad > 0)
                 {
-                    decimal precio =
-                        Convert.ToDecimal(
-                            dgvNVPA.Rows[e.RowIndex]
-                            .Cells["colPrecio"].Value);
-
+                    decimal precio = Convert.ToDecimal(dgvNVPA.Rows[e.RowIndex].Cells["colPrecio"].Value);
                     decimal nuevoSubtotal = precio * nuevaCantidad;
 
-                    dgvNVPA.Rows[e.RowIndex]
-                        .Cells["colCantidad"].Value = nuevaCantidad;
-
-                    dgvNVPA.Rows[e.RowIndex]
-                        .Cells["colSubtotal"].Value =
-                        nuevoSubtotal.ToString("0.00");
-
+                    dgvNVPA.Rows[e.RowIndex].Cells["colCantidad"].Value = nuevaCantidad;
+                    dgvNVPA.Rows[e.RowIndex].Cells["colSubtotal"].Value = nuevoSubtotal.ToString("0.00");
                     ActualizarTotales();
                 }
                 else if (!string.IsNullOrEmpty(input))
-                {
                     MessageBox.Show("Cantidad inválida.");
-                }
             }
         }
 
@@ -435,48 +374,32 @@ namespace Derick
 
             if (string.IsNullOrEmpty(texto))
             {
-                MessageBox.Show(
-                    "Ingrese el código o nombre del producto.");
+                MessageBox.Show("Ingrese el código o nombre del producto.");
                 return;
             }
 
             if (comboBox3.SelectedIndex == -1)
             {
-                MessageBox.Show(
-                    "Seleccione primero una sucursal.");
+                MessageBox.Show("Seleccione primero una sucursal.");
                 return;
             }
 
-            DataRowView filaSucursal =
-                (DataRowView)comboBox3.SelectedItem;
-
-            int idSucursal =
-                Convert.ToInt32(filaSucursal["IdSucursal"]);
-
+            DataRowView filaSucursal = (DataRowView)comboBox3.SelectedItem;
+            int idSucursal = Convert.ToInt32(filaSucursal["IdSucursal"]);
             string textoEsc = texto.Replace("'", "''");
 
-            string consulta =
-                @"select I.IdInventario, P.IdProductos, P.Codigo,
-                P.Nombre, I.Talla, I.Color, P.Precio, I.Stock
-                from Inventario I
-                inner join Productos P
-                on I.IdProducto = P.IdProductos
-                where I.IdSucursal = " + idSucursal + @"
-                and (P.Codigo = '" + textoEsc + @"'
-                or P.Nombre LIKE '%" + textoEsc + @"%')
-                and I.Estado = 1";
+            string consulta = @"select I.IdInventario, P.IdProductos, P.Codigo, P.Nombre, I.Talla, I.Color, P.Precio, I.Stock
+                                from Inventario I inner join Productos P on I.IdProducto = P.IdProductos
+                                where I.IdSucursal = " + idSucursal + @" and (P.Codigo = '" + textoEsc + @"' or P.Nombre like '%" + textoEsc + @"%') and I.Estado = 1";
 
-            variantesEncontradas =
-                conexion.RetornaRegistros(consulta);
+            variantesEncontradas = conexion.RetornaRegistros(consulta);
 
             cbNVTalla.Items.Clear();
             cbNVColor.Items.Clear();
 
-            if (variantesEncontradas == null ||
-                variantesEncontradas.Rows.Count == 0)
+            if (variantesEncontradas == null || variantesEncontradas.Rows.Count == 0)
             {
-                MessageBox.Show(
-                    "Producto no encontrado en esta sucursal.");
+                MessageBox.Show("Producto no encontrado en esta sucursal.");
                 return;
             }
 
@@ -484,33 +407,23 @@ namespace Derick
 
             foreach (DataRow fila in variantesEncontradas.Rows)
             {
-                int idProd =
-                    Convert.ToInt32(fila["IdProductos"]);
-
-                if (!idsProductosUnicos.Contains(idProd))
-                {
-                    idsProductosUnicos.Add(idProd);
-                }
+                int idProd = Convert.ToInt32(fila["IdProductos"]);
+                if (!idsProductosUnicos.Contains(idProd)) idsProductosUnicos.Add(idProd);
             }
 
             if (idsProductosUnicos.Count > 1)
             {
-                string nombresEncontrados =
-                    "Se encontraron varios productos, sea más específico:\n\n";
-
-                List<string> nombresUnicos =
-                    new List<string>();
+                string nombresEncontrados = "Se encontraron varios productos, sea más específico:\n\n";
+                List<string> nombresUnicos = new List<string>();
 
                 foreach (DataRow fila in variantesEncontradas.Rows)
                 {
-                    string nombre =
-                        fila["Nombre"].ToString();
+                    string nombre = fila["Nombre"].ToString();
 
                     if (!nombresUnicos.Contains(nombre))
                     {
                         nombresUnicos.Add(nombre);
-                        nombresEncontrados +=
-                            "- " + nombre + "\n";
+                        nombresEncontrados += "- " + nombre + "\n";
                     }
                 }
 
@@ -519,8 +432,7 @@ namespace Derick
                 return;
             }
 
-            List<string> tallasUnicas =
-                new List<string>();
+            List<string> tallasUnicas = new List<string>();
 
             foreach (DataRow fila in variantesEncontradas.Rows)
             {
@@ -533,67 +445,43 @@ namespace Derick
                 }
             }
 
-            if (cbNVTalla.Items.Count == 1)
-            {
-                cbNVTalla.SelectedIndex = 0;
-            }
-            else
-            {
-                cbNVTalla.SelectedIndex = -1;
-            }
+            cbNVTalla.SelectedIndex = cbNVTalla.Items.Count == 1 ? 0 : -1;
         }
 
-        private void cbNVTalla_SelectedIndexChanged(
-            object sender,
-            EventArgs e)
+        private void cbNVTalla_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (variantesEncontradas == null ||
-                cbNVTalla.SelectedIndex == -1)
-                return;
+            if (variantesEncontradas == null || cbNVTalla.SelectedIndex == -1) return;
 
-            string tallaElegida =
-                cbNVTalla.SelectedItem.ToString();
-
+            string tallaElegida = cbNVTalla.SelectedItem.ToString();
             cbNVColor.Items.Clear();
 
             foreach (DataRow fila in variantesEncontradas.Rows)
             {
                 if (fila["Talla"].ToString() == tallaElegida)
                 {
-                    string color =
-                        fila["Color"].ToString();
-
-                    if (!cbNVColor.Items.Contains(color))
-                    {
-                        cbNVColor.Items.Add(color);
-                    }
+                    string color = fila["Color"].ToString();
+                    if (!cbNVColor.Items.Contains(color)) cbNVColor.Items.Add(color);
                 }
             }
 
-            if (cbNVColor.Items.Count == 1)
-            {
-                cbNVColor.SelectedIndex = 0;
-            }
+            if (cbNVColor.Items.Count == 1) cbNVColor.SelectedIndex = 0;
         }
 
         private void lblNVMP_Click(object sender, EventArgs e)
         {
-
         }
-
-        private csVenta venta = new csVenta();
 
         private void btnNVGuardar_Click(object sender, EventArgs e)
         {
-            if (cbNVVendedor.SelectedIndex == -1)
-            {
-                MessageBox.Show("Seleccione un vendedor.");
-                return;
-            }
-
             if (comboBox3.SelectedIndex == -1)
             {
                 MessageBox.Show("Seleccione una sucursal.");
+                return;
+            }
+
+            if (cbNVVendedor.SelectedIndex == -1)
+            {
+                MessageBox.Show("Seleccione un vendedor.");
                 return;
             }
 
@@ -605,89 +493,65 @@ namespace Derick
 
             if (dgvNVPA.Rows.Count == 0)
             {
-                MessageBox.Show(
-                    "Agregue al menos un producto a la venta.");
+                MessageBox.Show("Agregue al menos un producto a la venta.");
                 return;
             }
 
-            DataRowView filaVendedor =
-                (DataRowView)cbNVVendedor.SelectedItem;
+            DataRowView filaSucursal = (DataRowView)comboBox3.SelectedItem;
+            DataRowView filaVendedor = (DataRowView)cbNVVendedor.SelectedItem;
 
-            int idEmpleado =
-                Convert.ToInt32(filaVendedor["IdEmpleado"]);
+            int idSucursal = Convert.ToInt32(filaSucursal["IdSucursal"]);
+            int idEmpleado = Convert.ToInt32(filaVendedor["IdEmpleado"]);
 
-            DataRowView filaSucursal =
-                (DataRowView)comboBox3.SelectedItem;
+            string consultaValidar = "select count(*) from Empleados where IdEmpleado = " + idEmpleado + " and IdSucursal = " + idSucursal + " and Estado = 1";
+            DataTable dtValidar = conexion.RetornaRegistros(consultaValidar);
 
-            int idSucursal =
-                Convert.ToInt32(filaSucursal["IdSucursal"]);
-
+            if (dtValidar == null || dtValidar.Rows.Count == 0 || Convert.ToInt32(dtValidar.Rows[0][0]) == 0)
+            {
+                MessageBox.Show("El vendedor seleccionado no pertenece a la sucursal seleccionada.", "Vendedor",
+                    MessageBoxButtons.OK, 
+                    MessageBoxIcon.Warning);
+                return;
+            }
             decimal subtotal = 0;
-
             foreach (DataGridViewRow fila in dgvNVPA.Rows)
             {
-                subtotal +=
-                    Convert.ToDecimal(
-                        fila.Cells["colSubtotal"].Value);
+                if (fila.Cells["colSubtotal"].Value != null)
+                {
+                    subtotal += Convert.ToDecimal(fila.Cells["colSubtotal"].Value);
+                }
             }
 
             decimal descuento = nudNVD.Value;
             decimal baseImponible = subtotal - descuento;
-
-            if (baseImponible < 0)
-                baseImponible = 0;
+            if (baseImponible < 0) baseImponible = 0;
 
             decimal iva = baseImponible * 0.15m;
             decimal total = baseImponible + iva;
 
             string codigo = venta.GenerarCodigo();
-            string metodoPago =
-                cbNVMP.SelectedItem.ToString();
+            string metodoPago = cbNVMP.SelectedItem.ToString();
 
-            bool guardado = venta.Registrar(
-                codigo,
-                dtpNV.Value,
-                dateTimePicker2.Value.TimeOfDay,
-                idEmpleado,
-                idSucursal,
-                idClienteSeleccionado,
-                subtotal,
-                descuento,
-                iva,
-                total,
-                metodoPago,
-                dgvNVPA
-            );
+            bool guardado = venta.Registrar(codigo, dtpNV.Value, dateTimePicker2.Value.TimeOfDay, idEmpleado, idSucursal, idClienteSeleccionado, subtotal, descuento, iva, total, metodoPago, dgvNVPA);
 
             if (guardado)
             {
-                csConectaSQL conexionActividad =
-                    new csConectaSQL();
+                csConectaSQL conexionActividad = new csConectaSQL();
+                conexionActividad.RegistrarActividad("Se registró la venta " + codigo + " por $" + total.ToString("0.00"));
 
-                conexionActividad.RegistrarActividad(
-                    "Se registró la venta " + codigo +
-                    " por $" + total.ToString("0.00")
-                );
-
-                MessageBox.Show(
-                    "Venta registrada correctamente. Código: " +
-                    codigo);
+                MessageBox.Show("Venta registrada correctamente. Código: " + codigo, "Venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             else
             {
-                MessageBox.Show(
-                    "No se pudo registrar la venta.");
+                MessageBox.Show("No se pudo registrar la venta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void pnlNVinfo_Paint(
-            object sender,
-            PaintEventArgs e)
+        private void pnlNVinfo_Paint(object sender, PaintEventArgs e)
         {
-
         }
     }
 }

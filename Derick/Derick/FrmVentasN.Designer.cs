@@ -307,6 +307,7 @@
             // btnNVGuardar
             // 
             btnNVGuardar.BackColor = Color.FromArgb(112, 34, 246);
+            btnNVGuardar.Cursor = Cursors.Hand;
             btnNVGuardar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnNVGuardar.ForeColor = Color.White;
             btnNVGuardar.Location = new Point(995, 6);
@@ -321,6 +322,7 @@
             // btnNVCancelar
             // 
             btnNVCancelar.BackColor = Color.FromArgb(13, 154, 64);
+            btnNVCancelar.Cursor = Cursors.Hand;
             btnNVCancelar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnNVCancelar.ForeColor = Color.White;
             btnNVCancelar.Location = new Point(866, 6);
@@ -335,6 +337,7 @@
             // btnNVLimpiar
             // 
             btnNVLimpiar.BackColor = Color.FromArgb(4, 59, 186);
+            btnNVLimpiar.Cursor = Cursors.Hand;
             btnNVLimpiar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnNVLimpiar.ForeColor = Color.White;
             btnNVLimpiar.Location = new Point(734, 6);
@@ -550,6 +553,7 @@
             // btnNVAgregar
             // 
             btnNVAgregar.BackColor = Color.FromArgb(13, 154, 64);
+            btnNVAgregar.Cursor = Cursors.Hand;
             btnNVAgregar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnNVAgregar.ForeColor = Color.White;
             btnNVAgregar.Location = new Point(245, 131);
@@ -573,6 +577,7 @@
             // 
             // picNVBP
             // 
+            picNVBP.Cursor = Cursors.Hand;
             picNVBP.Image = (Image)resources.GetObject("picNVBP.Image");
             picNVBP.Location = new Point(292, 49);
             picNVBP.Margin = new Padding(3, 2, 3, 2);
@@ -688,6 +693,7 @@
             // 
             // picNVB
             // 
+            picNVB.Cursor = Cursors.Hand;
             picNVB.Image = (Image)resources.GetObject("picNVB.Image");
             picNVB.Location = new Point(412, 124);
             picNVB.Margin = new Padding(3, 2, 3, 2);
