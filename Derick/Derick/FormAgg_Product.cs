@@ -353,14 +353,31 @@ namespace Derick
         private bool Guardar_stock(int idProducto, int idSucursal, int estado)
         {
             csConectaSQL conexion = new csConectaSQL();
+
+            bool guardar_algo = false;
+
             foreach (DetalleStock detalle in detallesStock)
             {
                 // solo guarda combinaciones que tengan stock
                 if (detalle.stock > 0)
                 {
+                    string talla = detalle.Talla.Replace("'", "''");
+                    string color = detalle.Color.Replace("'", "''");
+
+                    string consulta = @"select IdInventario from Inventario where IdProducto = " + idProducto + @" and IdSucursal = " + idSucursal +
+                                      @" and Talla = '" + talla + @"' and Color = '" + color + "'";
+
+                    DataTable dt = conexion.RetornaRegistros(consulta);
+
+                    if (dt != null && dt.Rows.Count > 0)
+                    {
+                        continue;
+                    }
+
                     string sql = @"insert into Inventario(IdProducto, IdSucursal, Talla,
-                Color, Stock, Estado) values (@IdProducto, @IdSucursal, @Talla,
-                @Color, @Stock, @Estado)";
+                                 Color, Stock, Estado) values (@IdProducto, @IdSucursal, @Talla,
+                                 @Color, @Stock, @Estado)";
+
                     bool resultado = conexion.ejecutarComando(sql,
                         new SqlParameter("@IdProducto", idProducto),
                         new SqlParameter("@IdSucursal", idSucursal),
@@ -373,9 +390,11 @@ namespace Derick
                     {
                         return false;
                     }
+
+                    guardar_algo = true;
                 }
             }
-            return true;
+            return guardar_algo;
         }
         private bool Actualizar_stock(int idProducto, int idSucursal)
         {
@@ -948,48 +967,33 @@ namespace Derick
 
                 if (productoExistente)
                 {
-                    string consultaSucursal =
-                        @"select IdInventario from Inventario
-                  where IdProducto = " + idProducto +
-                          @" and IdSucursal = " + idSucursal;
+                    bool stockGuardado = Guardar_stock(idProducto, idSucursal, estado);
 
-                    DataTable dtSucursal = conexion.RetornaRegistros(consultaSucursal);
-
-                    if (dtSucursal != null && dtSucursal.Rows.Count > 0)
+                    if (!stockGuardado)
                     {
                         MessageBox.Show(
-                            "Este producto ya se encuentra registrado en esta sucursal.",
-                            "Producto existente",
+                            "Las variantes seleccionadas ya existen en esta sucursal.",
+                            "Variante existente",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Warning);
 
                         return;
                     }
 
-                    bool stockGuardado = Guardar_stock(idProducto, idSucursal, estado);
-
-                    if (!stockGuardado)
-                    {
-                        MessageBox.Show(
-                            "No se pudo guardar el stock del producto en la sucursal.",
-                            "Error",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Error);
-
-                        return;
-                    }
-
                     // REGISTRA LA ACTIVIDAD
                     conexion.RegistrarActividad(
-                        "Se agregó el producto " + nombre +
+                        "Se agregó una nueva variante del producto " + nombre +
                         " a la sucursal " + nombreSucursalSeleccionada
                     );
 
                     MessageBox.Show(
-                        "Producto agregado correctamente a la sucursal.",
+                        "La nueva variante del producto se agregó correctamente.",
                         "Guardado",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
+
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
                 }
 
                 if (!productoExistente)
