@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmVentasN));
             pnlNV = new Panel();
             pnlNVRV = new Panel();
+            lblNVIVA = new Label();
+            lblIVA = new Label();
             cbNVMP = new ComboBox();
             lblNVMP = new Label();
             lblNVTotalPagar = new Label();
@@ -99,8 +101,6 @@
             lblNVR = new Label();
             lblVN = new Label();
             picNVR = new PictureBox();
-            lblIVA = new Label();
-            lblNVIVA = new Label();
             pnlNV.SuspendLayout();
             pnlNVRV.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudNVD).BeginInit();
@@ -155,6 +155,26 @@
             pnlNVRV.Name = "pnlNVRV";
             pnlNVRV.Size = new Size(328, 176);
             pnlNVRV.TabIndex = 5;
+            // 
+            // lblNVIVA
+            // 
+            lblNVIVA.AutoSize = true;
+            lblNVIVA.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblNVIVA.Location = new Point(17, 150);
+            lblNVIVA.Name = "lblNVIVA";
+            lblNVIVA.Size = new Size(49, 18);
+            lblNVIVA.TabIndex = 46;
+            lblNVIVA.Text = "$0.00";
+            // 
+            // lblIVA
+            // 
+            lblIVA.AutoSize = true;
+            lblIVA.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblIVA.Location = new Point(17, 128);
+            lblIVA.Name = "lblIVA";
+            lblIVA.Size = new Size(29, 18);
+            lblIVA.TabIndex = 45;
+            lblIVA.Text = "IVA";
             // 
             // cbNVMP
             // 
@@ -478,7 +498,6 @@
             // cbNVTalla
             // 
             cbNVTalla.FormattingEnabled = true;
-            cbNVTalla.Items.AddRange(new object[] { "Dilan Suarez", "Carla Ponce" });
             cbNVTalla.Location = new Point(16, 136);
             cbNVTalla.Margin = new Padding(3, 2, 3, 2);
             cbNVTalla.Name = "cbNVTalla";
@@ -922,26 +941,6 @@
             picNVR.SizeMode = PictureBoxSizeMode.StretchImage;
             picNVR.TabIndex = 2;
             picNVR.TabStop = false;
-            // 
-            // lblIVA
-            // 
-            lblIVA.AutoSize = true;
-            lblIVA.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblIVA.Location = new Point(17, 128);
-            lblIVA.Name = "lblIVA";
-            lblIVA.Size = new Size(29, 18);
-            lblIVA.TabIndex = 45;
-            lblIVA.Text = "IVA";
-            // 
-            // lblNVIVA
-            // 
-            lblNVIVA.AutoSize = true;
-            lblNVIVA.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblNVIVA.Location = new Point(17, 150);
-            lblNVIVA.Name = "lblNVIVA";
-            lblNVIVA.Size = new Size(49, 18);
-            lblNVIVA.TabIndex = 46;
-            lblNVIVA.Text = "$0.00";
             // 
             // FrmVentasN
             // 

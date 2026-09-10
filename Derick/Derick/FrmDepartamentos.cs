@@ -1,10 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Derick
@@ -12,6 +9,7 @@ namespace Derick
     public partial class FrmDepartamentos : Form
     {
         private DataTable dtDepartamentos;
+
         public FrmDepartamentos()
         {
             InitializeComponent();
@@ -20,19 +18,20 @@ namespace Derick
         private void btnVolver_Click(object sender, EventArgs e)
         {
             DialogResult rs = MessageBox.Show(
-           "¿Desea regresar? Se perderán los cambios realizados.",
-           "Regresar",
-            MessageBoxButtons.YesNo,
-            MessageBoxIcon.Question);
+                "¿Desea regresar? Se perderán los cambios realizados.",
+                "Regresar",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
 
             if (rs == DialogResult.Yes)
             {
                 this.Close();
             }
         }
+
         private void FrmDepartamentos_Load(object sender, EventArgs e)
         {
-            //diseño del datagridview
+            // Diseño del DataGridView
             dgvDepa.EnableHeadersVisualStyles = false;
             dgvDepa.BorderStyle = BorderStyle.None;
             dgvDepa.BackgroundColor = Color.White;
@@ -46,25 +45,49 @@ namespace Derick
             dgvDepa.AllowUserToResizeRows = false;
             dgvDepa.AllowUserToResizeColumns = false;
             dgvDepa.RowHeadersVisible = false;
-            //encabezado
+
+            // Encabezado
             dgvDepa.ColumnHeadersHeight = 50;
             dgvDepa.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dgvDepa.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(46, 57, 75);
+            dgvDepa.ColumnHeadersDefaultCellStyle.BackColor =
+                Color.FromArgb(46, 57, 75);
+
             dgvDepa.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            dgvDepa.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-            dgvDepa.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            //filas
+
+            dgvDepa.ColumnHeadersDefaultCellStyle.Font =
+                new Font("Segoe UI", 10, FontStyle.Bold);
+
+            dgvDepa.ColumnHeadersDefaultCellStyle.Alignment =
+                DataGridViewContentAlignment.MiddleCenter;
+
+            // Filas
             dgvDepa.RowTemplate.Height = 45;
-            dgvDepa.DefaultCellStyle.Font = new Font("Segoe UI", 10);
-            dgvDepa.DefaultCellStyle.ForeColor = Color.FromArgb(45, 45, 45);
+
+            dgvDepa.DefaultCellStyle.Font =
+                new Font("Segoe UI", 10);
+
+            dgvDepa.DefaultCellStyle.ForeColor =
+                Color.FromArgb(45, 45, 45);
+
             dgvDepa.DefaultCellStyle.BackColor = Color.White;
-            dgvDepa.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(248, 249, 251);
-            dgvDepa.DefaultCellStyle.SelectionBackColor = Color.FromArgb(225, 235, 250);
+
+            dgvDepa.AlternatingRowsDefaultCellStyle.BackColor =
+                Color.FromArgb(248, 249, 251);
+
+            dgvDepa.DefaultCellStyle.SelectionBackColor =
+                Color.FromArgb(225, 235, 250);
+
             dgvDepa.DefaultCellStyle.SelectionForeColor = Color.Black;
-            dgvDepa.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            dgvDepa.DefaultCellStyle.Alignment =
+                DataGridViewContentAlignment.MiddleCenter;
+
             dgvDepa.DefaultCellStyle.Padding = new Padding(5);
-            //columnas
-            dgvDepa.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            // Columnas
+            dgvDepa.AutoSizeColumnsMode =
+                DataGridViewAutoSizeColumnsMode.Fill;
+
             dgvDepa.Columns["clCodigo"].FillWeight = 8;
             dgvDepa.Columns["clDepartamento"].FillWeight = 20;
             dgvDepa.Columns["clDescripcion"].FillWeight = 12;
@@ -72,38 +95,58 @@ namespace Derick
             dgvDepa.Columns["clEstado"].FillWeight = 13;
             dgvDepa.Columns["clEditar"].FillWeight = 8;
             dgvDepa.Columns["clEliminar"].FillWeight = 8;
-            DataGridViewImageColumn editar = (DataGridViewImageColumn)dgvDepa.Columns["clEditar"];
+
+            DataGridViewImageColumn editar =
+                (DataGridViewImageColumn)dgvDepa.Columns["clEditar"];
+
             editar.Image = Properties.Resources.editarrbtn;
             editar.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            DataGridViewImageColumn eliminar = (DataGridViewImageColumn)dgvDepa.Columns["clEliminar"];
+
+            DataGridViewImageColumn eliminar =
+                (DataGridViewImageColumn)dgvDepa.Columns["clEliminar"];
+
             eliminar.Image = Properties.Resources.picEliminar;
             eliminar.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            //columnas centradas
-            string[] columnasCentro = { "clCodigo", "clDepartamento", "clDescripcion", "clEmpleados", "clEstado", "clEditar", "clEliminar" };
+
+            // Columnas centradas
+            string[] columnasCentro =
+            {
+                "clCodigo",
+                "clDepartamento",
+                "clDescripcion",
+                "clEmpleados",
+                "clEstado",
+                "clEditar",
+                "clEliminar"
+            };
+
             foreach (string columna in columnasCentro)
             {
-                dgvDepa.Columns[columna].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvDepa.Columns[columna].DefaultCellStyle.Alignment =
+                    DataGridViewContentAlignment.MiddleCenter;
             }
+
             CargarDepartamentos();
         }
+
         private void CargarDepartamentos()
         {
             csConectaSQL oConexion = new csConectaSQL();
 
             string query = @"
-        SELECT
-            d.Codigo,
-            d.Departamento,
-            d.Descripcion,
-            ISNULL(e.Nombres + ' ' + e.Apellidos, '') AS Empleado,
-            CASE
-                WHEN d.Estado = 1 THEN 'Activo'
-                ELSE 'Inactivo'
-            END AS Estado
-        FROM Departamentos d
-        LEFT JOIN Empleados e
-            ON d.IdEmpleado = e.IdEmpleado
-        ORDER BY d.IdDepartamento";
+                select
+                    d.Codigo,
+                    d.Departamento,
+                    d.Descripcion,
+                    isnull(e.Nombres + ' ' + e.Apellidos, '') as Empleado,
+                    case
+                        when d.Estado = 1 then 'Activo'
+                        else 'Inactivo'
+                    end as Estado
+                from Departamentos d
+                left join Empleados e
+                    on d.IdEmpleado = e.IdEmpleado
+                order by d.IdDepartamento";
 
             dtDepartamentos = oConexion.RetornaRegistros(query);
 
@@ -111,58 +154,67 @@ namespace Derick
             {
                 dgvDepa.AutoGenerateColumns = false;
 
-                dgvDepa.Columns["clCodigo"].DataPropertyName = "Codigo";
-                dgvDepa.Columns["clDepartamento"].DataPropertyName = "Departamento";
-                dgvDepa.Columns["clDescripcion"].DataPropertyName = "Descripcion";
-                dgvDepa.Columns["clEmpleados"].DataPropertyName = "Empleado";
-                dgvDepa.Columns["clEstado"].DataPropertyName = "Estado";
+                dgvDepa.Columns["clCodigo"].DataPropertyName =
+                    "Codigo";
+
+                dgvDepa.Columns["clDepartamento"].DataPropertyName =
+                    "Departamento";
+
+                dgvDepa.Columns["clDescripcion"].DataPropertyName =
+                    "Descripcion";
+
+                dgvDepa.Columns["clEmpleados"].DataPropertyName =
+                    "Empleado";
+
+                dgvDepa.Columns["clEstado"].DataPropertyName =
+                    "Estado";
 
                 dgvDepa.DataSource = dtDepartamentos;
             }
         }
+
         private void EliminarDepartamento(string codigo)
         {
             try
             {
-                using (SqlConnection con = csConexionRemota.ObtenerConexion())
+                csConectaSQL oConexion = new csConectaSQL();
+
+                string query = @"
+                    delete from Departamentos
+                    where Codigo = @codigo";
+
+                SqlParameter parametro =
+                    new SqlParameter("@codigo", codigo);
+
+                bool eliminado =
+                    oConexion.ejecutarComando(query, parametro);
+
+                if (eliminado)
                 {
-                    con.Open();
+                    MessageBox.Show(
+                        "Departamento eliminado correctamente.",
+                        "Eliminar departamento",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
+                    );
 
-                    string query = @"
-                DELETE FROM Departamentos
-                WHERE Codigo = @codigo";
-
-                    SqlCommand cmd = new SqlCommand(query, con);
-                    cmd.Parameters.AddWithValue("@codigo", codigo);
-
-                    int filasAfectadas = cmd.ExecuteNonQuery();
-
-                    if (filasAfectadas > 0)
-                    {
-                        MessageBox.Show(
-                            "Departamento eliminado correctamente.",
-                            "Eliminar departamento",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Information
-                        );
-
-                        CargarDepartamentos();
-                    }
-                    else
-                    {
-                        MessageBox.Show(
-                            "No se encontró el departamento.",
-                            "Aviso",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Warning
-                        );
-                    }
+                    CargarDepartamentos();
+                }
+                else
+                {
+                    MessageBox.Show(
+                        "No se pudo eliminar el departamento.",
+                        "Aviso",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(
-                    "No se pudo eliminar el departamento.\n\n" + ex.Message,
+                    "No se pudo eliminar el departamento.\n\n" +
+                    ex.Message,
                     "Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
@@ -178,12 +230,15 @@ namespace Derick
         private void btnNuevoDepa_Click(object sender, EventArgs e)
         {
             FrmNuevoDepa frm = new FrmNuevoDepa();
+
             frm.ShowDialog();
 
             CargarDepartamentos();
         }
 
-        private void dgvDepa_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvDepa_CellContentClick(
+            object sender,
+            DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0 || e.ColumnIndex < 0)
                 return;
@@ -192,9 +247,13 @@ namespace Derick
             if (dgvDepa.Columns[e.ColumnIndex].Name == "clEditar")
             {
                 string codigo = dgvDepa.Rows[e.RowIndex]
-                    .Cells["clCodigo"].Value.ToString();
+                    .Cells["clCodigo"]
+                    .Value
+                    .ToString();
 
-                FrmNuevoDepa frm = new FrmNuevoDepa(codigo);
+                FrmNuevoDepa frm =
+                    new FrmNuevoDepa(codigo);
+
                 frm.ShowDialog();
 
                 CargarDepartamentos();
@@ -204,13 +263,18 @@ namespace Derick
             else if (dgvDepa.Columns[e.ColumnIndex].Name == "clEliminar")
             {
                 string codigo = dgvDepa.Rows[e.RowIndex]
-                    .Cells["clCodigo"].Value.ToString();
+                    .Cells["clCodigo"]
+                    .Value
+                    .ToString();
 
                 string departamento = dgvDepa.Rows[e.RowIndex]
-                    .Cells["clDepartamento"].Value.ToString();
+                    .Cells["clDepartamento"]
+                    .Value
+                    .ToString();
 
                 DialogResult respuesta = MessageBox.Show(
-                    "¿Está seguro de eliminar el departamento " + departamento + "?",
+                    "¿Está seguro de eliminar el departamento " +
+                    departamento + "?",
                     "Confirmar eliminación",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Warning
@@ -228,7 +292,8 @@ namespace Derick
             if (dtDepartamentos == null)
                 return;
 
-            string buscar = txtBuscar.Text.Trim().Replace("'", "''");
+            string buscar =
+                txtBuscar.Text.Trim().Replace("'", "''");
 
             if (string.IsNullOrWhiteSpace(buscar))
             {
@@ -254,6 +319,4 @@ namespace Derick
             }
         }
     }
-
 }
-

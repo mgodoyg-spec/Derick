@@ -49,9 +49,6 @@
     <Compile Update="FrmConsultarVenta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FrmConsultarVentas.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="FrmDepartamentos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,9 +107,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="frmUbicacionSucursales.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="frmVentas.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FrmVentasE.cs">

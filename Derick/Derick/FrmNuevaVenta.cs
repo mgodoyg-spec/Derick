@@ -38,17 +38,14 @@ namespace Derick
         private void btnRegresarN_Click(object sender, EventArgs e)
         {
 
-            DialogResult r = MessageBox.Show("¿Desea cancelar? Se perderán los cambios realizados.", "Cancelar",
-    MessageBoxButtons.YesNo,
-    MessageBoxIcon.Question);
+            DialogResult r = MessageBox.Show(
+            "¿Desea cancelar? Se perderán los cambios realizados.","Cancelar",
+            MessageBoxButtons.YesNo,
+           MessageBoxIcon.Question);
 
             if (r == DialogResult.Yes)
             {
-                frmVentas frm = this.Parent.Parent as frmVentas;
-                if (frm != null)
-                {
-                    frm.MostrarFrm();
-                }
+                this.Close();
             }
         }
     }
