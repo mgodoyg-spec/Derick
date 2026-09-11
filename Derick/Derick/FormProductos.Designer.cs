@@ -150,12 +150,12 @@
             // cmb_sucursal
             // 
             cmb_sucursal.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmb_sucursal.Font = new Font("Calibri", 14.25F);
+            cmb_sucursal.Font = new Font("Calibri", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cmb_sucursal.FormattingEnabled = true;
             cmb_sucursal.Location = new Point(436, 6);
             cmb_sucursal.Margin = new Padding(3, 2, 3, 2);
             cmb_sucursal.Name = "cmb_sucursal";
-            cmb_sucursal.Size = new Size(168, 31);
+            cmb_sucursal.Size = new Size(168, 23);
             cmb_sucursal.TabIndex = 33;
             cmb_sucursal.SelectedIndexChanged += cmb_sucursal_SelectedIndexChanged;
             // 
