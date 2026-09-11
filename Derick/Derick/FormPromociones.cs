@@ -101,33 +101,43 @@ namespace Derick
         {
             csConectaSQL conexion = new csConectaSQL();
 
-            DataTable dt = conexion.RetornaRegistros(
-                "select IdPromocion, Nombre, TipoDescuento, ValorDescuento, " +
-                "FechaInicio, FechaFin, Estado, Descripcion " +
-                "from Promociones order by IdPromocion");
-
+            DataTable dt = conexion.RetornaRegistros("select IdPromocion, Nombre, TipoDescuento, ValorDescuento, " +
+                "FechaInicio, FechaFin, Estado, Descripcion " + "from Promociones order by IdPromocion");
             if (dt == null)
             {
                 return;
             }
 
             dgvPromociones.Rows.Clear();
+
+            DateTime hoy = DateTime.Today;
+
             foreach (DataRow fila in dt.Rows)
             {
-                string estado = Convert.ToBoolean(fila["Estado"]) ? "Activo" : "Inactivo";
-                int indice = dgvPromociones.Rows.Add(
-                    fila["IdPromocion"].ToString(),
-                    fila["Nombre"].ToString(),
-                    fila["TipoDescuento"].ToString(),
-                    fila["ValorDescuento"].ToString(),
-                    Convert.ToDateTime(fila["FechaInicio"]).ToString("dd/MM/yyyy"),
-                    Convert.ToDateTime(fila["FechaFin"]).ToString("dd/MM/yyyy"),
-                    estado,
-                    fila["Descripcion"].ToString(),
-                    null,
-                    null
-                );
-                dgvPromociones.Rows[indice].Tag = Convert.ToInt32(fila["IdPromocion"]);
+                DateTime fechaInicio = Convert.ToDateTime(fila["FechaInicio"]).Date;
+                DateTime fechaFin = Convert.ToDateTime(fila["FechaFin"]).Date;
+
+                string estado;
+
+                if (hoy < fechaInicio)
+                {
+                    estado = "Pendiente";
+                }
+                else if (hoy > fechaFin)
+                {
+                    estado = "Finalizado";
+                }
+                else
+                {
+                    estado = "Activo";
+                }
+
+                int indice = dgvPromociones.Rows.Add(fila["IdPromocion"].ToString(), fila["Nombre"].ToString(),
+                    fila["TipoDescuento"].ToString(), fila["ValorDescuento"].ToString(), fechaInicio.ToString("dd/MM/yyyy"),
+                    fechaFin.ToString("dd/MM/yyyy"), estado, fila["Descripcion"].ToString(), null, null);
+
+                dgvPromociones.Rows[indice].Tag =
+                    Convert.ToInt32(fila["IdPromocion"]);
             }
         }
         private void FiltrarPromociones()
@@ -136,61 +146,73 @@ namespace Derick
             string tipo = cmbP.Text.Trim();
             string estado = cmbP2.Text.Trim();
 
-            string sql = @"select IdPromocion, Nombre, TipoDescuento, ValorDescuento, FechaInicio,
-                FechaFin, Estado, Descripcion from Promociones where 1 = 1";
+            string sql = @"select IdPromocion, Nombre, TipoDescuento, ValorDescuento, FechaInicio, FechaFin, Estado, Descripcion
+                   from Promociones where 1 = 1";
 
-            // busca por código o nombre del producto
+            // Buscar por nombre o descripción
             if (texto != "")
             {
                 texto = texto.Replace("'", "''");
-                sql += @"and (Nombre like'%" + texto + @"%' or
-                 Descripcion like '%" + texto + @"%')";
-            }
 
-            // filtra por el tipo
+                sql += @" and (Nombre like '%" + texto + @"%' or Descripcion like '%" + texto + @"%')";
+            }
+            // Filtrar por tipo
             if (tipo != "Todos" && tipo != "")
             {
                 tipo = tipo.Replace("'", "''");
-                sql += @"and TipoDescuento = '" + tipo + "'";
+
+                sql += " and TipoDescuento = '" + tipo + "'";
             }
 
-            // filtra por el estado
-            if (estado == "Activo")
-            {
-                sql += " and Estado = 1";
-            }
-            if (estado == "Inactivo")
-            {
-                sql += " and Estado = 0";
-            }
             sql += " order by IdPromocion";
 
             csConectaSQL conexion = new csConectaSQL();
+
             DataTable dt = conexion.RetornaRegistros(sql);
+
             if (dt == null)
             {
                 return;
             }
+
             dgvPromociones.Rows.Clear();
+
+            DateTime hoy = DateTime.Today;
 
             foreach (DataRow fila in dt.Rows)
             {
-                string estadoTexto = "";
-                bool estadoPromocion = Convert.ToBoolean(fila["Estado"]);
+                DateTime fechaInicio = Convert.ToDateTime(fila["FechaInicio"]).Date;
+                DateTime fechaFin = Convert.ToDateTime(fila["FechaFin"]).Date;
 
-                if (estadoPromocion == true)
+                string estadoTexto;
+
+                if (hoy < fechaInicio)
+                {
+                    estadoTexto = "Pendiente";
+                }
+                else if (hoy > fechaFin)
+                {
+                    estadoTexto = "Finalizado";
+                }
+                else
                 {
                     estadoTexto = "Activo";
                 }
 
-                if (estadoPromocion == false)
+                // Filtrar por estado
+                if (estado != "Todos" && estado != "")
                 {
-                    estadoTexto = "Inactivo";
+                    if (estado != estadoTexto)
+                    {
+                        continue;
+                    }
                 }
 
                 decimal descuento = Convert.ToDecimal(fila["ValorDescuento"]);
                 string tipoDescuento = fila["TipoDescuento"].ToString();
+
                 string descuentoTexto = "";
+
                 if (tipoDescuento == "Descuento porcentual")
                 {
                     descuentoTexto = descuento.ToString("0.##") + "%";
@@ -200,23 +222,11 @@ namespace Derick
                 {
                     descuentoTexto = "$" + descuento.ToString("0.00");
                 }
-                int indice =
-                    dgvPromociones.Rows.Add(
-                        fila["IdPromocion"].ToString(),
-                        fila["Nombre"].ToString(),
-                        tipoDescuento,
-                        descuentoTexto,
-                        Convert.ToDateTime(
-                            fila["FechaInicio"])
-                            .ToString("dd/MM/yyyy"),
-                        Convert.ToDateTime(
-                            fila["FechaFin"])
-                            .ToString("dd/MM/yyyy"),
-                        estadoTexto,
-                        fila["Descripcion"].ToString(),
-                        null,
-                        null
-                    );
+
+                int indice = dgvPromociones.Rows.Add(fila["IdPromocion"].ToString(), fila["Nombre"].ToString(), tipoDescuento,
+                    descuentoTexto,fechaInicio.ToString("dd/MM/yyyy"), fechaFin.ToString("dd/MM/yyyy"), estadoTexto,
+                    fila["Descripcion"].ToString(), null, null);
+
                 dgvPromociones.Rows[indice].Tag = Convert.ToInt32(fila["IdPromocion"]);
             }
         }
@@ -234,6 +244,7 @@ namespace Derick
             cmbP2.Items.Add("Todos");
             cmbP2.Items.Add("Activo");
             cmbP2.Items.Add("Inactivo");
+            cmbP2.Items.Add("Finalizado");
 
             cmbP2.SelectedIndex = 0;
         }
