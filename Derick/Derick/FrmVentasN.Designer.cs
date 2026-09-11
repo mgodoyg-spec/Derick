@@ -70,7 +70,6 @@
             btnNVAgregar = new Button();
             lblNVCantidad = new Label();
             picNVBP = new PictureBox();
-            txtNVBuscarProducto = new TextBox();
             nudNVCantidad = new NumericUpDown();
             lblR7 = new Label();
             lblNVAgregarProductos = new Label();
@@ -101,6 +100,7 @@
             lblNVR = new Label();
             lblVN = new Label();
             picNVR = new PictureBox();
+            cbNVProducto = new ComboBox();
             pnlNV.SuspendLayout();
             pnlNVRV.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudNVD).BeginInit();
@@ -466,6 +466,7 @@
             // 
             pnlNVAP.BackColor = Color.White;
             pnlNVAP.BorderStyle = BorderStyle.FixedSingle;
+            pnlNVAP.Controls.Add(cbNVProducto);
             pnlNVAP.Controls.Add(cbNVColor);
             pnlNVAP.Controls.Add(cbNVTalla);
             pnlNVAP.Controls.Add(label2);
@@ -475,7 +476,6 @@
             pnlNVAP.Controls.Add(btnNVAgregar);
             pnlNVAP.Controls.Add(lblNVCantidad);
             pnlNVAP.Controls.Add(picNVBP);
-            pnlNVAP.Controls.Add(txtNVBuscarProducto);
             pnlNVAP.Controls.Add(nudNVCantidad);
             pnlNVAP.Controls.Add(lblR7);
             pnlNVAP.Controls.Add(lblNVAgregarProductos);
@@ -586,19 +586,6 @@
             picNVBP.SizeMode = PictureBoxSizeMode.StretchImage;
             picNVBP.TabIndex = 37;
             picNVBP.TabStop = false;
-            picNVBP.Click += picNVBP_Click;
-            // 
-            // txtNVBuscarProducto
-            // 
-            txtNVBuscarProducto.AcceptsReturn = true;
-            txtNVBuscarProducto.BorderStyle = BorderStyle.FixedSingle;
-            txtNVBuscarProducto.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtNVBuscarProducto.ForeColor = Color.Gray;
-            txtNVBuscarProducto.Location = new Point(154, 46);
-            txtNVBuscarProducto.Margin = new Padding(3, 2, 3, 2);
-            txtNVBuscarProducto.Name = "txtNVBuscarProducto";
-            txtNVBuscarProducto.Size = new Size(132, 25);
-            txtNVBuscarProducto.TabIndex = 36;
             // 
             // nudNVCantidad
             // 
@@ -948,6 +935,15 @@
             picNVR.TabIndex = 2;
             picNVR.TabStop = false;
             // 
+            // cbNVProducto
+            // 
+            cbNVProducto.FormattingEnabled = true;
+            cbNVProducto.Location = new Point(154, 49);
+            cbNVProducto.Margin = new Padding(3, 2, 3, 2);
+            cbNVProducto.Name = "cbNVProducto";
+            cbNVProducto.Size = new Size(132, 23);
+            cbNVProducto.TabIndex = 46;
+            // 
             // FrmVentasN
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1015,7 +1011,6 @@
         private Button btnNVAgregar;
         private Label lblNVCantidad;
         private PictureBox picNVBP;
-        private TextBox txtNVBuscarProducto;
         private NumericUpDown nudNVCantidad;
         private Label lblR7;
         private Label lblNVAgregarProductos;
@@ -1064,5 +1059,6 @@
         private ComboBox cbNVTalla;
         private Label lblNVIVA;
         private Label lblIVA;
+        private ComboBox cbNVProducto;
     }
 }

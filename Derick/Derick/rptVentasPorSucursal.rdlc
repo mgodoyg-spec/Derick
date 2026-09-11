@@ -2,11 +2,11 @@
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <Body>
     <ReportItems>
-      <Tablix Name="Tablix2">
+      <Tablix Name="Tablix1">
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.15604cm</Width>
+              <Width>2.21213cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>4.14986cm</Width>
@@ -206,6 +206,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -224,14 +225,16 @@
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
           <TablixMembers>
-            <TablixMember />
+            <TablixMember>
+              <Group Name="Detalles" />
+            </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>dtVentasPorSucursal</DataSetName>
         <Top>0.17639cm</Top>
-        <Left>0.37359cm</Left>
+        <Left>0.3175cm</Left>
         <Height>0.6cm</Height>
-        <Width>18.04799cm</Width>
+        <Width>18.10408cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -239,10 +242,10 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>0.34375in</Height>
+    <Height>0.68081in</Height>
     <Style />
   </Body>
-  <Width>7.72151in</Width>
+  <Width>8.23684in</Width>
   <Page>
     <PageHeader>
       <Height>5.39423cm</Height>
