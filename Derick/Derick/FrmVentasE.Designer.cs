@@ -61,6 +61,7 @@
             lblNVProductosA = new Label();
             picNVP = new PictureBox();
             pnlNVAP = new Panel();
+            cbNVProductoE = new ComboBox();
             cbNVColorE = new ComboBox();
             cbNVTallaE = new ComboBox();
             label2 = new Label();
@@ -70,7 +71,6 @@
             btnNVAgregarE = new Button();
             lblNVCantidad = new Label();
             picNVBPE = new PictureBox();
-            txtNVBuscarProductoE = new TextBox();
             nudNVCantidadE = new NumericUpDown();
             lblR7 = new Label();
             lblNVAgregarProductos = new Label();
@@ -462,6 +462,7 @@
             // 
             pnlNVAP.BackColor = Color.White;
             pnlNVAP.BorderStyle = BorderStyle.FixedSingle;
+            pnlNVAP.Controls.Add(cbNVProductoE);
             pnlNVAP.Controls.Add(cbNVColorE);
             pnlNVAP.Controls.Add(cbNVTallaE);
             pnlNVAP.Controls.Add(label2);
@@ -471,7 +472,6 @@
             pnlNVAP.Controls.Add(btnNVAgregarE);
             pnlNVAP.Controls.Add(lblNVCantidad);
             pnlNVAP.Controls.Add(picNVBPE);
-            pnlNVAP.Controls.Add(txtNVBuscarProductoE);
             pnlNVAP.Controls.Add(nudNVCantidadE);
             pnlNVAP.Controls.Add(lblR7);
             pnlNVAP.Controls.Add(lblNVAgregarProductos);
@@ -484,10 +484,19 @@
             pnlNVAP.Size = new Size(339, 175);
             pnlNVAP.TabIndex = 4;
             // 
+            // cbNVProductoE
+            // 
+            cbNVProductoE.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbNVProductoE.FormattingEnabled = true;
+            cbNVProductoE.Location = new Point(154, 45);
+            cbNVProductoE.Margin = new Padding(3, 2, 3, 2);
+            cbNVProductoE.Name = "cbNVProductoE";
+            cbNVProductoE.Size = new Size(132, 23);
+            cbNVProductoE.TabIndex = 46;
+            // 
             // cbNVColorE
             // 
             cbNVColorE.FormattingEnabled = true;
-            cbNVColorE.Items.AddRange(new object[] { "Dilan Suarez", "Carla Ponce" });
             cbNVColorE.Location = new Point(111, 136);
             cbNVColorE.Margin = new Padding(3, 2, 3, 2);
             cbNVColorE.Name = "cbNVColorE";
@@ -497,7 +506,6 @@
             // cbNVTallaE
             // 
             cbNVTallaE.FormattingEnabled = true;
-            cbNVTallaE.Items.AddRange(new object[] { "Dilan Suarez", "Carla Ponce" });
             cbNVTallaE.Location = new Point(16, 136);
             cbNVTallaE.Margin = new Padding(3, 2, 3, 2);
             cbNVTallaE.Name = "cbNVTallaE";
@@ -582,18 +590,6 @@
             picNVBPE.TabIndex = 37;
             picNVBPE.TabStop = false;
             picNVBPE.Click += picNVBPE_Click;
-            // 
-            // txtNVBuscarProductoE
-            // 
-            txtNVBuscarProductoE.AcceptsReturn = true;
-            txtNVBuscarProductoE.BorderStyle = BorderStyle.FixedSingle;
-            txtNVBuscarProductoE.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtNVBuscarProductoE.ForeColor = Color.Gray;
-            txtNVBuscarProductoE.Location = new Point(154, 46);
-            txtNVBuscarProductoE.Margin = new Padding(3, 2, 3, 2);
-            txtNVBuscarProductoE.Name = "txtNVBuscarProductoE";
-            txtNVBuscarProductoE.Size = new Size(132, 25);
-            txtNVBuscarProductoE.TabIndex = 36;
             // 
             // nudNVCantidadE
             // 
@@ -1025,7 +1021,6 @@
         private Button btnNVAgregarE;
         private Label lblNVCantidad;
         private PictureBox picNVBPE;
-        private TextBox txtNVBuscarProductoE;
         private NumericUpDown nudNVCantidadE;
         private Label lblR7;
         private Label lblNVAgregarProductos;
@@ -1056,5 +1051,6 @@
         private PictureBox picNVR;
         private TextBox txtSE;
         private TextBox txtVE;
+        private ComboBox cbNVProductoE;
     }
 }
