@@ -1,75 +1,276 @@
-﻿using System;
+﻿using GMap.NET;
+using GMap.NET.MapProviders;
+using GMap.NET.WindowsForms;
+using GMap.NET.WindowsForms.Markers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Newtonsoft.Json.Linq;
+using System.Net;
+using System.Globalization;
+using System.Threading.Tasks;
 
 namespace Derick
 {
     public partial class frmBuscarSucursal : Form
     {
-        public frmBuscarSucursal()
+        private string direccion;
+        private string ciudad;
+        private double latitud;
+        private double longitud;
+
+        private GMapOverlay marcador = new GMapOverlay("marcador");
+
+        public double Latitud
         {
-            InitializeComponent();
+            get { return latitud; }
         }
 
-        private void frmBuscarSucursal_Load(object sender, EventArgs e)
+        public double Longitud
         {
-            dgvSucursales.EnableHeadersVisualStyles = false;
+            get { return longitud; }
+        }
 
-            // Fondo general
-            dgvSucursales.BackgroundColor = Color.White;
-            dgvSucursales.BorderStyle = BorderStyle.None;
-            dgvSucursales.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dgvSucursales.GridColor = Color.FromArgb(235, 235, 235);
+        public frmBuscarSucursal(string direccion, string ciudad)
+        {
+            InitializeComponent();
 
-            // Encabezado
-            dgvSucursales.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dgvSucursales.ColumnHeadersHeight = 48;
+            this.direccion = direccion;
+            this.ciudad = ciudad;
+        }
 
-            dgvSucursales.ColumnHeadersDefaultCellStyle.BackColor =
-                Color.FromArgb(225, 229, 235);
+        private async void frmBuscarSucursal_Load(object sender, EventArgs e)
+        {
+            GMaps.Instance.Mode = AccessMode.ServerAndCache;
 
-            dgvSucursales.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
+            gmapSeleccionarUbi.MapProvider =GoogleMapProvider.Instance;
 
-            dgvSucursales.ColumnHeadersDefaultCellStyle.Font =
-                new Font("Calibri", 12, FontStyle.Bold);
+            gmapSeleccionarUbi.MinZoom = 2;
+            gmapSeleccionarUbi.MaxZoom = 20;
+            gmapSeleccionarUbi.Zoom = 17;
 
-            dgvSucursales.ColumnHeadersDefaultCellStyle.Alignment =
-                DataGridViewContentAlignment.MiddleLeft;
+            gmapSeleccionarUbi.ShowCenter = false;
 
-            // Filas
-            dgvSucursales.DefaultCellStyle.BackColor = Color.White;
-            dgvSucursales.DefaultCellStyle.ForeColor = Color.FromArgb(60, 60, 60);
-            dgvSucursales.DefaultCellStyle.Font =
-                new Font("Calibri", 12);
+            gmapSeleccionarUbi.CanDragMap = true;
+            gmapSeleccionarUbi.DragButton = MouseButtons.Left;
+            gmapSeleccionarUbi.MouseWheelZoomType = MouseWheelZoomType.MousePositionWithoutCenter;
 
-            dgvSucursales.DefaultCellStyle.SelectionBackColor =
-                Color.FromArgb(230, 240, 255);
+            gmapSeleccionarUbi.Overlays.Add(marcador);
 
-            dgvSucursales.DefaultCellStyle.SelectionForeColor =
-                Color.Black;
+            await BuscarDireccion();
+        }
+        private async Task BuscarDireccion()
+        {
+            try
+            {
+                string ubicacion = direccion + ", " + ciudad + ", Ecuador";
 
-            // Filas alternas (muy sutil)
-            dgvSucursales.AlternatingRowsDefaultCellStyle.BackColor =
-                Color.FromArgb(252, 252, 252);
+                using (WebClient cliente = new WebClient())
+                {
+                    cliente.Headers.Add(
+                        "User-Agent",
+                        "Derick/1.0");
 
-            // Tamaños
-            dgvSucursales.RowTemplate.Height = 42;
-            dgvSucursales.RowHeadersVisible = false;
+                    string url =
+                        "https://nominatim.openstreetmap.org/search" +
+                        "?format=jsonv2" +
+                        "&limit=1" +
+                        "&countrycodes=ec" +
+                        "&q=" +
+                        Uri.EscapeDataString(ubicacion);
 
-            // Ajustes
-            dgvSucursales.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvSucursales.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvSucursales.MultiSelect = false;
-            dgvSucursales.AllowUserToResizeRows = false;
-            dgvSucursales.AllowUserToResizeColumns = false;
-            dgvSucursales.AllowUserToAddRows = false;
+                    string respuesta = await cliente.DownloadStringTaskAsync(url);
 
-            // Márgenes internos
-            dgvSucursales.DefaultCellStyle.Padding = new Padding(8, 0, 8, 0);
+                    JArray resultados =JArray.Parse(respuesta);
+
+                    if (resultados.Count > 0)
+                    {
+                        double latitudEncontrada =double.Parse(resultados[0]["lat"].ToString(),CultureInfo.InvariantCulture);
+
+                        double longitudEncontrada =double.Parse(resultados[0]["lon"].ToString(),CultureInfo.InvariantCulture);
+
+                        gmapSeleccionarUbi.Position =new PointLatLng(latitudEncontrada,longitudEncontrada);
+
+                        gmapSeleccionarUbi.Zoom = 18;
+
+                        lblCoordenadas.Text ="Ubicación aproximada encontrada. " +
+                            "Seleccione el punto exacto.";
+
+                        return;
+                    }
+
+                    await BuscarReferencia(); ;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo buscar la dirección.\n\n" + ex.Message, "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+        private async Task BuscarReferencia()
+        {
+            try
+            {
+                string referencia = direccion;
+
+                if (referencia.Contains("-"))
+                    referencia = referencia.Split('-')[0].Trim();
+
+                string ubicacion =referencia + ", " + ciudad + ", Ecuador";
+
+                using (WebClient cliente = new WebClient())
+                {
+                    cliente.Headers.Add(
+                        "User-Agent",
+                        "Derick/1.0");
+
+                    string url =
+                        "https://nominatim.openstreetmap.org/search" +
+                        "?format=jsonv2" +
+                        "&limit=1" +
+                        "&countrycodes=ec" +
+                        "&q=" +
+                        Uri.EscapeDataString(ubicacion);
+
+                    string respuesta = await cliente.DownloadStringTaskAsync(url);
+
+                    JArray resultados = JArray.Parse(respuesta);
+
+                    if (resultados.Count > 0)
+                    {
+                        double latitudEncontrada =double.Parse(resultados[0]["lat"].ToString(),CultureInfo.InvariantCulture);
+
+                        double longitudEncontrada = double.Parse(resultados[0]["lon"].ToString(),CultureInfo.InvariantCulture);
+
+                        gmapSeleccionarUbi.Position = new PointLatLng(latitudEncontrada, longitudEncontrada);
+
+                        gmapSeleccionarUbi.Zoom = 17;
+
+                        lblCoordenadas.Text ="Zona aproximada encontrada. " +"Seleccione el punto exacto.";
+
+                        return;
+                    }
+
+                    await BuscarCiudad();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo buscar la zona de la dirección.\n\n" + ex.Message, "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+        private async Task BuscarCiudad()
+        {
+            try
+            {
+                string ubicacion =ciudad + ", Ecuador";
+
+                using (WebClient cliente = new WebClient())
+                {
+                    cliente.Headers.Add(
+                        "User-Agent",
+                        "Derick/1.0");
+
+                    string url =
+                        "https://nominatim.openstreetmap.org/search" +
+                        "?format=jsonv2" +
+                        "&limit=1" +
+                        "&countrycodes=ec" +
+                        "&q=" +
+                        Uri.EscapeDataString(ubicacion);
+
+                    string respuesta = await cliente.DownloadStringTaskAsync(url);
+
+                    JArray resultados =JArray.Parse(respuesta);
+
+                    if (resultados.Count == 0)
+                    {
+                        lblCoordenadas.Text =
+                            "No se encontró la ciudad.";
+                        return;
+                    }
+
+                    double latitudEncontrada =
+                        double.Parse(resultados[0]["lat"].ToString(),CultureInfo.InvariantCulture);
+
+                    double longitudEncontrada =
+                        double.Parse(resultados[0]["lon"].ToString(),CultureInfo.InvariantCulture);
+
+                    gmapSeleccionarUbi.Position =
+                        new PointLatLng(latitudEncontrada,longitudEncontrada);
+
+                    gmapSeleccionarUbi.Zoom = 14;
+
+                    lblCoordenadas.Text =
+                        "No se encontró la dirección. " +
+                        "Seleccione el punto de la sucursal.";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo buscar la ciudad.\n\n" + ex.Message, "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+        private void gmapSeleccionarUbi_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left)
+                return;
+
+            PointLatLng punto =
+                gmapSeleccionarUbi.FromLocalToLatLng(
+                    e.X,
+                    e.Y);
+
+            latitud = punto.Lat;
+            longitud = punto.Lng;
+
+            marcador.Markers.Clear();
+
+            GMarkerGoogle marcadorNuevo =
+                new GMarkerGoogle(
+                    punto,
+                    GMarkerGoogleType.red_dot);
+
+            marcador.Markers.Add(marcadorNuevo);
+
+            lblCoordenadas.Text =
+                "Latitud: " + latitud.ToString("0.0000000") +
+                "    Longitud: " + longitud.ToString("0.0000000");
+        }
+
+        private void btnSeleccionar_Click(object sender, EventArgs e)
+        {
+            if (latitud == 0 && longitud == 0)
+            {
+                MessageBox.Show(
+                    "Seleccione un punto en el mapa.",
+                    "Ubicación",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
+
+            DialogResult = DialogResult.OK;
+            Close();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+            Close();
         }
     }
 }

@@ -21,6 +21,8 @@ namespace Derick
         public string Estado { get; set; }
 
         public byte[] Imagen { get; set; }
+        public decimal? Latitud { get; set; }
+        public decimal? Longitud { get; set; }
 
         private csConectaSQL conexion = new csConectaSQL();
 
@@ -64,9 +66,10 @@ namespace Derick
             {
                 codigo = codigo.Replace("'", "''");
 
-                string sql ="Select Codigo, FechaRegistro, NombreSucursal, Ciudad, Direccion, Telefono, Correo, EncargadoSucursal, Estado, Imagen " +
-                    "from Sucursales " +
-                    "where Codigo = '" + codigo + "'";
+                string sql ="select Codigo, FechaRegistro, NombreSucursal, Ciudad, " +
+                             "Direccion, Telefono, Correo, EncargadoSucursal, Estado, Imagen, Latitud, Longitud " +
+                             "from Sucursales " +
+                             "where Codigo = '" + codigo + "'";
 
                 DataTable datos = conexion.RetornaRegistros(sql);
 
@@ -102,6 +105,11 @@ namespace Derick
                 {
                     sucursal.Imagen = null;
                 }
+                if (fila["Latitud"] != DBNull.Value)
+                    sucursal.Latitud = Convert.ToDecimal(fila["Latitud"]);
+
+                if (fila["Longitud"] != DBNull.Value)
+                    sucursal.Longitud = Convert.ToDecimal(fila["Longitud"]);
 
                 return sucursal;
             }
@@ -118,16 +126,18 @@ namespace Derick
             try
             {
                 string sql =
-                    "Update Sucursales set " +
-                    "NombreSucursal = @NombreSucursal, " +
-                    "Ciudad = @Ciudad, " +
-                    "Direccion = @Direccion, " +
-                    "Telefono = @Telefono, " +
-                    "Correo = @Correo, " +
-                    "EncargadoSucursal = @EncargadoSucursal, " +
-                    "Estado = @Estado, " +
-                    "Imagen = @Imagen " +
-                    "where Codigo = @Codigo";
+                        "Update Sucursales set " +
+                        "NombreSucursal = @NombreSucursal, " +
+                        "Ciudad = @Ciudad, " +
+                        "Direccion = @Direccion, " +
+                        "Telefono = @Telefono, " +
+                        "Correo = @Correo, " +
+                        "EncargadoSucursal = @EncargadoSucursal, " +
+                        "Estado = @Estado, " +
+                        "Imagen = @Imagen, " +
+                        "Latitud = @Latitud, " +
+                        "Longitud = @Longitud " +
+                        "where Codigo = @Codigo";
 
                 SqlParameter pNombre =new SqlParameter("@NombreSucursal", NombreSucursal);
                 SqlParameter pCiudad =new SqlParameter("@Ciudad", Ciudad);
@@ -138,6 +148,8 @@ namespace Derick
                 SqlParameter pEstado = new SqlParameter("@Estado", Estado);
                 SqlParameter pCodigo =new SqlParameter("@Codigo", Codigo);
                 SqlParameter pImagen =new SqlParameter("@Imagen", SqlDbType.VarBinary, -1);
+                SqlParameter pLatitud = new SqlParameter("@Latitud", Latitud ?? (object)DBNull.Value);
+                SqlParameter pLongitud = new SqlParameter("@Longitud", Longitud ?? (object)DBNull.Value);
 
                 if (Imagen != null && Imagen.Length > 0)
                 {
@@ -158,6 +170,8 @@ namespace Derick
                     pEncargado,
                     pEstado,
                     pImagen,
+                    pLatitud,
+                    pLongitud,
                     pCodigo
                 );
 
@@ -189,16 +203,82 @@ namespace Derick
                 return false;
             }
         }
+        //comprobar si sucursal tiene otros datos enlazados
+        public bool TieneDatosRelacionados()
+        {
+            try
+            {
+                string sql =
+                    "select IdSucursal from Sucursales " +
+                    "where Codigo = '" + Codigo + "'";
+
+                DataTable datos = conexion.RetornaRegistros(sql);
+
+                if (datos == null || datos.Rows.Count == 0)
+                    return false;
+
+                int idSucursal =
+                    Convert.ToInt32(datos.Rows[0]["IdSucursal"]);
+
+                string sqlEmpleados =
+                    "select count(*) from Empleados " +
+                    "where IdSucursal = " + idSucursal;
+
+                DataTable empleados =
+                    conexion.RetornaRegistros(sqlEmpleados);
+
+                if (empleados != null &&
+                    Convert.ToInt32(empleados.Rows[0][0]) > 0)
+                    return true;
+
+                string sqlInventario =
+                    "select count(*) from Inventario " +
+                    "where IdSucursal = " + idSucursal;
+
+                DataTable inventario =
+                    conexion.RetornaRegistros(sqlInventario);
+
+                if (inventario != null &&
+                    Convert.ToInt32(inventario.Rows[0][0]) > 0)
+                    return true;
+
+                string sqlVentas =
+                    "select count(*) from Ventas " +
+                    "where IdSucursal = " + idSucursal;
+
+                DataTable ventas =
+                    conexion.RetornaRegistros(sqlVentas);
+
+                if (ventas != null &&
+                    Convert.ToInt32(ventas.Rows[0][0]) > 0)
+                    return true;
+
+                return false;
+            }
+            catch (Exception)
+            {
+                return true;
+            }
+        }
         public bool Eliminar()
         {
-            csConectaSQL oConexion = new csConectaSQL();
+            try
+            {
+                if (TieneDatosRelacionados())
+                    return false;
 
-            string sql = @"Delete from Sucursales where Codigo = @Codigo";
+                string sql =
+                    "delete from Sucursales " +
+                    "where Codigo = '" + Codigo + "'";
 
-            return oConexion.ejecutarComando(
-                sql,
-                new SqlParameter("@Codigo", Codigo)
-            );
+                bool resultado = conexion.ejecutarComando(sql);
+
+                return resultado;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }
