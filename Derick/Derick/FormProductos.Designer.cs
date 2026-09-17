@@ -62,6 +62,7 @@
             clEliminar = new DataGridViewImageColumn();
             clVerTodo = new DataGridViewImageColumn();
             img_icons = new ImageList(components);
+            timerPedidos = new System.Windows.Forms.Timer(components);
             pnl_conagg.SuspendLayout();
             pnl_agg2.SuspendLayout();
             pnlBusqueda.SuspendLayout();
@@ -152,7 +153,7 @@
             cmb_sucursal.DropDownStyle = ComboBoxStyle.DropDownList;
             cmb_sucursal.Font = new Font("Calibri", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cmb_sucursal.FormattingEnabled = true;
-            cmb_sucursal.Location = new Point(436, 6);
+            cmb_sucursal.Location = new Point(436, 11);
             cmb_sucursal.Margin = new Padding(3, 2, 3, 2);
             cmb_sucursal.Name = "cmb_sucursal";
             cmb_sucursal.Size = new Size(168, 23);
@@ -426,6 +427,10 @@
             img_icons.TransparentColor = Color.Transparent;
             img_icons.Images.SetKeyName(0, "eliminar1.png");
             // 
+            // timerPedidos
+            // 
+            timerPedidos.Interval = 60000;
+            // 
             // FormProductos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -484,5 +489,6 @@
         private ComboBox cmb_sucursal;
         private Label lbl2;
         private Button btn_transferir;
+        private System.Windows.Forms.Timer timerPedidos;
     }
 }

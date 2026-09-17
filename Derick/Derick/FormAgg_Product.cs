@@ -22,6 +22,8 @@ namespace Derick
         private bool stockModificado = false;
         private int idSucursalSeleccionada;
         private string nombreSucursalSeleccionada = "";
+        private int idPedidoSeleccionado = 0;
+        private List<DetalleStock> detallesPedido = new List<DetalleStock>();
         private int? idProductoEditar = null;
         private string tallaEditar = "";
         private string colorEditar = "";
@@ -61,8 +63,6 @@ namespace Derick
         }
         private void FormAgg_Product_Load(object sender, EventArgs e)
         {
-            CTalla();
-            CTColor();
             C_CTG();
 
             // muestra la sucursal que viene del formulario productos
@@ -72,54 +72,72 @@ namespace Derick
 
             // evita cambiar la sucursal desde este formulario
             cmb_sucursal.Enabled = false;
+            Cargar_productospedidos();
             if (idProductoEditar != null)
             {
                 CP_editar();
                 CargarImagenesEditar();
             }
         }
-        private void CTalla()
+        private void Cargar_productospedidos()
         {
-            cmTallas.Items.Clear();
             csConectaSQL conexion = new csConectaSQL();
-            DataTable dt = conexion.RetornaRegistros("select Nombre from Tallas order by IdTalla");
-            if (dt != null)
+            string sql = @"select IdPedido, Producto from Pedidos where IdSucursal = " + idSucursalSeleccionada + @"
+                   and Estado = 'Finalizado' order by Producto";
+
+            DataTable dt = conexion.RetornaRegistros(sql);
+            cmb_productos.DataSource = null;
+
+            if (dt == null)
             {
-                foreach (DataRow fila in dt.Rows)
-                {
-                    string talla = fila["Nombre"].ToString();
-                    ToolStripMenuItem item = new ToolStripMenuItem(talla);
-                    item.CheckOnClick = true;
-                    item.CheckedChanged += Talla_CheckedChanged;
-                    cmTallas.Items.Add(item);
-                }
+                return;
             }
-            cmTallas.Items.Add(new ToolStripSeparator());
-            ToolStripMenuItem agregarTalla = new ToolStripMenuItem();
-            agregarTalla.Text = "+ Agregar talla";
-            agregarTalla.Click += Agg_Tallas_Click;
-            cmTallas.Items.Add(agregarTalla);
+
+            DataRow fila = dt.NewRow();
+            fila["IdPedido"] = 0;
+            fila["Producto"] = "Seleccione un producto";
+            dt.Rows.InsertAt(fila, 0);
+
+            cmb_productos.DataSource = dt;
+            cmb_productos.DisplayMember = "Producto";
+            cmb_productos.ValueMember = "IdPedido";
+            cmb_productos.SelectedIndex = 0;
         }
-        private void CTColor()
+        private void Cargar_detallesPedido()
         {
-            cmColores.Items.Clear();
+            detallesPedido.Clear();
             csConectaSQL conexion = new csConectaSQL();
-            DataTable dt = conexion.RetornaRegistros("select Nombre from Colores order by IdColor");
-            if (dt != null)
+            string sql = @"select IdDetallePedido, Talla, Color, Cantidad, CantidadRegistrada from DetallePedidos where IdPedido = " + idPedidoSeleccionado;
+            DataTable dt = conexion.RetornaRegistros(sql);
+
+            if (dt == null)
             {
-                foreach (DataRow fila in dt.Rows)
-                {
-                    string color = fila["Nombre"].ToString();
-                    ToolStripMenuItem item = new ToolStripMenuItem(color);
-                    item.CheckOnClick = true;
-                    item.CheckedChanged += Color_CheckedChanged;
-                    cmColores.Items.Add(item);
-                }
+                return;
             }
-            cmColores.Items.Add(new ToolStripSeparator());
-            ToolStripMenuItem agregarColor = new ToolStripMenuItem("+ Agregar color");
-            agregarColor.Click += Agg_Colores_Click;
-            cmColores.Items.Add(agregarColor);
+
+            foreach (DataRow fila in dt.Rows)
+            {
+                int cantidad = Convert.ToInt32(fila["Cantidad"]);
+                int registrada = Convert.ToInt32(fila["CantidadRegistrada"]);
+
+                int disponible = cantidad - registrada;
+
+                // si ya se registro todo, no lo muestra
+                if (disponible <= 0)
+                {
+                    continue;
+                }
+
+                DetalleStock detalle = new DetalleStock();
+
+                detalle.IdDetallePedido = Convert.ToInt32(fila["IdDetallePedido"]);
+                detalle.Talla = fila["Talla"].ToString();
+                detalle.Color = fila["Color"].ToString();
+                detalle.stock = disponible;
+                detalle.cantidadDisponible = disponible;
+
+                detallesPedido.Add(detalle);
+            }
         }
         private void seleccionarImagen_Click(object sender, EventArgs e)
         {
@@ -243,7 +261,8 @@ namespace Derick
 
             csConectaSQL conexion = new csConectaSQL();
 
-            DataTable dt = conexion.RetornaRegistros("select Codigo, Nombre, Categoria, Precio, Descripcion " +
+            DataTable dt = conexion.RetornaRegistros(
+                "select Codigo, Nombre, Categoria, Precio, Descripcion " +
                 "from Productos where IdProductos = " + idProductoEditar.Value);
 
             if (dt == null || dt.Rows.Count == 0)
@@ -253,23 +272,41 @@ namespace Derick
 
             DataRow fila = dt.Rows[0];
 
+            // carga los datos generales del producto
             txt_cd.Text = fila["Codigo"].ToString();
-            txt_nmb.Text = fila["Nombre"].ToString();
-            cmb_ctg.Text = fila["Categoria"].ToString();
-            txt_prc.Text = Convert.ToDecimal(fila["Precio"]).ToString("0.00");
             txt_dsp.Text = fila["Descripcion"].ToString();
+            txt_prc.Text = Convert.ToDecimal(fila["Precio"]).ToString("0.00");
+            cmb_ctg.Text = fila["Categoria"].ToString();
+
+            // muestra el producto que se esta editando
+            cmb_productos.DataSource = null;
+            cmb_productos.Items.Clear();
+            cmb_productos.Items.Add(fila["Nombre"].ToString());
+            cmb_productos.SelectedIndex = 0;
+
+            // no permite cambiar el producto mientras se edita
+            cmb_productos.Enabled = false;
 
             // carga el estado de la variante seleccionada
-            DataTable dtEstado = conexion.RetornaRegistros(@"select Estado from Inventario
-                     where IdProducto = " + idProductoEditar.Value + @"
-                     and IdSucursal = " + idSucursalSeleccionada + @"
-                     and Talla = '" + tallaEditar.Replace("'", "''") + @"'
+            DataTable dtEstado = conexion.RetornaRegistros(@"select Stock, Estado from Inventario  where IdProducto = " + idProductoEditar.Value + @"
+                     and IdSucursal = " + idSucursalSeleccionada + @" and Talla = '" + tallaEditar.Replace("'", "''") + @"'
                      and Color = '" + colorEditar.Replace("'", "''") + "'");
 
             if (dtEstado != null && dtEstado.Rows.Count > 0)
             {
+                int stock = Convert.ToInt32(dtEstado.Rows[0]["Stock"]);
                 bool activo = Convert.ToBoolean(dtEstado.Rows[0]["Estado"]);
 
+                // guarda la variante actual en detallesStock
+                detallesStock.Clear();
+                DetalleStock detalle = new DetalleStock();
+                detalle.Talla = tallaEditar;
+                detalle.Color = colorEditar;
+                detalle.stock = stock;
+
+                detallesStock.Add(detalle);
+
+                // muestra el estado actual
                 if (activo)
                 {
                     cmb_est.Text = "Activo";
@@ -279,76 +316,10 @@ namespace Derick
                 {
                     cmb_est.Text = "Inactivo";
                 }
-            }
-
-            // marca solamente la talla seleccionada
-            foreach (ToolStripItem elemento in cmTallas.Items)
-            {
-                if (elemento is ToolStripMenuItem item)
-                {
-                    item.Checked = false;
-
-                    if (item.Text.Equals(tallaEditar, StringComparison.OrdinalIgnoreCase))
-                    {
-                        item.Checked = true;
-                    }
-                }
-            }
-
-            // marca solamente el color seleccionado
-            foreach (ToolStripItem elemento in cmColores.Items)
-            {
-                if (elemento is ToolStripMenuItem item)
-                {
-                    item.Checked = false;
-
-                    if (item.Text.Equals(colorEditar, StringComparison.OrdinalIgnoreCase))
-                    {
-                        item.Checked = true;
-                    }
-                }
-            }
-
-            // carga solamente el stock de la variante seleccionada
-            List<DetalleStock> stock = CargarStockProducto(idProductoEditar.Value, idSucursalSeleccionada);
-
-            detallesStock.Clear();
-
-            foreach (DetalleStock detalle in stock)
-            {
-                if (detalle.Talla.Equals(tallaEditar, StringComparison.OrdinalIgnoreCase) &&
-                    detalle.Color.Equals(colorEditar, StringComparison.OrdinalIgnoreCase))
-                {
-                    DetalleStock detalleEditar = new DetalleStock();
-                    detalleEditar.Talla = detalle.Talla;
-                    detalleEditar.Color = detalle.Color;
-                    detalleEditar.stock = detalle.stock;
-
-                    detallesStock.Add(detalleEditar);
-
-                    btn_abr.Text = detalle.stock + " unidades";
-                    break;
-                }
+                // muestra el stock actual
+                btn_abr.Text = stock + " unidades";
             }
             stockModificado = false;
-        }
-        private void Cargar_sucursales()
-        {
-            csConectaSQL conect = new csConectaSQL();
-            string query = @"select IdSucursal, NombreSucursal from Sucursales
-                   where Estado = 'Activa'
-                   order by NombreSucursal";
-
-            DataTable dt = conect.RetornaRegistros(query);
-            if (dt == null)
-            {
-                return;
-            }
-
-            cmb_sucursal.DataSource = dt;
-            cmb_sucursal.DisplayMember = "NombreSucursal";
-            cmb_sucursal.ValueMember = "IdSucursal";
-            cmb_sucursal.SelectedIndex = -1;
         }
         private bool Guardar_stock(int idProducto, int idSucursal, int estado)
         {
@@ -413,53 +384,29 @@ namespace Derick
             }
             return guardar_algo;
         }
-        private bool Actualizar_stock(int idProducto, int idSucursal)
+        private bool Actualizar_cantidadRegistrada()
         {
             csConectaSQL conexion = new csConectaSQL();
-            try
+            foreach (DetalleStock detalle in detallesStock)
             {
-                // elimina el stock anterior solamente de la sucursal seleccionada
-                bool eliminado = conexion.ejecutarComando(@"delete from Inventario
-                    where IdProducto = @IdProducto and IdSucursal = @IdSucursal",
-                    new SqlParameter("@IdProducto", idProducto),
-                    new SqlParameter("@IdSucursal", idSucursal));
+                if (detalle.IdDetallePedido == 0)
+                {
+                    continue;
+                }
 
-                if (!eliminado)
+                string sql = @"update DetallePedidos set CantidadRegistrada = CantidadRegistrada + @Cantidad
+                       where IdDetallePedido = @IdDetallePedido";
+
+                bool actualizado = conexion.ejecutarComando(sql,new SqlParameter("@Cantidad", detalle.stock),
+                       new SqlParameter("@IdDetallePedido", detalle.IdDetallePedido));
+
+                if (!actualizado)
                 {
                     return false;
                 }
-                // guarda nuevamente las combinaciones actuales
-                foreach (DetalleStock detalle in detallesStock)
-                {
-                    // no guarda combinaciones con stock 0
-                    if (detalle.stock > 0)
-                    {
-                        string sql = @"insert into Inventario (IdProducto, IdSucursal, Talla, Color, Stock)
-                            values(@IdProducto, @IdSucursal, @Talla, @Color, @Stock)";
-                        bool insertado = conexion.ejecutarComando(sql,
-                            new SqlParameter("@IdProducto", idProducto),
-                            new SqlParameter("@IdSucursal", idSucursal),
-                            new SqlParameter("@Talla", detalle.Talla),
-                            new SqlParameter("@Color", detalle.Color),
-                            new SqlParameter("@Stock", detalle.stock));
-
-                        if (!insertado)
-                        {
-                            return false;
-                        }
-                    }
-                }
-
-                return true;
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(
-                    "Error al actualizar el stock: " +
-                    ex.Message);
 
-                return false;
-            }
+            return true;
         }
         private bool Actualizar_stock_variante(int idProducto, int idSucursal, int estado)
         {
@@ -472,41 +419,17 @@ namespace Derick
 
             csConectaSQL conexion = new csConectaSQL();
 
-            // comprueba si la nueva talla y color ya existen
-            string consulta = @"select IdInventario from Inventario
-                  where IdProducto = " + idProducto + @"
-                  and IdSucursal = " + idSucursal + @"
-                  and Talla = '" + detalle.Talla.Replace("'", "''") + @"'
-                  and Color = '" + detalle.Color.Replace("'", "''") + @"'
-                  and not (Talla = '" + tallaEditar.Replace("'", "''") + @"'
-                  and Color = '" + colorEditar.Replace("'", "''") + "')";
+            string sql = @"update Inventario set Stock = @Stock,Estado = @Estado where IdProducto = @IdProducto
+                   and IdSucursal = @IdSucursal and Talla = @Talla and Color = @Color";
 
-            DataTable dt = conexion.RetornaRegistros(consulta);
-
-            if (dt != null && dt.Rows.Count > 0)
-            {
-                MessageBox.Show(
-                    "Ya existe una variante con esa talla y color.",
-                    "Variante existente",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                return false;
-            }
-
-            bool actualizado = conexion.ejecutarComando(@"update Inventario
-                set Talla = @TallaNueva, Color = @ColorNuevo,
-                Stock = @Stock, Estado = @Estado
-                where IdProducto = @IdProducto and IdSucursal = @IdSucursal
-                and Talla = @TallaAnterior and Color = @ColorAnterior",
-                new SqlParameter("@TallaNueva", detalle.Talla),
-                new SqlParameter("@ColorNuevo", detalle.Color),
+            bool actualizado = conexion.ejecutarComando(sql,
                 new SqlParameter("@Stock", detalle.stock),
                 new SqlParameter("@Estado", estado),
                 new SqlParameter("@IdProducto", idProducto),
                 new SqlParameter("@IdSucursal", idSucursal),
-                new SqlParameter("@TallaAnterior", tallaEditar),
-                new SqlParameter("@ColorAnterior", colorEditar));
+                new SqlParameter("@Talla", tallaEditar),
+                new SqlParameter("@Color", colorEditar)
+            );
 
             return actualizado;
         }
@@ -535,120 +458,18 @@ namespace Derick
             return lista;
         }
 
-        private void Talla_CheckedChanged(object sender, EventArgs e)
+        private void cmb_productos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            List<string> tallasSeleccionadas = new List<string>();
-
-            foreach (ToolStripItem elemento in cmTallas.Items)
+            if (cmb_productos.SelectedIndex <= 0)
             {
-                if (elemento is ToolStripMenuItem item && item.Checked)
-                {
-                    tallasSeleccionadas.Add(item.Text);
-                }
+                idPedidoSeleccionado = 0;
+                detallesPedido.Clear();
+                return;
             }
 
-            if (tallasSeleccionadas.Count > 0)
-            {
-                lbl_tallas.Text = string.Join(", ", tallasSeleccionadas);
-            }
-            else
-            {
-                lbl_tallas.Text = "Seleccionar talla(s)";
-            }
-        }
-        private void Color_CheckedChanged(object sender, EventArgs e)
-        {
-            List<string> coloresSeleccionados = new List<string>();
-            foreach (ToolStripItem elemento in cmColores.Items)
-            {
-                if (elemento is ToolStripMenuItem item && item.Checked)
-                {
-                    coloresSeleccionados.Add(item.Text);
-                }
-            }
-            if (coloresSeleccionados.Count > 0)
-            {
-                lbl_color.Text = string.Join(", ", coloresSeleccionados);
-            }
-            else
-            {
-                lbl_color.Text = "Seleccionar color(es)";
-            }
-        }
-        private void Agg_Tallas_Click(object? sender, EventArgs e)
-        {
-            frm_secundario1 frm = new frm_secundario1();
-            frm.StartPosition = FormStartPosition.Manual;
-            frm.Location = new Point(
-                this.Right + 10,
-                this.Top
-            );
+            idPedidoSeleccionado = Convert.ToInt32(cmb_productos.SelectedValue);
 
-            if (frm.ShowDialog(this) == DialogResult.OK)
-            {
-                string tallaNueva = frm.Ntll.Trim().ToUpper();
-                foreach (ToolStripItem elemento in cmTallas.Items)
-                {
-                    if (elemento is ToolStripMenuItem item)
-                    {
-                        if (item.Text.Equals(
-                            tallaNueva,
-                            StringComparison.OrdinalIgnoreCase))
-                        {
-                            MessageBox.Show(
-                                "La talla " + tallaNueva + " ya existe.",
-                                "Talla duplicada",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Warning
-                            );
-                            return;
-                        }
-                    }
-                }
-                ToolStripMenuItem nuevaTalla = new ToolStripMenuItem(tallaNueva);
-                nuevaTalla.CheckOnClick = true;
-                nuevaTalla.CheckedChanged += Talla_CheckedChanged;
-                cmTallas.Items.Insert(cmTallas.Items.Count - 2, nuevaTalla
-                );
-            }
-        }
-        private void Agg_Colores_Click(object sender, EventArgs e)
-        {
-            frm_secundario2 frm = new frm_secundario2();
-            frm.StartPosition = FormStartPosition.Manual;
-            frm.Location = new Point(
-                this.Right + 10,
-                this.Top
-            );
-
-            if (frm.ShowDialog(this) == DialogResult.OK)
-            {
-                string nuevoColor = frm.ncolor;
-                bool existe = false;
-                foreach (ToolStripItem elemento in cmColores.Items)
-                {
-                    if (elemento is ToolStripMenuItem item)
-                    {
-                        if (item.Text.Equals(
-                            nuevoColor,
-                            StringComparison.OrdinalIgnoreCase))
-                        {
-                            existe = true;
-                            break;
-                        }
-                    }
-                }
-                if (existe)
-                {
-                    MessageBox.Show("Ese color ya existe.");
-                    return;
-                }
-                ToolStripMenuItem nuevoItem = new ToolStripMenuItem(nuevoColor);
-                nuevoItem.CheckOnClick = true;
-                nuevoItem.CheckedChanged += Color_CheckedChanged;
-                int posicion = cmColores.Items.Count - 2;
-                cmColores.Items.Insert(posicion, nuevoItem);
-            }
+            Cargar_detallesPedido();
         }
 
         private void pic2_e_Click(object sender, EventArgs e)
@@ -656,51 +477,6 @@ namespace Derick
             this.Close();
         }
 
-        private void btn_tallas_Click(object sender, EventArgs e)
-        {
-            cmTallas.Width = lbl_tallas.Width;
-            cmTallas.Show(lbl_tallas, new Point(0, lbl_tallas.Height));
-
-            btn_tallas.Visible = false;
-            btn_tallas1.Visible = true;
-        }
-
-        private void btn_tallas1_Click(object sender, EventArgs e)
-        {
-            cmTallas.Close();
-
-            btn_tallas1.Visible = false;
-            btn_tallas.Visible = true;
-        }
-
-        private void cmTallas_Closed(object sender, ToolStripDropDownClosedEventArgs e)
-        {
-            btn_tallas1.Visible = false;
-            btn_tallas.Visible = true;
-        }
-
-        private void btn_color_Click(object sender, EventArgs e)
-        {
-            cmColores.Width = lbl_color.Width;
-            cmColores.Show(lbl_color, new Point(0, lbl_color.Height));
-
-            btn_color.Visible = false;
-            btn_color1.Visible = true;
-        }
-
-        private void btn_color1_Click(object sender, EventArgs e)
-        {
-            cmColores.Close();
-
-            btn_color1.Visible = false;
-            btn_color.Visible = true;
-        }
-
-        private void cmColores_Closed(object sender, ToolStripDropDownClosedEventArgs e)
-        {
-            btn_color1.Visible = false;
-            btn_color.Visible = true;
-        }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -763,476 +539,226 @@ namespace Derick
 
         private void btn_guardar_Click(object sender, EventArgs e)
         {
-            // se valida el código
-            if (string.IsNullOrWhiteSpace(txt_cd.Text))
+            // valida el codigo
+            if (txt_cd.Text.Trim() == "")
             {
-                MessageBox.Show(
-                    "Ingrese el código del producto.",
-                    "Campo obligatorio",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
+                MessageBox.Show("Ingrese el código del producto.");
                 txt_cd.Focus();
                 return;
             }
 
-            // valida nombre
-            if (string.IsNullOrWhiteSpace(txt_nmb.Text))
+            // cuando es un producto nuevo debe venir de un pedido finalizado
+            if (idProductoEditar == null)
             {
-                MessageBox.Show(
-                    "Ingrese el nombre del producto.",
-                    "Campo obligatorio",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                txt_nmb.Focus();
-                return;
-            }
-
-            if (txt_nmb.Text.Trim().Length < 3)
-            {
-                MessageBox.Show(
-                    "El nombre del producto debe tener al menos 3 caracteres.",
-                    "Nombre inválido",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                txt_nmb.Focus();
-                return;
-            }
-
-            // valida el precio
-            decimal precio;
-
-            string precioTexto = txt_prc.Text.Trim().Replace(",", ".");
-
-            if (!decimal.TryParse(
-                precioTexto,
-                System.Globalization.NumberStyles.AllowDecimalPoint,
-                System.Globalization.CultureInfo.InvariantCulture,
-                out precio))
-            {
-                MessageBox.Show(
-                    "Ingrese un precio válido.",
-                    "Precio inválido",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                txt_prc.Focus();
-                return;
-            }
-
-            if (precio <= 0)
-            {
-                MessageBox.Show(
-                    "El precio debe ser mayor que 0.",
-                    "Precio inválido",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                txt_prc.Focus();
-                return;
+                if (cmb_productos.SelectedIndex <= 0 || idPedidoSeleccionado == 0)
+                {
+                    MessageBox.Show("Seleccione un producto proveniente de un pedido finalizado.");
+                    cmb_productos.Focus();
+                    return;
+                }
             }
 
             // valida la categoria
-            if (string.IsNullOrWhiteSpace(cmb_ctg.Text))
+            if (cmb_ctg.SelectedIndex == -1)
             {
-                MessageBox.Show(
-                    "Seleccione una categoría.",
-                    "Categoría obligatoria",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
+                MessageBox.Show("Seleccione una categoría.");
                 cmb_ctg.Focus();
                 return;
             }
 
-            // obtiene las tallas
-            List<string> tallasSeleccionadas = new List<string>();
-
-            foreach (ToolStripItem elemento in cmTallas.Items)
+            // valida el precio
+            if (txt_prc.Text.Trim() == "")
             {
-                if (elemento is ToolStripMenuItem item && item.Checked)
-                {
-                    tallasSeleccionadas.Add(item.Text);
-                }
-            }
-
-            if (tallasSeleccionadas.Count == 0)
-            {
-                MessageBox.Show(
-                    "Seleccione al menos una talla.",
-                    "Talla obligatoria",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
+                MessageBox.Show("Ingrese el precio del producto.");
+                txt_prc.Focus();
                 return;
             }
 
-            // obtiene los colores
-            List<string> coloresSeleccionados = new List<string>();
+            decimal precio;
 
-            foreach (ToolStripItem elemento in cmColores.Items)
+            if (!decimal.TryParse(txt_prc.Text, out precio))
             {
-                if (elemento is ToolStripMenuItem item && item.Checked)
-                {
-                    coloresSeleccionados.Add(item.Text);
-                }
-            }
-
-            if (coloresSeleccionados.Count == 0)
-            {
-                MessageBox.Show(
-                    "Seleccione al menos un color.",
-                    "Color obligatorio",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
+                MessageBox.Show("Ingrese un precio válido.");
+                txt_prc.Focus();
                 return;
             }
 
             // valida la sucursal
-            if (idSucursalSeleccionada <= 0)
+            if (idSucursalSeleccionada == 0)
             {
-                MessageBox.Show(
-                    "No se ha seleccionado una sucursal válida.",
-                    "Sucursal obligatoria",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
+                MessageBox.Show("No se ha seleccionado una sucursal.");
                 return;
             }
-
-            // en producto nuevo el stock es obligatorio
-            if (idProductoEditar == null && detallesStock.Count == 0)
-            {
-                MessageBox.Show(
-                    "Configure el stock del producto.",
-                    "Stock obligatorio",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                return;
-            }
-
-            // obtiene datos
-            string codigo = txt_cd.Text.Trim();
-            string nombre = txt_nmb.Text.Trim();
-            string categoria = cmb_ctg.Text.Trim();
-            string descripcion = txt_dsp.Text.Trim();
-            string estadoTexto = cmb_est.Text.Trim();
-
-            int idSucursal = idSucursalSeleccionada;
 
             // valida el estado
             int estado = 0;
 
-            if (estadoTexto.Equals("Activo", StringComparison.OrdinalIgnoreCase))
+            if (cmb_est.Text == "Activo")
             {
                 estado = 1;
             }
-            else if (estadoTexto.Equals("Inactivo", StringComparison.OrdinalIgnoreCase))
+
+            if (cmb_est.Text == "Inactivo")
             {
                 estado = 0;
             }
-            else
-            {
-                MessageBox.Show(
-                    "Seleccione un estado válido.",
-                    "Estado inválido",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
 
-                cmb_est.Focus();
-                return;
+            // valida el stock solamente al agregar
+            if (idProductoEditar == null)
+            {
+                if (detallesStock.Count == 0)
+                {
+                    MessageBox.Show("Configure el stock del producto.");
+                    return;
+                }
             }
 
             csConectaSQL conexion = new csConectaSQL();
 
-            // producto nuevo
+            // nombre del producto
+            string nombre = "";
+
             if (idProductoEditar == null)
             {
-                int idProducto = 0;
-                bool productoExistente = false;
+                nombre = cmb_productos.Text.Trim();
+            }
 
-                string consultaCodigo =
-                    @"select IdProductos, Codigo, Nombre from Productos where Codigo = '" +
-                    codigo.Replace("'", "''") + "'";
-
-                DataTable dtCodigo = conexion.RetornaRegistros(consultaCodigo);
+            // agregar producto nuevo
+            if (idProductoEditar == null)
+            {
+                // verifica si ya existe el codigo
+                DataTable dtCodigo = conexion.RetornaRegistros("select IdProductos from Productos where Codigo = '" +
+                    txt_cd.Text.Trim().Replace("'", "''") + "'");
 
                 if (dtCodigo != null && dtCodigo.Rows.Count > 0)
                 {
-                    string nombreGuardado = dtCodigo.Rows[0]["Nombre"].ToString();
+                    int idProductoExistente = Convert.ToInt32(dtCodigo.Rows[0]["IdProductos"]);
 
-                    if (!nombreGuardado.Equals(nombre, StringComparison.OrdinalIgnoreCase))
-                    {
-                        MessageBox.Show(
-                            "El código ingresado ya pertenece al producto \"" +
-                            nombreGuardado + "\".",
-                            "Código existente",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Warning);
-
-                        txt_cd.Focus();
-                        return;
-                    }
-
-                    idProducto = Convert.ToInt32(dtCodigo.Rows[0]["IdProductos"]);
-                    productoExistente = true;
-                }
-
-                if (productoExistente)
-                {
-                    bool stockGuardado = Guardar_stock(idProducto, idSucursal, estado);
-
+                    // el producto ya existe, solamente agrega el stock
+                    bool stockGuardado = Guardar_stock(idProductoExistente,idSucursalSeleccionada,estado);
                     if (!stockGuardado)
                     {
-                        MessageBox.Show(
-                            "No se pudo guardar el stock.",
-                            "Error",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Error);
-
+                        MessageBox.Show("No se pudo guardar el stock.");
                         return;
                     }
 
-                    conexion.RegistrarActividad(
-                        "Se agregó stock al producto " + nombre +
-                        " en la sucursal " + nombreSucursalSeleccionada
-                    );
+                    // actualiza la cantidad registrada del pedido
+                    bool cantidadActualizada = Actualizar_cantidadRegistrada();
 
-                    MessageBox.Show(
-                        "El stock del producto se actualizó correctamente.",
-                        "Guardado",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
+                    if (!cantidadActualizada)
+                    {
+                        MessageBox.Show(
+                            "El stock se guardó, pero no se pudo actualizar la cantidad registrada del pedido.");
+                        return;
+                    }
+
+                    MessageBox.Show("El stock del producto se actualizó correctamente.");
 
                     this.DialogResult = DialogResult.OK;
                     this.Close();
+
+                    return;
                 }
 
-                if (!productoExistente)
+                // inserta el producto nuevo
+                string sqlProducto = @"insert into Productos (Codigo, Nombre, Categoria, Precio, Descripcion, Estado)
+                      values(@Codigo, @Nombre, @Categoria, @Precio, @Descripcion, @Estado)";
+
+                SqlParameter[] parametros ={new SqlParameter("@Codigo", txt_cd.Text.Trim()),new SqlParameter("@Nombre", nombre),
+                      new SqlParameter("@Categoria", cmb_ctg.Text),new SqlParameter("@Precio", precio),
+                      new SqlParameter("@Descripcion", txt_dsp.Text.Trim()),new SqlParameter("@Estado", estado)};
+
+                int idProducto = conexion.EjecutarConRetorno(sqlProducto,parametros);
+                if (idProducto <= 0)
                 {
-                    string campos =
-                        "Codigo, Nombre, Categoria, Precio, Estado, Descripcion";
-
-                    string datos =
-                        $"'{codigo.Replace("'", "''")}', " +
-                        $"'{nombre.Replace("'", "''")}', " +
-                        $"'{categoria.Replace("'", "''")}', " +
-                        $"{precio.ToString(System.Globalization.CultureInfo.InvariantCulture)}, " +
-                        $"{estado}, " +
-                        $"'{descripcion.Replace("'", "''")}'";
-
-                    idProducto = conexion.Ins_RetrID(
-                        "Productos",
-                        campos,
-                        datos
-                    );
-
-                    if (idProducto == -1)
-                    {
-                        MessageBox.Show(
-                            "No se pudo guardar el producto.",
-                            "Error",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Error);
-
-                        return;
-                    }
-
-                    bool stockGuardado =
-                        Guardar_stock(idProducto, idSucursal, estado);
-
-                    if (!stockGuardado)
-                    {
-                        MessageBox.Show(
-                            "El producto se guardó, pero no se pudo guardar el stock.",
-                            "Error",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Error);
-
-                        return;
-                    }
-
-                    if (rt.Count > 0)
-                    {
-                        bool imagenesGuardadas =
-                            GuardarImagenesProducto(idProducto);
-
-                        if (!imagenesGuardadas)
-                        {
-                            MessageBox.Show(
-                                "El producto y el stock se guardaron, pero hubo un problema al guardar las imágenes.",
-                                "Advertencia",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Warning);
-                        }
-                    }
-
-                    // REGISTRA LA ACTIVIDAD
-                    conexion.RegistrarActividad(
-                        "Se agregó el producto " + nombre
-                    );
-
-                    MessageBox.Show(
-                        "Producto guardado correctamente.",
-                        "Guardado",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
+                    MessageBox.Show("No se pudo registrar el producto.");
+                    return;
                 }
+
+                // guarda las combinaciones de talla, color y stock
+                bool guardoStock = Guardar_stock(idProducto,idSucursalSeleccionada,estado);
+                if (!guardoStock)
+                {
+                    MessageBox.Show(
+                        "El producto se registró, pero no se pudo guardar el stock.");
+                    return;
+                }
+
+                // guarda las imagenes del producto
+                bool guardoImagenes = GuardarImagenesProducto(idProducto);
+
+                if (!guardoImagenes)
+                {
+                    MessageBox.Show(
+                        "El producto y el stock se guardaron, pero no se pudieron guardar las imágenes.");
+                    return;
+                }
+
+                // actualiza la cantidad registrada del pedido
+                bool cantidadActualizadaNuevo = Actualizar_cantidadRegistrada();
+
+                if (!cantidadActualizadaNuevo)
+                {
+                    MessageBox.Show(
+                        "El producto se registró y el stock se guardó, pero no se pudo actualizar la cantidad registrada del pedido.");
+                    return;
+                }
+
+                MessageBox.Show("Producto registrado correctamente.");
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+
+                return;
             }
 
-            // edita el producto
-            if (idProductoEditar != null)
+            // edita un producto existente
+            // verifica si el codigo pertenece a otro producto
+            DataTable dtCodigoEditar = conexion.RetornaRegistros("select IdProductos from Productos where Codigo = '" +
+                txt_cd.Text.Trim().Replace("'", "''") + "'");
+
+            if (dtCodigoEditar != null && dtCodigoEditar.Rows.Count > 0)
             {
-                string consultaCodigo =
-                    @"select IdProductos from Productos where Codigo = '" +
-                    codigo.Replace("'", "''") +
-                    "' and IdProductos <> " + idProductoEditar.Value;
+                int idCodigo = Convert.ToInt32(dtCodigoEditar.Rows[0]["IdProductos"]);
 
-                DataTable dtCodigo =
-                    conexion.RetornaRegistros(consultaCodigo);
-
-                if (dtCodigo != null && dtCodigo.Rows.Count > 0)
+                if (idCodigo != idProductoEditar.Value)
                 {
-                    MessageBox.Show(
-                        "Ya existe otro producto con ese código.",
-                        "Código duplicado",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-
+                    MessageBox.Show("El código ya pertenece a otro producto.");
                     txt_cd.Focus();
                     return;
                 }
-
-                // actualiza datos generales
-                bool actualizado = conexion.ejecutarComando(
-                    @"update Productos
-              set Codigo = @Codigo,
-                  Nombre = @Nombre,
-                  Categoria = @Categoria,
-                  Precio = @Precio,
-                  Descripcion = @Descripcion
-              where IdProductos = @IdProducto",
-
-                    new SqlParameter("@Codigo", codigo),
-                    new SqlParameter("@Nombre", nombre),
-                    new SqlParameter("@Categoria", categoria),
-                    new SqlParameter("@Precio", precio),
-                    new SqlParameter("@Descripcion", descripcion),
-                    new SqlParameter("@IdProducto", idProductoEditar.Value)
-                );
-
-                if (!actualizado)
-                {
-                    MessageBox.Show(
-                        "No se pudo actualizar el producto.",
-                        "Error",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-
-                    return;
-                }
-
-                // si modificó talla, color o stock
-                if (stockModificado)
-                {
-                    bool varianteActualizada =
-                        Actualizar_stock_variante(
-                            idProductoEditar.Value,
-                            idSucursal,
-                            estado
-                        );
-
-                    if (!varianteActualizada)
-                    {
-                        return;
-                    }
-                }
-                else
-                {
-                    // actualiza únicamente el estado de esta variante
-                    bool estadoActualizado = conexion.ejecutarComando(
-                        @"update Inventario
-                  set Estado = @Estado
-                  where IdProducto = @IdProducto
-                  and IdSucursal = @IdSucursal
-                  and Talla = @Talla
-                  and Color = @Color",
-
-                        new SqlParameter("@Estado", estado),
-                        new SqlParameter("@IdProducto", idProductoEditar.Value),
-                        new SqlParameter("@IdSucursal", idSucursal),
-                        new SqlParameter("@Talla", tallaEditar),
-                        new SqlParameter("@Color", colorEditar)
-                    );
-
-                    if (!estadoActualizado)
-                    {
-                        MessageBox.Show(
-                            "No se pudo actualizar el estado.",
-                            "Error",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Error);
-
-                        return;
-                    }
-                }
-
-                // reemplaza imágenes solo si seleccionó nuevas
-                if (rt.Count > 0)
-                {
-                    bool eliminadas = conexion.ejecutarComando(
-                        @"delete from ProductoImagenes
-                  where IdProductos = @id",
-
-                        new SqlParameter(
-                            "@id",
-                            idProductoEditar.Value
-                        )
-                    );
-
-                    if (!eliminadas)
-                    {
-                        MessageBox.Show(
-                            "El producto se actualizó, pero no se pudieron reemplazar las imágenes.",
-                            "Advertencia",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Warning);
-
-                        return;
-                    }
-
-                    bool imagenesGuardadas =
-                        GuardarImagenesProducto(idProductoEditar.Value);
-
-                    if (!imagenesGuardadas)
-                    {
-                        MessageBox.Show(
-                            "El producto se actualizó, pero hubo un problema al guardar las nuevas imágenes.",
-                            "Advertencia",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Warning);
-                    }
-                }
-
-                // REGISTRA LA ACTIVIDAD
-                conexion.RegistrarActividad(
-                    "Se editó el producto " + nombre
-                );
-
-                MessageBox.Show(
-                    "Producto actualizado correctamente.",
-                    "Actualizado",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
             }
 
-            DialogResult = DialogResult.OK;
-            Close();
+            // actualiza los datos generales del producto
+            string sqlActualizar = @"update Productos set Codigo = @Codigo,Categoria = @Categoria,Precio = @Precio,
+                Descripcion = @Descripcion where IdProductos = @IdProducto";
 
+            bool productoActualizado = conexion.ejecutarComando(sqlActualizar,new SqlParameter("@Codigo", txt_cd.Text.Trim()),
+                new SqlParameter("@Categoria", cmb_ctg.Text),new SqlParameter("@Precio", precio),
+                new SqlParameter("@Descripcion", txt_dsp.Text.Trim()),new SqlParameter("@IdProducto", idProductoEditar.Value));
+
+            if (!productoActualizado)
+            {
+                MessageBox.Show("No se pudo actualizar el producto.");
+                return;
+            }
+
+            // actualiza el stock y estado de la variante seleccionada
+            if (detallesStock.Count == 0)
+            {
+                MessageBox.Show("No se encontró la variante del producto.");
+                return;
+            }
+
+            bool varianteActualizada = Actualizar_stock_variante(idProductoEditar.Value,idSucursalSeleccionada,estado);
+            if (!varianteActualizada)
+            {
+                MessageBox.Show("No se pudo actualizar la variante del producto.");
+                return;
+            }
+
+            MessageBox.Show("Producto actualizado correctamente.");
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
 
         private void btn_subir_Click(object sender, EventArgs e)
@@ -1333,125 +859,103 @@ namespace Derick
 
         private void btn_abr_Click(object sender, EventArgs e)
         {
-            // valida la sucursal
-            if (idSucursalSeleccionada <= 0)
-            {
-                MessageBox.Show(
-                    "Primero seleccione una sucursal.",
-                    "Sucursal",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
-
-                return;
-            }
-
-            // obtiene las tallas seleccionadas
-            List<string> tallas = new List<string>();
-
-            foreach (ToolStripItem elemento in cmTallas.Items)
-            {
-                if (elemento is ToolStripMenuItem item && item.Checked)
-                {
-                    tallas.Add(item.Text);
-                }
-            }
-
-            // obtiene los colores seleccionados
-            List<string> colores = new List<string>();
-
-            foreach (ToolStripItem elemento in cmColores.Items)
-            {
-                if (elemento is ToolStripMenuItem item && item.Checked)
-                {
-                    colores.Add(item.Text);
-                }
-            }
-
-            if (tallas.Count == 0 || colores.Count == 0)
-            {
-                MessageBox.Show(
-                    "Primero seleccione al menos una talla y un color.",
-                    "Stock",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
-
-                return;
-            }
-
-            // al editar solamente permite una talla y un color
+            // si estamos editando un producto existente
             if (idProductoEditar != null)
             {
-                if (tallas.Count > 1)
+                if (detallesStock.Count == 0)
                 {
                     MessageBox.Show(
-                        "Al editar una variante solamente puede seleccionar una talla.",
-                        "Editar variante",
+                        "No se encontró el stock de la variante.",
+                        "Sin stock",
                         MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning
-                    );
+                        MessageBoxIcon.Warning);
 
                     return;
                 }
 
-                if (colores.Count > 1)
+                // crea una lista solamente con la variante que se está editando
+                List<DetalleStock> stockEditar = new List<DetalleStock>();
+
+                DetalleStock detalle = new DetalleStock();
+                detalle.Talla = tallaEditar;
+                detalle.Color = colorEditar;
+                detalle.stock = detallesStock[0].stock;
+
+                stockEditar.Add(detalle);
+
+                // abre el formulario para modificar el stock
+                frmEditar_stock frm = new frmEditar_stock(stockEditar);
+
+                if (frm.ShowDialog() == DialogResult.OK)
                 {
-                    MessageBox.Show(
-                        "Al editar una variante solamente puede seleccionar un color.",
-                        "Editar variante",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning
-                    );
+                    detallesStock = frm.DetallesStock;
 
-                    return;
-                }
-            }
+                    int total = 0;
 
-            List<DetalleStock> stockActual = new List<DetalleStock>();
-
-            // si esta editando carga solamente el stock de la variante seleccionada
-            if (idProductoEditar != null)
-            {
-                List<DetalleStock> stockProducto = CargarStockProducto(
-                    idProductoEditar.Value,
-                    idSucursalSeleccionada
-                );
-
-                int stockAnterior = 0;
-
-                foreach (DetalleStock detalle in stockProducto)
-                {
-                    if (detalle.Talla.Equals(tallaEditar, StringComparison.OrdinalIgnoreCase) &&
-                        detalle.Color.Equals(colorEditar, StringComparison.OrdinalIgnoreCase))
+                    foreach (DetalleStock detalleStock in detallesStock)
                     {
-                        stockAnterior = detalle.stock;
-                        break;
+                        total += detalleStock.stock;
                     }
+
+                    btn_abr.Text = total + " unidades";
+
+                    stockModificado = true;
                 }
 
-                DetalleStock detalleActual = new DetalleStock();
-                detalleActual.Talla = tallas[0];
-                detalleActual.Color = colores[0];
-                detalleActual.stock = stockAnterior;
-
-                stockActual.Add(detalleActual);
+                return;
             }
 
-            // si es producto nuevo conserva el stock configurado
-            if (idProductoEditar == null && detallesStock.Count > 0)
+            // si estamos agregando un producto nuevo
+            if (idSucursalSeleccionada == 0)
             {
-                stockActual = detallesStock;
+                MessageBox.Show(
+                    "No se ha seleccionado una sucursal.",
+                    "Sucursal obligatoria",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
             }
 
-            frmEditar_stock frm = new frmEditar_stock(tallas, colores, stockActual);
-            frm.StartPosition = FormStartPosition.CenterScreen;
-
-            if (frm.ShowDialog(this) == DialogResult.OK)
+            if (cmb_productos.SelectedIndex <= 0 || idPedidoSeleccionado == 0)
             {
-                int total = frm.S_total;
-                detallesStock = frm.DetallesStock;
+                MessageBox.Show(
+                    "Seleccione un producto proveniente de un pedido finalizado.",
+                    "Producto obligatorio",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                cmb_productos.Focus();
+                return;
+            }
+
+            if (detallesPedido == null || detallesPedido.Count == 0)
+            {
+                MessageBox.Show(
+                    "El pedido seleccionado no tiene tallas y colores registrados.",
+                    "Sin detalles",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
+
+            // abre el formulario con las combinaciones que llegaron en el pedido
+            frmEditar_stock frmPedido = new frmEditar_stock(detallesPedido);
+
+            if (frmPedido.ShowDialog() == DialogResult.OK)
+            {
+                detallesStock = frmPedido.DetallesStock;
+
+                int total = 0;
+
+                foreach (DetalleStock detalleStock in detallesStock)
+                {
+                    total += detalleStock.stock;
+                }
+
                 btn_abr.Text = total + " unidades";
+
                 stockModificado = true;
             }
         }
@@ -1468,6 +972,11 @@ namespace Derick
                 cmb_ctg.Items.Add(nuevaCategoria);
                 cmb_ctg.SelectedItem = nuevaCategoria;
             }
+        }
+
+        private void pnlcont1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
