@@ -366,6 +366,7 @@
             dtp_fechaInicio.Name = "dtp_fechaInicio";
             dtp_fechaInicio.Size = new Size(252, 23);
             dtp_fechaInicio.TabIndex = 60;
+            dtp_fechaInicio.ValueChanged += dtp_fechaInicio_ValueChanged;
             // 
             // label11
             // 

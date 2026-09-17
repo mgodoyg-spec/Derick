@@ -241,13 +241,49 @@ namespace Derick
                     return;
                 }
 
+                // valida la cantidad disponible cuando viene de un pedido
+                if (detallesPedido != null && detallesPedido.Count > 0)
+                {
+                    DetalleStock detallePedido = detallesPedido.FirstOrDefault(x => x.Talla.Equals(talla, StringComparison.OrdinalIgnoreCase)
+                        && x.Color.Equals(color, StringComparison.OrdinalIgnoreCase));
+
+                    if (detallePedido != null)
+                    {
+                        if (stock > detallePedido.cantidadDisponible)
+                        {
+                            MessageBox.Show(
+                                "La cantidad ingresada para " + talla + " / " + color +
+                                " no puede ser mayor a " + detallePedido.cantidadDisponible + " unidades disponibles.",
+                                "Cantidad excedida",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning
+                            );
+
+                            return;
+                        }
+                    }
+                }
+
                 // solo guarda las combinaciones que tengan stock
                 if (stock > 0)
                 {
                     DetalleStock detalle = new DetalleStock();
+
+                    if (detallesPedido != null && detallesPedido.Count > 0)
+                    {
+                        DetalleStock detallePedido = detallesPedido.FirstOrDefault(x => x.Talla.Equals(talla, StringComparison.OrdinalIgnoreCase)
+                            && x.Color.Equals(color, StringComparison.OrdinalIgnoreCase));
+                        if (detallePedido != null)
+                        {
+                            detalle.IdDetallePedido = detallePedido.IdDetallePedido;
+                            detalle.cantidadDisponible = detallePedido.cantidadDisponible;
+                        }
+                    }
+
                     detalle.Talla = talla;
                     detalle.Color = color;
                     detalle.stock = stock;
+
                     DetallesStock.Add(detalle);
                     total += stock;
                 }
@@ -261,9 +297,9 @@ namespace Derick
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning
                 );
+
                 return;
             }
-
             S_total = total;
             DialogResult = DialogResult.OK;
             Close();

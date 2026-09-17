@@ -106,13 +106,8 @@ namespace Derick
         private void Cargar_detallesPedido()
         {
             detallesPedido.Clear();
-
             csConectaSQL conexion = new csConectaSQL();
-
-            string sql = @"select Talla, Color, Cantidad
-                   from DetallePedidos
-                   where IdPedido = " + idPedidoSeleccionado;
-
+            string sql = @"select IdDetallePedido, Talla, Color, Cantidad, CantidadRegistrada from DetallePedidos where IdPedido = " + idPedidoSeleccionado;
             DataTable dt = conexion.RetornaRegistros(sql);
 
             if (dt == null)
@@ -122,11 +117,24 @@ namespace Derick
 
             foreach (DataRow fila in dt.Rows)
             {
+                int cantidad = Convert.ToInt32(fila["Cantidad"]);
+                int registrada = Convert.ToInt32(fila["CantidadRegistrada"]);
+
+                int disponible = cantidad - registrada;
+
+                // si ya se registro todo, no lo muestra
+                if (disponible <= 0)
+                {
+                    continue;
+                }
+
                 DetalleStock detalle = new DetalleStock();
 
+                detalle.IdDetallePedido = Convert.ToInt32(fila["IdDetallePedido"]);
                 detalle.Talla = fila["Talla"].ToString();
                 detalle.Color = fila["Color"].ToString();
-                detalle.stock = Convert.ToInt32(fila["Cantidad"]);
+                detalle.stock = disponible;
+                detalle.cantidadDisponible = disponible;
 
                 detallesPedido.Add(detalle);
             }
@@ -376,6 +384,30 @@ namespace Derick
             }
             return guardar_algo;
         }
+        private bool Actualizar_cantidadRegistrada()
+        {
+            csConectaSQL conexion = new csConectaSQL();
+            foreach (DetalleStock detalle in detallesStock)
+            {
+                if (detalle.IdDetallePedido == 0)
+                {
+                    continue;
+                }
+
+                string sql = @"update DetallePedidos set CantidadRegistrada = CantidadRegistrada + @Cantidad
+                       where IdDetallePedido = @IdDetallePedido";
+
+                bool actualizado = conexion.ejecutarComando(sql,new SqlParameter("@Cantidad", detalle.stock),
+                       new SqlParameter("@IdDetallePedido", detalle.IdDetallePedido));
+
+                if (!actualizado)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
         private bool Actualizar_stock_variante(int idProducto, int idSucursal, int estado)
         {
             if (detallesStock.Count == 0)
@@ -591,7 +623,7 @@ namespace Derick
                 nombre = cmb_productos.Text.Trim();
             }
 
-            //agregar prioducto nuevo
+            // agregar producto nuevo
             if (idProductoEditar == null)
             {
                 // verifica si ya existe el codigo
@@ -610,6 +642,16 @@ namespace Derick
                         return;
                     }
 
+                    // actualiza la cantidad registrada del pedido
+                    bool cantidadActualizada = Actualizar_cantidadRegistrada();
+
+                    if (!cantidadActualizada)
+                    {
+                        MessageBox.Show(
+                            "El stock se guardó, pero no se pudo actualizar la cantidad registrada del pedido.");
+                        return;
+                    }
+
                     MessageBox.Show("El stock del producto se actualizó correctamente.");
 
                     this.DialogResult = DialogResult.OK;
@@ -619,12 +661,12 @@ namespace Derick
                 }
 
                 // inserta el producto nuevo
-                string sqlProducto = @"insert into Productos(Codigo, Nombre, Categoria, Precio, Descripcion, Estado)
+                string sqlProducto = @"insert into Productos (Codigo, Nombre, Categoria, Precio, Descripcion, Estado)
                       values(@Codigo, @Nombre, @Categoria, @Precio, @Descripcion, @Estado)";
 
-                SqlParameter[] parametros = {new SqlParameter("@Codigo", txt_cd.Text.Trim()),new SqlParameter("@Nombre", nombre),
-                      new SqlParameter("@Categoria", cmb_ctg.Text),new SqlParameter("@Precio", precio),new SqlParameter("@Descripcion", txt_dsp.Text.Trim()),
-                      new SqlParameter("@Estado", estado)};
+                SqlParameter[] parametros ={new SqlParameter("@Codigo", txt_cd.Text.Trim()),new SqlParameter("@Nombre", nombre),
+                      new SqlParameter("@Categoria", cmb_ctg.Text),new SqlParameter("@Precio", precio),
+                      new SqlParameter("@Descripcion", txt_dsp.Text.Trim()),new SqlParameter("@Estado", estado)};
 
                 int idProducto = conexion.EjecutarConRetorno(sqlProducto,parametros);
                 if (idProducto <= 0)
@@ -637,7 +679,28 @@ namespace Derick
                 bool guardoStock = Guardar_stock(idProducto,idSucursalSeleccionada,estado);
                 if (!guardoStock)
                 {
-                    MessageBox.Show("El producto se registró, pero no se pudo guardar el stock.");
+                    MessageBox.Show(
+                        "El producto se registró, pero no se pudo guardar el stock.");
+                    return;
+                }
+
+                // guarda las imagenes del producto
+                bool guardoImagenes = GuardarImagenesProducto(idProducto);
+
+                if (!guardoImagenes)
+                {
+                    MessageBox.Show(
+                        "El producto y el stock se guardaron, pero no se pudieron guardar las imágenes.");
+                    return;
+                }
+
+                // actualiza la cantidad registrada del pedido
+                bool cantidadActualizadaNuevo = Actualizar_cantidadRegistrada();
+
+                if (!cantidadActualizadaNuevo)
+                {
+                    MessageBox.Show(
+                        "El producto se registró y el stock se guardó, pero no se pudo actualizar la cantidad registrada del pedido.");
                     return;
                 }
 
@@ -649,15 +712,14 @@ namespace Derick
             }
 
             // edita un producto existente
-
             // verifica si el codigo pertenece a otro producto
-            DataTable dtCodigoEditar = conexion.RetornaRegistros(
-                "select IdProductos from Productos where Codigo = '" +
+            DataTable dtCodigoEditar = conexion.RetornaRegistros("select IdProductos from Productos where Codigo = '" +
                 txt_cd.Text.Trim().Replace("'", "''") + "'");
 
             if (dtCodigoEditar != null && dtCodigoEditar.Rows.Count > 0)
             {
                 int idCodigo = Convert.ToInt32(dtCodigoEditar.Rows[0]["IdProductos"]);
+
                 if (idCodigo != idProductoEditar.Value)
                 {
                     MessageBox.Show("El código ya pertenece a otro producto.");
@@ -667,16 +729,12 @@ namespace Derick
             }
 
             // actualiza los datos generales del producto
-            string sqlActualizar = @"update Productos set Codigo = @Codigo, Categoria = @Categoria, Precio = @Precio,
-                             Descripcion = @Descripcion where IdProductos = @IdProducto";
+            string sqlActualizar = @"update Productos set Codigo = @Codigo,Categoria = @Categoria,Precio = @Precio,
+                Descripcion = @Descripcion where IdProductos = @IdProducto";
 
-            bool productoActualizado = conexion.ejecutarComando(sqlActualizar,
-                new SqlParameter("@Codigo", txt_cd.Text.Trim()),
-                new SqlParameter("@Categoria", cmb_ctg.Text),
-                new SqlParameter("@Precio", precio),
-                new SqlParameter("@Descripcion", txt_dsp.Text.Trim()),
-                new SqlParameter("@IdProducto", idProductoEditar.Value)
-            );
+            bool productoActualizado = conexion.ejecutarComando(sqlActualizar,new SqlParameter("@Codigo", txt_cd.Text.Trim()),
+                new SqlParameter("@Categoria", cmb_ctg.Text),new SqlParameter("@Precio", precio),
+                new SqlParameter("@Descripcion", txt_dsp.Text.Trim()),new SqlParameter("@IdProducto", idProductoEditar.Value));
 
             if (!productoActualizado)
             {
@@ -691,11 +749,7 @@ namespace Derick
                 return;
             }
 
-            bool varianteActualizada = Actualizar_stock_variante(
-                idProductoEditar.Value,
-                idSucursalSeleccionada,
-                estado);
-
+            bool varianteActualizada = Actualizar_stock_variante(idProductoEditar.Value,idSucursalSeleccionada,estado);
             if (!varianteActualizada)
             {
                 MessageBox.Show("No se pudo actualizar la variante del producto.");
@@ -703,7 +757,6 @@ namespace Derick
             }
 
             MessageBox.Show("Producto actualizado correctamente.");
-
             this.DialogResult = DialogResult.OK;
             this.Close();
         }

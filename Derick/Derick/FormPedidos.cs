@@ -38,6 +38,9 @@ namespace Derick
             Cargar_talla();
             Cargar_color();
 
+            dtp_fechaInicio.MinDate = DateTime.Today;
+            dtp_fechaFin.MinDate = dtp_fechaInicio.Value.Date;
+
             if (modoEditar)
             {
                 Cargar_pedido();
@@ -403,12 +406,12 @@ namespace Derick
                 if (actualizado)
                 {
                     string sqlEliminar = "delete from DetallePedidos where IdPedido = @IdPedido";
-                    SqlParameter parametroEliminar =new SqlParameter("@IdPedido", idPedidoEditar);
+                    SqlParameter parametroEliminar = new SqlParameter("@IdPedido", idPedidoEditar);
                     conexion.ejecutarComando(sqlEliminar, parametroEliminar);
 
                     foreach (DetalleStock detalle in detallesStock)
                     {
-                        string sqlDetalle = "insert into DetallePedidos " +"(IdPedido, Talla, Color, Cantidad) " +
+                        string sqlDetalle = "insert into DetallePedidos " + "(IdPedido, Talla, Color, Cantidad) " +
                                             "values (@IdPedido, @Talla, @Color, @Cantidad)";
 
                         SqlParameter[] parametrosDetalle ={new SqlParameter("@IdPedido", idPedidoEditar),new SqlParameter("@Talla", detalle.Talla),
@@ -444,7 +447,7 @@ namespace Derick
             {
                 foreach (DetalleStock detalle in detallesStock)
                 {
-                    string sqlDetalle = "insert into DetallePedidos " +"(IdPedido, Talla, Color, Cantidad) " +
+                    string sqlDetalle = "insert into DetallePedidos " + "(IdPedido, Talla, Color, Cantidad) " +
                                         "values (@IdPedido, @Talla, @Color, @Cantidad)";
 
                     SqlParameter[] parametrosDetalle ={new SqlParameter("@IdPedido", idPedido), new SqlParameter("@Talla", detalle.Talla),
@@ -457,7 +460,7 @@ namespace Derick
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
-        }     
+        }
 
         private void cmTallas_Closed(object sender, ToolStripDropDownClosedEventArgs e)
         {
@@ -565,5 +568,14 @@ namespace Derick
             this.Close();
         }
 
+        private void dtp_fechaInicio_ValueChanged(object sender, EventArgs e)
+        {
+            dtp_fechaInicio.MinDate = DateTime.Today;
+            if (dtp_fechaFin.Value.Date < dtp_fechaInicio.Value.Date)
+            {
+                dtp_fechaFin.Value = dtp_fechaInicio.Value.Date;
+            }
+            dtp_fechaFin.MinDate = dtp_fechaInicio.Value.Date;
+        }
     }
 }
