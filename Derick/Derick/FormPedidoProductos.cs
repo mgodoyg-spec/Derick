@@ -98,24 +98,44 @@ namespace Derick
             }
 
             dvg_pedidoProducto.Rows.Clear();
+            Cargar_proveedores();
             Cargar_pedidos();
         }
         private void Cargar_pedidos()
         {
-            string sql = @"select P.IdPedido, P.NumeroOrden, P.Producto, PR.Nombre AS Proveedor, P.FechaPedido, P.FechaLlegadaEsperada,
-                    P.Estado from Pedidos P inner join Proveedores PR on P.IdProveedor = PR.IdProveedor
-                    order by P.FechaPedido desc";
+            string sql = @"select P.IdPedido, P.NumeroOrden, P.Producto, PR.Nombre AS Proveedor, P.FechaPedido, P.FechaLlegadaEsperada, P.Estado 
+                from Pedidos P inner join Proveedores PR on P.IdProveedor = PR.IdProveedor where 1 = 1";
 
+            // filtro de busqueda
+            if (!string.IsNullOrWhiteSpace(txt1.Text))
+            {
+                string buscar = txt1.Text.Trim().Replace("'", "''");
+                sql += @" and (P.NumeroOrden like '%" + buscar + @"%' or P.Producto like '%" + buscar + @"%' 
+                  or PR.Nombre like '%" + buscar + @"%')";
+            }
+
+            // filtro de proveedor
+            if (cmb_proveedor.SelectedIndex > 0)
+            {
+                int idProveedor = Convert.ToInt32(cmb_proveedor.SelectedValue);
+                sql += " and P.IdProveedor = " + idProveedor;
+            }
+
+            sql += " order by P.FechaPedido desc";
             csConectaSQL conexion = new csConectaSQL();
             DataTable dt = conexion.RetornaRegistros(sql);
+
             dvg_pedidoProducto.Rows.Clear();
+
+            if (dt == null)
+            {
+                return;
+            }
 
             foreach (DataRow fila in dt.Rows)
             {
                 int idPedido = Convert.ToInt32(fila["IdPedido"]);
-
                 string sqlDetalle = @"select Talla, Color from DetallePedidos where IdPedido = " + idPedido;
-
                 DataTable dtDetalle = conexion.RetornaRegistros(sqlDetalle);
 
                 List<string> tallas = new List<string>();
@@ -150,6 +170,28 @@ namespace Derick
 
                 dvg_pedidoProducto.Rows[filaNueva].Tag = idPedido;
             }
+        }
+        private void Cargar_proveedores()
+        {
+            csConectaSQL conexion = new csConectaSQL();
+            string sql = @"select IdProveedor, Nombre from Proveedores where Estado = 1 order by Nombre";
+            DataTable dt = conexion.RetornaRegistros(sql);
+            cmb_proveedor.DataSource = null;
+
+            if (dt == null)
+            {
+                return;
+            }
+
+            DataRow fila = dt.NewRow();
+            fila["IdProveedor"] = 0;
+            fila["Nombre"] = "Todos los proveedores";
+            dt.Rows.InsertAt(fila, 0);
+
+            cmb_proveedor.DataSource = dt;
+            cmb_proveedor.DisplayMember = "Nombre";
+            cmb_proveedor.ValueMember = "IdProveedor";
+            cmb_proveedor.SelectedIndex = 0;
         }
         private void btn_orden_Click(object sender, EventArgs e)
         {
@@ -229,6 +271,19 @@ namespace Derick
             if (respuesta == DialogResult.Yes)
             {
                 Application.Exit();
+            }
+        }
+
+        private void txt1_TextChanged(object sender, EventArgs e)
+        {
+            Cargar_pedidos();
+        }
+
+        private void cmb_proveedor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cmb_proveedor.SelectedIndex >= 0)
+            {
+                Cargar_pedidos();
             }
         }
     }

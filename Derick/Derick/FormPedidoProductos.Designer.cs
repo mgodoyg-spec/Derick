@@ -126,6 +126,7 @@
             cmb_proveedor.Name = "cmb_proveedor";
             cmb_proveedor.Size = new Size(170, 31);
             cmb_proveedor.TabIndex = 14;
+            cmb_proveedor.SelectedIndexChanged += cmb_proveedor_SelectedIndexChanged;
             // 
             // txt1
             // 
@@ -137,6 +138,7 @@
             txt1.PlaceholderText = " Buscar producto";
             txt1.Size = new Size(307, 27);
             txt1.TabIndex = 7;
+            txt1.TextChanged += txt1_TextChanged;
             // 
             // pictureBox1
             // 
