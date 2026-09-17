@@ -97,7 +97,6 @@ namespace Derick
                 }
             }
         }
-
         private void btnEliminarSucursal_Click(object sender, EventArgs e)
         {
             DialogResult respuesta = MessageBox.Show(
@@ -113,12 +112,20 @@ namespace Derick
             if (sucursal.Eliminar())
             {
                 MessageBox.Show(
-                    "Sucursal eliminada correctamente.",
-                    "Sucursal eliminada",
+                    "Sucursal eliminada correctamente",
+                    "Éxito",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
 
                 this.Close();
+            }
+            else
+            {
+                MessageBox.Show(
+                    "No se puede eliminar la sucursal porque tiene datos (empleados, inventario o ventas) relacionados.",
+                    "No se puede eliminar. Desactívela en su lugar",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
             }
         }
     }

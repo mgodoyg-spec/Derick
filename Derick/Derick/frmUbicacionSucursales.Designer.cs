@@ -32,7 +32,7 @@
             lblNombreSucursal = new Label();
             lbEstadoSucursal = new Label();
             pnlUbicacion = new Panel();
-            webMapa = new Microsoft.Web.WebView2.WinForms.WebView2();
+            gmapUbicacion = new GMap.NET.WindowsForms.GMapControl();
             lblDireccion = new Label();
             lblDir = new Label();
             lblEstado = new Label();
@@ -44,7 +44,6 @@
             lblUbi = new Label();
             pictureBox1 = new PictureBox();
             pnlUbicacion.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)webMapa).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picUbi).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -85,7 +84,7 @@
             // pnlUbicacion
             // 
             pnlUbicacion.BackColor = Color.White;
-            pnlUbicacion.Controls.Add(webMapa);
+            pnlUbicacion.Controls.Add(gmapUbicacion);
             pnlUbicacion.Controls.Add(lblDireccion);
             pnlUbicacion.Controls.Add(lblDir);
             pnlUbicacion.Controls.Add(lblEstado);
@@ -100,16 +99,31 @@
             pnlUbicacion.Size = new Size(886, 466);
             pnlUbicacion.TabIndex = 26;
             // 
-            // webMapa
+            // gmapUbicacion
             // 
-            webMapa.AllowExternalDrop = true;
-            webMapa.CreationProperties = null;
-            webMapa.DefaultBackgroundColor = Color.White;
-            webMapa.Location = new Point(22, 58);
-            webMapa.Name = "webMapa";
-            webMapa.Size = new Size(841, 357);
-            webMapa.TabIndex = 40;
-            webMapa.ZoomFactor = 1D;
+            gmapUbicacion.Bearing = 0F;
+            gmapUbicacion.CanDragMap = true;
+            gmapUbicacion.EmptyTileColor = Color.Navy;
+            gmapUbicacion.GrayScaleMode = false;
+            gmapUbicacion.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
+            gmapUbicacion.LevelsKeepInMemory = 5;
+            gmapUbicacion.Location = new Point(16, 58);
+            gmapUbicacion.MarkersEnabled = true;
+            gmapUbicacion.MaxZoom = 2;
+            gmapUbicacion.MinZoom = 2;
+            gmapUbicacion.MouseWheelZoomEnabled = true;
+            gmapUbicacion.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;
+            gmapUbicacion.Name = "gmapUbicacion";
+            gmapUbicacion.NegativeMode = false;
+            gmapUbicacion.PolygonsEnabled = true;
+            gmapUbicacion.RetryLoadTile = 0;
+            gmapUbicacion.RoutesEnabled = true;
+            gmapUbicacion.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
+            gmapUbicacion.SelectedAreaFillColor = Color.FromArgb(33, 65, 105, 225);
+            gmapUbicacion.ShowTileGridLines = false;
+            gmapUbicacion.Size = new Size(851, 357);
+            gmapUbicacion.TabIndex = 41;
+            gmapUbicacion.Zoom = 0D;
             // 
             // lblDireccion
             // 
@@ -174,7 +188,7 @@
             btnAbrirGMaps.TabIndex = 27;
             btnAbrirGMaps.Text = "Abrir en Google Maps";
             btnAbrirGMaps.UseVisualStyleBackColor = false;
-            btnAbrirGMaps.Click += btnAbrirGMaps_Click;
+            btnAbrirGMaps.Click += btnAbrirMapa_Click;
             // 
             // lblSalirV
             // 
@@ -239,7 +253,6 @@
             Load += frmUbicacionSucursales_Load;
             pnlUbicacion.ResumeLayout(false);
             pnlUbicacion.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)webMapa).EndInit();
             ((System.ComponentModel.ISupportInitialize)picUbi).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
@@ -261,6 +274,6 @@
         private Label lblSucursal;
         private Label lblDireccion;
         private Label lblDir;
-        private Microsoft.Web.WebView2.WinForms.WebView2 webMapa;
+        private GMap.NET.WindowsForms.GMapControl gmapUbicacion;
     }
 }

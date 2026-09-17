@@ -12,6 +12,8 @@ namespace Derick
         private bool editar = false;
         private csSucursal sucursalEditada;
         private byte[] imagenSucursal = null;
+        private decimal? latitudSeleccionada;
+        private decimal? longitudSeleccionada;
 
         public frmRegistroSucursales()
         {
@@ -64,8 +66,19 @@ namespace Derick
             txtCorreoSucursal.Text = sucursalEditada.Correo;
             cbxEncargadoSucursal.Text = sucursalEditada.EncargadoSucursal;
             cbxEstadoSucursal.Text = sucursalEditada.Estado;
+            latitudSeleccionada = sucursalEditada.Latitud;
+            longitudSeleccionada = sucursalEditada.Longitud;
 
             imagenSucursal = sucursalEditada.Imagen;
+
+            if (latitudSeleccionada != null && longitudSeleccionada != null)
+            {
+                lblUbicacion.Text = "✓ Ubicación seleccionada";
+            }
+            else
+            {
+                lblUbicacion.Text = "Ubicación no seleccionada";
+            }
 
             if (imagenSucursal != null && imagenSucursal.Length > 0)
             {
@@ -142,7 +155,7 @@ namespace Derick
                 string.IsNullOrWhiteSpace(txtDireccionSucursal.Text) ||
                 string.IsNullOrWhiteSpace(txtTelefonoSucursal.Text) ||
                 string.IsNullOrWhiteSpace(cbxEncargadoSucursal.Text) ||
-                string.IsNullOrWhiteSpace(cbxEstadoSucursal.Text))
+                string.IsNullOrWhiteSpace(cbxEstadoSucursal.Text) || latitudSeleccionada == null || longitudSeleccionada == null)
             {
                 MessageBox.Show(
                     "Complete todos los campos obligatorios",
@@ -182,9 +195,9 @@ namespace Derick
                 string sql =
                     "insert into Sucursales " +
                     "(Codigo, NombreSucursal, Ciudad, Direccion, Telefono, Correo, " +
-                    "EncargadoSucursal, Estado, Imagen) " +
+                    "EncargadoSucursal, Estado, Imagen, Latitud, Longitud) " +
                     "values (@Codigo, @Nombre, @Ciudad, @Direccion, @Telefono, @Correo, " +
-                    "@Encargado, @Estado, @Imagen)";
+                    "@Encargado, @Estado, @Imagen, @Latitud, @Longitud)";
 
                 SqlParameter parametroImagen = new SqlParameter("@Imagen", SqlDbType.VarBinary, -1);
 
@@ -203,7 +216,9 @@ namespace Derick
                     new SqlParameter("@Correo", txtCorreoSucursal.Text.Trim()),
                     new SqlParameter("@Encargado", cbxEncargadoSucursal.Text.Trim()),
                     new SqlParameter("@Estado", cbxEstadoSucursal.Text.Trim()),
-                    parametroImagen
+                    parametroImagen,
+                    new SqlParameter("@Latitud", latitudSeleccionada ?? (object)DBNull.Value),
+                    new SqlParameter("@Longitud", longitudSeleccionada ?? (object)DBNull.Value)
                 );
 
                 if (resultado)
@@ -239,6 +254,8 @@ namespace Derick
                 sucursalEditada.EncargadoSucursal = cbxEncargadoSucursal.Text.Trim();
                 sucursalEditada.Estado = cbxEstadoSucursal.Text.Trim();
                 sucursalEditada.Imagen = imagenSucursal;
+                sucursalEditada.Latitud = latitudSeleccionada;
+                sucursalEditada.Longitud = longitudSeleccionada;
 
                 if (sucursalEditada.Editar())
                 {
@@ -284,6 +301,32 @@ namespace Derick
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void btnSeleccionarUbi_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(cbxCiudad.Text))
+            {
+                MessageBox.Show(
+                    "Seleccione primero la ciudad de la sucursal.",
+                    "Ubicación",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                cbxCiudad.Focus();
+
+                return;
+            }
+
+            frmBuscarSucursal formulario =new frmBuscarSucursal(txtDireccionSucursal.Text.Trim(),cbxCiudad.Text.Trim());
+
+            if (formulario.ShowDialog(this) == DialogResult.OK)
+            {
+                latitudSeleccionada = (decimal)formulario.Latitud;
+                longitudSeleccionada = (decimal)formulario.Longitud;
+
+                lblUbicacion.Text = "✓ Ubicación seleccionada";
             }
         }
     }
