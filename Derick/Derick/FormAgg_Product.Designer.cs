@@ -31,6 +31,7 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAgg_Product));
             pnlcont1 = new Panel();
+            cmb_productos = new ComboBox();
             label11 = new Label();
             cmb_sucursal = new ComboBox();
             label12 = new Label();
@@ -38,8 +39,6 @@
             label8 = new Label();
             label7 = new Label();
             label6 = new Label();
-            label5 = new Label();
-            label4 = new Label();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
@@ -59,14 +58,7 @@
             pic_img3 = new PictureBox();
             pic_img2 = new PictureBox();
             pic_img1 = new PictureBox();
-            btn_color1 = new Button();
-            btn_color = new Button();
-            lbl_color = new Label();
-            btn_tallas1 = new Button();
-            lbl_tallas = new Label();
-            btn_tallas = new Button();
             btn_AbrirCTG = new Button();
-            lbl6 = new Label();
             pnl_cont1 = new Panel();
             btn_quitar = new Button();
             btn_subir = new Button();
@@ -82,10 +74,8 @@
             lbl8 = new Label();
             txt_prc = new TextBox();
             lbl7 = new Label();
-            lbl5 = new Label();
             cmb_ctg = new ComboBox();
             lbl4 = new Label();
-            txt_nmb = new TextBox();
             lbl3 = new Label();
             txt_cd = new TextBox();
             lbl2 = new Label();
@@ -112,6 +102,7 @@
             // pnlcont1
             // 
             pnlcont1.BackColor = Color.FromArgb(244, 246, 249);
+            pnlcont1.Controls.Add(cmb_productos);
             pnlcont1.Controls.Add(label11);
             pnlcont1.Controls.Add(cmb_sucursal);
             pnlcont1.Controls.Add(label12);
@@ -119,8 +110,6 @@
             pnlcont1.Controls.Add(label8);
             pnlcont1.Controls.Add(label7);
             pnlcont1.Controls.Add(label6);
-            pnlcont1.Controls.Add(label5);
-            pnlcont1.Controls.Add(label4);
             pnlcont1.Controls.Add(label3);
             pnlcont1.Controls.Add(label2);
             pnlcont1.Controls.Add(label1);
@@ -140,14 +129,7 @@
             pnlcont1.Controls.Add(pic_img3);
             pnlcont1.Controls.Add(pic_img2);
             pnlcont1.Controls.Add(pic_img1);
-            pnlcont1.Controls.Add(btn_color1);
-            pnlcont1.Controls.Add(btn_color);
-            pnlcont1.Controls.Add(lbl_color);
-            pnlcont1.Controls.Add(btn_tallas1);
-            pnlcont1.Controls.Add(lbl_tallas);
-            pnlcont1.Controls.Add(btn_tallas);
             pnlcont1.Controls.Add(btn_AbrirCTG);
-            pnlcont1.Controls.Add(lbl6);
             pnlcont1.Controls.Add(pnl_cont1);
             pnlcont1.Controls.Add(lbl1_1);
             pnlcont1.Controls.Add(label9);
@@ -158,10 +140,8 @@
             pnlcont1.Controls.Add(lbl8);
             pnlcont1.Controls.Add(txt_prc);
             pnlcont1.Controls.Add(lbl7);
-            pnlcont1.Controls.Add(lbl5);
             pnlcont1.Controls.Add(cmb_ctg);
             pnlcont1.Controls.Add(lbl4);
-            pnlcont1.Controls.Add(txt_nmb);
             pnlcont1.Controls.Add(lbl3);
             pnlcont1.Controls.Add(txt_cd);
             pnlcont1.Controls.Add(lbl2);
@@ -171,13 +151,24 @@
             pnlcont1.Name = "pnlcont1";
             pnlcont1.Size = new Size(620, 663);
             pnlcont1.TabIndex = 0;
+            pnlcont1.Paint += pnlcont1_Paint;
+            // 
+            // cmb_productos
+            // 
+            cmb_productos.FormattingEnabled = true;
+            cmb_productos.Location = new Point(10, 132);
+            cmb_productos.Margin = new Padding(3, 2, 3, 2);
+            cmb_productos.Name = "cmb_productos";
+            cmb_productos.Size = new Size(252, 23);
+            cmb_productos.TabIndex = 60;
+            cmb_productos.SelectedIndexChanged += cmb_productos_SelectedIndexChanged;
             // 
             // label11
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label11.ForeColor = Color.Red;
-            label11.Location = new Point(76, 428);
+            label11.Location = new Point(76, 329);
             label11.Name = "label11";
             label11.Size = new Size(17, 19);
             label11.TabIndex = 59;
@@ -186,7 +177,7 @@
             // cmb_sucursal
             // 
             cmb_sucursal.FormattingEnabled = true;
-            cmb_sucursal.Location = new Point(10, 449);
+            cmb_sucursal.Location = new Point(10, 350);
             cmb_sucursal.Margin = new Padding(3, 2, 3, 2);
             cmb_sucursal.Name = "cmb_sucursal";
             cmb_sucursal.Size = new Size(252, 23);
@@ -197,7 +188,7 @@
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            label12.Location = new Point(10, 431);
+            label12.Location = new Point(10, 332);
             label12.Name = "label12";
             label12.Size = new Size(66, 19);
             label12.TabIndex = 57;
@@ -208,7 +199,7 @@
             label10.AutoSize = true;
             label10.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label10.ForeColor = Color.Red;
-            label10.Location = new Point(462, 64);
+            label10.Location = new Point(462, 63);
             label10.Name = "label10";
             label10.Size = new Size(17, 19);
             label10.TabIndex = 56;
@@ -219,7 +210,7 @@
             label8.AutoSize = true;
             label8.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label8.ForeColor = Color.Red;
-            label8.Location = new Point(62, 361);
+            label8.Location = new Point(62, 262);
             label8.Name = "label8";
             label8.Size = new Size(17, 19);
             label8.TabIndex = 55;
@@ -230,7 +221,7 @@
             label7.AutoSize = true;
             label7.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label7.ForeColor = Color.Red;
-            label7.Location = new Point(186, 314);
+            label7.Location = new Point(186, 215);
             label7.Name = "label7";
             label7.Size = new Size(17, 19);
             label7.TabIndex = 54;
@@ -241,40 +232,18 @@
             label6.AutoSize = true;
             label6.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.Red;
-            label6.Location = new Point(121, 314);
+            label6.Location = new Point(121, 215);
             label6.Name = "label6";
             label6.Size = new Size(17, 19);
             label6.TabIndex = 53;
             label6.Text = "*";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.ForeColor = Color.Red;
-            label5.Location = new Point(76, 262);
-            label5.Name = "label5";
-            label5.Size = new Size(17, 19);
-            label5.TabIndex = 52;
-            label5.Text = "*";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.ForeColor = Color.Red;
-            label4.Location = new Point(62, 211);
-            label4.Name = "label4";
-            label4.Size = new Size(17, 19);
-            label4.TabIndex = 51;
-            label4.Text = "*";
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.Red;
-            label3.Location = new Point(81, 162);
+            label3.Location = new Point(82, 160);
             label3.Name = "label3";
             label3.Size = new Size(17, 19);
             label3.TabIndex = 50;
@@ -285,7 +254,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.Red;
-            label2.Location = new Point(166, 112);
+            label2.Location = new Point(166, 111);
             label2.Name = "label2";
             label2.Size = new Size(17, 19);
             label2.TabIndex = 49;
@@ -296,7 +265,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Red;
-            label1.Location = new Point(157, 64);
+            label1.Location = new Point(157, 63);
             label1.Name = "label1";
             label1.Size = new Size(17, 19);
             label1.TabIndex = 48;
@@ -352,7 +321,7 @@
             btn_abr.Cursor = Cursors.Hand;
             btn_abr.FlatAppearance.BorderSize = 0;
             btn_abr.ForeColor = Color.Gray;
-            btn_abr.Location = new Point(144, 332);
+            btn_abr.Location = new Point(144, 233);
             btn_abr.Margin = new Padding(3, 2, 3, 2);
             btn_abr.Name = "btn_abr";
             btn_abr.Size = new Size(118, 23);
@@ -365,10 +334,10 @@
             // 
             pic6.BackColor = Color.White;
             pic6.Image = (Image)resources.GetObject("pic6.Image");
-            pic6.Location = new Point(424, 424);
+            pic6.Location = new Point(424, 423);
             pic6.Margin = new Padding(3, 2, 3, 2);
             pic6.Name = "pic6";
-            pic6.Size = new Size(61, 48);
+            pic6.Size = new Size(61, 49);
             pic6.SizeMode = PictureBoxSizeMode.Zoom;
             pic6.TabIndex = 45;
             pic6.TabStop = false;
@@ -377,10 +346,10 @@
             // 
             pic5.BackColor = Color.White;
             pic5.Image = (Image)resources.GetObject("pic5.Image");
-            pic5.Location = new Point(319, 424);
+            pic5.Location = new Point(319, 423);
             pic5.Margin = new Padding(3, 2, 3, 2);
             pic5.Name = "pic5";
-            pic5.Size = new Size(61, 48);
+            pic5.Size = new Size(61, 49);
             pic5.SizeMode = PictureBoxSizeMode.Zoom;
             pic5.TabIndex = 44;
             pic5.TabStop = false;
@@ -389,7 +358,7 @@
             // 
             pic4.BackColor = Color.White;
             pic4.Image = (Image)resources.GetObject("pic4.Image");
-            pic4.Location = new Point(528, 332);
+            pic4.Location = new Point(530, 331);
             pic4.Margin = new Padding(3, 2, 3, 2);
             pic4.Name = "pic4";
             pic4.Size = new Size(61, 48);
@@ -401,10 +370,10 @@
             // 
             pic3.BackColor = Color.White;
             pic3.Image = (Image)resources.GetObject("pic3.Image");
-            pic3.Location = new Point(424, 332);
+            pic3.Location = new Point(424, 331);
             pic3.Margin = new Padding(3, 2, 3, 2);
             pic3.Name = "pic3";
-            pic3.Size = new Size(61, 48);
+            pic3.Size = new Size(61, 49);
             pic3.SizeMode = PictureBoxSizeMode.Zoom;
             pic3.TabIndex = 42;
             pic3.TabStop = false;
@@ -418,10 +387,10 @@
             btn_guardar.ForeColor = Color.White;
             btn_guardar.Image = (Image)resources.GetObject("btn_guardar.Image");
             btn_guardar.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_guardar.Location = new Point(415, 606);
+            btn_guardar.Location = new Point(415, 605);
             btn_guardar.Margin = new Padding(3, 2, 3, 2);
             btn_guardar.Name = "btn_guardar";
-            btn_guardar.Size = new Size(193, 46);
+            btn_guardar.Size = new Size(193, 47);
             btn_guardar.TabIndex = 27;
             btn_guardar.Text = "    Guardar producto";
             btn_guardar.UseVisualStyleBackColor = false;
@@ -431,10 +400,10 @@
             // 
             pic2.BackColor = Color.White;
             pic2.Image = (Image)resources.GetObject("pic2.Image");
-            pic2.Location = new Point(319, 332);
+            pic2.Location = new Point(319, 331);
             pic2.Margin = new Padding(3, 2, 3, 2);
             pic2.Name = "pic2";
-            pic2.Size = new Size(61, 48);
+            pic2.Size = new Size(61, 49);
             pic2.SizeMode = PictureBoxSizeMode.Zoom;
             pic2.TabIndex = 41;
             pic2.TabStop = false;
@@ -443,10 +412,10 @@
             // 
             pic_img5.BackColor = Color.White;
             pic_img5.BorderStyle = BorderStyle.FixedSingle;
-            pic_img5.Location = new Point(405, 404);
+            pic_img5.Location = new Point(405, 403);
             pic_img5.Margin = new Padding(3, 2, 3, 2);
             pic_img5.Name = "pic_img5";
-            pic_img5.Size = new Size(99, 89);
+            pic_img5.Size = new Size(99, 90);
             pic_img5.SizeMode = PictureBoxSizeMode.Zoom;
             pic_img5.TabIndex = 40;
             pic_img5.TabStop = false;
@@ -456,10 +425,10 @@
             // 
             pic_img4.BackColor = Color.White;
             pic_img4.BorderStyle = BorderStyle.FixedSingle;
-            pic_img4.Location = new Point(301, 404);
+            pic_img4.Location = new Point(301, 403);
             pic_img4.Margin = new Padding(3, 2, 3, 2);
             pic_img4.Name = "pic_img4";
-            pic_img4.Size = new Size(99, 89);
+            pic_img4.Size = new Size(99, 90);
             pic_img4.SizeMode = PictureBoxSizeMode.Zoom;
             pic_img4.TabIndex = 39;
             pic_img4.TabStop = false;
@@ -469,10 +438,10 @@
             // 
             pic_img3.BackColor = Color.White;
             pic_img3.BorderStyle = BorderStyle.FixedSingle;
-            pic_img3.Location = new Point(509, 311);
+            pic_img3.Location = new Point(509, 310);
             pic_img3.Margin = new Padding(3, 2, 3, 2);
             pic_img3.Name = "pic_img3";
-            pic_img3.Size = new Size(99, 89);
+            pic_img3.Size = new Size(99, 90);
             pic_img3.SizeMode = PictureBoxSizeMode.Zoom;
             pic_img3.TabIndex = 38;
             pic_img3.TabStop = false;
@@ -482,10 +451,10 @@
             // 
             pic_img2.BackColor = Color.White;
             pic_img2.BorderStyle = BorderStyle.FixedSingle;
-            pic_img2.Location = new Point(405, 311);
+            pic_img2.Location = new Point(405, 310);
             pic_img2.Margin = new Padding(3, 2, 3, 2);
             pic_img2.Name = "pic_img2";
-            pic_img2.Size = new Size(99, 89);
+            pic_img2.Size = new Size(99, 90);
             pic_img2.SizeMode = PictureBoxSizeMode.Zoom;
             pic_img2.TabIndex = 37;
             pic_img2.TabStop = false;
@@ -495,96 +464,14 @@
             // 
             pic_img1.BackColor = Color.White;
             pic_img1.BorderStyle = BorderStyle.FixedSingle;
-            pic_img1.Location = new Point(301, 311);
+            pic_img1.Location = new Point(301, 310);
             pic_img1.Margin = new Padding(3, 2, 3, 2);
             pic_img1.Name = "pic_img1";
-            pic_img1.Size = new Size(99, 89);
+            pic_img1.Size = new Size(99, 90);
             pic_img1.SizeMode = PictureBoxSizeMode.Zoom;
             pic_img1.TabIndex = 36;
             pic_img1.TabStop = false;
             pic_img1.Click += seleccionarImagen_Click;
-            // 
-            // btn_color1
-            // 
-            btn_color1.BackgroundImage = (Image)resources.GetObject("btn_color1.BackgroundImage");
-            btn_color1.BackgroundImageLayout = ImageLayout.Zoom;
-            btn_color1.Cursor = Cursors.Hand;
-            btn_color1.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btn_color1.Location = new Point(238, 282);
-            btn_color1.Margin = new Padding(3, 2, 3, 2);
-            btn_color1.Name = "btn_color1";
-            btn_color1.Size = new Size(24, 20);
-            btn_color1.TabIndex = 35;
-            btn_color1.UseVisualStyleBackColor = true;
-            btn_color1.Visible = false;
-            btn_color1.Click += btn_color1_Click;
-            // 
-            // btn_color
-            // 
-            btn_color.BackgroundImage = (Image)resources.GetObject("btn_color.BackgroundImage");
-            btn_color.BackgroundImageLayout = ImageLayout.Zoom;
-            btn_color.Cursor = Cursors.Hand;
-            btn_color.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btn_color.Location = new Point(238, 282);
-            btn_color.Margin = new Padding(3, 2, 3, 2);
-            btn_color.Name = "btn_color";
-            btn_color.Size = new Size(24, 20);
-            btn_color.TabIndex = 34;
-            btn_color.UseVisualStyleBackColor = true;
-            btn_color.Click += btn_color_Click;
-            // 
-            // lbl_color
-            // 
-            lbl_color.BackColor = Color.White;
-            lbl_color.BorderStyle = BorderStyle.Fixed3D;
-            lbl_color.FlatStyle = FlatStyle.Flat;
-            lbl_color.ForeColor = Color.Gray;
-            lbl_color.ImageAlign = ContentAlignment.MiddleRight;
-            lbl_color.Location = new Point(10, 282);
-            lbl_color.Name = "lbl_color";
-            lbl_color.Size = new Size(222, 20);
-            lbl_color.TabIndex = 33;
-            // 
-            // btn_tallas1
-            // 
-            btn_tallas1.BackgroundImage = (Image)resources.GetObject("btn_tallas1.BackgroundImage");
-            btn_tallas1.BackgroundImageLayout = ImageLayout.Zoom;
-            btn_tallas1.Cursor = Cursors.Hand;
-            btn_tallas1.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btn_tallas1.Location = new Point(238, 230);
-            btn_tallas1.Margin = new Padding(3, 2, 3, 2);
-            btn_tallas1.Name = "btn_tallas1";
-            btn_tallas1.Size = new Size(24, 20);
-            btn_tallas1.TabIndex = 32;
-            btn_tallas1.UseVisualStyleBackColor = true;
-            btn_tallas1.Visible = false;
-            btn_tallas1.Click += btn_tallas1_Click;
-            // 
-            // lbl_tallas
-            // 
-            lbl_tallas.BackColor = Color.White;
-            lbl_tallas.BorderStyle = BorderStyle.Fixed3D;
-            lbl_tallas.FlatStyle = FlatStyle.Flat;
-            lbl_tallas.ForeColor = Color.Gray;
-            lbl_tallas.ImageAlign = ContentAlignment.MiddleRight;
-            lbl_tallas.Location = new Point(10, 230);
-            lbl_tallas.Name = "lbl_tallas";
-            lbl_tallas.Size = new Size(222, 20);
-            lbl_tallas.TabIndex = 31;
-            // 
-            // btn_tallas
-            // 
-            btn_tallas.BackgroundImage = (Image)resources.GetObject("btn_tallas.BackgroundImage");
-            btn_tallas.BackgroundImageLayout = ImageLayout.Zoom;
-            btn_tallas.Cursor = Cursors.Hand;
-            btn_tallas.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btn_tallas.Location = new Point(238, 230);
-            btn_tallas.Margin = new Padding(3, 2, 3, 2);
-            btn_tallas.Name = "btn_tallas";
-            btn_tallas.Size = new Size(24, 20);
-            btn_tallas.TabIndex = 30;
-            btn_tallas.UseVisualStyleBackColor = true;
-            btn_tallas.Click += btn_tallas_Click;
             // 
             // btn_AbrirCTG
             // 
@@ -592,23 +479,13 @@
             btn_AbrirCTG.BackgroundImageLayout = ImageLayout.Zoom;
             btn_AbrirCTG.Cursor = Cursors.Hand;
             btn_AbrirCTG.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btn_AbrirCTG.Location = new Point(238, 180);
+            btn_AbrirCTG.Location = new Point(238, 179);
             btn_AbrirCTG.Margin = new Padding(3, 2, 3, 2);
             btn_AbrirCTG.Name = "btn_AbrirCTG";
-            btn_AbrirCTG.Size = new Size(24, 21);
+            btn_AbrirCTG.Size = new Size(24, 22);
             btn_AbrirCTG.TabIndex = 28;
             btn_AbrirCTG.UseVisualStyleBackColor = true;
             btn_AbrirCTG.Click += button4_Click;
-            // 
-            // lbl6
-            // 
-            lbl6.AutoSize = true;
-            lbl6.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            lbl6.Location = new Point(10, 262);
-            lbl6.Name = "lbl6";
-            lbl6.Size = new Size(69, 19);
-            lbl6.TabIndex = 25;
-            lbl6.Text = "Color(es)";
             // 
             // pnl_cont1
             // 
@@ -619,10 +496,10 @@
             pnl_cont1.Controls.Add(lbl1_3);
             pnl_cont1.Controls.Add(pic1);
             pnl_cont1.Controls.Add(lbl1_2);
-            pnl_cont1.Location = new Point(301, 84);
+            pnl_cont1.Location = new Point(301, 83);
             pnl_cont1.Margin = new Padding(3, 2, 3, 2);
             pnl_cont1.Name = "pnl_cont1";
-            pnl_cont1.Size = new Size(307, 219);
+            pnl_cont1.Size = new Size(307, 220);
             pnl_cont1.TabIndex = 19;
             // 
             // btn_quitar
@@ -694,7 +571,7 @@
             // 
             lbl1_1.AutoSize = true;
             lbl1_1.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            lbl1_1.Location = new Point(301, 64);
+            lbl1_1.Location = new Point(301, 63);
             lbl1_1.Name = "lbl1_1";
             lbl1_1.Size = new Size(166, 19);
             lbl1_1.TabIndex = 18;
@@ -703,14 +580,14 @@
             // label9
             // 
             label9.BackColor = Color.Gray;
-            label9.Location = new Point(282, 64);
+            label9.Location = new Point(282, 63);
             label9.Name = "label9";
-            label9.Size = new Size(1, 577);
+            label9.Size = new Size(1, 578);
             label9.TabIndex = 17;
             // 
             // txt_dsp
             // 
-            txt_dsp.Location = new Point(10, 519);
+            txt_dsp.Location = new Point(10, 420);
             txt_dsp.Margin = new Padding(3, 2, 3, 2);
             txt_dsp.MaxLength = 250;
             txt_dsp.Multiline = true;
@@ -723,7 +600,7 @@
             // 
             lbl10.AutoSize = true;
             lbl10.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            lbl10.Location = new Point(10, 492);
+            lbl10.Location = new Point(10, 393);
             lbl10.Name = "lbl10";
             lbl10.Size = new Size(88, 19);
             lbl10.TabIndex = 15;
@@ -733,7 +610,7 @@
             // 
             cmb_est.FormattingEnabled = true;
             cmb_est.Items.AddRange(new object[] { "Activo", "Inactivo" });
-            cmb_est.Location = new Point(10, 382);
+            cmb_est.Location = new Point(10, 283);
             cmb_est.Margin = new Padding(3, 2, 3, 2);
             cmb_est.Name = "cmb_est";
             cmb_est.Size = new Size(252, 23);
@@ -743,7 +620,7 @@
             // 
             lbl9.AutoSize = true;
             lbl9.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            lbl9.Location = new Point(10, 364);
+            lbl9.Location = new Point(10, 265);
             lbl9.Name = "lbl9";
             lbl9.Size = new Size(55, 19);
             lbl9.TabIndex = 13;
@@ -753,7 +630,7 @@
             // 
             lbl8.AutoSize = true;
             lbl8.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            lbl8.Location = new Point(144, 314);
+            lbl8.Location = new Point(144, 215);
             lbl8.Name = "lbl8";
             lbl8.Size = new Size(47, 19);
             lbl8.TabIndex = 11;
@@ -761,7 +638,7 @@
             // 
             // txt_prc
             // 
-            txt_prc.Location = new Point(10, 332);
+            txt_prc.Location = new Point(10, 233);
             txt_prc.Margin = new Padding(3, 2, 3, 2);
             txt_prc.MaxLength = 10;
             txt_prc.Name = "txt_prc";
@@ -774,27 +651,17 @@
             // 
             lbl7.AutoSize = true;
             lbl7.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            lbl7.Location = new Point(10, 314);
+            lbl7.Location = new Point(10, 215);
             lbl7.Name = "lbl7";
             lbl7.Size = new Size(116, 19);
             lbl7.TabIndex = 9;
             lbl7.Text = "Precio de venta";
             // 
-            // lbl5
-            // 
-            lbl5.AutoSize = true;
-            lbl5.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            lbl5.Location = new Point(10, 210);
-            lbl5.Name = "lbl5";
-            lbl5.Size = new Size(56, 19);
-            lbl5.TabIndex = 7;
-            lbl5.Text = "Talla(s)";
-            // 
             // cmb_ctg
             // 
             cmb_ctg.FormattingEnabled = true;
             cmb_ctg.Items.AddRange(new object[] { "Camisetas", "Blusas", "Busos", "Pantalones" });
-            cmb_ctg.Location = new Point(10, 180);
+            cmb_ctg.Location = new Point(10, 179);
             cmb_ctg.Margin = new Padding(3, 2, 3, 2);
             cmb_ctg.Name = "cmb_ctg";
             cmb_ctg.Size = new Size(223, 23);
@@ -804,28 +671,17 @@
             // 
             lbl4.AutoSize = true;
             lbl4.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            lbl4.Location = new Point(10, 161);
+            lbl4.Location = new Point(10, 160);
             lbl4.Name = "lbl4";
             lbl4.Size = new Size(74, 19);
             lbl4.TabIndex = 5;
             lbl4.Text = "Categoría";
             // 
-            // txt_nmb
-            // 
-            txt_nmb.Location = new Point(10, 130);
-            txt_nmb.Margin = new Padding(3, 2, 3, 2);
-            txt_nmb.MaxLength = 100;
-            txt_nmb.Name = "txt_nmb";
-            txt_nmb.PlaceholderText = "Ej: Camisa Negra";
-            txt_nmb.Size = new Size(252, 23);
-            txt_nmb.TabIndex = 4;
-            txt_nmb.KeyPress += textBox2_KeyPress;
-            // 
             // lbl3
             // 
             lbl3.AutoSize = true;
             lbl3.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            lbl3.Location = new Point(10, 112);
+            lbl3.Location = new Point(10, 111);
             lbl3.Name = "lbl3";
             lbl3.Size = new Size(158, 19);
             lbl3.TabIndex = 3;
@@ -833,7 +689,7 @@
             // 
             // txt_cd
             // 
-            txt_cd.Location = new Point(10, 82);
+            txt_cd.Location = new Point(10, 81);
             txt_cd.Margin = new Padding(3, 2, 3, 2);
             txt_cd.MaxLength = 10;
             txt_cd.Name = "txt_cd";
@@ -846,7 +702,7 @@
             // 
             lbl2.AutoSize = true;
             lbl2.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl2.Location = new Point(10, 64);
+            lbl2.Location = new Point(10, 63);
             lbl2.Name = "lbl2";
             lbl2.Size = new Size(149, 19);
             lbl2.TabIndex = 1;
@@ -858,7 +714,6 @@
             cmTallas.ImageScalingSize = new Size(20, 20);
             cmTallas.Name = "cmTallas";
             cmTallas.Size = new Size(61, 4);
-            cmTallas.Closed += cmTallas_Closed;
             // 
             // cmColores
             // 
@@ -866,7 +721,6 @@
             cmColores.ImageScalingSize = new Size(20, 20);
             cmColores.Name = "cmColores";
             cmColores.Size = new Size(61, 4);
-            cmColores.Closed += cmColores_Closed;
             // 
             // FormAgg_Product
             // 
@@ -909,12 +763,10 @@
         private PictureBox pic1_e;
         private PictureBox pic2_e;
         private Label lbl4;
-        private TextBox txt_nmb;
         private Label lbl3;
         private TextBox txt_cd;
         private Label lbl2;
         private ComboBox cmb_ctg;
-        private Label lbl5;
         private Label lbl8;
         private TextBox txt_prc;
         private Label lbl7;
@@ -930,18 +782,11 @@
         private Label lbl1_3;
         private Label lbl1_2;
         private Panel pnl_img5;
-        private Label lbl6;
         private Button btn_quitar;
         private Button btn_guardar;
         private Button btn_AbrirCTG;
-        private Label lbl_tallas;
-        private Button btn_tallas;
         private ContextMenuStrip cmTallas;
-        private Button btn_tallas1;
         private ContextMenuStrip cmColores;
-        private Label lbl_color;
-        private Button btn_color1;
-        private Button btn_color;
         private PictureBox pic_img5;
         private PictureBox pic_img4;
         private PictureBox pic_img3;
@@ -959,12 +804,11 @@
         private Label label8;
         private Label label7;
         private Label label6;
-        private Label label5;
-        private Label label4;
         private Label label3;
         private Label label2;
         private Label label11;
         private ComboBox cmb_sucursal;
         private Label label12;
+        private ComboBox cmb_productos;
     }
 }

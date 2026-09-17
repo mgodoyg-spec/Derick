@@ -62,6 +62,7 @@
             clEliminar = new DataGridViewImageColumn();
             clVerTodo = new DataGridViewImageColumn();
             img_icons = new ImageList(components);
+            timerPedidos = new System.Windows.Forms.Timer(components);
             pnl_conagg.SuspendLayout();
             pnl_agg2.SuspendLayout();
             pnlBusqueda.SuspendLayout();
@@ -426,6 +427,10 @@
             img_icons.TransparentColor = Color.Transparent;
             img_icons.Images.SetKeyName(0, "eliminar1.png");
             // 
+            // timerPedidos
+            // 
+            timerPedidos.Interval = 60000;
+            // 
             // FormProductos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -484,5 +489,6 @@
         private ComboBox cmb_sucursal;
         private Label lbl2;
         private Button btn_transferir;
+        private System.Windows.Forms.Timer timerPedidos;
     }
 }

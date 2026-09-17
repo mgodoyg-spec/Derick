@@ -54,6 +54,7 @@ namespace Derick
             promocionesToolStripMenuItem = new ToolStripMenuItem();
             proveedoresToolStripMenuItem = new ToolStripMenuItem();
             categoríasToolStripMenuItem = new ToolStripMenuItem();
+            oToolStripMenuItem = new ToolStripMenuItem();
             cmsMenuPerfil.SuspendLayout();
             pnlMostrar.SuspendLayout();
             pnlcontenido.SuspendLayout();
@@ -335,30 +336,37 @@ namespace Derick
             // 
             // cmsPromProv
             // 
-            cmsPromProv.Items.AddRange(new ToolStripItem[] { promocionesToolStripMenuItem, proveedoresToolStripMenuItem, categoríasToolStripMenuItem });
+            cmsPromProv.Items.AddRange(new ToolStripItem[] { promocionesToolStripMenuItem, proveedoresToolStripMenuItem, categoríasToolStripMenuItem, oToolStripMenuItem });
             cmsPromProv.Name = "contextMenuStrip1";
-            cmsPromProv.Size = new Size(145, 70);
+            cmsPromProv.Size = new Size(185, 114);
             // 
             // promocionesToolStripMenuItem
             // 
             promocionesToolStripMenuItem.Name = "promocionesToolStripMenuItem";
-            promocionesToolStripMenuItem.Size = new Size(144, 22);
+            promocionesToolStripMenuItem.Size = new Size(184, 22);
             promocionesToolStripMenuItem.Text = "Promociones";
             promocionesToolStripMenuItem.Click += promocionesToolStripMenuItem_Click;
             // 
             // proveedoresToolStripMenuItem
             // 
             proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
-            proveedoresToolStripMenuItem.Size = new Size(144, 22);
+            proveedoresToolStripMenuItem.Size = new Size(184, 22);
             proveedoresToolStripMenuItem.Text = "Proveedores";
             proveedoresToolStripMenuItem.Click += proveedoresToolStripMenuItem_Click;
             // 
             // categoríasToolStripMenuItem
             // 
             categoríasToolStripMenuItem.Name = "categoríasToolStripMenuItem";
-            categoríasToolStripMenuItem.Size = new Size(144, 22);
+            categoríasToolStripMenuItem.Size = new Size(184, 22);
             categoríasToolStripMenuItem.Text = "Categorías";
             categoríasToolStripMenuItem.Click += categoríasToolStripMenuItem_Click;
+            // 
+            // oToolStripMenuItem
+            // 
+            oToolStripMenuItem.Name = "oToolStripMenuItem";
+            oToolStripMenuItem.Size = new Size(184, 22);
+            oToolStripMenuItem.Text = "Pedido de productos";
+            oToolStripMenuItem.Click += oToolStripMenuItem_Click;
             // 
             // FrmMenuPrincipal
             // 
@@ -412,5 +420,6 @@ namespace Derick
         private ToolStripMenuItem promocionesToolStripMenuItem;
         private ToolStripMenuItem proveedoresToolStripMenuItem;
         private ToolStripMenuItem categoríasToolStripMenuItem;
+        private ToolStripMenuItem oToolStripMenuItem;
     }
 }

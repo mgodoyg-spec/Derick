@@ -14,24 +14,29 @@ namespace Derick
         private List<string> tallas;
         private List<string> colores;
         private List<DetalleStock> stockExistente = new List<DetalleStock>();
+        private List<DetalleStock> detallesPedido = new List<DetalleStock>();
         public int S_total { get; private set; }
-        public List<DetalleStock> DetallesStock
-        {
-            get;
-            private set;
-        } = new List<DetalleStock>();
+        public List<DetalleStock> DetallesStock { get; private set; } =new List<DetalleStock>();
+
         public frmEditar_stock()
         {
             InitializeComponent();
         }
-        public frmEditar_stock(List<string> tallasSeleccionadas,List<string> coloresSeleccionados,
-            List<DetalleStock> stockGuardado)
+
+        public frmEditar_stock(List<string> tallasSeleccionadas,List<string> coloresSeleccionados,List<DetalleStock> stockGuardado)
         {
             InitializeComponent();
 
             tallas = tallasSeleccionadas;
             colores = coloresSeleccionados;
             stockExistente = stockGuardado ?? new List<DetalleStock>();
+        }
+
+        public frmEditar_stock(List<DetalleStock> detallesPedido)
+        {
+            InitializeComponent();
+
+            this.detallesPedido = detallesPedido ?? new List<DetalleStock>();
         }
 
         private void frmEditar_stock_Load(object sender, EventArgs e)
@@ -127,23 +132,52 @@ namespace Derick
         private void CargarStock()
         {
             dgv_stock.Rows.Clear();
+
+            // si viene de un pedido
+            if (detallesPedido != null && detallesPedido.Count > 0)
+            {
+                foreach (DetalleStock detalle in detallesPedido)
+                {
+                    dgv_stock.Rows.Add(
+                        detalle.Talla,
+                        detalle.Color,
+                        detalle.stock);
+                }
+
+                CalcularStockTotal();
+
+                return;
+            }
+
+            // si estamos editando un producto existente
             foreach (string talla in tallas)
             {
                 foreach (string color in colores)
                 {
                     int cantidad = 0;
 
-                    DetalleStock encontrado = stockExistente.FirstOrDefault(x => x.Talla.Equals(talla,
-                           StringComparison.OrdinalIgnoreCase)&&x.Color.Equals(color,
-                           StringComparison.OrdinalIgnoreCase));
+                    DetalleStock encontrado =
+                        stockExistente.FirstOrDefault(x =>
+                            x.Talla.Equals(
+                                talla,
+                                StringComparison.OrdinalIgnoreCase)
+                            &&
+                            x.Color.Equals(
+                                color,
+                                StringComparison.OrdinalIgnoreCase));
 
                     if (encontrado != null)
                     {
                         cantidad = encontrado.stock;
                     }
-                    dgv_stock.Rows.Add(talla, color, cantidad);
+
+                    dgv_stock.Rows.Add(
+                        talla,
+                        color,
+                        cantidad);
                 }
             }
+
             CalcularStockTotal();
         }
         private void CalcularStockTotal()

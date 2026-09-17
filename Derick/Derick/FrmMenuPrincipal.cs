@@ -91,7 +91,7 @@ namespace Derick
         }
         public void AbrirFormulario(Form formulario)
         {
-            csNavegacion.AbrirFormulario( pnlMostrarForm,ref formularioActivo, formulario);
+            csNavegacion.AbrirFormulario(pnlMostrarForm, ref formularioActivo, formulario);
         }
         private void btninicio_Click(object sender, EventArgs e)
         {
@@ -148,6 +148,11 @@ namespace Derick
             csBotonActivo.MarcarBotonActivo(pnlIndicador, btnproductos);
             csNavegacion.AbrirFormulario(pnlMostrarForm, ref formularioActivo, new FormCategoria());
         }
+        private void oToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            csBotonActivo.MarcarBotonActivo(pnlIndicador, btnproductos);
+            csNavegacion.AbrirFormulario(pnlMostrarForm, ref formularioActivo, new FormPedidoProductos());
+        }
 
         private void miPerfilToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -157,5 +162,6 @@ namespace Derick
             frm.usuarioActual = usuarioActual;
             frm.Show();
         }
+
     }
 }
